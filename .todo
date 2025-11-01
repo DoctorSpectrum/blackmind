@@ -1,0 +1,79 @@
+BLACKMIND TODO
+    - Prototype Phase
+        - Delivery Date: 31/12/2025
+        - TODO List:
+            - Prototype:
+                - Read a mind, find out what they're saying, then jump back to where we were. Different lines should have different thoughts.
+                - Rewind a conversation
+                - Easy way to show how far we are through a conversation
+                - Map where you can select different locations to go to
+                - Timeline with the ability to jump to different spots on it
+                - Money
+                - Locking choices
+                - Upgrading psychic abilities
+            - Write out the script for the demo (AKA the prologue)
+                - Playing as Jack
+                - Scam Barbara as part of a tutorial on psychic abilities
+                - Choose which place to go to afterwards, with the mention that he can only go to one of them.
+                - Get killed by Docherty
+            - Draw up sprites for Jack, Barbara, Docherty (?)
+            - Draw up CG
+            - Customise GUI
+                - Yellow/black scheme
+                - Custom main menu with Jack doing the fingers to forehead thing and looking smug
+                - Let's assume we're doing a custom pause menu for now (like what I did for AN) but I'll sort it out once I'm working on it
+            - Add in SFX, placeholder music
+
+    - Demo Phase
+        - Delivery Date: 31/08/2026
+        - Deliverables:
+            - Logo
+            - Sprites
+            - Voice acting
+            - Music
+            - CG
+
+    - PAX Phase
+        - Delivery Date: 31/09/2026
+        - Deliverables/Things to work out:
+            - Ability to choose a short or long experience when starting the game
+            - Clear demonstration of how the game plays
+            - Tablecloth
+            - Date on banner with approximation of when game is coming out
+            - No requirements for attendants to interact with/control shit for players
+            - Headphones
+            - Business cards
+            - Two laptops
+            - Interactivity?
+            - Extra decorations?
+
+    - Kickstarter Phase
+        - Delivery Date: 30/01/2027
+        - Should this be shifted around to be before PAX, or just after it? In an ideal world I'll have most of the script written up by PAX, and it'll mostly be programming/voice acting to implement, but
+            then if this is before PAX it might not make as much money. Possibly have it running during PAX?
+        - I think that the big issue with Many Deaths is that I was selling it too cheap - $5 a copy would require 400 copies to be backed, and I didn't have that pull. 
+        - I think that Blankspace is a good one to use as a bit of a template - it's not a very complex game, but they made close to $10K AUD.
+            - https://www.kickstarter.com/projects/nobreadstudio/blankspace-mystery-puzzle-escape-room-visual-novel
+            - Tiers:
+                - Limited cheapo price ($12)
+                - Regular price ($14)
+                - Name in credits ($17)
+                - Digital artbook ($26) - prolly less relevant for me but I could mock something up
+                - Soundtrack ($35) - would need to get something commissioned
+                - Cheapo early access ($44) - it looks like this was a beta + fully devved chapter 2 (of 3)
+                - Early access ($62)
+                - Mousepad ($106) - note that only two people bought this
+                - T-shirt ($160)
+                - Blackboard message ($500) - only two people bought this but that's $1K right fucking there, and that's for like a single line. I think "heyo you can contribute to the game" stuff tends
+                    to go down well and you can justify making it expensive; this is the stuff to try and push
+            - Stretch goals:
+                - Soundtrack
+                - Bigger soundtrack
+                - Partial voice acting
+                - More partial voice acting
+
+                - I think that my stretch goals would be like more songs/more voice acting/more CGs
+    
+    - Release Phase:
+        - Delivery Date: 31/12/2027
+        - Work out the list for this once the other stuff has been sorted; at bare minimum it'll be voice acting
