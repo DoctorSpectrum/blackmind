@@ -1,0 +1,9 @@
+game/saves
+game/cache
+game/tl/None/*.rpymc
+errors.txt
+log.txt
+traceback.txt
+*.rpyc
+*.rpyc.bak
+.vscode/*.json
