@@ -27,7 +27,10 @@ screen debug():
             ]
 
         textbutton _("Test Locking Choices"):
-            action NullAction()
+            action [
+                Hide("debug"),
+                Call("test_choices", from_current=True)
+            ]
 
         textbutton _("Test Upgrading Psychic Abilities"):
             action NullAction()
@@ -157,3 +160,21 @@ style map_x_coord:
     ymaximum 2
     xfill True
     background Solid("#FFEA00")
+
+screen locked_message(message):
+    frame:
+        background Frame("gui/textbox.png")
+        padding (50, 50, 50, 50)
+        xalign 0.5
+        yalign 0.9
+        at transform:
+            alpha 0.0
+            linear 0.3:
+                alpha 1.0
+
+        text _(message):
+            text_align 0.5
+            color "#FFF"
+            xalign 0.5
+            yalign 0.5
+            size 25

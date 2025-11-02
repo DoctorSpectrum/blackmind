@@ -211,7 +211,15 @@ screen choice(items):
 
     vbox:
         for i in items:
-            textbutton i.caption action i.action
+            if ("locked" not in i.kwargs or i.kwargs["locked"] == False):
+                textbutton (i.caption):
+                    action i.action
+            else:
+                textbutton _("LOCKED"):
+                    background "gui/button/choice_idle_background.png"
+                    action NullAction()
+                    hovered Show("locked_message", message=i.kwargs["message"])
+                    unhovered Hide("locked_message")
 
 
 style choice_vbox is vbox

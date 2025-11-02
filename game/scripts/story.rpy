@@ -47,6 +47,17 @@ label test_money:
         jack "(I can't afford the drinks)"
     jump story
 
+label test_choices:
+    jack "(I have a choice to make...)"
+
+    menu:
+        "Rewind the conversation" (locked=minds_rewound > 0, message="You have already rewound a mind today"):
+            jack "(Yes, that should do it.)"
+        "Punch him":
+            jack "(Fuck you, dickweed!)"
+
+    jump story
+
 label bar:
     jack "I am in the bar"
     call screen map_navigation
