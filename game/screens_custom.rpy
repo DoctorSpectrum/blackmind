@@ -10,9 +10,6 @@ screen debug():
                 Call("test_mind_reading", from_current=True)
             ]
 
-        textbutton _("Test Conversation Rewind"):
-            action NullAction()
-
         textbutton _("Test Conversation Progress"):
             action NullAction()
 
@@ -45,4 +42,11 @@ screen psychic_powers():
                     action [
                         SetVariable("minds_read", (minds_read + 1 if minds_read < 3 else 3)),
                         (Call(current_thought, from_current=True) if minds_read < 3 else NullAction())
+                    ]
+            if (current_conversation is not None):
+                textbutton _("Rewind Mind" if minds_rewound < 1 else "Power Exhausted"):
+                    text_color "#000"
+                    action [
+                        SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < 1 else 1)),
+                        (Jump("activate_rewind") if minds_rewound < 1 else NullAction())
                     ]

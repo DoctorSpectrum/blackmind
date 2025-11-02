@@ -53,14 +53,17 @@ label variables:
         "images/sprites/character_pose.png"
         portrait_crop
 
+    #Psychic powers
+    default current_thought = None
+    default current_conversation = None
+    default minds_read = 0
+    default minds_rewound = 0
+
     #Misc. variables
     image black_bg = Solid("#000")
     image white_bg = Solid("#FFF")
     default wait_2 = ("{w=2.0}" if preferences.text_cps > 0 else "")
     default wait_1 = ("{w=1.0}" if preferences.text_cps > 0 else "")
     default wait_05 = ("{w=0.5}" if preferences.text_cps > 0 else "")
-
-    default current_thought = None
-    default minds_read = 0
 
     jump story

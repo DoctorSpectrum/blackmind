@@ -2,8 +2,11 @@ label story:
     call screen debug
     
 label test_mind_reading:
+    $ current_conversation = None
+
     jack "I'm not shit. Am I?"
     $ current_thought = "barbara_thought_01_01"
+    $ current_conversation = "test_mind_reading"
     barbara "I've scraped shit off my shoe that was less shitty than you."
 
     jack "Yeah, that's what everybody thinks. That I'm a piece of shit."
@@ -20,6 +23,7 @@ label test_mind_reading:
     barbara "I'm not going to try and find out."
 
     $ current_thought = None
+    $ current_conversation = None
     jack "(She left. How shit!)"
     
     jump story
@@ -39,3 +43,8 @@ label barbara_thought_01_03:
 label barbara_thought_01_04:
     barbara "(If you're trying to pick somebody up, maybe don't admit that you're shit)."
     return
+
+label activate_rewind:
+    jack "(This conversation has been a total bollocks-up. I think we'll just wipe her memory and see how things go...)"
+
+    jump expression current_conversation
