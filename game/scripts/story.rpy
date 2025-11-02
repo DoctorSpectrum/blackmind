@@ -31,6 +31,22 @@ label test_mind_reading:
     
     jump story
 
+label test_money:
+    $ current_conversation = None
+    $ convo_length = 3
+    $ convo_progress = 0
+    $ progress_convo = True
+
+    jack "(I currently have $[money])"
+    $ current_thought = "barbara_thought_01_01"
+    barbara "I need money for the drinks."
+    if (money > 0):
+        $ money -= 100
+        jack "(I now have $[money])"
+    else:
+        jack "(I can't afford the drinks)"
+    jump story
+
 label bar:
     jack "I am in the bar"
     call screen map_navigation

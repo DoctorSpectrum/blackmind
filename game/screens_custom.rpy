@@ -21,7 +21,10 @@ screen debug():
             ]
 
         textbutton _("Test Money"):
-            action NullAction()
+            action [
+                Hide("debug"),
+                Call("test_money", from_current=True)
+            ]
 
         textbutton _("Test Locking Choices"):
             action NullAction()

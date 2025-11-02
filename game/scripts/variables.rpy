@@ -62,6 +62,7 @@ label variables:
     default convo_progress = 0
     default progress_convo = False
 
+    default money = 1000
 
     #Misc. variables
     image black_bg = Solid("#000")
