@@ -33,7 +33,10 @@ screen debug():
             ]
 
         textbutton _("Test Upgrading Psychic Abilities"):
-            action NullAction()
+            action [
+                Hide("debug"),
+                Show("upgrades_screen")
+            ]
 
         textbutton _("Test Timeline"):
             action NullAction()
@@ -47,18 +50,18 @@ screen psychic_powers():
         
         vbox:
             if (current_thought is not None):
-                textbutton _("Read Mind" if minds_read < 3 else "Power Exhausted"):
+                textbutton _("Read Mind" if minds_read < max_mind_reads else "Power Exhausted"):
                     text_color "#000"
                     action [
-                        SetVariable("minds_read", (minds_read + 1 if minds_read < 3 else 3)),
-                        (Call(current_thought, from_current=True) if minds_read < 3 else NullAction())
+                        SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)),
+                        (Call(current_thought, from_current=True) if minds_read < max_mind_reads else NullAction())
                     ]
             if (current_conversation is not None):
-                textbutton _("Rewind Mind" if minds_rewound < 1 else "Power Exhausted"):
+                textbutton _("Rewind Mind" if minds_rewound < max_rewinds else "Power Exhausted"):
                     text_color "#000"
                     action [
-                        SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < 1 else 1)),
-                        (Jump("activate_rewind") if minds_rewound < 1 else NullAction())
+                        SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)),
+                        (Jump("activate_rewind") if minds_rewound < max_rewinds else NullAction())
                     ]
 
 screen conversation_progress():
@@ -178,3 +181,75 @@ screen locked_message(message):
             xalign 0.5
             yalign 0.5
             size 25
+
+screen upgrades_screen():
+    default selected = None
+
+    frame:
+        xsize 1400
+        ysize 800
+        xalign 0.5
+        yalign 0.5
+        padding (50, 50, 50, 50)
+
+        background Solid("#ffec17ff")
+
+        text _("Psychic Upgrades"):
+            xalign 0.5
+            yalign 0.0
+
+        vbox:
+            yalign 0.4
+
+            hbox:
+                text _("Mind Reads")
+                textbutton _(str(3)):
+                    action NullAction()
+                textbutton _(str(4)):
+                    action (NullAction() if max_mind_reads != 3 else SetScreenVariable("selected", "mr_4"))
+                textbutton _(str(5)):
+                    action (NullAction() if max_mind_reads != 4 else SetScreenVariable("selected", "mr_5"))
+                textbutton _(str(6)):
+                    action (NullAction() if max_mind_reads != 5 else SetScreenVariable("selected", "mr_6"))
+
+            hbox:
+                text _("Rewinds")
+                textbutton _(str(1)):
+                    action NullAction()
+                textbutton _(str(2)):
+                    action (NullAction() if max_rewinds != 1 else SetScreenVariable("selected", "rw_2"))
+                textbutton _(str(3)):
+                    action (NullAction() if max_rewinds != 2 else SetScreenVariable("selected", "rw_3"))
+                textbutton _(str(4)):
+                    action (NullAction() if max_rewinds != 3 else SetScreenVariable("selected", "rw_4"))
+
+            hbox:
+                text _("Future Visions")
+                textbutton _(str(0)):
+                    action NullAction()
+                textbutton _(str(1)):
+                    action (NullAction() if max_flash_forwards != 0 else SetScreenVariable("selected", "fv_1"))
+                textbutton _(str(2)):
+                    action (NullAction() if max_flash_forwards != 1 else SetScreenVariable("selected", "fv_2"))
+                textbutton _(str(3)):
+                    action (NullAction() if max_flash_forwards != 2 else SetScreenVariable("selected", "fv_3"))
+
+        #Deffo throw some flavour text in somewhere, and at the bottom do a "You will be able to do X Y times" or whatever
+
+        if (selected != None):
+            textbutton _("Confirm"):
+                xalign 0.5
+                yalign 1.0
+                action [        #Prolly a better way to do this - should I set two variables on the textbuttons?
+                    (SetVariable("max_mind_reads", 4) if selected == "mr_4" else NullAction()),
+                    (SetVariable("max_mind_reads", 5) if selected == "mr_5" else NullAction()),
+                    (SetVariable("max_mind_reads", 6) if selected == "mr_6" else NullAction()),
+                    (SetVariable("max_rewinds", 2) if selected == "rw_2" else NullAction()),
+                    (SetVariable("max_rewinds", 3) if selected == "rw_3" else NullAction()),
+                    (SetVariable("max_rewinds", 4) if selected == "rw_4" else NullAction()),
+                    (SetVariable("max_flash_forwards", 1) if selected == "fv_1" else NullAction()),
+                    (SetVariable("max_flash_forwards", 2) if selected == "fv_2" else NullAction()),
+                    (SetVariable("max_flash_forwards", 3) if selected == "fv_3" else NullAction()),
+                    Hide("upgrades_screen"),
+                    Show("debug")
+                ]

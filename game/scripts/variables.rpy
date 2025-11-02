@@ -56,11 +56,16 @@ label variables:
     #Psychic powers
     default current_thought = None
     default current_conversation = None
+    default progress_convo = False
     default convo_length = 0
+
+    default max_mind_reads = 3
+    default max_rewinds = 1
+    default max_flash_forwards = 0
+
     default minds_read = 0
     default minds_rewound = 0
     default convo_progress = 0
-    default progress_convo = False
 
     default money = 1000
 
