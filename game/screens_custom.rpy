@@ -9,11 +9,16 @@ screen debug():
                 Hide("debug"),
                 SetVariable("minds_read", 0),
                 SetVariable("minds_rewound", 0),
+                SetVariable("progress_convo", True),
                 Call("test_mind_reading", from_current=True)
             ]
 
         textbutton _("Test Map Jump"):
-            action NullAction()
+            action [
+                Hide("debug"),
+                SetVariable("progress_convo", False),
+                Show("map_navigation")
+            ]
 
         textbutton _("Test Money"):
             action NullAction()
@@ -67,3 +72,85 @@ style convo_progress_bar:
     xmaximum 500
     xalign 0.5
     yalign 0.1
+
+screen map_navigation():
+    default xpos = 0
+    default ypos = 0
+
+    hbox:
+        xalign 0.5
+        yalign 0.5
+        spacing 100
+
+        vbox:
+            textbutton _("Bar"):
+                action [
+                    Hide("map_navigation"),
+                    Jump("bar")
+                ]
+                hovered [
+                    SetScreenVariable("xpos", 200),
+                    SetScreenVariable("ypos", 300)
+                ]
+
+            textbutton _("Alternative Shop"):
+                action [
+                    Hide("map_navigation"),
+                    Jump("alt_shop")
+                ]
+                hovered [
+                    SetScreenVariable("xpos", 100),
+                    SetScreenVariable("ypos", 75)
+                ]
+
+            textbutton _("Cafe"):
+                action [
+                    Hide("map_navigation"),
+                    Jump("cafe")
+                ]
+                hovered [
+                    SetScreenVariable("xpos", 280),
+                    SetScreenVariable("ypos", 20)
+                ]
+
+            textbutton _("Detective's Office"):
+                action [
+                    Hide("map_navigation"),
+                    Jump("detective")
+                ]
+                hovered [
+                    SetScreenVariable("xpos", 150),
+                    SetScreenVariable("ypos", 450)
+                ]
+
+        frame:
+            xsize 300
+            ysize 500
+            background Solid("#141414")
+            #image here
+
+            frame:
+                style "map_y_coord"
+                xpos 0
+                at transform:
+                    pause 0.2
+                    linear 1.0:
+                        xpos xpos
+
+            frame: 
+                style "map_x_coord"
+                ypos 0
+                at transform:
+                    pause 0.2
+                    linear 1.0:
+                        ypos ypos
+
+style map_y_coord:
+    xmaximum 2
+    yfill True
+    background Solid("#FFEA00")
+
+style map_x_coord:
+    ymaximum 2
+    xfill True
+    background Solid("#FFEA00")

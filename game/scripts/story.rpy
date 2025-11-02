@@ -31,6 +31,22 @@ label test_mind_reading:
     
     jump story
 
+label bar:
+    jack "I am in the bar"
+    call screen map_navigation
+
+label alt_shop:
+    jack "I am in the alt shop"
+    call screen map_navigation
+
+label cafe:
+    jack "I am in the cafe"
+    call screen map_navigation
+
+label detective:
+    jack "I am at the detective's office"
+    call screen map_navigation
+
 label barbara_thought_01_01:
     $ progress_convo = False
     barbara "(This guy is definitely shit)."
