@@ -1,6 +1,8 @@
 label variables:
     
     define narrator = Character(None, what_color="#FFF")
+    define jack = Character("Jack", what_color="#FFF")
+    define barbara = Character("Barbara", what_color="#FFF")
 
     #Persistent variables
     default persistent.game_launched = False
@@ -57,5 +59,8 @@ label variables:
     default wait_2 = ("{w=2.0}" if preferences.text_cps > 0 else "")
     default wait_1 = ("{w=1.0}" if preferences.text_cps > 0 else "")
     default wait_05 = ("{w=0.5}" if preferences.text_cps > 0 else "")
+
+    default current_thought = None
+    default minds_read = 0
 
     jump story

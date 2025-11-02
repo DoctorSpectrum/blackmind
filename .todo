@@ -3,7 +3,6 @@ BLACKMIND TODO
         - Delivery Date: 31/12/2025
         - TODO List:
             - Prototype:
-                - Read a mind, find out what they're saying, then jump back to where we were. Different lines should have different thoughts.
                 - Rewind a conversation
                 - Easy way to show how far we are through a conversation
                 - Map where you can select different locations to go to
@@ -23,3 +22,6 @@ BLACKMIND TODO
                 - Custom main menu with Jack doing the fingers to forehead thing and looking smug
                 - Let's assume we're doing a custom pause menu for now (like what I did for AN) but I'll sort it out once I'm working on it
             - Add in SFX, placeholder music
+        - Write up Google Docco with ze plan for friends to assess
+            - Also do a Google Forms feedback thingy?
+        - Send to friends with link to Google Docco

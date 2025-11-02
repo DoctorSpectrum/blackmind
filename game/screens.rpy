@@ -96,6 +96,7 @@ style frame:
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
 screen say(who, what):
+    use psychic_powers
 
     window:
         id "window"
@@ -571,8 +572,12 @@ screen game_menu(title, scroll=None, yinitial=0.0, spacing=0, start=False):
                 size 20
                 text_align 0.5
                 color "#fff"
-    #else:
-    #    use navigation
+    else:
+        #use navigation
+        textbutton _("Main Menu"):
+            action MainMenu()
+            yalign 0.95
+            xalign 0.65
 
     text _(title)
 
