@@ -7,11 +7,10 @@ screen debug():
         textbutton _("Test Mind Reading"):
             action [
                 Hide("debug"),
+                SetVariable("minds_read", 0),
+                SetVariable("minds_rewound", 0),
                 Call("test_mind_reading", from_current=True)
             ]
-
-        textbutton _("Test Conversation Progress"):
-            action NullAction()
 
         textbutton _("Test Map Jump"):
             action NullAction()
@@ -50,3 +49,21 @@ screen psychic_powers():
                         SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < 1 else 1)),
                         (Jump("activate_rewind") if minds_rewound < 1 else NullAction())
                     ]
+
+screen conversation_progress():
+    if (progress_convo):
+        bar: 
+            style "convo_progress_bar"
+            value AnimatedValue(convo_progress, convo_length, 1.0, (convo_progress - 1 if progress_convo else convo_progress))
+
+        text _(str(convo_progress)):
+            color "#FFEA00"
+            xalign 0.5
+            yalign 0.15
+
+style convo_progress_bar:
+    left_bar "#ffea00"
+    right_bar "#141414"
+    xmaximum 500
+    xalign 0.5
+    yalign 0.1

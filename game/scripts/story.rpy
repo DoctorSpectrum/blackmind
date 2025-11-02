@@ -3,6 +3,9 @@ label story:
     
 label test_mind_reading:
     $ current_conversation = None
+    $ convo_length = 10
+    $ convo_progress = 0
+    $ progress_convo = True
 
     jack "I'm not shit. Am I?"
     $ current_thought = "barbara_thought_01_01"
@@ -29,22 +32,35 @@ label test_mind_reading:
     jump story
 
 label barbara_thought_01_01:
+    $ progress_convo = False
     barbara "(This guy is definitely shit)."
+    $ convo_progress -= 1
+    $ progress_convo = True
     return
 
 label barbara_thought_01_02:
+    $ progress_convo = False
     barbara "(Well, at least he can admit it)."
+    $ convo_progress -= 1
+    $ progress_convo = True
     return
 
 label barbara_thought_01_03:
+    $ progress_convo = False
     barbara "(Is this supposed to be a pickup line?)"
+    $ convo_progress -= 1
+    $ progress_convo = True
     return
 
 label barbara_thought_01_04:
+    $ progress_convo = False
     barbara "(If you're trying to pick somebody up, maybe don't admit that you're shit)."
+    $ convo_progress -= 1
+    $ progress_convo = True
     return
 
 label activate_rewind:
+    $ progress_convo = False
     jack "(This conversation has been a total bollocks-up. I think we'll just wipe her memory and see how things go...)"
 
     jump expression current_conversation

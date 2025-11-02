@@ -97,6 +97,7 @@ style frame:
 
 screen say(who, what):
     use psychic_powers
+    use conversation_progress
 
     window:
         id "window"

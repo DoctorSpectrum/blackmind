@@ -56,8 +56,12 @@ label variables:
     #Psychic powers
     default current_thought = None
     default current_conversation = None
+    default convo_length = 0
     default minds_read = 0
     default minds_rewound = 0
+    default convo_progress = 0
+    default progress_convo = False
+
 
     #Misc. variables
     image black_bg = Solid("#000")

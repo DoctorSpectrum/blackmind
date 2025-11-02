@@ -65,6 +65,19 @@ define config.has_voice = True
 
 # define config.main_menu_music = "main-menu-theme.ogg"
 
+init python:
+    def progress_convo(event, interact=True, **kwargs):
+        if not interact:
+            return
+
+        global convo_progress
+        global progress_convo
+
+        if (event == "begin" and progress_convo):
+            convo_progress += 1
+
+define config.character_callback = progress_convo
+
 
 ## Transitions #################################################################
 ##
