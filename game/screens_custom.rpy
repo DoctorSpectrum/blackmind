@@ -39,7 +39,10 @@ screen debug():
             ]
 
         textbutton _("Test Flow Chart"):
-            action NullAction()
+            action [
+                Hide("debug"),
+                Show("flow_chart")
+            ]
 
 screen psychic_powers():
     frame:
@@ -130,6 +133,13 @@ screen map_navigation():
                 hovered [
                     SetScreenVariable("xpos", 150),
                     SetScreenVariable("ypos", 450)
+                ]
+
+            textbutton _("Return"):
+                yoffset 100
+                action [
+                    Hide("map_navigation"),
+                    Jump("story")
                 ]
 
         frame:
@@ -253,3 +263,41 @@ screen upgrades_screen():
                     Hide("upgrades_screen"),
                     Show("debug")
                 ]
+
+screen flow_chart():
+    frame:
+        xfill True
+        yfill True
+
+        vbox:
+            xalign 0.5
+            yalign 0.5
+
+            textbutton _("End of Day #1" if renpy.can_load(str(game_id) + "_A_01_03") else "-"):
+                action (NullAction() if not renpy.can_load(str(game_id) + "_A_01_03") else [
+                    #Function(renpy.log, days),
+                    Function(renpy.load, str(game_id) + "_A_01_03")
+                ])
+            textbutton _("End of Day #2" if renpy.can_load(str(game_id) + "_A_02_03") else "-"):
+                action (NullAction() if not renpy.can_load(str(game_id) + "_A_02_03") else [
+                    #Function(renpy.log, days),
+                    Function(renpy.load, str(game_id) + "_A_02_03")
+                ])
+            textbutton _("End of Day #3" if renpy.can_load(str(game_id) + "_A_03_03") else "-"):
+                action (NullAction() if not renpy.can_load(str(game_id) + "_A_03_03") else [
+                    #Function(renpy.log, days),
+                    Function(renpy.load, str(game_id) + "_A_03_03")
+                ])
+            textbutton _("End of Day #4" if renpy.can_load(str(game_id) + "_A_04_03") else "-"):
+                action (NullAction() if not renpy.can_load(str(game_id) + "_A_04_03") else [
+                    #Function(renpy.log, days),
+                    Function(renpy.load, str(game_id) + "_A_04_03")
+                ])
+
+        textbutton _("Return"):
+            xalign 0.5
+            yalign 0.8
+            action [
+                Hide("flow_chart"),
+                Show("debug")
+            ]

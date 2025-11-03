@@ -54,3 +54,13 @@ init python:
             days[2].append(location)
         elif (len(days[3]) < 3):
             days[3].append(location)
+
+        #if (len(days[0]) == 3 and len(days[1]) == 0):
+        #    renpy.save(str(game_id) + "_A_01_03")
+        #    [id]_[branch]_[day]_[section]
+        #elif (len(days[1]) == 3 and len(days[2]) == 0):
+        #    renpy.save(str(game_id) + "_A_02_03")
+        #elif (len(days[2]) == 3 and len(days[3]) == 0):
+        #    renpy.save(str(game_id) + "_A_03_03")
+        #elif (len(days[3]) == 3):
+        #    renpy.save(str(game_id) + "_A_04_03")
