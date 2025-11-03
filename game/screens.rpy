@@ -434,6 +434,8 @@ screen main_menu():
 
         textbutton _("Start"):
             action (ShowMenu("preferences", start=True) if persistent.game_launched == False else Start())
+        textbutton _("Load"):
+            action ShowMenu("load")
         textbutton _("Quit"):
             action Quit()
 

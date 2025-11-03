@@ -7,6 +7,8 @@ label variables:
     #Persistent variables
     default persistent.game_launched = False
     default persistent.cgs_unlocked = []
+    default persistent.game_id = 0
+
     default preferences.fullscreen = True
     default preferences.music_volume = 0.75 
 
@@ -70,6 +72,8 @@ label variables:
     default money = 1000
 
     #Timeline variables
+    default game_id = persistent.game_id
+    $ persistent.game_id += 1
     default days = [
         [],
         [],

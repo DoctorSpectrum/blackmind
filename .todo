@@ -8,8 +8,6 @@ BLACKMIND TODO
                     - We should use persistent data to determine which nodes are available (or can we just check "does save exist"?)
 
                     - Okay, so:
-                        - We have a persistent variable with game_id that starts at 0
-                        - When we start a new game, we save a variable for this game that's game_id + 1, and we increment game_id
                         - When we hit a node, we create a save with an ID of game_id and the node (e.g. 1_a_0_01, 3_b_02_01). Node format is:
                             - [id]_[branch]_[day]_[section]
                         - We have a way to hide these saves from the interface
