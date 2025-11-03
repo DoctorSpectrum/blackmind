@@ -7,7 +7,17 @@ BLACKMIND TODO
                 - Scam Barbara as part of a tutorial on psychic abilities
                 - Choose which place to go to afterwards, with the mention that he can only go to one of them.
                 - Get killed by Docherty
-            - Draw up sprites for Jack, Barbara, Docherty (?)
+            - Get placeholder backgrounds
+                - Bar
+            - Sprites:
+                - Jack
+                    - Smug
+                    - Worried
+                    - Disappointed
+                    - Angry
+                - Barbara
+                    - Annoyed
+                    - Confused
             - Draw up CG
             - Customise GUI
                 - Yellow/black scheme
