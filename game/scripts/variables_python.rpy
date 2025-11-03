@@ -44,3 +44,13 @@ init python:
 
     def lock_cg(cg_id):
         persistent.cgs_unlocked.remove(cg_id)
+
+    def visit_location(location):
+        if (len(days[0]) < 3):
+            days[0].append(location)
+        elif (len(days[1]) < 3):
+            days[1].append(location)
+        elif (len(days[2]) < 3):
+            days[2].append(location)
+        elif (len(days[3]) < 3):
+            days[3].append(location)

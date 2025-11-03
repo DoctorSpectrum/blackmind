@@ -69,6 +69,14 @@ label variables:
 
     default money = 1000
 
+    #Timeline variables
+    default days = [
+        [],
+        [],
+        [],
+        []
+    ]
+
     #Misc. variables
     image black_bg = Solid("#000")
     image white_bg = Solid("#FFF")

@@ -59,18 +59,22 @@ label test_choices:
     jump story
 
 label bar:
+    $ visit_location("bar")
     jack "I am in the bar"
     call screen map_navigation
 
 label alt_shop:
+    $ visit_location("alt_shop")
     jack "I am in the alt shop"
     call screen map_navigation
 
 label cafe:
+    $ visit_location("cafe")
     jack "I am in the cafe"
     call screen map_navigation
 
 label detective:
+    $ visit_location("detective")
     jack "I am at the detective's office"
     call screen map_navigation
 

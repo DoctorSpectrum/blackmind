@@ -38,7 +38,7 @@ screen debug():
                 Show("upgrades_screen")
             ]
 
-        textbutton _("Test Timeline"):
+        textbutton _("Test Flow Chart"):
             action NullAction()
 
 screen psychic_powers():
