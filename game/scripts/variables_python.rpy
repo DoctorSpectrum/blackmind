@@ -7,7 +7,7 @@ init python:
     #Functions
     def swap_sprites(new_sprite, transition = None, position = center):
         for sprite in renpy.list_images():
-            if (sprite[0:14] == "character_name"):
+            if (sprite[0:7] == "barbara" or sprite[0:6] == "graves" or sprite[0:5] == "eddie" or sprite[0:3] == "cat"):
                 renpy.hide(sprite)
         renpy.show(new_sprite, [position])
         if transition is not None:

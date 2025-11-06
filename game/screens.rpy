@@ -250,6 +250,17 @@ screen quick_menu():
     ## Ensure this appears on top of other screens.
     zorder 100
 
+    if (config.developer):
+        textbutton _("DEBUG"):
+            xalign 1.0
+            yalign 1.0
+            xoffset -10
+            yoffset -10
+            action [
+                Hide("say"),
+                Show("debug")
+            ]
+
     if quick_menu:
 
         hbox:

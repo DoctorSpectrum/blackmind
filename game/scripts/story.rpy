@@ -1,5 +1,36 @@
 label story:
-    call screen debug
+    scene black_bg with quick_dissolve
+    #Text and subtitle
+
+    scene bar with quick_dissolve
+    jack smug "(Ah...[wait_1]nothing like going to the bar on a Monday.)"
+    jack smug "(Lots of lovely booze, lots of quiet, and best of all...[wait_05]a sexy bartender, who literally only has eyes for me)."
+    $ swap_sprites("barbara_annoyed", slow_dissolve)
+    barbara "Hello?[wait_1] Did you hear me?" (name="Bartender")
+    jack worried "(Shit![wait_1] Has she been talking this whole time?)"
+    jack worried "(What’s gotten her turned off all of a sudden?)"
+    jack worried "Hmm?[wait_1] Hi, is something...[wait_05]wrong?"
+    barbara "I said, I’m going to need you to pass that drink over and leave." (name="Bartender")
+    barbara "You’ve clearly had too much to drink, and I can’t have you hanging around here." (name="Bartender")
+    jack angry "(Whatever happened to the good old national binge drink?)"
+    jack angry "(Used to be that we were told off for not drinking enough...[wait_1]it’s political correctness gone mad.)"
+    jack thinking "(Still though, I’d better listen to her.)"
+    jack thinking "( I don’t think she’s the type of angry that makes me feel horny.)"
+    #SFX: Glass sliding
+    jack smug "Right, there you go then."
+    jack smug "Farewell, sweet mademoiselle, and thank you for bringing pleasure to a thirsty man."
+    barbara "..." (name="Bartender")
+    jack angry "(What’s she still looking angry for?[wait_1] That’s barely an innuendo!)"
+    barbara "The bar’s policy is that all tabs have to be paid before leaving.[wait_1] No exceptions." (name="Bartender")
+    jack worried "(Shit.[wait_05] How much money do I have?)"
+    #Add the interface showing our money
+    jack worried "(That's...[wait_05]not a lot.)"
+    barbara "We take both cash and card." (name="Bartender")
+    barbara "Can even split it between the two if that’s easier for you, but it’s got to be paid." (name="Bartender")
+    jack smug "(Alright, no biggie.)"
+    jack smug "(Just have to do a little rewrite without letting the alcohol affect me.[wait_1] Easy.)"
+
+    return
     
 label test_mind_reading:
     $ current_conversation = None

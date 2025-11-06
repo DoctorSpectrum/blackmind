@@ -2,22 +2,39 @@ BLACKMIND TODO
     - Prototype Phase
         - Delivery Date: 31/12/2025
         - TODO List:
-            - Write out the script for the demo (AKA the prologue)
-                - Playing as Jack
-                - Scam Barbara as part of a tutorial on psychic abilities
-                - Choose which place to go to afterwards, with the mention that he can only go to one of them.
-                - Get killed by Docherty
-            - Draw up sprites for Jack, Barbara, Docherty (?)
-            - Draw up CG
-            - Customise GUI
-                - Yellow/black scheme
-                - Custom main menu with Jack doing the fingers to forehead thing and looking smug
-                - Let's assume we're doing a custom pause menu for now (like what I did for AN) but I'll sort it out once I'm working on it
-            - Add in SFX, placeholder music
+            - DAY TASKS
+                - Get the script into the game (with placeholder sprites to start)
+                - Customise GUI
+                    - Yellow/black scheme
+                    - Custom main menu with Jack doing the fingers to forehead thing and looking smug
+                    - Let's assume we're doing a custom pause menu for now (like what I did for AN) but I'll sort it out once I'm working on it
+                    - GUI for:
+                        - Forget
+                        - Mind-reading
+                        - Money
+
+            - EVENING TASKS
+                - Draw up sprites for Jack, Barbara, Docherty
+                    - Jack
+                        - Smug
+                        - Worried
+                        - Angry
+                        - Thinking
+                    - Barbara
+                        - Annoyed
+                        - Thinking
+                        - Smiling
+                        - Sad
+                    - Docherty
+                        - Neutral
+                - Draw up CG
+                - Add in SFX, placeholder music
         - Write up Google Docco with ze plan for friends to assess
             - Also do a Google Forms feedback thingy?
         - Send to friends with link to Google Docco
             - Explicitly mention, "Yes, Jack dies, you play as a new character" in it, and check with them whether they
                 think that it's better to end on the moment that it does, or whether it should end with Lloyd being like,
                 "I will stop him for you!"
+            - Check what they think of the script - is it too short? Does there need to be more in there? Worst case I 
+                could throw Lloyd in there but even then that's prolly only another 500 words at most
         - Work out a plan for applying for funding

@@ -1,8 +1,9 @@
 label variables:
     
     define narrator = Character(None, what_color="#FFF")
-    define jack = Character("Jack", what_color="#FFF")
+    define jack = Character("Jack", what_color="#FFF", image="jack")
     define barbara = Character("Barbara", what_color="#FFF")
+    define docherty = Character("???", what_color="#FFF")
 
     #Persistent variables
     default persistent.game_launched = False
@@ -40,19 +41,75 @@ label variables:
     define slow_dissolve = Dissolve(2.0)
 
     #Images
-    image character_pose = ConditionSwitch(
-        "_last_say_who == 'character' or not renpy.get_screen('say')", 
-        "images/sprites/character_pose.png", 
-        "not _last_say_who == 'character'", 
-        "character_pose_tint"
+    image barbara_annoyed = ConditionSwitch(
+        "_last_say_who == 'barbara' or not renpy.get_screen('say')", 
+        "images/sprites/barbara_annoyed.png", 
+        "not _last_say_who == 'barbara'", 
+        "barbara_annoyed_tint"
     )
 
-    image character_pose_tint:
-        "images/sprites/character_pose.png"
+    image barbara_sad = ConditionSwitch(
+        "_last_say_who == 'barbara' or not renpy.get_screen('say')",
+        "images/sprites/barbara_sad.png",
+        "not _last_say_who == 'barbara'",
+        "barbara_sad_tint"
+    )
+
+    image barbara_smiling = ConditionSwitch(
+        "_last_say_who == 'barbara' or not renpy.get_screen('say')",
+        "images/sprites/barbara_smiling.png",
+        "not _last_say_who == 'barbara'",
+        "barbara_smiling_tint"
+    )
+
+    image barbara_thinking = ConditionSwitch(
+        "_last_say_who == 'barbara' or not renpy.get_screen('say')",
+        "images/sprites/barbara_thinking.png",
+        "not _last_say_who == 'barbara'",
+        "barbara_thinking_tint"
+    )
+
+    image docherty_neutral = ConditionSwitch(
+        "_last_say_who == 'docherty' or not renpy.get_screen('say')",
+        "images/sprites/docherty_neutral.png",
+        "not _last_say_who == 'docherty'",
+        "docherty_neutral_tint"
+    )
+
+    image barbara_annoyed_tint:
+        "images/sprites/barbara_annoyed.png"
         dark_tint
 
-    image side charactername pose:
-        "images/sprites/character_pose.png"
+    image barbara_sad_tint:
+        "images/sprites/barbara_sad.png"
+        dark_tint
+
+    image barbara_smiling_tint:
+        "images/sprites/barbara_smiling.png"
+        dark_tint
+
+    image barbara_thinking_tint:
+        "images/sprites/barbara_thinking.png"
+        dark_tint
+
+    image docherty_neutral_tint:
+        "images/sprites/docherty_neutral.png"
+        dark_tint
+
+    image side jack angry:
+        "images/sprites/jack_angry.png"
+        portrait_crop
+
+    image side jack smug:
+        "images/sprites/jack_smug.png"
+        portrait_crop
+    
+    image side jack thinking:
+        "images/sprites/jack_thinking.png"
+        portrait_crop
+    
+    image side jack worried:
+        "images/sprites/jack_worried.png"
         portrait_crop
 
     #Psychic powers
