@@ -431,22 +431,53 @@ screen main_menu():
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
-
     ## This empty frame darkens the main menu.
     frame:
-        style "main_menu_frame"
+        background Solid("#3B3B3B")
+
+    for i in range(20):
+        frame:
+            style_prefix "zener_rows"
+            background Solid("#FFFDA2", ysize=1620, xsize=50, yanchor=0.25)
+            xoffset i * 100
+            at transform:
+                alpha 0.3
+                #rotate 35
+
+            vbox:
+                spacing 5
+                at transform:
+                    yoffset 20
+                    linear (1300 / 233):
+                        ypos 1280
+                for j in range(4):
+                    for k in range(1, 6):
+                        image "gui/card_[k].png":
+                            at transform:
+                                zoom 0.3
+
+            #MOSTLY WORKING
+            for j in range(4):
+                for k in range(1, 6):
+                    image "gui/card_[k].png":
+                        at zener_card_col_down(1200, (1280 - (70 * ((j * 5) + k) - 70)) / 233)
 
     use social_links
 
     vbox:
-        xalign 0.1
+        xalign 0.9
         yalign 0.5
 
         textbutton _("Start"):
             action (ShowMenu("preferences", start=True) if persistent.game_launched == False else Start())
         textbutton _("Load"):
             action ShowMenu("load")
+        textbutton _("Settings"):
+            action ShowMenu("preferences")
+        textbutton _("Extras"):
+            action NullAction()
+        textbutton _("Credits"):
+            action ShowMenu("about")
         textbutton _("Quit"):
             action Quit()
 
