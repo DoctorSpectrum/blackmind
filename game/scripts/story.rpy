@@ -137,6 +137,7 @@ label prologue_02:
             barbara "..." (name="Bartender")
             jack angry "(Was that...[wait_05]the right thing to say?)"
             $ current_thought = "barbara_thought_pr_25"
+            $ swap_sprites("barbara_sad")
             barbara "Sorry, I...[wait_05]I shouldn’t have said that.[wait_1] I’m still getting the hang of this thing." (name="Bartender")
             barbara "What they teach you with a business degree doesn’t always apply to the real-world." (name="Bartender")
             jack smug "(Hello...[wait_05]feeling a bit down?)"
