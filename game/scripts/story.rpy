@@ -5,7 +5,7 @@ label prologue_01:
     scene bar with quick_dissolve
     jack smug "(Ah...[wait_1]nothing like going to the bar on a Monday.)"
     jack smug "(Lots of lovely booze, lots of quiet, and best of all...[wait_05]a sexy bartender, who literally only has eyes for me)."
-    $ swap_sprites("barbara_annoyed", slow_dissolve)
+    $ swap_sprites("barbara_angry", slow_dissolve)
     barbara "Hello?[wait_1] Did you hear me?" (name="Bartender")
     jack worried "(Shit![wait_1] Has she been talking this whole time?)"
     jack worried "(What’s gotten her turned off all of a sudden?)"
@@ -61,7 +61,7 @@ label prologue_02:
     jack smug "Fifty - and one hundred.[wait_1] One hundred and fifty."
     jack smug "That’s right, you owed me one hundred and fifty in change."
     $ current_thought = "barbara_thought_pr_05"
-    $ swap_sprites("barbara_annoyed")
+    $ swap_sprites("barbara_angry")
     barbara "Really?[wait_1] I think you might have miscalculated that a bit; that’s quite a lot of change to give." (name="Bartender")
     jack smug "Well, you know what they say about calculations...[wait_1]I mean, numbers don’t really mean anything, do they?"
     $ current_thought = "barbara_thought_pr_06"
@@ -114,7 +114,7 @@ label prologue_02:
             barbara "Good point![wait_1] I’d better check whether the value that you gave me is actually the right calculation, though; if it isn’t then that’s another issue that I can bring up to them." (name="Bartender")
             jack worried "Wait, but -"
             $ current_thought = "barbara_thought_pr_19"
-            $ swap_sprites("barbara_annoyed")
+            $ swap_sprites("barbara_angry")
             barbara "Looking at this, it looks like the value is wrong.[wait_1] At least, compared to what you said." (name="Bartender")
             barbara "As it is, I think you might have who owes who around the wrong way." (name="Bartender")
             $ current_thought = "barbara_thought_pr_20"
@@ -155,9 +155,9 @@ label prologue_02:
             barbara "Once again, I’m sorry that I was a bit sceptical." (name="Bartender")
             jack smug "That’s fine, and...[wait_1]look, if you wanted to talk about it a bit more, maybe in a bit more of an...[wait_1]intimate setting?"
             $ current_thought = "barbara_thought_pr_29"
-            $ swap_sprites("barbara_annoyed")
+            $ swap_sprites("barbara_angry")
             barbara "Yeah, it’s definitely time for you to leave." (name="Bartender")
-            hide barbara_annoyed with quick_dissolve
+            hide barbara_angry with quick_dissolve
             jack angry "(Oh, sure, when it’s emotional support, you’re all too happy to receive it, but physical support is a step too far, is it?)"
             scene black_bg with slow_dissolve
 

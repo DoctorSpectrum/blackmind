@@ -54,11 +54,11 @@ label variables:
     define slow_dissolve = Dissolve(2.0)
 
     #Images
-    image barbara_annoyed = ConditionSwitch(
+    image barbara_angry = ConditionSwitch(
         "_last_say_who == 'barbara' or not renpy.get_screen('say')", 
-        "images/sprites/barbara_annoyed.png", 
+        "images/sprites/barbara_angry.png", 
         "not _last_say_who == 'barbara'", 
-        "barbara_annoyed_tint"
+        "barbara_angry_tint"
     )
 
     image barbara_sad = ConditionSwitch(
@@ -89,8 +89,8 @@ label variables:
         "docherty_neutral_tint"
     )
 
-    image barbara_annoyed_tint:
-        "images/sprites/barbara_annoyed.png"
+    image barbara_angry_tint:
+        "images/sprites/barbara_angry.png"
         dark_tint
 
     image barbara_sad_tint:

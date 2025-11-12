@@ -4,20 +4,19 @@ BLACKMIND TODO
         - TODO List:
             - DAY TASKS
                 - Customise GUI
-                    - Yellow/black scheme
-                    - Custom main menu with Jack doing the fingers to forehead thing and looking smug
-                    - Let's assume we're doing a custom pause menu for now (like what I did for AN) but I'll sort it out once I'm working on it
+                    - Finish off the main menu, including a "press any key to start" (or maybe just Enter to make it simpler)
                     - GUI for:
                         - Forget
                         - Mind-reading
                         - Money
+                    - Functionality for choosing where to go in the demo
+                        - Any other functionality not already implemented - play through the demo and work out where shit is incomplete
+                    - Yellow/black scheme
+                    - Let's assume we're doing a custom pause menu for now (like what I did for AN) but I'll sort it out once I'm working on it
 
             - EVENING TASKS
-                - Draw up sprites for Jack, Barbara, Docherty
-                    - Barbara
-                        - Smiling
-                        - Sad
-                - Draw up CG
+                - Draw up an image of Jack for the main menu
+                - Draw up backgrounds since I'll need to bloody do it anyway
                 - Add in SFX, placeholder music
         - Write up Google Docco with ze plan for friends to assess
             - Also do a Google Forms feedback thingy?
