@@ -444,23 +444,39 @@ screen main_menu():
                 alpha 0.3
                 #rotate 35
 
-            vbox:
-                spacing 5
-                at transform:
-                    yoffset 20
-                    linear (1300 / 233):
-                        ypos 1280
+            if (i % 2 == 0):        #Col going up
+                vbox:
+                    spacing 5
+                    at transform:
+                        linear (1400 / 233):
+                            ypos -1380
+                    for j in range(4):
+                        for k in range(1, 6):
+                            if (j < 3 or k < 4):
+                                image "gui/card_[k].png":
+                                    at transform:
+                                        zoom 0.3
                 for j in range(4):
                     for k in range(1, 6):
                         image "gui/card_[k].png":
-                            at transform:
-                                zoom 0.3
+                            at zener_card_col_up(-100, (1280 - (70 * ((j * 5) + k) - 70)) / 233)
+            else:                   #Col going down
+                vbox:
+                    spacing 5
+                    yoffset 20
+                    at transform:
+                        linear (1300 / 233):
+                            ypos 1280
+                    for j in range(4):
+                        for k in range(1, 6):
+                            image "gui/card_[k].png":
+                                at transform:
+                                    zoom 0.3
 
-            #MOSTLY WORKING
-            for j in range(4):
-                for k in range(1, 6):
-                    image "gui/card_[k].png":
-                        at zener_card_col_down(1200, (1280 - (70 * ((j * 5) + k) - 70)) / 233)
+                for j in range(4):
+                    for k in range(1, 6):
+                        image "gui/card_[k].png":
+                            at zener_card_col_down(1200, (1280 - (70 * ((j * 5) + k) - 70)) / 233)
 
     use social_links
 

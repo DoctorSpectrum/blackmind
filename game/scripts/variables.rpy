@@ -31,6 +31,19 @@ label variables:
 
             repeat
 
+    transform zener_card_col_up (init_y, time):
+        zoom 0.3
+        ypos init_y
+        linear (time):
+            ypos -100
+
+        block:
+            ypos 1280
+            linear 6.0:
+                ypos -100
+
+            repeat
+
     transform trans_fade (pause_time, time=5.0):
         alpha 0.0
         pause pause_time
