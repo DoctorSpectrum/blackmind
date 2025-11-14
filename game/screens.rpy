@@ -445,10 +445,10 @@ screen main_menu():
         for i in range(27):
             frame:
                 style_prefix "zener_rows"
-                background Solid("#FFFDA2", ysize=1620, xsize=50, yanchor=0.25)
+                background Solid("#D1CE21", ysize=1620, xsize=50, yanchor=0.25)
                 xoffset (i * 100) -700
                 at transform:
-                    alpha 0.3
+                    #alpha 0.3
                     rotate 35
 
                 if (i % 2 == 0):        #Col going up
@@ -460,7 +460,6 @@ screen main_menu():
                                 ypos -1480
                         for j in range(4):
                             for k in range(1, 6):
-                                #if (j < 3 or k < 4):
                                 image "gui/card_[k].png":
                                     at transform:
                                         zoom 0.3
@@ -485,6 +484,8 @@ screen main_menu():
                         for k in range(1, 6):
                             image "gui/card_[k].png":
                                 at zener_card_col_down(1200, (1280 - (70 * ((j * 5) + k) - 70)) / 116.5)
+        frame:
+            background Solid("#00000041")
 
         use social_links
 
@@ -513,6 +514,8 @@ screen main_menu():
             yalign 0.5
 
             textbutton _("Start"):
+                background Frame("gui/button/button_idle.png", left_padding=100)
+                hover_background Frame("gui/button/button_hover.png")
                 action (ShowMenu("preferences", start=True) if persistent.game_launched == False else Start())
             textbutton _("Load"):
                 action ShowMenu("load")
