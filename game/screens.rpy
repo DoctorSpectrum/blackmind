@@ -435,38 +435,39 @@ screen main_menu():
     frame:
         background Solid("#3B3B3B")
 
-    for i in range(20):
+    for i in range(27):
         frame:
             style_prefix "zener_rows"
             background Solid("#FFFDA2", ysize=1620, xsize=50, yanchor=0.25)
-            xoffset i * 100
+            xoffset (i * 100) -700
             at transform:
                 alpha 0.3
-                #rotate 35
+                rotate 35
 
             if (i % 2 == 0):        #Col going up
                 vbox:
+                    yoffset -140
                     spacing 5
                     at transform:
-                        linear (1400 / 233):
-                            ypos -1380
+                        linear (1400 / 116.5):
+                            ypos -1480
                     for j in range(4):
                         for k in range(1, 6):
-                            if (j < 3 or k < 4):
-                                image "gui/card_[k].png":
-                                    at transform:
-                                        zoom 0.3
+                            #if (j < 3 or k < 4):
+                            image "gui/card_[k].png":
+                                at transform:
+                                    zoom 0.3
                 for j in range(4):
                     for k in range(1, 6):
                         image "gui/card_[k].png":
-                            at zener_card_col_up(-100, (1280 - (70 * ((j * 5) + k) - 70)) / 233)
+                            at zener_card_col_up(-600, (1280 - (70 * ((j * 5) + k) - 70)) / 116.5)
             else:                   #Col going down
                 vbox:
                     spacing 5
-                    yoffset 20
+                    yoffset -80
                     at transform:
-                        linear (1300 / 233):
-                            ypos 1280
+                        linear (1300 / 116.5):
+                            ypos 1380
                     for j in range(4):
                         for k in range(1, 6):
                             image "gui/card_[k].png":
@@ -476,7 +477,7 @@ screen main_menu():
                 for j in range(4):
                     for k in range(1, 6):
                         image "gui/card_[k].png":
-                            at zener_card_col_down(1200, (1280 - (70 * ((j * 5) + k) - 70)) / 233)
+                            at zener_card_col_down(1200, (1280 - (70 * ((j * 5) + k) - 70)) / 116.5)
 
     use social_links
 

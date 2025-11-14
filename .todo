@@ -3,6 +3,31 @@ BLACKMIND TODO
         - Delivery Date: 31/12/2025
         - TODO List:
             - DAY TASKS
+                - Main Menu:
+                    - Logo
+                    - Add in the "Press Enter to continue" bit to the main menu
+                    - After hitting Enter it should go through to the main menu
+                    - Show Jack fading and sliding in
+                    - Add in circles for Jack's mind-reading
+                    - Style up buttons
+                    - Yellow/Black colour scheme for social links
+                - Menus:
+                    - Save/Load: 
+                        - Single screen
+                        - Display as a list
+                        - Clicking on an entry shows its screenshot
+                        - Clicking on an entry lets you save or load
+                        - Functionality for naming your saves
+                    - Preferences: 
+                        - Needs a black/yellow colour scheme
+                        - Add in sample text
+                    - Extras:
+                        - Hide for now
+                    - Credits:
+                        - Add in details about myself
+                        - Credit for SFX
+                        - Credit for music
+                        - Credit for map generator
                 - Customise GUI
                     - Finish off the main menu, including a "press any key to start" (or maybe just Enter to make it simpler)
                     - GUI for:

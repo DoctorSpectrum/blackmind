@@ -25,8 +25,8 @@ label variables:
             ypos 1280
 
         block:
-            ypos -100
-            linear 6.0:
+            ypos -200
+            linear 12.0:
                 ypos 1280
 
             repeat
@@ -35,12 +35,12 @@ label variables:
         zoom 0.3
         ypos init_y
         linear (time):
-            ypos -100
+            ypos -200
 
         block:
             ypos 1280
-            linear 6.0:
-                ypos -100
+            linear 12.0:
+                ypos -200
 
             repeat
 
