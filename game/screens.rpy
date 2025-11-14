@@ -367,7 +367,7 @@ style navigation_button_text:
 ## Used to display the main menu when Ren'Py starts.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
-screen social_links():
+screen social_links:
     default links_opened = False
     default transform_links = False
     default social_frame = "circle_frame"
@@ -388,7 +388,9 @@ screen social_links():
             at transform:
                 alpha 1.0
                 xsize (100 if links_opened == True else 280)
-                linear 0.2 xsize (280 if links_opened == True else 100) 
+                linear 0.2 xsize (280 if links_opened == True else 100)
+        else:
+            at trans_fade(1.0, 1.0) 
 
         if (links_opened == False):
             imagebutton:
