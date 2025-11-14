@@ -367,7 +367,7 @@ style navigation_button_text:
 ## Used to display the main menu when Ren'Py starts.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
-screen social_links:
+screen social_links():
     default links_opened = False
     default transform_links = False
     default social_frame = "circle_frame"
@@ -427,88 +427,173 @@ screen social_links:
                     ]
 
 screen main_menu():
+    default confirmed = False
+    default confirmable = False
 
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    ## This empty frame darkens the main menu.
-    frame:
-        background Solid("#3B3B3B")
+    timer 1.0:
+        action SetScreenVariable("confirmable", True)
 
-    for i in range(27):
+    if (confirmed):
         frame:
-            style_prefix "zener_rows"
-            background Solid("#FFFDA2", ysize=1620, xsize=50, yanchor=0.25)
-            xoffset (i * 100) -700
+            background Solid("#3B3B3B")
+
+        for i in range(27):
+            frame:
+                style_prefix "zener_rows"
+                background Solid("#FFFDA2", ysize=1620, xsize=50, yanchor=0.25)
+                xoffset (i * 100) -700
+                at transform:
+                    alpha 0.3
+                    rotate 35
+
+                if (i % 2 == 0):        #Col going up
+                    vbox:
+                        yoffset -140
+                        spacing 5
+                        at transform:
+                            linear (1400 / 116.5):
+                                ypos -1480
+                        for j in range(4):
+                            for k in range(1, 6):
+                                #if (j < 3 or k < 4):
+                                image "gui/card_[k].png":
+                                    at transform:
+                                        zoom 0.3
+                    for j in range(4):
+                        for k in range(1, 6):
+                            image "gui/card_[k].png":
+                                at zener_card_col_up(-600, (1280 - (70 * ((j * 5) + k) - 70)) / 116.5)
+                else:                   #Col going down
+                    vbox:
+                        spacing 5
+                        yoffset -80
+                        at transform:
+                            linear (1300 / 116.5):
+                                ypos 1380
+                        for j in range(4):
+                            for k in range(1, 6):
+                                image "gui/card_[k].png":
+                                    at transform:
+                                        zoom 0.3
+
+                    for j in range(4):
+                        for k in range(1, 6):
+                            image "gui/card_[k].png":
+                                at zener_card_col_down(1200, (1280 - (70 * ((j * 5) + k) - 70)) / 116.5)
+
+        use social_links
+
+        image "images/menu/ring.png":
+            xalign 0.7
+            yalign 0.5
+            at menu_expand_ring(3.0)
+        image "images/menu/ring.png":
+            xalign 0.7
+            yalign 0.5
+            at menu_expand_ring(3.2)
+        image "images/menu/menu_placeholder.png":
             at transform:
-                alpha 0.3
-                rotate 35
+                zoom 0.8
+                alpha 0.0
+                xoffset 300
+                yoffset 220
+                pause 1.0
+                linear 2.0:
+                    xoffset 400
+                    alpha 1.0
 
-            if (i % 2 == 0):        #Col going up
-                vbox:
-                    yoffset -140
-                    spacing 5
-                    at transform:
-                        linear (1400 / 116.5):
-                            ypos -1480
-                    for j in range(4):
-                        for k in range(1, 6):
-                            #if (j < 3 or k < 4):
-                            image "gui/card_[k].png":
-                                at transform:
-                                    zoom 0.3
-                for j in range(4):
-                    for k in range(1, 6):
-                        image "gui/card_[k].png":
-                            at zener_card_col_up(-600, (1280 - (70 * ((j * 5) + k) - 70)) / 116.5)
-            else:                   #Col going down
-                vbox:
-                    spacing 5
-                    yoffset -80
-                    at transform:
-                        linear (1300 / 116.5):
-                            ypos 1380
-                    for j in range(4):
-                        for k in range(1, 6):
-                            image "gui/card_[k].png":
-                                at transform:
-                                    zoom 0.3
-
-                for j in range(4):
-                    for k in range(1, 6):
-                        image "gui/card_[k].png":
-                            at zener_card_col_down(1200, (1280 - (70 * ((j * 5) + k) - 70)) / 116.5)
-
-    use social_links
-
-    vbox:
-        xalign 0.9
-        yalign 0.5
-
-        textbutton _("Start"):
-            action (ShowMenu("preferences", start=True) if persistent.game_launched == False else Start())
-        textbutton _("Load"):
-            action ShowMenu("load")
-        textbutton _("Settings"):
-            action ShowMenu("preferences")
-        textbutton _("Extras"):
-            action NullAction()
-        textbutton _("Credits"):
-            action ShowMenu("about")
-        textbutton _("Quit"):
-            action Quit()
-
-    if gui.show_name:
 
         vbox:
-            style "main_menu_vbox"
+            xalign 0.9
+            yalign 0.5
 
-            text "[config.name!t]":
-                style "main_menu_title"
+            textbutton _("Start"):
+                action (ShowMenu("preferences", start=True) if persistent.game_launched == False else Start())
+            textbutton _("Load"):
+                action ShowMenu("load")
+            textbutton _("Settings"):
+                action ShowMenu("preferences")
+            textbutton _("Extras"):
+                action NullAction()
+            textbutton _("Credits"):
+                action ShowMenu("about")
+            textbutton _("Quit"):
+                action Quit()
+    else:
+        key "K_RETURN":
+            action (SetScreenVariable("confirmed", True) if confirmable else NullAction())
 
-            text "[config.version]":
-                style "main_menu_version"
+    use main_logo(confirmed)
 
+screen main_logo(confirmed):
+    if (not confirmed):
+        frame:
+            background Solid("#000")
+            style "title_half_card"
+        frame:
+            background Solid("#F2EE29")
+            style "title_half_card_right"
+
+    frame:
+        background Solid("#F2EE29")
+        style "title_half_card"
+        if (confirmed):
+            at trans_fade_out(0, 1.0)
+        else:
+            at title_card_slide("down")
+
+    frame: 
+        background Solid("#000")
+        style "title_half_card_right"
+        if (confirmed):
+            at trans_fade_out(0, 1.0)
+        else:
+            at title_card_slide("up")
+
+    if (not confirmed):
+        text _("Press Enter"):
+            xalign 0.5
+            yalign 0.8
+            color "#FFF"
+            font "gui/chubhand.ttf"
+            size 50
+            at transform:
+                alpha 0.0
+                pause 0.5
+
+                block:
+                    alpha 1.0
+                    linear 2.0:
+                        alpha 0.0
+                    linear 1.0:
+                        alpha 1.0
+                    repeat
+        
+    hbox:
+        xalign 0.5
+        yalign 0.25
+        xoffset -25
+        spacing 0
+        if (not confirmed):
+            at transform:
+                alpha 0.0
+                pause 0.5
+                alpha 1.0
+        else:
+            at transform:
+                linear 2.0:
+                    yalign 0.15
+                    zoom 0.75
+
+        text _("BLACK"):
+            style "logo_text"
+            color "#000"
+        text _("MIND"):
+            style "logo_text"
+            color "#F2EE29"
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox
@@ -537,6 +622,16 @@ style main_menu_title:
 
 style main_menu_version:
     properties gui.text_properties("version")
+
+style title_half_card:
+    xsize 960
+
+style title_half_card_right is title_half_card:
+    xoffset 960
+
+style logo_text:
+    font "gui/Decade__.ttf"
+    size 128
 
 style social_links_frame:
     xalign 0.0

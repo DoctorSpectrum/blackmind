@@ -44,10 +44,40 @@ label variables:
 
             repeat
 
+    transform title_card_slide (direction):
+        yoffset (1080 if direction == "up" else -1080)
+        linear 0.5:
+            yoffset 0
+
+    transform menu_expand_ring (pause_time):
+        zoom 0.1
+        alpha 0.0
+        pause pause_time
+
+        block:
+            alpha 1.0
+            parallel:
+                linear 3.0:
+                    zoom 2.0
+                    xoffset 300
+            parallel:
+                pause 2.0
+                linear 1.0:
+                    alpha 0.0
+        
+        xoffset 0
+        pause (0.2 if pause_time == 3.0 else 0.0)
+        repeat
+
     transform trans_fade (pause_time, time=5.0):
         alpha 0.0
         pause pause_time
         linear time alpha 1.0
+
+    transform trans_fade_out (pause_time, time=5.0):
+        alpha 1.0
+        pause pause_time
+        linear time alpha 0.0
 
     transform portrait_crop:
         zoom 0.2

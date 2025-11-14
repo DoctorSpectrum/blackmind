@@ -4,11 +4,8 @@ BLACKMIND TODO
         - TODO List:
             - DAY TASKS
                 - Main Menu:
-                    - Logo
-                    - Add in the "Press Enter to continue" bit to the main menu
-                    - After hitting Enter it should go through to the main menu
-                    - Show Jack fading and sliding in
-                    - Add in circles for Jack's mind-reading
+                    - Fix up social links to work
+
                     - Style up buttons
                     - Yellow/Black colour scheme for social links
                 - Menus:
