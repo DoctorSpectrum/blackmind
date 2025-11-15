@@ -512,20 +512,25 @@ screen main_menu():
         vbox:
             xalign 0.9
             yalign 0.5
+            spacing 10
 
             textbutton _("Start"):
-                background Frame("gui/button/button_idle.png", left_padding=100)
-                hover_background Frame("gui/button/button_hover.png")
+                style "main_menu_button"
                 action (ShowMenu("preferences", start=True) if persistent.game_launched == False else Start())
             textbutton _("Load"):
+                style "main_menu_button"
                 action ShowMenu("load")
             textbutton _("Settings"):
+                style "main_menu_button"
                 action ShowMenu("preferences")
             textbutton _("Extras"):
+                style "main_menu_button"
                 action NullAction()
             textbutton _("Credits"):
+                style "main_menu_button"
                 action ShowMenu("about")
             textbutton _("Quit"):
+                style "main_menu_button"
                 action Quit()
     else:
         key "K_RETURN":
@@ -637,6 +642,20 @@ style title_half_card_right is title_half_card:
 style logo_text:
     font "gui/Decade__.ttf"
     size 128
+style yellow_button:
+    background Frame("gui/button/button_idle.png")
+    hover_background Frame("gui/button/button_hover.png")
+    padding (40, 10, 40, 10)
+
+style yellow_button_text:
+    hover_color "#F2EE29"
+    textalign 0.5
+    xalign 0.5
+
+style main_menu_button is yellow_button:
+    xsize 217
+
+style main_menu_button_text is yellow_button_text
 
 style social_links_frame:
     xalign 0.0
