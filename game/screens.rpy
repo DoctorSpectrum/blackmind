@@ -490,48 +490,59 @@ screen main_menu():
         use social_links
 
         image "images/menu/ring.png":
-            xalign 0.7
+            xalign 0.575
             yalign 0.5
             at menu_expand_ring(3.0)
         image "images/menu/ring.png":
-            xalign 0.7
+            xalign 0.575
             yalign 0.5
             at menu_expand_ring(3.2)
         image "images/menu/menu_placeholder.png":
             at transform:
                 zoom 0.8
                 alpha 0.0
-                xoffset 300
+                xoffset 130
                 yoffset 220
                 pause 1.0
                 linear 2.0:
-                    xoffset 400
+                    xoffset 230
                     alpha 1.0
 
 
         vbox:
             xalign 0.9
-            yalign 0.5
+            yalign 0.85
             spacing 10
 
-            textbutton _("Start"):
+            textbutton _("START"):
                 style "main_menu_button"
                 action (ShowMenu("preferences", start=True) if persistent.game_launched == False else Start())
-            textbutton _("Load"):
+                at menu_button(1.0)
+            textbutton _("LOAD"):
                 style "main_menu_button"
+                xoffset (-44 * 1)
                 action ShowMenu("load")
-            textbutton _("Settings"):
+                at menu_button(1.5)
+            textbutton _("SETTINGS"):
                 style "main_menu_button"
+                xoffset (-44 * 2)
                 action ShowMenu("preferences")
-            textbutton _("Extras"):
+                at menu_button(2.0)
+            textbutton _("EXTRAS"):
                 style "main_menu_button"
-                action NullAction()
-            textbutton _("Credits"):
+                xoffset (-44 * 3)
+                action Confirm("This currently does nothing, but the button is here to help with the placement of final elements in the menu", NullAction(), confirm_selected=True)
+                at menu_button(2.5)
+            textbutton _("CREDITS"):
                 style "main_menu_button"
+                xoffset (-44 * 4)
                 action ShowMenu("about")
-            textbutton _("Quit"):
+                at menu_button(3.0)
+            textbutton _("QUIT"):
                 style "main_menu_button"
+                xoffset (-44 * 5)
                 action Quit()
+                at menu_button(3.5)
     else:
         key "K_RETURN":
             action (SetScreenVariable("confirmed", True) if confirmable else NullAction())
@@ -655,7 +666,9 @@ style yellow_button_text:
 style main_menu_button is yellow_button:
     xsize 217
 
-style main_menu_button_text is yellow_button_text
+style main_menu_button_text is yellow_button_text:
+    font "gui/chubhand.ttf"
+    yoffset 2
 
 style social_links_frame:
     xalign 0.0

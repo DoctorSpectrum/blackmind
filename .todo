@@ -3,11 +3,6 @@ BLACKMIND TODO
         - Delivery Date: 31/12/2025
         - TODO List:
             - DAY TASKS
-                - Main Menu:
-                    - Style up buttons
-                        - Angle them in-line with the Zener cards
-                        - Have them fade and slide in
-                    - Yellow/Black colour scheme for social links
                 - Menus:
                     - Save/Load: 
                         - Single screen
@@ -19,14 +14,16 @@ BLACKMIND TODO
                         - Needs a black/yellow colour scheme
                         - Add in sample text
                     - Extras:
-                        - Hide for now
+                        - Style up the Confirm to match the rest of the UI
                     - Credits:
+                        - Let's do it as less of a scroll box, and something more dynamic and exciting
                         - Add in details about myself
                         - Credit for SFX
                         - Credit for music
                         - Credit for map generator
+                    - General:
+                        - Return taking us to the main menu should not require us to press Enter again
                 - Customise GUI
-                    - Finish off the main menu, including a "press any key to start" (or maybe just Enter to make it simpler)
                     - GUI for:
                         - Forget
                         - Mind-reading
@@ -40,6 +37,8 @@ BLACKMIND TODO
                 - Script needs some touch-ups
                     - Start needs to be punchier. "I'm in a bar. Hey why's she annoyed at me?" isn't a great opening hook
                     - Let's go in a bit more on the precognition making Jack think he's been stabbed; it's a bit brief
+                    - I think Jack wanting to fuck Barbara might be the wrong direction to head in. I think let's lean in a bit more into
+                        him wanting to steal from her, or find some other flaw to emphasise.
                     - Could an omniscient narrator help with things? I don't want Jack to narrate, but an omniscient narrator might
                         solve some of the problems that I've got.
                 - Add in SFX, placeholder music

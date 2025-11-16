@@ -69,6 +69,14 @@ label variables:
         pause (0.2 if pause_time == 3.0 else 0.0)
         repeat
 
+    transform menu_button (delay):
+        alpha 0.0
+        yoffset -50
+        pause delay
+        linear 0.5:
+            alpha 1.0
+            yoffset 0
+
     transform trans_fade (pause_time, time=5.0):
         alpha 0.0
         pause pause_time
