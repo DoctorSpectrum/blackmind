@@ -48,7 +48,7 @@ screen psychic_powers():
     frame:
         xalign 1.0
         yalign 0.0
-        background Solid("#ffea00")
+        background Solid("#F2EE29")
         padding (5, 5, 5, 5)
         
         vbox:
@@ -74,12 +74,12 @@ screen conversation_progress():
             value AnimatedValue(convo_progress, convo_length, 1.0, (convo_progress - 1 if progress_convo else convo_progress))
 
         text _(str(convo_progress)):
-            color "#FFEA00"
+            color "#F2EE29"
             xalign 0.5
             yalign 0.15
 
 style convo_progress_bar:
-    left_bar "#ffea00"
+    left_bar "#F2EE29"
     right_bar "#141414"
     xmaximum 500
     xalign 0.5
@@ -167,12 +167,12 @@ screen map_navigation():
 style map_y_coord:
     xmaximum 2
     yfill True
-    background Solid("#FFEA00")
+    background Solid("#F2EE29")
 
 style map_x_coord:
     ymaximum 2
     xfill True
-    background Solid("#FFEA00")
+    background Solid("#F2EE29")
 
 screen locked_message(message):
     frame:
@@ -202,7 +202,7 @@ screen upgrades_screen():
         yalign 0.5
         padding (50, 50, 50, 50)
 
-        background Solid("#ffec17ff")
+        background Solid("#F2EE29")
 
         text _("Psychic Upgrades"):
             xalign 0.5
@@ -377,3 +377,71 @@ screen flow_chart():
                 Hide("flow_chart"),
                 Show("debug")
             ]
+
+screen saves_list(title="LOAD"):
+    tag menu
+
+    frame:
+        background Solid("#F2EE29")
+        xfill True
+        yfill True
+
+        frame:
+            style "bottom_left_frame"
+            at menu_bottom_left_slide
+
+        frame:
+            style "top_right_frame"
+            at menu_top_right_slide
+
+        frame:
+            style "bottom_right_frame"
+            at menu_bottom_right_slide
+            
+        text _(title):
+            font "gui/Decade__.ttf"
+            size 96
+            color "#F2EE29"
+            xalign 0.025
+            yalign 0.95
+            at trans_fade(1.0, 0.33)
+
+        #Table with list of files
+            #Loop through files
+            #Clicking on one brings up the screenshot, details, and load/delete buttons
+
+        #If we're saving, there should be a NEW SAVE button somewhere obvious, so we don't have to overwrite our existing save
+
+    textbutton _("Return"):
+        xalign 0.975
+        yalign 0.975
+        text_font "gui/chubhand.ttf"
+        text_color "#F2EE29"
+        text_hover_underline True
+        action Return()
+        at trans_fade(1.0, 0.33)
+
+style bottom_left_frame:
+    background Solid("#000")
+    xsize 850
+    ysize 400
+    xalign 0.0
+    yalign 0.8
+    xoffset -750
+
+style top_right_frame:
+    background Solid("#000")
+    xsize 1050
+    ysize 500
+    xalign 1.0
+    yalign 0.0
+    xoffset 1200
+    yoffset 300
+
+style bottom_right_frame:
+    background Solid("#000")
+    xsize 1050
+    ysize 500
+    xalign 1.0
+    yalign 1.0
+    xoffset 1250

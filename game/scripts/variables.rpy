@@ -77,6 +77,33 @@ label variables:
             alpha 1.0
             yoffset 0
 
+    transform menu_bottom_left_slide:
+        alpha 0.0
+        pause 0.5
+        alpha 1.0
+        rotate 45
+        linear 0.33:
+            xoffset 400
+            yoffset 400
+
+    transform menu_top_right_slide:
+        alpha 0.0
+        pause 0.5
+        alpha 1.0
+        rotate 45
+        linear 0.33:
+            xoffset -700
+            yoffset -800
+
+    transform menu_bottom_right_slide:
+        alpha 0.0
+        pause 0.5
+        alpha 1.0
+        rotate 135
+        linear 0.33:
+            xoffset -400
+            yoffset 400
+
     transform trans_fade (pause_time, time=5.0):
         alpha 0.0
         pause pause_time

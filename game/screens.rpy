@@ -521,7 +521,7 @@ screen main_menu():
             textbutton _("LOAD"):
                 style "main_menu_button"
                 xoffset (-44 * 1)
-                action ShowMenu("load")
+                action ShowMenu("saves_list")
                 at menu_button(1.5)
             textbutton _("SETTINGS"):
                 style "main_menu_button"
