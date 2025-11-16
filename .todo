@@ -5,9 +5,8 @@ BLACKMIND TODO
             - DAY TASKS
                 - Menus:
                     - Save/Load: 
-                        - Single screen
-                        - Display as a list
-                        - Clicking on an entry shows its screenshot
+                        - Saving within the game should bring us to the custom screen
+                        - NEW SAVE button when not on main menu
                         - Clicking on an entry lets you save or load (load only on main menu)
                         - Functionality for naming your saves
                     - Preferences: 
@@ -30,7 +29,6 @@ BLACKMIND TODO
                         - Money
                     - Functionality for choosing where to go in the demo
                         - Any other functionality not already implemented - play through the demo and work out where shit is incomplete
-                    - Yellow/black scheme
                     - Let's assume we're doing a custom pause menu for now (like what I did for AN) but I'll sort it out once I'm working on it
 
             - EVENING TASKS
