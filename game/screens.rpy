@@ -520,27 +520,27 @@ screen main_menu():
                 at menu_button(1.0)
             textbutton _("LOAD"):
                 style "main_menu_button"
-                xoffset (-44 * 1)
+                xoffset (-44)
                 action ShowMenu("saves_list")
                 at menu_button(1.5)
             textbutton _("SETTINGS"):
                 style "main_menu_button"
-                xoffset (-44 * 2)
+                xoffset (-88)
                 action ShowMenu("preferences")
                 at menu_button(2.0)
             textbutton _("EXTRAS"):
                 style "main_menu_button"
-                xoffset (-44 * 3)
+                xoffset (-132)
                 action Confirm("This currently does nothing, but the button is here to help with the placement of final elements in the menu", NullAction(), confirm_selected=True)
                 at menu_button(2.5)
             textbutton _("CREDITS"):
                 style "main_menu_button"
-                xoffset (-44 * 4)
+                xoffset (-176)
                 action ShowMenu("about")
                 at menu_button(3.0)
             textbutton _("QUIT"):
                 style "main_menu_button"
-                xoffset (-44 * 5)
+                xoffset (-220)
                 action Quit()
                 at menu_button(3.5)
     else:
@@ -575,7 +575,7 @@ screen main_logo(confirmed):
             at title_card_slide("up")
 
     if (not confirmed):
-        text _("Press Enter"):
+        text _("{color=#000}Press{/color} {color=#F2EE29}Enter{/color}"):
             xalign 0.5
             yalign 0.8
             color "#FFF"
@@ -593,11 +593,8 @@ screen main_logo(confirmed):
                         alpha 1.0
                     repeat
         
-    hbox:
-        xalign 0.5
-        yalign 0.25
-        xoffset -25
-        spacing 0
+    text _("{color=#000}BLACK{/color}{color=#F2EE29}MIND{/color}"):
+        style "logo_text"
         if (not confirmed):
             at transform:
                 alpha 0.0
@@ -609,12 +606,7 @@ screen main_logo(confirmed):
                     yalign 0.15
                     zoom 0.75
 
-        text _("BLACK"):
-            style "logo_text"
-            color "#000"
-        text _("MIND"):
-            style "logo_text"
-            color "#F2EE29"
+        
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox
@@ -653,6 +645,11 @@ style title_half_card_right is title_half_card:
 style logo_text:
     font "gui/Decade__.ttf"
     size 128
+    xalign 0.5
+    yalign 0.25
+    xoffset -25
+    spacing 0
+
 style yellow_button:
     background Frame("gui/button/button_idle.png")
     hover_background Frame("gui/button/button_hover.png")

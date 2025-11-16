@@ -8,7 +8,7 @@ BLACKMIND TODO
                         - Single screen
                         - Display as a list
                         - Clicking on an entry shows its screenshot
-                        - Clicking on an entry lets you save or load
+                        - Clicking on an entry lets you save or load (load only on main menu)
                         - Functionality for naming your saves
                     - Preferences: 
                         - Needs a black/yellow colour scheme

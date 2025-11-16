@@ -64,3 +64,12 @@ init python:
         #    renpy.save(str(game_id) + "_A_03_03")
         #elif (len(days[3]) == 3):
         #    renpy.save(str(game_id) + "_A_04_03")
+
+    def add_date_suffix(date):
+        date = int(date)
+        date_suffix = ["th", "st", "nd", "rd"]
+
+        if date % 10 in [1, 2, 3] and date not in [11, 12, 13]:
+            return str(date) + date_suffix[date % 10] + " "
+        else:
+            return str(date) + date_suffix[0] + " "

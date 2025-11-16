@@ -379,6 +379,8 @@ screen flow_chart():
             ]
 
 screen saves_list(title="LOAD"):
+    default hover_row = None
+    default selected_save = None
     tag menu
 
     frame:
@@ -405,6 +407,80 @@ screen saves_list(title="LOAD"):
             xalign 0.025
             yalign 0.95
             at trans_fade(1.0, 0.33)
+
+        vbox:
+            yalign 0.25
+            at trans_fade(1.2, 0.5)
+
+            for i in range(15):
+                frame:
+                    style_prefix "save_row"
+                    background Solid("#F2EE29" if (hover_row is not i and selected_save is not i) else "#000")
+                    xoffset ((i * 50) -400 if i > 9 else 65)
+
+                    if (renpy.can_load("1-" + str(i + 1))):     #Will prolly need to fix this up when I add in proper save functionality
+                        hbox:
+                            spacing 0
+
+                            textbutton _("Save Name"):
+                                text_color ("#F2EE29" if hover_row == i or selected_save == i else "#000")
+                                text_underline selected_save == i
+                                hovered SetScreenVariable("hover_row", i)
+                                unhovered SetScreenVariable("hover_row", None)
+                                xsize 525
+                                action SetScreenVariable("selected_save", i)
+                            textbutton _(add_date_suffix(FileTime(i + 1, format="%d")) + FileTime(i + 1, format=_("{#file_time}%B %Y, %H:%M"), empty=_("empty slot"))):
+                                text_color ("#F2EE29" if hover_row == i or selected_save == i else "#000")
+                                text_underline selected_save == i
+                                hovered SetScreenVariable("hover_row", i)
+                                unhovered SetScreenVariable("hover_row", None)
+                                action SetScreenVariable("selected_save", i)
+                    else:
+                        hbox
+
+                image Solid("#3B3B3B"):
+                    xsize 875
+                    ysize 2
+                    xoffset ((i * 50) -400 if i > 9 else 65)
+
+        frame:
+            style_prefix "save_details"
+            background None #Solid("#FFFC5E")
+            xalign 0.69
+            yalign 0.135
+            xsize 450
+            ysize 525
+
+            if (selected_save is not None):
+                vbox:
+                    add FileScreenshot(selected_save + 1):
+                        xalign 0.5
+
+                    text _("Save Name"):
+                        style "save_name"
+                    text _("Day 1, Morning"):
+                        style "save_details"
+                    text _(add_date_suffix(FileTime(selected_save + 1, format="%d", empty=(0))) + FileTime(selected_save + 1, format=_("{#file_time}%B %Y, %H:%M"))):
+                        style "save_date"
+
+                    hbox:
+                        xfill True
+                        spacing 5
+                        box_align 0.5
+                        textbutton _("Load"):
+                            style "light_yellow_button_small"
+                            action (Function(renpy.load, "1-" + str(selected_save + 1)))
+                            xsize 120
+                            text_font "gui/chubhand.ttf"
+                            text_yoffset 2
+                            text_size 28
+                        textbutton _("Delete"):
+                            style "light_yellow_button_small"
+                            action ([FileDelete(selected_save + 1), SetScreenVariable("selected_save", None)])
+                            text_font "gui/chubhand.ttf"
+                            text_yoffset 2
+                            text_size 28
+                
 
         #Table with list of files
             #Loop through files
@@ -445,3 +521,40 @@ style bottom_right_frame:
     xalign 1.0
     yalign 1.0
     xoffset 1250
+
+style save_row_hbox:
+    xsize 863
+    ysize 36
+
+style save_row_button_text:
+    size 20
+
+style save_details_vbox:
+    spacing 10
+
+style save_name:
+    font "gui/chubhand.ttf"
+    color "#000"
+    xalign 0.5
+    size 35
+
+style save_details:
+    color "#000"
+    xalign 0.5
+    text_align 0.5
+    size 24
+
+style save_date is save_details:
+    size 20
+
+style light_yellow_button is yellow_button:
+    background Frame("gui/button/button_light_idle.png")
+    hover_background Frame("gui/button/button_light_hover.png")
+
+style light_yellow_button_text is yellow_button_text:
+    hover_color "#FFFC5E"
+
+style light_yellow_button_small is light_yellow_button:
+    padding (20, 5, 20, 5)
+
+style light_yellow_button_small_text is light_yellow_button_text
