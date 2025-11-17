@@ -721,7 +721,11 @@ screen game_menu(title, title_size=88):
         color "#F2EE29"
         xalign (0.025 if title_size > 90 else 0.0125)
         yalign 0.95
-        at trans_fade(1.0, 0.33)
+        at transform:
+            xoffset -400
+            pause 1.0
+            ease 0.33:
+                xoffset 0
 
     textbutton _("Return"):
         xalign 0.975
@@ -729,8 +733,13 @@ screen game_menu(title, title_size=88):
         text_font "gui/chubhand.ttf"
         text_color "#F2EE29"
         text_hover_underline True
+        text_size 38
         action Return()
-        at trans_fade(1.0, 0.33)
+        at transform:
+            xoffset 400
+            pause 1.0
+            ease 0.33:
+                xoffset 0
 
     transclude
 
@@ -800,26 +809,60 @@ style game_menu_label_text:
 ## example of how to make a custom screen.
 
 screen about():
-
+    default show_content = False
+    default selected_tab = "text"
     tag menu
 
-    ## This use statement includes the game_menu screen inside this one. The
-    ## vbox child is then included inside the viewport inside the game_menu
-    ## screen.
-    use game_menu(_("About"), scroll="viewport"):
+    timer 1.2:
+        action SetScreenVariable("show_content", True)
 
-        style_prefix "about"
+    use game_menu(_("CREDITS")):
 
-        vbox:
+        if (show_content):
+            vbox:
+                style_prefix "credits_tabs"
+                at trans_fade(0.0, 0.5)
 
-            label "[config.name!t]"
-            text _("Version [config.version!t]\n")
+                textbutton _("Text"):
+                    action SetScreenVariable("selected_tab", "text")
+                textbutton _("Visuals"):
+                    action SetScreenVariable("selected_tab", "visuals")
+                textbutton _("Audio"):
+                    action SetScreenVariable("selected_tab", "audio")
+                textbutton _("Assets"):
+                    action SetScreenVariable("selected_tab", "assets")
+                textbutton _("Other"):
+                    action SetScreenVariable("selected_tab", "other")
 
-            ## gui.about is usually set in options.rpy.
-            if gui.about:
-                text "[gui.about!t]\n"
+            frame:
+                background None
+                xsize 1275
+                ysize 700
+                xalign 0.6
+                yalign 0.5
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+                if (selected_tab == "text"):
+                    vbox:
+                        at trans_fade(0.0, 0.5)
+
+                        text _("Harry Sewalski"):
+                            style "credit_heading"
+                        text _("Writing, Programming, Directing")
+                elif (selected_tab == "visuals"):
+                    null
+                elif (selected_tab == "audio"):
+                    null
+                elif (selected_tab == "assets"):
+                    null
+                elif (selected_tab == "other"):
+                    vbox:
+                        label "[config.name!t]"
+                        text _("Version [config.version!t]\n")
+
+                        if gui.about:
+                            text "[gui.about!t]\n"
+
+                        text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
 
 
 style about_label is gui_label
@@ -828,6 +871,27 @@ style about_text is gui_text
 
 style about_label_text:
     size gui.label_text_size
+
+style credits_tabs_vbox:
+    xoffset 50
+    yalign 0.15
+    spacing 15
+
+style credits_tabs_button:
+    selected_background Solid("#000")
+    xsize 267
+    padding (20, 10, 20, 10)
+
+style credits_tabs_button_text:
+    font "gui/chubhand.ttf"
+    color "#000"
+    size 72
+    selected_color "#F2EE29"
+
+style credit_heading:
+    font "gui/chubhand.ttf"
+    color "#000"
+    size 60
 
 
 ## Load and Save screens #######################################################
