@@ -662,6 +662,11 @@ style yellow_button_text:
     textalign 0.5
     xalign 0.5
 
+style yellow_button_small is yellow_button:
+    padding (20, 5, 20, 5)
+
+style yellow_button_small_text is yellow_button_text
+
 style main_menu_button is yellow_button:
     xsize 217
 
@@ -693,7 +698,6 @@ style social_links_image_button:
 ## transcluded (placed) inside it.
 
 screen game_menu(title, title_size=88):
-
     frame:
         background Solid("#F2EE29")
         xfill True
@@ -984,225 +988,260 @@ screen preferences(start=False):
     default display_sample_text_speed = False
     default update_count = 0
     default hover_radio = None
+    default show_content = False
 
     use game_menu(_("SETTINGS"), 76):
 
         if (not display_sample_text_speed):
-            timer 0.5:
+            timer 1.7:
                 action [
                     SetScreenVariable("display_sample_text_speed", True),
                     Hide("sample_text_speed_2"),
                     Show("sample_text_speed_1")
                 ]
+        timer 1.2:
+            action SetScreenVariable("show_content", True)
 
-        hbox:
-            xfill True
-            yalign 0.35
-            spacing 50
-            vbox:
-                xalign 1.0
-                hbox:
-                    spacing 10
-                    xalign 0.5
-                    label _("READING"):
-                        style "section_label"
-                frame:
-                    xsize 600
-                    ysize 550
+        if (show_content):
+            hbox:
+                xfill True
+                yalign 0.35
+                spacing 50
+                at trans_fade(0.0, 0.5)
 
-                    padding (20, 20, 20, 20)
-                    vbox:
-                        vbox:
-                            style_prefix "reading_box"
-                            label _("Text Speed")
-                            bar:
-                                value Preference("text speed")
-                                released [
-                                    SetScreenVariable("display_sample_text_speed", False),
-                                    SetVariable("wait_2", ("" if preferences.text_cps == 0 else "{w=2.0}")),
-                                    SetVariable("wait_1", ("" if preferences.text_cps == 0 else "{w=1.0}")),
-                                    SetVariable("wait_05", ("" if preferences.text_cps == 0 else "{w=0.5}")),
-                                    Hide("sample_text_speed_1"),
-                                    Hide("sample_text_speed_2")
-                                ]
-                            hbox:
-                                xsize 320
-                                text _("Slow")
-                                text _("Fast"):
-                                    xalign 1.0
-
-                            #text _(str(preferences.text_cps))
-
-                        vbox:
-                            style_prefix "reading_box"
-                            yoffset 20
-                            label _("Auto-Forward Time")
-                            bar:
-                                value Preference("auto-forward time")
-                                released [
-                                    SetScreenVariable("display_sample_text_speed", False),
-                                    Hide("sample_text_speed_1"),
-                                    Hide("sample_text_speed_2")
-                                ]
-                            hbox:
-                                xsize 320
-                                text _("Instant")
-                                text _("Never"):
-                                    xalign 1.0
-                            #text _(str(preferences.afm_time))
-
-                        image Solid("#000"):
-                            xsize 0.9
-                            ysize 4
-                            yoffset 30
-            
-            vbox:
-                xsize 0.5
-                spacing 20
                 vbox:
+                    xalign 1.0
                     hbox:
                         spacing 10
                         xalign 0.5
-                        label _("AUDIO"):
+                        label _("READING"):
                             style "section_label"
                     frame:
-                        xsize 550
-                        ysize 288
-                        padding (80, 20, 80, 20)
-                        hbox:
-                            spacing 40
+                        xsize 600
+                        ysize 550
+
+                        padding (20, 20, 20, 20)
+                        vbox:
                             vbox:
+                                style_prefix "reading_box"
+                                label _("Text Speed")
+                                bar:
+                                    value Preference("text speed")
+                                    released [
+                                        SetScreenVariable("display_sample_text_speed", False),
+                                        SetVariable("wait_2", ("" if preferences.text_cps == 0 else "{w=2.0}")),
+                                        SetVariable("wait_1", ("" if preferences.text_cps == 0 else "{w=1.0}")),
+                                        SetVariable("wait_05", ("" if preferences.text_cps == 0 else "{w=0.5}")),
+                                        Hide("sample_text_speed_1"),
+                                        Hide("sample_text_speed_2")
+                                    ]
                                 hbox:
-                                    style_prefix "audio_bars"
-                                    vbox:
-                                        vbar:
-                                            value Preference("music volume")
-                                            if preferences.get_mute("music"):
-                                                base_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
-                                                thumb "gui/slider/vertical_insensitive_thumb.png"
+                                    xsize 320
+                                    text _("Slow")
+                                    text _("Fast"):
+                                        xalign 1.0
 
-                                        text _("Music"):
-                                            color ("#000" if not preferences.get_mute("music") else "#707070")
+                                #text _(str(preferences.text_cps))
 
-                                    vbox:
-                                        vbar:
-                                            value Preference("sound volume")
-                                            if preferences.get_mute("sfx"):
-                                                base_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
-                                                thumb "gui/slider/vertical_insensitive_thumb.png"
-                                        text _("Effects"):
-                                            color ("#000" if not preferences.get_mute("sfx") else "#707070")
-
-                                    #vbox:
-                                    #    vbar:
-                                    #        value Preference("voice volume")
-                                    #        if preferences.get_mute("voice"):
-                                    #            base_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
-                                    #            thumb "gui/slider/vertical_insensitive_thumb.png"
-                                    #    text _("Voice"):
-                                    #        color ("#0099FF" if not preferences.get_mute("voice") else "#707070")
+                            vbox:
+                                style_prefix "reading_box"
+                                yoffset 20
+                                label _("Auto-Forward Time")
+                                bar:
+                                    value Preference("auto-forward time")
+                                    released [
+                                        SetScreenVariable("display_sample_text_speed", False),
+                                        Hide("sample_text_speed_1"),
+                                        Hide("sample_text_speed_2")
+                                    ]
                                 hbox:
-                                    spacing 40
-                                    imagebutton:
-                                        idle ("gui/icons/mute_hover.png" if preferences.get_mute("music") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
-                                        hover "gui/icons/mute_hover.png"
-                                        action Preference("music mute", "toggle")
-                                        xoffset 5
+                                    xsize 320
+                                    text _("Instant")
+                                    text _("Never"):
+                                        xalign 1.0
+                                #text _(str(preferences.afm_time))
 
-                                    imagebutton:
-                                        idle ("gui/icons/mute_hover.png" if preferences.get_mute("sfx") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
-                                        hover "gui/icons/mute_hover.png"
-                                        action Preference("sound mute", "toggle")
+                            image Solid("#000"):
+                                xsize 0.9
+                                ysize 4
+                                yoffset 30
+                
+                vbox:
+                    xsize 0.5
+                    spacing 20
+                    vbox:
+                        hbox:
+                            spacing 10
+                            xalign 0.5
+                            label _("AUDIO"):
+                                style "section_label"
+                        frame:
+                            xsize 550
+                            ysize 288
+                            padding (80, 20, 80, 20)
+                            hbox:
+                                spacing 40
+                                vbox:
+                                    hbox:
+                                        style_prefix "audio_bars"
+                                        vbox:
+                                            vbar:
+                                                value Preference("music volume")
+                                                if preferences.get_mute("music"):
+                                                    base_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
+                                                    thumb "gui/slider/vertical_insensitive_thumb.png"
 
-                                    #imagebutton:
-                                    #    idle ("gui/icons/mute_hover.png" if preferences.get_mute("voice") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
-                                    #    hover "gui/icons/mute_hover.png"
-                                    #    action Preference("voice mute", "toggle")
+                                            text _("Music"):
+                                                color ("#000" if not preferences.get_mute("music") else "#707070")
+
+                                            imagebutton:
+                                                idle ("gui/icons/mute_hover.png" if preferences.get_mute("music") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
+                                                hover "gui/icons/mute_hover.png"
+                                                xalign 0.5 
+                                                action Preference("music mute", "toggle")
+
+                                        vbox:
+                                            vbar:
+                                                value Preference("sound volume")
+                                                if preferences.get_mute("sfx"):
+                                                    base_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
+                                                    thumb "gui/slider/vertical_insensitive_thumb.png"
+                                            text _("Effects"):
+                                                color ("#000" if not preferences.get_mute("sfx") else "#707070")
+
+                                            imagebutton:
+                                                idle ("gui/icons/mute_hover.png" if preferences.get_mute("sfx") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
+                                                hover "gui/icons/mute_hover.png"
+                                                action Preference("sound mute", "toggle")
+                                                xalign 0.5 
+
+                                        #vbox:
+                                        #    vbar:
+                                        #        value Preference("voice volume")
+                                        #        if preferences.get_mute("voice"):
+                                        #            base_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
+                                        #            thumb "gui/slider/vertical_insensitive_thumb.png"
+                                        #    text _("Voice"):
+                                        #        color ("#0099FF" if not preferences.get_mute("voice") else "#707070")
+                                        #    imagebutton:
+                                        #        idle ("gui/icons/mute_hover.png" if preferences.get_mute("voice") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
+                                        #        hover "gui/icons/mute_hover.png"
+                                        #        action Preference("voice mute", "toggle")
+                                
+                                vbox:
+                                    style_prefix "audio_options"
+                                    yfill True
+                                    vbox:
+                                        spacing 10
+                                        yalign 0.8
+                                        if (not preferences.get_mute("sfx")):
+                                            textbutton _("Sample Effect"):
+                                                style "yellow_button"
+                                                action Play("sound", config.sample_sound)
+                                                text_size 15
+                                        #if (not preferences.get_mute("voice")):
+                                        #    textbutton _("Sample Voice"):
+                                        #        action Play("voice", config.sample_voice)
+
+                                    hbox:
+                                        style_prefix "radio_button"
+                                        yalign 1.0
+                                        yoffset 5
+
+                                        imagebutton:
+                                            idle ("gui/checkbox_selected_hover_smol.png" if hover_radio == "mute" or (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else ("gui/checkbox_unselected_hover_smol.png" if hover_radio == "mute" else ("gui/checkbox_selected_idle_smol.png" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "gui/checkbox_unselected_idle_smol.png")))
+                                            hover ("gui/checkbox_unselected_hover_smol.png" if hover_radio != "mute" else "gui/checkbox_selected_hover_smol.png") 
+                                            action Preference("all mute", "toggle")
+                                            hovered SetScreenVariable("hover_radio", "mute")
+                                            unhovered SetScreenVariable("hover_radio", None)
+                                            yoffset 8
+                                        textbutton _("Mute All"):
+                                            action Preference("all mute", "toggle")
+                                            hovered SetScreenVariable("hover_radio", "mute")
+                                            unhovered SetScreenVariable("hover_radio", None)
+                                            text_color ("#3B3B3B" if hover_radio == "mute" else ("#000" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "#707070"))
+                                            text_bold hover_radio == "mute" or (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice"))
+
+                    vbox:
+                        hbox:
+                            spacing 15
+                            xalign 0.5
+                            label _("OTHER"):
+                                style "section_label"
+                        frame:
+                            xsize 550
+                            ysize 198
                             
                             vbox:
-                                style_prefix "audio_options"
-                                yfill True
+                                xalign 0.5
+                                spacing 15
+                                yoffset 40
                                 vbox:
-                                    spacing 10
-                                    yalign 0.8
-                                    if (not preferences.get_mute("sfx")):
-                                        textbutton _("Sample Effect"):
-                                            action Play("sound", config.sample_sound)
-                                    #if (not preferences.get_mute("voice")):
-                                    #    textbutton _("Sample Voice"):
-                                    #        action Play("voice", config.sample_voice)
+                                    label _("Display"):
+                                        text_size 28
+                                    hbox:
+                                        spacing 25
+                                        hbox:
+                                            style_prefix "radio_button"
 
-                                hbox:
-                                    style_prefix "radio_button"
-                                    yalign 1.0
-                                    yoffset 5
+                                            imagebutton:
+                                                idle ("gui/radio_hover.png" if hover_radio == "fullscreen" else ("gui/radio_selected.png" if preferences.fullscreen else "gui/radio_idle.png"))
+                                                selected "gui/radio_selected.png"
+                                                hover "gui/radio_hover.png"
+                                                action Preference("display", "fullscreen")
+                                                hovered SetScreenVariable("hover_radio", "fullscreen")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                            textbutton _("Fullscreen"):
+                                                action Preference("display", "fullscreen")
+                                                hovered SetScreenVariable("hover_radio", "fullscreen")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                                text_color ("#3B3B3B" if hover_radio == "fullscreen" else ("#000" if preferences.fullscreen else "#707070"))
+                                                text_bold preferences.fullscreen
 
-                                    imagebutton:
-                                        idle ("gui/checkbox_selected_hover_smol.png" if hover_radio == "mute" or (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else ("gui/checkbox_unselected_hover_smol.png" if hover_radio == "mute" else ("gui/checkbox_selected_idle_smol.png" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "gui/checkbox_unselected_idle_smol.png")))
-                                        hover ("gui/checkbox_unselected_hover_smol.png" if hover_radio != "mute" else "gui/checkbox_selected_hover_smol.png") 
-                                        action Preference("all mute", "toggle")
-                                        hovered SetScreenVariable("hover_radio", "mute")
-                                        unhovered SetScreenVariable("hover_radio", None)
-                                        yoffset 8
-                                    textbutton _("Mute All"):
-                                        action Preference("all mute", "toggle")
-                                        hovered SetScreenVariable("hover_radio", "mute")
-                                        unhovered SetScreenVariable("hover_radio", None)
-                                        text_color ("#3B3B3B" if hover_radio == "mute" else ("#000" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "#707070"))
-                                        text_bold hover_radio == "mute" or (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice"))
+                                        hbox:
+                                            style_prefix "radio_button"
 
-                vbox:
-                    hbox:
-                        spacing 15
+                                            imagebutton:
+                                                idle ("gui/radio_hover.png" if hover_radio == "windowed" else ("gui/radio_selected.png" if not preferences.fullscreen else "gui/radio_idle.png"))
+                                                selected "gui/radio_selected.png"
+                                                hover "gui/radio_hover.png"
+                                                action Preference("display", "window")
+                                                hovered SetScreenVariable("hover_radio", "windowed")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                            textbutton _("Windowed"):
+                                                action Preference("display", "window")
+                                                hovered SetScreenVariable("hover_radio", "windowed")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                                text_color ("#3B3B3B" if hover_radio == "windowed" else ("#000" if not preferences.fullscreen else "#707070"))
+                                                text_bold not preferences.fullscreen
+            
+            if (start):
+                frame:
+                    xalign 0.5
+                    yalign 0.9
+                    xsize 800
+                    ysize 150
+
+                    textbutton _("START GAME"):
                         xalign 0.5
-                        label _("OTHER"):
-                            style "section_label"
-                    frame:
-                        xsize 550
-                        ysize 198
-                        
-                        vbox:
-                            xalign 0.5
-                            spacing 15
-                            yoffset 40
-                            vbox:
-                                label _("Display"):
-                                    text_size 28
-                                hbox:
-                                    spacing 25
-                                    hbox:
-                                        style_prefix "radio_button"
+                        yalign 0.15
+                        text_size 45
+                        text_color "#000"
+                        text_hover_color "#3B3B3B"
+                        text_font "gui/chubhand.ttf"
+                        action [
+                            Hide("preferences", quick_dissolve),
+                            SetVariable("persistent.game_launched", True),
+                            Start()
+                        ]
 
-                                        imagebutton:
-                                            idle ("gui/radio_hover.png" if hover_radio == "fullscreen" else ("gui/radio_selected.png" if preferences.fullscreen else "gui/radio_idle.png"))
-                                            selected "gui/radio_selected.png"
-                                            hover "gui/radio_hover.png"
-                                            action Preference("display", "fullscreen")
-                                            hovered SetScreenVariable("hover_radio", "fullscreen")
-                                            unhovered SetScreenVariable("hover_radio", None)
-                                        textbutton _("Fullscreen"):
-                                            action Preference("display", "fullscreen")
-                                            hovered SetScreenVariable("hover_radio", "fullscreen")
-                                            unhovered SetScreenVariable("hover_radio", None)
-                                            text_color ("#3B3B3B" if hover_radio == "fullscreen" else ("#000" if preferences.fullscreen else "#707070"))
-                                            text_bold preferences.fullscreen
-
-                                    hbox:
-                                        style_prefix "radio_button"
-
-                                        imagebutton:
-                                            idle ("gui/radio_hover.png" if hover_radio == "windowed" else ("gui/radio_selected.png" if not preferences.fullscreen else "gui/radio_idle.png"))
-                                            selected "gui/radio_selected.png"
-                                            hover "gui/radio_hover.png"
-                                            action Preference("display", "window")
-                                            hovered SetScreenVariable("hover_radio", "windowed")
-                                            unhovered SetScreenVariable("hover_radio", None)
-                                        textbutton _("Windowed"):
-                                            action Preference("display", "window")
-                                            hovered SetScreenVariable("hover_radio", "windowed")
-                                            unhovered SetScreenVariable("hover_radio", None)
-                                            text_color ("#3B3B3B" if hover_radio == "windowed" else ("#000" if not preferences.fullscreen else "#707070"))
-                                            text_bold not preferences.fullscreen
+                    text _("These settings can be changed from the Settings menu at any time"):
+                        xalign 0.5
+                        yalign 0.85
+                        xmaximum 600
+                        size 20
+                        text_align 0.5
+                        color "#000"
 
 style pref_label is gui_label
 style pref_label_text is gui_label_text
@@ -1346,23 +1385,23 @@ screen sample_text_speed_1:
         ]
 
     if (renpy.get_screen("preferences")):
-        text _("Sample Text #1"):
+        text _("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi"):
             style "sample_text"
             slow_cps preferences.text_cps
     
 screen sample_text_speed_2:
     if (renpy.get_screen("preferences")):
-        text _("Sample Text #2"):
+        text _("Ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat"):
             style "sample_text"
             slow_cps preferences.text_cps
-            yalign 0.76
-            xoffset -6
+            yalign 0.66
+            xoffset 2
 
 style sample_text:
     color "#000"
     size 22
     xalign 0.27
-    yalign 0.58
+    yalign 0.52
     xmaximum 500
 
 

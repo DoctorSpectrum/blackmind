@@ -10,9 +10,7 @@ BLACKMIND TODO
                 - Menus:
                     - MONDAY:
                         - Preferences: 
-                            - Yellow versions of mute icons; button; radio buttons
-                            - Sample text
-                            - Account for Start = True
+                            - Update Sample Effect button to not be inverted colours
                         - Extras:
                             - Style up the Confirm to match the rest of the UI
                         - Credits:

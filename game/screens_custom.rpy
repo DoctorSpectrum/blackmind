@@ -381,98 +381,88 @@ screen flow_chart():
 screen saves_list(title="LOAD"):
     default hover_row = None
     default selected_save = None
+    default show_content = False
     tag menu
 
+    timer 1.2:
+        action SetScreenVariable("show_content", True)
+
     use game_menu(title, 96):
-        vbox:
-            yalign 0.25
-            at trans_fade(1.2, 0.5)
 
-            for i in range(15):
-                frame:
-                    style_prefix "save_row"
-                    background Solid("#F2EE29" if (hover_row is not i and selected_save is not i) else "#000")
-                    xoffset ((i * 50) -400 if i > 9 else 65)
+        if (show_content):
+            vbox:
+                yalign 0.25
+                at trans_fade(0.0, 0.5)
 
-                    if (renpy.can_load("1-" + str(i + 1))):     #Will prolly need to fix this up when I add in proper save functionality
+                for i in range(15):
+                    frame:
+                        style_prefix "save_row"
+                        background Solid("#F2EE29" if (hover_row is not i and selected_save is not i) else "#000")
+                        xoffset ((i * 50) -400 if i > 9 else 65)
+
+                        if (renpy.can_load("1-" + str(i + 1))):     #Will prolly need to fix this up when I add in proper save functionality
+                            hbox:
+                                spacing 0
+
+                                textbutton _("Save Name"):
+                                    text_color ("#F2EE29" if hover_row == i or selected_save == i else "#000")
+                                    text_underline selected_save == i
+                                    hovered SetScreenVariable("hover_row", i)
+                                    unhovered SetScreenVariable("hover_row", None)
+                                    xsize 525
+                                    action SetScreenVariable("selected_save", i)
+                                textbutton _(add_date_suffix(FileTime(i + 1, format="%d")) + FileTime(i + 1, format=_("{#file_time}%B %Y, %H:%M"), empty=_("empty slot"))):
+                                    text_color ("#F2EE29" if hover_row == i or selected_save == i else "#000")
+                                    text_underline selected_save == i
+                                    hovered SetScreenVariable("hover_row", i)
+                                    unhovered SetScreenVariable("hover_row", None)
+                                    action SetScreenVariable("selected_save", i)
+                        else:
+                            hbox
+
+                    image Solid("#3B3B3B"):
+                        xsize 875
+                        ysize 2
+                        xoffset ((i * 50) -400 if i > 9 else 65)
+
+            frame:
+                style_prefix "save_details"
+                background None #Solid("#FFFC5E")
+                xalign 0.69
+                yalign 0.135
+                xsize 450
+                ysize 525
+
+                if (selected_save is not None):
+                    vbox:
+                        add FileScreenshot(selected_save + 1):
+                            xalign 0.5
+
+                        text _("Save Name"):
+                            style "save_name"
+                        text _("Day 1, Morning"):
+                            style "save_details"
+                        text _(add_date_suffix(FileTime(selected_save + 1, format="%d", empty=(0))) + FileTime(selected_save + 1, format=_("{#file_time}%B %Y, %H:%M"))):
+                            style "save_date"
+
                         hbox:
-                            spacing 0
-
-                            textbutton _("Save Name"):
-                                text_color ("#F2EE29" if hover_row == i or selected_save == i else "#000")
-                                text_underline selected_save == i
-                                hovered SetScreenVariable("hover_row", i)
-                                unhovered SetScreenVariable("hover_row", None)
-                                xsize 525
-                                action SetScreenVariable("selected_save", i)
-                            textbutton _(add_date_suffix(FileTime(i + 1, format="%d")) + FileTime(i + 1, format=_("{#file_time}%B %Y, %H:%M"), empty=_("empty slot"))):
-                                text_color ("#F2EE29" if hover_row == i or selected_save == i else "#000")
-                                text_underline selected_save == i
-                                hovered SetScreenVariable("hover_row", i)
-                                unhovered SetScreenVariable("hover_row", None)
-                                action SetScreenVariable("selected_save", i)
-                    else:
-                        hbox
-
-                image Solid("#3B3B3B"):
-                    xsize 875
-                    ysize 2
-                    xoffset ((i * 50) -400 if i > 9 else 65)
-
-        frame:
-            style_prefix "save_details"
-            background None #Solid("#FFFC5E")
-            xalign 0.69
-            yalign 0.135
-            xsize 450
-            ysize 525
-
-            if (selected_save is not None):
-                vbox:
-                    add FileScreenshot(selected_save + 1):
-                        xalign 0.5
-
-                    text _("Save Name"):
-                        style "save_name"
-                    text _("Day 1, Morning"):
-                        style "save_details"
-                    text _(add_date_suffix(FileTime(selected_save + 1, format="%d", empty=(0))) + FileTime(selected_save + 1, format=_("{#file_time}%B %Y, %H:%M"))):
-                        style "save_date"
-
-                    hbox:
-                        xfill True
-                        spacing 5
-                        box_align 0.5
-                        textbutton _("Load"):
-                            style "light_yellow_button_small"
-                            action (Function(renpy.load, "1-" + str(selected_save + 1)))
-                            xsize 120
-                            text_font "gui/chubhand.ttf"
-                            text_yoffset 2
-                            text_size 28
-                        textbutton _("Delete"):
-                            style "light_yellow_button_small"
-                            action ([FileDelete(selected_save + 1), SetScreenVariable("selected_save", None)])
-                            text_font "gui/chubhand.ttf"
-                            text_yoffset 2
-                            text_size 28
+                            xfill True
+                            spacing 5
+                            box_align 0.5
+                            textbutton _("Load"):
+                                style "light_yellow_button_small"
+                                action (Function(renpy.load, "1-" + str(selected_save + 1)))
+                                xsize 120
+                                text_font "gui/chubhand.ttf"
+                                text_yoffset 2
+                                text_size 28
+                            textbutton _("Delete"):
+                                style "light_yellow_button_small"
+                                action ([FileDelete(selected_save + 1), SetScreenVariable("selected_save", None)])
+                                text_font "gui/chubhand.ttf"
+                                text_yoffset 2
+                                text_size 28
                 
-
-        #Table with list of files
-            #Loop through files
-            #Clicking on one brings up the screenshot, details, and load/delete buttons
-
-        #If we're saving, there should be a NEW SAVE button somewhere obvious, so we don't have to overwrite our existing save
-
-    textbutton _("Return"):
-        xalign 0.975
-        yalign 0.975
-        text_font "gui/chubhand.ttf"
-        text_color "#F2EE29"
-        text_hover_underline True
-        action Return()
-        at trans_fade(1.0, 0.33)
-
 style bottom_left_frame:
     background Solid("#000")
     xsize 850
