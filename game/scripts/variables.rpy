@@ -114,6 +114,12 @@ label variables:
         pause pause_time
         linear time alpha 0.0
 
+    transform fade_right_to_left(offset=50, pause_time=0.0):
+        xoffset offset
+        pause pause_time
+        linear 1.0:
+            xoffset 0
+
     transform portrait_crop:
         zoom 0.2
         xalign 0.1

@@ -810,11 +810,16 @@ style game_menu_label_text:
 
 screen about():
     default show_content = False
-    default selected_tab = "text"
+    default hide_content = False
+    default selected_tab = "game"
     tag menu
 
     timer 1.2:
         action SetScreenVariable("show_content", True)
+
+    if (hide_content):
+        timer 0.5:
+            action SetScreenVariable("hide_content", False)
 
     use game_menu(_("CREDITS")):
 
@@ -823,46 +828,143 @@ screen about():
                 style_prefix "credits_tabs"
                 at trans_fade(0.0, 0.5)
 
-                textbutton _("Text"):
-                    action SetScreenVariable("selected_tab", "text")
+                textbutton _("Game"):
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "game")
+                    ]
+                    selected selected_tab == "game"
                 textbutton _("Visuals"):
-                    action SetScreenVariable("selected_tab", "visuals")
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "visuals")
+                    ]
+                    selected selected_tab == "visuals"
                 textbutton _("Audio"):
-                    action SetScreenVariable("selected_tab", "audio")
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "audio")
+                    ]
+                    selected selected_tab == "audio"
                 textbutton _("Assets"):
-                    action SetScreenVariable("selected_tab", "assets")
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "assets")
+                    ]
+                    selected selected_tab == "assets"
                 textbutton _("Other"):
-                    action SetScreenVariable("selected_tab", "other")
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "other")
+                    ]
+                    selected selected_tab == "other"
 
             frame:
                 background None
                 xsize 1275
                 ysize 700
                 xalign 0.6
-                yalign 0.5
+                yalign 0.2
 
-                if (selected_tab == "text"):
+                if (hide_content == False):
+
                     vbox:
-                        at trans_fade(0.0, 0.5)
+                        spacing 80
+                        at trans_fade(0.0, 0.5), fade_right_to_left
 
-                        text _("Harry Sewalski"):
-                            style "credit_heading"
-                        text _("Writing, Programming, Directing")
-                elif (selected_tab == "visuals"):
-                    null
-                elif (selected_tab == "audio"):
-                    null
-                elif (selected_tab == "assets"):
-                    null
-                elif (selected_tab == "other"):
-                    vbox:
-                        label "[config.name!t]"
-                        text _("Version [config.version!t]\n")
+                        if (selected_tab == "game"):
+                            vbox:
+                                spacing 10
+                                text _("Harry Sewalski"):
+                                    style "credit_heading"
+                                text _("Writing, Programming, Directing"):
+                                    style "credit_person"
 
-                        if gui.about:
-                            text "[gui.about!t]\n"
+                            vbox:
+                                spacing 10
+                                text _("TBA"):
+                                    style "credit_heading"
+                                text _("Beta Testing"):
+                                    style "credit_person"
 
-                        text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+                            vbox:
+                                spacing 10
+                                text _("TBA"):
+                                    style "credit_heading"
+                                text _("Another Credit"):
+                                    style "credit_person"
+                        elif (selected_tab == "visuals"):
+                            vbox:
+                                spacing 10
+                                text _("TBA"):
+                                    style "credit_heading"
+                                text _("Sprite and CG Artwork"):
+                                    style "credit_person"
+
+                            vbox:
+                                spacing 10
+                                text _("TBA"):
+                                    style "credit_heading"
+                                text _("Background Artwork"):
+                                    style "credit_person"
+
+                            vbox:
+                                spacing 10
+                                text _("TBA"):
+                                    style "credit_heading"
+                                text _("Another Credit"):
+                                    style "credit_person"
+                        elif (selected_tab == "audio"):
+                            vbox:
+                                spacing 10
+                                text _("TBA"):
+                                    style "credit_heading"
+                                text _("Voice of Character #1"):
+                                    style "credit_person"
+
+                            vbox:
+                                spacing 10
+                                text _("TBA"):
+                                    style "credit_heading"
+                                text _("Voice of Character #2"):
+                                    style "credit_person"
+
+                            vbox:
+                                spacing 10
+                                text _("TBA"):
+                                    style "credit_heading"
+                                text _("Original Music"):
+                                    style "credit_person"
+
+                            vbox:
+                                spacing 10
+                                text _("{a=https://www.zapsplat.com/}{font=gui/chubhand.ttf}Zapsplat.com{/font}{/a}"):
+                                    style "credit_heading"
+                                text _("Sound Effects"):
+                                    style "credit_person"
+                        elif (selected_tab == "assets"):
+                            vbox:
+                                spacing 10
+                                text _("{a=https://watabou.itch.io/medieval-fantasy-city-generator}{font=gui/chubhand.ttf}Medieval Fantasy City Generator{/font}{/a}"):
+                                    style "credit_heading"
+                                text _("Map Generator"):
+                                    style "credit_person"
+                        elif (selected_tab == "other"):
+                            vbox:
+                                spacing 10
+                                text _("BLACKMIND"):
+                                    font "gui/Decade__.ttf"
+                                    color "#000"
+                                    size 72
+                                text _("Version [config.version!t]\n"):
+                                    color "#000"
+
+                            if gui.about:
+                                text "[gui.about!t]\n":
+                                    color "#000"
+
+                            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]"):
+                                color "#000"
 
 
 style about_label is gui_label
@@ -887,11 +989,16 @@ style credits_tabs_button_text:
     color "#000"
     size 72
     selected_color "#F2EE29"
+    yoffset 6
 
 style credit_heading:
     font "gui/chubhand.ttf"
     color "#000"
     size 60
+
+style credit_person:
+    color "#000"
+    size 28
 
 
 ## Load and Save screens #######################################################
@@ -1200,7 +1307,7 @@ screen preferences(start=False):
                                         yalign 0.8
                                         if (not preferences.get_mute("sfx")):
                                             textbutton _("Sample Effect"):
-                                                style "yellow_button"
+                                                style "yellow_button_dark_hover"
                                                 action Play("sound", config.sample_sound)
                                                 text_size 15
                                         #if (not preferences.get_mute("voice")):
@@ -1468,6 +1575,11 @@ style sample_text:
     yalign 0.52
     xmaximum 500
 
+style yellow_button_dark_hover is yellow_button:
+    hover_background Frame("gui/button/button_dark.png")
+
+style yellow_button_dark_hover_text is yellow_button_text:
+    hover_color "#000"
 
 ## History screen ##############################################################
 ##
