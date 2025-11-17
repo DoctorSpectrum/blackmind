@@ -524,3 +524,44 @@ style light_yellow_button_small is light_yellow_button:
     padding (20, 5, 20, 5)
 
 style light_yellow_button_small_text is light_yellow_button_text
+
+screen modal_popup(message, option_labels, option_actions):
+    modal True
+
+    zorder 200
+
+    style_prefix "confirm"
+
+    frame:
+        xfill True
+        yfill True
+        background Solid ("#f2ef2973")
+        at trans_fade(0.0, 0.5)
+
+        frame:
+            background Solid("#000000")
+            xsize 588
+            ysize 380
+
+            frame:
+                background Solid("#F2EE29")
+                xsize 576
+                ysize 368
+
+                vbox:
+                    xalign .5
+                    yalign .5
+                    spacing 45
+
+                    label _(message):
+                        style "confirm_prompt"
+                        text_color "#000"
+                        xalign 0.5
+
+                    hbox:
+                        xalign 0.5
+                        spacing 150
+
+                        for (i, label) in enumerate(option_labels):
+                            textbutton _(label):
+                                action option_actions[i]

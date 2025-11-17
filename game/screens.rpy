@@ -533,7 +533,7 @@ screen main_menu():
             textbutton _("EXTRAS"):
                 style "main_menu_button"
                 xoffset (-132)
-                action Confirm("This currently does nothing, but the button is here to help with the placement of final elements in the menu", NullAction(), confirm_selected=True)
+                action Show("modal_popup", message="This doesn't do anything right now; it's just there for working out menu button placement", option_labels=["OK"], option_actions=[Hide("modal_popup")])
                 at menu_button(2.5)
             textbutton _("CREDITS"):
                 style "main_menu_button"
