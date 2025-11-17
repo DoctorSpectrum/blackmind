@@ -62,13 +62,15 @@ style vscrollbar:
 
 style slider:
     ysize gui.slider_size
-    base_bar Frame("gui/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
-    thumb "gui/slider/horizontal_[prefix_]thumb.png"
+    left_bar "#000"
+    right_bar "gui/bar/right.png"
+    thumb None
 
 style vslider:
     xsize gui.slider_size
-    base_bar Frame("gui/slider/vertical_[prefix_]bar.png", gui.vslider_borders, tile=gui.slider_tile)
-    thumb "gui/slider/vertical_[prefix_]thumb.png"
+    bottom_bar "#000"
+    top_bar "gui/bar/top.png"
+    thumb None
 
 
 style frame:
@@ -690,95 +692,43 @@ style social_links_image_button:
 ## This screen is intended to be used with one or more children, which are
 ## transcluded (placed) inside it.
 
-screen game_menu(title, scroll=None, yinitial=0.0, spacing=0, start=False):
-
-    style_prefix "game_menu"
+screen game_menu(title, title_size=88):
 
     frame:
-        style "game_menu_outer_frame"
+        background Solid("#F2EE29")
+        xfill True
+        yfill True
 
-        hbox:
+    frame:
+        style "bottom_left_frame"
+        at menu_bottom_left_slide
 
-            frame:
-                style "game_menu_content_frame"
+    frame:
+        style "top_right_frame"
+        at menu_top_right_slide
 
-                if scroll == "viewport":
-
-                    side ("c r"):
-                        area (0, 30, 1620, 710)
-                        viewport id "menu_viewport":
-                            draggable True 
-                            mousewheel True
-                            yinitial 1.0
-                            vbox:
-                                spacing spacing
-
-                                transclude
-                        vbar value YScrollValue("menu_viewport"):
-                            xsize 10
-
-                elif scroll == "vpgrid":
-
-                    vpgrid:
-                        cols 1
-                        yinitial yinitial
-
-                        scrollbars "vertical"
-                        mousewheel True
-                        draggable True
-                        pagekeys True
-
-                        side_yfill True
-
-                        spacing spacing
-
-                        transclude
-
-                else:
-
-                    transclude
+    frame:
+        style "bottom_right_frame"
+        at menu_bottom_right_slide
+        
+    text _(title):
+        font "gui/Decade__.ttf"
+        size title_size
+        color "#F2EE29"
+        xalign (0.025 if title_size > 90 else 0.0125)
+        yalign 0.95
+        at trans_fade(1.0, 0.33)
 
     textbutton _("Return"):
-        style "return_button"
+        xalign 0.975
+        yalign 0.975
+        text_font "gui/chubhand.ttf"
+        text_color "#F2EE29"
+        text_hover_underline True
         action Return()
-        if (start):
-            xoffset 550
-            yoffset 2
+        at trans_fade(1.0, 0.33)
 
-    if (start):
-        frame:
-            xalign 0.5
-            yalign 0.95
-            xsize 800
-            ysize 150
-
-            textbutton _("START GAME"):
-                xalign 0.5
-                yalign 0.15
-                text_size 45
-                text_color "#757575"
-                text_hover_color "#990000"
-                action [
-                    Hide("preferences", quick_dissolve),
-                    SetVariable("persistent.game_launched", True),
-                    Start()
-                ]
-
-            text _("These settings can be changed from the Settings menu at any time"):
-                xalign 0.5
-                yalign 0.85
-                xmaximum 600
-                size 20
-                text_align 0.5
-                color "#fff"
-    else:
-        #use navigation
-        textbutton _("Main Menu"):
-            action MainMenu()
-            yalign 0.95
-            xalign 0.65
-
-    text _(title)
+    transclude
 
 
 style game_menu_outer_frame is empty
@@ -1035,7 +985,7 @@ screen preferences(start=False):
     default update_count = 0
     default hover_radio = None
 
-    use game_menu(_("Preferences"), start=start):
+    use game_menu(_("SETTINGS"), 76):
 
         if (not display_sample_text_speed):
             timer 0.5:
@@ -1047,13 +997,14 @@ screen preferences(start=False):
 
         hbox:
             xfill True
+            yalign 0.35
             spacing 50
             vbox:
                 xalign 1.0
                 hbox:
                     spacing 10
                     xalign 0.5
-                    label _("Reading"):
+                    label _("READING"):
                         style "section_label"
                 frame:
                     xsize 600
@@ -1100,7 +1051,7 @@ screen preferences(start=False):
                                     xalign 1.0
                             #text _(str(preferences.afm_time))
 
-                        image Solid("#0099ff"):
+                        image Solid("#000"):
                             xsize 0.9
                             ysize 4
                             yoffset 30
@@ -1112,7 +1063,7 @@ screen preferences(start=False):
                     hbox:
                         spacing 10
                         xalign 0.5
-                        label _("Audio"):
+                        label _("AUDIO"):
                             style "section_label"
                     frame:
                         xsize 550
@@ -1131,7 +1082,7 @@ screen preferences(start=False):
                                                 thumb "gui/slider/vertical_insensitive_thumb.png"
 
                                         text _("Music"):
-                                            color ("#0099FF" if not preferences.get_mute("music") else "#707070")
+                                            color ("#000" if not preferences.get_mute("music") else "#707070")
 
                                     vbox:
                                         vbar:
@@ -1140,7 +1091,7 @@ screen preferences(start=False):
                                                 base_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
                                                 thumb "gui/slider/vertical_insensitive_thumb.png"
                                         text _("Effects"):
-                                            color ("#0099FF" if not preferences.get_mute("sfx") else "#707070")
+                                            color ("#000" if not preferences.get_mute("sfx") else "#707070")
 
                                     #vbox:
                                     #    vbar:
@@ -1197,18 +1148,18 @@ screen preferences(start=False):
                                         action Preference("all mute", "toggle")
                                         hovered SetScreenVariable("hover_radio", "mute")
                                         unhovered SetScreenVariable("hover_radio", None)
-                                        text_color ("#7CC5F8" if hover_radio == "mute" else ("#0099FF" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "#707070"))
+                                        text_color ("#3B3B3B" if hover_radio == "mute" else ("#000" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "#707070"))
                                         text_bold hover_radio == "mute" or (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice"))
 
                 vbox:
                     hbox:
                         spacing 15
                         xalign 0.5
-                        label _("Other"):
+                        label _("OTHER"):
                             style "section_label"
                     frame:
                         xsize 550
-                        ysize 188
+                        ysize 198
                         
                         vbox:
                             xalign 0.5
@@ -1233,7 +1184,7 @@ screen preferences(start=False):
                                             action Preference("display", "fullscreen")
                                             hovered SetScreenVariable("hover_radio", "fullscreen")
                                             unhovered SetScreenVariable("hover_radio", None)
-                                            text_color ("#7CC5F8" if hover_radio == "fullscreen" else ("#0099FF" if preferences.fullscreen else "#707070"))
+                                            text_color ("#3B3B3B" if hover_radio == "fullscreen" else ("#000" if preferences.fullscreen else "#707070"))
                                             text_bold preferences.fullscreen
 
                                     hbox:
@@ -1250,7 +1201,7 @@ screen preferences(start=False):
                                             action Preference("display", "window")
                                             hovered SetScreenVariable("hover_radio", "windowed")
                                             unhovered SetScreenVariable("hover_radio", None)
-                                            text_color ("#7CC5F8" if hover_radio == "windowed" else ("#0099FF" if not preferences.fullscreen else "#707070"))
+                                            text_color ("#3B3B3B" if hover_radio == "windowed" else ("#000" if not preferences.fullscreen else "#707070"))
                                             text_bold not preferences.fullscreen
 
 style pref_label is gui_label
@@ -1284,6 +1235,9 @@ style section_label:
     yalign 0.5
     bottom_margin 10
 
+style section_label_text is label_text:
+    font "gui/chubhand.ttf"
+
 style reading_box_label_text:
     size 28
 
@@ -1297,7 +1251,7 @@ style reading_box_slider:
     xsize 300
 
 style reading_box_text:
-    color "#0099ff"
+    color "#000"
     size 20
     yalign 0.5
 
@@ -1312,7 +1266,7 @@ style audio_bars_vslider:
     xalign 0.5
 
 style audio_bars_text:
-    color "#0099ff"
+    color "#000"
     size 20
 
 style audio_options_button:
@@ -1320,7 +1274,7 @@ style audio_options_button:
     background Frame("gui/frame_thicc.png")
 
 style audio_options_button_text:
-    color "#0099ff"
+    color "#000"
     font "DejaVuSans.ttf"
     xalign 0.5
     size 20
@@ -1335,8 +1289,8 @@ style radio_button_image_button:
 style radio_button_button_text:
     size 20
     font "DejaVuSans.ttf"
-    hover_color "#0099ff"
-    selected_color "#0099ff"
+    hover_color "#000"
+    selected_color "#000"
 
 style pref_label:
     top_margin gui.pref_spacing
@@ -1357,7 +1311,7 @@ style radio_button:
 
 style radio_button_text:
     properties gui.button_text_properties("radio_button")
-    selected_color "#0099ff"
+    selected_color "#000"
 
 style check_vbox:
     spacing gui.pref_button_spacing
@@ -1368,7 +1322,7 @@ style check_button:
 
 style check_button_text:
     properties gui.button_text_properties("check_button")
-    selected_color "#0099ff"
+    selected_color "#000"
 
 style slider_slider:
     xsize 525
@@ -1405,7 +1359,7 @@ screen sample_text_speed_2:
             xoffset -6
 
 style sample_text:
-    color "#006CBF"
+    color "#000"
     size 22
     xalign 0.27
     yalign 0.58

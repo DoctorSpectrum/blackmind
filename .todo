@@ -3,33 +3,55 @@ BLACKMIND TODO
         - Delivery Date: 31/12/2025
         - TODO List:
             - DAY TASKS
+                - Aiming to get all of the following donezo by Sunday (23rd) so that I have a week to updoot the script
+                    and write out the doccos. Then, if I can do that, I'm a month ahead of schedule, and can start working
+                    on the character/background designs for commissioners.
+
                 - Menus:
-                    - Save/Load: 
-                        - Saving within the game should bring us to the custom screen
-                        - NEW SAVE button when not on main menu
-                        - Clicking on an entry lets you save or load (load only on main menu)
-                        - Functionality for naming your saves
-                    - Preferences: 
-                        - Needs a black/yellow colour scheme
-                        - Add in sample text
-                    - Extras:
-                        - Style up the Confirm to match the rest of the UI
-                    - Credits:
-                        - Let's do it as less of a scroll box, and something more dynamic and exciting
-                        - Add in details about myself
-                        - Credit for SFX
-                        - Credit for music
-                        - Credit for map generator
-                    - General:
-                        - Return taking us to the main menu should not require us to press Enter again
-                - Customise GUI
-                    - GUI for:
-                        - Forget
-                        - Mind-reading
-                        - Money
-                    - Functionality for choosing where to go in the demo
-                        - Any other functionality not already implemented - play through the demo and work out where shit is incomplete
-                    - Let's assume we're doing a custom pause menu for now (like what I did for AN) but I'll sort it out once I'm working on it
+                    - MONDAY:
+                        - Preferences: 
+                            - Yellow versions of mute icons; button; radio buttons
+                            - Sample text
+                            - Account for Start = True
+                        - Extras:
+                            - Style up the Confirm to match the rest of the UI
+                        - Credits:
+                            - Let's do it as less of a scroll box, and something more dynamic and exciting
+                            - Add in details about myself
+                            - Credit for SFX
+                            - Credit for music
+                            - Credit for map generator
+                    - TUESDAY:
+                        - Pause menu:
+                            - Flow Chart - disabled in prototype
+                            - Psychic Powers - disabled in prototype
+                            - Characters - disabled in prototype
+                            - Notes - disabled in prototype
+                        
+                            - Load (saving will be donezo at nodes)
+                            - Settings
+                            - Menu
+                            - Quit
+
+                    - WEDNESDAY:
+                        - Save: 
+                            - Add in the save functionality on the same bit as we select where to go; then it's
+                                helping to test it within the framework of the game
+                            - NEW SAVE button when not on main menu
+                            - Clicking on an entry lets you save or load
+                            - Functionality for naming your saves
+                        - General:
+                            - Return taking us to the main menu from within the main menu should not require us to press Enter again
+                    
+                    - THURSDAY:
+                        - Customise GUI
+                            - Dramatic splash opening, like Metallic Rouge
+                            - GUI for:
+                                - Forget
+                                - Mind-reading
+                                - Money
+                            - Functionality for choosing where to go in the demo
+                                - Any other functionality not already implemented - play through the demo and work out where shit is incomplete
 
             - EVENING TASKS
                 - Script needs some touch-ups

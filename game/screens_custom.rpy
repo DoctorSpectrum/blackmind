@@ -383,31 +383,7 @@ screen saves_list(title="LOAD"):
     default selected_save = None
     tag menu
 
-    frame:
-        background Solid("#F2EE29")
-        xfill True
-        yfill True
-
-        frame:
-            style "bottom_left_frame"
-            at menu_bottom_left_slide
-
-        frame:
-            style "top_right_frame"
-            at menu_top_right_slide
-
-        frame:
-            style "bottom_right_frame"
-            at menu_bottom_right_slide
-            
-        text _(title):
-            font "gui/Decade__.ttf"
-            size 96
-            color "#F2EE29"
-            xalign 0.025
-            yalign 0.95
-            at trans_fade(1.0, 0.33)
-
+    use game_menu(title, 96):
         vbox:
             yalign 0.25
             at trans_fade(1.2, 0.5)
