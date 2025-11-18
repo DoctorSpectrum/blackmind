@@ -492,22 +492,22 @@ screen main_menu():
         use social_links
 
         image "images/menu/ring.png":
-            xalign 0.575
+            xalign 0.45
             yalign 0.5
             at menu_expand_ring(3.0)
         image "images/menu/ring.png":
-            xalign 0.575
+            xalign 0.45
             yalign 0.5
             at menu_expand_ring(3.2)
         image "images/menu/menu_placeholder.png":
             at transform:
                 zoom 0.8
                 alpha 0.0
-                xoffset 130
+                xoffset -180
                 yoffset 220
                 pause 1.0
                 linear 2.0:
-                    xoffset 230
+                    xoffset 20
                     alpha 1.0
 
 
@@ -522,27 +522,27 @@ screen main_menu():
                 at menu_button(1.0)
             textbutton _("LOAD"):
                 style "main_menu_button"
-                xoffset (-44)
+                xoffset -66
                 action ShowMenu("saves_list")
                 at menu_button(1.5)
             textbutton _("SETTINGS"):
                 style "main_menu_button"
-                xoffset (-88)
+                xoffset -132
                 action ShowMenu("preferences")
                 at menu_button(2.0)
             textbutton _("EXTRAS"):
                 style "main_menu_button"
-                xoffset (-132)
+                xoffset -198
                 action Show("modal_popup", message="This doesn't do anything right now; it's just there for working out menu button placement", option_labels=["OK"], option_actions=[Hide("modal_popup")])
                 at menu_button(2.5)
             textbutton _("CREDITS"):
                 style "main_menu_button"
-                xoffset (-176)
+                xoffset -264
                 action ShowMenu("about")
                 at menu_button(3.0)
             textbutton _("QUIT"):
                 style "main_menu_button"
-                xoffset (-220)
+                xoffset -334
                 action Quit()
                 at menu_button(3.5)
     else:
@@ -659,6 +659,7 @@ style yellow_button:
 
 style yellow_button_text:
     hover_color "#F2EE29"
+    selected_color "#F2EE29"
     textalign 0.5
     xalign 0.5
 
@@ -668,11 +669,13 @@ style yellow_button_small is yellow_button:
 style yellow_button_small_text is yellow_button_text
 
 style main_menu_button is yellow_button:
-    xsize 217
+    xsize 343
+    padding (60, 15, 60, 15)
 
 style main_menu_button_text is yellow_button_text:
     font "gui/chubhand.ttf"
-    yoffset 2
+    yoffset 5
+    size 60
 
 style social_links_frame:
     xalign 0.0
@@ -734,7 +737,7 @@ screen game_menu(title, title_size=88):
         text_color "#F2EE29"
         text_hover_underline True
         text_size 38
-        action Return()
+        action (Return() if main_menu else ShowMenu("pause_menu"))
         at transform:
             xoffset 400
             pause 1.0
@@ -870,7 +873,7 @@ screen about():
 
                     vbox:
                         spacing 80
-                        at trans_fade(0.0, 0.5), fade_right_to_left
+                        at trans_fade(0.0, 0.5), fade_side_to_side
 
                         if (selected_tab == "game"):
                             vbox:
@@ -1899,13 +1902,14 @@ style confirm_frame:
 style confirm_prompt_text:
     textalign 0.5
     layout "subtitle"
+    color "#000"
 
 style confirm_button:
     properties gui.button_properties("confirm_button")
 
 style confirm_button_text:
     properties gui.text_properties("confirm_button")
-
+    hover_underline True
 
 ## Skip indicator screen #######################################################
 ##

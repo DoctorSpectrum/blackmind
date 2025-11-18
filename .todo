@@ -9,16 +9,7 @@ BLACKMIND TODO
 
                 - Menus:
                     - TUESDAY:
-                        - Pause menu:
-                            - Flow Chart - disabled in prototype
-                            - Psychic Powers - disabled in prototype
-                            - Characters - disabled in prototype
-                            - Notes - disabled in prototype
-                        
-                            - Load (saving will be donezo at nodes)
-                            - Settings
-                            - Menu
-                            - Quit
+                        - UI for say
 
                     - WEDNESDAY:
                         - Save: 

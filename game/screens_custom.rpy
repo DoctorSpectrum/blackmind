@@ -265,6 +265,7 @@ screen upgrades_screen():
                 ]
 
 screen flow_chart():
+    tag menu
     default zoom_level = 0.25
     default offset = 0
     default zooming_in = False
@@ -565,3 +566,97 @@ screen modal_popup(message, option_labels, option_actions):
                         for (i, label) in enumerate(option_labels):
                             textbutton _(label):
                                 action option_actions[i]
+
+screen pause_menu():
+    tag menu
+    
+    frame:
+        background Solid("#000")
+        style "title_half_card"
+    frame:
+        background Solid("#F2EE29")
+        style "title_half_card_right"
+
+    frame:
+        background Solid("#F2EE29")
+        style "title_half_card"
+        at title_card_slide("down")
+
+    frame: 
+        background Solid("#000")
+        style "title_half_card_right"
+        at title_card_slide("up")
+
+    text _("{color=#000}BLACK{/color}{color=#F2EE29}MIND{/color}"):
+        xalign 0.5
+        yalign 0.1
+        font "gui/Decade__.ttf"
+        size 90
+        xoffset -18
+        at trans_fade(0.5, 0.5)
+
+    vbox:
+        xalign 0.3
+        yalign 0.75
+        spacing 50
+        at trans_fade(1.0, 0.5), fade_side_to_side(-1000, 0.5)
+        textbutton _("Flow Chart"):
+            style "yellow_button_on_yellow"
+            #action ShowMenu("flow_chart")
+            action Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")])
+        textbutton _("Characters"):
+            style "yellow_button_on_yellow"
+            #action ShowMenu("characters")
+            action Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")])
+        textbutton _("Load"):
+            style "yellow_button_on_yellow"
+            action ShowMenu("saves_list")
+        textbutton _("Menu"):
+            style "yellow_button_on_yellow"
+            action MainMenu()
+        textbutton _("Quit"):
+            style "yellow_button_on_yellow"
+            action Quit()
+
+    vbox:
+        xalign 0.775
+        yalign 0.7
+        spacing 50
+        at trans_fade(1.0, 0.5), fade_side_to_side(1000, 0.5)
+        textbutton _("Psychic Powers"):
+            style "black_button_on_black"
+            #action ShowMenu("upgrades_screen")
+            action Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")])
+        textbutton _("Notes"):
+            style "black_button_on_black"
+            #action ShowMenu("notes")
+            action Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")])
+        textbutton _("Settings"):
+            style "black_button_on_black"
+            action ShowMenu("preferences")
+        textbutton _("Return"):
+            style "black_button_on_black"
+            action Return()
+
+style yellow_button_on_yellow:
+    background Frame("gui/button/button_idle.png")
+    hover_background Frame("gui/button/button_idle.png")
+    padding (80, 20, 80, 20)
+    xsize 486
+
+style yellow_button_on_yellow_text:
+    color "#000"
+    font "gui/chubhand.ttf"
+    hover_underline True
+    size 65
+    yoffset 5
+    xalign 0.5
+
+style black_button_on_black is yellow_button_on_yellow:
+    background Frame("gui/button/button_hover.png")
+    hover_background Frame("gui/button/button_hover.png")
+    padding (80, 20, 80, 20)
+    xsize 603
+
+style black_button_on_black_text is yellow_button_on_yellow_text:
+    color "#F2EE29"

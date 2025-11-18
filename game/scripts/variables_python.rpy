@@ -1,5 +1,5 @@
 init python:
-    #_game_menu_screen = "pause"
+    _game_menu_screen = "pause_menu"
 
     config.fade_music = 1.0
     config.autosave_on_choice = False

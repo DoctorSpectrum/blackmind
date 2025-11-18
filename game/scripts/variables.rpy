@@ -59,7 +59,7 @@ label variables:
             parallel:
                 linear 3.0:
                     zoom 2.0
-                    xoffset 300
+                    xoffset 100
             parallel:
                 pause 2.0
                 linear 1.0:
@@ -114,7 +114,7 @@ label variables:
         pause pause_time
         linear time alpha 0.0
 
-    transform fade_right_to_left(offset=50, pause_time=0.0):
+    transform fade_side_to_side(offset=50, pause_time=0.0):
         xoffset offset
         pause pause_time
         linear 1.0:
