@@ -12,16 +12,6 @@ BLACKMIND TODO
                         - UI for say
 
                     - WEDNESDAY:
-                        - Save: 
-                            - Add in the save functionality on the same bit as we select where to go; then it's
-                                helping to test it within the framework of the game
-                            - NEW SAVE button when not on main menu
-                            - Clicking on an entry lets you save or load
-                            - Functionality for naming your saves
-                        - General:
-                            - Return taking us to the main menu from within the main menu should not require us to press Enter again
-                    
-                    - THURSDAY:
                         - Customise GUI
                             - Dramatic splash opening, like Metallic Rouge
                             - GUI for:
@@ -30,6 +20,16 @@ BLACKMIND TODO
                                 - Money
                             - Functionality for choosing where to go in the demo
                                 - Any other functionality not already implemented - play through the demo and work out where shit is incomplete
+
+                    - THURSDAY:
+                        - General:
+                            - Return taking us to the main menu from within the main menu should not require us to press Enter again
+                        - Save: 
+                            - Add in the save functionality on the same bit as we select where to go; then it's
+                                helping to test it within the framework of the game
+                            - NEW SAVE button when not on main menu
+                            - Clicking on an entry lets you save or load
+                            - Functionality for naming your saves
 
             - EVENING TASKS
                 - Script needs some touch-ups
