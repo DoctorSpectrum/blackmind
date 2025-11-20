@@ -8,10 +8,7 @@ BLACKMIND TODO
                     on the character/background designs for commissioners.
 
                 - Menus:
-                    - TUESDAY:
-                        - UI for say
-
-                    - WEDNESDAY:
+                    - THURSDAY:
                         - Customise GUI
                             - Dramatic splash opening, like Metallic Rouge
                             - GUI for:
@@ -21,7 +18,7 @@ BLACKMIND TODO
                             - Functionality for choosing where to go in the demo
                                 - Any other functionality not already implemented - play through the demo and work out where shit is incomplete
 
-                    - THURSDAY:
+                    - FRIDAY:
                         - General:
                             - Return taking us to the main menu from within the main menu should not require us to press Enter again
                         - Save: 

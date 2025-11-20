@@ -105,11 +105,12 @@ screen say(who, what):
         id "window"
 
         if who is not None:
-
             window:
                 id "namebox"
                 style "namebox"
                 text who id "who"
+                at transform:
+                    rotate 354
 
         text what id "what"
 
@@ -142,14 +143,13 @@ style window:
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
 style namebox:
-    xpos gui.name_xpos
-    xanchor gui.name_xalign
-    xsize gui.namebox_width
-    ypos gui.name_ypos
-    ysize gui.namebox_height
+    xalign 0.175
+    xanchor 0.5
+    yanchor 0.5
+    yalign 0.1
 
     background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
-    padding gui.namebox_borders.padding
+    padding (40, 5, 40, 10)
 
 style say_label:
     properties gui.text_properties("name", accent=True)
