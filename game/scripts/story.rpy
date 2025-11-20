@@ -1,6 +1,8 @@
 label prologue_01:
     scene black_bg with quick_dissolve
-    #Text and subtitle
+    $ quick_menu = False
+    call screen chapter_breaks("PROLOGUE", "In a bar downtown, a young man is currently drinking. He is thinking about how he should use his psychic powers tonight.")
+    $ quick_menu = True
 
     scene bar with quick_dissolve
     jack smug "(Ah...[wait_1]nothing like going to the bar on a Monday.)"

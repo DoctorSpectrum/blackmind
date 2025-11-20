@@ -660,3 +660,75 @@ style black_button_on_black is yellow_button_on_yellow:
 
 style black_button_on_black_text is yellow_button_on_yellow_text:
     color "#F2EE29"
+
+screen chapter_breaks(title, paragraph):
+    default can_continue = False
+
+    timer 2.75:
+        action SetScreenVariable("can_continue", True)
+
+    frame:
+        background Solid("#000")
+        style "title_half_card"
+    frame:
+        background Solid("#F2EE29")
+        style "title_half_card_right"
+
+    frame:
+        background Solid("#F2EE29")
+        style "title_half_card"
+        at title_card_slide("down")
+
+    frame: 
+        background Solid("#000")
+        style "title_half_card_right"
+        at title_card_slide("up")
+
+    text _("BLACKMIND"):
+        font "gui/Decade__.ttf"
+        size 150
+        xalign 0.98
+        yalign 0.2
+        color "#F2EE29"
+        at trans_fade(0.5, 0.5), fade_side_to_side(100)
+
+    text _("Social Psychic Simulator"):    
+        color "#000"
+        xalign 0.05
+        yalign 0.05
+        at trans_fade(1.25, 1.5), fade_side_to_side(-50, 0.75)
+
+    vbox:
+        xalign 0.1
+        yalign 0.75
+        spacing 100
+        xmaximum 700
+        
+        text _(title):
+            color "#000"
+            font "gui/chubhand.ttf"
+            size 100
+            at trans_fade(1.25, 1.5), fade_side_to_side(-100, 0.75)
+
+        text _(paragraph):
+            color "#000"
+            at trans_fade(2.0, 1.5), fade_side_to_side(-100, 1.5)
+
+    if (can_continue):
+        text _("Click to Continue"):
+            color "#F2EE29"
+            xalign 0.95
+            yalign 0.95
+            at transform:
+                alpha 0.0
+                linear 1.0:
+                    alpha 1.0
+                linear 0.5:
+                    alpha 0.0
+                repeat
+
+        key "mouseup_1":
+            action Return()
+    
+    key "mouseup_3":
+        action NullAction()
