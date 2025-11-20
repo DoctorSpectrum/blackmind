@@ -732,3 +732,74 @@ screen chapter_breaks(title, paragraph):
     
     key "mouseup_3":
         action NullAction()
+
+screen calendar(day, section, sections=4):
+    frame: 
+        background None
+        xsize 600
+        ysize 80
+
+        xpos 270
+        ypos -550
+        
+        at transform:
+            rotate -40
+        
+        image Solid("#000"):
+            xsize 50
+            xanchor 1.0
+            at transform:
+                linear 0.5:
+                    xsize 600
+    
+    frame:
+        background None
+        xsize 600
+        ysize 80
+        
+        ypos -225
+        xpos -80
+        at transform:
+            rotate -30
+
+        image Solid("#F2EE29"):
+            xsize 50
+            at transform:
+                linear 0.5:
+                    xsize 600
+
+        text _(day):
+            yalign 0.5
+            yoffset 3
+            xalign 0.15
+            color "#000"
+            font "gui/chubhand.ttf"
+            size 50
+
+            at transform:
+                xoffset -400
+                pause 0.25
+                linear 0.5:
+                    xoffset 0
+
+        hbox:
+            xalign (0.6 if sections == 4 else 0.5)
+            yalign 0.5
+            spacing 5
+            at transform:
+                xoffset 400
+                pause 0.25
+                linear 0.5:
+                    xoffset 0
+
+            for i in range(sections):
+                frame: 
+                    background Solid("#000")
+                    xsize 20
+                    ysize 20
+                    padding (3, 3, 3, 3)
+                    at transform:
+                        rotate -45
+
+                    if (i <= section - 1):
+                        image Solid("#F2EE29")

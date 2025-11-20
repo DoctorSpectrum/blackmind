@@ -1,10 +1,10 @@
 label prologue_01:
-    scene black_bg with quick_dissolve
     $ quick_menu = False
     call screen chapter_breaks("PROLOGUE", "In a bar downtown, a young man is currently drinking. He is thinking about how he should use his psychic powers tonight.")
     $ quick_menu = True
 
-    scene bar with quick_dissolve
+    scene bar with slow_dissolve
+    show screen calendar("Monday", 1, 2)
     jack smug "(Ah...[wait_1]nothing like going to the bar on a Monday.)"
     jack smug "(Lots of lovely booze, lots of quiet, and best of all...[wait_05]a sexy bartender, who literally only has eyes for me)."
     $ swap_sprites("barbara_angry", slow_dissolve)
