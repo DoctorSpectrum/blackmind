@@ -57,8 +57,8 @@ style scrollbar:
 
 style vscrollbar:
     xsize gui.scrollbar_size
-    base_bar Frame("gui/scrollbar/vertical_[prefix_]bar.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
-    thumb Frame("gui/scrollbar/vertical_[prefix_]thumb.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
+    thumb "#F2EE29"
+    base_bar "#000"
 
 style slider:
     ysize gui.slider_size
@@ -98,9 +98,6 @@ style frame:
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
 screen say(who, what):
-    use psychic_powers
-    use conversation_progress
-
     window:
         id "window"
 
@@ -119,6 +116,18 @@ screen say(who, what):
     ## phone variant - there's no room.
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
+
+    key "mousedown_4":
+        if (renpy.get_widget("conversation_history", "history_viewport")):
+            action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value - 30))
+        else:
+            action NullAction()
+
+    key "mousedown_5":
+        if (renpy.get_widget("conversation_history", "history_viewport")):
+            action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value + 30))
+        else:
+            action NullAction()
 
 
 ## Make the namebox available for styling through the Character object.

@@ -1,9 +1,9 @@
 label variables:
     
-    define narrator = Character(None, what_color="#FFF")
-    define jack = Character("Jack", what_color="#FFF", image="jack")
-    define barbara = Character("Barbara", what_color="#FFF")
-    define docherty = Character("???", what_color="#FFF")
+    define narrator = Character(None, what_color="#000")
+    define jack = Character("Jack", what_color="#000", image="jack")
+    define barbara = Character("Barbara", what_color="#000")
+    define docherty = Character("???", what_color="#000")
 
     #Persistent variables
     default persistent.game_launched = False

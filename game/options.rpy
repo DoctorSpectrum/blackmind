@@ -75,6 +75,9 @@ init python:
 
         if (event == "begin" and progress_convo):
             convo_progress += 1
+        if (event == "slow_done"):
+            if (renpy.get_widget("conversation_history", "history_viewport")):
+                renpy.get_widget("conversation_history", "history_viewport").yadjustment.value = renpy.get_widget("conversation_history", "history_viewport").yadjustment.range + 50
 
 define config.character_callback = progress_convo
 

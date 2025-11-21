@@ -73,3 +73,12 @@ init python:
             return str(date) + date_suffix[date % 10] + " "
         else:
             return str(date) + date_suffix[0] + " "
+
+    def scene_setup(scene_length = 0, calendar_day="Monday", calendar=True, calendar_section=1, calendar_sections=4, convo_scene=True, history=True):
+        progress_convo = convo_scene
+        convo_length = scene_length 
+
+        if (calendar):
+            renpy.show_screen("calendar", day=calendar_day, section=calendar_section, sections=calendar_sections)
+        if (history):
+            renpy.show_screen("conversation_history")

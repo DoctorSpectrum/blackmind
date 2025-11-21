@@ -4,7 +4,8 @@ label prologue_01:
     $ quick_menu = True
 
     scene bar with slow_dissolve
-    show screen calendar("Monday", 1, 2)
+    $ scene_setup(27, "Monday", True, 1, 2, True, True)
+    
     jack smug "(Ah...[wait_1]nothing like going to the bar on a Monday.)"
     jack smug "(Lots of lovely booze, lots of quiet, and best of all...[wait_05]a sexy bartender, who literally only has eyes for me)."
     $ swap_sprites("barbara_angry", slow_dissolve)
@@ -17,7 +18,7 @@ label prologue_01:
     jack angry "(Whatever happened to the good old national binge drink?)"
     jack angry "(Used to be that we were told off for not drinking enough...[wait_1]it’s political correctness gone mad.)"
     jack thinking "(Still though, I’d better listen to her.)"
-    jack thinking "( I don’t think she’s the type of angry that makes me feel horny.)"
+    jack thinking "(I don’t think she’s the type of angry that makes me feel horny.)"
     #SFX: Glass sliding
     jack smug "Right, there you go then."
     jack smug "Farewell, sweet mademoiselle, and thank you for bringing pleasure to a thirsty man."

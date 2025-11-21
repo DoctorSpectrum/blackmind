@@ -69,21 +69,27 @@ screen psychic_powers():
 
 screen conversation_progress():
     if (progress_convo):
-        bar: 
-            style "convo_progress_bar"
-            value AnimatedValue(convo_progress, convo_length, 1.0, (convo_progress - 1 if progress_convo else convo_progress))
+        vbox:
+            xalign 0.955
+            yalign 0.855
+            spacing 0
 
-        text _(str(convo_progress)):
-            color "#F2EE29"
-            xalign 0.5
-            yalign 0.15
+            bar: 
+                style "convo_progress_bar"
+                value AnimatedValue(convo_progress, convo_length, 1.0, (convo_progress - 1 if progress_convo else convo_progress))
+                at transform:
+                    rotate 3
+
+            #text _(str(convo_progress)):
+            #    color "#000"
+            #    xalign 0.5
+            #    yoffset -210
 
 style convo_progress_bar:
     left_bar "#F2EE29"
     right_bar "#141414"
-    xmaximum 500
-    xalign 0.5
-    yalign 0.1
+    xmaximum 450
+    ysize 10
 
 screen map_navigation():
     default xpos = 0
@@ -692,11 +698,19 @@ screen chapter_breaks(title, paragraph):
         color "#F2EE29"
         at trans_fade(0.5, 0.5), fade_side_to_side(100)
 
-    text _("Social Psychic Simulator"):    
+    text _("OPEN YOUR THIRD EYE"):    
         color "#000"
         xalign 0.05
         yalign 0.05
+        size 20
         at trans_fade(1.25, 1.5), fade_side_to_side(-50, 0.75)
+
+    text _("SOCIAL PSYCHIC SIMULATOR"):
+        color "#F2EE29"
+        xalign 0.95
+        yalign 0.05
+        size 20
+        at trans_fade(1.25, 1.5), fade_side_to_side(50, 0.75)
 
     vbox:
         xalign 0.1
@@ -803,3 +817,59 @@ screen calendar(day, section, sections=4):
 
                     if (i <= section - 1):
                         image Solid("#F2EE29")
+
+screen conversation_history():
+    frame:
+        background None
+        xsize 500
+        ysize 900
+        xalign 0.95
+
+        image Solid("#000"):
+            xsize 500
+            ysize 825
+            yoffset -60
+            xoffset -170
+            at transform:
+                alpha 0.8
+                rotate 3
+
+        image Solid("#F2EE29"):
+            xsize 500
+            ysize 800
+            yoffset -50
+            xoffset -190
+            at transform:
+                alpha 0.8
+                rotate 3
+
+        side ("c r"):
+            area (40, 40, 500, 675)
+            at transform:
+                rotate 3
+                xoffset -180
+                yoffset -90
+
+            viewport id "history_viewport":
+                draggable True 
+                mousewheel True
+                arrowkeys True
+                yadjustment ui.adjustment()
+                yinitial 0.0
+                vbox:
+                    for h in _history_list[0:len(_history_list) - 1]:
+                        #if (h.who):
+                        #    label h.who
+                        text _(h.what + "\n"):
+                            color (h.what_args["color"] if "color" in h.what_args else "#FFF")
+                            xoffset 50
+                            xmaximum 400
+                            size 20
+            if (len(_history_list) - 1 > 0):
+                vbar value YScrollValue("history_viewport"):
+                    xsize 10
+                    xoffset -5
+            else:
+                null
+
+    use conversation_progress

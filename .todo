@@ -7,25 +7,18 @@ BLACKMIND TODO
                     and write out the doccos. Then, if I can do that, I'm a month ahead of schedule, and can start working
                     on the character/background designs for commissioners.
 
-                - Menus:
-                    - THURSDAY:
-                        - Customise GUI
-                            - Convo History
-                            - Psychic powers GUI:
-                                - Forget
-                                - Mind-reading
-                                - Money
-                            - Functionality for choosing where to go
-
-                    - FRIDAY:
-                        - General:
-                            - Return taking us to the main menu from within the main menu should not require us to press Enter again
-                        - Save: 
-                            - Add in the save functionality on the same bit as we select where to go; then it's
-                                helping to test it within the framework of the game
-                            - NEW SAVE button when not on main menu
-                            - Clicking on an entry lets you save or load
-                            - Functionality for naming your saves
+                - Return on the main menu shouldn't require us to press Enter again
+                - Finish off the functionality for the prologue:
+                    - Psychic powers GUI:
+                        - Forget
+                        - Mind-reading
+                    - Money interface
+                    - Functionality for choosing where to go
+                    - Save functionality:
+                        - Add within section for where to go
+                        - NEW SAVE button when not on main menu
+                        - Clicking on an entry lets you save or load
+                        - Functionality for naming your saves
 
             - EVENING TASKS
                 - Script needs some touch-ups
