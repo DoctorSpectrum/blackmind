@@ -45,6 +45,25 @@ init python:
     def lock_cg(cg_id):
         persistent.cgs_unlocked.remove(cg_id)
 
+    def close_menu():
+        if (renpy.get_screen("saves_list")):
+            renpy.hide_screen("saves_list")
+        elif (renpy.get_screen("preferences")):
+            renpy.hide_screen("preferences")
+        elif (renpy.get_screen("about")):
+            renpy.hide_screen("about")
+
+        renpy.transition(quick_dissolve)
+        
+        if (not main_menu):
+            renpy.show("pause_menu")
+    
+    def clickable_button():
+        if (not renpy.get_screen("saves_list") and not renpy.get_screen("preferences") and not renpy.get_screen("about")):
+            return True
+
+        return False
+
     def visit_location(location):
         if (len(days[0]) < 3):
             days[0].append(location)

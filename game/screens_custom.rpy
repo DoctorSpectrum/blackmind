@@ -389,7 +389,6 @@ screen saves_list(title="LOAD"):
     default hover_row = None
     default selected_save = None
     default show_content = False
-    tag menu
 
     timer 1.2:
         action SetScreenVariable("show_content", True)
@@ -609,20 +608,20 @@ screen pause_menu():
         textbutton _("Flow Chart"):
             style "yellow_button_on_yellow"
             #action ShowMenu("flow_chart")
-            action Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")])
+            action (Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         textbutton _("Characters"):
             style "yellow_button_on_yellow"
             #action ShowMenu("characters")
-            action Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")])
+            action (Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         textbutton _("Load"):
             style "yellow_button_on_yellow"
-            action ShowMenu("saves_list")
+            action (ShowMenu("saves_list") if clickable_button() else NullAction())
         textbutton _("Menu"):
             style "yellow_button_on_yellow"
-            action MainMenu()
+            action (MainMenu() if clickable_button() else NullAction())
         textbutton _("Quit"):
             style "yellow_button_on_yellow"
-            action Quit()
+            action (Quit() if clickable_button() else NullAction())
 
     vbox:
         xalign 0.775
@@ -632,17 +631,17 @@ screen pause_menu():
         textbutton _("Psychic Powers"):
             style "black_button_on_black"
             #action ShowMenu("upgrades_screen")
-            action Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")])
+            action (Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         textbutton _("Notes"):
             style "black_button_on_black"
             #action ShowMenu("notes")
-            action Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")])
+            action (Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         textbutton _("Settings"):
             style "black_button_on_black"
-            action ShowMenu("preferences")
+            action (ShowMenu("preferences") if clickable_button() else NullAction())
         textbutton _("Return"):
             style "black_button_on_black"
-            action Return()
+            action (Return() if clickable_button() else NullAction())
 
 style yellow_button_on_yellow:
     background Frame("gui/button/button_idle.png")

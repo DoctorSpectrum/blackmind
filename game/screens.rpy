@@ -527,27 +527,27 @@ screen main_menu():
 
             textbutton _("START"):
                 style "main_menu_button"
-                action (ShowMenu("preferences", start=True) if persistent.game_launched == False else Start())
+                action ((Show("preferences", start=True) if persistent.game_launched == False else Start()) if clickable_button() else NullAction())
                 at menu_button(1.0)
             textbutton _("LOAD"):
                 style "main_menu_button"
                 xoffset -66
-                action ShowMenu("saves_list")
+                action (Show("saves_list") if clickable_button() else NullAction())
                 at menu_button(1.5)
             textbutton _("SETTINGS"):
                 style "main_menu_button"
                 xoffset -132
-                action ShowMenu("preferences")
+                action (Show("preferences") if clickable_button() else NullAction())
                 at menu_button(2.0)
             textbutton _("EXTRAS"):
                 style "main_menu_button"
                 xoffset -198
-                action Show("modal_popup", message="This doesn't do anything right now; it's just there for working out menu button placement", option_labels=["OK"], option_actions=[Hide("modal_popup")])
+                action (Show("modal_popup", message="This doesn't do anything right now; it's just there for working out menu button placement", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
                 at menu_button(2.5)
             textbutton _("CREDITS"):
                 style "main_menu_button"
                 xoffset -264
-                action ShowMenu("about")
+                action (Show("about") if clickable_button() else NullAction())
                 at menu_button(3.0)
             textbutton _("QUIT"):
                 style "main_menu_button"
@@ -746,7 +746,7 @@ screen game_menu(title, title_size=88):
         text_color "#F2EE29"
         text_hover_underline True
         text_size 38
-        action (Return() if main_menu else ShowMenu("pause_menu"))
+        action Function(close_menu)
         at transform:
             xoffset 400
             pause 1.0
@@ -824,7 +824,6 @@ screen about():
     default show_content = False
     default hide_content = False
     default selected_tab = "game"
-    tag menu
 
     timer 1.2:
         action SetScreenVariable("show_content", True)
@@ -1167,7 +1166,6 @@ style slot_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#preferences
 
 screen preferences(start=False):
-    tag menu
     default display_sample_text_speed = False
     default update_count = 0
     default hover_radio = None
