@@ -952,3 +952,26 @@ screen conversation_history():
 
     use conversation_progress
     use psychic_powers
+
+screen cash_money():
+    frame:
+        background Solid("#F2EE29")
+        xsize 200
+        ysize 50
+        xalign 0.0
+        yalign 0.3
+        at transform:
+            on show:
+                xoffset -200
+                ease 0.5:
+                    xoffset 0
+            on hide:
+                ease 0.5:
+                    xoffset -200
+
+        text _("{font=DejaVuSans.ttf}${/font}" + str(f'{money:.2f}')):
+            color "#000"
+            xalign 0.25
+            font "gui/chubhand.ttf"
+            size 40
+            yoffset -5
