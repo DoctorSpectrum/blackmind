@@ -112,7 +112,7 @@ screen psychic_powers():
                     SetLocalVariable("powers_open", False),
                     SetLocalVariable("icon_hint", None),
                     (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
-                    (Jump(rewind_point) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
+                    (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
                 ] if focusable else NullAction())
                 hovered (SetLocalVariable("icon_hint", "mind_wipe") if focusable else NullAction())
                 unhovered SetLocalVariable("icon_hint", None)
@@ -190,94 +190,136 @@ style convo_progress_bar:
     xmaximum 450
     ysize 10
 
-screen map_navigation():
+screen map_navigation(destinations):
     default xpos = 0
     default ypos = 0
+    default selected_destination = None
 
-    hbox:
+    frame:
+        background Solid("#D1CE21")
         xalign 0.5
         yalign 0.5
-        spacing 100
+        xsize 1920
+        ysize 1080
 
-        vbox:
-            textbutton _("Bar"):
-                action [
-                    Hide("map_navigation"),
-                    Jump("bar")
-                ]
-                hovered [
-                    SetScreenVariable("xpos", 200),
-                    SetScreenVariable("ypos", 300)
-                ]
+        text _("SELECT YOUR DESTINATION"):
+            font "gui/Decade__.ttf"
+            color "#000"
+            size 80
+            xalign 0.5
+            yalign 0.05
+            at trans_fade(0.5, 0.5), fade_side_to_side(-300, 0.25)
 
-            textbutton _("Alternative Shop"):
-                action [
-                    Hide("map_navigation"),
-                    Jump("alt_shop")
-                ]
-                hovered [
-                    SetScreenVariable("xpos", 100),
-                    SetScreenVariable("ypos", 75)
-                ]
+        hbox:
+            xalign 0.5
+            yalign 0.7
+            spacing 100
 
-            textbutton _("Cafe"):
-                action [
-                    Hide("map_navigation"),
-                    Jump("cafe")
-                ]
-                hovered [
-                    SetScreenVariable("xpos", 280),
-                    SetScreenVariable("ypos", 20)
-                ]
+            if (selected_destination == None):
+                vbox:
+                    ysize 751
+                    xsize 300
+                    vbox:
+                        yalign 0.0
+                        spacing 25
+                        for i, destination in enumerate(destinations):
+                            textbutton _(destination["label"]):
+                                style "yellow_button"
+                                xminimum 300
+                                text_font "gui/chubhand.ttf"
+                                text_yoffset 2
+                                action SetScreenVariable("selected_destination", destination)
+                                hovered [
+                                    SetScreenVariable("xpos", destination["xcoord"]),
+                                    SetScreenVariable("ypos", destination["ycoord"])
+                                ]
+                                at trans_fade((0.25 * i + 1.0), 1.0), fade_side_to_side(-100, (0.5 * i + 0.75))
+                    textbutton _("SAVE GAME"):
+                        xalign 0.5
+                        yalign 1.0
+                        text_color "#000"
+                        text_font "gui/Decade__.ttf"
+                        text_hover_underline True
+                        at trans_fade((0.25 * (len(destinations)) + 1.0), 1.0)
+            else:
+                vbox:
+                    xsize 300
+                    spacing 50
+                    text _(selected_destination["label"]):
+                        color "#000"
+                        font "gui/chubhand.ttf"
+                        size 52
+                        xalign 0.5
+                        textalign 0.5
+                        at trans_fade(0.25, 0.5), fade_side_to_side(-100, 0.25)
 
-            textbutton _("Detective's Office"):
-                action [
-                    Hide("map_navigation"),
-                    Jump("detective")
-                ]
-                hovered [
-                    SetScreenVariable("xpos", 150),
-                    SetScreenVariable("ypos", 450)
-                ]
+                    #Worry about more dynamic text later
+                    if (selected_destination["key"] == "venue"):
+                        text _("Isn’t there some small underground place near here that plays jazz or one of those made-up music genres? They should have some good booze there, and it probably has some hippies that I can scam - I mean, borrow some money off."):
+                            style "destination_description"
+                            at trans_fade(0.5, 0.5), fade_side_to_side(-100, 0.5)
+                    elif (selected_destination["key"] == "restaurant"):
+                        text _("There’s nothing better to do with money that’s yours than spend it! A nice meal sounds like a good way to follow up those drinks from before, and they’ll practically treat me like a king in there. I mean, I’m more or less paying their wages for them; they have to!"):
+                            style "destination_description"
+                            at trans_fade(0.5, 0.5), fade_side_to_side(-100, 0.5)
 
-            textbutton _("Return"):
-                yoffset 100
-                action [
-                    Hide("map_navigation"),
-                    Jump("story")
-                ]
-
-        frame:
-            xsize 300
-            ysize 500
-            background Solid("#141414")
-            #image here
-
+                    vbox:
+                        xsize 300
+                        spacing 15
+                        at trans_fade(0.75, 0.5), fade_side_to_side(-100, 0.75)
+                        textbutton _("CONFIRM"):
+                            style "yellow_button"
+                            text_font "gui/chubhand.ttf"
+                            xsize 250
+                            xalign 0.5
+                            text_yoffset 2
+                            #Again, worry about making this more dynamic later
+                            action Jump("prologue_music_venue" if selected_destination["key"] == "venue" else "prologue_restaurant")
+                        textbutton _("RETURN"):
+                            style "yellow_button"
+                            text_font "gui/chubhand.ttf"
+                            xsize 250
+                            xalign 0.5
+                            text_yoffset 2
+                            action SetScreenVariable("selected_destination", None)
             frame:
-                style "map_y_coord"
-                xpos 0
-                at transform:
-                    pause 0.2
-                    linear 1.0:
-                        xpos xpos
+                xsize 640
+                ysize 763
+                background Frame("images/map.png")
+                at trans_fade((0.25 * (len(destinations)) + 0.5), 1.0), fade_side_to_side(-75, (0.25 * (len(destinations)) - 0.5))
 
-            frame: 
-                style "map_x_coord"
-                ypos 0
-                at transform:
-                    pause 0.2
-                    linear 1.0:
-                        ypos ypos
+                frame:
+                    style "map_y_coord"
+                    xpos 0
+                    at transform:
+                        pause 0.2
+                        linear 1.0:
+                            xpos xpos
+
+                frame: 
+                    style "map_x_coord"
+                    ypos 0
+                    at transform:
+                        pause 0.2
+                        linear 1.0:
+                            ypos ypos
+        
+            
 
 style map_y_coord:
     xmaximum 2
     yfill True
-    background Solid("#F2EE29")
+    background Solid("#000")
 
 style map_x_coord:
     ymaximum 2
     xfill True
-    background Solid("#F2EE29")
+    background Solid("#000")
+
+style destination_description:
+    color "#000"
+    xalign 0.5
+    size 24
 
 screen locked_message(message):
     frame:
@@ -971,8 +1013,6 @@ screen conversation_history():
                 null
 
     use conversation_progress
-    if (check_boolean("psychic_powers_available")):
-        use psychic_powers
 
 screen cash_money():
     frame:

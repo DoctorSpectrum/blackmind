@@ -231,6 +231,52 @@ label variables:
 
     default money = 7
 
+    #Map
+    default destinations = [
+        {
+            "id": 1,
+            "key": "venue",
+            "label": "Music Venue",
+            "xcoord": 200,
+            "ycoord": 300,
+        },
+        {
+            "id": 2,
+            "key": "restaurant",
+            "label": "Restaurant",
+            "xcoord": 250,
+            "ycoord": 350
+        },
+        {
+            "id": 3,
+            "key": "detective",
+            "label": "Detective's Office",
+            "xcoord": 100,
+            "ycoord": 600
+        },
+        {
+            "id": 4,
+            "key": "bar",
+            "label": "Local Bar",
+            "xcoord": 200,
+            "ycoord": 350
+        },
+        {
+            "id": 5,
+            "key": "newspaper",
+            "label": "Newspaper",
+            "xcoord": 450,
+            "ycoord": 50
+        },
+        {
+            "id": 6,
+            "key": "alt_shop",
+            "label": "New Age Shop",
+            "xcoord": 500,
+            "ycoord": 300
+        }
+    ]
+
     #Timeline variables
     default game_id = persistent.game_id
     $ persistent.game_id += 1

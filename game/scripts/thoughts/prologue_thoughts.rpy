@@ -136,3 +136,8 @@ label docherty_thought_pr_1:
     docherty "(...)"
     jack worried "(What the fuck?[wait_1] I can’t read this guy’s mind!)"
     return
+
+label prologue_docherty_wipe:
+    docherty "(...)"
+    jack worried "(He...[wait_05]I don't think that did anything to him?)"
+    return

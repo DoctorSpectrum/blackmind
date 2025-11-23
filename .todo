@@ -2,34 +2,30 @@ BLACKMIND TODO
     - Prototype Phase
         - Delivery Date: 31/12/2025
         - TODO List:
-            - DAY TASKS
-                - Aiming to get all of the following donezo by Sunday (23rd) so that I have a week to updoot the script
-                    and write out the doccos. Then, if I can do that, I'm a month ahead of schedule, and can start working
-                    on the character/background designs for commissioners.
+            - Finish off the functionality for the prologue:
+                - Save functionality:
+                    - Add within section for where to go
+                    - NEW SAVE button when not on main menu
+                    - Clicking on an entry lets you save or load
+                    - Functionality for naming your saves
+        
+            - GUI:
+                - Use the big buttons for choices
+                - Display character names in the history log
 
-                - Finish off the functionality for the prologue:
-                    - Functionality for choosing where to go
-                    - Save functionality:
-                        - Add within section for where to go
-                        - NEW SAVE button when not on main menu
-                        - Clicking on an entry lets you save or load
-                        - Functionality for naming your saves
-            
-                - GUI:
-                    - Use the big buttons for choices
+            - Fixes:
+                - Fix up the count for convo_progress after wiping Barbara's mind
+                - Invert the textbox and namebox when reading somebody's mind so that it's more apparent that we're reading their mind
 
-                - Fixes:
-                    - Work out how to hide psychic_powers after Barbara's gone
-                    - Fix up the count for convo_progress after wiping Barbara's mind
-
-            - EVENING TASKS
-                - Script needs some touch-ups
+            - Touch-ups:
+                - Script:
                     - Start needs to be punchier. "I'm in a bar. Hey why's she annoyed at me?" isn't a great opening hook
                     - Let's go in a bit more on the precognition making Jack think he's been stabbed; it's a bit brief
                     - I think Jack wanting to fuck Barbara might be the wrong direction to head in. I think let's lean in a bit more into
                         him wanting to steal from her, or find some other flaw to emphasise.
                     - Could an omniscient narrator help with things? I don't want Jack to narrate, but an omniscient narrator might
                         solve some of the problems that I've got.
+                - Add in red flashes; go through all comments and clear them out
                 - Add in SFX, placeholder music
         - Write up Google Docco with ze plan for friends to assess
             - Also do a Google Forms feedback thingy?

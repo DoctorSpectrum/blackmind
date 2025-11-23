@@ -44,10 +44,10 @@ label prologue_mind_wipe_tutorial:
 
 label prologue_02:
     $ add_boolean("mind_wipe_tutorial")
-    $ add_boolean("psychic_powers_available")
     $ _history_list = []
     $ convo_progress = 0
     $ convo_length = (11 if not check_boolean("mind_read_available") else 26)
+    show screen psychic_powers
     show screen conversation_history
 
     $ swap_sprites("barbara_thinking")
@@ -191,7 +191,6 @@ label prologue_post_mind_read_tutorial:
             jack angry "(Oh, sure, when it’s emotional support, you’re all too happy to receive it, but physical support is a step too far, is it?)"
             
             hide screen calendar
-            $ _history_list = []
             scene black_bg with slow_dissolve
 
 label prologue_03:
@@ -199,10 +198,12 @@ label prologue_03:
     jack thinking "(It’s not like there’s anything wrong with staying out late on a Monday, after all.)"
     jack thinking "(I mean, when was the last time somebody got yelled at about overdue rent when staying out?[wait_1] Never happens.)"
     jack thinking "(Where should I go?)"
-    call screen map_navigation
+    $ _history_list = []
+    call screen map_navigation(find_locations([1, 2]))
 
 label prologue_music_venue:
-    #Description: "Isn’t there some small underground place near here that plays jazz or one of those made-up music genres? They should have some good booze there, and it probably has some hippies that I can scam - I mean, borrow some money off."
+    $ scene_setup(34, "Monday", True, 2, 2, True, True)
+    $ location = "music_venue"
     scene black_bg with slow_dissolve
     jack smug "(If there’s some sort of fee to get in, I’ll just make the door person forget that I haven’t actually paid it.)"
     jack smug "(They probably get paid a tonne of money by the venue anyway.)"
@@ -230,8 +231,9 @@ label prologue_music_venue:
     jump prologue_end
 
 label prologue_restaurant:
-    #Description: "There’s nothing better to do with money that’s yours than spend it! A nice meal sounds like a good way to follow up those drinks from before, and they’ll practically treat me like a king in there. I mean, I’m more or less paying their wages for them; they have to!"
+    $ scene_setup(36, "Monday", True, 2, 2, True, True)
     scene black_bg with slow_dissolve
+    $ location = "restaurant"
     jack smug "(Do they have wine at this place?[wait_1] I don’t really like it, but I could buy a nice big bottle of it anyway and show everyone there how rich I currently am.)"
     jack smug "(Maybe I could even buy two bottles, and then drop one of them on purpose.)"
     jack smug "(Yeah...[wait_1]that’ll show them all!)"
@@ -264,7 +266,10 @@ label prologue_precognition:
     #video with blood splatter
     #stabbing sfx
     #flash of red
-    scene venue_exterior with quick_dissolve
+    if (location == "music_venue"):
+        scene venue_exterior with quick_dissolve
+    else:
+        scene restaurant_night with slow_dissolve
     jack worried "(I...[wait_1]I can feel a knife in my stomach.)"
     jack worried "(It’s - it’s fucking cold, and I...)"
     jack worried "({size=-8}Mum.[wait_1] Mum, please come and -[wait_05] and help me![wait_1] It feels like...{/size})"
@@ -283,6 +288,7 @@ label prologue_precognition:
     return
 
 label prologue_end:
+    $ scene_setup(9, "Monday", True, 2, 2, True, True)
     scene street with slow_dissolve
     jack thinking "(Think that I can stop running now...[wait_1]I’ve probably put enough distance between myself and the scene.)"
     jack thinking "(If I was still in danger, my precognition would kick in and let me know probably.)"
@@ -290,16 +296,22 @@ label prologue_end:
     jack worried "(Who the fuck would want to kill me, though?)"
     jack worried "(I haven’t done anything to piss anybody off lately other than that con I pulled last week.[wait_1] But he was practically asking for it!)"
     jack thinking "(Unless...[wait_1]could it have been - )"
-    $ swap_sprites("docherty_neutral")
+    $ rewind_point = "prologue_docherty_wipe"
+    $ swap_sprites("docherty_neutral", quick_dissolve)
+    show screen psychic_powers
     $ current_thought = "docherty_thought_pr_1"
     jack smug "Sorry mate, you mind getting out of the way?[wait_1] I’m in a bit of a hurry, here."
     docherty "You are the source."
     jack angry "The fuck do you -"
     #SFX: slicing noise
     #Red flash
-    #CG
+    hide screen calendar
+    hide screen conversation_history
+    hide screen psychic_powers
+    scene cg1_placeholder with slow_dissolve
     jack worried "(No...[wait_05]no!)"
     jack worried "(This fucking can’t be...[wait_05]I...[wait_05]I thought I stopped this?)"
     jack worried "(I wasn’t supposed to...[wait_05]{size=-8}this is bullshit...{/size})"
     scene black_bg with slow_dissolve
-    return
+    #Blah blah blah, you made it to the end; here's a link to the doccos
+    $ MainMenu(confirm=False)()

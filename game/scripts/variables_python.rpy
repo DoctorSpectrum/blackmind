@@ -71,6 +71,9 @@ init python:
 
         return False
 
+    def find_locations(ids):
+        return list(filter(lambda x: x["id"] in ids, destinations))
+
     def visit_location(location):
         if (len(days[0]) < 3):
             days[0].append(location)
@@ -101,9 +104,11 @@ init python:
             return str(date) + date_suffix[0] + " "
 
     def scene_setup(scene_length = 0, calendar_day="Monday", calendar=True, calendar_section=1, calendar_sections=4, convo_scene=True, history=True):
-        global progress_convo, convo_length
+        global progress_convo, convo_progress, convo_length, _history_list
         progress_convo = convo_scene
-        convo_length = scene_length 
+        convo_progress = 0
+        convo_length = scene_length
+        _history_list.clear()
 
         if (calendar):
             renpy.show_screen("calendar", day=calendar_day, section=calendar_section, sections=calendar_sections)
