@@ -240,6 +240,7 @@ screen map_navigation(destinations):
                         text_color "#000"
                         text_font "gui/Decade__.ttf"
                         text_hover_underline True
+                        action ShowMenu("saves_list", title="SAVE")
                         at trans_fade((0.25 * (len(destinations)) + 1.0), 1.0)
             else:
                 vbox:
@@ -551,7 +552,7 @@ screen saves_list(title="LOAD"):
                             hbox:
                                 spacing 0
 
-                                textbutton _("Save Name"):
+                                textbutton _(renpy.slot_json("1-" + (str(i + 1))).get('_save_name', '')):
                                     text_color ("#F2EE29" if hover_row == i or selected_save == i else "#000")
                                     text_underline selected_save == i
                                     hovered SetScreenVariable("hover_row", i)
@@ -580,14 +581,28 @@ screen saves_list(title="LOAD"):
                 xsize 450
                 ysize 525
 
-                if (selected_save is not None):
-                    vbox:
+                vbox:
+                    xsize 450
+                    if (title == "SAVE" and find_next_save() != "0"):
+                        textbutton _("NEW SAVE"):
+                            style "light_yellow_button_small"
+                            action Show("save_name", filename=default_save_name()) 
+                            xsize 240
+                            ysize 45
+                            text_font "gui/chubhand.ttf"
+                            text_yoffset 2
+                            text_size 40
+                            text_selected_color "#000"
+                            text_hover_color "#FFFC5E"
+                            xalign 0.5
+                            padding (40, 25, 40, 25)
+                    if (selected_save is not None):
                         add FileScreenshot(selected_save + 1):
                             xalign 0.5
 
-                        text _("Save Name"):
+                        text _(renpy.slot_json("1-" + (str(selected_save + 1))).get('_save_name', '')):
                             style "save_name"
-                        text _("Day 1, Morning"):
+                        text _("Prologue"):
                             style "save_details"
                         text _(add_date_suffix(FileTime(selected_save + 1, format="%d", empty=(0))) + FileTime(selected_save + 1, format=_("{#file_time}%B %Y, %H:%M"))):
                             style "save_date"
@@ -596,13 +611,22 @@ screen saves_list(title="LOAD"):
                             xfill True
                             spacing 5
                             box_align 0.5
-                            textbutton _("Load"):
-                                style "light_yellow_button_small"
-                                action (Function(renpy.load, "1-" + str(selected_save + 1)))
-                                xsize 120
-                                text_font "gui/chubhand.ttf"
-                                text_yoffset 2
-                                text_size 28
+                            if (title == "LOAD"):
+                                textbutton _("Load"):
+                                    style "light_yellow_button_small"
+                                    action (Function(renpy.load, "1-" + str(selected_save + 1)))
+                                    xsize 120
+                                    text_font "gui/chubhand.ttf"
+                                    text_yoffset 2
+                                    text_size 28
+                            else:
+                                textbutton _("Save"):
+                                    style "light_yellow_button_small"
+                                    action Show("modal_popup", message="Are you sure you want to overwrite this save?", option_labels=["Yes", "No"], option_actions=[[Function(renpy.save, "1-" + str(selected_save + 1), renpy.slot_json("1-" + (str(selected_save + 1))).get('_save_name', '')), Hide("modal_popup")], Hide("modal_popup")])
+                                    xsize 120
+                                    text_font "gui/chubhand.ttf"
+                                    text_yoffset 2
+                                    text_size 28
                             textbutton _("Delete"):
                                 style "light_yellow_button_small"
                                 action ([FileDelete(selected_save + 1), SetScreenVariable("selected_save", None)])
@@ -672,12 +696,9 @@ style light_yellow_button_small is light_yellow_button:
 
 style light_yellow_button_small_text is light_yellow_button_text
 
-screen modal_popup(message, option_labels, option_actions):
+screen modal_base():
     modal True
-
     zorder 200
-
-    style_prefix "confirm"
 
     frame:
         xfill True
@@ -687,31 +708,89 @@ screen modal_popup(message, option_labels, option_actions):
 
         frame:
             background Solid("#000000")
-            xsize 900
-            ysize 450
+            xsize 940
+            ysize 490
+            xalign 0.5
+            yalign 0.5
 
             frame:
                 background Solid("#F2EE29")
                 xsize 900
                 ysize 450
+                xalign 0.5
+                yalign 0.5
 
                 vbox:
                     xalign .5
                     yalign .5
                     spacing 45
 
-                    label _(message):
-                        style "confirm_prompt"
-                        text_color "#000"
-                        xalign 0.5
+                    transclude
 
-                    hbox:
-                        xalign 0.5
-                        spacing 150
+screen modal_popup(message, option_labels, option_actions):
+    modal True
+    use modal_base:
+        label _(message):
+            style "confirm_prompt"
+            text_color "#000"
+            xalign 0.5
 
-                        for (i, label) in enumerate(option_labels):
-                            textbutton _(label):
-                                action option_actions[i]
+        hbox:
+            xalign 0.5
+            spacing 150
+
+            for (i, label) in enumerate(option_labels):
+                textbutton _(label):
+                    action option_actions[i]
+
+screen save_name(filename):
+    modal True
+    default input_variable = (filename if len(filename) > 0 else '')
+
+    use modal_base:
+        text "Save File Name":
+            font "gui/chubhand.ttf"
+            color "#000"
+            size 50
+            xalign 0.5
+
+        vbox:
+            spacing 2
+            ysize 50
+
+            input:
+                yalign 0.5
+                xmaximum 700
+                value ScreenVariableInputValue('input_variable')
+                length 40
+                exclude "\[\{"
+            frame:
+                background Solid("#000")
+                ysize 2
+                xsize 700
+
+        hbox:
+            xsize 700
+            textbutton _("Cancel"):
+                xalign 0.0
+                text_hover_underline True
+                action [
+                    Hide("save_name"),
+                ]
+
+            textbutton _("Save"):
+                xalign 1.0
+                text_hover_underline True
+                action [
+                    Function(renpy.save, find_next_save(), input_variable if len(input_variable) > 0 else default_save_name()),
+                    Hide("save_name"),
+                ]
+
+    key "K_RETURN":
+        action [
+            Function(renpy.save, find_next_save(), input_variable if len(input_variable) > 0 else default_save_name()),
+            Hide("save_name"),
+        ]
 
 screen pause_menu():
     tag menu

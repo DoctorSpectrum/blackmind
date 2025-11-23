@@ -12,6 +12,7 @@ label barbara_thought_pr_03:
 
 label barbara_thought_pr_04:
     show screen conversation_history
+    show screen psychic_powers
     barbara "(How much money does he need, exactly?)" (name="Bartender")
     barbara "(I’ll need to look it up without him realising that I’ve forgotten the amount.)" (name="Bartender")
     if (not check_boolean("mind_read_tutorial")):
