@@ -45,27 +45,106 @@ screen debug():
             ]
 
 screen psychic_powers():
+    default powers_open = False
+    default icon_hint = None
+    default focusable = False
+
+    if (focusable == False and powers_open):
+        timer 0.25:
+            action SetLocalVariable("focusable", True)
+
     frame:
+        background Solid("#fffc5e97")
         xalign 1.0
-        yalign 0.0
-        background Solid("#F2EE29")
-        padding (5, 5, 5, 5)
+        yalign 1.0
+        xoffset -25
+        yoffset -15
+        xsize 205
+        ysize 205
+
+        imagebutton:
+            auto "gui/icons/psychic_icon_%s.png"
+            xalign 0.75
+            yalign 0.5
+            action [
+                ToggleLocalVariable("powers_open"),
+                SetLocalVariable("focusable", False)
+            ]
+            hovered SetLocalVariable("icon_hint", "powers")
+            unhovered SetLocalVariable("icon_hint", None)
+
+        if (powers_open):
+            imagebutton:
+                auto "gui/icons/mind_read_icon_%s.png"
+                xalign 0.65
+                yalign 0.65
+                action ([
+                    SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)),
+                    (Call(current_thought, from_current=True) if minds_read < max_mind_reads else NullAction())
+                ] if focusable else NullAction())
+                hovered (SetLocalVariable("icon_hint", "mind_read") if focusable else NullAction())
+                unhovered SetLocalVariable("icon_hint", None)
+                at transform:
+                    alpha 0.0
+                    xoffset 0
+                    linear 0.25:
+                        xoffset -90
+                        alpha 1.0
+
+            imagebutton:
+                auto "gui/icons/mind_wipe_icon_%s.png"
+                xalign 0.65
+                yalign 0.35
+                action ([
+                    SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)),
+                    (Jump("activate_rewind") if minds_rewound < max_rewinds else NullAction())
+                ] if focusable else NullAction())
+                hovered (SetLocalVariable("icon_hint", "mind_wipe") if focusable else NullAction())
+                unhovered SetLocalVariable("icon_hint", None)
+                at transform:
+                    alpha 0.0
+                    xoffset 0
+                    pause 0.2
+                    linear 0.25:
+                        xoffset -90
+                        yoffset -50
+                        alpha 1.0
+
+            imagebutton:
+                auto "gui/icons/future_sight_icon_%s.png"
+                xalign 0.6
+                yalign 0.35
+                action (NullAction() if focusable else NullAction())
+                hovered (SetLocalVariable("icon_hint", "future_sight") if focusable else NullAction())
+                unhovered SetLocalVariable("icon_hint", None)
+                at transform:
+                    alpha 0.0
+                    xoffset 0
+                    pause 0.4
+                    linear 0.25:
+                        yoffset -60
+                        xoffset 60
+                        alpha 1.0
         
-        vbox:
-            if (current_thought is not None):
-                textbutton _("Read Mind" if minds_read < max_mind_reads else "Power Exhausted"):
-                    text_color "#000"
-                    action [
-                        SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)),
-                        (Call(current_thought, from_current=True) if minds_read < max_mind_reads else NullAction())
-                    ]
-            if (current_conversation is not None):
-                textbutton _("Rewind Mind" if minds_rewound < max_rewinds else "Power Exhausted"):
-                    text_color "#000"
-                    action [
-                        SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)),
-                        (Jump("activate_rewind") if minds_rewound < max_rewinds else NullAction())
-                    ]
+        if (icon_hint != None):
+            frame:
+                background Frame("gui/namebox.png", xsize=150, ysize=25)
+                xalign 0.65
+                yalign 1.0
+                xsize 150
+                ysize 25
+                yoffset 60
+                at transform:
+                    rotate 3
+                    alpha 0.0
+                    linear 0.1:
+                        alpha 1.0
+
+                text _(("Activate Powers" if icon_hint == "powers" and powers_open == False else ("Deactivate Powers" if icon_hint == "powers" else ("Read Mind" if icon_hint == "mind_read" else ("Rewind Mind" if icon_hint == "mind_wipe" else "Future Sight"))))):
+                    color "#000"
+                    xalign 0.5
+                    yalign 0.5
+                    size (12 if icon_hint == "powers" and powers_open == True else 15)
 
 screen conversation_progress():
     if (progress_convo):
@@ -872,3 +951,4 @@ screen conversation_history():
                 null
 
     use conversation_progress
+    use psychic_powers

@@ -7,12 +7,7 @@ BLACKMIND TODO
                     and write out the doccos. Then, if I can do that, I'm a month ahead of schedule, and can start working
                     on the character/background designs for commissioners.
 
-                - Return on the main menu shouldn't require us to press Enter again
-                    - I think this is good; test more thoroughly later
                 - Finish off the functionality for the prologue:
-                    - Psychic powers GUI:
-                        - Forget
-                        - Mind-reading
                     - Money interface
                     - Functionality for choosing where to go
                     - Save functionality:

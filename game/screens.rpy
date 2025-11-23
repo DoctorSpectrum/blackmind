@@ -263,9 +263,10 @@ screen quick_menu():
 
     if (config.developer):
         textbutton _("DEBUG"):
-            xalign 1.0
+            background Frame("gui/frame.png")
+            xalign 0.0
             yalign 1.0
-            xoffset -10
+            xoffset 10
             yoffset -10
             action [
                 Hide("say"),
