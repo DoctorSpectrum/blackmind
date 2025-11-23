@@ -15,8 +15,9 @@ label variables:
 
     #Transforms
     transform center:
+        zoom 0.45
         xalign 0.5 
-        yalign 0.5
+        yalign 0.0
 
     transform zener_card_col_down (init_y, time):
         zoom 0.3
@@ -122,11 +123,14 @@ label variables:
 
     transform portrait_crop:
         zoom 0.2
-        xalign 0.1
-        yalign 0.9
-        yoffset 20
-        xoffset 60
-        crop (0, 0, 900, 700)
+        xanchor 0.5
+        yanchor 0.5
+        xalign 0.0
+        yalign 1.0
+        yoffset 350
+        xoffset -200
+        rotate -10
+        #crop (0, 0, 900, 700)
 
     transform dark_tint:
         matrixcolor TintMatrix("#6d6d6d")
