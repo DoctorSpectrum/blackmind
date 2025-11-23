@@ -11,9 +11,13 @@ label barbara_thought_pr_03:
     return
 
 label barbara_thought_pr_04:
+    show screen conversation_history
     barbara "(How much money does he need, exactly?)" (name="Bartender")
     barbara "(I’ll need to look it up without him realising that I’ve forgotten the amount.)" (name="Bartender")
-    return
+    if (not check_boolean("mind_read_tutorial")):
+        jump prologue_post_mind_read_tutorial
+    else:
+        return
 
 label barbara_thought_pr_05:
     barbara "(Yeah, right...[wait_1]there’s no way that this idiot paid me that much money.)" (name="Bartender")
@@ -34,6 +38,7 @@ label barbara_thought_pr_08:
 label barbara_thought_pr_09:
     barbara "(We do have issues processing some cards, true...[wait_05]but you’re still nowhere near the mark, buddy.)" (name="Bartender")
     jack thinking "(That’s interesting to know...[wait_1]I might be able to use that.)"
+    $ add_boolean("mind_read_tutorial_card_processing")
     return
 
 label barbara_thought_pr_10:
@@ -44,6 +49,7 @@ label barbara_thought_pr_11:
     barbara "(Just because I’m using a computer, it doesn’t make the bar any worse than it was under mum or grandma!)" (name="Bartender")
     barbara "(I’m - it’s just as good as it was when they were running it!)" (name="Bartender")
     jack thinking "(That’s an interesting reaction...[wait_1]I’d better remember it.)"
+    $ add_boolean("mind_read_tutorial_bar_quality")
     return
 
 label barbara_thought_pr_12:

@@ -8,13 +8,19 @@ BLACKMIND TODO
                     on the character/background designs for commissioners.
 
                 - Finish off the functionality for the prologue:
-                    - Coding logic for first half
                     - Functionality for choosing where to go
                     - Save functionality:
                         - Add within section for where to go
                         - NEW SAVE button when not on main menu
                         - Clicking on an entry lets you save or load
                         - Functionality for naming your saves
+            
+                - GUI:
+                    - Use the big buttons for choices
+
+                - Fixes:
+                    - Work out how to hide psychic_powers after Barbara's gone
+                    - Fix up the count for convo_progress after wiping Barbara's mind
 
             - EVENING TASKS
                 - Script needs some touch-ups

@@ -53,8 +53,17 @@ screen psychic_powers():
         timer 0.25:
             action SetLocalVariable("focusable", True)
 
+    image Solid("#000"):
+        xalign 1.0
+        yalign 1.0
+        xoffset 25
+        yoffset 35
+        xsize 215
+        ysize 215
+        at transform:
+            rotate 3
     frame:
-        background Solid("#fffc5e97")
+        background Solid("#FFFC5E")
         xalign 1.0
         yalign 1.0
         xoffset -25
@@ -67,37 +76,43 @@ screen psychic_powers():
             xalign 0.75
             yalign 0.5
             action [
-                ToggleLocalVariable("powers_open"),
+                (Show("modal_popup", message="Click the Rewind Mind option to make the bartender forget the last few minutes of conversation", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if not check_boolean("mind_wipe_tutorial") else NullAction()),
+                (ToggleLocalVariable("powers_open") if check_boolean("mind_wipe_tutorial") else SetLocalVariable("powers_open", True)),
                 SetLocalVariable("focusable", False)
             ]
             hovered SetLocalVariable("icon_hint", "powers")
             unhovered SetLocalVariable("icon_hint", None)
 
         if (powers_open):
-            imagebutton:
-                auto "gui/icons/mind_read_icon_%s.png"
-                xalign 0.65
-                yalign 0.65
-                action ([
-                    SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)),
-                    (Call(current_thought, from_current=True) if minds_read < max_mind_reads else NullAction())
-                ] if focusable else NullAction())
-                hovered (SetLocalVariable("icon_hint", "mind_read") if focusable else NullAction())
-                unhovered SetLocalVariable("icon_hint", None)
-                at transform:
-                    alpha 0.0
-                    xoffset 0
-                    linear 0.25:
-                        xoffset -90
-                        alpha 1.0
+            if (check_boolean("mind_read_available")):
+                imagebutton:
+                    auto "gui/icons/mind_read_icon_%s.png"
+                    xalign 0.65
+                    yalign 0.65
+                    action ([
+                        SetLocalVariable("powers_open", False),
+                        SetLocalVariable("icon_hint", None),
+                        (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None else NullAction()),
+                        (Call(current_thought, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+                    ] if focusable else NullAction())
+                    hovered (SetLocalVariable("icon_hint", "mind_read") if focusable else NullAction())
+                    unhovered SetLocalVariable("icon_hint", None)
+                    at transform:
+                        alpha 0.0
+                        xoffset 0
+                        linear 0.25:
+                            xoffset -90
+                            alpha 1.0
 
             imagebutton:
                 auto "gui/icons/mind_wipe_icon_%s.png"
                 xalign 0.65
                 yalign 0.35
                 action ([
-                    SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)),
-                    (Jump("activate_rewind") if minds_rewound < max_rewinds else NullAction())
+                    SetLocalVariable("powers_open", False),
+                    SetLocalVariable("icon_hint", None),
+                    (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
+                    (Jump(rewind_point) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
                 ] if focusable else NullAction())
                 hovered (SetLocalVariable("icon_hint", "mind_wipe") if focusable else NullAction())
                 unhovered SetLocalVariable("icon_hint", None)
@@ -110,21 +125,26 @@ screen psychic_powers():
                         yoffset -50
                         alpha 1.0
 
-            imagebutton:
-                auto "gui/icons/future_sight_icon_%s.png"
-                xalign 0.6
-                yalign 0.35
-                action (NullAction() if focusable else NullAction())
-                hovered (SetLocalVariable("icon_hint", "future_sight") if focusable else NullAction())
-                unhovered SetLocalVariable("icon_hint", None)
-                at transform:
-                    alpha 0.0
-                    xoffset 0
-                    pause 0.4
-                    linear 0.25:
-                        yoffset -60
-                        xoffset 60
-                        alpha 1.0
+            if (check_boolean("future_sight_available")):
+                imagebutton:
+                    auto "gui/icons/future_sight_icon_%s.png"
+                    xalign 0.6
+                    yalign 0.35
+                    action ([
+                        SetLocalVariable("powers_open", False),
+                        SetLocalVariable("icon_hint", None),
+                        NullAction(),
+                    ] if focusable else NullAction())
+                    hovered (SetLocalVariable("icon_hint", "future_sight") if focusable else NullAction())
+                    unhovered SetLocalVariable("icon_hint", None)
+                    at transform:
+                        alpha 0.0
+                        xoffset 0
+                        pause 0.4
+                        linear 0.25:
+                            yoffset -60
+                            xoffset 60
+                            alpha 1.0
         
         if (icon_hint != None):
             frame:
@@ -272,7 +292,7 @@ screen locked_message(message):
 
         text _(message):
             text_align 0.5
-            color "#FFF"
+            color "#000"
             xalign 0.5
             yalign 0.5
             size 25
@@ -625,13 +645,13 @@ screen modal_popup(message, option_labels, option_actions):
 
         frame:
             background Solid("#000000")
-            xsize 588
-            ysize 380
+            xsize 900
+            ysize 450
 
             frame:
                 background Solid("#F2EE29")
-                xsize 576
-                ysize 368
+                xsize 900
+                ysize 450
 
                 vbox:
                     xalign .5
@@ -951,7 +971,8 @@ screen conversation_history():
                 null
 
     use conversation_progress
-    use psychic_powers
+    if (check_boolean("psychic_powers_available")):
+        use psychic_powers
 
 screen cash_money():
     frame:

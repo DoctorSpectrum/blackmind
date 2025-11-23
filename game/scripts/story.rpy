@@ -26,19 +26,30 @@ label prologue_01:
     jack angry "(What’s she still looking angry for?[wait_1] That’s barely an innuendo!)"
     barbara "The bar’s policy is that all tabs have to be paid before leaving.[wait_1] No exceptions." (name="Bartender")
     jack worried "(Shit.[wait_05] How much money do I have?)"
-    #Add the interface showing our money
+    show screen cash_money
     jack worried "(That's...[wait_05]not a lot.)"
     barbara "We take both cash and card." (name="Bartender")
     barbara "Can even split it between the two if that’s easier for you, but it’s got to be paid." (name="Bartender")
+    hide screen cash_money
     jack smug "(Alright, no biggie.)"
     jack smug "(Just have to do a little rewrite without letting the alcohol affect me.[wait_1] Easy.)"
+    jump prologue_mind_wipe_tutorial
 
-    #narrator in a modal: "Click on the forget button to alter the bartender’s mind, so that she forgets that you haven’t paid for your drinks."
-    #bring up the button; have it highlighted here
-
-    jump prologue_02
+label prologue_mind_wipe_tutorial:
+    hide screen say
+    hide screen conversation_history
+    $ add_boolean("psychic_powers_available")
+    call screen modal_popup("Click on the psychic powers button in the bottom right-hand corner of the screen to activate your psychic powers", ["OK"], [Return()])
+    call screen psychic_powers
 
 label prologue_02:
+    $ add_boolean("mind_wipe_tutorial")
+    $ add_boolean("psychic_powers_available")
+    $ _history_list = []
+    $ convo_progress = 0
+    $ convo_length = (11 if not check_boolean("mind_read_available") else 26)
+    show screen conversation_history
+
     $ swap_sprites("barbara_thinking")
     $ current_thought = "barbara_thought_pr_01"
     barbara "Whoa, I...[wait_05]sorry, mate, I got a bit dizzy there." (name="Bartender")
@@ -54,12 +65,17 @@ label prologue_02:
     jack smug "You definitely said -[wait_05] I remember you saying -[wait_05] that you were surprised at how much money I’d given you, and that you were -[wait_05] you had a lot of cash to give me."
     $ current_thought = "barbara_thought_pr_04"
     barbara "..." (name="Bartender")
-    jack worried "(Why aren’t you giving me my lovely money?[wait_1] What’s bloody wrong?)"
-    
-    #narrator in a modal: "Click on the mind-read button to read the bartender’s mind. By using the information you find in her mind, you can convince her that you’re correct."
-    #bring up the button; have it highlighted here
+    if (not check_boolean("mind_read_tutorial")):
+        jack worried "(Why aren’t you giving me my lovely money?[wait_1] What’s bloody wrong?)"
 
-    #jump to pr_04, jump back
+        hide screen say
+        hide screen conversation_history
+        $ add_boolean("mind_read_available")
+        call screen modal_popup("Activate your psychic powers, and click on the mind-read button to read the bartender’s mind. By using the information you find in her mind, you can convince her that you’re correct.", ["OK"], [Return()])
+        call screen psychic_powers
+
+label prologue_post_mind_read_tutorial:
+    $ add_boolean("mind_read_tutorial")
     jack smug "It was, um, about fifty, that you owed me, by the way."
     jack smug "Fifty - and one hundred.[wait_1] One hundred and fifty."
     jack smug "That’s right, you owed me one hundred and fifty in change."
@@ -86,9 +102,12 @@ label prologue_02:
     barbara "Nice try, but I trust the terminal a lot more than I trust you." (name="Bartender")
     $ current_thought = "barbara_thought_pr_13"
 
-    #TODO: Add in the flags for the options being unlocked; a booleans list
+    hide screen conversation_history
+    hide screen psychic_powers
     menu:
         "Let her open it":
+            show screen conversation_history
+            show screen psychic_powers
             jack smug "(This will be fine.)"
             jack smug "(Just because I haven’t paid her, that doesn’t mean anything.[wait_1] It’s not like she can make me pay her.)"
             jack smug "(If she did, that would be a mugging, and I’d basically be allowed to run, wouldn’t I?)"
@@ -96,11 +115,13 @@ label prologue_02:
             barbara "Looks like I owe you quite a bit less than you said." (name="Bartender")
             barbara "In fact, I think you might have who owes who around the wrong way." (name="Bartender")
             jack worried "(Shit![wait_1] Okay, new plan: rewrite her mind, and try this again)"
-            #reset
             jack worried "(I should probably try reading her mind a bit more this time...[wait_1]I might get a bit more information that I can use on her)."
-            jump prologue_02
+            hide screen conversation_history
+            call screen psychic_powers
         
-        "But it has issues with certain cards" (locked=True, message="You have not read this information in the bartender's mind"):
+        "But it has issues with certain cards" (locked=not check_boolean("mind_read_tutorial_card_processing"), message="You have not read this information in the bartender's mind"):
+            show screen conversation_history
+            show screen psychic_powers
             jack smug "Do you, though?[wait_1] That old thing?"
             jack smug "How much can you really trust a computer that has as many issues with cards as this one does?"
             $ current_thought = "barbara_thought_pr_15"
@@ -122,11 +143,13 @@ label prologue_02:
             barbara "As it is, I think you might have who owes who around the wrong way." (name="Bartender")
             $ current_thought = "barbara_thought_pr_20"
             jack worried "(Shit![wait_1] Okay, new plan: rewrite her mind, and try this again)"
-            #reset
             jack worried "(I need to read her mind and find something that I can use to stop her from using the computer...[wait_1]there’s got to be something in there if I read it at the right time)."
-            jump prologue_02
+            hide screen conversation_history
+            call screen psychic_powers
         
-        "This bar used to be better" (locked=True, message="You have not readt his information in the bartender's mind"):
+        "This bar used to be better" (locked=not check_boolean("mind_read_tutorial_bar_quality"), message="You have not read this information in the bartender's mind"):
+            show screen conversation_history
+            show screen psychic_powers
             jack angry "This bar used to be better, you know."
             jack angry "It was a lot friendlier, and it didn’t feel like you were constantly getting harassed while you were drinking."
             $ current_thought = "barbara_thought_pr_21"
@@ -152,16 +175,23 @@ label prologue_02:
             $ swap_sprites("barbara_smiling")
             $ current_thought = "barbara_thought_pr_27"
             barbara "Here - this change is yours.[wait_1] I can worry about the books later." (name="Bartender")
-            #Interface: +$150
+            $ money = 157
+            show screen cash_money
             jack smug "(Cha-ching!)"
             $ current_thought = "barbara_thought_pr_28"
             barbara "Once again, I’m sorry that I was a bit sceptical." (name="Bartender")
+            hide screen cash_money
             jack smug "That’s fine, and...[wait_1]look, if you wanted to talk about it a bit more, maybe in a bit more of an...[wait_1]intimate setting?"
             $ current_thought = "barbara_thought_pr_29"
             $ swap_sprites("barbara_angry")
             barbara "Yeah, it’s definitely time for you to leave." (name="Bartender")
+            hide screen conversation_history
+            hide screen psychic_powers
             hide barbara_angry with quick_dissolve
             jack angry "(Oh, sure, when it’s emotional support, you’re all too happy to receive it, but physical support is a step too far, is it?)"
+            
+            hide screen calendar
+            $ _history_list = []
             scene black_bg with slow_dissolve
 
 label prologue_03:

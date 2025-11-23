@@ -38,6 +38,13 @@ init python:
         disable_rollback()
         enable_rollback()
 
+    def check_boolean(value):
+        return value in booleans
+
+    def add_boolean(value):
+        if (not check_boolean(value)):
+            booleans.append(value)
+
     def unlock_cg(cg_id):
         if (cg_id not in persistent.cgs_unlocked):
             persistent.cgs_unlocked.append(cg_id)
@@ -94,6 +101,7 @@ init python:
             return str(date) + date_suffix[0] + " "
 
     def scene_setup(scene_length = 0, calendar_day="Monday", calendar=True, calendar_section=1, calendar_sections=4, convo_scene=True, history=True):
+        global progress_convo, convo_length
         progress_convo = convo_scene
         convo_length = scene_length 
 

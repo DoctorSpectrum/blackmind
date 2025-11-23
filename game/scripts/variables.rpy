@@ -219,15 +219,17 @@ label variables:
     default progress_convo = False
     default convo_length = 0
 
-    default max_mind_reads = 3
-    default max_rewinds = 1
+    default max_mind_reads = None
+    default max_rewinds = None
     default max_flash_forwards = 0
 
     default minds_read = 0
     default minds_rewound = 0
     default convo_progress = 0
+    
+    default rewind_point = "prologue_02"
 
-    default money = 1000
+    default money = 7
 
     #Timeline variables
     default game_id = persistent.game_id
@@ -242,6 +244,7 @@ label variables:
     #Misc. variables
     image black_bg = Solid("#000")
     image white_bg = Solid("#FFF")
+    default booleans = []
     default wait_2 = ("{w=2.0}" if preferences.text_cps > 0 else "")
     default wait_1 = ("{w=1.0}" if preferences.text_cps > 0 else "")
     default wait_05 = ("{w=0.5}" if preferences.text_cps > 0 else "")

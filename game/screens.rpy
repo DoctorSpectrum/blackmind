@@ -118,7 +118,9 @@ screen say(who, what):
         add SideImage() xalign 0.0 yalign 1.0
 
     key "mousedown_4":
-        if (renpy.get_widget("conversation_history", "history_viewport")):
+        if (config.developer):
+            action Rollback()
+        elif (renpy.get_widget("conversation_history", "history_viewport")):
             action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value - 30))
         else:
             action NullAction()
@@ -273,7 +275,7 @@ screen quick_menu():
                 Show("debug")
             ]
 
-    if quick_menu:
+    if quick_menu and renpy.get_screen("say"):
 
         hbox:
             style_prefix "quick"
