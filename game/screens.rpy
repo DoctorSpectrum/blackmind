@@ -776,7 +776,7 @@ screen game_menu(title, title_size=88):
         text_color "#F2EE29"
         text_hover_underline True
         text_size 38
-        action Function(close_menu)
+        action (Function(close_menu) if title != "SAVE" else Function(Return()))
         at transform:
             xoffset 400
             pause 1.0
