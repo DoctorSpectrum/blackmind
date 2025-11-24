@@ -2,9 +2,6 @@ BLACKMIND TODO
     - Prototype Phase
         - Delivery Date: 31/12/2025
         - TODO List:
-            - GUI:
-                - Invert the textbox and namebox when reading somebody's mind so that it's more apparent that we're reading their mind
-
             - Fixes:
                 - Fix up the count for convo_progress after wiping Barbara's mind
                 - Returning from the save menu should not open up the pause menu

@@ -153,6 +153,9 @@ style window:
 
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
+style window_inverted is window:
+    background Image("gui/textbox_inverted.png", xalign=0.5, yalign=1.0)
+
 style namebox:
     xalign 0.175
     xanchor 0.5
@@ -161,6 +164,9 @@ style namebox:
 
     background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
     padding (40, 5, 40, 10)
+
+style namebox_inverted is namebox:
+    background Frame("gui/namebox_inverted.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
 
 style say_label:
     properties gui.text_properties("name", accent=True)
@@ -291,7 +297,7 @@ screen quick_menu():
     if quick_menu and renpy.get_screen("say"):
 
         hbox:
-            style_prefix "quick"
+            style_prefix ("quick" if "_thoughts" not in _last_say_who else "quick_inverted")
 
             xalign 0.82
             yalign 0.77
@@ -323,6 +329,11 @@ style quick_button_text:
     idle_color "#3B3B3B"
     hover_color "#000"
     selected_underline True
+
+style quick_inverted_button is quick_button
+style quick_inverted_button_text is quick_button_text:
+    idle_color "#FFFC5E"
+    hover_color "#F2EE29"
 
 
 ################################################################################

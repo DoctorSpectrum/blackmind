@@ -1086,7 +1086,9 @@ screen conversation_history():
                             label h.who:
                                 style "history_who"
                         text _(h.what + "\n"):
-                            color (h.what_args["color"] if "color" in h.what_args else "#FFF")
+                            color (h.what_args["color"] if "color" in h.what_args else "#000")
+                            if ("color" in h.what_args and h.what_args["color"] == "#F2EE29"):
+                                outlines [ (2, "#000005", 0, 0) ]
                             xoffset 50
                             xmaximum 400
                             size 20
