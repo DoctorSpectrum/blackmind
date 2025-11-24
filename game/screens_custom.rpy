@@ -215,7 +215,7 @@ screen map_navigation(destinations):
 
         hbox:
             xalign 0.5
-            yalign 0.7
+            yalign (0.7 if selected_destination == None else 0.5)
             spacing 100
 
             if (selected_destination == None):
@@ -231,11 +231,16 @@ screen map_navigation(destinations):
                                 xminimum 300
                                 text_font "gui/chubhand.ttf"
                                 text_yoffset 2
-                                action SetScreenVariable("selected_destination", destination)
+                                action [
+                                    SetScreenVariable("selected_destination", destination),
+                                    SetScreenVariable("xpos", 0),
+                                    SetScreenVariable("ypos", 0),
+                                ]
                                 hovered [
                                     SetScreenVariable("xpos", destination["xcoord"]),
                                     SetScreenVariable("ypos", destination["ycoord"])
                                 ]
+                                selected False
                                 at trans_fade((0.25 * i + 1.0), 1.0), fade_side_to_side(-100, (0.5 * i + 0.75))
                     textbutton _("SAVE GAME"):
                         xalign 0.5
@@ -245,6 +250,28 @@ screen map_navigation(destinations):
                         text_hover_underline True
                         action ShowMenu("saves_list", title="SAVE")
                         at trans_fade((0.25 * (len(destinations)) + 1.0), 1.0)
+
+                frame:
+                    xsize 640
+                    ysize 763
+                    background Frame("images/map.png")
+                    at trans_fade((0.25 * (len(destinations)) + 0.5), 1.0), fade_side_to_side(-75, (0.25 * (len(destinations)) - 0.5))
+
+                    frame:
+                        style "map_y_coord"
+                        xpos 0
+                        at transform:
+                            pause 0.2
+                            linear 1.0:
+                                xpos xpos
+
+                    frame: 
+                        style "map_x_coord"
+                        ypos 0
+                        at transform:
+                            pause 0.2
+                            linear 1.0:
+                                ypos ypos
             else:
                 vbox:
                     xsize 300
@@ -286,28 +313,11 @@ screen map_navigation(destinations):
                             xalign 0.5
                             text_yoffset 2
                             action SetScreenVariable("selected_destination", None)
-            frame:
-                xsize 640
-                ysize 763
-                background Frame("images/map.png")
-                at trans_fade((0.25 * (len(destinations)) + 0.5), 1.0), fade_side_to_side(-75, (0.25 * (len(destinations)) - 0.5))
-
                 frame:
-                    style "map_y_coord"
-                    xpos 0
-                    at transform:
-                        pause 0.2
-                        linear 1.0:
-                            xpos xpos
-
-                frame: 
-                    style "map_x_coord"
-                    ypos 0
-                    at transform:
-                        pause 0.2
-                        linear 1.0:
-                            ypos ypos
-        
+                    xsize 960
+                    ysize 540
+                    background Frame("images/backgrounds/venue_exterior.png" if selected_destination["key"] == "venue" else "images/backgrounds/restaurant_night.png")
+                    at trans_fade(1.0, 1.0), fade_side_to_side(-75, 1.0)
             
 
 style map_y_coord:

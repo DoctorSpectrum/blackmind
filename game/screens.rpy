@@ -900,6 +900,16 @@ screen about():
                     ]
                     selected selected_tab == "other"
 
+            image Solid("#000"):
+                xsize 5
+                ysize 2
+                xpos 355
+                ypos 90
+                yanchor 0.0
+                at transform:
+                    linear 2.5:
+                        ysize 475
+
             frame:
                 background None
                 xsize 1275
