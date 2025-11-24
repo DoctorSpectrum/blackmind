@@ -7,23 +7,76 @@ BLACKMIND TODO
                 - Add in red flashes; go through all comments and clear them out
                 - Add in a help screen somewhere that not only displays controls, but also has some stuff about how to play the game
                 - Script:
-                    - Start needs to be punchier. "I'm in a bar. Hey why's she annoyed at me?" isn't a great opening hook
-                    - Let's go in a bit more on the precognition making Jack think he's been stabbed; it's a bit brief
-                    - Let's change it so that we portray Jack's death as being more a "oof well he was a dick but he didn't deserve
-                        to die;" I think the stuff with him thinking about his mum is a good sort of start to this. That,
-                        or make it more obvious that he's going to die and is deluding himself, because as it is right now
-                        it really does read as though he's gotten away and then it's a twist that he dies anyway. 
-                    - I think Jack wanting to fuck Barbara might be the wrong direction to head in. I think let's lean in a bit more into
-                        him wanting to steal from her, or find some other flaw to emphasise.
-                        - On that note, maybe make it that he is just here to rob her, and he isn't drinking too much? He deffo
-                            doesn't come across as drunk.
                     - Could an omniscient narrator help with things? I don't want Jack to narrate, but an omniscient narrator might
                         solve some of the problems that I've got.
+                    - Current issues:
+                        - The opening hook isn't amazing atm. The bit on the prologue screen about Jack thinking about how to use his
+                            psychic abilities is a nice tease, and I think it piques your interest, but we then lose it with Jack until
+                            he actually uses the psychic abilities. Lean more into them from the start; they're the hook, and there's 
+                            no reason not to mention them from the start.
+                            - SOLUTION: I've already got it, and that's that Jack's thinking about how to use his psychic abilities.
+                                Instead of him looking at Barbara and thinking "would", it can be that he's only just finished a drink
+                                and is wondering about what he can say to Barbara to get her to hand him over some cash. It makes him
+                                a little bit more calculating, but I think that if I keep his speech patterns it'll work well enough.
+                        - I looked to Jeremy for inspo as to how to write somebody who's a shit but entertaining, and I think that it
+                            worked out fairly well overall, but the problem is that I wrote him as being too much like Jeremy - he's
+                            thinking about sex more than I think Jack should be, and I don't like it. It feels like the wrong priority
+                            to focus on, and what's more, him thinking about sex combined with his general lack of morals has an undertone
+                            of "has he used his powers to rape women?"
+                            - SOLUTION: Tying into the above - instead of thinking about how much he wants to bang Barbara, he's thinking
+                                about how he can scam her. I'll need to emphasise that he's a bit of a loser - he can't keep a job,
+                                he's behind on rent - and make it clear that it's his own fault, that he's _sure_ that there's a way
+                                for his psychic abilities to make life easy for him! He just...needs to work out what that is.
+                        - Jack's death scene is a bit iffy; I think that him justifying leaving people with somebody who's potentially 
+                            going to kill them works well on both the comedy and "wow he's really trying hard to justify this" levels,
+                            but him being all like "yep this is fine, I'll be safe" doesn't really work. I was aiming for surprising people
+                            with the sudden death, but I don't think that it works - we can assume that he'll die, or at the very least
+                            come into actual contact with the threat and then escape, so him going "oh wow I deffo felt like I was about
+                            to die; good thing that I didn't!" feels incredibly obvious that it's not the end of things. So the intended,
+                            "you thought that he had escaped but he didn't! Dun dun dun!" doesn't really work.
+                            - SOLUTION: Change this so we emphasise the feeling of the knife from his precognition, and how scared he is. 
+                                Have him hallucinate blood even after he knows that it's his precognition, and have him panicking more regardless.
+                                Focus on his fear and his panic, and portray it as dramatic, rather than, "Oh my god! Lmao time to run, nah
+                                she'll be right." I think the latter does kind of work in-character, but it hurts the story, so therefore
+                                portraying him as panicking and scared more is the bigger benefit (and is still in-character).
+                        - I don't like that the restaurant and the venue both lead to essentially the same scene - it shows that there's no 
+                            difference between them, and while this wouldn't be an issue in the full version if somebody kept playing and
+                            decided to save the other location for their next playthrough, in the demo it hurts it quite a lot, and might
+                            imply that you're on a pretty fucking linear path (which, to be fair, you are, although the more I can obscure
+                            that fact the better).
+                            - SOLUTION: What do we need this scene to have, and what can we have variations with?
+                                - Infodump about Jack:
+                                    - He's had his psychic powers since he was in his teens
+                                    - He has no idea where they came from
+                                    - He's kind of a loser who hasn't 100% grown up
+                                - Precognition flash of getting killed
+                                - Run away, actually get killed
+
+                                - I can squeeze something unique in between the infodump and the precognition. If this were the main game,
+                                    the differences in where you go would be who you're seeing and therefore the information that you can
+                                    get which determines which branch you're one, as well as information that builds up to the ending.
+                                    With that in mind, I think the best solution is to split the current Jack backstory in half between the
+                                    two: one location has him thinking about his psychic powers emerging and that he doesn't know where they
+                                    came from, the other has him thinking about his current life, and we get a bit of exposition of what he's
+                                    up to.
+                                    - Alternatively alternatively, I could red herring it, and in each he thinks about something that seems
+                                        like it'll be important. That might be a better idea, so it makes the death feel more unex-spec-ted.
+                                        With that in mind, while Docherty targeting psychics isn't a massive twist, it's certainly the core
+                                        of the knowledge that we get from Branch A, so let's swerve away from it a bit so that the reveal feels
+                                        a bit more engaging. Namely, I'll change it so that instead of saying that Jack is the source, Docherty
+                                        says something along the lines of "I apologise for this, but you are in the way of my plan," (which in
+                                        turn means that Killian is prolly controlling him fairly 1:1). In turn, this means that on both paths,
+                                        Jack needs to mention _something_ that he's doing, or is a part of, which he could implicitly be affecting.
+                                        Bonus points if it's something that Sergei could also potentially be a part of, although that will be
+                                        harder to do since in Branch A we'll only get an image of him.
+                                    - TL;DR: Jack is implied to be part of [TWO SOMETHINGS], one per location, which Docherty is implicitly
+                                        killing him because of.
         - Write up Google Docco with ze plan for friends to assess
             - Explicitly mention, "Yes, Jack dies, you play as a new character" in it, and check with them whether they
                 think that it's better to end on the moment that it does, or whether it should end with Lloyd being like,
                 "I will stop him for you!"
             - Check what they think of the script - is it too short? Does there need to be more in there? Worst case I 
                 could throw Lloyd in there but even then that's prolly only another 500 words at most
-        - Send to friends with link to Google Docco
-        - Work out a plan for applying for funding
+            - Keep unlimited psychic powers and make it more of an Ace Attorney-style puzzle?
+            - Once it's donezo, have the link unlocked in the Credits screen
+        - Work out a plan for applying for funding while I'm waiting on feedback

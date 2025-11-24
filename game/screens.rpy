@@ -297,7 +297,7 @@ screen quick_menu():
     if quick_menu and renpy.get_screen("say"):
 
         hbox:
-            style_prefix ("quick" if "_thoughts" not in _last_say_who else "quick_inverted")
+            style_prefix ("quick" if _last_say_who is None or "_thoughts" not in _last_say_who else "quick_inverted")
 
             xalign 0.82
             yalign 0.77
