@@ -330,8 +330,10 @@ screen locked_message(message):
         yalign 0.9
         at transform:
             alpha 0.0
+            xoffset -50
             linear 0.3:
                 alpha 1.0
+                xoffset 0
 
         text _(message):
             text_align 0.5

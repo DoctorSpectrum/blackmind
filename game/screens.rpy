@@ -223,13 +223,14 @@ screen choice(items):
     style_prefix "choice"
 
     vbox:
+        at trans_fade(0.0, 0.5), fade_side_to_side(-100, 0.0)
         for i in items:
             if ("locked" not in i.kwargs or i.kwargs["locked"] == False):
-                textbutton (i.caption):
+                textbutton (i.caption.upper()):
                     action i.action
             else:
                 textbutton _("LOCKED"):
-                    background "gui/button/choice_idle_background.png"
+                    style "choice_button_locked"
                     action NullAction()
                     hovered Show("locked_message", message=i.kwargs["message"])
                     unhovered Hide("locked_message")
@@ -240,17 +241,29 @@ style choice_button is button
 style choice_button_text is button_text
 
 style choice_vbox:
-    xalign 0.5
-    ypos 405
+    xalign 0.08
+    yalign 0.5
     yanchor 0.5
 
     spacing gui.choice_spacing
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
+    background Frame("gui/button/button_idle.png")
+    hover_background Frame("gui/button/button_hover.png")
+    padding (40, 60, 40, 60)
+    xsize 800
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
+    idle_color "#000"
+    hover_color "#F2EE29"
+
+style choice_button_locked is choice_button:
+    background Frame("gui/button/button_hover.png")
+
+style choice_button_locked_text is choice_button_text:
+    color "#F2EE29"
 
 
 ## Quick Menu screen ###########################################################
