@@ -33,9 +33,6 @@ label prologue_01:
     hide screen cash_money
     jack smug "(Alright, no biggie.)"
     jack smug "(Just have to do a little rewrite without letting the alcohol affect me.[wait_1] Easy.)"
-    jump prologue_mind_wipe_tutorial
-
-label prologue_mind_wipe_tutorial:
     hide screen say
     hide screen conversation_history
     $ add_boolean("psychic_powers_available")
@@ -53,16 +50,16 @@ label prologue_02:
     $ current_thought = "barbara_thought_pr_01"
     barbara "Whoa, I...[wait_05]sorry, mate, I got a bit dizzy there." (name="Bartender")
     barbara "What...[wait_05]what were we talking about, again?" (name="Bartender")
-    jack smug "My tab.[wait_1] We were just, um, saying how I’d paid it all, and that I was going to leave."
     $ current_thought = "barbara_thought_pr_02"
+    jack smug "My tab.[wait_1] We were just, um, saying how I’d paid it all, and that I was going to leave."
     jack smug "(Might as well sweeten the deal a little...)"
     jack smug "...but not until after you give me some money."
-    jack smug "You said that you were going to get me my change, remember?"
     $ current_thought = "barbara_thought_pr_03"
+    jack smug "You said that you were going to get me my change, remember?"
     barbara "Did I...?[wait_1] I don’t remember that..." (name="Bartender")
     jack smug "You definitely did."
-    jack smug "You definitely said -[wait_05] I remember you saying -[wait_05] that you were surprised at how much money I’d given you, and that you were -[wait_05] you had a lot of cash to give me."
     $ current_thought = "barbara_thought_pr_04"
+    jack smug "You definitely said -[wait_05] I remember you saying -[wait_05] that you were surprised at how much money I’d given you, and that you were -[wait_05] you had a lot of cash to give me."
     barbara "..." (name="Bartender")
     if (not check_boolean("mind_read_tutorial")):
         jack worried "(Why aren’t you giving me my lovely money?[wait_1] What’s bloody wrong?)"
@@ -79,29 +76,29 @@ label prologue_post_mind_read_tutorial:
         $ set_convo_length(15)
     jack smug "It was, um, about fifty, that you owed me, by the way."
     jack smug "Fifty - and one hundred.[wait_1] One hundred and fifty."
-    jack smug "That’s right, you owed me one hundred and fifty in change."
     $ current_thought = "barbara_thought_pr_05"
+    jack smug "That’s right, you owed me one hundred and fifty in change."
     $ swap_sprites("barbara_angry")
     barbara "Really?[wait_1] I think you might have miscalculated that a bit; that’s quite a lot of change to give." (name="Bartender")
-    jack smug "Well, you know what they say about calculations...[wait_1]I mean, numbers don’t really mean anything, do they?"
     $ current_thought = "barbara_thought_pr_06"
+    jack smug "Well, you know what they say about calculations...[wait_1]I mean, numbers don’t really mean anything, do they?"
     jack smug "What exactly is a number?[wait_1] Is it a thing you can see?"
-    jack smug "Is it something you can touch, or...[wait_05]eat?"
     $ current_thought = "barbara_thought_pr_07"
-    barbara "I think it’s safe to say that I’ll be able to see some numbers on the terminal."
+    jack smug "Is it something you can touch, or...[wait_05]eat?"
     $ current_thought = "barbara_thought_pr_08"
+    barbara "I think it’s safe to say that I’ll be able to see some numbers on the terminal."
     jack smug "Are you sure that you want to do that?"
-    jack smug "Computers aren’t really all that good when it comes to numbers."
     $ current_thought = "barbara_thought_pr_09"
+    jack smug "Computers aren’t really all that good when it comes to numbers."
     jack smug "There’s a reason that banks are full of cash, and -[wait_05] and gold, rather than computers."
-    jack smug "So thinking about it, they can’t really be that useful, can they?"
     $ current_thought = "barbara_thought_pr_10"
-    jack smug "I mean, when this bar first opened, it wasn’t like they used computers, was it?[wait_1] And it was much better for it, I bet."
+    jack smug "So thinking about it, they can’t really be that useful, can they?"
     $ current_thought = "barbara_thought_pr_11"
-    jack smug "They didn’t -[wait_05] they would have used something more accurate, like calculators, or something, to work out the numbers, yeah?"
+    jack smug "I mean, when this bar first opened, it wasn’t like they used computers, was it?[wait_1] And it was much better for it, I bet."
     $ current_thought = "barbara_thought_pr_12"
-    barbara "Nice try, but I trust the terminal a lot more than I trust you." (name="Bartender")
+    jack smug "They didn’t -[wait_05] they would have used something more accurate, like calculators, or something, to work out the numbers, yeah?"
     $ current_thought = "barbara_thought_pr_13"
+    barbara "Nice try, but I trust the terminal a lot more than I trust you." (name="Bartender")
 
     hide screen conversation_history
     hide screen psychic_powers
@@ -126,25 +123,25 @@ label prologue_post_mind_read_tutorial:
             show screen conversation_history
             show screen psychic_powers
             jack smug "Do you, though?[wait_1] That old thing?"
-            jack smug "How much can you really trust a computer that has as many issues with cards as this one does?"
             $ current_thought = "barbara_thought_pr_15"
+            jack smug "How much can you really trust a computer that has as many issues with cards as this one does?"
             $ swap_sprites("barbara_thinking")
-            barbara "That’s true...[wait_1]it’s sometimes a little off when it comes to surcharges, and when I asked about it, they just said that they’d open a ticket about it." (name="Bartender")
             $ current_thought = "barbara_thought_pr_16"
-            jack smug "Those bloody computer people.[wait_1] They’re always going on about tickets, aren’t they?"
+            barbara "That’s true...[wait_1]it’s sometimes a little off when it comes to surcharges, and when I asked about it, they just said that they’d open a ticket about it." (name="Bartender")
             $ current_thought = "barbara_thought_pr_17"
+            jack smug "Those bloody computer people.[wait_1] They’re always going on about tickets, aren’t they?"
             $ swap_sprites("barbara_smiling")
             barbara "They are![wait_1] It wouldn’t kill them to show a bit more support for their customers; I pay them enough fees each month!" (name="Bartender")
             jack smug "They’re taking the bloody piss![wait_1] And I don’t reckon we shouldn’t support them any further!"
-            jack smug "Let’s just - let’s stop using terminals, and computers, and cards, and just pay customers what they’re owed!"
             $ current_thought = "barbara_thought_pr_18"
+            jack smug "Let’s just - let’s stop using terminals, and computers, and cards, and just pay customers what they’re owed!"
             barbara "Good point![wait_1] I’d better check whether the value that you gave me is actually the right calculation, though; if it isn’t then that’s another issue that I can bring up to them." (name="Bartender")
-            jack worried "Wait, but -"
             $ current_thought = "barbara_thought_pr_19"
+            jack worried "Wait, but -"
             $ swap_sprites("barbara_angry")
+            $ current_thought = "barbara_thought_pr_20"
             barbara "Looking at this, it looks like the value is wrong.[wait_1] At least, compared to what you said." (name="Bartender")
             barbara "As it is, I think you might have who owes who around the wrong way." (name="Bartender")
-            $ current_thought = "barbara_thought_pr_20"
             jack worried "(Shit![wait_1] Okay, new plan: rewrite her mind, and try this again)"
             jack worried "(I need to read her mind and find something that I can use to stop her from using the computer...[wait_1]there’s got to be something in there if I read it at the right time)."
             hide screen conversation_history
@@ -155,18 +152,18 @@ label prologue_post_mind_read_tutorial:
             show screen conversation_history
             show screen psychic_powers
             jack angry "This bar used to be better, you know."
-            jack angry "It was a lot friendlier, and it didn’t feel like you were constantly getting harassed while you were drinking."
             $ current_thought = "barbara_thought_pr_21"
-            jack angry "If this is the way that things are going to be moving forwards, then you can consider this to be my last drink here."
+            jack angry "It was a lot friendlier, and it didn’t feel like you were constantly getting harassed while you were drinking."
             $ current_thought = "barbara_thought_pr_22"
-            barbara "Good! I don’t want clientele like yourself anyway!" (name="Bartender")
+            jack angry "If this is the way that things are going to be moving forwards, then you can consider this to be my last drink here."
             $ current_thought = "barbara_thought_pr_23"
+            barbara "Good! I don’t want clientele like yourself anyway!" (name="Bartender")
             jack angry "Oh, yeah, that’s great.[wait_1] I’m sure that saying that to your customers will totally get them coming back."
-            jack angry "Yeah, this bar is going to last for years at this rate, and it definitely won’t get driven into the ground."
             $ current_thought = "barbara_thought_pr_24"
+            jack angry "Yeah, this bar is going to last for years at this rate, and it definitely won’t get driven into the ground."
+            $ current_thought = "barbara_thought_pr_25"
             barbara "..." (name="Bartender")
             jack angry "(Was that...[wait_05]the right thing to say?)"
-            $ current_thought = "barbara_thought_pr_25"
             $ swap_sprites("barbara_sad")
             barbara "Sorry, I...[wait_05]I shouldn’t have said that.[wait_1] I’m still getting the hang of this thing." (name="Bartender")
             barbara "What they teach you with a business degree doesn’t always apply to the real-world." (name="Bartender")
@@ -185,8 +182,8 @@ label prologue_post_mind_read_tutorial:
             $ current_thought = "barbara_thought_pr_28"
             barbara "Once again, I’m sorry that I was a bit sceptical." (name="Bartender")
             hide screen cash_money
-            jack smug "That’s fine, and...[wait_1]look, if you wanted to talk about it a bit more, maybe in a bit more of an...[wait_1]intimate setting?"
             $ current_thought = "barbara_thought_pr_29"
+            jack smug "That’s fine, and...[wait_1]look, if you wanted to talk about it a bit more, maybe in a bit more of an...[wait_1]intimate setting?"
             $ swap_sprites("barbara_angry")
             barbara "Yeah, it’s definitely time for you to leave." (name="Bartender")
             hide screen psychic_powers

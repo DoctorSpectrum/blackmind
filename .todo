@@ -3,7 +3,6 @@ BLACKMIND TODO
         - Delivery Date: 31/12/2025
         - TODO List:
             - Fixes:
-                - Move it so that we set the thought _before_ the line - it flows better that way
                 - Let's have it be that when you click on your destination, before choosing confirm, the map slides out
                     and the background for that destination shows up
                 - Black growing line in credits
