@@ -3,7 +3,6 @@ BLACKMIND TODO
         - Delivery Date: 31/12/2025
         - TODO List:
             - GUI:
-                - Change mind rewind icon to be a rewind icon
                 - Invert the textbox and namebox when reading somebody's mind so that it's more apparent that we're reading their mind
 
             - Fixes:
