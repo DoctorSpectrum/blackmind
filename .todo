@@ -3,29 +3,35 @@ BLACKMIND TODO
         - Delivery Date: 31/12/2025
         - TODO List:
             - Fixes:
-                - Fix up the count for convo_progress after wiping Barbara's mind
                 - Returning from the save menu should not open up the pause menu
                     - Do what Ren'Py does - one screen, and we pass in the title from two separate screens. Then I can
                         not show pause_menu if we're closing save_menu
                 - Move it so that we set the thought _before_ the line - it flows better that way
+                - Let's have it be that when you click on your destination, before choosing confirm, the map slides out
+                    and the background for that destination shows up
 
             - Touch-ups:
+                - Add in SFX, placeholder music
+                - Add in red flashes; go through all comments and clear them out
+                - Add in a help screen somewhere that not only displays controls, but also has some stuff about how to play the game
                 - Script:
                     - Start needs to be punchier. "I'm in a bar. Hey why's she annoyed at me?" isn't a great opening hook
                     - Let's go in a bit more on the precognition making Jack think he's been stabbed; it's a bit brief
+                    - Let's change it so that we portray Jack's death as being more a "oof well he was a dick but he didn't deserve
+                        to die;" I think the stuff with him thinking about his mum is a good sort of start to this. That,
+                        or make it more obvious that he's going to die and is deluding himself, because as it is right now
+                        it really does read as though he's gotten away and then it's a twist that he dies anyway. 
                     - I think Jack wanting to fuck Barbara might be the wrong direction to head in. I think let's lean in a bit more into
                         him wanting to steal from her, or find some other flaw to emphasise.
+                        - On that note, maybe make it that he is just here to rob her, and he isn't drinking too much? He deffo
+                            doesn't come across as drunk.
                     - Could an omniscient narrator help with things? I don't want Jack to narrate, but an omniscient narrator might
                         solve some of the problems that I've got.
-                - Add in red flashes; go through all comments and clear them out
-                - Add in SFX, placeholder music
-                - Add in a help screen somewhere that not only displays controls, but also has some stuff about how to play the game
         - Write up Google Docco with ze plan for friends to assess
-            - Also do a Google Forms feedback thingy?
-        - Send to friends with link to Google Docco
             - Explicitly mention, "Yes, Jack dies, you play as a new character" in it, and check with them whether they
                 think that it's better to end on the moment that it does, or whether it should end with Lloyd being like,
                 "I will stop him for you!"
             - Check what they think of the script - is it too short? Does there need to be more in there? Worst case I 
                 could throw Lloyd in there but even then that's prolly only another 500 words at most
+        - Send to friends with link to Google Docco
         - Work out a plan for applying for funding

@@ -70,8 +70,7 @@ init python:
         if not interact:
             return
 
-        global convo_progress
-        global progress_convo
+        global convo_progress, progress_convo
 
         if (event == "begin" and progress_convo):
             convo_progress += 1

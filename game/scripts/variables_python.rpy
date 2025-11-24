@@ -107,6 +107,16 @@ init python:
         if (history):
             renpy.show_screen("conversation_history")
 
+    def set_convo_length(length, progress=0):
+        global convo_progress, convo_length
+        convo_progress = progress
+        convo_length = length
+
+    def ignore_thoughts_length(subtract=1):
+        global convo_progress, progress_convo
+        convo_progress -= subtract
+        progress_convo = True
+        renpy.show_screen("psychic_powers")
 
     # Navigation selection
     def find_locations(ids):

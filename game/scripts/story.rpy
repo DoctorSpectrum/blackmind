@@ -4,7 +4,7 @@ label prologue_01:
     $ quick_menu = True
 
     scene bar with slow_dissolve
-    $ scene_setup(27, "Monday", True, 1, 2, True, True)
+    $ scene_setup(23, "Monday", True, 1, 2, True, True)
     
     jack smug "(Ah...[wait_1]nothing like going to the bar on a Monday.)"
     jack smug "(Lots of lovely booze, lots of quiet, and best of all...[wait_05]a sexy bartender, who literally only has eyes for me)."
@@ -45,8 +45,7 @@ label prologue_mind_wipe_tutorial:
 label prologue_02:
     $ add_boolean("mind_wipe_tutorial")
     $ _history_list = []
-    $ convo_progress = 0
-    $ convo_length = (11 if not check_boolean("mind_read_available") else 26)
+    $ set_convo_length(11 if not check_boolean("mind_read_tutorial") else 25)
     show screen psychic_powers
     show screen conversation_history
 
@@ -76,6 +75,8 @@ label prologue_02:
 
 label prologue_post_mind_read_tutorial:
     $ add_boolean("mind_read_tutorial")
+    if (convo_length == 11):
+        $ set_convo_length(15)
     jack smug "It was, um, about fifty, that you owed me, by the way."
     jack smug "Fifty - and one hundred.[wait_1] One hundred and fifty."
     jack smug "That’s right, you owed me one hundred and fifty in change."
@@ -106,6 +107,7 @@ label prologue_post_mind_read_tutorial:
     hide screen psychic_powers
     menu:
         "Let her open it":
+            $ set_convo_length(7)
             show screen conversation_history
             show screen psychic_powers
             jack smug "(This will be fine.)"
@@ -120,6 +122,7 @@ label prologue_post_mind_read_tutorial:
             call screen psychic_powers
         
         "But it has issues with certain cards" (locked=not check_boolean("mind_read_tutorial_card_processing"), message="You have not read this information in the bartender's mind"):
+            $ set_convo_length(13)
             show screen conversation_history
             show screen psychic_powers
             jack smug "Do you, though?[wait_1] That old thing?"
@@ -148,6 +151,7 @@ label prologue_post_mind_read_tutorial:
             call screen psychic_powers
         
         "This bar used to be better" (locked=not check_boolean("mind_read_tutorial_bar_quality"), message="You have not read this information in the bartender's mind"):
+            $ set_convo_length(20)
             show screen conversation_history
             show screen psychic_powers
             jack angry "This bar used to be better, you know."
@@ -185,11 +189,11 @@ label prologue_post_mind_read_tutorial:
             $ current_thought = "barbara_thought_pr_29"
             $ swap_sprites("barbara_angry")
             barbara "Yeah, it’s definitely time for you to leave." (name="Bartender")
-            hide screen conversation_history
             hide screen psychic_powers
             hide barbara_angry with quick_dissolve
+            $ progress_convo = False
             jack angry "(Oh, sure, when it’s emotional support, you’re all too happy to receive it, but physical support is a step too far, is it?)"
-            
+            hide screen conversation_history
             hide screen calendar
             scene black_bg with slow_dissolve
 

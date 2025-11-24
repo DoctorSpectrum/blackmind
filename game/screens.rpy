@@ -258,7 +258,7 @@ style choice_button is default:
     background Frame("gui/button/button_idle.png")
     hover_background Frame("gui/button/button_hover.png")
     padding (40, 60, 40, 60)
-    xsize 800
+    xsize 780
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
@@ -332,6 +332,7 @@ style quick_button_text:
 
 style quick_inverted_button is quick_button
 style quick_inverted_button_text is quick_button_text:
+    insensitive_color "#D1CE21"
     idle_color "#FFFC5E"
     hover_color "#F2EE29"
 

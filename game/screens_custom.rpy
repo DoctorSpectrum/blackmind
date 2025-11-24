@@ -92,6 +92,8 @@ screen psychic_powers():
                     action ([
                         SetLocalVariable("powers_open", False),
                         SetLocalVariable("icon_hint", None),
+                        Hide("psychic_powers"),
+                        SetVariable("progress_convo", False),
                         (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None else NullAction()),
                         (Call(current_thought, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
                     ] if focusable else NullAction())
@@ -179,10 +181,11 @@ screen conversation_progress():
                 at transform:
                     rotate 3
 
-            #text _(str(convo_progress)):
-            #    color "#000"
-            #    xalign 0.5
-            #    yoffset -210
+            if (config.developer):
+                text _(str(convo_progress) + "/" + str(convo_length)):
+                    color "#000"
+                    xalign 0.5
+                    yoffset -210
 
 style convo_progress_bar:
     left_bar "#F2EE29"
@@ -592,7 +595,7 @@ screen saves_list(title="LOAD"):
                             xsize 240
                             ysize 45
                             text_font "gui/chubhand.ttf"
-                            text_yoffset 2
+                            text_yoffset 3
                             text_size 40
                             text_selected_color "#000"
                             text_hover_color "#FFFC5E"
