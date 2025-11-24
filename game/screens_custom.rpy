@@ -1078,9 +1078,13 @@ screen conversation_history():
                 yadjustment ui.adjustment()
                 yinitial 0.0
                 vbox:
-                    for h in _history_list[0:len(_history_list) - 1]:
-                        #if (h.who):
-                        #    label h.who
+                    for i, h in enumerate(_history_list[0:len(_history_list) - 1]):
+                        if (h.who and _history_list[i - 1] is not None and _history_list[i - 1].who and _history_list[i - 1].who is not h.who):
+                            label h.who:
+                                style "history_who"
+                        elif (i == 0 and h.who):
+                            label h.who:
+                                style "history_who"
                         text _(h.what + "\n"):
                             color (h.what_args["color"] if "color" in h.what_args else "#FFF")
                             xoffset 50
@@ -1094,6 +1098,12 @@ screen conversation_history():
                 null
 
     use conversation_progress
+
+style history_who is label
+
+style history_who_text is label_text:
+    bottom_padding 15
+    xoffset 35
 
 screen cash_money():
     frame:
