@@ -293,6 +293,7 @@ label variables:
     #Misc. variables
     image black_bg = Solid("#000")
     image white_bg = Solid("#FFF")
+    define red_flash = Fade(0.25, 0.25, 0.25, color='#cc0000')
     default booleans = []
     default wait_2 = ("{w=2.0}" if preferences.text_cps > 0 else "")
     default wait_1 = ("{w=1.0}" if preferences.text_cps > 0 else "")

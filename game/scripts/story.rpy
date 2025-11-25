@@ -266,7 +266,7 @@ label prologue_precognition:
     scene black_bg
     #video with blood splatter
     #stabbing sfx
-    #flash of red
+    with red_flash
     if (location == "music_venue"):
         scene venue_exterior with quick_dissolve
     else:
@@ -305,10 +305,10 @@ label prologue_end:
     docherty "You are the source."
     jack angry "The fuck do you -"
     #SFX: slicing noise
-    #Red flash
     hide screen calendar
     hide screen conversation_history
     hide screen psychic_powers
+    with red_flash
     scene cg1_placeholder with slow_dissolve
     jack worried "(No...[wait_05]no!)"
     jack worried "(This fucking can’t be...[wait_05]I...[wait_05]I thought I stopped this?)"

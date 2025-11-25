@@ -2,10 +2,22 @@ BLACKMIND TODO
     - Prototype Phase
         - Delivery Date: 31/12/2025
         - TODO List:
+            - Add in a help screen somewhere that not only displays controls, but also has some stuff about how to play the game
+            - Audio:
+                - SFX:
+                    - Glass sliding
+                    - Slicing/stabbing
+                    - Running
+                - Music:
+                    - Grab it all from AI: Somnium Files OST
+
+                    - prologue_01: something fairly neutral
+                    - Failure choices in the bar: something a bit more tense
+                    - Ambience for choosing where to go
+                    - Music venue/restaurant: different neutral music
+                    - Post precognition: Something fairly tense
+
             - Touch-ups:
-                - Add in SFX, placeholder music
-                - Add in red flashes; go through all comments and clear them out
-                - Add in a help screen somewhere that not only displays controls, but also has some stuff about how to play the game
                 - Script:
                     - Could an omniscient narrator help with things? I don't want Jack to narrate, but an omniscient narrator might
                         solve some of the problems that I've got.
@@ -70,7 +82,12 @@ BLACKMIND TODO
                                         Bonus points if it's something that Sergei could also potentially be a part of, although that will be
                                         harder to do since in Branch A we'll only get an image of him.
                                     - TL;DR: Jack is implied to be part of [TWO SOMETHINGS], one per location, which Docherty is implicitly
-                                        killing him because of.
+                                        killing him because of. Potential murder motivations:
+                                        - Inheritance - getting money if relatives are out of the way
+                                        - Revenge
+                                        - Money - killing somebody gives you the opportunity to make a tonne of money
+                                        - Silencing somebody who knows something that you don't want them to
+                                        - Killing them will stop them from doing something you don't want them to
         - Write up Google Docco with ze plan for friends to assess
             - Explicitly mention, "Yes, Jack dies, you play as a new character" in it, and check with them whether they
                 think that it's better to end on the moment that it does, or whether it should end with Lloyd being like,
