@@ -1738,6 +1738,7 @@ screen help():
     default hide_content = False
     default selected_tab = "controls"
     default device = "keyboard"
+    default gameplay_help = "powers"
 
     tag menu
 
@@ -1776,7 +1777,7 @@ screen help():
                 yanchor 0.0
                 at transform:
                     linear 1.5:
-                        ysize 170
+                        ysize 180
 
             frame:
                 background None
@@ -1813,26 +1814,85 @@ screen help():
                                 elif device == "gamepad":
                                     use gamepad_help
                         elif (selected_tab == "gameplay"):
-                            vbox:
-                                spacing 10
-                                text _("TBA"):
-                                    style "credit_heading"
-                                text _("Sprite and CG Artwork"):
-                                    style "credit_person"
+                            #Goals
+                                # Try to read peoples' minds at the right time
+                                # Use the progress indicator to determine how far through the convo you are
+
+                            #Navigation 
+                                # Choose where to go, three places per day
 
                             vbox:
-                                spacing 10
-                                text _("TBA"):
-                                    style "credit_heading"
-                                text _("Background Artwork"):
-                                    style "credit_person"
+                                style_prefix "controls_help"
+                                spacing 23
 
-                            vbox:
-                                spacing 10
-                                text _("TBA"):
-                                    style "credit_heading"
-                                text _("Another Credit"):
-                                    style "credit_person"
+                                hbox:
+                                    textbutton _("Psychic Powers"): 
+                                        action SetScreenVariable("gameplay_help", "powers")
+                                    textbutton _("Other"): 
+                                        action SetScreenVariable("gameplay_help", "other")
+                                    textbutton _("Other #2"):
+                                        action SetScreenVariable("gameplay_help", "other2")
+
+                                vbox:
+                                    spacing 50
+                                    if (gameplay_help == "powers"):
+                                        hbox:
+                                            style_prefix "help_power"
+                                            image "gui/icons/mind_read_icon_idle.png":
+                                                xoffset 50
+                                                at transform:
+                                                    zoom 2
+                                            vbox:
+                                                label _("Read Mind")
+                                                text _("Read the mind of the person you're speaking to. Their thoughts will usually reflect the current line.")
+                                        hbox:
+                                            style_prefix "help_power"
+                                            image "gui/icons/mind_wipe_icon_idle.png":
+                                                xoffset 50
+                                                at transform:
+                                                    zoom 2
+                                            vbox:
+                                                label _("Rewind Mind")
+                                                text _("Make the person you're speaking to forget the last few minutes, and restart the conversation from the start.")
+                                        if (config.developer):
+                                            hbox:
+                                                style_prefix "help_power"
+                                                image "gui/icons/future_sight_icon_idle.png":
+                                                    xoffset 50
+                                                    at transform:
+                                                        zoom 2
+                                                vbox:
+                                                    label _("Future Sight")
+                                                    text _("Get a glimpse of the future, and see slightly ahead in the current conversation.")
+                                    elif (gameplay_help == "other"):
+                                        vbox:
+                                            spacing 10
+                                            text _("Help Item"):
+                                                style "credit_heading"
+                                            text _("Some sort of assistance goes here"):
+                                                style "credit_person"
+
+                                        vbox:
+                                            spacing 10
+                                            text _("Another Help Item"):
+                                                style "credit_heading"
+                                            text _("More assistance here"):
+                                                style "credit_person"
+                                    elif (gameplay_help == "other2"):
+                                        vbox:
+                                            spacing 10
+                                            text _("More Help Items"):
+                                                style "credit_heading"
+                                            text _("Helping players with text descriptions here"):
+                                                style "credit_person"
+
+                                        vbox:
+                                            spacing 10
+                                            text _("Yet More Help Items"):
+                                                style "credit_heading"
+                                            text _("This describes how to use a gameplay mechanic"):
+                                                style "credit_person"
+
 
 
 screen keyboard_help():
@@ -2018,6 +2078,16 @@ style gamepad_controls_list_label is keyboard_controls_list_label:
 style gamepad_controls_list_label_text is keyboard_controls_list_label_text
 style gamepad_controls_list_text is keyboard_controls_list_text:
     xsize 750
+
+style help_power_hbox is hbox:
+    spacing 100
+style help_power_label_text is label_text:
+    color "#000"
+    font "gui/chubhand.ttf"
+    size 56
+style help_power_text is text:
+    color "#000"
+    xmaximum 900
 
 ################################################################################
 ## Additional screens
