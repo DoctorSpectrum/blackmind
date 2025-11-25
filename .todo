@@ -5,16 +5,24 @@ BLACKMIND TODO
             - Audio:
                 - SFX:
                     - Glass sliding
-                    - Slicing/stabbing
+                    - Slicing/stabbing -> can grab this from Many Deaths
                     - Running
                 - Music:
-                    - Grab it all from AI: Somnium Files OST
-
                     - prologue_01: something fairly neutral
+                        - AI: The Somnium Files OST: PSYNCIN' IN THE CURTaiN (Falco's Somnium)
+                        - Madam - Perfumed Lady (Arranged) - Ghost Trick: Phantom Detective (2023)
                     - Failure choices in the bar: something a bit more tense
+                        - AI: The Somnium Files OST: 委細 -isAI-
+                        - AI: The Somnium Files OST: 警戒 -keikAI- (Caution) <- better
                     - Ambience for choosing where to go
+                        - Prelude: The "Night" Begins (Arranged) - Ghost Trick 2023
+                        - The Mystery Surges Ahead (Arranged) - Ghost Trick: Phantom Detective (2023)
                     - Music venue/restaurant: different neutral music
+                        - 〈〈 4 Minutes Before Death 〉〉 (Arranged) - Ghost Trick: Phantom Detective (2023)
+                        - Madam - Perfumed Lady (Arranged) - Ghost Trick: Phantom Detective (2023)
                     - Post precognition: Something fairly tense
+                        - AI: The Somnium Files OST: 奇怪 -kikAI-
+                        - AI: The Somnium Files OST: PSYNCIN' IN THE VILLaiN <- better
 
             - Touch-ups:
                 - Script:
@@ -88,11 +96,5 @@ BLACKMIND TODO
                                         - Silencing somebody who knows something that you don't want them to
                                         - Killing them will stop them from doing something you don't want them to
         - Write up Google Docco with ze plan for friends to assess
-            - Explicitly mention, "Yes, Jack dies, you play as a new character" in it, and check with them whether they
-                think that it's better to end on the moment that it does, or whether it should end with Lloyd being like,
-                "I will stop him for you!"
-            - Check what they think of the script - is it too short? Does there need to be more in there? Worst case I 
-                could throw Lloyd in there but even then that's prolly only another 500 words at most
-            - Keep unlimited psychic powers and make it more of an Ace Attorney-style puzzle?
             - Once it's donezo, have the link unlocked in the Credits screen
         - Work out a plan for applying for funding while I'm waiting on feedback
