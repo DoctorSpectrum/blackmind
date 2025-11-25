@@ -1734,35 +1734,109 @@ style history_label_text:
 ## help.
 
 screen help():
+    default show_content = False
+    default hide_content = False
+    default selected_tab = "controls"
+    default device = "keyboard"
 
     tag menu
 
-    default device = "keyboard"
+    timer 1.2:
+        action SetScreenVariable("show_content", True)
 
-    use game_menu(_("Help"), scroll="viewport"):
+    if (hide_content):
+        timer 0.5:
+            action SetScreenVariable("hide_content", False)
 
-        style_prefix "help"
+    use game_menu(_("HELP")):
 
-        vbox:
-            spacing 23
+        if (show_content):
+            vbox:
+                style_prefix "help_tabs"
+                at trans_fade(0.0, 0.5)
 
-            hbox:
+                textbutton _("Controls"):
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "controls")
+                    ]
+                    selected selected_tab == "controls"
+                textbutton _("Gameplay"):
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "gameplay")
+                    ]
+                    selected selected_tab == "gameplay"
 
-                textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
-                textbutton _("Mouse") action SetScreenVariable("device", "mouse")
+            image Solid("#000"):
+                xsize 5
+                ysize 2
+                xpos 385
+                ypos 90
+                yanchor 0.0
+                at transform:
+                    linear 1.5:
+                        ysize 170
 
-                if GamepadExists():
-                    textbutton _("Gamepad") action SetScreenVariable("device", "gamepad")
+            frame:
+                background None
+                xsize 1275
+                ysize 700
+                xalign 0.64
+                yalign 0.2
 
-            if device == "keyboard":
-                use keyboard_help
-            elif device == "mouse":
-                use mouse_help
-            elif device == "gamepad":
-                use gamepad_help
+                if (hide_content == False):
+
+                    vbox:
+                        spacing 80
+                        at trans_fade(0.0, 0.5), fade_side_to_side
+
+                        if (selected_tab == "controls"):
+                            vbox:
+                                style_prefix "controls_help"
+                                spacing 23
+
+                                hbox:
+                                    textbutton _("Keyboard"): 
+                                        action SetScreenVariable("device", "keyboard")
+                                    textbutton _("Mouse"): 
+                                        action SetScreenVariable("device", "mouse")
+
+                                    if GamepadExists():
+                                        textbutton _("Gamepad"): 
+                                            action SetScreenVariable("device", "gamepad")
+
+                                if device == "keyboard":
+                                    use keyboard_help
+                                elif device == "mouse":
+                                    use mouse_help
+                                elif device == "gamepad":
+                                    use gamepad_help
+                        elif (selected_tab == "gameplay"):
+                            vbox:
+                                spacing 10
+                                text _("TBA"):
+                                    style "credit_heading"
+                                text _("Sprite and CG Artwork"):
+                                    style "credit_person"
+
+                            vbox:
+                                spacing 10
+                                text _("TBA"):
+                                    style "credit_heading"
+                                text _("Background Artwork"):
+                                    style "credit_person"
+
+                            vbox:
+                                spacing 10
+                                text _("TBA"):
+                                    style "credit_heading"
+                                text _("Another Credit"):
+                                    style "credit_person"
 
 
 screen keyboard_help():
+    style_prefix "keyboard_controls_list"
 
     hbox:
         label _("Enter")
@@ -1790,11 +1864,11 @@ screen keyboard_help():
 
     hbox:
         label _("Page Up")
-        text _("Rolls back to earlier dialogue.")
+        text _("Scroll history log up.")
 
     hbox:
         label _("Page Down")
-        text _("Rolls forward to later dialogue.")
+        text _("Scroll history log down.")
 
     hbox:
         label "H"
@@ -1814,6 +1888,7 @@ screen keyboard_help():
 
 
 screen mouse_help():
+    style_prefix "mouse_controls_list"
 
     hbox:
         label _("Left Click")
@@ -1829,14 +1904,15 @@ screen mouse_help():
 
     hbox:
         label _("Mouse Wheel Up")
-        text _("Rolls back to earlier dialogue.")
+        text _("Scroll history log up.")
 
     hbox:
         label _("Mouse Wheel Down")
-        text _("Rolls forward to later dialogue.")
+        text _("Scroll history log down.")
 
 
 screen gamepad_help():
+    style_prefix "gamepad_controls_list"
 
     hbox:
         label _("Right Trigger\nA/Bottom Button")
@@ -1844,25 +1920,29 @@ screen gamepad_help():
 
     hbox:
         label _("Left Trigger\nLeft Shoulder")
-        text _("Rolls back to earlier dialogue.")
+        text _("Scroll history log up.")
 
     hbox:
         label _("Right Shoulder")
-        text _("Rolls forward to later dialogue.")
+        text _("Scroll history log down.")
 
     hbox:
-        label _("D-Pad, Sticks")
+        label _("D-Pad\nSticks")
         text _("Navigate the interface.")
 
     hbox:
-        label _("Start, Guide, B/Right Button")
+        label _("Start\nGuide\nB/Right Button")
         text _("Accesses the game menu.")
 
     hbox:
         label _("Y/Top Button")
         text _("Hides the user interface.")
 
-    textbutton _("Calibrate") action GamepadCalibrate()
+    textbutton _("Calibrate"): 
+        style "yellow_button_dark_hover"
+        xalign 0.5
+        yoffset 25
+        action GamepadCalibrate()
 
 
 style help_button is gui_button
@@ -1887,7 +1967,57 @@ style help_label_text:
     xalign 1.0
     textalign 1.0
 
+style help_tabs is credits_tabs
+style help_tabs_vbox is credits_tabs_vbox:
+    yalign 0.1
 
+style help_tabs_button is credits_tabs_button:
+    xsize 310
+
+style help_tabs_button_text is credits_tabs_button_text:
+    size 66
+
+style controls_help_hbox:
+    box_align 0.5
+    xsize 1100
+
+style controls_help_button_text:
+    color "#000"
+    selected_color "#F2EE29"
+    selected_outlines [ (4, "#000005", 0, 0) ]
+    font "gui/chubhand.ttf"
+    hover_underline True
+    size 56
+
+style keyboard_controls_list_hbox:
+    box_align 0.0
+
+style keyboard_controls_list_label:
+    xsize 250
+
+style keyboard_controls_list_label_text:
+    text_align 0.0
+    color "#000"
+
+style keyboard_controls_list_text:
+    xsize 850
+    color "#3B3B3B"
+
+style mouse_controls_list_hbox is keyboard_controls_list_hbox
+style mouse_controls_list_label is keyboard_controls_list_label:
+    xsize 400
+
+style mouse_controls_list_label_text is keyboard_controls_list_label_text
+style mouse_controls_list_text is keyboard_controls_list_text:
+    xsize 700
+
+style gamepad_controls_list_hbox is keyboard_controls_list_hbox
+style gamepad_controls_list_label is keyboard_controls_list_label:
+    xsize 350
+
+style gamepad_controls_list_label_text is keyboard_controls_list_label_text
+style gamepad_controls_list_text is keyboard_controls_list_text:
+    xsize 750
 
 ################################################################################
 ## Additional screens

@@ -829,7 +829,7 @@ screen pause_menu():
 
     text _("{color=#000}BLACK{/color}{color=#F2EE29}MIND{/color}"):
         xalign 0.5
-        yalign 0.1
+        yalign 0.05
         font "gui/Decade__.ttf"
         size 90
         xoffset -18
@@ -860,7 +860,7 @@ screen pause_menu():
 
     vbox:
         xalign 0.775
-        yalign 0.7
+        yalign 0.55
         spacing 50
         at trans_fade(1.0, 0.5), fade_side_to_side(1000, 0.5)
         textbutton _("Psychic Powers"):
@@ -874,6 +874,9 @@ screen pause_menu():
         textbutton _("Settings"):
             style "black_button_on_black"
             action (ShowMenu("preferences") if clickable_button() else NullAction())
+        textbutton _("Help"):
+            style "black_button_on_black"
+            action (ShowMenu("help") if clickable_button() else NullAction())
         textbutton _("Return"):
             style "black_button_on_black"
             action (Return() if clickable_button() else NullAction())
