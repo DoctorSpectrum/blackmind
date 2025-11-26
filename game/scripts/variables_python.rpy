@@ -16,8 +16,16 @@ init python:
             renpy.with_statement(transition)
 
     def play_music(song_title):
-        if(song_title == "song_title"):
-            renpy.music.play("<from 0.0 to 44.000>audio/music/song_title.mp3", loop=True)
+        if(song_title == "neutral_1"):
+            renpy.music.play("audio/music/PSYNCIN' IN THE CURTaiN.mp3", loop=True)
+        elif (song_title == "tense_1"):
+            renpy.music.play("audio/music/08 警戒 -keikAI-.mp3", loop=True)
+        elif (song_title == "ambient_1"):
+            renpy.music.play("audio/music/1-01. Prelude - The “Night” Begins.mp3", loop=True)
+        elif (song_title == "neutral_2"):
+            renpy.music.play("audio/music/1-13. Madam - Perfumed Lady.mp3", loop=True)
+        elif (song_title == "tense_2"):
+            renpy.music.play("audio/music/31 PSYNCIN' IN THE VILLaiN.mp3", loop=True)
 
     def play_sound(effect_name, loop=False, volume=1.0, from_time="", pause=None):
         if (renpy.is_skipping() == False):

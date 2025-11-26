@@ -1,8 +1,10 @@
 label prologue_01:
     $ quick_menu = False
+    $ renpy.music.stop()
     call screen chapter_breaks("PROLOGUE", "In a bar downtown, a young man is currently drinking. He is thinking about how he should use his psychic powers tonight.")
     $ quick_menu = True
 
+    $ play_music("neutral_1")
     scene bar with slow_dissolve
     $ scene_setup(23, "Monday", True, 1, 2, True, True)
     
@@ -105,6 +107,7 @@ label prologue_post_mind_read_tutorial:
     menu:
         "Let her open it":
             $ set_convo_length(7)
+            $ play_music("tense_1")
             show screen conversation_history
             show screen psychic_powers
             jack smug "(This will be fine.)"
@@ -116,10 +119,12 @@ label prologue_post_mind_read_tutorial:
             jack worried "(Shit![wait_1] Okay, new plan: rewrite her mind, and try this again)"
             jack worried "(I should probably try reading her mind a bit more this time...[wait_1]I might get a bit more information that I can use on her)."
             hide screen conversation_history
+            $ play_music("neutral_1")
             call screen psychic_powers
         
         "But it has issues with certain cards" (locked=not check_boolean("mind_read_tutorial_card_processing"), message="You have not read this information in the bartender's mind"):
             $ set_convo_length(13)
+            $ play_music("tense_1")
             show screen conversation_history
             show screen psychic_powers
             jack smug "Do you, though?[wait_1] That old thing?"
@@ -145,10 +150,12 @@ label prologue_post_mind_read_tutorial:
             jack worried "(Shit![wait_1] Okay, new plan: rewrite her mind, and try this again)"
             jack worried "(I need to read her mind and find something that I can use to stop her from using the computer...[wait_1]there’s got to be something in there if I read it at the right time)."
             hide screen conversation_history
+            $ play_music("neutral_1")
             call screen psychic_powers
         
         "This bar used to be better" (locked=not check_boolean("mind_read_tutorial_bar_quality"), message="You have not read this information in the bartender's mind"):
             $ set_convo_length(20)
+            $ play_music("tense_1")
             show screen conversation_history
             show screen psychic_powers
             jack angry "This bar used to be better, you know."
@@ -165,6 +172,7 @@ label prologue_post_mind_read_tutorial:
             barbara "..." (name="Bartender")
             jack angry "(Was that...[wait_05]the right thing to say?)"
             $ swap_sprites("barbara_sad")
+            $ play_music("neutral_1")
             barbara "Sorry, I...[wait_05]I shouldn’t have said that.[wait_1] I’m still getting the hang of this thing." (name="Bartender")
             barbara "What they teach you with a business degree doesn’t always apply to the real-world." (name="Bartender")
             jack smug "(Hello...[wait_05]feeling a bit down?)"
@@ -195,6 +203,7 @@ label prologue_post_mind_read_tutorial:
             scene black_bg with slow_dissolve
 
 label prologue_03:
+    $ play_music("ambient_1")
     jack thinking "(There’s no need for me to go home just yet.)"
     jack thinking "(It’s not like there’s anything wrong with staying out late on a Monday, after all.)"
     jack thinking "(I mean, when was the last time somebody got yelled at about overdue rent when staying out?[wait_1] Never happens.)"
@@ -204,6 +213,7 @@ label prologue_03:
 
 label prologue_music_venue:
     $ scene_setup(34, "Monday", True, 2, 2, True, True)
+    $ play_music("neutral_2")
     $ location = "music_venue"
     scene black_bg with slow_dissolve
     jack smug "(If there’s some sort of fee to get in, I’ll just make the door person forget that I haven’t actually paid it.)"
@@ -233,6 +243,7 @@ label prologue_music_venue:
 
 label prologue_restaurant:
     $ scene_setup(36, "Monday", True, 2, 2, True, True)
+    $ play_music("neutral_2")
     scene black_bg with slow_dissolve
     $ location = "restaurant"
     jack smug "(Do they have wine at this place?[wait_1] I don’t really like it, but I could buy a nice big bottle of it anyway and show everyone there how rich I currently am.)"
@@ -264,6 +275,7 @@ label prologue_restaurant:
 
 label prologue_precognition:
     scene black_bg
+    $ play_music("tense_2")
     #video with blood splatter
     #stabbing sfx
     with red_flash

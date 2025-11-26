@@ -57,19 +57,19 @@ style scrollbar:
 
 style vscrollbar:
     xsize gui.scrollbar_size
-    thumb "#F2EE29"
-    base_bar "#000"
+    base_bar "#F2EE29"
+    thumb "#000"
 
 style slider:
     ysize gui.slider_size
-    left_bar "#000"
-    right_bar "gui/bar/right.png"
+    left_bar "gui/bar/left.png"
+    right_bar "#000"
     thumb None
 
 style vslider:
     xsize gui.slider_size
-    bottom_bar "#000"
-    top_bar "gui/bar/top.png"
+    bottom_bar "gui/bar/bottom.png"
+    top_bar "#000"
     thumb None
 
 
