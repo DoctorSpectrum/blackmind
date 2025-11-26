@@ -275,10 +275,15 @@ label prologue_restaurant:
 
 label prologue_precognition:
     scene black_bg
+    hide screen calendar
+    hide screen conversation_history
     $ play_music("tense_2")
-    #video with blood splatter
-    #stabbing sfx
+    image secret = Movie(play="videos/blood_splash.ogv", size=(1920, 1080))
+    show secret
+    $ play_sound("stab.mp3", pause=3.0)
     with red_flash
+    show screen calendar("Monday", 2, 2)
+    show screen conversation_history
     if (location == "music_venue"):
         scene venue_exterior with quick_dissolve
     else:

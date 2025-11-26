@@ -1309,8 +1309,8 @@ screen preferences(start=False):
                                             vbar:
                                                 value Preference("music volume")
                                                 if preferences.get_mute("music"):
-                                                    base_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
-                                                    thumb "gui/slider/vertical_insensitive_thumb.png"
+                                                    bottom_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
+                                                    top_bar "#D5D5D5"
 
                                             text _("Music"):
                                                 color ("#000" if not preferences.get_mute("music") else "#707070")
@@ -1325,8 +1325,8 @@ screen preferences(start=False):
                                             vbar:
                                                 value Preference("sound volume")
                                                 if preferences.get_mute("sfx"):
-                                                    base_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
-                                                    thumb "gui/slider/vertical_insensitive_thumb.png"
+                                                    bottom_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
+                                                    top_bar "#D5D5D5"
                                             text _("Effects"):
                                                 color ("#000" if not preferences.get_mute("sfx") else "#707070")
 
