@@ -2,57 +2,57 @@ BLACKMIND TODO
     - Prototype Phase
         - Delivery Date: 31/12/2025
         - TODO List:
+            - Test with USB keyboard, see whether page up/page down does rollback/rollforward and change them to match mouse wheel scrolls
             - Audio:
                 - SFX:
                     - Add in audio after the script's been updooted 
                         - running will need to be shortened
 
-            - Touch-ups:
-                - Script:
-                    - Could an omniscient narrator help with things? I don't want Jack to narrate, but an omniscient narrator might
-                        solve some of the problems that I've got.
-                    - Current issues:
-                        - The opening hook isn't amazing atm. The bit on the prologue screen about Jack thinking about how to use his
-                            psychic abilities is a nice tease, and I think it piques your interest, but we then lose it with Jack until
-                            he actually uses the psychic abilities. Lean more into them from the start; they're the hook, and there's 
-                            no reason not to mention them from the start.
-                            - SOLUTION: I've already got it, and that's that Jack's thinking about how to use his psychic abilities.
-                                Instead of him looking at Barbara and thinking "would", it can be that he's only just finished a drink
-                                and is wondering about what he can say to Barbara to get her to hand him over some cash. It makes him
-                                a little bit more calculating, but I think that if I keep his speech patterns it'll work well enough.
-                        - I looked to Jeremy for inspo as to how to write somebody who's a shit but entertaining, and I think that it
-                            worked out fairly well overall, but the problem is that I wrote him as being too much like Jeremy - he's
-                            thinking about sex more than I think Jack should be, and I don't like it. It feels like the wrong priority
-                            to focus on, and what's more, him thinking about sex combined with his general lack of morals has an undertone
-                            of "has he used his powers to rape women?"
-                            - SOLUTION: Tying into the above - instead of thinking about how much he wants to bang Barbara, he's thinking
-                                about how he can scam her. I'll need to emphasise that he's a bit of a loser - he can't keep a job,
-                                he's behind on rent - and make it clear that it's his own fault, that he's _sure_ that there's a way
-                                for his psychic abilities to make life easy for him! He just...needs to work out what that is.
-                        - Jack's death scene is a bit iffy; I think that him justifying leaving people with somebody who's potentially 
-                            going to kill them works well on both the comedy and "wow he's really trying hard to justify this" levels,
-                            but him being all like "yep this is fine, I'll be safe" doesn't really work. I was aiming for surprising people
-                            with the sudden death, but I don't think that it works - we can assume that he'll die, or at the very least
-                            come into actual contact with the threat and then escape, so him going "oh wow I deffo felt like I was about
-                            to die; good thing that I didn't!" feels incredibly obvious that it's not the end of things. So the intended,
-                            "you thought that he had escaped but he didn't! Dun dun dun!" doesn't really work.
-                            - SOLUTION: Change this so we emphasise the feeling of the knife from his precognition, and how scared he is. 
-                                Have him hallucinate blood even after he knows that it's his precognition, and have him panicking more regardless.
-                                Focus on his fear and his panic, and portray it as dramatic, rather than, "Oh my god! Lmao time to run, nah
-                                she'll be right." I think the latter does kind of work in-character, but it hurts the story, so therefore
-                                portraying him as panicking and scared more is the bigger benefit (and is still in-character).
-                        - I don't like that the restaurant and the venue both lead to essentially the same scene - it shows that there's no 
-                            difference between them, and while this wouldn't be an issue in the full version if somebody kept playing and
-                            decided to save the other location for their next playthrough, in the demo it hurts it quite a lot, and might
-                            imply that you're on a pretty fucking linear path (which, to be fair, you are, although the more I can obscure
-                            that fact the better).
-                            - SOLUTION: What do we need this scene to have, and what can we have variations with?
-                                - Infodump about Jack:
-                                    - He's had his psychic powers since he was in his teens
-                                    - He has no idea where they came from
-                                    - He's kind of a loser who hasn't 100% grown up
-                                - Precognition flash of getting killed
-                                - Run away, actually get killed
+            - Script:
+                - Could an omniscient narrator help with things? I don't want Jack to narrate, but an omniscient narrator might
+                    solve some of the problems that I've got.
+                - Current issues:
+                    - The opening hook isn't amazing atm. The bit on the prologue screen about Jack thinking about how to use his
+                        psychic abilities is a nice tease, and I think it piques your interest, but we then lose it with Jack until
+                        he actually uses the psychic abilities. Lean more into them from the start; they're the hook, and there's 
+                        no reason not to mention them from the start.
+                        - SOLUTION: I've already got it, and that's that Jack's thinking about how to use his psychic abilities.
+                            Instead of him looking at Barbara and thinking "would", it can be that he's only just finished a drink
+                            and is wondering about what he can say to Barbara to get her to hand him over some cash. It makes him
+                            a little bit more calculating, but I think that if I keep his speech patterns it'll work well enough.
+                    - I looked to Jeremy for inspo as to how to write somebody who's a shit but entertaining, and I think that it
+                        worked out fairly well overall, but the problem is that I wrote him as being too much like Jeremy - he's
+                        thinking about sex more than I think Jack should be, and I don't like it. It feels like the wrong priority
+                        to focus on, and what's more, him thinking about sex combined with his general lack of morals has an undertone
+                        of "has he used his powers to rape women?"
+                        - SOLUTION: Tying into the above - instead of thinking about how much he wants to bang Barbara, he's thinking
+                            about how he can scam her. I'll need to emphasise that he's a bit of a loser - he can't keep a job,
+                            he's behind on rent - and make it clear that it's his own fault, that he's _sure_ that there's a way
+                            for his psychic abilities to make life easy for him! He just...needs to work out what that is.
+                    - Jack's death scene is a bit iffy; I think that him justifying leaving people with somebody who's potentially 
+                        going to kill them works well on both the comedy and "wow he's really trying hard to justify this" levels,
+                        but him being all like "yep this is fine, I'll be safe" doesn't really work. I was aiming for surprising people
+                        with the sudden death, but I don't think that it works - we can assume that he'll die, or at the very least
+                        come into actual contact with the threat and then escape, so him going "oh wow I deffo felt like I was about
+                        to die; good thing that I didn't!" feels incredibly obvious that it's not the end of things. So the intended,
+                        "you thought that he had escaped but he didn't! Dun dun dun!" doesn't really work.
+                        - SOLUTION: Change this so we emphasise the feeling of the knife from his precognition, and how scared he is. 
+                            Have him hallucinate blood even after he knows that it's his precognition, and have him panicking more regardless.
+                            Focus on his fear and his panic, and portray it as dramatic, rather than, "Oh my god! Lmao time to run, nah
+                            she'll be right." I think the latter does kind of work in-character, but it hurts the story, so therefore
+                            portraying him as panicking and scared more is the bigger benefit (and is still in-character).
+                    - I don't like that the restaurant and the venue both lead to essentially the same scene - it shows that there's no 
+                        difference between them, and while this wouldn't be an issue in the full version if somebody kept playing and
+                        decided to save the other location for their next playthrough, in the demo it hurts it quite a lot, and might
+                        imply that you're on a pretty fucking linear path (which, to be fair, you are, although the more I can obscure
+                        that fact the better).
+                        - SOLUTION: What do we need this scene to have, and what can we have variations with?
+                            - Infodump about Jack:
+                                - He's had his psychic powers since he was in his teens
+                                - He has no idea where they came from
+                                - He's kind of a loser who hasn't 100% grown up
+                            - Precognition flash of getting killed
+                            - Run away, actually get killed
 
                                 - I can squeeze something unique in between the infodump and the precognition. If this were the main game,
                                     the differences in where you go would be who you're seeing and therefore the information that you can
