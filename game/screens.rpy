@@ -1010,6 +1010,9 @@ screen about():
                                 text _("Version [config.version!t]\n"):
                                     color "#000"
 
+                            if (persistent.docs_link_shown):
+                                text _("{a=https://docs.google.com/document/d/1wAlhH52z9H0CxoKjtVLBtCwZTfI9KdIqwNmada6nMtQ/edit?usp=sharing}Link to Google Docco{/a}")
+
                             if gui.about:
                                 text "[gui.about!t]\n":
                                     color "#000"

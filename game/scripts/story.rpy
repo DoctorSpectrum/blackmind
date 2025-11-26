@@ -331,5 +331,11 @@ label prologue_end:
     jack worried "(This fucking can’t be...[wait_05]I...[wait_05]I thought I stopped this?)"
     jack worried "(I wasn’t supposed to...[wait_05]{size=-8}this is bullshit...{/size})"
     scene black_bg with slow_dissolve
-    #Blah blah blah, you made it to the end; here's a link to the doccos
+
+    if (not persistent.docs_link_shown):
+        narrator "Thanks for playing the prototype!"
+        narrator "I've written up a bit of a docco about where I'm hoping to go with the game, to make things a bit more transparent and get a bit of feedback."
+        narrator "You can access it here: {a=https://docs.google.com/document/d/1wAlhH52z9H0CxoKjtVLBtCwZTfI9KdIqwNmada6nMtQ/edit?usp=sharing}Google Docs Link{/a}."
+        narrator "This link also appears in the Credits screen."
+        $ persistent.docs_link_shown = True
     $ MainMenu(confirm=False)()
