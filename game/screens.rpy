@@ -130,6 +130,30 @@ screen say(who, what):
             action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value + 30))
         else:
             action NullAction()
+    
+    key "anyrepeat_K_PAGEDOWN":
+        if (renpy.get_widget("conversation_history", "history_viewport")):
+            action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value + 30))
+        else:
+            action NullAction()
+
+    key "anyrepeat_KP_PAGEDOWN":
+        if (renpy.get_widget("conversation_history", "history_viewport")):
+            action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value + 30))
+        else:
+            action NullAction()
+
+    key "anyrepeat_K_PAGEUP":
+        if (renpy.get_widget("conversation_history", "history_viewport")):
+            action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value - 30))
+        else:
+            action NullAction()
+            
+    key "anyrepeat_KP_PAGEUP":
+        if (renpy.get_widget("conversation_history", "history_viewport")):
+            action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value - 30))
+        else:
+            action NullAction()
 
 
 ## Make the namebox available for styling through the Character object.

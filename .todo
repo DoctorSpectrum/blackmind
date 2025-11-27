@@ -2,7 +2,6 @@ BLACKMIND TODO
     - Prototype Phase
         - Delivery Date: 31/12/2025
         - TODO List:
-            - Test with USB keyboard, see whether page up/page down does rollback/rollforward and change them to match mouse wheel scrolls
             - Audio:
                 - SFX:
                     - Add in audio after the script's been updooted 
