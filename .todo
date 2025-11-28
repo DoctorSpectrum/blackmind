@@ -1,7 +1,5 @@
 BLACKMIND TODO
     - Prototype Phase
         - Delivery Date: 31/12/2025
-        - TODO List:
-            - Make icons
         - Post sharing: change play_sound to allow for a transition to be passed in, so we can do a red flash and pause at the same time
         - Work out a plan for applying for funding while I'm waiting on feedback
