@@ -272,7 +272,7 @@ label prologue_music_venue:
     jack smug "(Alright, same deal as always: start heading in, wipe the doorman’s memory, then keep going.[wait_1] Easy.)"
     jack angry "(God, not that I should have to do this.)"
     jack angry "(If I was a doorman I’d let anybody in for free.[wait_1] The venue owners would start out mad, but then they’d -)"
-    call prologue_precognition
+    call prologue_precognition from _current
     scene venue_exterior with quick_dissolve
     jump prologue_end
 
@@ -298,7 +298,7 @@ label prologue_restaurant:
     jack angry "(They’d better have some fucking tables left inside; I don’t want to sit out in the cold.)"
     jack smug "(Although I guess if they don’t have any, I can probably use my abilities to get somebody to go outside.)"
     jack smug "(It’s not like they’d know that I - )"
-    call prologue_precognition
+    call prologue_precognition from _current
     scene restaurant_night with slow_dissolve
     jump prologue_end
 
