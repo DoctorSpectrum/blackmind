@@ -4,7 +4,7 @@ init python:
     config.fade_music = 1.0
     config.autosave_on_choice = False
 
-    import datetime
+    import datetime, random
 
     #Functions
     def swap_sprites(new_sprite, transition = None, position = center):

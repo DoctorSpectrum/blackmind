@@ -1145,3 +1145,61 @@ screen cash_money():
             font "gui/chubhand.ttf"
             size 40
             yoffset -5
+
+screen attune_senses():
+    #default transparency = 0.33
+
+    #timer 0.5:
+    #    action SetScreenVariable("transparency", random.randint(0, 100) / 100)
+    #    repeat True
+
+    image "images/sprites/jack_smug.png":
+        at center
+
+    text _("Tonight's a good night to continue working on the plan. Where should I go first?"):
+        color "#F2EE29"
+        xalign 0.75
+        yalign 0.25
+        xmaximum 350
+        at transform:
+            alpha 0.0
+            block:
+                ease 1.0:
+                    alpha random.randint(31, 70) / 100
+                pause 0.5
+                linear 1.0:
+                    alpha random.randint(0, 30) / 100
+                pause 0.5
+                repeat
+
+    frame:
+        background "gui/textbox.png"
+        xalign 0.5
+        yalign 0.95
+        xsize 1376
+        ysize 288
+        at trans_fade(0.0, 1.0), fade_side_to_side(1800, 0.0)
+
+        text _("Attune your psychic senses until the thoughts are barely visible"):
+            xalign 0.5
+            yalign 0.25
+            color "#000"
+            at trans_fade(1.0, 0.5)
+
+        textbutton _("START GAME"):
+            xalign 0.5
+            yalign 0.8
+            text_font "gui/chubhand.ttf"
+            text_color "#000"
+            text_hover_color "#F2EE29"
+            text_hover_outlines [ (4, "#000005", 0, 0) ]
+            text_size 72
+            text_yoffset 5
+            action [
+                SetVariable("persistent.senses_attuned", True),
+                Return()
+            ]
+            at trans_fade(6.0, 0.5)
+
+    key "mouseup_3":
+        action NullAction()

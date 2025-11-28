@@ -1470,7 +1470,7 @@ screen preferences(start=False):
                     xsize 800
                     ysize 150
 
-                    textbutton _("START GAME"):
+                    textbutton _("CONTINUE"):
                         xalign 0.5
                         yalign 0.15
                         text_size 45

@@ -13,6 +13,7 @@ label variables:
     default persistent.cgs_unlocked = []
     default persistent.game_id = 0
     default persistent.docs_link_shown = False
+    default persistent.senses_attuned = False
 
     default preferences.fullscreen = True
     default preferences.music_volume = 0.75 

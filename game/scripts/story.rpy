@@ -1,5 +1,8 @@
 label prologue_01:
     $ quick_menu = False
+    if (not persistent.senses_attuned):
+        call screen attune_senses
+
     $ renpy.music.stop()
     call screen chapter_breaks("PROLOGUE", "In a bar downtown, a young man is currently drinking. He is thinking about how he should use his psychic powers tonight.")
     $ quick_menu = True
