@@ -234,7 +234,7 @@ label variables:
     
     default rewind_point = "prologue_02"
 
-    default money = 7
+    default money = 12
 
     #Map
     default destinations = [

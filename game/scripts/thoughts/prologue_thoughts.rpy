@@ -9,7 +9,7 @@ label barbara_thought_pr_02:
     return
 
 label barbara_thought_pr_03:
-    barbara_thoughts "(Did I take his money and close the cashier without realising it?)" (name="Bartender")
+    barbara_thoughts "(Did I take his money and close the till without realising it?)" (name="Bartender")
     $ ignore_thoughts_length()
     return
 
@@ -25,7 +25,7 @@ label barbara_thought_pr_04:
         return
 
 label barbara_thought_pr_05:
-    barbara_thoughts "(Yeah, right...[wait_1]there’s no way that this idiot paid me that much money.)" (name="Bartender")
+    barbara_thoughts "(Yeah, right...[wait_1]I wasn't born yesterday, you know.)" (name="Bartender")
     $ ignore_thoughts_length()
     return
 
@@ -45,7 +45,7 @@ label barbara_thought_pr_08:
     return
 
 label barbara_thought_pr_09:
-    barbara_thoughts "(We do have issues processing some cards, true...[wait_05]but you’re still nowhere near the mark, buddy.)" (name="Bartender")
+    barbara_thoughts "(We do have issues processing some cards, true...[wait_05]but you really don’t know as much as you think you do, buddy.)" (name="Bartender")
     jack thinking "(That’s interesting to know...[wait_1]I might be able to use that.)"
     $ add_boolean("mind_read_tutorial_card_processing")
     $ ignore_thoughts_length()
@@ -112,8 +112,8 @@ label barbara_thought_pr_20:
     return
 
 label barbara_thought_pr_21:
-    barbara_thoughts "(Not receiving excess change isn’t harassment!)" (name="Bartender")
-    jack angry "(Like hell it isn’t)."
+    barbara_thoughts "(If you consider this to be harassment, then boy, have you lived an easy life.)" (name="Bartender")
+    jack angry "(What the hell would you know about my life, bitch?)"
     $ ignore_thoughts_length()
     return
 
@@ -124,7 +124,7 @@ label barbara_thought_pr_22:
 
 label barbara_thought_pr_23:
     barbara_thoughts "(I know that it’s selfish, but I want him out of here.)" (name="Bartender")
-    barbara_thoughts "(If I’m going to have patrons like him, then I’d rather not be running a bar.)" (name="Bartender")
+    barbara_thoughts "(I’d rather have an empty bar than have to deal with people who act the way he has been.)" (name="Bartender")
     $ ignore_thoughts_length()
     return
 
@@ -136,8 +136,8 @@ label barbara_thought_pr_24:
 
 label barbara_thought_pr_25:
     barbara_thoughts "(Maybe I am the problem.)" (name="Bartender")
-    barbara_thoughts "(Maybe the customer numbers aren’t as high because they do feel like I’m harassing them.)" (name="Bartender")
-    barbara_thoughts "(He might be a shit, but he didn’t choose to feel the way he is.)" (name="Bartender")
+    barbara_thoughts "(Maybe the customer numbers aren’t as high these days because they do feel like I’m harassing them.)" (name="Bartender")
+    barbara_thoughts "(I didn’t think that I owed him that much change, but maybe I should have trusted the customer more.)" (name="Bartender")
     $ ignore_thoughts_length()
     return
 
@@ -153,12 +153,13 @@ label barbara_thought_pr_27:
     return
 
 label barbara_thought_pr_28:
-    barbara_thoughts "(Will I regret this?[wait_1] ...Probably, but I can’t ask for it back now.)" (name="Bartender")
+    barbara_thoughts "(Dammit...[wait_05]I hope that he doesn’t think that I’m trying to pull a fast one on him.)" (name="Bartender")
+    barbara_thoughts "(I’ve got to keep him happy.)" (name="Bartender")
     $ ignore_thoughts_length()
     return
 
 label barbara_thought_pr_29:
-    barbara_thoughts "(...Did he seriously just say what I think he did?)" (name="Bartender")
+    barbara_thoughts "(I’d better be quick - if another customer shows up while I’m gone, they might leave if they think there’s nobody around!)" (name="Bartender")
     $ ignore_thoughts_length()
     return
 

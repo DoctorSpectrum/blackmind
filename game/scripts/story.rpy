@@ -11,33 +11,55 @@ label prologue_01:
     scene bar with slow_dissolve
     $ scene_setup(23, "Monday", True, 1, 2, True, True)
     
-    jack smug "(Ah...[wait_1]nothing like going to the bar on a Monday.)"
-    jack smug "(Lots of lovely booze, lots of quiet, and best of all...[wait_05]a sexy bartender, who literally only has eyes for me)."
-    $ swap_sprites("barbara_angry", slow_dissolve)
-    barbara "Hello?[wait_1] Did you hear me?" (name="Bartender")
-    jack worried "(Shit![wait_1] Has she been talking this whole time?)"
-    jack worried "(What’s gotten her turned off all of a sudden?)"
-    jack worried "Hmm?[wait_1] Hi, is something...[wait_05]wrong?"
-    barbara "I said, I’m going to need you to pass that drink over and leave." (name="Bartender")
-    barbara "You’ve clearly had too much to drink, and I can’t have you hanging around here." (name="Bartender")
-    jack angry "(Whatever happened to the good old national binge drink?)"
-    jack angry "(Used to be that we were told off for not drinking enough...[wait_1]it’s political correctness gone mad.)"
-    jack thinking "(Still though, I’d better listen to her.)"
-    jack thinking "(I don’t think she’s the type of angry that makes me feel horny.)"
-    #SFX: Glass sliding
-    jack smug "Right, there you go then."
-    jack smug "Farewell, sweet mademoiselle, and thank you for bringing pleasure to a thirsty man."
-    barbara "..." (name="Bartender")
-    jack angry "(What’s she still looking angry for?[wait_1] That’s barely an innuendo!)"
-    barbara "The bar’s policy is that all tabs have to be paid before leaving.[wait_1] No exceptions." (name="Bartender")
-    jack worried "(Shit.[wait_05] How much money do I have?)"
+    narrator "The time is currently 8:11 PM, on a Monday night."
+    narrator "Business isn’t usually too good this early in the week, which meant that the owner was slightly surprised when the customer walked in."
+    narrator "He has a good reason for coming here on this day, though, when the bar is so much more quiet than the rest of the week."
+    narrator "It means that there won’t be any witnesses."
+
+    $ play_sound("ice_cube_clink.mp3")
+    jack smug "(Not too bad, as far as whiskey goes.)"
+    jack smug "(She’s definitely watered the bloody thing down, but not as much as some of the other places I’ve been to lately)."
+    jack thinking "(Should I have another lovely little drink...?[wait_1] Wet the whistle a bit?)"
+    jack smug "(...Nah, better not.)"
+    jack smug "(It could affect my abilities, and I’ve got to get this right.)"
+    jack smug "(Nobody ever became a millionaire while drunk...[wait_05]well, except for actors and musicians, of course.)"
+    jack smug "(And all the CEOs, of course.[wait_1] Can’t forget the CEOs.)"
+    narrator "This is Jack Usbourne."
+    narrator "Twenty-seven years of age, and the possessor of abilities that some would kill to have."
+    narrator "Currently unemployed, although not without the means to make money his own way."
+    jack smug "Hi, um, bartender?"
+    $ swap_sprites("barbara_smiling", slow_dissolve)
+    barbara "Hi there![wait_1] How’s it going?" (name="Bartender")
+    barbara "The general emptiness of the place isn’t too much of an issue, I hope?"
+    barbara "Mondays aren’t too busy, but I...[wait_05]I like to stay open anyway, so that I can still help out people who are in need of a good, strong drink!"
+    jack angry "(“Help out people” - what the hell is that supposed to mean?)"
+    jack angry "(If you want to help so much, how about giving away free drinks, for a start?)"
+    barbara "Looks like you’ve just about finished that drink off - I’m guessing that you want a replacement?[wait_1] On your tab, same as the first?" (name="Bartender")
+    jack smug "Um, look, no...[wait_05]not really."
+    $ swap_sprites("barbara_sad")
+    barbara "Oh.[wait_1] Sorry, I’m - was it not to your liking?" (name="Bartender")
+    $ swap_sprites("barbara_smiling")
+    barbara "Do you want a -[wait_05] I can recommend you a different brand, if you like?" (name="Bartender")
+    jack smug "Oh, no, the drink was great![wait_1] Excellent vintage, a truly good year for grapes!"
+    barbara "Heh, nice one." (name="Bartender")
+    jack worried "(Why is that funny?)"
+    jack smug "But I can’t stay any longer, unfortunately.[wait_1] I have to go."
+    $ swap_sprites("barbara_sad")
+    barbara "Oh no![wait_1] Is everything alright?" (name="Bartender")
+    jack smug "(I’m going to be walking out of here with armfuls of your money.[wait_1] That’s definitely alright by me.)"
+    jack smug "Yeah, yeah, I just...[wait_05]got a text from my...[wait_05]dog.[wait_1] Sitter.[wait_1] My dogsitter."
+    $ swap_sprites("barbara_angry")
+    barbara "You’ve left your dog with a sitter so that you could come to a bar and drink?" (name="Bartender")
+    jack smug "Well they’re a very hardy breed, these German...[wait_05]Terriers."
+    jack smug "I mean, I always say, it’s more like the dog looks after the sitter, you know?"
+    barbara "Right...[wait_05]well, whatever it is, if you have to leave then you have to leave." (name="Bartender")
+    $ swap_sprites("barbara_smiling")
+    barbara "Just got to pay up your tab then I’ll let you be on your way!" (name="Bartender")
+    barbara "With our Monday night discount applied, your one drink was $10." (name="Bartender")
     show screen cash_money
-    jack worried "(That's...[wait_05]not a lot.)"
-    barbara "We take both cash and card." (name="Bartender")
-    barbara "Can even split it between the two if that’s easier for you, but it’s got to be paid." (name="Bartender")
-    hide screen cash_money
-    jack smug "(Alright, no biggie.)"
-    jack smug "(Just have to do a little rewrite without letting the alcohol affect me.[wait_1] Easy.)"
+    jack smug "(If I was a sucker, maybe.)"
+    barbara "Will that be cash or card?" (name="Bartender")
+    jack smug "How about...[wait_05]neither?"
     hide screen say
     hide screen conversation_history
     $ add_boolean("psychic_powers_available")
@@ -57,7 +79,7 @@ label prologue_02:
     barbara "What...[wait_05]what were we talking about, again?" (name="Bartender")
     $ current_thought = "barbara_thought_pr_02"
     jack smug "My tab.[wait_1] We were just, um, saying how I’d paid it all, and that I was going to leave."
-    jack smug "(Might as well sweeten the deal a little...)"
+    jack smug "(Oh yeah.[wait_05] Here we go.[wait_05] It's showtime!)"
     jack smug "...but not until after you give me some money."
     $ current_thought = "barbara_thought_pr_03"
     jack smug "You said that you were going to get me my change, remember?"
@@ -119,8 +141,8 @@ label prologue_post_mind_read_tutorial:
             $ current_thought = "barbara_thought_pr_14"
             barbara "Looks like I owe you quite a bit less than you said." (name="Bartender")
             barbara "In fact, I think you might have who owes who around the wrong way." (name="Bartender")
-            jack worried "(Shit![wait_1] Okay, new plan: rewrite her mind, and try this again)"
-            jack worried "(I should probably try reading her mind a bit more this time...[wait_1]I might get a bit more information that I can use on her)."
+            jack worried "(Shit![wait_1] Okay, new plan: rewrite her mind, and try this again.)"
+            jack worried "(I should probably try reading her mind a bit more next time...[wait_1]I might get a bit more information that I can use on her)."
             hide screen conversation_history
             $ play_music("neutral_1")
             call screen psychic_powers
@@ -140,17 +162,17 @@ label prologue_post_mind_read_tutorial:
             jack smug "Those bloody computer people.[wait_1] They’re always going on about tickets, aren’t they?"
             $ swap_sprites("barbara_smiling")
             barbara "They are![wait_1] It wouldn’t kill them to show a bit more support for their customers; I pay them enough fees each month!" (name="Bartender")
-            jack smug "They’re taking the bloody piss![wait_1] And I don’t reckon we shouldn’t support them any further!"
+            jack smug "They’re taking the bloody piss![wait_1] And I - you know what, actually?"
             $ current_thought = "barbara_thought_pr_18"
-            jack smug "Let’s just - let’s stop using terminals, and computers, and cards, and just pay customers what they’re owed!"
-            barbara "Good point![wait_1] I’d better check whether the value that you gave me is actually the right calculation, though; if it isn’t then that’s another issue that I can bring up to them." (name="Bartender")
+            jack smug "I reckon that the time to support them is over![wait_1] Let’s just - let’s stop using terminals, and computers, and cards, and just pay customers what they’re owed!"
+            barbara "Good point![wait_1] Give me a moment to check how much I do owe you, though - if it was calculated incorrectly, then that’s another issue that I can bring up to them." (name="Bartender")
             $ current_thought = "barbara_thought_pr_19"
             jack worried "Wait, but -"
             $ swap_sprites("barbara_angry")
             $ current_thought = "barbara_thought_pr_20"
-            barbara "Looking at this, it looks like the value is wrong.[wait_1] At least, compared to what you said." (name="Bartender")
-            barbara "As it is, I think you might have who owes who around the wrong way." (name="Bartender")
-            jack worried "(Shit![wait_1] Okay, new plan: rewrite her mind, and try this again)"
+            barbara "Looking at this, it looks like you might have who owes who around the wrong way." (name="Bartender")
+            barbara "I don’t suppose you’d be willing to actually pay me, now?" (name="Bartender")
+            jack worried "(Shit![wait_1] Okay, new plan: rewrite her mind, and try this again.)"
             jack worried "(I need to read her mind and find something that I can use to stop her from using the computer...[wait_1]there’s got to be something in there if I read it at the right time)."
             hide screen conversation_history
             $ play_music("neutral_1")
@@ -177,38 +199,53 @@ label prologue_post_mind_read_tutorial:
             $ swap_sprites("barbara_sad")
             $ play_music("neutral_1")
             barbara "Sorry, I...[wait_05]I shouldn’t have said that.[wait_1] I’m still getting the hang of this thing." (name="Bartender")
-            barbara "What they teach you with a business degree doesn’t always apply to the real-world." (name="Bartender")
-            jack smug "(Hello...[wait_05]feeling a bit down?)"
-            jack smug "(Maybe a nice little sympathy fuck will make you feel better?)"
+            barbara "What they teach you with a business degree doesn’t always apply to the real world." (name="Bartender")
+            jack smug "(So...[wait_05]money now?)"
+            jack smug "(You’re going to give me the money, aren’t you?)"
             $ current_thought = "barbara_thought_pr_26"
             barbara "I just - I’m trying not to lose more than I can afford to, but I guess that makes me a bit more cautious when I should be more trusting." (name="Bartender")
             jack smug "(Just keep smiling and nodding.)"
-            jack smug "(It’s cool, girl - I’ll listen to all of your problems, provided you don’t want me to remember what they are in five minutes.)"
+            jack smug "(She’s got to give me the money eventually if I just wait out this pathetic pity party.)"
             $ swap_sprites("barbara_smiling")
             $ current_thought = "barbara_thought_pr_27"
-            barbara "Here - this change is yours.[wait_1] I can worry about the books later." (name="Bartender")
-            $ money = 157
-            show screen cash_money
-            jack smug "(Cha-ching!)"
+            barbara "Here - your change is...[wait_05]oh, sorry." (name="Bartender")
+            jack angry "(What is it now?!)"
+            $ swap_sprites("barbara_sad")
             $ current_thought = "barbara_thought_pr_28"
-            barbara "Once again, I’m sorry that I was a bit sceptical." (name="Bartender")
-            hide screen cash_money
+            barbara "This has been a fairly quiet night, and most people usually pay by card, so there’s not actually enough change in the till." (name="Bartender")
+            $ swap_sprites("barbara_smiling")
+            barbara "But if you give me a minute, then I can go get the rest." (name="Bartender")
+            jack smug "Oh, yeah, of course.[wait_1] That would be great."
+            jack smug "But...[wait_05]if you wouldn’t mind giving me what’s in there at the moment?"
+            $ money = 62
+            show screen cash_money
             $ current_thought = "barbara_thought_pr_29"
-            jack smug "That’s fine, and...[wait_1]look, if you wanted to talk about it a bit more, maybe in a bit more of an...[wait_1]intimate setting?"
-            $ swap_sprites("barbara_angry")
-            barbara "Yeah, it’s definitely time for you to leave." (name="Bartender")
+            barbara "Of course.[wait_1] Right -[wait_05] back in a minute, then." (name="Bartender")
             hide screen psychic_powers
-            hide barbara_angry with quick_dissolve
+            hide barbara_smiling with quick_dissolve
             $ progress_convo = False
-            jack angry "(Oh, sure, when it’s emotional support, you’re all too happy to receive it, but physical support is a step too far, is it?)"
+            jack smug "(Good start to the night so far - I’m $50 richer, and I’m about to get some more money on top of it.)"
+            jack smug "(I can basically go wherever I want and afford anything!)"
+            hide screen cash_money
+            jack smug "(Where to next?[wait_1] Entertainment?[wait_05] Food?)"
+            jack smug "(Or maybe...[wait_05]maybe I should go get some more money from somebody!)"
+            jack smug "(Yeah, that’s perfect![wait_1] At the right place, I could probably end up with even more money...[wait_05]maybe even over $300!)"
+            jack smug "(I just need this bartender to hurry up and bring the money back...)"
+            narrator "...[wait_1] ...[wait_1] ..."
+            jack thinking "(She’s taking her time -[wait_05] is something wrong?)"
+            jack thinking "(Does she not want to give me my bloody money?)"
+            jack worried "(Wait...[wait_05]maybe that is it?)"
+            jack worried "(Maybe she realised that something was off, and is calling the cops!)"
+            jack angry "(I’ll be damned if I’ll let them catch me here!)"
+            jack angry "(I’d better leave while I’ve got the opportunity -[wait_05] I’ve already gotten plenty of cash from this place.)"
             hide screen conversation_history
             hide screen calendar
             scene black_bg with slow_dissolve
 
 label prologue_03:
     $ play_music("ambient_1")
-    jack thinking "(There’s no need for me to go home just yet.)"
-    jack thinking "(It’s not like there’s anything wrong with staying out late on a Monday, after all.)"
+    jack thinking "(I want to avoid the cops, but there’s no need for me to go home just yet.)"
+    jack thinking "(It’s not like they’ll go searching every place nearby, and I’d rather stay out a bit late.)"
     jack thinking "(I mean, when was the last time somebody got yelled at about overdue rent when staying out?[wait_1] Never happens.)"
     jack thinking "(Where should I go?)"
     $ _history_list = []
