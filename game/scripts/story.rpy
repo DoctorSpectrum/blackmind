@@ -114,7 +114,7 @@ label prologue_post_mind_read_tutorial:
     $ current_thought = "barbara_thought_pr_07"
     jack smug "Is it something you can touch, or...[wait_05]eat?"
     $ current_thought = "barbara_thought_pr_08"
-    barbara "I think it’s safe to say that I’ll be able to see some numbers on the terminal."
+    barbara "I think it’s safe to say that I’ll be able to see some numbers on the terminal." (name="Bartender")
     jack smug "Are you sure that you want to do that?"
     $ current_thought = "barbara_thought_pr_09"
     jack smug "Computers aren’t really all that good when it comes to numbers."
