@@ -1,5 +1,47 @@
 BLACKMIND TODO
-    - Prototype Phase
-        - Delivery Date: 31/12/2025
-        - Post sharing: change play_sound to allow for a transition to be passed in, so we can do a red flash and pause at the same time
-        - Work out a plan for applying for funding while I'm waiting on feedback
+    - Demo Phase
+        - Delivery Date: 31/08/2026
+        - APPLY FOR FUNDING
+        - Prototype Actionables:
+            - Change play_sound to allow for a transition to be passed in, so we can do a red flash and pause at the same time
+            - Change it so that Jack gets shot - that way I don't need to buy a stock blood splatter clip, and I can say that Lloyd hears the gunshots and that gets him running towards where Jack is 
+
+            - "Grammatical nitpick: the full stop should be inside the brackets for (“She’s definitely watered the bloody thing down, but not as much as some of the other places I’ve been to lately).”"
+            - Zener card animation since MC thinks it gets disorientating:
+                - slower card movement
+                - same number of rows of cards, less cards per row
+                - less rows of cards/more spaces between them
+                - less rows of cards but slightly larger cards
+                - alternating large/small card rows
+            - Change it so that we go back to using the menu tag for everything, and if we return to the main menu from one of its submenus, we enter a state where the menu's already shrunken and 
+                the items are in place. I can also prolly do some controls for the extras menu.
+            - "UI complaint: The progress bar looks identical to the vertical scroll bar. Obvious it’s not a scroll bar when you interact because there’s no need and it does nothing, but not sure 
+                I like the matching design language for different purposes."
+            - "Not sure I like the shrinking head effect. Looks like what you’re doing is just outlining the border of it in yellow? I think it’d look better with a border surrounding it outside 
+                the icon rather than an inline-border."
+            - "I think the choice select menu should let you double back to the text log; even if that’s just a button or hover in the corner to pop it in/out."
+            - MC pointed out issues with the log and lines repeating. What if I did a thing wherein if you read a mind, a button appears next to that line in the log, and hovering over it displays
+                the corresponding thought?
+                - Should check what Ace Attorney does if you keep pressing the same statement.
+                - MC also raised the idea of reading an already-read line displaying an icon, and that displays the corresponding thought (prolly where I got the idea from).
+            - Might be worth increasing the length of the progress bar instead of resetting it, so that it's apparent that when it's at 0%, that's the start of where you'll rewind back to
+            - Fix it up so that when you have a location to go to and return to the location list, it doesn't have the one second delay
+            - "[In choosing to mind-read] You’ve got what’s essentially a second set of dialogue for every conversation. [...] You want that part to be as fluid as possible."
+
+        - Deliverables:
+            - Logo
+                - Get feedback on whether it looks good
+            - Sprites
+                - Do I need anything else for Jack, Barbara, Docherty?
+                - Any objections to using Mason?
+            - Backgrounds
+                - Should work out placeholder art for all of it, then post an ad ASAP
+            - Voice acting
+                - Should work this out for the demo characters sooner rather than later
+            - Music
+                - Check feedback on the tone of the demo's music
+                - Work out what music I want. One track per location is a start, but then I think I also need to do a few variants for different types of neutral, different types of comedy, and so on.
+            - CGs
+                - Bare minimum of one CG for the prologue + one per branch, but realistically I think we've got a few other good moments in each branch - prolly won't end up at one per day, but two or
+                    three per branch would be fine.
+                    - Though if we do one per day that's 11 total, so throw in another for the vision of Sergei dying and we have 12, which doesn't feel too ridiculous.
