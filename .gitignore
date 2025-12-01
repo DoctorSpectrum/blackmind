@@ -6,4 +6,6 @@ log.txt
 traceback.txt
 *.rpyc
 *.rpyc.bak
+*.rpy.bak
+project.json
 .vscode/*.json
