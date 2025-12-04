@@ -19,6 +19,8 @@ BLACKMIND TODO
                 the items are in place. I can also prolly do some controls for the extras menu.
             - "UI complaint: The progress bar looks identical to the vertical scroll bar. Obvious it’s not a scroll bar when you interact because there’s no need and it does nothing, but not sure 
                 I like the matching design language for different purposes."
+                - What if we added lines to it, sort of like a ruler? Then even if it's the same colour it helps make it look different (and for bonus points, it helps you get a better sense of
+                    how far you are through it)
             - "Not sure I like the shrinking head effect. Looks like what you’re doing is just outlining the border of it in yellow? I think it’d look better with a border surrounding it outside 
                 the icon rather than an inline-border."
             - "I think the choice select menu should let you double back to the text log; even if that’s just a button or hover in the corner to pop it in/out."
