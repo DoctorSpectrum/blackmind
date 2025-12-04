@@ -5,6 +5,8 @@ BLACKMIND TODO
         - Prototype Actionables:
             - Change play_sound to allow for a transition to be passed in, so we can do a red flash and pause at the same time
             - Change it so that Jack gets shot - that way I don't need to buy a stock blood splatter clip, and I can say that Lloyd hears the gunshots and that gets him running towards where Jack is 
+            - Functionality for sliding the history window in/out (?)
+            - What if I had a PC-98 style window, so we have all this functionality on the outside and just a little square for the scene? Would that work?
 
             - "Grammatical nitpick: the full stop should be inside the brackets for (“She’s definitely watered the bloody thing down, but not as much as some of the other places I’ve been to lately).”"
             - Zener card animation since MC thinks it gets disorientating:
