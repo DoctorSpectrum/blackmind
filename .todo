@@ -32,6 +32,11 @@ BLACKMIND TODO
             - Fix it up so that when you have a location to go to and return to the location list, it doesn't have the one second delay
             - "[In choosing to mind-read] You’ve got what’s essentially a second set of dialogue for every conversation. [...] You want that part to be as fluid as possible."
 
+            - "Choice menu is very good. Maybe move character to side so it doesnt overlap her? [...] If you could darken the background when choice menu comes up that would make it pop more."
+            - "If you rewind during the music change it keeps the music change and doesnt reset."
+            - Change the "Click Enter to continue"/"Click to continue" screens to be "Press any button"
+            - "Navigating with keyboard alone is a bit tricky. It’s hard to tell what area is being highlighted, especially the skip/auto/menu." yikes
+
         - Deliverables:
             - Logo
                 - Get feedback on whether it looks good
