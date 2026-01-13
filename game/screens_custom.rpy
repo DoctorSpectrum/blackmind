@@ -543,6 +543,7 @@ screen flow_chart():
             ]
 
 screen saves_list(title="LOAD"):
+    tag menu
     default hover_row = None
     default selected_save = None
     default show_content = False

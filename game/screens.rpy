@@ -493,9 +493,10 @@ screen social_links:
                         SetScreenVariable("social_timer", True)
                     ]
 
-screen main_menu():
-    default confirmed = False
+screen main_menu(initialised=False):
+    default confirmed = initialised == True
     default confirmable = False
+    default cards = [1, 2, 3, 4, 5]     #doing a loop of for k in range(1, 5) has issues being unintialised when we return from menus, for some reason
 
     ## This ensures that any other menu screen is replaced.
     tag menu
@@ -524,14 +525,14 @@ screen main_menu():
                             linear (1400 / 116.5):
                                 ypos -1480
                         for j in range(4):
-                            for k in range(1, 6):
-                                image "gui/card_[k].png":
+                            for card in cards:
+                                image "gui/card_[card].png":
                                     at transform:
                                         zoom 0.3
                     for j in range(4):
-                        for k in range(1, 6):
-                            image "gui/card_[k].png":
-                                at zener_card_col_up(-600, (1280 - (70 * ((j * 5) + k) - 70)) / 116.5)
+                        for card in cards:
+                            image "gui/card_[card].png":
+                                at zener_card_col_up(-600, (1280 - (70 * ((j * 5) + card) - 70)) / 116.5)
                 else:                   #Col going down
                     vbox:
                         spacing 5
@@ -540,15 +541,15 @@ screen main_menu():
                             linear (1300 / 116.5):
                                 ypos 1380
                         for j in range(4):
-                            for k in range(1, 6):
-                                image "gui/card_[k].png":
+                            for card in cards:
+                                image "gui/card_[card].png":
                                     at transform:
                                         zoom 0.3
 
                     for j in range(4):
-                        for k in range(1, 6):
-                            image "gui/card_[k].png":
-                                at zener_card_col_down(1200, (1280 - (70 * ((j * 5) + k) - 70)) / 116.5)
+                        for card in cards:
+                            image "gui/card_[card].png":
+                                at zener_card_col_down(1200, (1280 - (70 * ((j * 5) + card) - 70)) / 116.5)
         frame:
             background Solid("#00000041")
 
@@ -563,15 +564,21 @@ screen main_menu():
             yalign 0.5
             at menu_expand_ring(3.2)
         image "images/menu/menu_placeholder.png":
-            at transform:
-                zoom 0.8
-                alpha 0.0
-                xoffset -180
-                yoffset 220
-                pause 1.0
-                linear 2.0:
+            if (not initialised):
+                at transform:
+                    zoom 0.8
+                    alpha 0.0
+                    xoffset -180
+                    yoffset 220
+                    pause 1.0
+                    linear 2.0:
+                        xoffset 20
+                        alpha 1.0
+            else:
+                at transform:
+                    zoom 0.8
+                    yoffset 220
                     xoffset 20
-                    alpha 1.0
 
 
         vbox:
@@ -581,40 +588,46 @@ screen main_menu():
 
             textbutton _("START"):
                 style "main_menu_button"
-                action ((Show("preferences", start=True) if persistent.game_launched == False else Start()) if clickable_button() else NullAction())
-                at menu_button(1.0)
+                action ((ShowMenu("preferences", start=True) if persistent.game_launched == False else Start()) if clickable_button() else NullAction())
+                if (not initialised):
+                    at menu_button(1.0)
             textbutton _("LOAD"):
                 style "main_menu_button"
                 xoffset -66
-                action (Show("saves_list") if clickable_button() else NullAction())
-                at menu_button(1.5)
+                action (ShowMenu("saves_list") if clickable_button() else NullAction())
+                if (not initialised):
+                    at menu_button(1.5)
             textbutton _("SETTINGS"):
                 style "main_menu_button"
                 xoffset -132
-                action (Show("preferences") if clickable_button() else NullAction())
-                at menu_button(2.0)
+                action (ShowMenu("preferences") if clickable_button() else NullAction())
+                if (not initialised):
+                    at menu_button(2.0)
             textbutton _("EXTRAS"):
                 style "main_menu_button"
                 xoffset -198
                 action (Show("modal_popup", message="This doesn't do anything right now; it's just there for working out menu button placement", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
-                at menu_button(2.5)
+                if (not initialised):
+                    at menu_button(2.5)
             textbutton _("CREDITS"):
                 style "main_menu_button"
                 xoffset -264
-                action (Show("about") if clickable_button() else NullAction())
-                at menu_button(3.0)
+                action (ShowMenu("about") if clickable_button() else NullAction())
+                if (not initialised):
+                    at menu_button(3.0)
             textbutton _("QUIT"):
                 style "main_menu_button"
                 xoffset -334
                 action Quit()
-                at menu_button(3.5)
+                if (not initialised):
+                    at menu_button(3.5)
     else:
         key "K_RETURN":
             action (SetScreenVariable("confirmed", True) if confirmable else NullAction())
 
-    use main_logo(confirmed)
+    use main_logo(confirmed, initialised)
 
-screen main_logo(confirmed):
+screen main_logo(confirmed, initialised):
     if (not confirmed):
         frame:
             background Solid("#000")
@@ -660,7 +673,11 @@ screen main_logo(confirmed):
         
     text _("{color=#000}BLACK{/color}{color=#F2EE29}MIND{/color}"):
         style "logo_text"
-        if (not confirmed):
+        if (initialised):
+            at transform:
+                yalign 0.15
+                zoom 0.75
+        elif (not confirmed):
             at transform:
                 alpha 0.0
                 pause 0.5
@@ -800,7 +817,7 @@ screen game_menu(title, title_size=88):
         text_color "#F2EE29"
         text_hover_underline True
         text_size 38
-        action (Function(close_menu) if title != "SAVE" else Function(Return()))
+        action (Function(Return()) if title == "SAVE" else (ShowMenu("main_menu", initialised=True) if main_menu else ShowMenu("pause_menu")))
         at transform:
             xoffset 400
             pause 1.0
@@ -878,6 +895,7 @@ screen about():
     default show_content = False
     default hide_content = False
     default selected_tab = "game"
+    tag menu
 
     timer 1.2:
         action SetScreenVariable("show_content", True)
@@ -1233,6 +1251,7 @@ style slot_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#preferences
 
 screen preferences(start=False):
+    tag menu
     default display_sample_text_speed = False
     default update_count = 0
     default hover_radio = None

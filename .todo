@@ -9,8 +9,6 @@ BLACKMIND TODO
 
         - Prototype Actionables:
             - Programming stuff:
-                - Change it so that we go back to using the menu tag for everything, and if we return to the main menu from one of its submenus, we enter a state where the menu's already shrunken and 
-                the items are in place. I can also prolly do some controls for the extras menu.
                 - If you read a mind, then when you encounter that line in the conversation we:
                     - Don't reduce our mind reads for that line
                     - Have an icon displayed so that you can see that you've already read it
