@@ -9,9 +9,8 @@ BLACKMIND TODO
 
         - Prototype Actionables:
             - Programming stuff:
-                - If you read a mind, then when you encounter that line in the conversation we:
+                - If you read a mind, then when you encounter that line in the conversation we display an icon to show you've already read it
                     - Work out the icon to use; for now the "THOUGHT READ" in the quick_menu is good enough
-                - Fix it up so that when you have a location to go to and return to the location list, it doesn't have the one second delay
                 - Fix up the location so that the speed is consistent for the crosshairs-y thing
                 - "If you rewind during the music change it keeps the music change and doesnt reset."
                 - Change the "Click Enter to continue"/"Click to continue" screens to be "Press any button"

@@ -197,7 +197,11 @@ style convo_progress_bar:
 screen map_navigation(destinations):
     default xpos = 0
     default ypos = 0
+    default fade_delay = 1
     default selected_destination = None
+
+    timer 1.0:
+        action SetScreenVariable("fade_delay", 0)
 
     frame:
         background Solid("#D1CE21")
@@ -242,7 +246,7 @@ screen map_navigation(destinations):
                                     SetScreenVariable("ypos", destination["ycoord"])
                                 ]
                                 selected False
-                                at trans_fade((0.25 * i + 1.0), 1.0), fade_side_to_side(-100, (0.5 * i + 0.75))
+                                at trans_fade((0.25 * i + fade_delay), 1.0), fade_side_to_side(-100, (0.5 * i + fade_delay))
                     textbutton _("SAVE GAME"):
                         xalign 0.5
                         yalign 1.0
@@ -256,7 +260,7 @@ screen map_navigation(destinations):
                     xsize 640
                     ysize 763
                     background Frame("images/map.png")
-                    at trans_fade((0.25 * (len(destinations)) + 0.5), 1.0), fade_side_to_side(-75, (0.25 * (len(destinations)) - 0.5))
+                    at trans_fade((0.25 * (len(destinations)) + fade_delay), 1.0), fade_side_to_side(-75, (0.25 * (len(destinations)) - 0.5))
 
                     frame:
                         style "map_y_coord"
