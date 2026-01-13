@@ -9,7 +9,6 @@ BLACKMIND TODO
 
         - Prototype Actionables:
             - Programming stuff:
-                - Change play_sound to allow for a transition to be passed in, so we can do a red flash and pause at the same time
                 - Change it so that we go back to using the menu tag for everything, and if we return to the main menu from one of its submenus, we enter a state where the menu's already shrunken and 
                 the items are in place. I can also prolly do some controls for the extras menu.
                 - If you read a mind, then when you encounter that line in the conversation we:
@@ -17,6 +16,7 @@ BLACKMIND TODO
                     - Have an icon displayed so that you can see that you've already read it
                         - Check what Ace Attorney does when you re-read a line
                 - Fix it up so that when you have a location to go to and return to the location list, it doesn't have the one second delay
+                - Fix up the location so that the speed is consistent for the crosshairs-y thing
                 - "If you rewind during the music change it keeps the music change and doesnt reset."
                 - Change the "Click Enter to continue"/"Click to continue" screens to be "Press any button"
                 - "Navigating with keyboard alone is a bit tricky. It’s hard to tell what area is being highlighted, especially the skip/auto/menu." yikes

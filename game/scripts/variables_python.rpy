@@ -27,9 +27,11 @@ init python:
         elif (song_title == "tense_2"):
             renpy.music.play("audio/music/31 PSYNCIN' IN THE VILLaiN.mp3", loop=True)
 
-    def play_sound(effect_name, loop=False, volume=1.0, from_time="", pause=None):
+    def play_sound(effect_name, loop=False, volume=1.0, from_time="", pause=None, transition=None):
         if (renpy.is_skipping() == False):
             renpy.sound.play(from_time + "audio/sfx/" + effect_name, loop=loop, relative_volume=volume)
+        if (transition is not None):
+            renpy.with_statement(transition)
         if (pause is not None and not preferences.get_mute("sfx") and preferences.get_mixer("sfx") > 0 and not renpy.is_skipping()):
             renpy.pause(pause, hard=True)
 

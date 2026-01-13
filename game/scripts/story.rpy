@@ -272,7 +272,7 @@ label prologue_music_venue:
     jack smug "(Alright, same deal as always: start heading in, wipe the doorman’s memory, then keep going.[wait_1] Easy.)"
     jack angry "(God, not that I should have to do this.)"
     jack angry "(If I was a doorman I’d let anybody in for free.[wait_1] The venue owners would start out mad, but then they’d -)"
-    call prologue_precognition from _current
+    call prologue_precognition from _current2
     scene venue_exterior with quick_dissolve
     jump prologue_end
 
@@ -309,8 +309,7 @@ label prologue_precognition:
     $ play_music("tense_2")
     image blood_splash = Movie(play="videos/blood_splash.ogv", size=(1920, 1080))
     show blood_splash
-    $ play_sound("stab.mp3", pause=3.0)
-    with red_flash
+    $ play_sound("stab.mp3", pause=3.0, transition=red_flash)
     show screen calendar("Monday", 2, 2)
     show screen conversation_history
     return
@@ -341,16 +340,13 @@ label prologue_end:
     jack worried "(In fact, they won’t even know that I was ever here.)"
     scene black_bg with quick_dissolve
     narrator "But no matter where Jack runs..."
-    $ play_sound("stab.mp3")
-    with red_flash
+    $ play_sound("stab.mp3", transition=red_flash)
     jack worried "(Argh![wait_1] I’m -[wait_05] it hurts so much!)"
     jack worried "(But -[wait_05] but they haven’t found me yet![wait_1] I -[wait_05] I can still run!)"
-    $ play_sound("stab.mp3")
-    with red_flash
+    $ play_sound("stab.mp3", transition=red_flash)
     jack worried "(No...[wait_05]not here!)"
     jack worried "(Maybe...[wait_05]if I turn around...)"
-    $ play_sound("stab.mp3")
-    with red_flash
+    $ play_sound("stab.mp3", transition=red_flash)
     jack worried "(No...[wait_05]no...[wait_05]where can I go...?)"
     jack worried "(Everywhere I go I get the sensation -[wait_05] the -[wait_05] the stabbing...)"
     jack worried "(But there’s got to be a way out...[wait_05]there’s got to be!)"
@@ -371,11 +367,10 @@ label prologue_end:
     jack worried "Do you -[wait_05] do you have a car, or anything...?"
     docherty "I apologise for this, young man, but you are in the way of my plan."
     jack angry "What do you -"
-    $ play_sound("stab.mp3")
     hide screen calendar
     hide screen conversation_history
     hide screen psychic_powers
-    with red_flash
+    $ play_sound("stab.mp3", transition=red_flash)
     scene cg1_placeholder with slow_dissolve
     jack worried "(No...[wait_05]no!)"
     jack worried "(I -[wait_05] I can't die!)"
