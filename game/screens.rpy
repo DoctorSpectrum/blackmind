@@ -326,6 +326,14 @@ screen quick_menu():
             xalign 0.82
             yalign 0.77
 
+            if (current_thought in thoughts_read and "_thoughts" not in _last_say_who):
+                textbutton _("THOUGHT READ"):
+                    action [
+                        Hide("psychic_powers"),
+                        SetVariable("progress_convo", False),
+                        Call(current_thought, from_current=True)
+                    ]
+
             textbutton _("Skip"): 
                 action Skip() 
                 alternate Skip(fast=True, confirm=True)

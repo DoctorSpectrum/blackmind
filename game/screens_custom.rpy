@@ -92,9 +92,10 @@ screen psychic_powers():
                     action ([
                         SetLocalVariable("powers_open", False),
                         SetLocalVariable("icon_hint", None),
-                        Hide("psychic_powers"),
+                        (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
                         SetVariable("progress_convo", False),
-                        (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None else NullAction()),
+                        (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
+                        (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
                         (Call(current_thought, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
                     ] if focusable else NullAction())
                     hovered (SetLocalVariable("icon_hint", "mind_read") if focusable else NullAction())

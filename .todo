@@ -10,14 +10,13 @@ BLACKMIND TODO
         - Prototype Actionables:
             - Programming stuff:
                 - If you read a mind, then when you encounter that line in the conversation we:
-                    - Don't reduce our mind reads for that line
-                    - Have an icon displayed so that you can see that you've already read it
-                        - Check what Ace Attorney does when you re-read a line
+                    - Work out the icon to use; for now the "THOUGHT READ" in the quick_menu is good enough
                 - Fix it up so that when you have a location to go to and return to the location list, it doesn't have the one second delay
                 - Fix up the location so that the speed is consistent for the crosshairs-y thing
                 - "If you rewind during the music change it keeps the music change and doesnt reset."
                 - Change the "Click Enter to continue"/"Click to continue" screens to be "Press any button"
                 - "Navigating with keyboard alone is a bit tricky. It’s hard to tell what area is being highlighted, especially the skip/auto/menu." yikes
+                - Tidy up the code for mind reading so we just do a check for if we've got sufficient mind-reads outside the whole action block; it's getting messy
 
             - Story stuff:
                 - Change it so that Jack gets shot - that way I don't need to buy a stock blood splatter clip, and I can say that Lloyd hears the gunshots and that gets him running towards where Jack is

@@ -233,6 +233,7 @@ label variables:
     default convo_progress = 0
     
     default rewind_point = "prologue_02"
+    default thoughts_read = []
 
     default money = 12
 
