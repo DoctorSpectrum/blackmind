@@ -8,9 +8,6 @@ BLACKMIND TODO
 
         - Prototype Actionables:
             - Programming stuff:
-                - "If you rewind during the music change it keeps the music change and doesnt reset."                
-                - Tidy up the code for mind reading so we just do a check for if we've got sufficient mind-reads outside the whole action block; it's getting messy
-
                 - Change the "Click Enter to continue"/"Click to continue" screens to be "Press any button"
                 - "Navigating with keyboard alone is a bit tricky. It’s hard to tell what area is being highlighted, especially the skip/auto/menu." yikes
                 - If you read a mind, then when you encounter that line in the conversation we display an icon to show you've already read it
@@ -18,7 +15,8 @@ BLACKMIND TODO
 
             - Story stuff:
                 - Change it so that Jack gets shot - that way I don't need to buy a stock blood splatter clip, and I can say that Lloyd hears the gunshots and that gets him running towards where Jack is
-                - "Grammatical nitpick: the full stop should be inside the brackets for (“She’s definitely watered the bloody thing down, but not as much as some of the other places I’ve been to lately).”"
+                    - Script needs an updoot to remove references to knife, being stabbed
+                    - Need a gunshot SFX
                 - Demo doesn't have to be a 1:1 match of the prologue of the game - what could I do to expand on it and make it a bit more engaging?
 
             - UI stuff:

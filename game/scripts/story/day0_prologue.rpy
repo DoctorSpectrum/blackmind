@@ -18,7 +18,7 @@ label prologue_01:
 
     $ play_sound("ice_cube_clink.mp3")
     jack smug "(Not too bad, as far as whiskey goes.)"
-    jack smug "(She’s definitely watered the bloody thing down, but not as much as some of the other places I’ve been to lately)."
+    jack smug "(She’s definitely watered the bloody thing down, but not as much as some of the other places I’ve been to lately.)"
     jack thinking "(Should I have another lovely little drink...?[wait_1] Wet the whistle a bit?)"
     jack smug "(...Nah, better not.)"
     jack smug "(It could affect my abilities, and I’ve got to get this right.)"
@@ -68,6 +68,8 @@ label prologue_01:
     call screen psychic_powers
 
 label prologue_02:
+    if (renpy.music.get_playing() != "audio/music/PSYNCIN' IN THE CURTaiN.mp3"):
+        $ play_music("neutral_1")
     $ add_boolean("mind_wipe_tutorial")
     $ _history_list = []
     $ set_convo_length(11 if not check_boolean("mind_read_tutorial") else 25)
@@ -145,7 +147,6 @@ label prologue_post_mind_read_tutorial:
             jack worried "(Shit![wait_1] Okay, new plan: rewrite her mind, and try this again.)"
             jack worried "(I should probably try reading her mind a bit more next time...[wait_1]I might get a bit more information that I can use on her)."
             hide screen conversation_history
-            $ play_music("neutral_1")
             call screen psychic_powers
         
         "But it has issues with certain cards" (locked=not check_boolean("mind_read_tutorial_card_processing"), message="You have not read this information in the bartender's mind"):
@@ -176,7 +177,6 @@ label prologue_post_mind_read_tutorial:
             jack worried "(Shit![wait_1] Okay, new plan: rewrite her mind, and try this again.)"
             jack worried "(I need to read her mind and find something that I can use to stop her from using the computer...[wait_1]there’s got to be something in there if I read it at the right time)."
             hide screen conversation_history
-            $ play_music("neutral_1")
             call screen psychic_powers
         
         "This bar used to be better" (locked=not check_boolean("mind_read_tutorial_bar_quality"), message="You have not read this information in the bartender's mind"):
@@ -307,9 +307,7 @@ label prologue_precognition:
     hide screen calendar
     hide screen conversation_history
     $ play_music("tense_2")
-    image blood_splash = Movie(play="videos/blood_splash.ogv", size=(1920, 1080))
-    show blood_splash
-    $ play_sound("stab.mp3", pause=3.0, transition=red_flash)
+    $ play_sound("gunshot.mp3", pause=2.0, transition=white_flash)
     show screen calendar("Monday", 2, 2)
     show screen conversation_history
     return
@@ -340,13 +338,13 @@ label prologue_end:
     jack worried "(In fact, they won’t even know that I was ever here.)"
     scene black_bg with quick_dissolve
     narrator "But no matter where Jack runs..."
-    $ play_sound("stab.mp3", transition=red_flash)
+    $ play_sound("gunshot.mp3", transition=white_flash)
     jack worried "(Argh![wait_1] I’m -[wait_05] it hurts so much!)"
     jack worried "(But -[wait_05] but they haven’t found me yet![wait_1] I -[wait_05] I can still run!)"
-    $ play_sound("stab.mp3", transition=red_flash)
+    $ play_sound("gunshot.mp3", transition=white_flash)
     jack worried "(No...[wait_05]not here!)"
     jack worried "(Maybe...[wait_05]if I turn around...)"
-    $ play_sound("stab.mp3", transition=red_flash)
+    $ play_sound("gunshot.mp3", transition=white_flash)
     jack worried "(No...[wait_05]no...[wait_05]where can I go...?)"
     jack worried "(Everywhere I go I get the sensation -[wait_05] the -[wait_05] the stabbing...)"
     jack worried "(But there’s got to be a way out...[wait_05]there’s got to be!)"
@@ -370,7 +368,7 @@ label prologue_end:
     hide screen calendar
     hide screen conversation_history
     hide screen psychic_powers
-    $ play_sound("stab.mp3", transition=red_flash)
+    $ play_sound("gunshot.mp3", transition=white_flash)
     scene cg1_placeholder with slow_dissolve
     jack worried "(No...[wait_05]no!)"
     jack worried "(I -[wait_05] I can't die!)"
