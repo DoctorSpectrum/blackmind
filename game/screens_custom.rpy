@@ -266,16 +266,14 @@ screen map_navigation(destinations):
                         style "map_y_coord"
                         xpos 0
                         at transform:
-                            pause 0.2
-                            linear 1.0:
+                            ease 1.0:
                                 xpos xpos
 
                     frame: 
                         style "map_x_coord"
                         ypos 0
                         at transform:
-                            pause 0.2
-                            linear 1.0:
+                            ease 1.0:
                                 ypos ypos
             else:
                 vbox:
