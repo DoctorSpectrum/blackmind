@@ -1059,7 +1059,7 @@ screen calendar(day, section, sections=4):
                     if (i <= section - 1):
                         image Solid("#F2EE29")
 
-screen conversation_history():
+screen conversation_history(scroll_pos=0.0):
     frame:
         background None
         xsize 500
@@ -1096,9 +1096,9 @@ screen conversation_history():
                 mousewheel True
                 arrowkeys True
                 yadjustment ui.adjustment()
-                yinitial 0.0
+                yinitial scroll_pos
                 vbox:
-                    for i, h in enumerate(_history_list[0:len(_history_list) - 1]):
+                    for i, h in enumerate(_history_list[0:len(_history_list) - 1 if not renpy.get_screen("choice") else len(_history_list)]):
                         if (h.who and _history_list[i - 1] is not None and _history_list[i - 1].who and _history_list[i - 1].who is not h.who):
                             label h.who:
                                 style "history_who"

@@ -252,18 +252,26 @@ style input:
 screen choice(items):
     style_prefix "choice"
 
-    vbox:
-        at trans_fade(0.0, 0.5), fade_side_to_side(-100, 0.0)
-        for i in items:
-            if ("locked" not in i.kwargs or i.kwargs["locked"] == False):
-                textbutton (i.caption.upper()):
-                    action i.action
-            else:
-                textbutton _("LOCKED"):
-                    style "choice_button_locked"
-                    action NullAction()
-                    hovered Show("locked_message", message=i.kwargs["message"])
-                    unhovered Hide("locked_message")
+    timer 0.01:
+        action Show("conversation_history", quick_dissolve, scroll_pos=1.0)
+
+    frame:
+        xfill True
+        yfill True
+        background Solid ("#00000066")
+
+        vbox:
+            at trans_fade(0.0, 0.5), fade_side_to_side(-100, 0.0)
+            for i in items:
+                if ("locked" not in i.kwargs or i.kwargs["locked"] == False):
+                    textbutton (i.caption.upper()):
+                        action i.action
+                else:
+                    textbutton _("LOCKED"):
+                        style "choice_button_locked"
+                        action NullAction()
+                        hovered Show("locked_message", message=i.kwargs["message"])
+                        unhovered Hide("locked_message")
 
 
 style choice_vbox is vbox
@@ -271,7 +279,7 @@ style choice_button is button
 style choice_button_text is button_text
 
 style choice_vbox:
-    xalign 0.08
+    xalign 0.05
     yalign 0.5
     yanchor 0.5
 
