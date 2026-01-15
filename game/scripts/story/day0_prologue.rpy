@@ -313,7 +313,7 @@ label prologue_precognition:
     return
 
 label prologue_end:
-    jack worried "(My -[wait_05] my stomach, I -[wait_05] what’s in it?!)"
+    jack worried "(My -[wait_05] my stomach, I -[wait_05] what’s happened?!)"
     jack worried "(It feels so -[wait_05] so sharp, and, and -[wait_05] god, breathing is -[wait_05] I -[wait_05] I can feel it with every breath.)"
     jack worried "(I -[wait_05] I -[wait_05] oh god, I -[wait_05] I’m dying!)"
     jack worried "(I...[wait_05]{size=-8}Mum.[wait_1] Mum, please come and - and help me!{/size})"
@@ -325,7 +325,7 @@ label prologue_end:
     narrator "Why nobody is helping a dying man, and why he didn’t even see his attacker."
     narrator "It’s because the attack hasn’t happened yet."
     jack thinking "(I...[wait_05]if I go into that building, I’m going to die.)"
-    jack worried "(Somebody will stab me with a knife, and I -[wait_05] oh god, I can’t do that.)"
+    jack worried "(Somebody will shoot me, and I -[wait_05] oh god, I can’t do that.)"
     jack worried "(I can’t -[wait_05] I don’t want to die![wait_1] It hurt so much, and I -[wait_05] okay.)"
     jack thinking "(Okay.[wait_1] I’m not dead yet, and thanks to my precognition, I don’t have to die.)"
     jack thinking "(I -[wait_05] I can work this out.)"
@@ -346,11 +346,11 @@ label prologue_end:
     jack worried "(Maybe...[wait_05]if I turn around...)"
     $ play_sound("gunshot.mp3", transition=white_flash)
     jack worried "(No...[wait_05]no...[wait_05]where can I go...?)"
-    jack worried "(Everywhere I go I get the sensation -[wait_05] the -[wait_05] the stabbing...)"
+    jack worried "(Everywhere I go I get the sensation -[wait_05] the -[wait_05] the gunshot...)"
     jack worried "(But there’s got to be a way out...[wait_05]there’s got to be!)"
     $ scene_setup(11, "Monday", True, 2, 2, True, True)
     scene street with slow_dissolve
-    narrator "Jack has been stabbed multiple times by now, yet he has no wounds on him at all."
+    narrator "Jack has been shot multiple times by now, yet he has no wounds on him at all."
     narrator "He’s running out of breath, not to mention places to run to."
     jack worried "(I -[wait_05] I -[wait_05] where the fuck can I go?!)"
     jack worried "(Think...[wait_05]there has to be somewhere!)"
