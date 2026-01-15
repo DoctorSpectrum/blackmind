@@ -1115,6 +1115,8 @@ screen conversation_history():
                 vbar value YScrollValue("history_viewport"):
                     xsize 10
                     xoffset -5
+                    base_bar "#000"
+                    thumb "#F2EE29"
             else:
                 null
 

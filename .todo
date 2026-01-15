@@ -18,20 +18,19 @@ BLACKMIND TODO
                 - Demo doesn't have to be a 1:1 match of the prologue of the game - what could I do to expand on it and make it a bit more engaging?
 
             - UI stuff:
+                - Change the progress bar to have smol lines like a ruler
+                - Show the history log when you've got choices open
+                - Add a dark overlay to the screen when we have the choice menu up
+
                 - Functionality for sliding the history window in/out
+                - Update the UI for activating your powers
                 - Zener card animation since MC thinks it gets disorientating:
                     - slower card movement
                     - same number of rows of cards, less cards per row
                     - less rows of cards/more spaces between them
                     - less rows of cards but slightly larger cards
                     - alternating large/small card rows 
-                - Change the progress bar to have smol lines like a ruler
-                - Change the vertical scroll for the history window to be a yellow bar in a black container rather than a black bar in a yellow container; filling up the black with yellow is more 
-                    consistent with existing design.
-                - Update the UI for activating your powers
-                - Show the history log when you've got choices open
-                - Might be worth increasing the length of the progress bar instead of resetting it, so that it's apparent that when it's at 0%, that's the start of where you'll rewind back to
-                - Add a dark overlay to the screen when we have the choice menu up
+                - Might be worth increasing the length of the progress bar instead of resetting it, so that it's apparent that when it's at 0%, that's the start of where you'll rewind back to                
 
             - Music stuff:
                 - Play an ethereal, synthy sound when reading a thought
