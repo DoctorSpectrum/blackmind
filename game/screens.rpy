@@ -630,8 +630,7 @@ screen main_menu(initialised=False):
                 if (not initialised):
                     at menu_button(3.5)
     else:
-        key "K_RETURN":
-            action (SetScreenVariable("confirmed", True) if confirmable else NullAction())
+        use any_key(SetScreenVariable("confirmed", True) if confirmable else NullAction())
 
     use main_logo(confirmed, initialised)
 
@@ -661,8 +660,9 @@ screen main_logo(confirmed, initialised):
             at title_card_slide("up")
 
     if (not confirmed):
-        text _("{color=#000}Press{/color} {color=#F2EE29}Enter{/color}"):
+        text _("{color=#000}Press{/color} {color=#F2EE29}ANY KEY{/color}"):
             xalign 0.5
+            xoffset 20
             yalign 0.8
             color "#FFF"
             font "gui/chubhand.ttf"

@@ -970,7 +970,7 @@ screen chapter_breaks(title, paragraph):
             at trans_fade(2.0, 1.5), fade_side_to_side(-100, 1.5)
 
     if (can_continue):
-        text _("Click to Continue"):
+        text _("Press any key to continue"):
             color "#F2EE29"
             xalign 0.95
             yalign 0.95
@@ -982,8 +982,7 @@ screen chapter_breaks(title, paragraph):
                     alpha 0.0
                 repeat
 
-        key "mouseup_1":
-            action Return()
+        use any_key(Return())
     
     key "mouseup_3":
         action NullAction()
@@ -1207,3 +1206,166 @@ screen attune_senses():
 
     key "mouseup_3":
         action NullAction()
+
+screen any_key(action):
+    key "K_RETURN":
+        action action
+    key "K_SPACE":
+        action action
+    key "mouseup_1":
+        action action
+    key "mouseup_2":
+        action action
+    key "mouseup_3":
+        action action
+    key "K_ESCAPE":
+        action action
+
+    key "K_q":
+        action action
+    key "K_w":
+        action action
+    key "K_e":
+        action action
+    key "K_r":
+        action action
+    key "K_t":
+        action action
+    key "K_y":
+        action action
+    key "K_u":
+        action action
+    key "K_i":
+        action action
+    key "K_o":
+        action action
+    key "K_p":
+        action action
+    key "K_a":
+        action action
+    key "K_s":
+        action action
+    key "K_d":
+        action action
+    key "K_f":
+        action action
+    key "K_g":
+        action action
+    key "K_h":
+        action action
+    key "K_j":
+        action action
+    key "K_k":
+        action action
+    key "K_l":
+        action action
+    key "K_z":
+        action action
+    key "K_x":
+        action action
+    key "K_c":
+        action action
+    key "K_v":
+        action action
+    key "K_b":
+        action action
+    key "K_n":
+        action action
+    key "K_m":
+        action action
+    key "K_1":
+        action action
+    key "K_2":
+        action action
+    key "K_3":
+        action action
+    key "K_4":
+        action action
+    key "K_5":
+        action action
+    key "K_6":
+        action action
+    key "K_7":
+        action action
+    key "K_8":
+        action action
+    key "K_9":
+        action action
+    key "K_0":
+        action action
+
+    key "K_F1":
+        action action
+    key "K_F2":
+        action action
+    key "K_F3":
+        action action
+    key "K_F4":
+        action action
+    key "K_F5":
+        action action
+    key "K_F6":
+        action action
+    key "K_F7":
+        action action
+    key "K_F8":
+        action action
+    key "K_F9":
+        action action
+    key "K_F10":
+        action action
+    key "K_F11":
+        action action
+    key "K_F12":
+        action action
+    key "K_TAB":
+        action action
+    key "K_BACKSPACE":
+        action action
+    key "K_UP":
+        action action
+    key "K_DOWN":
+        action action
+    key "K_LEFT":
+        action action
+    key "K_RIGHT":
+        action action
+    key "K_LSHIFT":
+        action action
+    key "K_RSHIFT":
+        action action
+    key "K_LCTRL":
+        action action
+    key "K_RCTRL":
+        action action
+    key "K_LALT":
+        action action
+    key "K_RALT":
+        action action
+    key "K_CAPSLOCK":
+        action action
+
+    key "K_COMMA":
+        action action
+    key "K_PERIOD":
+        action action
+    key "K_SLASH":
+        action action
+    key "K_SEMICOLON":
+        action action
+    key "K_QUOTE":
+        action action
+    key "K_LEFTBRACKET":
+        action action
+    key "K_RIGHTBRACKET":
+        action action
+    key "K_BACKSLASH":
+        action action
+    key "K_BACKQUOTE":
+        action action
+    key "K_DELETE":
+        action action
+    key "K_MINUS":
+        action action
+    key "K_EQUALS":
+        action action

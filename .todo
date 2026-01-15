@@ -3,12 +3,11 @@ BLACKMIND TODO
         - Delivery Date: 31/08/2026
 
         - Commission Assets:
-            - Sprites: Email Mason
-            - Music: Contact Blankspace person
+            - Sprites: Email Mason -> donezo; awaiting reply
+            - Music: Contact Blankspace person -> donezo; awaiting reply
 
         - Prototype Actionables:
             - Programming stuff:
-                - Change the "Click Enter to continue"/"Click to continue" screens to be "Press any button"
                 - "Navigating with keyboard alone is a bit tricky. It’s hard to tell what area is being highlighted, especially the skip/auto/menu." yikes
                 - If you read a mind, then when you encounter that line in the conversation we display an icon to show you've already read it
                     - Work out the icon to use; for now the "THOUGHT READ" in the quick_menu is good enough
