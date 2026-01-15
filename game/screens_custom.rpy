@@ -174,7 +174,7 @@ screen conversation_progress():
         vbox:
             xalign 0.955
             yalign 0.855
-            spacing 0
+            spacing 5
 
             bar: 
                 style "convo_progress_bar"
@@ -187,12 +187,13 @@ screen conversation_progress():
                     color "#000"
                     xalign 0.5
                     yoffset -210
+                    size 15
 
 style convo_progress_bar:
-    left_bar "#F2EE29"
-    right_bar "#141414"
+    left_bar Frame("gui/bar/progress_bar_left.png", gui.vbar_borders, tile=gui.bar_tile)
+    right_bar Frame("gui/bar/progress_bar_right.png", gui.vbar_borders, tile=gui.bar_tile)
     xmaximum 450
-    ysize 10
+    ysize 30
 
 screen map_navigation(destinations):
     default xpos = 0

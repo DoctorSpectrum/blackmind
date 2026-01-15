@@ -18,7 +18,6 @@ BLACKMIND TODO
                 - Demo doesn't have to be a 1:1 match of the prologue of the game - what could I do to expand on it and make it a bit more engaging?
 
             - UI stuff:
-                - Change the progress bar to have smol lines like a ruler
                 - Show the history log when you've got choices open
                 - Add a dark overlay to the screen when we have the choice menu up
 
