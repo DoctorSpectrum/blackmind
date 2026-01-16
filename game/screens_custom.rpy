@@ -1039,25 +1039,26 @@ screen calendar(day, section, sections=4):
                     if (i <= section - 1):
                         image Solid("#F2EE29")
 
-screen conversation_history():
-    default expanded = False
-    default opened = False
+screen conversation_history(initial_expanded = False, show_button = True, initial_opened=False):
+    default expanded = initial_expanded
+    default opened = initial_opened
 
-    textbutton _("HISTORY" if not expanded else "HIDE"):
-        style "yellow_button"
-        text_font "gui/chubhand.ttf"
-        text_yoffset 2
+    if (show_button):
+        textbutton _("HISTORY" if not expanded else "HIDE"):
+            style "yellow_button"
+            text_font "gui/chubhand.ttf"
+            text_yoffset 2
 
-        xalign 0.96
-        yalign 0.8
-        xsize 195
-        action [
-            SetScreenVariable("expanded", expanded == False),
-            SetScreenVariable("opened", True),
-        ]
-        selected False
-        text_selected_color "#F2EE29"
-        text_hover_color "#F2EE29"
+            xalign 0.96
+            yalign 0.8
+            xsize 195
+            action [
+                SetScreenVariable("expanded", expanded == False),
+                SetScreenVariable("opened", True),
+            ]
+            selected False
+            text_selected_color "#F2EE29"
+            text_hover_color "#F2EE29"
 
     if (opened):
         frame:

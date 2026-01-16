@@ -253,7 +253,7 @@ screen choice(items):
     style_prefix "choice"
 
     timer 0.01:
-        action Show("conversation_history", quick_dissolve)
+        action Show("conversation_history", quick_dissolve, initial_expanded=True, show_button=False, initial_opened=True)
 
     frame:
         xfill True

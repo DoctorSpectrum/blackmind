@@ -19,7 +19,6 @@ BLACKMIND TODO
                 - Demo doesn't have to be a 1:1 match of the prologue of the game - what could I do to expand on it and make it a bit more engaging?
 
             - UI stuff:
-                - Functionality for sliding the history window in/out
                 - Update the UI for activating your powers
                 - Zener card animation since MC thinks it gets disorientating:
                     - slower card movement
