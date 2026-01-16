@@ -15,11 +15,12 @@ BLACKMIND TODO
                 - Demo doesn't have to be a 1:1 match of the prologue of the game - what could I do to expand on it and make it a bit more engaging?
 
             - UI stuff:
-                - Add in a button to open up the controls when you set your preferences at the start, because then people will also see "how to play"
-                    if they click on it
                 - Give it a go that the history button is outside of the conversation_history screen and it just calls a show("conversation_history"), then in conversation_history we have an on_show and 
                     on_hide to expand or hide it - that should also mean that we're always at the bottom of the scrollbox when we show since we're re-rendering it each time
+                    - history hide/show disappears after the choice menu - this should hopefully fix it up but if not then go do what's needed to solve the issue
                 - Zener card animation since MC thinks it gets disorientating:
+                    - double-check with him how he feels about it and whether it does need to be fixed up. If so then let's start by slowing it down before we do everything in the list
+
                     - slower card movement
                     - same number of rows of cards, less cards per row
                     - less rows of cards/more spaces between them

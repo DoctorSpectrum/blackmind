@@ -514,7 +514,7 @@ screen saves_list(title="LOAD"):
     timer 1.2:
         action SetScreenVariable("show_content", True)
 
-    use game_menu(title, 96):
+    use game_menu(title, 96, Return() if title == "SAVE" else None):
 
         if (show_content):
             vbox:

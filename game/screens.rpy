@@ -796,7 +796,7 @@ style social_links_image_button:
 ## This screen is intended to be used with one or more children, which are
 ## transcluded (placed) inside it.
 
-screen game_menu(title, title_size=88):
+screen game_menu(title, title_size=88, return_action=None):
     frame:
         background Solid("#F2EE29")
         xfill True
@@ -833,7 +833,7 @@ screen game_menu(title, title_size=88):
         text_color "#F2EE29"
         text_hover_underline True
         text_size 38
-        action (Function(Return()) if title == "SAVE" else (ShowMenu("main_menu", initialised=True) if main_menu else ShowMenu("pause_menu")))
+        action (return_action if return_action is not None else (ShowMenu("main_menu", initialised=True) if main_menu else ShowMenu("pause_menu")))
         at transform:
             xoffset 400
             pause 1.0
@@ -1505,18 +1505,26 @@ screen preferences(start=False):
                     xsize 800
                     ysize 150
 
-                    textbutton _("CONTINUE"):
-                        xalign 0.5
+                    hbox:
+                        xfill True
                         yalign 0.15
-                        text_size 45
-                        text_color "#000"
-                        text_hover_color "#3B3B3B"
-                        text_font "gui/chubhand.ttf"
-                        action [
-                            Hide("preferences", quick_dissolve),
-                            SetVariable("persistent.game_launched", True),
-                            Start()
-                        ]
+                        textbutton _("CONTROLS"):
+                            style "begin_button"
+                            xalign 0.1
+                            action [
+                                Hide("sample_text_1"),
+                                Hide("sample_text_2"),
+                                ShowMenu("help", return_action=ShowMenu("preferences", start=True))
+                            ]
+
+                        textbutton _("CONTINUE"):
+                            style "begin_button"
+                            xalign 0.9
+                            action [
+                                Hide("preferences", quick_dissolve),
+                                SetVariable("persistent.game_launched", True),
+                                Start()
+                            ]
 
                     text _("These settings can be changed from the Settings menu at any time"):
                         xalign 0.5
@@ -1693,6 +1701,13 @@ style yellow_button_dark_hover is yellow_button:
 style yellow_button_dark_hover_text is yellow_button_text:
     hover_color "#000"
 
+style begin_button is button
+style begin_button_text is button_text:
+    size 45
+    color "#000"
+    hover_color "#3B3B3B"
+    font "gui/chubhand.ttf"
+
 ## History screen ##############################################################
 ##
 ## This is a screen that displays the dialogue history to the player. While
@@ -1795,7 +1810,7 @@ style history_label_text:
 ## screens (keyboard_help, mouse_help, and gamepad_help) to display the actual
 ## help.
 
-screen help():
+screen help(return_action=None):
     default show_content = False
     default hide_content = False
     default selected_tab = "controls"
@@ -1811,7 +1826,7 @@ screen help():
         timer 0.5:
             action SetScreenVariable("hide_content", False)
 
-    use game_menu(_("HELP")):
+    use game_menu(_("HELP"), return_action=return_action):
 
         if (show_content):
             vbox:
