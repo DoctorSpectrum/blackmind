@@ -121,7 +121,7 @@ screen psychic_powers():
                     color "#000"
                     xalign 0.5
                     yalign 0.5
-                    size (12 if icon_hint == "powers" and powers_open == True else 15)
+                    size 15
 
 style convo_progress_bar:
     left_bar Frame("gui/bar/progress_bar_left.png", gui.vbar_borders, tile=gui.bar_tile)
