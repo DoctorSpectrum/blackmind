@@ -11,9 +11,6 @@ BLACKMIND TODO
                 - If you read a mind, then when you encounter that line in the conversation we display an icon to show you've already read it
                     - Work out the icon to use; for now the "THOUGHT READ" in the quick_menu is good enough
 
-            - Story stuff:
-                - Demo doesn't have to be a 1:1 match of the prologue of the game - what could I do to expand on it and make it a bit more engaging?
-
             - UI stuff:
                 - Give it a go that the history button is outside of the conversation_history screen and it just calls a show("conversation_history"), then in conversation_history we have an on_show and 
                     on_hide to expand or hide it - that should also mean that we're always at the bottom of the scrollbox when we show since we're re-rendering it each time
@@ -31,6 +28,11 @@ BLACKMIND TODO
             - Music stuff:
                 - Play an ethereal, synthy sound when reading a thought
 
+            - Story stuff:
+                - Demo doesn't have to be a 1:1 match of the prologue of the game - what could I do to expand on it and make it a bit more engaging?
+
         - Other deliverables:
             - Voice acting
                 - Get partials for now
+        
+        - After this has been launched on Steam (i.e. the completion of this phase), contact streamers and ask them to play the demo - if even only five or six reply, that's still eyes on the project
