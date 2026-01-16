@@ -12,13 +12,13 @@ BLACKMIND TODO
                     - Work out the icon to use; for now the "THOUGHT READ" in the quick_menu is good enough
 
             - Story stuff:
-                - Change it so that Jack gets shot - that way I don't need to buy a stock blood splatter clip, and I can say that Lloyd hears the gunshots and that gets him running towards where Jack is
-                    - Need a gunshot SFX
                 - Demo doesn't have to be a 1:1 match of the prologue of the game - what could I do to expand on it and make it a bit more engaging?
 
             - UI stuff:
                 - Add in a button to open up the controls when you set your preferences at the start, because then people will also see "how to play"
                     if they click on it
+                - Give it a go that the history button is outside of the conversation_history screen and it just calls a show("conversation_history"), then in conversation_history we have an on_show and 
+                    on_hide to expand or hide it - that should also mean that we're always at the bottom of the scrollbox when we show since we're re-rendering it each time
                 - Zener card animation since MC thinks it gets disorientating:
                     - slower card movement
                     - same number of rows of cards, less cards per row
