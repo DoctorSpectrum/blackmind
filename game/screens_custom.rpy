@@ -722,6 +722,10 @@ screen modal_popup(message, option_labels, option_actions):
                 textbutton _(label):
                     action option_actions[i]
 
+    if (len(option_labels) == 1):
+        key "K_RETURN":
+            action option_actions[0]
+
 screen save_name(filename):
     modal True
     default input_variable = (filename if len(filename) > 0 else '')

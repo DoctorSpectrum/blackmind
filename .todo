@@ -8,8 +8,6 @@ BLACKMIND TODO
 
         - Prototype Actionables:
             - Programming stuff:
-                - "Navigating with keyboard alone is a bit tricky. It’s hard to tell what area is being highlighted, especially the skip/auto/menu." yikes
-                    - Updoot it so that modals can be closed with Enter (or Escape(?))
                 - If you read a mind, then when you encounter that line in the conversation we display an icon to show you've already read it
                     - Work out the icon to use; for now the "THOUGHT READ" in the quick_menu is good enough
 
