@@ -169,26 +169,6 @@ screen psychic_powers():
                     yalign 0.5
                     size (12 if icon_hint == "powers" and powers_open == True else 15)
 
-screen conversation_progress():
-    if (progress_convo):
-        vbox:
-            xalign 0.955
-            yalign 0.855
-            spacing 5
-
-            bar: 
-                style "convo_progress_bar"
-                value AnimatedValue(convo_progress, convo_length, 1.0, (convo_progress - 1 if progress_convo else convo_progress))
-                at transform:
-                    rotate 3
-
-            if (config.developer):
-                text _(str(convo_progress) + "/" + str(convo_length)):
-                    color "#000"
-                    xalign 0.5
-                    yoffset -210
-                    size 15
-
 style convo_progress_bar:
     left_bar Frame("gui/bar/progress_bar_left.png", gui.vbar_borders, tile=gui.bar_tile)
     right_bar Frame("gui/bar/progress_bar_right.png", gui.vbar_borders, tile=gui.bar_tile)
@@ -1059,69 +1039,123 @@ screen calendar(day, section, sections=4):
                     if (i <= section - 1):
                         image Solid("#F2EE29")
 
-screen conversation_history(scroll_pos=0.0):
-    frame:
-        background None
-        xsize 500
-        ysize 900
-        xalign 0.95
+screen conversation_history():
+    default expanded = False
+    default opened = False
 
-        image Solid("#000"):
+    textbutton _("HISTORY" if not expanded else "HIDE"):
+        style "yellow_button"
+        text_font "gui/chubhand.ttf"
+        text_yoffset 2
+
+        xalign 0.96
+        yalign 0.8
+        xsize 195
+        action [
+            SetScreenVariable("expanded", expanded == False),
+            SetScreenVariable("opened", True),
+        ]
+        selected False
+        text_selected_color "#F2EE29"
+        text_hover_color "#F2EE29"
+
+    if (opened):
+        frame:
+            background None
             xsize 500
-            ysize 825
-            yoffset -60
-            xoffset -170
-            at transform:
-                alpha 0.8
-                rotate 3
+            ysize 650
+            yalign 0.415
+            xalign 0.95
+            xoffset 60
 
-        image Solid("#F2EE29"):
-            xsize 500
-            ysize 800
-            yoffset -50
-            xoffset -190
-            at transform:
-                alpha 0.8
-                rotate 3
+            image Solid("#000"):
+                yanchor 1.0
+                yoffset 630
+                if (expanded):
+                    at transform:
+                        ysize 0
+                        linear 0.5:
+                            ysize 650
+                else:
+                    at transform:
+                        ysize 650
+                        linear 0.5:
+                            ysize 0
 
-        side ("c r"):
-            area (40, 40, 500, 675)
-            at transform:
-                rotate 3
-                xoffset -180
-                yoffset -90
+            image Solid("#F2EE29"):
+                yanchor 1.0
+                yoffset 625
+                ysize 640
+                xoffset 5
+                xsize 480
 
-            viewport id "history_viewport":
-                draggable True 
-                mousewheel True
-                arrowkeys True
-                yadjustment ui.adjustment()
-                yinitial scroll_pos
+                if (expanded):
+                    at transform:
+                        ysize 0
+                        linear 0.5:
+                            ysize 640
+                else:
+                    at transform:
+                        ysize 640
+                        linear 0.5:
+                            ysize 0
+
+            side ("c r"):
+                area (-20, 10, 500, 540)
+
+                viewport id "history_viewport":
+                    draggable True 
+                    mousewheel True
+                    arrowkeys True
+                    yadjustment ui.adjustment()
+                    yinitial 1.0
+                    if (expanded):
+                        vbox:
+                            for i, h in enumerate(_history_list[0:len(_history_list) - 1 if not renpy.get_screen("choice") else len(_history_list)]):
+                                if (h.who and _history_list[i - 1] is not None and _history_list[i - 1].who and _history_list[i - 1].who is not h.who):
+                                    label h.who:
+                                        style "history_who"
+                                        at trans_fade(0.5, 0.5)
+                                elif (i == 0 and h.who):
+                                    label h.who:
+                                        style "history_who"
+                                        at trans_fade(0.5, 0.5)
+                                text _(h.what + "\n"):
+                                    color (h.what_args["color"] if "color" in h.what_args else "#000")
+                                    if ("color" in h.what_args and h.what_args["color"] == "#F2EE29"):
+                                        outlines [ (2, "#000005", 0, 0) ]
+                                    xoffset 50
+                                    xmaximum 400
+                                    size 20
+                                    at trans_fade(0.5, 0.5)
+                if (len(_history_list) - 1 > 0 and expanded):
+                    vbar: 
+                        value YScrollValue("history_viewport")
+                        xsize 10
+                        xoffset 15
+                        base_bar "#000"
+                        thumb "gui/bar/history_scrollbar_thumb.png"
+                        if (expanded):
+                            at trans_fade(0.5, 0.5)
+                else:
+                    null
+
+            if (progress_convo and expanded):
                 vbox:
-                    for i, h in enumerate(_history_list[0:len(_history_list) - 1 if not renpy.get_screen("choice") else len(_history_list)]):
-                        if (h.who and _history_list[i - 1] is not None and _history_list[i - 1].who and _history_list[i - 1].who is not h.who):
-                            label h.who:
-                                style "history_who"
-                        elif (i == 0 and h.who):
-                            label h.who:
-                                style "history_who"
-                        text _(h.what + "\n"):
-                            color (h.what_args["color"] if "color" in h.what_args else "#000")
-                            if ("color" in h.what_args and h.what_args["color"] == "#F2EE29"):
-                                outlines [ (2, "#000005", 0, 0) ]
-                            xoffset 50
-                            xmaximum 400
-                            size 20
-            if (len(_history_list) - 1 > 0):
-                vbar value YScrollValue("history_viewport"):
-                    xsize 10
-                    xoffset -5
-                    base_bar "#000"
-                    thumb "#F2EE29"
-            else:
-                null
+                    xalign 0.5
+                    yalign 0.95
+                    spacing 5
+                    at trans_fade(0.5, 0.5)
 
-    use conversation_progress
+                    bar: 
+                        style "convo_progress_bar"
+                        value AnimatedValue(convo_progress, convo_length, 1.0, (convo_progress - 1 if progress_convo else convo_progress))
+
+                    if (config.developer):
+                        text _(str(convo_progress) + "/" + str(convo_length)):
+                            color "#000"
+                            xalign 0.5
+                            size 15
 
 style history_who is label
 
