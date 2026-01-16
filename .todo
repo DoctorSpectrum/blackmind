@@ -22,6 +22,8 @@ BLACKMIND TODO
                 - Demo doesn't have to be a 1:1 match of the prologue of the game - what could I do to expand on it and make it a bit more engaging?
 
             - UI stuff:
+                - Add in a button to open up the controls when you set your preferences at the start, because then people will also see "how to play"
+                    if they click on it
                 - Zener card animation since MC thinks it gets disorientating:
                     - slower card movement
                     - same number of rows of cards, less cards per row
