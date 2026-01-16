@@ -123,6 +123,31 @@ screen psychic_powers():
                     yalign 0.5
                     size 15
 
+    key "K_1":
+        action [
+            SetLocalVariable("icon_hint", None),
+            (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
+            (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
+        ]
+
+    if (check_boolean("mind_read_available")):
+        key "K_2":
+            action [
+                SetLocalVariable("icon_hint", None),
+                (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
+                SetVariable("progress_convo", False),
+                (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
+                (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
+                (Call(current_thought, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+            ]
+
+    if (check_boolean("future_sight_available")):
+        key "K_3":
+            action [
+                SetLocalVariable("icon_hint", None),
+                NullAction(),
+            ]
+
 style convo_progress_bar:
     left_bar Frame("gui/bar/progress_bar_left.png", gui.vbar_borders, tile=gui.bar_tile)
     right_bar Frame("gui/bar/progress_bar_right.png", gui.vbar_borders, tile=gui.bar_tile)

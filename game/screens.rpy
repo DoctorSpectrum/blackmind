@@ -1844,7 +1844,7 @@ screen help():
             frame:
                 background None
                 xsize 1275
-                ysize 700
+                ysize 800
                 xalign 0.64
                 yalign 0.2
 
@@ -1870,7 +1870,8 @@ screen help():
                                             action SetScreenVariable("device", "gamepad")
 
                                 if device == "keyboard":
-                                    use keyboard_help
+                                    vbox:
+                                        use keyboard_help
                                 elif device == "mouse":
                                     use mouse_help
                                 elif device == "gamepad":
@@ -1900,15 +1901,6 @@ screen help():
                                     if (gameplay_help == "powers"):
                                         hbox:
                                             style_prefix "help_power"
-                                            image "gui/icons/mind_read_icon_idle.png":
-                                                xoffset 50
-                                                at transform:
-                                                    zoom 2
-                                            vbox:
-                                                label _("Read Mind")
-                                                text _("Read the mind of the person you're speaking to. Their thoughts will usually reflect the current line.")
-                                        hbox:
-                                            style_prefix "help_power"
                                             image "gui/icons/mind_wipe_icon_idle.png":
                                                 xoffset 50
                                                 at transform:
@@ -1916,6 +1908,15 @@ screen help():
                                             vbox:
                                                 label _("Rewind Mind")
                                                 text _("Make the person you're speaking to forget the last few minutes, and restart the conversation from the start.")
+                                        hbox:
+                                            style_prefix "help_power"
+                                            image "gui/icons/mind_read_icon_idle.png":
+                                                xoffset 50
+                                                at transform:
+                                                    zoom 2
+                                            vbox:
+                                                label _("Mind Read")
+                                                text _("Read the mind of the person you're speaking to. Their thoughts will usually reflect the current line.")
                                         if (config.developer):
                                             hbox:
                                                 style_prefix "help_power"
@@ -1967,6 +1968,18 @@ screen keyboard_help():
     hbox:
         label _("Space")
         text _("Advances dialogue without selecting choices.")
+
+    hbox:
+        label _("1")
+        text _("Activate your Rewind Mind power.")
+
+    hbox:
+        label _("2")
+        text _("Activate your Mind Read power.")
+
+    #hbox:
+    #    label _("3")
+    #    text _("Activate your Future Sight power.")
 
     hbox:
         label _("Arrow Keys")

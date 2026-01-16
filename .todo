@@ -3,15 +3,12 @@ BLACKMIND TODO
         - Delivery Date: 31/08/2026
 
         - Commission Assets:
-            - Sprites: Email Mason -> update docco and reply
+            - Sprites: Email Mason -> reply
             - Music: Contact Blankspace person -> donezo; awaiting reply
 
         - Prototype Actionables:
             - Programming stuff:
                 - "Navigating with keyboard alone is a bit tricky. It’s hard to tell what area is being highlighted, especially the skip/auto/menu." yikes
-                    - Add in shortcuts for the psychic powers using 1, 2, 3
-                        - Mention the keyboard shortcut in the prompt
-                        - Add them into the keyboard controls section
                     - Updoot it so that modals can be closed with Enter (or Escape(?))
                 - If you read a mind, then when you encounter that line in the conversation we display an icon to show you've already read it
                     - Work out the icon to use; for now the "THOUGHT READ" in the quick_menu is good enough
