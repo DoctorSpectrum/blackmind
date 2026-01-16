@@ -45,125 +45,79 @@ screen debug():
             ]
 
 screen psychic_powers():
-    default powers_open = False
     default icon_hint = None
-    default focusable = False
 
-    if (focusable == False and powers_open):
-        timer 0.25:
-            action SetLocalVariable("focusable", True)
-
-    image Solid("#000"):
-        xalign 1.0
-        yalign 1.0
-        xoffset 25
-        yoffset 35
-        xsize 215
-        ysize 215
-        at transform:
-            rotate 3
     frame:
-        background Solid("#FFFC5E")
+        background None
         xalign 1.0
-        yalign 1.0
-        xoffset -25
-        yoffset -15
-        xsize 205
-        ysize 205
+        yalign 0.0
+        yoffset 40
+        xoffset -5
+        xsize 275
+        ysize 82
 
-        imagebutton:
-            auto "gui/icons/psychic_icon_%s.png"
-            xalign 0.75
-            yalign 0.5
-            action [
-                (Show("modal_popup", message="Click the Rewind Mind option to make the bartender forget the last few minutes of conversation", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if not check_boolean("mind_wipe_tutorial") else NullAction()),
-                (ToggleLocalVariable("powers_open") if check_boolean("mind_wipe_tutorial") else SetLocalVariable("powers_open", True)),
-                SetLocalVariable("focusable", False)
-            ]
-            hovered SetLocalVariable("icon_hint", "powers")
-            unhovered SetLocalVariable("icon_hint", None)
+        frame:
+            background Frame("gui/button/button_idle.png")
+            padding (10, 10, 10, 10)
+            xalign 0.5
 
-        if (powers_open):
-            if (check_boolean("mind_read_available")):
+            hbox:
+                spacing 20
+
+                #image "gui/icons/psychic_icon_idle.png":
+                #    at transform:
+                #        zoom 0.5
+
                 imagebutton:
-                    auto "gui/icons/mind_read_icon_%s.png"
-                    xalign 0.65
-                    yalign 0.65
-                    action ([
-                        SetLocalVariable("powers_open", False),
+                    auto "gui/icons/mind_wipe_icon_%s.png"
+                    yalign 0.5
+                    action [
                         SetLocalVariable("icon_hint", None),
-                        (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
-                        SetVariable("progress_convo", False),
-                        (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
-                        (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
-                        (Call(current_thought, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
-                    ] if focusable else NullAction())
-                    hovered (SetLocalVariable("icon_hint", "mind_read") if focusable else NullAction())
+                        (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
+                        (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
+                    ]
+                    hovered SetLocalVariable("icon_hint", "mind_wipe")
                     unhovered SetLocalVariable("icon_hint", None)
-                    at transform:
-                        alpha 0.0
-                        xoffset 0
-                        linear 0.25:
-                            xoffset -90
-                            alpha 1.0
 
-            imagebutton:
-                auto "gui/icons/mind_wipe_icon_%s.png"
-                xalign 0.65
-                yalign 0.35
-                action ([
-                    SetLocalVariable("powers_open", False),
-                    SetLocalVariable("icon_hint", None),
-                    (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
-                    (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
-                ] if focusable else NullAction())
-                hovered (SetLocalVariable("icon_hint", "mind_wipe") if focusable else NullAction())
-                unhovered SetLocalVariable("icon_hint", None)
-                at transform:
-                    alpha 0.0
-                    xoffset 0
-                    pause 0.2
-                    linear 0.25:
-                        xoffset -90
-                        yoffset -50
-                        alpha 1.0
+                if (check_boolean("mind_read_available")):
+                    imagebutton:
+                        auto "gui/icons/mind_read_icon_%s.png"
+                        yalign 0.5
+                        action [
+                            SetLocalVariable("icon_hint", None),
+                            (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
+                            SetVariable("progress_convo", False),
+                            (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
+                            (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
+                            (Call(current_thought, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+                        ]
+                        hovered SetLocalVariable("icon_hint", "mind_read")
+                        unhovered SetLocalVariable("icon_hint", None)
 
-            if (check_boolean("future_sight_available")):
-                imagebutton:
-                    auto "gui/icons/future_sight_icon_%s.png"
-                    xalign 0.6
-                    yalign 0.35
-                    action ([
-                        SetLocalVariable("powers_open", False),
-                        SetLocalVariable("icon_hint", None),
-                        NullAction(),
-                    ] if focusable else NullAction())
-                    hovered (SetLocalVariable("icon_hint", "future_sight") if focusable else NullAction())
-                    unhovered SetLocalVariable("icon_hint", None)
-                    at transform:
-                        alpha 0.0
-                        xoffset 0
-                        pause 0.4
-                        linear 0.25:
-                            yoffset -60
-                            xoffset 60
-                            alpha 1.0
+                if (check_boolean("future_sight_available")):
+                    imagebutton:
+                        auto "gui/icons/future_sight_icon_%s.png"
+                        action [
+                            SetLocalVariable("icon_hint", None),
+                            NullAction(),
+                        ]
+                        hovered SetLocalVariable("icon_hint", "future_sight")
+                        unhovered SetLocalVariable("icon_hint", None)
         
         if (icon_hint != None):
             frame:
-                background Frame("gui/namebox.png", xsize=150, ysize=25)
-                xalign 0.65
-                yalign 1.0
-                xsize 150
+                background Frame("gui/namebox.png", xsize=120, ysize=25)
+                xalign 0.5
+                yoffset 15
+                xsize 120
                 ysize 25
-                yoffset 60
                 at transform:
                     rotate 3
                     alpha 0.0
                     linear 0.1:
                         alpha 1.0
 
-                text _(("Activate Powers" if icon_hint == "powers" and powers_open == False else ("Deactivate Powers" if icon_hint == "powers" else ("Read Mind" if icon_hint == "mind_read" else ("Rewind Mind" if icon_hint == "mind_wipe" else "Future Sight"))))):
+                text _("Read Mind" if icon_hint == "mind_read" else ("Rewind Mind" if icon_hint == "mind_wipe" else "Future Sight")):
                     color "#000"
                     xalign 0.5
                     yalign 0.5

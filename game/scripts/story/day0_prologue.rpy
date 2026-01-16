@@ -64,7 +64,7 @@ label prologue_01:
     hide screen say
     hide screen conversation_history
     $ add_boolean("psychic_powers_available")
-    call screen modal_popup("Click on the psychic powers button in the bottom right-hand corner of the screen to activate your psychic powers", ["OK"], [Return()])
+    call screen modal_popup("Click on the Rewind Mind button in the top right-hand corner of the screen to make the bartender forget the last few minutes of conversation.", ["OK"], [Return()])
     call screen psychic_powers
 
 label prologue_02:
@@ -97,7 +97,7 @@ label prologue_02:
         hide screen say
         hide screen conversation_history
         $ add_boolean("mind_read_available")
-        call screen modal_popup("Activate your psychic powers, and click on the mind-read button to read the bartender’s mind. By using the information you find in her mind, you can convince her that you’re correct.", ["OK"], [Return()])
+        call screen modal_popup("Click on the Read Mind button to read the bartender’s mind. By using the information you find in her mind, you can convince her that you’re correct.", ["OK"], [Return()])
         call screen psychic_powers
 
 label prologue_post_mind_read_tutorial:
