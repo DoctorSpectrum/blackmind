@@ -136,6 +136,7 @@ label prologue_post_mind_read_tutorial:
         "Let her open it":
             $ set_convo_length(7)
             $ play_music("tense_1")
+            show screen conversation_history
             show screen psychic_powers
             jack smug "(This will be fine.)"
             jack smug "(Just because I haven’t paid her, that doesn’t mean anything.[wait_1] It’s not like she can make me pay her.)"
@@ -151,6 +152,7 @@ label prologue_post_mind_read_tutorial:
         "But it has issues with certain cards" (locked=not check_boolean("mind_read_tutorial_card_processing"), message="You have not read this information in the bartender's mind"):
             $ set_convo_length(13)
             $ play_music("tense_1")
+            show screen conversation_history
             show screen psychic_powers
             jack smug "Do you, though?[wait_1] That old thing?"
             $ current_thought = "barbara_thought_pr_15"
@@ -180,6 +182,7 @@ label prologue_post_mind_read_tutorial:
         "This bar used to be better" (locked=not check_boolean("mind_read_tutorial_bar_quality"), message="You have not read this information in the bartender's mind"):
             $ set_convo_length(22)
             $ play_music("tense_1")
+            show screen conversation_history
             show screen psychic_powers
             jack angry "This bar used to be better, you know."
             $ current_thought = "barbara_thought_pr_21"
@@ -236,7 +239,6 @@ label prologue_post_mind_read_tutorial:
             jack worried "(Maybe she realised that something was off, and is calling the cops!)"
             jack angry "(I’ll be damned if I’ll let them catch me here!)"
             jack angry "(I’d better leave while I’ve got the opportunity -[wait_05] I’ve already gotten plenty of cash from this place.)"
-            hide screen conversation_history
             hide screen calendar
             scene black_bg with slow_dissolve
 

@@ -12,9 +12,6 @@ BLACKMIND TODO
                     - Work out the icon to use; for now the "THOUGHT READ" in the quick_menu is good enough
 
             - UI stuff:
-                - Give it a go that the history button is outside of the conversation_history screen and it just calls a show("conversation_history"), then in conversation_history we have an on_show and 
-                    on_hide to expand or hide it - that should also mean that we're always at the bottom of the scrollbox when we show since we're re-rendering it each time
-                    - history hide/show disappears after the choice menu - this should hopefully fix it up but if not then go do what's needed to solve the issue
                 - Zener card animation since MC thinks it gets disorientating:
                     - double-check with him how he feels about it and whether it does need to be fixed up. If so then let's start by slowing it down before we do everything in the list
 

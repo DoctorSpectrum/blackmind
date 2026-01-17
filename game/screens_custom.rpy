@@ -1026,7 +1026,7 @@ screen conversation_history(initial_expanded = False, show_button = True, initia
     default expanded = initial_expanded
     default opened = initial_opened
 
-    if (show_button):
+    if (show_button and renpy.get_screen("say")):
         textbutton _("HISTORY" if not expanded else "HIDE"):
             style "yellow_button"
             text_font "gui/chubhand.ttf"
@@ -1086,14 +1086,14 @@ screen conversation_history(initial_expanded = False, show_button = True, initia
 
             side ("c r"):
                 area (-20, 10, 500, 540)
-
-                viewport id "history_viewport":
-                    draggable True 
-                    mousewheel True
-                    arrowkeys True
-                    yadjustment ui.adjustment()
-                    yinitial 1.0
-                    if (expanded):
+                if (expanded):
+                    viewport id "history_viewport":
+                        draggable True 
+                        mousewheel True
+                        arrowkeys True
+                        yadjustment ui.adjustment()
+                        yinitial 1.0
+                    
                         vbox:
                             for i, h in enumerate(_history_list[0:len(_history_list) - 1 if not renpy.get_screen("choice") else len(_history_list)]):
                                 if (h.who and _history_list[i - 1] is not None and _history_list[i - 1].who and _history_list[i - 1].who is not h.who):
@@ -1112,6 +1112,8 @@ screen conversation_history(initial_expanded = False, show_button = True, initia
                                     xmaximum 400
                                     size 20
                                     at trans_fade(0.5, 0.5)
+                else:
+                    null
                 if (len(_history_list) - 1 > 0 and expanded):
                     vbar: 
                         value YScrollValue("history_viewport")

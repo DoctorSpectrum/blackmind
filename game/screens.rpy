@@ -265,7 +265,10 @@ screen choice(items):
             for i in items:
                 if ("locked" not in i.kwargs or i.kwargs["locked"] == False):
                     textbutton (i.caption.upper()):
-                        action i.action
+                        action [
+                            Hide("conversation_history"),
+                            i.action
+                        ]
                 else:
                     textbutton _("LOCKED"):
                         style "choice_button_locked"
