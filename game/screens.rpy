@@ -119,6 +119,7 @@ screen say(who, what):
                 action [
                     Hide("psychic_powers"),
                     SetVariable("progress_convo", False),
+                    Function(play_sound, "mind_read.mp3", volume=0.5),
                     Call(current_thought, from_current=True)
                 ]
 

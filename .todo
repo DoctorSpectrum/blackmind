@@ -13,10 +13,8 @@ BLACKMIND TODO
                     - less rows of cards/more spaces between them
                     - less rows of cards but slightly larger cards
                     - alternating large/small card rows 
-                - Might be worth increasing the length of the progress bar instead of resetting it, so that it's apparent that when it's at 0%, that's the start of where you'll rewind back to                
-
-            - Music stuff:
-                - Play an ethereal, synthy sound when reading a thought
+                - Might be worth increasing the length of the progress bar instead of resetting it, so that it's apparent that when it's at 0%, that's the start of where you'll rewind back to
+                    - Ehhhh heavily leaning towards not
 
             - Story stuff:
                 - Updoot the placeholder sample text
