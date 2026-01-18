@@ -24,32 +24,33 @@ label variables:
         xalign 0.5 
         yalign 0.0
 
-    transform zener_card_col_down (init_y, time):
+    transform zener_card_col_up (time):
         zoom 0.3
-        ypos init_y
-        linear (time):
-            ypos 1280
+        ypos 1175       #Start out offscreen, at the bottom
+        pause time      #Pause for a while, unique time for each card
 
-        block:
-            ypos -200
-            linear 12.0:
-                ypos 1280
-
-            repeat
-
-    transform zener_card_col_up (init_y, time):
-        zoom 0.3
-        ypos init_y
-        linear (time):
-            ypos -200
-
-        block:
-            ypos 1280
-            linear 12.0:
+        block:          #Move up - we're all moving at the same rate but with the delay in pause that should create natural spacing between cards
+            ypos 1175
+            linear 53.97:
                 ypos -200
 
-            repeat
+            repeat      #Reset so we're not constantly rendering new cards
 
+    transform zener_card_col_down (time):
+        zoom 0.3
+        ypos -230
+        pause time
+
+        block:
+            ypos -230
+            #linear 1.0:
+            #    ypos 1175
+
+            linear 69.1:
+                ypos 1175
+
+            repeat
+    
     transform title_card_slide (direction):
         yoffset (1080 if direction == "up" else -1080)
         linear 0.5:

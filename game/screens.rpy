@@ -107,9 +107,20 @@ screen say(who, what):
                 style "namebox"
                 text who id "who"
                 at transform:
-                    rotate 354
+                    rotate -6
 
         text what id "what"
+
+        if (current_thought in thoughts_read and "_thoughts" not in _last_say_who):
+            imagebutton:
+                auto "gui/icons/mind_read_icon_%s.png"
+                xalign 0.175
+                yalign 0.35
+                action [
+                    Hide("psychic_powers"),
+                    SetVariable("progress_convo", False),
+                    Call(current_thought, from_current=True)
+                ]
 
 
     ## If there's a side image, display it above the text. Do not display on the
@@ -337,14 +348,6 @@ screen quick_menu():
             xalign 0.82
             yalign 0.77
 
-            if (current_thought in thoughts_read and "_thoughts" not in _last_say_who):
-                textbutton _("THOUGHT READ"):
-                    action [
-                        Hide("psychic_powers"),
-                        SetVariable("progress_convo", False),
-                        Call(current_thought, from_current=True)
-                    ]
-
             textbutton _("Skip"): 
                 action Skip() 
                 alternate Skip(fast=True, confirm=True)
@@ -541,24 +544,25 @@ screen main_menu(initialised=False):
                         yoffset -140
                         spacing 5
                         at transform:
-                            linear (1400 / 116.5):
+                            linear (1400 / 24):
                                 ypos -1480
                         for j in range(4):
                             for card in cards:
                                 image "gui/card_[card].png":
                                     at transform:
                                         zoom 0.3
+
                     for j in range(4):
                         for card in cards:
                             image "gui/card_[card].png":
-                                at zener_card_col_up(-600, (1280 - (70 * ((j * 5) + card) - 70)) / 116.5)
+                                at zener_card_col_up(2 + (2.7*((card - 1) + (j * 5))))
                 else:                   #Col going down
                     vbox:
                         spacing 5
-                        yoffset -80
+                        yoffset -180
                         at transform:
-                            linear (1300 / 116.5):
-                                ypos 1380
+                            linear 66.79:
+                                ypos 1355
                         for j in range(4):
                             for card in cards:
                                 image "gui/card_[card].png":
@@ -566,21 +570,29 @@ screen main_menu(initialised=False):
                                         zoom 0.3
 
                     for j in range(4):
-                        for card in cards:
+                        for i, card in enumerate(reversed(cards)):
                             image "gui/card_[card].png":
-                                at zener_card_col_down(1200, (1280 - (70 * ((j * 5) + card) - 70)) / 116.5)
+                                at zener_card_col_down(1 + (3.3*((i) + (j * 5))))
+
+                    image "gui/card_3.png":
+                        at zener_card_col_down(1 + (3.295*((4 * 5))))
+
         frame:
             background Solid("#00000041")
 
         use social_links
 
         image "images/menu/ring.png":
-            xalign 0.45
-            yalign 0.5
+            xpos 900
+            ypos 540
+            xanchor 0.5
+            yanchor 0.5
             at menu_expand_ring(3.0)
         image "images/menu/ring.png":
-            xalign 0.45
-            yalign 0.5
+            xpos 900
+            ypos 540
+            xanchor 0.5
+            yanchor 0.5
             at menu_expand_ring(3.2)
         image "images/menu/menu_placeholder.png":
             if (not initialised):

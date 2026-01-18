@@ -3,19 +3,12 @@ BLACKMIND TODO
         - Delivery Date: 31/08/2026
 
         - Commission Assets:
-            - Sprites: Email Mason -> reply
+            - Sprites: Email Mason -> read and reply to email
             - Music: Contact Blankspace person -> donezo; awaiting reply
 
         - Prototype Actionables:
-            - Programming stuff:
-                - If you read a mind, then when you encounter that line in the conversation we display an icon to show you've already read it
-                    - Work out the icon to use; for now the "THOUGHT READ" in the quick_menu is good enough
-
             - UI stuff:
-                - Zener card animation since MC thinks it gets disorientating:
-                    - double-check with him how he feels about it and whether it does need to be fixed up. If so then let's start by slowing it down before we do everything in the list
-
-                    - slower card movement
+                - Zener card animation potential fixes:
                     - same number of rows of cards, less cards per row
                     - less rows of cards/more spaces between them
                     - less rows of cards but slightly larger cards
@@ -26,7 +19,16 @@ BLACKMIND TODO
                 - Play an ethereal, synthy sound when reading a thought
 
             - Story stuff:
+                - Updoot the placeholder sample text
                 - Demo doesn't have to be a 1:1 match of the prologue of the game - what could I do to expand on it and make it a bit more engaging?
+                    - Two options here:
+                        - 1. Expand on the prologue. Flesh it out a bit, show a bit more of the mechanics.
+                            - I think I should do a replay of Ace Attorney 1 and take notes as to how it hooks you in
+                            - What if we started out with Jack running away, scared that he's going to be shot, and he is shot, and then we reveal that it's precognition? And I do a bit of a lead-in
+                                to it? Works for a punchy start but then I'm not sure why he's just sitting there chilling, and if he's not sitting there chilling I don't know how to show off his 
+                                wanky personality.
+                        - 2. Demo != prologue. Have the content be something completely different. Tbh I'm pretty iffy about this since people might be surprised when they then play the main game
+                            and it's different.
 
         - Other deliverables:
             - Voice acting
