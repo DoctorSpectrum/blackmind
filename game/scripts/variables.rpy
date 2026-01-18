@@ -43,8 +43,6 @@ label variables:
 
         block:
             ypos -230
-            #linear 1.0:
-            #    ypos 1175
 
             linear 69.1:
                 ypos 1175
