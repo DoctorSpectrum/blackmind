@@ -45,8 +45,51 @@ BLACKMIND TODO
                                 - Pros: Lots of dynamic stuff. Lots of different ways to change a scene.
                                 - Cons: More writing. More accounting for different outcomes. Reading emotions might result in a lot of "no shit sherlock" moments if the emotion is clear from their words.
 
+                    - Ace Attorney summary:
+                        - Opening
+                            - Blood dripping, CG of person clearly dead
+                            - Dude standing over her, saying he'll pin it on someone
+                        - Court Lobby
+                            - Phoenix states that he's nervous
+                            - Establish that we're going to be doing a murder trial
+                            - Introduce Larry
+                            - Clarify what's happening and that Phoenix has a relationship with Larry
+                        - Court
+                            - Clarify stuff, introduce Judge and Winston Payne
+                            - Test player's knowledge with an easy question
+                                - No consequences for failure; we just reset and get to try again
+                            - Test player's knowledge again, tutorialise opening the court record
+                                - No consequences for failure
+                            - Follow-up question: how was she killed?
+                                - No consequences for failure
+                            - Add evidence and remind players to check the court record
+                        - Begin Trial
+                            - Story stuff
+                            - Two irrelevant questions
+                            - Introduce Frank Sahwit, he gives a testimony
+                                - New music during it to hint that it's ominous/important
+                            - Cross-examination, explicitly explained by Mia
+                                - We now have a fail state if we present the wrong evidence
+                                - 10 statements for the first piece of evidence
+                                    - "I remember the time exactly" / Autopsy Report
+                                - 6 statements for the second
+                                    - "I guess the victim must have been watching a taped program" / Blackout report
+                                - 4 statements for the third
+                                    - "The clock is the murder weapon" / Thinker statue
+                            - After doing the third statement, we get asked "are there any issues?" to check that we're paying attention
+                            - After the three cross-examinations, Phoenix accuses Frank Sahwit and he gets his breakdown, advancing the story
+                            - Three-hour discrepency, adds tension and makes us wonder how we'll prove it
+                            - We get asked to prove the three-hour discrepency, present passport and we're donezo
+                        - Denouement
+                            - Explain how Sahwit did the murder
+                            - Wrap up with Mia and Larry
+                            - Present Thinker
+                            - Exposit theme
+                            - Mention that the clock will be important in the future
+
         - Other deliverables:
             - Voice acting
                 - Get partials for now
+                - Advertise this after getting the script for the prologue finalised - no need to delay it if we know what it'll be
         
         - After this has been launched on Steam (i.e. the completion of this phase), contact streamers and ask them to play the demo - if even only five or six reply, that's still eyes on the project
