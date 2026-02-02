@@ -3,8 +3,8 @@ BLACKMIND TODO
         - Delivery Date: 31/08/2026
 
         - Commission Assets:
-            - Sprites: Email Mason -> read and reply to email
-            - Music: Contact Blankspace person -> donezo; awaiting reply
+            - Backgrounds: Waiting on response; message Thursday morning if no info by then 
+            - Music: Awaiting on response from Cody
 
         - Prototype Actionables:
             - UI stuff:
@@ -18,74 +18,7 @@ BLACKMIND TODO
 
             - Story stuff:
                 - Updoot the placeholder sample text
-                - Demo doesn't have to be a 1:1 match of the prologue of the game - what could I do to expand on it and make it a bit more engaging?
-                    - Two options here:
-                        - 1. Expand on the prologue. Flesh it out a bit, show a bit more of the mechanics.
-                            - I think I should do a replay of Ace Attorney 1 and take notes as to how it hooks you in
-                            - What if we started out with Jack running away, scared that he's going to be shot, and he is shot, and then we reveal that it's precognition? And I do a bit of a lead-in
-                                to it? Works for a punchy start but then I'm not sure why he's just sitting there chilling, and if he's not sitting there chilling I don't know how to show off his 
-                                wanky personality.
-                        - 2. Demo != prologue. Have the content be something completely different. Tbh I'm pretty iffy about this since people might be surprised when they then play the main game
-                            and it's different.
-                    - Alternatively: keep the story, but expand the gameplay. Ace Attorney is engaging because it asks you to pay attention and make logical deductions.
-                        Long Live the Queen/Galaxy Princess Zorana are interesting because different skills can lead to different options, making you want to test out which
-                        of those options are the most viable. I think that I can probably add a bit of depth to the gameplay, and expand the demo that way. It also then shows off more of the game
-                        and makes it feel more engaging.
-                        - Potential gameplay ideas:
-                            - 1. Fail state. Jack has limited mind reads. If you don't get the info in Barbara's mind you're tossed out of the bar, and Jack thinks to himself "I could have gone somewhere
-                                cool and done more things if I'd read her mind!", before getting killed by Docherty.
-                                - Pros: Gives you consequences. Does a better job of showing off what the main gameplay is like. Has you anticipate the gameplay of the full game better. Cuts down on chaff.
-                                - Cons: Jack having limited mind reads means you have less room to experiment and play around. Hurts the narrative in that both Jack and Lloyd have limited reads. Failing, then
-                                    going back and redoing it still has you die, which might be a turn-off for some people.
-                            - 2. Reputation meter. Your reputation with Barbara starts low, and you have to use multiple reads to increase it in several different ways to pass.
-                                - Pros: Creates a puzzle with multiple steps that aren't too confusing. Adds more stuff to take in and consider. 
-                                - Cons: Could be kinda clunky if you can't work out one of the steps. Could also be clunky if each time you reach the end of the scene Jack runs through the stuff he knows and then
-                                    you have to choose the right answer, or if he's just dumping new info there. Prolly works better as a hidden thing, with the rest of the contacts.
-                            - 3. Emotion meter. The things you say to people change their emotions, and you have a psychic power to read their emotion.
-                                - Pros: Lots of dynamic stuff. Lots of different ways to change a scene.
-                                - Cons: More writing. More accounting for different outcomes. Reading emotions might result in a lot of "no shit sherlock" moments if the emotion is clear from their words.
-
-                    - Ace Attorney summary:
-                        - Opening
-                            - Blood dripping, CG of person clearly dead
-                            - Dude standing over her, saying he'll pin it on someone
-                        - Court Lobby
-                            - Phoenix states that he's nervous
-                            - Establish that we're going to be doing a murder trial
-                            - Introduce Larry
-                            - Clarify what's happening and that Phoenix has a relationship with Larry
-                        - Court
-                            - Clarify stuff, introduce Judge and Winston Payne
-                            - Test player's knowledge with an easy question
-                                - No consequences for failure; we just reset and get to try again
-                            - Test player's knowledge again, tutorialise opening the court record
-                                - No consequences for failure
-                            - Follow-up question: how was she killed?
-                                - No consequences for failure
-                            - Add evidence and remind players to check the court record
-                        - Begin Trial
-                            - Story stuff
-                            - Two irrelevant questions
-                            - Introduce Frank Sahwit, he gives a testimony
-                                - New music during it to hint that it's ominous/important
-                            - Cross-examination, explicitly explained by Mia
-                                - We now have a fail state if we present the wrong evidence
-                                - 10 statements for the first piece of evidence
-                                    - "I remember the time exactly" / Autopsy Report
-                                - 6 statements for the second
-                                    - "I guess the victim must have been watching a taped program" / Blackout report
-                                - 4 statements for the third
-                                    - "The clock is the murder weapon" / Thinker statue
-                            - After doing the third statement, we get asked "are there any issues?" to check that we're paying attention
-                            - After the three cross-examinations, Phoenix accuses Frank Sahwit and he gets his breakdown, advancing the story
-                            - Three-hour discrepency, adds tension and makes us wonder how we'll prove it
-                            - We get asked to prove the three-hour discrepency, present passport and we're donezo
-                        - Denouement
-                            - Explain how Sahwit did the murder
-                            - Wrap up with Mia and Larry
-                            - Present Thinker
-                            - Exposit theme
-                            - Mention that the clock will be important in the future
+                - Update the demo with the new script (in progress atm) - see what the others think and whether it's better than the original.
 
         - Other deliverables:
             - Voice acting
