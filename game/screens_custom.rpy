@@ -69,30 +69,30 @@ screen psychic_powers():
                 #        zoom 0.5
 
                 imagebutton:
-                    auto "gui/icons/mind_wipe_icon_%s.png"
+                    auto "gui/icons/mind_read_icon_%s.png"
                     yalign 0.5
                     action [
                         SetLocalVariable("icon_hint", None),
-                        (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
-                        (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
+                        (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
+                        SetVariable("progress_convo", False),
+                        (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
+                        (Function(play_sound, "mind_read.mp3", volume=0.5) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+                        (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
+                        (Call(current_thought, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
                     ]
-                    hovered SetLocalVariable("icon_hint", "mind_wipe")
+                    hovered SetLocalVariable("icon_hint", "mind_read")
                     unhovered SetLocalVariable("icon_hint", None)
 
-                if (check_boolean("mind_read_available")):
+                if (check_boolean("mind_wipe_available")):
                     imagebutton:
-                        auto "gui/icons/mind_read_icon_%s.png"
+                        auto "gui/icons/mind_wipe_icon_%s.png"
                         yalign 0.5
                         action [
                             SetLocalVariable("icon_hint", None),
-                            (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
-                            SetVariable("progress_convo", False),
-                            (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
-                            (Function(play_sound, "mind_read.mp3", volume=0.5) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
-                            (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
-                            (Call(current_thought, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+                            (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
+                            (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
                         ]
-                        hovered SetLocalVariable("icon_hint", "mind_read")
+                        hovered SetLocalVariable("icon_hint", "mind_wipe")
                         unhovered SetLocalVariable("icon_hint", None)
 
                 if (check_boolean("future_sight_available")):
@@ -127,20 +127,20 @@ screen psychic_powers():
     key "K_1":
         action [
             SetLocalVariable("icon_hint", None),
-            (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
-            (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
-        ]
+            (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
+            SetVariable("progress_convo", False),
+            (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
+            (Function(play_sound, "mind_read.mp3", volume=0.5) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+            (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
+            (Call(current_thought, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+        ] 
 
-    if (check_boolean("mind_read_available")):
+    if (check_boolean("mind_wipe_available")):
         key "K_2":
             action [
                 SetLocalVariable("icon_hint", None),
-                (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
-                SetVariable("progress_convo", False),
-                (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
-                (Function(play_sound, "mind_read.mp3", volume=0.5) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
-                (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
-                (Call(current_thought, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+                (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
+                (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
             ]
 
     if (check_boolean("future_sight_available")):

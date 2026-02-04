@@ -1523,7 +1523,7 @@ screen preferences(start=False):
 
                     hbox:
                         xfill True
-                        yalign 0.15
+                        yalign 0.85
                         textbutton _("CONTROLS"):
                             style "begin_button"
                             xalign 0.1
@@ -1544,7 +1544,7 @@ screen preferences(start=False):
 
                     text _("These settings can be changed from the Settings menu at any time"):
                         xalign 0.5
-                        yalign 0.85
+                        yalign 0.15
                         xmaximum 600
                         size 20
                         text_align 0.5
@@ -2002,11 +2002,11 @@ screen keyboard_help():
 
     hbox:
         label _("1")
-        text _("Activate your Rewind Mind power.")
+        text _("Activate your Mind Read power.")
 
     hbox:
         label _("2")
-        text _("Activate your Mind Read power.")
+        text _("Activate your Rewind Mind power.")
 
     #hbox:
     #    label _("3")

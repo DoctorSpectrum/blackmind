@@ -1,104 +1,150 @@
 label prologue_01:
     $ quick_menu = False
-    if (not persistent.senses_attuned):
-        call screen attune_senses
+    #if (not persistent.senses_attuned):
+    #    call screen attune_senses
 
     $ renpy.music.stop()
-    call screen chapter_breaks("PROLOGUE", "In a bar downtown, a young man is currently drinking. He is thinking about how he should use his psychic powers tonight.")
+    docherty "I apologise for this, young man, but you are in the way of my plan." (name="???")
+    $ play_sound("gunshot.mp3", pause=2.0, transition=white_flash)
+
+    call screen chapter_breaks("PROLOGUE", "A young man with psychic powers is currently walking the streets downtown. He has no idea of what destiny will lead him to tonight.")
     $ quick_menu = True
 
     $ play_music("neutral_1")
-    scene bar with slow_dissolve
+    scene street with slow_dissolve
     $ scene_setup(40, "Monday", True, 1, 2, True, True)
     
-    narrator "The time is currently 8:11 PM, on a Monday night."
-    narrator "Business isn’t usually too good this early in the week, which meant that the owner was slightly surprised when the customer walked in."
-    narrator "He has a good reason for coming here on this day, though, when the bar is so much more quiet than the rest of the week."
-    narrator "It means that there won’t be any witnesses."
-
-    $ play_sound("ice_cube_clink.mp3")
-    jack smug "(Not too bad, as far as whiskey goes.)"
-    jack smug "(She’s definitely watered the bloody thing down, but not as much as some of the other places I’ve been to lately.)"
-    jack thinking "(Should I have another lovely little drink...?[wait_1] Wet the whistle a bit?)"
-    jack smug "(...Nah, better not.)"
-    jack smug "(It could affect my abilities, and I’ve got to get this right.)"
-    jack smug "(Nobody ever became a millionaire while drunk...[wait_05]well, except for actors and musicians, of course.)"
-    jack smug "(And all the CEOs, of course.[wait_1] Can’t forget the CEOs.)"
-    narrator "This is Jack Usbourne."
-    narrator "Twenty-seven years of age, and the possessor of abilities that some would kill to have."
-    narrator "Currently unemployed, although not without the means to make money his own way."
-    jack smug "Hi, um, bartender?"
-    $ swap_sprites("barbara_smiling", slow_dissolve)
-    barbara "Hi there![wait_1] How’s it going?" (name="Bartender")
-    barbara "The general emptiness of the place isn’t too much of an issue, I hope?" (name="Bartender")
-    barbara "Mondays aren’t too busy, but I...[wait_05]I like to stay open anyway, so that I can still help out people who are in need of a good, strong drink!" (name="Bartender")
-    jack angry "(“Help out people” - what the hell is that supposed to mean?)"
-    jack angry "(If you want to help so much, how about giving away free drinks, for a start?)"
-    barbara "Looks like you’ve just about finished that drink off - I’m guessing that you want a replacement?[wait_1] On your tab, same as the first?" (name="Bartender")
-    jack smug "Um, look, no...[wait_05]not really."
-    $ swap_sprites("barbara_sad")
-    barbara "Oh.[wait_1] Sorry, I’m - was it not to your liking?" (name="Bartender")
-    $ swap_sprites("barbara_smiling")
-    barbara "Do you want a -[wait_05] I can recommend you a different brand, if you like?" (name="Bartender")
-    jack smug "Oh, no, the drink was great![wait_1] Excellent vintage, a truly good year for grapes!"
-    barbara "Heh, nice one." (name="Bartender")
-    jack worried "(Why is that funny?)"
-    jack smug "But I can’t stay any longer, unfortunately.[wait_1] I have to go."
-    $ swap_sprites("barbara_sad")
-    barbara "Oh no![wait_1] Is everything alright?" (name="Bartender")
-    jack smug "(I’m going to be walking out of here with armfuls of your money.[wait_1] That’s definitely alright by me.)"
-    jack smug "Yeah, yeah, I just...[wait_05]got a text from my...[wait_05]dog.[wait_1] Sitter.[wait_1] My dogsitter."
-    $ swap_sprites("barbara_angry")
-    barbara "You’ve left your dog with a sitter so that you could come to a bar and drink?" (name="Bartender")
-    jack smug "Well they’re a very hardy breed, these German...[wait_05]Terriers."
-    jack smug "I mean, I always say, it’s more like the dog looks after the sitter, you know?"
-    barbara "Right...[wait_05]well, whatever it is, if you have to leave then you have to leave." (name="Bartender")
-    $ swap_sprites("barbara_smiling")
-    barbara "Just got to pay up your tab then I’ll let you be on your way!" (name="Bartender")
-    barbara "With our Monday night discount applied, your one drink was $10." (name="Bartender")
+    jack angry "(God, it took the cops long enough to let me go.)"
+    jack angry "(Absolutely no evidence at all that I stole those wallets, but they still managed to draw it out into hours of questioning.)"
+    jack angry "(What’s the big deal, anyway?)"
+    jack angry "(Pickpocketing’s considered a petty crime.[wait_1] That basically means that they shouldn’t be wasting any time on it, especially when they’ve got no evidence.)"
+    jack smug "(Anyway, how much cash was I able to get from those suckers before the cops spotted me?)"
     show screen cash_money
-    jack smug "(If I was a sucker, maybe.)"
-    barbara "Will that be cash or card?" (name="Bartender")
-    jack smug "How about...[wait_05]neither?"
+    jack thinking "(Damn, I was hoping for a bit more than that...if I could take plastic things’d be easier, but it’s just too easy to trace or be blocked)."
+    jack smug "(Well, whatever.[wait_1] This should still be enough for me to get a drink or two)."
     hide screen cash_money
-    hide screen say
-    hide screen conversation_history
-    $ add_boolean("psychic_powers_available")
-    call screen modal_popup("Click on the Rewind Mind button in the top right-hand corner of the screen, or press the 1 key, to make the bartender forget the last few minutes of conversation.", ["OK"], [Return()])
-    call screen psychic_powers
+    scene black_bg with quick_dissolve
+    
+    scene bar with slow_dissolve
+    jack thinking "(Is there no bartender here?[wait_1] And...also no customers?)"
+    jack thinking "Hello![wait_1] Anybody home?"
+    jack smug "(I’ll give it thirty seconds, then I’m grabbing all the bottles I can hold.)"
+    jack smug "(They probably want people to do that anyway.[wait_1] You wouldn’t just leave things unattended and then be annoyed that they’re missing; you know what you’re getting in for.)"
+    $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ current_thought = "barbara_thought_pr_01"
+    barbara "Sorry![wait_1] I was out back, changing over a keg." (name="Bartender")
+    barbara "How are you doing?" (name="Bartender")
+    jack smug "Not too bad, although I’d definitely be doing better if I had a drink...[wait_05]or two!"
+    jack smug "(God I'm funny!)"
+    barbara "I can help you out with that.[wait_1] What exactly were you hoping for?" (name="Bartender")
+    show screen cash_money
 
 label prologue_02:
-    if (renpy.music.get_playing() != "audio/music/PSYNCIN' IN THE CURTaiN.mp3"):
-        $ play_music("neutral_1")
-    $ add_boolean("mind_wipe_tutorial")
-    $ _history_list = []
-    $ set_convo_length(11 if not check_boolean("mind_read_tutorial") else 25)
-    show screen psychic_powers
+    menu:
+        "Lemonade ($6)":
+            hide screen cash_money
+            show screen conversation_history
+
+            jack worried "(I guess I’ll have to order a lemonade since it’s the only thing that I have the money for.)"
+            jack worried "(But I was really looking forward to some booze...)"
+            jack thinking "(Unless...[wait_05]I might be able to trick her into giving me a drink for free, if I use my abilities right.)"
+            jack thinking "(Yeah...[wait_05]that’s a pretty good idea.)"
+            jack smug "(She probably already really likes me - it’s not even going to be that much effort to convince her probably.)"
+            jack smug "(What’s she thinking about right now?)"
+
+            hide screen say
+            hide screen conversation_history
+            $ add_boolean("psychic_powers_available")
+            call screen modal_popup("Click on the Read Mind button in the top right-hand corner, or press the 1 key, to read the bartender’s mind.", ["OK"], [Return()])
+            call screen psychic_powers
+
+        "Whiskey ($14)":
+            $ drink = "whiskey"
+        "Wine ($21)":
+            $ drink = "wine"
+        "Cocktail ($26)":
+            $ drink = "cocktail"
+    
+    hide screen cash_money
     show screen conversation_history
+    jack smug "(It doesn’t matter that I can’t afford it - all that I need is for her to serve it, then I’ll rewind her mind so she doesn’t remember that I haven’t paid)."
+    jack smug "Can you get me a [drink]?"
+    barbara "Just shoot the payment through and we’re good." (name="Bartender")
+    jack worried "(What?![wait_1] I can’t rewind her mind if she doesn’t make it!)"
+    barbara "Or would you rather pay with cash?[wait_1] That’s fine too." (name="Bartender")
+    jack worried "I...[wait_05]actually, come to think of it, I’d rather order something else."
+    show screen cash_money
+    jump prologue_02
+
+label prologue_03:
+    jack thinking "(She’s happy to give me what I want?[wait_1] This bar is fucking amazing!)"
+    $ current_thought = "barbara_thought_pr_02"
+    jack thinking "You’re good to give me a glass of whiskey, yeah?"
+    barbara "And coke?[wait_1] Sure thing - just tap your card when you’re ready and I’ll be right with you." (name="Bartender")
+    $ current_thought = "barbara_thought_pr_03"
+    jack angry "Tap my - what do you mean?[wait_1] I thought you were going to give me it for free!"
+    $ swap_sprites("barbara_angry")
+    barbara "And why the hell would I do that?" (name="Bartender")
+    $ current_thought = "barbara_thought_pr_04"
+    jack angry "You thought it![wait_1] Don’t try and deny it, I know you did!"
+    barbara "What the hell?![wait_1] Just - who the hell are you?" (name="Bartender")
+    jack worried "(Shit![wait_05] I shouldn’t have said that - I’d better wipe that from her memory!)"
+    hide screen say
+    hide screen conversation_history
+    $ rewind_point = "prologue_04"
+    $ add_boolean("mind_wipe_available")
+    call screen modal_popup("Click on the Rewind Mind button, or press the 2 key, to make the bartender forget the last few minutes of conversation.", ["OK"], [Return()])
+    call screen psychic_powers
+
+label prologue_04:
+    show screen conversation_history
+    show screen psychic_powers
 
     $ swap_sprites("barbara_thinking")
-    $ current_thought = "barbara_thought_pr_01"
-    barbara "Whoa, I...[wait_05]sorry, mate, I got a bit dizzy there." (name="Bartender")
-    barbara "What...[wait_05]what were we talking about, again?" (name="Bartender")
-    $ current_thought = "barbara_thought_pr_02"
-    jack smug "My tab.[wait_1] We were just, um, saying how I’d paid it all, and that I was going to leave."
-    jack smug "(Oh yeah.[wait_05] Here we go.[wait_05] It's showtime!)"
-    jack smug "...but not until after you give me some money."
-    $ current_thought = "barbara_thought_pr_03"
-    jack smug "You said that you were going to get me my change, remember?"
-    barbara "Did I...?[wait_1] I don’t remember that..." (name="Bartender")
-    jack smug "You definitely did."
-    $ current_thought = "barbara_thought_pr_04"
-    jack smug "You definitely said -[wait_05] I remember you saying -[wait_05] that you were surprised at how much money I’d given you, and that you were -[wait_05] you had a lot of cash to give me."
-    barbara "..." (name="Bartender")
-    if (not check_boolean("mind_read_tutorial")):
-        jack worried "(Why aren’t you giving me my lovely money?[wait_1] What’s bloody wrong?)"
+    $ current_thought = "barbara_thought_pr_05"
+    barbara "Urgh...[wait_05]my head..." (name="Bartender")
+    barbara "I - sorry mate, I was out back, changing over a keg.[wait_1] At least...[wait_05]that’s what I thought I was doing." (name="Bartender")
+    $ current_thought = "barbara_thought_pr_06"
+    $ swap_sprites("barbara_smiling")
+    barbara "How are you doing?" (name="Bartender")
+    if (check_boolean("jack_tutorial_psychic_explanation") == False):
+        jack thinking "(If I use my psychic abilities correctly, I can definitely trick her into giving me something for free.)"
+        jack thinking "(For now I should try to avoid talking about drinks, and focus on getting her to like me first.)"
+        $ add_boolean("jack_tutorial_psychic_explanation")
+    $ current_thought = "barbara_thought_pr_07"
+    jack smug "You know, this is a really nice bar."
+    $ current_thought = "barbara_thought_pr_08"
+    jack smug "Whoever the owner is, they’ve done a really good job with it...[wait_05]especially at hiring staff."
+    $ swap_sprites("barbara_angry")
+    $ current_thought = "barbara_thought_pr_09"
+    barbara "I’d hope so, given that I’m the owner." (name="Bartender")
+    $ current_thought = "barbara_thought_pr_10"
+    jack smug "Oh, really?[wait_05] You’ve done a great job with it - I love the aesthetic you’ve got going."
+    jack worried "(What the hell is the name of this style?[wait_1] The only one I know is gothic, and it definitely isn’t that)."
+    $ current_thought = "barbara_thought_pr_11"
+    jack smug "It's a very...[wait_05] ...[wait_05] ...gothic style, if I'm not mistaken?"
+    barbara "You are mistaken, but that’s neither here nor there." (name="Bartender")
+    barbara "Anyway, did you want a drink?" (name="Bartender")
 
-        hide screen say
-        hide screen conversation_history
-        $ add_boolean("mind_read_available")
-        call screen modal_popup("Click on the Read Mind button, or press the 2 key, to read the bartender’s mind. By using the information you find in her mind, you can convince her that you’re correct.", ["OK"], [Return()])
-        call screen psychic_powers
+    menu:
+        "No":
+            $ current_thought = "barbara_thought_pr_12"
+            jack angry "At the prices you’re offering?[wait_1] No thanks."
+            barbara "Then what are you even doing here?!" (name="Bartender")
+            jack worried "Um..."
+            jack worried "(What, exactly, was I thinking with that, again?)"
+            $ current_thought = "barbara_thought_pr_13"
+            barbara "If you’re not ordering, then please leave.[wait_1] I’ve got better things to do than entertain beggars." (name="Bartender")
+            jack thinking "(Okay, so I’ll need to read more of her thoughts so that I can work out what she might want to talk about, to get her to like me more.)"
+            jack thinking "(First of all I’ll need to rewind her mind, though.)"
+            hide screen conversation_history
+            call screen psychic_powers
+        "Ask about the history of the bar" (locked=not check_boolean("prologue_bar_history"), message="You have not read this information in the bartender's mind"):
+            jack thinking "test"
+        "Ask about interior design" (locked=not check_boolean("prologue_interior_designing"), message="You have not read this information in the bartender's mind"):
+            $ current_thought = "barbara_thought_pr_14"
+            jack smug "What I really wanted was to talk about interior design."
+            jack smug "I think that your work is...[wait_1]beautiful, really.[wait_1] Really beautiful, yeah."
 
 label prologue_post_mind_read_tutorial:
     $ add_boolean("mind_read_tutorial")
@@ -242,7 +288,7 @@ label prologue_post_mind_read_tutorial:
             hide screen calendar
             scene black_bg with slow_dissolve
 
-label prologue_03:
+label prologue_04_og:
     $ play_music("ambient_1")
     jack thinking "(I want to avoid the cops, but there’s no need for me to go home just yet.)"
     jack thinking "(It’s not like they’ll go searching every place nearby, and I’d rather stay out a bit late.)"

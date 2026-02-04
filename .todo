@@ -3,28 +3,30 @@ BLACKMIND TODO
         - Delivery Date: 31/08/2026
 
         - Commission Assets:
-            - Backgrounds: Waiting on response; message Thursday morning if no info by then 
-            - Music: Awaiting on response from Cody
-
-        - Prototype Actionables:
-            - UI stuff:
-                - Zener card animation potential fixes:
-                    - same number of rows of cards, less cards per row
-                    - less rows of cards/more spaces between them
-                    - less rows of cards but slightly larger cards
-                    - alternating large/small card rows 
-                - Might be worth increasing the length of the progress bar instead of resetting it, so that it's apparent that when it's at 0%, that's the start of where you'll rewind back to
-                    - Ehhhh heavily leaning towards not
-
-            - Story stuff:
-                - Updoot the placeholder sample text
-                - Update the demo with the new script (in progress atm) - see what the others think and whether it's better than the original.
+            - Backgrounds: Waiting on response
+            - Music: Waiting on response from Cody
 
         - Other deliverables:
             - Voice acting
                 - Get partials for now
                 - Advertise this after getting the script for the prologue finalised - no need to delay it if we know what it'll be
-        
+
+        - Prototype Actionables:
+            - UI stuff:
+                - Change the font
+                - Add in functionality for changing the font to Calibri
+                - Cash money looks really bad when a choice is up
+                - Zener card animation potential fixes:
+                    - same number of rows of cards, less cards per row
+                    - less rows of cards/more spaces between them
+                    - less rows of cards but slightly larger cards
+                    - alternating large/small card rows
+
+            - Story stuff:
+                - Updoot the placeholder sample text
+                - Update the demo with the new script
+                    - Update the values for convo_progress
+
         - Steam/marketing
             - Store page
                 - "Hooks: focus on the experience, not the mechanics" - I think that "Read the minds of people around you to stop a serial killer" meets this criteria but think about it a little before going into it too much
