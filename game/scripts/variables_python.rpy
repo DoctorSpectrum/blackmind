@@ -57,6 +57,10 @@ init python:
         if (not check_boolean(value)):
             booleans.append(value)
 
+    def remove_boolean(value):
+        if (value in booleans):
+            booleans.remove(value)
+
     def unlock_cg(cg_id):
         if (cg_id not in persistent.cgs_unlocked):
             persistent.cgs_unlocked.append(cg_id)

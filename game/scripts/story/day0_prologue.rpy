@@ -100,6 +100,7 @@ label prologue_04:
     show screen conversation_history
     show screen psychic_powers
 
+    $ remove_boolean("prologue_interior_designing_2")
     $ swap_sprites("barbara_thinking")
     $ current_thought = "barbara_thought_pr_05"
     barbara "Urgh...[wait_05]my head..." (name="Bartender")
@@ -126,6 +127,7 @@ label prologue_04:
     barbara "You are mistaken, but that’s neither here nor there." (name="Bartender")
     barbara "Anyway, did you want a drink?" (name="Bartender")
 
+label prologue_05:
     menu:
         "No":
             $ current_thought = "barbara_thought_pr_12"
@@ -140,11 +142,144 @@ label prologue_04:
             hide screen conversation_history
             call screen psychic_powers
         "Ask about the history of the bar" (locked=not check_boolean("prologue_bar_history"), message="You have not read this information in the bartender's mind"):
-            jack thinking "test"
+            jack smug "Oh, of course, of course."
+            jump prologue_06
         "Ask about interior design" (locked=not check_boolean("prologue_interior_designing"), message="You have not read this information in the bartender's mind"):
             $ current_thought = "barbara_thought_pr_14"
             jack smug "What I really wanted was to talk about interior design."
             jack smug "I think that your work is...[wait_1]beautiful, really.[wait_1] Really beautiful, yeah."
+            if (check_boolean("prologue_interior_designing_2") == False):
+                $ swap_sprites("barbara_smiling")
+                barbara "Oh, thank you![wait_1] But it’s not actually my work - I just hired an interior designer for it." (name="Bartender")
+                $ current_thought = "barbara_thought_pr_15"
+                jack thinking "What?[wait_05] But you wanted to teach me a lesson or two about it.[wait_05] That’s what you thought before."
+                $ swap_sprites("barbara_thinking")
+                $ current_thought = "barbara_thought_pr_16"
+                barbara "I’m...[wait_05]not sure what exactly to tell you.[wait_1] My job is running a bar, not doing interior design." (name="Bartender")
+                $ swap_sprites("barbara_smiling")
+                barbara "And on that note - you never answered me when I asked before." (name="Bartender")
+                barbara "Did you want a drink?" (name="Bartender")
+                $ add_boolean("prologue_interior_designing_2")
+                jump prologue_05
+            else:
+                $ swap_sprites("barbara_smiling")
+                barbara "Yes, I heard you the first time." (name="Bartender")
+                barbara "But you still haven’t answered my question - do you want a drink?" (name="Bartender")
+                jump prologue_05
+
+label prologue_06:
+    show screen conversation_history
+    show screen psychic_powers
+    $ rewind_point = "prologue_06"
+    $ current_thought = "barbara_thought_pr_17"
+    
+    jack smug "How could I be in such a...[wait_05]historic place and not want to have a drink?"
+    $ swap_sprites("barbara_smiling")
+    $ current_thought = "barbara_thought_pr_18"
+    barbara "You’ve heard of our bar before, then?" (name="Bartender")
+    $ current_thought = "barbara_thought_pr_19"
+    jack worried "\"Our\" bar?"
+    $ current_thought = "barbara_thought_pr_20"
+    barbara "Oh, this bar has been in my family for three generations now." (name="Bartender")
+    barbara "Although I’ve only been running it for the last...[wait_05]I want to say eight months?" (name="Bartender")
+    $ swap_sprites("barbara_smiling")
+    $ current_thought = "barbara_thought_pr_21"
+    barbara "Which doesn’t sound like a lot, but I’ve got a lot of good ideas about how to make it even better!" (name="Bartender")
+    barbara "Before you know it, this will be your favourite bar in the area - no, in the city!" (name="Bartender")
+    $ current_thought = "barbara_thought_pr_22"
+    barbara "In fact, I can start out by showing you how good our drinks are - what exactly did you want to drink, again?" (name="Bartender")
+
+    menu:
+        "Nothing":
+            $ current_thought = "barbara_thought_pr_23"
+            jack smug "Oh, no need to worry about it.[wait_1] I’m not looking to drink anything."
+            $ swap_sprites("barbara_angry")
+            barbara "Then why, exactly, did you come in here?" (name="Bartender")
+            $ current_thought = "barbara_thought_pr_24"
+            jack worried "Uh..."
+            jack worried "(I had something I wanted to say here...[wait_05]didn’t I?)"
+            $ current_thought = "barbara_thought_pr_25"
+            jack worried "To...[wait_05]talk to you?"
+            barbara "I’m flattered, but please - just leave." (name="Bartender")
+            jack thinking "(I’ll wipe her memory of this part of the conversation, and try this again...)"
+            jack thinking "(I need to start nudging her towards the idea of free drinks, or I’ll never get anywhere)."
+            hide screen conversation_history
+            call screen psychic_powers
+        "That depends upon your drinks policies" (locked=not check_boolean("prologue_drink_policies"), message="You have not read information about the bar's drinks policies in her mind"):
+            jump prologue_07
+
+label prologue_07:
+    show screen conversation_history
+    show screen psychic_powers
+    $ rewind_point = "prologue_07"
+
+    $ current_thought = "barbara_thought_pr_26"
+    jack smug "Well before I answer you that, I’m going to need an answer of my own: what are your drinks policies?"
+    $ current_thought = "barbara_thought_pr_27"
+    $ swap_sprites("barbara_thinking")
+    barbara "Drink policies?[wait_1] What exactly do you mean?" (name="Bartender")
+    $ current_thought = "barbara_thought_pr_28"
+    jack smug "You know, things like - like happy hour, or jugs being cheaper than the equivalent in pints."
+    jack smug "Surely you’ve got to have something to offer me, yeah?"
+    $ current_thought = "barbara_thought_pr_29"
+    barbara "Happy hour ended at six o’clock, sorry." (name="Bartender")
+    barbara "As for discounts - tell me what exactly you want, and I’ll tell you what I can do." (name="Bartender")
+
+    menu:
+        "Give me a whiskey":
+            jack smug "(It sounds like she’s pretty keen to give me it for cheaper - I knew that listening to her bang on about all that boring stuff would be worth it)."
+            $ current_thought = "barbara_thought_pr_30"
+            jack smug "Can I have a whiskey? With all of the discounts applied, of course."
+            $ swap_sprites("barbara_smiling")
+            barbara "Sure! Just so you know, there aren’t any discounts for it, so that’ll be $14." (name="Bartender")
+            $ current_thought = "barbara_thought_pr_31"
+            jack angry "What?![wait_1] This is bullshit, you’re not willing to give me even a little bit off the top?"
+            $ swap_sprites("barbara_angry")
+            $ current_thought = "barbara_thought_pr_32"
+            barbara "What for?[wait_1] If that’s going to be the way you want it, then I’ll do you one better and ask you to get out - right now."
+            jack thinking "(If I do that, then I won’t get any of that lovely booze...)"
+            jack thinking "(I guess I’ll need a good reason why she should give me a discount, since apparently I’m not good enough for her.)"
+            jack thinking "(Let’s rewind her mind and try again.)"
+            hide screen conversation_history
+            call screen psychic_powers
+        "How about you give me a discount since I’m a regular?" (locked=not check_boolean("prologue_drink_discounts"), message="You have not read information about discounts in the bartender's mind"):
+            jack smug "(Alright, there’s no way that this can go wrong.[wait_1] That drink is as good as mine)."
+            $ current_thought = "barbara_thought_pr_33"
+            jack smug "How about you give me a drink with a bit of a discount?[wait_1] As a bit of a treat, for one of your regulars?"
+            $ current_thought = "barbara_thought_pr_34"
+            $ swap_sprites("barbara_angry")
+            barbara "Interesting idea, although that’s not actually a policy that I run here." (name="Bartender")
+            $ current_thought = "barbara_thought_pr_35"
+            jack smug "Oh come now - you don’t want to reward your loyal customers?[wait_1] The people who are basically paying your wages for you?"
+            $ current_thought = "barbara_thought_pr_36"
+            barbara "Sorry, but it doesn’t work that way." (name="Bartender") 
+            barbara "So are you going to order a drink - at its full price - or not?" (name="Bartender")
+            $ current_thought = "barbara_thought_pr_37"
+            jack thinking "(Bitch doesn’t want to give me a discount, but I know that there’s a way to convince her!)"
+            jack thinking "(I just need to rewind her mind and try again.)"
+            hide screen conversation_history
+            call screen psychic_powers
+        "I’ll write a good review if you give me a free drink" (locked=not check_boolean("prologue_drink_review"), message="You have not read information about the bar's publicity in the bartender's mind"):
+            $ current_thought = "barbara_thought_pr_38"
+            jack smug "Tell me - how would you feel about a bit of an exchange?[wait_1] A free drink, and in return I’ll make sure to write a good review."
+            $ swap_sprites("barbara_thinking")
+            $ current_thought = "barbara_thought_pr_39"
+            barbara "You mean...[wait_05]for a blog or something, right?[wait_1] Or a - a Google review?" (name="Bartender")
+            jack smug "Let me put it this way:[wait_05] I’m not supposed to name any names, but I’m thinking of a magazine right now, and it’s definitely one that you’ve heard before."
+            jack thinking "(That’s not a lie.[wait_05] I’m thinking of a magazine, but I never explicitly said that I worked for them.)"
+            jack thinking "(It’s not my fault if she misinterprets that.)"
+            $ swap_sprites("barbara_smiling")
+            $ current_thought = "barbara_thought_pr_40"
+            barbara "Well I - if you really are working for someone big, then I - yeah, I - a review would be - yes please!" (name="Bartender")
+            $ current_thought = "barbara_thought_pr_41"
+            barbara "Is it - are you sure that it’s alright, though?" (name="Bartender")
+            jack smug "Only if you’re alright with getting flooded with customers after they hear what I have to say about this place.[wait_1] Ha!"
+            jack smug "(It’s fine.[wait_05] I’ll just get her to give me a single free drink, then I’ll definitely be heading off.)"
+            jack smug "(It’s not like I’m going to exploit this or anything.)"
+            
+
+            
+
 
 label prologue_post_mind_read_tutorial:
     $ add_boolean("mind_read_tutorial")

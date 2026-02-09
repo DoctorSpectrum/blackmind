@@ -27,6 +27,10 @@ BLACKMIND TODO
                 - Update the demo with the new script
                     - Update the values for convo_progress
 
+            - Programming stuff:
+                - Change prologue_thoughts at the very least to use a switch statement (https://stackoverflow.com/questions/66877130/what-is-the-syntactical-equivalent-to-switch-case-in-python/66877137#66877137) - I'll save a bunch of lines
+                    on not having to do all the ignore_thoughts_length() / returns (maybe? Though if I have to break that's arguably not that amazing)
+
         - Steam/marketing
             - Store page
                 - "Hooks: focus on the experience, not the mechanics" - I think that "Read the minds of people around you to stop a serial killer" meets this criteria but think about it a little before going into it too much

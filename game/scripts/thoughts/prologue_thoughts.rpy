@@ -84,6 +84,151 @@ label barbara_thought_pr_14:
     $ ignore_thoughts_length()
     return
 
+label barbara_thought_pr_15:
+    barbara_thoughts "(What I {i}thought{/i}?[wait_1] Did I hear that right?)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_16:
+    barbara_thoughts "(Let’s just move on, and assume that I misheard him.)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_17:
+    barbara_thoughts "(Huh.[wait_1] You know, I’ve never thought of this place as being that historic, but I guess it has been around for decades now.)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_18:
+    barbara_thoughts "(I wonder where he heard of it - if there’s a good review or coverage of it somewhere, I should see whether they want to do an interview!)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_19:
+    barbara_thoughts "(If he doesn’t know of its ownership, then what {i}does{/i} he know about it?)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_20:
+    barbara_thoughts "(No need to mention to him anything about what the profitability has been like lately...)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_21:
+    barbara_thoughts "(I really need to review those drinks policies again, work out what the projected differences would be.)" (name="Bartender")
+    jack thinking "(Drinks policies?[wait_1] If she’s looking to change things, maybe I can convince her that she should lower her prices a bit...)"
+    $ ignore_thoughts_length()
+    $ add_boolean("prologue_drink_policies")
+    return
+
+label barbara_thought_pr_22:
+    barbara_thoughts "(Crap, I got sidetracked there![wait_1] ABC, Barbara, ABC!)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_23:
+    barbara_thoughts "(Then why, exactly, did you come in here?)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_24:
+    barbara_thoughts "(He can’t even think up a good excuse...[wait_05]but what was his original plan?[wait_1] Burst in and demand alcohol for free?)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_25:
+    barbara_thoughts "(The sooner this guy gets out of here, the better.)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_26:
+    barbara_thoughts "(Does he mean something like happy hour?[wait_1] Or discounts for regulars?)" (name="Bartender")
+    jack thinking "(Discounts for regulars?[wait_1] That’s not a bad idea...)"
+    $ add_boolean("prologue_drink_discounts")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_27:
+    barbara_thoughts "(I still haven’t worked out all of the changes that I’m planning to make...[wait_05]but I’m getting ahead of myself.[wait_1] I should just find out what he means.)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_28:
+    barbara_thoughts "(Odd that he thinks jugs being cheaper is some sort of special policy...[wait_05]that’s called good pricing, mate.)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_29:
+    barbara_thoughts "(With happy hour over there’s not much that I can really do for him, but hopefully he’ll just order something and stick with it.)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_30:
+    barbara_thoughts "(I wish I could afford to lower the price a bit, but business on Mondays is always pretty slow.)" (name="Bartender")
+    barbara_thoughts "(Still, nobody forced him to come here today.)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_31:
+    barbara_thoughts "(Who the hell does this guy think he is?![wait_1] Does he think he deserves a discount just for talking to me a little bit?)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_32:
+    barbara_thoughts "(I’d rather have a night with no profit than deal with entitled assholes like this.)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_33:
+    barbara_thoughts "(One of my regulars?[wait_1] This is clearly the first time you’ve been here!)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_34:
+    barbara_thoughts "(Would I define a regular as somebody who comes by at least three nights a week, or - no, this isn’t the time to think about this.)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_35:
+    barbara_thoughts "(You haven’t paid for anything so far, you idiot.)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_36:
+    barbara_thoughts "(Maybe if there was actually some benefit to it, like some publicity.[wait_1] But as much as I’d like to, I can’t afford to just throw money away like that.)" (name="Bartender")
+    jack thinking "(Publicity?[wait_1] Hmm...[wait_05]I think that might give me an idea)."
+    $ add_boolean("prologue_drink_review")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_37:
+    barbara_thoughts "(I’m willing to bet he’ll just leave the bar now. I know his type.)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_38:
+    barbara_thoughts "(Wait a second - did I hear that right?)" (name="Bartender") 
+    barbara_thoughts "(This guy writes reviews?)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_39:
+    barbara_thoughts "(I shouldn’t get my hopes up too much...[wait_05]but in the off chance that he works for somewhere big, this - this could be a really good opportunity.)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_40:
+    barbara_thoughts "(He’s not too mad about how long it’s taken to get to being served, is he?)" (name="Bartender")
+    barbara_thoughts "(Or - I guess he was dragging things out because he wanted to know a bit more about me, and the bar, for his article.)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_41:
+    barbara_thoughts "(This is - this could really make a big difference, and turn things around after some of the decisions I’ve made.)" (name="Bartender")
+    barbara_thoughts "(I - I can’t believe this, it - it seems too good to be true.)" (name="Bartender")
+    $ ignore_thoughts_length()
+    return
+
 label docherty_thought_pr_1:
     docherty_thoughts "(...)"
     jack worried "(What the fuck?[wait_1] I can’t read this guy’s mind!)"
