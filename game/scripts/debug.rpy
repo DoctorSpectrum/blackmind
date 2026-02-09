@@ -8,20 +8,20 @@ label test_mind_reading:
     jack "I'm not shit. Am I?"
     $ current_thought = "barbara_thought_01_01"
     $ current_conversation = "test_mind_reading"
-    barbara "I've scraped shit off my shoe that was less shitty than you."
+    bartender "I've scraped shit off my shoe that was less shitty than you."
 
     jack "Yeah, that's what everybody thinks. That I'm a piece of shit."
     $ current_thought = "barbara_thought_01_02"
-    barbara "If you're trying to get me to stop thinking of you as shit, it's not exactly working."
+    bartender "If you're trying to get me to stop thinking of you as shit, it's not exactly working."
 
     jack "But...maybe shit could be appealing? Everybody says they don't like shit, but it's something that's part of all our lives...yeah?"
     $ current_thought = "barbara_thought_01_03"
-    barbara "I generally try to get it out of my life as much as possible."
+    bartender "I generally try to get it out of my life as much as possible."
 
     jack "Exactly! So you've never thought about how shit might actually be...not shit?"
     jack "How shit can shit be, if you've never really experienced it?"
     $ current_thought = "barbara_thought_01_04"
-    barbara "I'm not going to try and find out."
+    bartender "I'm not going to try and find out."
 
     $ current_thought = None
     $ current_conversation = None
@@ -37,7 +37,7 @@ label test_money:
 
     jack "(I currently have $[money])"
     $ current_thought = "barbara_thought_01_01"
-    barbara "I need money for the drinks."
+    bartender "I need money for the drinks."
     if (money > 0):
         $ money -= 100
         jack "(I now have $[money])"
@@ -78,28 +78,28 @@ label detective:
 
 label barbara_thought_01_01:
     $ progress_convo = False
-    barbara "(This guy is definitely shit)."
+    bartender "(This guy is definitely shit)."
     $ convo_progress -= 1
     $ progress_convo = True
     return
 
 label barbara_thought_01_02:
     $ progress_convo = False
-    barbara "(Well, at least he can admit it)."
+    bartender "(Well, at least he can admit it)."
     $ convo_progress -= 1
     $ progress_convo = True
     return
 
 label barbara_thought_01_03:
     $ progress_convo = False
-    barbara "(Is this supposed to be a pickup line?)"
+    bartender "(Is this supposed to be a pickup line?)"
     $ convo_progress -= 1
     $ progress_convo = True
     return
 
 label barbara_thought_01_04:
     $ progress_convo = False
-    barbara "(If you're trying to pick somebody up, maybe don't admit that you're shit)."
+    bartender "(If you're trying to pick somebody up, maybe don't admit that you're shit)."
     $ convo_progress -= 1
     $ progress_convo = True
     return
