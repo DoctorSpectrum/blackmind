@@ -251,11 +251,11 @@ screen map_navigation(destinations):
 
                     #Worry about more dynamic text later
                     if (selected_destination["key"] == "venue"):
-                        text _("Isn’t there some small underground place near here that plays jazz or one of those made-up music genres? They should have some good booze there, and it probably has some hippies that I can scam - I mean, borrow some money off."):
+                        text _("Isn’t there some small underground place near here that plays jazz or one of those made-up music genres? They’ve got to have some booze there...people wouldn’t go there if they didn’t have any."):
                             style "destination_description"
                             at trans_fade(0.5, 0.5), fade_side_to_side(-100, 0.5)
                     elif (selected_destination["key"] == "restaurant"):
-                        text _("There’s nothing better to do with money that’s yours than spend it! A nice meal sounds like a good way to follow up those drinks from before, and they’ll practically treat me like a king in there. I mean, I’m more or less paying their wages for them; they have to!"):
+                        text _("Do they have chips at this place? I kind of want chips now...Oh, I know! I’ll trick them into thinking they have chips if they don’t, and make them make some for me!"):
                             style "destination_description"
                             at trans_fade(0.5, 0.5), fade_side_to_side(-100, 0.5)
 

@@ -267,9 +267,46 @@ label barbara_thought_pr_48:
     $ ignore_thoughts_length()
     return
 
+label barbara_thought_pr_49:
+    bartender_thoughts "(He’s slurring quite a bit now...where did that come from?)"
+    bartender_thoughts "(But he’s been pretty good up until now, so it’s probably not as bad as it looks...[wait_05]and it would help out a lot...)"
+    $ ignore_thoughts_length()
+    return 
+
+label barbara_thought_pr_50:
+    bartender_thoughts "(Water down the - what sort of horrible owner does he think I am?!)"
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_51:
+    bartender_thoughts "(I don’t know how I didn’t notice it earlier, but he’s too far gone.)"
+    bartender_thoughts "(It would be easy to be a little selfish, and overlook it in exchange for a good review, but I just don’t feel right doing that.)"
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_52:
+    bartender_thoughts "(Maybe if any reviews had been run since I took over, I’d like it.)"
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_53:
+    bartender_thoughts "(He probably isn’t even a reviewer - just an addict looking for a free handout.)"
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_54:
+    bartender_thoughts "(He looks like he’s trying to fry my brain with his laser vision.)"
+    $ ignore_thoughts_length()
+    return
+
+label barbara_thought_pr_55:
+    bartender_thoughts "(I have no idea what he’s talking about and I don’t care.[wait_1] I’m over this shit.)"
+    $ ignore_thoughts_length()
+    return
+
 label docherty_thought_pr_1:
     docherty_thoughts "(...)"
-    jack worried "(What the fuck?[wait_1] I can’t read this guy’s mind!)"
+    jack worried "(No...[wait_05]my powers still aren’t working...[wait_05]I can’t read this guy’s mind!)"
     $ ignore_thoughts_length()
     return
 

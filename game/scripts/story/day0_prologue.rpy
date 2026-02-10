@@ -1,7 +1,5 @@
 label prologue_01:
     $ quick_menu = False
-    #if (not persistent.senses_attuned):
-    #    call screen attune_senses
 
     $ renpy.music.stop()
     docherty "I apologise for this, young man, but you are in the way of my plan." (name="???")
@@ -300,12 +298,12 @@ label prologue_08:
     $ current_thought = "barbara_thought_pr_45"
     bartender "How was it?[wait_05] You certainly looked like you enjoyed it; you drank it quickly enough!"
     jack thinking "(Well obviously.[wait_1] The faster I drink it, the faster I’ll get drunk)."
-    $ current_thought "barbara_thought_pr_46"
+    $ current_thought = "barbara_thought_pr_46"
     jack smug "Well, it wasn’t bad.[wait_1] But I think I’d probably have a better opinion if I could have a follow-up...?"
     bartender "Heh, nice try, but one freebie’s all that I can give you."
     bartender "Technically I shouldn’t have even done that, but I doubt it’ll make that much difference in the long run."
     jack angry "(Bloody typical - you ask for one small favour and they act like you’re asking for the world.[wait_1] Only out for herself, just like everybody else.)"
-    $ current_thought "barbara_thought_pr_47"
+    $ current_thought = "barbara_thought_pr_47"
     jack smug "(Well, luckily for me, I have a nice solution for that...)"
     $ rewind_point = "prologue_09"
     hide screen conversation_history
@@ -333,15 +331,50 @@ label prologue_09:
     scene bar with quick_dissolve
     $ swap_sprites("barbara_smiling", quick_dissolve)
     $ current_thought = "barbara_thought_pr_48"
+    bartender "Is it - are you sure that it’s alright, though?"
+    jack smug "Only if you’re -[wait_05] if you’re -[wait_05] if you want lots of customers here![wait_1] It’s -[wait_05] it’s a good bar, isn’t it?"
+    scene black_bg with quick_dissolve
+    scene bar with quick_dissolve
+    $ swap_sprites("barbara_thinking", quick_dissolve)
+    $ current_thought = "barbara_thought_pr_49"
+    bartender "Is it - are you sure that it’s alright, though?"
+    $ current_thought = "barbara_thought_pr_50"
+    jack smug "Yeah![wait_1] I -[wait_05] I like -[wait_05] this bar is great![wait_1] Even if you do water down the drinks!"
+    $ swap_sprites("barbara_angry")
+    bartender "What?"
+    scene black_bg with quick_dissolve
+    scene bar with quick_dissolve
+    $ swap_sprites("barbara_angry", quick_dissolve)
+    $ current_thought = "barbara_thought_pr_51"
+    bartender "I’m sorry, but - no, I can’t do that."
+    bartender "You’re quite clearly drunk, and it wouldn’t be responsible of me to serve you any alcohol in your state."
+    $ current_thought = "barbara_thought_pr_52"
+    jack smug "What?[wait_1] But I -[wait_05] I can review you![wait_1] You -[wait_05] you normally like that!"
+    $ current_thought = "barbara_thought_pr_53"
+    bartender "I’d rather give up the most positive review in the world than give alcohol to somebody so obviously drunk."
+    bartender "Sorry, but I’m going to have to ask you to leave."
+    jack angry "(Damn bitch![wait_1] I’ll -[wait_05] I’ll show her!)"
+    $ rewind_point = "prologue_10"
+    hide screen conversation_history
+    call screen psychic_powers
 
+label prologue_10:
+    show screen conversation_history
+    show screen psychic_powers
+    $ current_thought = "barbara_thought_pr_54"
+    bartender "Are you trying to do something?"
+    jack angry "(Dammit...[wait_05]she -[wait_05] she must have put something in the drinks...[wait_05]it’s affected my powers!)"
+    $ current_thought = "barbara_thought_pr_55"
+    jack worried "How -[wait_05] how did you know?[wait_1] You -[wait_05] you shouldn’t know...[wait_05]you couldn’t know..."
+    bartender "I have no clue what you’re talking about, but that’s enough.[wait_1] Get out of my bar."
+    scene black_bg with quick_dissolve
 
-label prologue_04_og:
+label prologue_11:
     $ play_music("ambient_1")
-    jack thinking "(I want to avoid the cops, but there’s no need for me to go home just yet.)"
-    jack thinking "(It’s not like they’ll go searching every place nearby, and I’d rather stay out a bit late.)"
-    jack thinking "(I mean, when was the last time somebody got yelled at about overdue rent when staying out?[wait_1] Never happens.)"
-    jack thinking "(Where should I go?)"
+    jack angry "(Whaddo I care about what she thinks anyway...[wait_1]she’s not even that good a bartender!)"
+    jack angry "(Anyway, there’s better places to go to around here...I bet it’ll be easier to get free shit there, too)."
     $ _history_list = []
+    call screen modal_popup("You have enough time to visit one more location before the night is over.", ["OK"], [Return()])
     call screen map_navigation(find_locations([1, 2]))
 
 label prologue_music_venue:
@@ -349,22 +382,17 @@ label prologue_music_venue:
     $ play_music("neutral_2")
     $ location = "music_venue"
     scene black_bg with slow_dissolve
-    jack smug "(Right, so here’s what I think the plan will be:[wait_05] I’ll go up to the door, make the door person forget that I haven’t paid the fee and get in for cheap.)"
-    jack smug "(Then once I’m inside, I can read a few minds, find out who’s loaded, and...[wait_05]work the rest out from there.)"
-    jack smug "(Yeah.[wait_1] Yeah, I think this is a pretty solid plan.)"
-    narrator "Jack’s psychic abilities first emerged when he was a teenager."
-    narrator "He has no idea where they came from, or why he was blessed with these powers, but he’s never been one to look a gift horse in the mouth."
-    narrator "If it’s a resource that benefits him, then he’s all the happier to abuse it for as long as he can get away with it."
-    jack thinking "(With a bit of luck I’ll find some fat cat in there who won’t notice anything missing...[wait_05]it’s got to happen some time, right?)"
-    jack thinking "(Statistically speaking, I’ll eventually get more than just scraps and leftovers.[wait_1] I just haven’t found the right person yet.[wait_1] That’s the issue.)"
-    jack angry "(Bloody millionaires thinking that they’re too good to go to cheap bars and down back alleys.)"
-    jack angry "(One of them will one day, and I’ll finally get something good off them.[wait_1] Enough to pay rent and still have a fair bit left over.)"
-    jack thinking "(All that I need is a good bit of money...[wait_05]I have some big plans for the future...)"
+    jack smug "(Right...[wait_05]I - I know what I’ve gotta do.)"
+    jack smug "(I’ll just - just go up to the door, and then I’ll make ‘em - I’ll make the door person forget that I haven’t paid the fee.)"
+    jack smug "(Then I can - I’ll go inside, and I’ll - I’ll get stuff for free.)"
+    jack smug "(Yeah...[wait_05]yeah, that’s a good idea! I like this plan!)"
+    jack worried "(God, my head is pounding...[wait_05]but it’s still not as - as bad as how it felt when my powers first emerged.)"
+    jack worried "(I - I still don’t know why I got them, or how, but I’m glad that I’ve got - that I have them.)"
+    jack smug "(I’ve got big plans in the future...[wait_05]just need s’more money...)"
     scene venue_exterior with slow_dissolve
-    jack smug "(Alright, same deal as always: start heading in, wipe the doorman’s memory, then keep going.[wait_1] Easy.)"
-    jack angry "(God, not that I should have to do this.)"
-    jack angry "(If I was a doorman I’d let anybody in for free.[wait_1] The venue owners would start out mad, but then they’d -)"
-    call prologue_precognition from _current2
+    jack angry "(There’s the door guy...[wait_05]why couldn’t it be a sexy woman on the door?[wait_1] Give us something to - to look at while we’re going in...)"
+    jack angry "(Y’know, if I was a doorman, I’d let anybody in for free.[wait_1] It’s not fair how we have to -)"
+    call prologue_precognition from prologue_music
     scene venue_exterior with quick_dissolve
     jump prologue_end
 
@@ -373,24 +401,17 @@ label prologue_restaurant:
     $ play_music("neutral_2")
     scene black_bg with slow_dissolve
     $ location = "restaurant"
-    jack smug "(Do they have wine at this place?[wait_1] I don’t really like it, but I could buy a nice big bottle of it anyway and show everyone there how rich I currently am.)"
-    jack smug "(Maybe I could even buy two bottles, and then drop one of them on purpose.)"
-    jack smug "(Yeah...[wait_1]that’ll show them all!)"
-    jack smug "(Some people would probably say that I shouldn’t spend this money so soon, that I should hold onto it, seeing as how I don’t have a job at the moment.)"
-    jack smug "(But why shouldn’t I spend it?[wait_1] It’s mine, isn’t it?)"
-    jack thinking "(Okay, so technically it isn’t mine, and I got it from that bartender, but so what?)"
-    jack thinking "(She would have done the exact same thing if she had these powers, I’m sure of it.)"
-    jack thinking "(Everybody’s just out for themselves.[wait_1] The people who say they aren’t are just lying, so that you’ll let your guard down and they can take advantage of you.)"
-    jack thinking "(I’m just following the natural way of things, same as everybody else.)"
-    jack thinking "(Anyway, it’s not like I keep all of the money I get for myself.)"
-    jack angry "(Spent enough bloody money hiring that guy the other week, didn’t I?)"
-    jack angry "(And yeah, he was able to find out the information I wanted, but christ, he didn’t need to spend so much.)"
-    jack angry "(I wish he’d told me what a {i}per diem{/i} was beforehand...[wait_05]how was I supposed to know how much it would add up to be?)"
+    jack worried "(I feel kind of dizzy, and - and the street is moving too much, but it’s not that far from here.)"
+    jack worried "(I can definitely make - make it there.)"
+    jack thinking "(I - I hope that my powers are working when I get there...[wait_1]I need them so I can get those chips.)"
+    jack thinking "(They should - they should lower their prices anyway, cos chips are - chips are - they’re too expensive. But they don’t wanna do that, cos they - they just wanna make money.)"
+    jack thinking "(All they care about is themselves, and - and their profits and stuff...[wait_1]they’re just like that bartender.[wait_1] Everybody only cares about themselves.)"
+    jack worried "(Anyway, I’d - I’d pay for stuff if I had the money, but I don’t, since I had to - I gave all that I had to that guy.)"
+    jack worried "(He’s soooo expensive...[wait_1]got the info I wanted, but did he - did he have to cost so much?)"
     scene restaurant_night with slow_dissolve
-    jack angry "(They’d better have some fucking tables left inside; I don’t want to sit out in the cold.)"
-    jack smug "(Although I guess if they don’t have any, I can probably use my abilities to get somebody to go outside.)"
-    jack smug "(It’s not like they’d know that I - )"
-    call prologue_precognition from _current
+    jack worried "(They’d better have some tables left inside...[wait_1]it’s so cold out here...)"
+    jack smug "(Although if they don’t, I can - I can make somebody go outside.[wait_1] They wouldn’t know that I -)"
+    call prologue_precognition from prologue_restaurant_
     scene restaurant_night with slow_dissolve
     jump prologue_end
 
@@ -413,26 +434,19 @@ label prologue_end:
     jack worried "{size=-8}(I -[wait_05] I don’t want to die...[wait_05]why isn’t anybody helping me?){/size}"
     jack worried "{size=-8}(Nobody cares about me...[wait_05]nobody wants me...){/size}"
     jack worried "...[wait_05] ..."
-    narrator "Looking around, Jack realises why nobody is looking his way."
-    narrator "Why nobody is helping a dying man, and why he didn’t even see his attacker."
-    narrator "It’s because the attack hasn’t happened yet."
-    jack thinking "(I...[wait_05]if I go into that building, I’m going to die.)"
-    jack worried "(Somebody will shoot me, and I -[wait_05] oh god, I can’t do that.)"
-    jack worried "(I can’t -[wait_05] I don’t want to die![wait_1] It hurt so much, and I -[wait_05] okay.)"
-    jack thinking "(Okay.[wait_1] I’m not dead yet, and thanks to my precognition, I don’t have to die.)"
-    jack thinking "(I -[wait_05] I can work this out.)"
-    narrator "The third of Jack’s psychic abilities is the one that he has the least control over."
-    narrator "If he focused on it a bit, and trained himself to recognise the sensation that it brings with it, perhaps he could refine it a little, and he would be its master, rather than the other way around."
-    narrator "At times like this, however, all that he can do is try to listen to it."
-    jack worried "(Entering that building will lead to my death, so...[wait_05]I just -[wait_05] I need to get away!)"
-    jack worried "(Fuck my plans -[wait_05] fuck everything!)"
-    jack worried "(Whoever it is that wants to kill me -[wait_05] whatever they want to kill me for, I -[wait_05] I can get away from them![wait_1] I'm sure I can!)"
-    jack worried "(In fact, they won’t even know that I was ever here.)"
+    jack thinking "(No...[wait_05]it’s -[wait_05] whatever’s happened, it’s -[wait_05] it hasn’t happened yet.)"
+    jack thinking "(It’s my -[wait_05] it’s my precog-[wait_05] precog-[wait_05] my future sight.)"
+    jack thinking "(I -[wait_05] if I go in that building then it’ll...[wait_05]it’ll happen and I’ll...[wait_05]the vision will come true.)"
+    jack worried "(Somebody will shoot me and -[wait_05] god, why did I drink so -[wait_05] so much?)"
+    jack worried "(I -[wait_05] I can’t -[wait_05] I don’t want to die![wait_1] Can I even -[wait_05] is it even possible for me to get away?)"
+    jack worried "(I don’t have control over the -[wait_05] over my future sight, so I can’t see if there’s a way that I survive.)"
+    jack thinking "(I...[wait_05]I need to calm down.[wait_1] I can do this.)"
+    jack thinking "(I just need to -[wait_05] I need to not go into that building, and then I’ll -[wait_05] yeah, I’ll be fine.)"
+    jack thinking "(If I just keep moving then I’ll -[wait_05] I can get away.)"
     scene black_bg with quick_dissolve
-    narrator "But no matter where Jack runs..."
     $ play_sound("gunshot.mp3", transition=white_flash)
-    jack worried "(Argh![wait_1] I’m -[wait_05] it hurts so much!)"
-    jack worried "(But -[wait_05] but they haven’t found me yet![wait_1] I -[wait_05] I can still run!)"
+    jack worried "(Argh![wait_1] I’m -[wait_05] I got the vision again!)"
+    jack worried "(My gut hurts so much, and I don’t think -[wait_05] no![wait_1] I -[wait_05] I can get away![wait_1] I can!)"
     $ play_sound("gunshot.mp3", transition=white_flash)
     jack worried "(No...[wait_05]not here!)"
     jack worried "(Maybe...[wait_05]if I turn around...)"
@@ -442,19 +456,15 @@ label prologue_end:
     jack worried "(But there’s got to be a way out...[wait_05]there’s got to be!)"
     $ scene_setup(11, "Monday", True, 2, 2, True, True)
     scene street with slow_dissolve
-    narrator "Jack has been shot multiple times by now, yet he has no wounds on him at all."
-    narrator "He’s running out of breath, not to mention places to run to."
-    jack worried "(I -[wait_05] I -[wait_05] where the fuck can I go?!)"
-    jack worried "(Think...[wait_05]there has to be somewhere!)"
-    jack thinking "(Or...[wait_05]can I talk to whoever is going to kill me, get them to leave me alone?)"
-    jack thinking "(They can’t have that good a reason to go after me -[wait_05] I -[wait_05] I’ve never even hurt a fly!)"
+    jack worried "(Have I -[wait_05] have I been here before?[wait_1] I don’t -[wait_05] everything’s mixing together.)"
+    jack thinking "(Why are they -[wait_05] who would want to hurt me?[wait_01] I -[wait_05] I’ve never even hurt a fly!)"
     $ rewind_point = "prologue_docherty_wipe"
     $ swap_sprites("docherty_neutral", quick_dissolve)
     show screen psychic_powers
     $ current_thought = "docherty_thought_pr_1"
-    jack worried "I -[wait_05] mate![wait_1] I -[wait_05] can you help me?[wait_1] Please?!"
-    jack worried "There’s -[wait_05] somebody’s after me, and they’re -[wait_05] I swear, I -[wait_05] I just need a bit of help."
-    jack worried "Do you -[wait_05] do you have a car, or anything...?"
+    jack worried "You...[wait_05]can you -[wait_05] can you help me?[wait_1] Please!"
+    jack worried "There’s -[wait_05] somebody’s after me, and they’re -[wait_05] I -[wait_05] I don’t know if I can get away without some help."
+    jack worried "Do you -[wait_05] do you have a car, or...?"
     docherty "I apologise for this, young man, but you are in the way of my plan."
     jack angry "What do you -"
     hide screen calendar
@@ -467,10 +477,4 @@ label prologue_end:
     jack worried "(I just wanted to -[wait_05] please, somebody...[wait_05]help me...)"
     scene black_bg with slow_dissolve
 
-    if (not persistent.docs_link_shown):
-        narrator "Thanks for playing the prototype!"
-        narrator "I've written up a bit of a docco about where I'm hoping to go with the game, to make things a bit more transparent and get a bit of feedback."
-        narrator "You can access it here: {a=https://docs.google.com/document/d/1wAlhH52z9H0CxoKjtVLBtCwZTfI9KdIqwNmada6nMtQ/edit?usp=sharing}Google Docs Link{/a}."
-        narrator "This link also appears in the Credits screen."
-        $ persistent.docs_link_shown = True
     $ MainMenu(confirm=False)()

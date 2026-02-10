@@ -1692,21 +1692,20 @@ screen sample_text_speed_1:
         ]
 
     if (renpy.get_screen("preferences")):
-        text _("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi"):
+        text _("From as far back as the 1930s, theories about the existence of extrasensory perception have been put forth. Scientific experiments have been performed to detect such abilities, but have never conclusively proved their existence."):
             style "sample_text"
             slow_cps preferences.text_cps
     
 screen sample_text_speed_2:
     if (renpy.get_screen("preferences")):
-        text _("Ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat"):
+        text _("Although many believe that these abilities are pseudoscience, they are wrong. There are people with extrasensory perception who live among us today."):
             style "sample_text"
             slow_cps preferences.text_cps
-            yalign 0.66
-            xoffset 2
+            yalign 0.64
 
 style sample_text:
     color "#000"
-    size 22
+    size 20
     xalign 0.27
     yalign 0.52
     xmaximum 500

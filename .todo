@@ -4,7 +4,6 @@ BLACKMIND TODO
 
         - Commission Assets:
             - Backgrounds: Waiting on response
-            - Music: Waiting on response from Cody
 
         - Other deliverables:
             - Voice acting
@@ -16,20 +15,21 @@ BLACKMIND TODO
                 - Change the font
                 - Add in functionality for changing the font to Calibri
                 - Cash money looks really bad when a choice is up
+
+            - Programming stuff:
+                - Change prologue_thoughts at the very least to use a switch statement (https://stackoverflow.com/questions/66877130/what-is-the-syntactical-equivalent-to-switch-case-in-python/66877137#66877137) - I'll save a bunch of lines
+                    on not having to do all the ignore_thoughts_length() / returns (maybe? Though if I have to break that's arguably not that amazing)
+
+            - Story stuff:
+                - Run through the demo and check to see where we need to change things
+                    - Update the values for convo_progress
+
+            - Potential changes:
                 - Zener card animation potential fixes:
                     - same number of rows of cards, less cards per row
                     - less rows of cards/more spaces between them
                     - less rows of cards but slightly larger cards
                     - alternating large/small card rows
-
-            - Story stuff:
-                - Updoot the placeholder sample text
-                - Update the demo with the new script
-                    - Update the values for convo_progress
-
-            - Programming stuff:
-                - Change prologue_thoughts at the very least to use a switch statement (https://stackoverflow.com/questions/66877130/what-is-the-syntactical-equivalent-to-switch-case-in-python/66877137#66877137) - I'll save a bunch of lines
-                    on not having to do all the ignore_thoughts_length() / returns (maybe? Though if I have to break that's arguably not that amazing)
 
         - Steam/marketing
             - Store page
