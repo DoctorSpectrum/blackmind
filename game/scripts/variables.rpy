@@ -150,28 +150,28 @@ label variables:
 
     #Images
     image barbara_angry = ConditionSwitch(
-        "_last_say_who == 'barbara' or not renpy.get_screen('say')", 
+        "_last_say_who in ['barbara', 'bartender'] or not renpy.get_screen('say')", 
         "images/sprites/barbara_angry.png", 
         "not _last_say_who == 'barbara'", 
         "barbara_angry_tint"
     )
 
     image barbara_sad = ConditionSwitch(
-        "_last_say_who == 'barbara' or not renpy.get_screen('say')",
+        "_last_say_who in ['barbara', 'bartender'] or not renpy.get_screen('say')",
         "images/sprites/barbara_sad.png",
         "not _last_say_who == 'barbara'",
         "barbara_sad_tint"
     )
 
     image barbara_smiling = ConditionSwitch(
-        "_last_say_who == 'barbara' or not renpy.get_screen('say')",
+        "_last_say_who in ['barbara', 'bartender'] or not renpy.get_screen('say')",
         "images/sprites/barbara_smiling.png",
         "not _last_say_who == 'barbara'",
         "barbara_smiling_tint"
     )
 
     image barbara_thinking = ConditionSwitch(
-        "_last_say_who == 'barbara' or not renpy.get_screen('say')",
+        "_last_say_who in ['barbara', 'bartender'] or not renpy.get_screen('say')",
         "images/sprites/barbara_thinking.png",
         "not _last_say_who == 'barbara'",
         "barbara_thinking_tint"

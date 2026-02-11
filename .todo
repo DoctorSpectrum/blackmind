@@ -12,8 +12,6 @@ BLACKMIND TODO
 
         - Prototype Actionables:
             - UI stuff:
-                - Change the font
-                - Add in functionality for changing the font to Calibri
                 - Cash money looks really bad when a choice is up
 
             - Programming stuff:
@@ -23,6 +21,10 @@ BLACKMIND TODO
             - Story stuff:
                 - Run through the demo and check to see where we need to change things
                     - Update the values for convo_progress
+                - Add in credits for the creators so far:
+                    - Cody
+                    - Mason
+                    - Background Guy
 
             - Potential changes:
                 - Zener card animation potential fixes:

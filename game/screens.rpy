@@ -1471,15 +1471,17 @@ screen preferences(start=False):
                             xsize 550
                             ysize 198
                             
-                            vbox:
+                            hbox:
+                                spacing 50
                                 xalign 0.5
-                                spacing 15
-                                yoffset 40
                                 vbox:
+                                    xalign 0.2
+                                    yoffset 20
+                                    spacing 10
                                     label _("Display"):
                                         text_size 28
-                                    hbox:
-                                        spacing 25
+                                    vbox:
+                                        spacing 0
                                         hbox:
                                             style_prefix "radio_button"
 
@@ -1513,6 +1515,53 @@ screen preferences(start=False):
                                                 unhovered SetScreenVariable("hover_radio", None)
                                                 text_color ("#3B3B3B" if hover_radio == "windowed" else ("#000" if not preferences.fullscreen else "#707070"))
                                                 text_bold not preferences.fullscreen
+                                vbox:
+                                    xalign 0.8
+                                    yoffset 20
+                                    spacing 10
+                                    vbox:
+                                        spacing 10
+                                        label _("Font"):
+                                            text_size 28
+                                        vbox:
+                                            spacing 0
+                                            hbox:
+                                                style_prefix "radio_button"
+
+                                                imagebutton:
+                                                    idle ("gui/radio_hover.png" if hover_radio == "roboto" and not gui.preference("font") == "gui/Roboto-Medium.ttf" else ("gui/radio_selected.png" if gui.preference("font") == "gui/Roboto-Medium.ttf" else "gui/radio_idle.png"))
+                                                    selected "gui/radio_selected.png"
+                                                    hover "gui/radio_hover.png"
+                                                    action gui.SetPreference("font", "gui/Roboto-Medium.ttf")
+                                                    hovered SetScreenVariable("hover_radio", "roboto")
+                                                    unhovered SetScreenVariable("hover_radio", None)
+
+                                                textbutton _("Roboto"):
+                                                    text_font "gui/Roboto-Medium.ttf"
+                                                    action gui.SetPreference("font", "gui/Roboto-Medium.ttf")
+                                                    hovered SetScreenVariable("hover_radio", "roboto")
+                                                    unhovered SetScreenVariable("hover_radio", None)
+                                                    text_color ("3B3B3B" if hover_radio == "roboto" else ("#000" if gui.preference("font") == "gui/Roboto-Medium.ttf" else "#707070"))
+                                                    text_bold gui.preference("font") == "gui/Roboto-Medium.ttf"
+
+                                            hbox:
+                                                style_prefix "radio_button"
+
+                                                imagebutton:
+                                                    idle ("gui/radio_hover.png" if hover_radio == "atkinson" and not gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf" else ("gui/radio_selected.png" if gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf" else "gui/radio_idle.png"))
+                                                    selected "gui/radio_selected.png"
+                                                    hover "gui/radio_hover.png"
+                                                    action gui.SetPreference("font", "gui/AtkinsonHyperlegible-Regular.ttf")
+                                                    hovered SetScreenVariable("hover_radio", "atkinson")
+                                                    unhovered SetScreenVariable("hover_radio", None)
+
+                                                textbutton _("Atkinson Hyperlegible"):
+                                                    text_font "gui/AtkinsonHyperlegible-Regular.ttf"
+                                                    action gui.SetPreference("font", "gui/AtkinsonHyperlegible-Regular.ttf")
+                                                    hovered SetScreenVariable("hover_radio", "atkinson")
+                                                    unhovered SetScreenVariable("hover_radio", None)
+                                                    text_color ("#3B3B3B" if hover_radio == "atkinson" else ("#000" if gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf" else "#707070"))
+                                                    text_bold gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf"
             
             if (start):
                 frame:
@@ -1702,11 +1751,12 @@ screen sample_text_speed_2:
             style "sample_text"
             slow_cps preferences.text_cps
             yalign 0.64
+            xoffset 6
 
 style sample_text:
     color "#000"
     size 20
-    xalign 0.27
+    xalign 0.265
     yalign 0.52
     xmaximum 500
 
