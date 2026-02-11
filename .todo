@@ -11,20 +11,17 @@ BLACKMIND TODO
                 - Advertise this after getting the script for the prologue finalised - no need to delay it if we know what it'll be
 
         - Prototype Actionables:
-            - UI stuff:
-                - Cash money looks really bad when a choice is up
-
             - Programming stuff:
                 - Change prologue_thoughts at the very least to use a switch statement (https://stackoverflow.com/questions/66877130/what-is-the-syntactical-equivalent-to-switch-case-in-python/66877137#66877137) - I'll save a bunch of lines
                     on not having to do all the ignore_thoughts_length() / returns (maybe? Though if I have to break that's arguably not that amazing)
 
             - Story stuff:
-                - Run through the demo and check to see where we need to change things
-                    - Update the values for convo_progress
                 - Add in credits for the creators so far:
                     - Cody
                     - Mason
                     - Background Guy
+                - Run through the demo and check to see where we need to change things
+                    - Update the values for convo_progress
 
             - Potential changes:
                 - Zener card animation potential fixes:

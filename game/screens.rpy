@@ -261,11 +261,8 @@ style input:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#choice
 
-screen choice(items):
+screen choice(items, screens=["conversation_history"]):
     style_prefix "choice"
-
-    timer 0.01:
-        action Show("conversation_history", quick_dissolve, initial_expanded=True, show_button=False, initial_opened=True)
 
     frame:
         xfill True
@@ -287,6 +284,13 @@ screen choice(items):
                         action NullAction()
                         hovered Show("locked_message", message=i.kwargs["message"])
                         unhovered Hide("locked_message")
+
+    if (len(screens) > 0):
+        timer 0.01:
+            action [
+                (Show("conversation_history", quick_dissolve, initial_expanded=True, show_button=False, initial_opened=True) if "conversation_history" in screens else NullAction()),
+                (Show("cash_money", style="right_large") if "cash_money" in screens else NullAction())
+            ]
 
 
 style choice_vbox is vbox

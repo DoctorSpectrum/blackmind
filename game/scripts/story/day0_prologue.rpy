@@ -35,10 +35,9 @@ label prologue_01:
     jack smug "Not too bad, although I’d definitely be doing better if I had a drink...[wait_05]or two!"
     jack smug "(God I'm funny!)"
     bartender "I can help you out with that.[wait_1] What exactly were you hoping for?" 
-    show screen cash_money
 
 label prologue_02:
-    menu:
+    menu (screens=["cash_money"]):
         "Lemonade ($6)":
             hide screen cash_money
             show screen conversation_history

@@ -1025,6 +1025,7 @@ screen calendar(day, section, sections=4):
                         image Solid("#F2EE29")
 
 screen conversation_history(initial_expanded = False, show_button = True, initial_opened=False):
+    zorder 20
     default expanded = initial_expanded
     default opened = initial_opened
 
@@ -1151,28 +1152,54 @@ style history_who_text is label_text:
     bottom_padding 15
     xoffset 35
 
-screen cash_money():
-    frame:
-        background Solid("#F2EE29")
-        xsize 200
-        ysize 50
-        xalign 0.0
-        yalign 0.3
-        at transform:
-            on show:
-                xoffset -200
-                ease 0.5:
-                    xoffset 0
-            on hide:
-                ease 0.5:
-                    xoffset -200
+screen cash_money(style="left_small"):
+    zorder 20
 
-        text _("{font=DejaVuSans.ttf}${/font}" + str(f'{money:.2f}')):
-            color "#000"
-            xalign 0.25
-            font "gui/chubhand.ttf"
-            size 40
-            yoffset -5
+    if (style == "left_small"):
+        frame:
+            background Solid("#F2EE29")
+            xsize 200
+            ysize 50
+            xalign 0.0
+            yalign 0.3
+            at transform:
+                on show:
+                    xoffset -200
+                    ease 0.5:
+                        xoffset 0
+                on hide:
+                    ease 0.5:
+                        xoffset -200
+
+            text _("{font=DejaVuSans.ttf}${/font}" + str(f'{money:.2f}')):
+                color "#000"
+                xalign 0.25
+                font "gui/chubhand.ttf"
+                size 40
+                yoffset -5
+    elif (style == "right_large"):
+        frame:
+            background Solid("#F2EE29")
+            xsize 225
+            ysize 75
+            xalign 1.0
+            yalign 0.3
+            xoffset 200
+            at transform:
+                on show:
+                    xoffset 0
+                    ease 0.5:
+                        xoffset -200
+                on hide:
+                    ease 0.5:
+                        xoffset 0
+
+            text _("{font=DejaVuSans.ttf}${/font}" + str(f'{money:.2f}')):
+                color "#000"
+                xalign 0.5
+                font "gui/chubhand.ttf"
+                size 66
+                yoffset -10
 
 screen attune_senses():
     #default transparency = 0.33
