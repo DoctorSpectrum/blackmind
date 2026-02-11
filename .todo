@@ -11,9 +11,6 @@ BLACKMIND TODO
                 - Advertise this after getting the script for the prologue finalised - no need to delay it if we know what it'll be
 
         - Prototype Actionables:
-            - Programming stuff:
-                - Change prologue_thoughts to use a bunch of if/else statements - pain in the ass but it does cut down on ~110 lines
-
             - Story stuff:
                 - Add in credits for the creators so far:
                     - Cody
