@@ -12,8 +12,7 @@ BLACKMIND TODO
 
         - Prototype Actionables:
             - Programming stuff:
-                - Change prologue_thoughts at the very least to use a switch statement (https://stackoverflow.com/questions/66877130/what-is-the-syntactical-equivalent-to-switch-case-in-python/66877137#66877137) - I'll save a bunch of lines
-                    on not having to do all the ignore_thoughts_length() / returns (maybe? Though if I have to break that's arguably not that amazing)
+                - Change prologue_thoughts to use a bunch of if/else statements - pain in the ass but it does cut down on ~110 lines
 
             - Story stuff:
                 - Add in credits for the creators so far:

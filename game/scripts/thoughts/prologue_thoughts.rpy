@@ -1,25 +1,18 @@
-label barbara_thought_pr_01:
-    show screen conversation_history
-    bartender_thoughts "(Is there some sort of issue with the menu?[wait_1] I’m happy to give him whatever he wants, he just has to order it.)" 
-    $ ignore_thoughts_length()
+label mind_read_prologue:
+    if (current_thought == "barbara_thought_pr_01"):
+        show screen conversation_history
+        bartender_thoughts "(Is there some sort of issue with the menu?[wait_1] I’m happy to give him whatever he wants, he just has to order it.)" 
+        $ ignore_thoughts_length()
 
-    if (not check_boolean("mind_read_tutorial")):
-        jump prologue_03
+        if (not check_boolean("mind_read_tutorial")):
+            jump prologue_03
+    elif (current_thought == "barbara_thought_pr_02"):
+        bartender_thoughts "(He might have come in when I’ve got more things to do than I have time for, but at least he’s ordered something that’s quick to prepare.)" 
+    elif (current_thought == "barbara_thought_pr_03"):
+        bartender_thoughts "(What the hell sort of place does this guy think this is?!)"
+    elif (current_thought == "barbara_thought_pr_04"):
+        bartender_thoughts "(Could he have - no, surely he couldn’t have...[wait_05]could he?)" 
     
-    return
-
-label barbara_thought_pr_02:
-    bartender_thoughts "(He might have come in when I’ve got more things to do than I have time for, but at least he’s ordered something that’s quick to prepare.)" 
-    $ ignore_thoughts_length()
-    return
-
-label barbara_thought_pr_03:
-    bartender_thoughts "(What the hell sort of place does this guy think this is?!)" 
-    $ ignore_thoughts_length()
-    return
-
-label barbara_thought_pr_04:
-    bartender_thoughts "(Could he have - no, surely he couldn’t have...[wait_05]could he?)" 
     $ ignore_thoughts_length()
     return
 
