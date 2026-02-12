@@ -24,7 +24,7 @@ label mind_read_prologue:
     elif (current_thought == "barbara_thought_pr_08"):
         bartender_thoughts "(Oh god, he’s one of those guys.[wait_05] I haven’t even served him a drink and he already thinks that he’s got a chance.)" 
     elif (current_thought == "barbara_thought_pr_09"):
-        bartender_thoughts "(And now he’ll probably be shocked, thinking that a woman shouldn’t - or couldn’t - own a bar." 
+        bartender_thoughts "(And now he’ll probably be shocked, thinking that a woman shouldn’t - or couldn’t - own a bar.)" 
         bartender_thoughts "(I wonder what he’d say if he knew about the history of the place?)" 
         if (check_boolean("prologue_bar_history") == False):
             jack thinking "(The history of the bar?[wait_05] That might be something to talk about)."

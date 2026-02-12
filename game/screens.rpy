@@ -111,7 +111,7 @@ screen say(who, what):
 
         text what id "what"
 
-        if (current_thought in thoughts_read and "_thoughts" not in _last_say_who):
+        if (current_thought in thoughts_read and "_thoughts" not in _last_say_who and renpy.get_screen("psychic_powers")):
             imagebutton:
                 auto "gui/icons/mind_read_icon_%s.png"
                 xalign 0.175
@@ -120,7 +120,7 @@ screen say(who, what):
                     Hide("psychic_powers"),
                     SetVariable("progress_convo", False),
                     Function(play_sound, "mind_read.mp3", volume=0.5),
-                    Call(current_thought, from_current=True)
+                    Call(current_thought_block, from_current=True)
                 ]
 
 

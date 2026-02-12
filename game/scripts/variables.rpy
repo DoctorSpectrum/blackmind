@@ -305,5 +305,7 @@ label variables:
     default wait_2 = ("{w=2.0}" if preferences.text_cps > 0 else "")
     default wait_1 = ("{w=1.0}" if preferences.text_cps > 0 else "")
     default wait_05 = ("{w=0.5}" if preferences.text_cps > 0 else "")
+    
+    default drink = None
 
     jump prologue_01

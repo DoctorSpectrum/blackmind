@@ -3,7 +3,7 @@ label prologue_01:
 
     $ renpy.music.stop()
     docherty "I apologise for this, young man, but you are in the way of my plan." (name="???")
-    $ play_sound("gunshot.mp3", pause=2.0, transition=white_flash)
+    $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
 
     call screen chapter_breaks("PROLOGUE", "A young man with psychic powers is currently walking the streets downtown. He has no idea of what destiny will lead him to tonight.")
     $ quick_menu = True
@@ -71,7 +71,6 @@ label prologue_02:
     jack worried "(What?![wait_1] I can’t rewind her mind if she doesn’t make it!)"
     bartender "Or would you rather pay with cash?[wait_1] That’s fine too." 
     jack worried "I...[wait_05]actually, come to think of it, I’d rather order something else."
-    show screen cash_money
     jump prologue_02
 
 label prologue_03:
@@ -316,7 +315,7 @@ label prologue_montage_rewind:
 label prologue_09:
     show screen conversation_history
     show screen psychic_powers
-    $ rewind_point = "prologue_cancel"
+    $ rewind_point = "prologue_montage_rewind"
     
     $ current_thought = "barbara_thought_pr_38"
     jack smug "Tell me - how would you feel about a bit of an exchange?[wait_1] A free drink, and in return I’ll make sure to write a good review."
@@ -370,6 +369,7 @@ label prologue_10:
     scene black_bg with quick_dissolve
 
 label prologue_11:
+    hide screen psychic_powers
     $ play_music("ambient_1")
     jack angry "(Whaddo I care about what she thinks anyway...[wait_1]she’s not even that good a bartender!)"
     jack angry "(Anyway, there’s better places to go to around here...I bet it’ll be easier to get free shit there, too)."
@@ -417,7 +417,6 @@ label prologue_restaurant:
 
 label prologue_precognition:
     scene black_bg
-    hide screen calendar
     hide screen conversation_history
     $ play_music("tense_2")
     $ play_sound("gunshot.mp3", pause=2.0, transition=white_flash)
@@ -457,7 +456,7 @@ label prologue_end:
     $ scene_setup(11, "Monday", True, 2, 2, True, True)
     scene street with slow_dissolve
     jack worried "(Have I -[wait_05] have I been here before?[wait_1] I don’t -[wait_05] everything’s mixing together.)"
-    jack thinking "(Why are they -[wait_05] who would want to hurt me?[wait_01] I -[wait_05] I’ve never even hurt a fly!)"
+    jack thinking "(Why are they -[wait_05] who would want to hurt me?[wait_1] I -[wait_05] I’ve never even hurt a fly!)"
     $ rewind_point = "prologue_docherty_wipe"
     $ swap_sprites("docherty_neutral", quick_dissolve)
     show screen psychic_powers

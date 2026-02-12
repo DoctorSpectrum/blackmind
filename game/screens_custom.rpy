@@ -77,6 +77,7 @@ screen psychic_powers():
                         SetVariable("progress_convo", False),
                         (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
                         (Function(play_sound, "mind_read.mp3", volume=0.5) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+                        Function(renpy.choice_for_skipping),
                         (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
                         (Call(current_thought_block, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
                     ]
@@ -89,6 +90,7 @@ screen psychic_powers():
                         yalign 0.5
                         action [
                             SetLocalVariable("icon_hint", None),
+                            Function(renpy.choice_for_skipping),
                             (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
                             (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
                         ]
@@ -131,6 +133,7 @@ screen psychic_powers():
             SetVariable("progress_convo", False),
             (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
             (Function(play_sound, "mind_read.mp3", volume=0.5) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+            Function(renpy.choice_for_skipping),
             (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
             (Call(current_thought_block, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
         ] 
@@ -139,6 +142,7 @@ screen psychic_powers():
         key "K_2":
             action [
                 SetLocalVariable("icon_hint", None),
+                Function(renpy.choice_for_skipping),
                 (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
                 (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
             ]
@@ -208,7 +212,7 @@ screen map_navigation(destinations):
                                     SetScreenVariable("ypos", destination["ycoord"])
                                 ]
                                 selected False
-                                at trans_fade((0.25 * i + fade_delay), 1.0), fade_side_to_side(-100, (0.5 * i + fade_delay))
+                                at trans_fade((0.5 * i + fade_delay), 1.0), fade_side_to_side(-100, (0.5 * i + fade_delay))
                     textbutton _("SAVE GAME"):
                         xalign 0.5
                         yalign 1.0
@@ -1192,7 +1196,7 @@ screen cash_money(style="left_small"):
                         xoffset -200
                 on hide:
                     ease 0.5:
-                        xoffset 0
+                        xoffset 200
 
             text _("{font=DejaVuSans.ttf}${/font}" + str(f'{money:.2f}')):
                 color "#000"
