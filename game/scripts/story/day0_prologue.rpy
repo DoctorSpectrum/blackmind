@@ -11,6 +11,7 @@ label prologue_01:
     $ play_music("neutral_1")
     scene street with slow_dissolve
     $ scene_setup(40, "Monday", True, 1, 2, True, True)
+    $ current_thought_block = "mind_read_prologue"
     
     jack angry "(God, it took the cops long enough to let me go.)"
     jack angry "(Absolutely no evidence at all that I stole those wallets, but they still managed to draw it out into hours of questioning.)"

@@ -145,6 +145,7 @@ label mind_read_prologue:
         jack worried "(No...[wait_05]my powers still aren’t working...[wait_05]I can’t read this guy’s mind!)"
     else:
         $ renpy.log("No corresponding mind read line found for [current_thought]")
+    
     $ ignore_thoughts_length()
     return
 

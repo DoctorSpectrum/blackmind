@@ -1025,14 +1025,14 @@ screen about():
                         elif (selected_tab == "visuals"):
                             vbox:
                                 spacing 10
-                                text _("TBA"):
+                                text _("{a=https://bsky.app/profile/did:plc:p3y4ysrka2ki2xux4d3prrrx}{font=gui/chubhand.ttf}misokatsuhaumai{/font}{/a}"):
                                     style "credit_heading"
                                 text _("Sprite and CG Artwork"):
                                     style "credit_person"
 
                             vbox:
                                 spacing 10
-                                text _("TBA"):
+                                text _("{a=https://www.behance.net/gallery/237746833/2d-artist-portfolio-(character-and-backgrounds)}{font=gui/chubhand.ttf}Sajid Pervez{/font}{/a}"):
                                     style "credit_heading"
                                 text _("Background Artwork"):
                                     style "credit_person"
@@ -1060,7 +1060,7 @@ screen about():
 
                             vbox:
                                 spacing 10
-                                text _("TBA"):
+                                text _("{a=https://kohdeemusic.com}{font=gui/chubhand.ttf}Cody Webberley{/font}{/a}"):
                                     style "credit_heading"
                                 text _("Original Music"):
                                     style "credit_person"

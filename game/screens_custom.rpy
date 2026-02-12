@@ -78,7 +78,7 @@ screen psychic_powers():
                         (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
                         (Function(play_sound, "mind_read.mp3", volume=0.5) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
                         (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
-                        (Call("mind_read_prologue", from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+                        (Call(current_thought_block, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
                     ]
                     hovered SetLocalVariable("icon_hint", "mind_read")
                     unhovered SetLocalVariable("icon_hint", None)
@@ -132,7 +132,7 @@ screen psychic_powers():
             (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
             (Function(play_sound, "mind_read.mp3", volume=0.5) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
             (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
-            (Call("mind_read_prologue", from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+            (Call(current_thought_block, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
         ] 
 
     if (check_boolean("mind_wipe_available")):

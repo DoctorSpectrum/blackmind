@@ -221,6 +221,7 @@ label variables:
         portrait_crop
 
     #Psychic powers
+    default current_thought_block = ""
     default current_thought = None
     default current_conversation = None
     default progress_convo = False
