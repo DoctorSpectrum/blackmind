@@ -145,6 +145,56 @@ label variables:
     transform opening_text:
         xsize 0.6
 
+    transform drunk_cycle(blur, angle, zoom):
+        rotate 0
+        zoom 1.1
+        blur 0
+        xanchor 0.5
+        yanchor 0.5
+        xoffset 960
+        yoffset 540
+
+        parallel:
+            linear 2.5:
+                blur blur
+            linear 2.5:
+                blur 0
+            repeat
+    
+        parallel:
+            linear 2.5:
+                zoom zoom
+            linear 2.5:
+                zoom 1.1
+            repeat
+
+        parallel:
+            linear 2.5:
+                rotate angle
+            linear 2.5:
+                rotate 0
+            linear 2.5:
+                rotate (angle * -1)
+            linear 2.5:
+                rotate 0
+            repeat
+
+    transform rotate_cycle(angle):
+        
+        linear 2.5:
+            rotate angle
+            zoom 1.2
+        linear 2.5:
+            rotate 0
+            zoom 1.1
+        linear 2.5:
+            rotate (angle * -1)
+            zoom 1.2
+        linear 2.5:
+            rotate 0
+            zoom 1.1
+        repeat
+
     define quick_dissolve = Dissolve(0.5)
     define slow_dissolve = Dissolve(2.0)
 

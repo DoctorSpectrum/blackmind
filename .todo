@@ -13,7 +13,7 @@ BLACKMIND TODO
         - Prototype Actionables:
             - Story stuff:
                 - Run through the demo and check to see where we need to change things
-                    - Let's have it that during the montage of drinking, the background gradually gets blurrier and sways more, and Barbara sways a bit
+                    - Update drunk_cycle so we can optionally not zoom for the restaurant/music venue then we're good!
                     - Update the values for convo_progress
 
             - Potential changes:
