@@ -389,11 +389,11 @@ label prologue_music_venue:
     jack worried "(God, my head is pounding...[wait_05]but it’s still not as - as bad as how it felt when my powers first emerged.)"
     jack worried "(I - I still don’t know why I got them, or how, but I’m glad that I’ve got - that I have them.)"
     jack smug "(I’ve got big plans in the future...[wait_05]just need s’more money...)"
-    scene venue_exterior at drunk_cycle(5, 0, 1.1) with slow_dissolve
+    scene venue_exterior at drunk_cycle(5, 0, 1.0) with slow_dissolve
     jack angry "(There’s the door guy...[wait_05]why couldn’t it be a sexy woman on the door?[wait_1] Give us something to - to look at while we’re going in...)"
     jack angry "(Y’know, if I was a doorman, I’d let anybody in for free.[wait_1] It’s not fair how we have to -)"
     call prologue_precognition from prologue_music
-    scene venue_exterior at drunk_cycle(5, 0, 1.1) with quick_dissolve
+    scene venue_exterior at drunk_cycle(5, 0, 1.0) with quick_dissolve
     jump prologue_end
 
 label prologue_restaurant:
@@ -408,11 +408,11 @@ label prologue_restaurant:
     jack thinking "(All they care about is themselves, and - and their profits and stuff...[wait_1]they’re just like that bartender.[wait_1] Everybody only cares about themselves.)"
     jack worried "(Anyway, I’d - I’d pay for stuff if I had the money, but I don’t, since I had to - I gave all that I had to that guy.)"
     jack worried "(He’s soooo expensive...[wait_1]got the info I wanted, but did he - did he have to cost so much?)"
-    scene restaurant_night at drunk_cycle(5, 0, 1.1) with slow_dissolve
+    scene restaurant_night at drunk_cycle(5, 0, 1.0) with slow_dissolve
     jack worried "(They’d better have some tables left inside...[wait_1]it’s so cold out here...)"
     jack smug "(Although if they don’t, I can - I can make somebody go outside.[wait_1] They wouldn’t know that I -)"
     call prologue_precognition from prologue_restaurant_
-    scene restaurant_night at drunk_cycle(5, 0, 1.1) with slow_dissolve
+    scene restaurant_night at drunk_cycle(5, 0, 1.0) with slow_dissolve
     jump prologue_end
 
 label prologue_precognition:

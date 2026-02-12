@@ -147,7 +147,7 @@ label variables:
 
     transform drunk_cycle(blur, angle, zoom):
         rotate 0
-        zoom 1.1
+        zoom (1.1 if zoom != 1.0 else 1.0)
         blur 0
         xanchor 0.5
         yanchor 0.5
@@ -159,13 +159,6 @@ label variables:
                 blur blur
             linear 2.5:
                 blur 0
-            repeat
-    
-        parallel:
-            linear 2.5:
-                zoom zoom
-            linear 2.5:
-                zoom 1.1
             repeat
 
         parallel:
@@ -179,21 +172,12 @@ label variables:
                 rotate 0
             repeat
 
-    transform rotate_cycle(angle):
-        
-        linear 2.5:
-            rotate angle
-            zoom 1.2
-        linear 2.5:
-            rotate 0
-            zoom 1.1
-        linear 2.5:
-            rotate (angle * -1)
-            zoom 1.2
-        linear 2.5:
-            rotate 0
-            zoom 1.1
-        repeat
+        parallel:
+            linear 2.5:
+                zoom zoom
+            linear 2.5:
+                zoom (1.1 if zoom != 1.0 else 1.0)
+            repeat
 
     define quick_dissolve = Dissolve(0.5)
     define slow_dissolve = Dissolve(2.0)
