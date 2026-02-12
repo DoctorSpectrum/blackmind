@@ -220,13 +220,13 @@ screen map_navigation(destinations):
                         text_font "gui/Decade__.ttf"
                         text_hover_underline True
                         action ShowMenu("saves_list", title="SAVE")
-                        at trans_fade((0.25 * (len(destinations)) + 1.0), 1.0)
+                        at trans_fade((0.5 * (len(destinations)) + 1.0), 1.0)
 
                 frame:
                     xsize 640
                     ysize 763
                     background Frame("images/map.png")
-                    at trans_fade((0.25 * (len(destinations)) + fade_delay), 1.0), fade_side_to_side(-75, (0.25 * (len(destinations)) - 0.5))
+                    at trans_fade((0.5 + fade_delay), 1.0), fade_side_to_side(75, (0.25 + fade_delay))
 
                     frame:
                         style "map_y_coord"
@@ -286,7 +286,7 @@ screen map_navigation(destinations):
                     xsize 960
                     ysize 540
                     background Frame("images/backgrounds/venue_exterior.png" if selected_destination["key"] == "venue" else "images/backgrounds/restaurant_night.png")
-                    at trans_fade(1.0, 1.0), fade_side_to_side(-75, 1.0)
+                    at trans_fade(0.5, 1.0), fade_side_to_side(75, 0.25)
             
 
 style map_y_coord:
