@@ -73,6 +73,7 @@ screen psychic_powers():
                     yalign 0.5
                     action [
                         SetLocalVariable("icon_hint", None),
+                        Show("conversation_history"),
                         (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
                         SetVariable("progress_convo", False),
                         (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
@@ -90,6 +91,7 @@ screen psychic_powers():
                         yalign 0.5
                         action [
                             SetLocalVariable("icon_hint", None),
+                            Show("conversation_history"),
                             Function(renpy.choice_for_skipping),
                             (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
                             (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
@@ -129,6 +131,7 @@ screen psychic_powers():
     key "K_1":
         action [
             SetLocalVariable("icon_hint", None),
+            Show("conversation_history"),
             (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
             SetVariable("progress_convo", False),
             (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
@@ -142,6 +145,7 @@ screen psychic_powers():
         key "K_2":
             action [
                 SetLocalVariable("icon_hint", None),
+                Show("conversation_history"),
                 Function(renpy.choice_for_skipping),
                 (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
                 (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())

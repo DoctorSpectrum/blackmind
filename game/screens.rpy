@@ -118,6 +118,7 @@ screen say(who, what):
                 yalign 0.35
                 action [
                     Hide("psychic_powers"),
+                    Show("conversation_history"),
                     SetVariable("progress_convo", False),
                     Function(play_sound, "mind_read.mp3", volume=0.5),
                     Call(current_thought_block, from_current=True)
@@ -275,7 +276,7 @@ screen choice(items, screens=["conversation_history"]):
                 if ("locked" not in i.kwargs or i.kwargs["locked"] == False):
                     textbutton (i.caption.upper()):
                         action [
-                            Hide("conversation_history"),
+                            Show("conversation_history"),
                             i.action
                         ]
                 else:

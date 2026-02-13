@@ -11,11 +11,6 @@ BLACKMIND TODO
                 - Advertise this after getting the script for the prologue finalised - no need to delay it if we know what it'll be
 
         - Prototype Actionables:
-            - Story stuff:
-                - Run through the demo and check to see where we need to change things
-                    - Update drunk_cycle so we can optionally not zoom for the restaurant/music venue then we're good!
-                    - Update the values for convo_progress
-
             - Potential changes:
                 - Zener card animation potential fixes:
                     - same number of rows of cards, less cards per row
