@@ -1534,7 +1534,7 @@ screen preferences(start=False):
                                                 style_prefix "radio_button"
 
                                                 imagebutton:
-                                                    idle ("gui/radio_hover.png" if hover_radio == "roboto" and not gui.preference("font") == "gui/Roboto-Medium.ttf" else ("gui/radio_selected.png" if gui.preference("font") == "gui/Roboto-Medium.ttf" else "gui/radio_idle.png"))
+                                                    idle ("gui/radio_hover.png" if hover_radio == "roboto" else ("gui/radio_selected.png" if gui.preference("font") == "gui/Roboto-Medium.ttf" else "gui/radio_idle.png"))
                                                     selected "gui/radio_selected.png"
                                                     hover "gui/radio_hover.png"
                                                     action gui.SetPreference("font", "gui/Roboto-Medium.ttf")
@@ -1553,7 +1553,7 @@ screen preferences(start=False):
                                                 style_prefix "radio_button"
 
                                                 imagebutton:
-                                                    idle ("gui/radio_hover.png" if hover_radio == "atkinson" and not gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf" else ("gui/radio_selected.png" if gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf" else "gui/radio_idle.png"))
+                                                    idle ("gui/radio_hover.png" if hover_radio == "atkinson" else ("gui/radio_selected.png" if gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf" else "gui/radio_idle.png"))
                                                     selected "gui/radio_selected.png"
                                                     hover "gui/radio_hover.png"
                                                     action gui.SetPreference("font", "gui/AtkinsonHyperlegible-Regular.ttf")
@@ -1775,7 +1775,8 @@ style begin_button is button
 style begin_button_text is button_text:
     size 45
     color "#000"
-    hover_color "#3B3B3B"
+    hover_color "#000"
+    hover_underline True
     font "gui/chubhand.ttf"
 
 ## History screen ##############################################################

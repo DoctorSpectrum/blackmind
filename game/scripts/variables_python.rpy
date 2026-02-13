@@ -17,7 +17,7 @@ init python:
 
     def play_music(song_title):
         if(song_title == "neutral_1"):
-            renpy.music.play("audio/music/Blackmind Track 1 - 97 BPM (D minor).wav", loop=True)
+            renpy.music.play("audio/music/Blackmind Track 1 - 97 BPM (D minor)v2- LOOPABLE.wav", loop=True)
             #renpy.music.play("audio/music/PSYNCIN' IN THE CURTaiN.mp3", loop=True)
         elif (song_title == "tense_1"):
             renpy.music.play("audio/music/08 警戒 -keikAI-.mp3", loop=True)
