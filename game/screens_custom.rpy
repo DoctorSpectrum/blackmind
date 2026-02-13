@@ -572,6 +572,7 @@ screen saves_list(title="LOAD"):
 
                 vbox:
                     xsize 450
+                    spacing 50
                     if (title == "SAVE" and find_next_save() != "0"):
                         textbutton _("NEW SAVE"):
                             style "light_yellow_button_small"
@@ -586,42 +587,45 @@ screen saves_list(title="LOAD"):
                             xalign 0.5
                             padding (40, 25, 40, 25)
                     if (selected_save is not None):
-                        add FileScreenshot(selected_save + 1):
-                            xalign 0.5
+                        vbox:
+                            spacing 20
 
-                        text _(renpy.slot_json("1-" + (str(selected_save + 1))).get('_save_name', '')):
-                            style "save_name"
-                        text _("Prologue"):
-                            style "save_details"
-                        text _(add_date_suffix(FileTime(selected_save + 1, format="%d", empty=(0))) + FileTime(selected_save + 1, format=_("{#file_time}%B %Y, %H:%M"))):
-                            style "save_date"
+                            add FileScreenshot(selected_save + 1):
+                                xalign 0.5
 
-                        hbox:
-                            xfill True
-                            spacing 5
-                            box_align 0.5
-                            if (title == "LOAD"):
-                                textbutton _("Load"):
+                            text _(renpy.slot_json("1-" + (str(selected_save + 1))).get('_save_name', '')):
+                                style "save_name"
+                            text _("Prologue"):
+                                style "save_details"
+                            text _(add_date_suffix(FileTime(selected_save + 1, format="%d", empty=(0))) + FileTime(selected_save + 1, format=_("{#file_time}%B %Y, %H:%M"))):
+                                style "save_date"
+
+                            hbox:
+                                xfill True
+                                spacing 5
+                                box_align 0.5
+                                if (title == "LOAD"):
+                                    textbutton _("Load"):
+                                        style "light_yellow_button_small"
+                                        action (Function(renpy.load, "1-" + str(selected_save + 1)))
+                                        xsize 120
+                                        text_font "gui/chubhand.ttf"
+                                        text_yoffset 2
+                                        text_size 28
+                                else:
+                                    textbutton _("Save"):
+                                        style "light_yellow_button_small"
+                                        action Show("modal_popup", message="Are you sure you want to overwrite this save?", option_labels=["Yes", "No"], option_actions=[[Function(renpy.save, "1-" + str(selected_save + 1), renpy.slot_json("1-" + (str(selected_save + 1))).get('_save_name', '')), Hide("modal_popup")], Hide("modal_popup")])
+                                        xsize 120
+                                        text_font "gui/chubhand.ttf"
+                                        text_yoffset 2
+                                        text_size 28
+                                textbutton _("Delete"):
                                     style "light_yellow_button_small"
-                                    action (Function(renpy.load, "1-" + str(selected_save + 1)))
-                                    xsize 120
+                                    action ([FileDelete(selected_save + 1), SetScreenVariable("selected_save", None)])
                                     text_font "gui/chubhand.ttf"
                                     text_yoffset 2
                                     text_size 28
-                            else:
-                                textbutton _("Save"):
-                                    style "light_yellow_button_small"
-                                    action Show("modal_popup", message="Are you sure you want to overwrite this save?", option_labels=["Yes", "No"], option_actions=[[Function(renpy.save, "1-" + str(selected_save + 1), renpy.slot_json("1-" + (str(selected_save + 1))).get('_save_name', '')), Hide("modal_popup")], Hide("modal_popup")])
-                                    xsize 120
-                                    text_font "gui/chubhand.ttf"
-                                    text_yoffset 2
-                                    text_size 28
-                            textbutton _("Delete"):
-                                style "light_yellow_button_small"
-                                action ([FileDelete(selected_save + 1), SetScreenVariable("selected_save", None)])
-                                text_font "gui/chubhand.ttf"
-                                text_yoffset 2
-                                text_size 28
                 
 style bottom_left_frame:
     background Solid("#000")
@@ -659,9 +663,9 @@ style save_details_vbox:
     spacing 10
 
 style save_name:
-    font "gui/chubhand.ttf"
     color "#000"
     xalign 0.5
+    text_align 0.5
     size 35
 
 style save_details:
