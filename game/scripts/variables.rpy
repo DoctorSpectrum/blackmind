@@ -139,6 +139,14 @@ label variables:
         rotate -10
         #crop (0, 0, 900, 700)
 
+    transform cg_1_teaser:
+        zoom 1.2
+        xalign 1.0
+        yalign 1.4
+        alpha 0.0
+        linear 2.0:
+            alpha 1.0
+
     transform dark_tint:
         matrixcolor TintMatrix("#6d6d6d")
 

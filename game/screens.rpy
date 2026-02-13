@@ -1986,15 +1986,6 @@ screen help(return_action=None):
                                     if (gameplay_help == "powers"):
                                         hbox:
                                             style_prefix "help_power"
-                                            image "gui/icons/mind_wipe_icon_idle.png":
-                                                xoffset 50
-                                                at transform:
-                                                    zoom 2
-                                            vbox:
-                                                label _("Rewind Mind")
-                                                text _("Make the person you're speaking to forget the last few minutes, and restart the conversation from the start.")
-                                        hbox:
-                                            style_prefix "help_power"
                                             image "gui/icons/mind_read_icon_idle.png":
                                                 xoffset 50
                                                 at transform:
@@ -2002,6 +1993,15 @@ screen help(return_action=None):
                                             vbox:
                                                 label _("Mind Read")
                                                 text _("Read the mind of the person you're speaking to. Their thoughts will usually reflect the current line.")
+                                        hbox:
+                                            style_prefix "help_power"
+                                            image "gui/icons/mind_wipe_icon_idle.png":
+                                                xoffset 50
+                                                at transform:
+                                                    zoom 2
+                                            vbox:
+                                                label _("Rewind Mind")
+                                                text _("Make the person you're speaking to forget the last few minutes, and restart the conversation from the start.")
                                         if (config.developer):
                                             hbox:
                                                 style_prefix "help_power"

@@ -915,28 +915,29 @@ screen chapter_breaks(title, paragraph):
 
     text _("OPEN YOUR THIRD EYE"):    
         color "#000"
-        xalign 0.05
+        xalign 0.035
         yalign 0.05
         size 20
         at trans_fade(1.25, 1.5), fade_side_to_side(-50, 0.75)
 
     text _("SOCIAL PSYCHIC SIMULATOR"):
         color "#F2EE29"
-        xalign 0.95
+        xalign 0.98
         yalign 0.05
         size 20
         at trans_fade(1.25, 1.5), fade_side_to_side(50, 0.75)
 
     vbox:
-        xalign 0.1
-        yalign 0.75
-        spacing 100
+        xalign 0.05
+        yalign 0.6
+        spacing 50
         xmaximum 700
         
         text _(title):
             color "#000"
             font "gui/chubhand.ttf"
             size 100
+            xoffset -10
             at trans_fade(1.25, 1.5), fade_side_to_side(-100, 0.75)
 
         text _(paragraph):
@@ -946,7 +947,7 @@ screen chapter_breaks(title, paragraph):
     if (can_continue):
         text _("Press any key to continue"):
             color "#F2EE29"
-            xalign 0.95
+            xalign 0.98
             yalign 0.95
             at transform:
                 alpha 0.0

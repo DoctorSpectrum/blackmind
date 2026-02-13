@@ -2,9 +2,12 @@ label prologue_01:
     $ quick_menu = False
 
     $ renpy.music.stop()
+    scene black_bg
+    show cg1_docherty at cg_1_teaser
     docherty "I apologise for this, young man, but you are in the way of my plan." (name="???")
     $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
 
+    hide cg1_docherty with quick_dissolve
     call screen chapter_breaks("PROLOGUE", "A young man with psychic powers is currently walking the streets downtown. He has no idea of what destiny will lead him to tonight.")
     $ quick_menu = True
 
