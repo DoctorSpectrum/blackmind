@@ -2,15 +2,15 @@ BLACKMIND TODO
     - Demo Phase
         - Delivery Date: 31/08/2026
 
-        - Commission Assets:
-            - Backgrounds: Waiting on response
-
         - Other deliverables:
             - Voice acting
                 - Get partials for now
                 - Advertise this after getting the script for the prologue finalised - no need to delay it if we know what it'll be
 
         - Prototype Actionables:
+            - Programming Changes (post-AN):
+                - Add in controller support
+
             - Potential changes:
                 - Zener card animation potential fixes:
                     - same number of rows of cards, less cards per row
