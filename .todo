@@ -7,16 +7,43 @@ BLACKMIND TODO
                 - Get partials for now
                 - Advertise this after getting the script for the prologue finalised - no need to delay it if we know what it'll be
 
-        - Prototype Actionables:
-            - Programming Changes (post-AN):
-                - Add in controller support
+        - Prototype Actionables (post-AN):
+            - UI Changes:
+                - Add in a border around the mind-read icon in the textbox (i.e. for lines you've already read) so that you can see more clearly that it's a button
+                - Potentially invert everything or something like that when we do a mind-read? Play around with some matrices
 
-            - Potential changes:
-                - Zener card animation potential fixes:
-                    - same number of rows of cards, less cards per row
-                    - less rows of cards/more spaces between them
-                    - less rows of cards but slightly larger cards
-                    - alternating large/small card rows
+            - Programming Changes (post-AN):
+                - Add in a hover_sound effect for buttons
+                - Add in controller support
+                - Change it so that convo_progress is additive rather than resetting - so if it's at 4/10 when you reach a dialogue choice, and you choose one that leads to a seven-line dialogue, it changes to 4/11. Most people won't notice the difference in where it is exactly.
+
+            - Audio Changes:
+                - Add in an effect when we do a mind rewind
+
+            - MC Feedback:
+                - Sample effect button in sound section I feel looks a bit poorly placed. Maybe a little more to the right so it’s centre aligned on that half and a bit bigger?
+                - When you go into Start, if you’ve already had the sample text speed scroll to show the second paragraph because you’ve gone into options, it briefly shows it all there before deleting the second paragraph and starting it again.
+                - Might just be laptop resolution so ignore if so but it happens even if I resize the window super small. Looks kinda awkward for just the word “time” being on it’s own line in “You can change these settings at any time”
+                - Though on the help menu (yes I know its placeholder text) I think maybe have the help items in the non-mind reading tab be positioned in the same place as the mind reading ability names and have the left part with the mind reading icons just be dead space in the other tabs. I feel like it’s better visual flow to have it in the same spot instead of jumping horizontal position. Or maybe other stuff gets its own icons later? Alternatively if we think dead space is a bad look too, have them all against the left side of the container and put the mind read icons to the right of the ability name
+                - Maybe “Menu” -> “Main Menu” and “Quit” -> “Quit Game”. Kinda obvious what they do but it’s that slight extra bit of clarity.
+                - Thought just occurs to me; pause menu could have a bit of UI off to the side for displaying current cash and uses of powers remaining. Makes it a little less clean but does give you a chance to look them up at any time.
+                - Jack’s line of “What?! I can’t rewind her mind if she doesn’t make it!” isn’t super clear as to what it means.
+                - Does feel a little weird how the other options are “Nah my power won’t be useful here because we haven’t served it” and then this lemonade option is “actually I can make it work after all” with all that’s changed being a few extra text boxes of thought. 
+                - Wonder if we should have a linebreak in the history to denote when you used rewind. 
+                - Oh neat, you did manage to add the review mind read button. Do we think it needs a hover tooltip for “review mind reading” or maybe one of the tutorials says “You can review any statement you’ve already mind read once by clicking the icon”?
+                - Hmm, I think in dialogue choices, the power usage button should retain default appearance instead of greying out since it’s still a valid time to click rewind.
+
+            - Unix Feedback:
+                - When I close the socials button the load icon is somehow clicked? Not active, just does the colour swap to being clicked. 
+                - Things’d. I see what you are going for and it could just be me but it feels visually off? More a “is that how you spell how that would sound?”
+                - Easter egg idea is ask for the expensive things too many times and she could say “I’ll grab you some water while you decide” or something.
+                - It feels weird to me she would think “is there some sort of issue with the menu?” when ordering a lemonade.
+                    - Change it to something like "Is there something wrong with the alcohol?"
+                - Im of 2 minds on being forced to get whisky even after picking lemonade. 1 is that its a little frustrating to be forced into it, but 2 is that it;s extremely in character of jack to do so. 
+                    - Potentially make it that Jack uses his powers for the other options and for lemonade he's like "Pfft fuck no"
+                - The progress bar is not explained super well. Yes we can intiut it but also its rather…vague. I had it hidden for my first playthrough for the most part and only now am I paying attention to it. 
+                    - Potentially remove it as Jack, and reintroduce it as Lloyd
+                - Spamming the read mind button causes it to stack X many times and makes the effect repeat X many times. Unsure if fixable. 
 
         - Steam/marketing
             - Store page
