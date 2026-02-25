@@ -16,6 +16,7 @@ BLACKMIND TODO
                 - Add in a hover_sound effect for buttons
                 - Add in controller support
                 - Change it so that convo_progress is additive rather than resetting - so if it's at 4/10 when you reach a dialogue choice, and you choose one that leads to a seven-line dialogue, it changes to 4/11. Most people won't notice the difference in where it is exactly.
+                - Let's make it that when you hover over the mind read button that's on the Say screen, the first time you do so it brings up a modal explaining why it's there
 
             - Audio Changes:
                 - Add in an effect when we do a mind rewind
