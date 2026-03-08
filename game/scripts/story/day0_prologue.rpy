@@ -99,6 +99,8 @@ label prologue_03:
 
 label prologue_04:
     show screen psychic_powers
+    if (renpy.music.get_playing() != "audio/music/Blackmind Track 1 - 97 BPM (D minor)v2- LOOPABLE.wav"):
+        $ play_music("neutral_1")
     $ set_convo_length(13 if not check_boolean("jack_tutorial_psychic_explanation") else 11)
 
     $ remove_boolean("prologue_interior_designing_2")
@@ -133,6 +135,7 @@ label prologue_05:
         "No":
             $ set_convo_length(7)
             $ current_thought = "barbara_thought_pr_12"
+            $ play_music("tense_1")
             jack angry "At the prices you’re offering?[wait_1] No thanks."
             bartender "Then what are you even doing here?!" 
             jack worried "Um..."
@@ -175,6 +178,8 @@ label prologue_06:
     show screen psychic_powers
     $ rewind_point = "prologue_06"
     $ current_thought = "barbara_thought_pr_17"
+    if (renpy.music.get_playing() != "audio/music/Blackmind Track 1 - 97 BPM (D minor)v2- LOOPABLE.wav"):
+        $ play_music("neutral_1")
     
     jack smug "How could I be in such a...[wait_05]historic place and not want to have a drink?"
     $ swap_sprites("barbara_smiling")
@@ -195,6 +200,7 @@ label prologue_06:
     menu:
         "Nothing":
             $ set_convo_length(8)
+            $ play_music("tense_1")
             $ current_thought = "barbara_thought_pr_23"
             jack smug "Oh, no need to worry about it.[wait_1] I’m not looking to drink anything."
             $ swap_sprites("barbara_angry")
@@ -218,6 +224,8 @@ label prologue_07:
     show screen psychic_powers
     $ rewind_point = "prologue_07"
     $ set_convo_length(6)
+    if (renpy.music.get_playing() != "audio/music/Blackmind Track 1 - 97 BPM (D minor)v2- LOOPABLE.wav"):
+        $ play_music("neutral_1")
 
     $ current_thought = "barbara_thought_pr_26"
     jack smug "Well before I answer you that, I’m going to need an answer of my own: what are your drinks policies?"
@@ -240,6 +248,7 @@ label prologue_07:
             $ swap_sprites("barbara_smiling")
             bartender "Sure! Just so you know, there aren’t any discounts for it, so that’ll be $14." 
             $ current_thought = "barbara_thought_pr_31"
+            $ play_music("tense_1")
             jack angry "What?![wait_1] This is bullshit, you’re not willing to give me even a little bit off the top?"
             $ swap_sprites("barbara_angry")
             $ current_thought = "barbara_thought_pr_32"
@@ -256,6 +265,7 @@ label prologue_07:
             jack smug "How about you give me a drink with a bit of a discount?[wait_1] As a bit of a treat, for one of your regulars?"
             $ current_thought = "barbara_thought_pr_34"
             $ swap_sprites("barbara_angry")
+            $ play_music("tense_1")
             bartender "Interesting idea, although that’s not actually a policy that I run here." 
             $ current_thought = "barbara_thought_pr_35"
             jack smug "Oh come now - you don’t want to reward your loyal customers?[wait_1] The people who are basically paying your wages for you?"
@@ -358,6 +368,7 @@ label prologue_09:
     scene bar at drunk_cycle(20, 8, 1.25) with quick_dissolve
     $ swap_sprites("barbara_angry", quick_dissolve)
     $ current_thought = "barbara_thought_pr_51"
+    $ play_music("tense_1")
     bartender "I’m sorry, but - no, I can’t do that."
     bartender "You’re quite clearly drunk, and it wouldn’t be responsible of me to serve you any alcohol in your state."
     $ current_thought = "barbara_thought_pr_52"

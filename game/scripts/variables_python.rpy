@@ -20,7 +20,8 @@ init python:
             renpy.music.play("audio/music/Blackmind Track 1 - 97 BPM (D minor)v2- LOOPABLE.wav", loop=True)
             #renpy.music.play("audio/music/PSYNCIN' IN THE CURTaiN.mp3", loop=True)
         elif (song_title == "tense_1"):
-            renpy.music.play("audio/music/08 警戒 -keikAI-.mp3", loop=True)
+            #renpy.music.play("audio/music/08 警戒 -keikAI-.mp3", loop=True)
+            renpy.music.play("audio/music/Blackmind Track 2.wav", loop=True)
         elif (song_title == "ambient_1"):
             renpy.music.play("audio/music/1-01. Prelude - The “Night” Begins.mp3", loop=True)
         elif (song_title == "neutral_2"):

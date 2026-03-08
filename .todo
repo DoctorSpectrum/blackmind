@@ -18,6 +18,7 @@ BLACKMIND TODO
                 - Add in a hover_sound effect for buttons
                 - Add in controller support
                 - Change it so that convo_progress is additive rather than resetting - so if it's at 4/10 when you reach a dialogue choice, and you choose one that leads to a seven-line dialogue, it changes to 4/11. Most people won't notice the difference in where it is exactly.
+                - Let's make it that when you hover over the mind read button that's on the Say screen, the first time you do so it brings up a modal explaining why it's there
 
             - Audio Changes:
                 - Add in an effect when we do a mind rewind
@@ -46,6 +47,10 @@ BLACKMIND TODO
                 - The progress bar is not explained super well. Yes we can intiut it but also its rather…vague. I had it hidden for my first playthrough for the most part and only now am I paying attention to it. 
                     - Potentially remove it as Jack, and reintroduce it as Lloyd
                 - Spamming the read mind button causes it to stack X many times and makes the effect repeat X many times. Unsure if fixable. 
+
+            - Serena Feedback:
+                - Keep periods within brackets when what is within the bracket constitutes a complete sentence
+                - Don’t know how I feel about Jack’s throwaway misogynistic remark. Yes, you are establishing that Jack is a dick, but this line makes me feel a bit ick.
 
         - Steam/marketing
             - Store page
