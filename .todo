@@ -11,6 +11,8 @@ BLACKMIND TODO
             - UI Changes:
                 - Add in a border around the mind-read icon in the textbox (i.e. for lines you've already read) so that you can see more clearly that it's a button
                 - Potentially invert everything or something like that when we do a mind-read? Play around with some matrices
+                - Muted volume bars have the centre bar being less thicc than when it's not muted
+                - When selecting a destination, the description isn't in-line with the title
 
             - Programming Changes (post-AN):
                 - Add in a hover_sound effect for buttons
