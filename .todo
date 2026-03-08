@@ -13,6 +13,8 @@ BLACKMIND TODO
                 - Potentially invert everything or something like that when we do a mind-read? Play around with some matrices
                 - Muted volume bars have the centre bar being less thicc than when it's not muted
                 - When selecting a destination, the description isn't in-line with the title
+                - Hovering over a button on a yellow background - e.g. Confirm/Return when selecting a destination has a yellow border on yellow. Would we be better off setting the text to be yellow with a black border?
+                    Try it out, see how it goes
 
             - Programming Changes (post-AN):
                 - Add in a hover_sound effect for buttons
