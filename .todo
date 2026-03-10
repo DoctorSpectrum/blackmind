@@ -5,9 +5,10 @@ BLACKMIND TODO
         - Other deliverables:
             - Voice acting
                 - Get partials for now
-                - Advertise this after getting the script for the prologue finalised - no need to delay it if we know what it'll be
+                - After doing the below actionables, check how the script's looking. If there's no more changes, read through it all again one more time, then work out
+                    the partials needed and advertise the role(s)
 
-        - Prototype Actionables (post-AN):
+        - Prototype Actionables:
             - UI Changes:
                 - Add in a border around the mind-read icon in the textbox (i.e. for lines you've already read) so that you can see more clearly that it's a button
                 - Potentially invert everything or something like that when we do a mind-read? Play around with some matrices
@@ -16,7 +17,7 @@ BLACKMIND TODO
                 - Hovering over a button on a yellow background - e.g. Confirm/Return when selecting a destination has a yellow border on yellow. Would we be better off setting the text to be yellow with a black border?
                     Try it out, see how it goes
 
-            - Programming Changes (post-AN):
+            - Programming Changes:
                 - Add in a hover_sound effect for buttons
                 - Add in controller support
                 - Change it so that convo_progress is additive rather than resetting - so if it's at 4/10 when you reach a dialogue choice, and you choose one that leads to a seven-line dialogue, it changes to 4/11. Most people won't notice the difference in where it is exactly.
