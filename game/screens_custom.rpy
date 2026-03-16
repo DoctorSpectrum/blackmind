@@ -196,16 +196,15 @@ screen map_navigation(destinations):
             if (selected_destination == None):
                 vbox:
                     ysize 751
-                    xsize 300
+                    xsize 640
                     vbox:
-                        yalign 0.0
+                        yalign 0.5
+                        xalign 0.5
                         spacing 25
                         for i, destination in enumerate(destinations):
                             textbutton _(destination["label"]):
-                                style "yellow_button"
-                                xminimum 300
-                                text_font "gui/chubhand.ttf"
-                                text_yoffset 2
+                                style "destination_button"
+                                xsize 500
                                 action [
                                     SetScreenVariable("selected_destination", destination),
                                     SetScreenVariable("xpos", 0),
@@ -216,7 +215,7 @@ screen map_navigation(destinations):
                                     SetScreenVariable("ypos", destination["ycoord"])
                                 ]
                                 selected False
-                                at trans_fade((0.5 * i + fade_delay), 1.0), fade_side_to_side(-100, (0.5 * i + fade_delay))
+                                at trans_fade(fade_delay, 1.0), fade_side_to_side(-200, fade_delay)
                     textbutton _("SAVE GAME"):
                         xalign 0.5
                         yalign 1.0
@@ -224,13 +223,13 @@ screen map_navigation(destinations):
                         text_font "gui/Decade__.ttf"
                         text_hover_underline True
                         action ShowMenu("saves_list", title="SAVE")
-                        at trans_fade((0.5 * (len(destinations)) + 1.0), 1.0)
+                        at trans_fade(1.5, 1.0)
 
                 frame:
                     xsize 640
                     ysize 763
                     background Frame("images/map.png")
-                    at trans_fade((0.5 + fade_delay), 1.0), fade_side_to_side(75, (0.25 + fade_delay))
+                    at trans_fade(fade_delay, 1.0), fade_side_to_side(200, fade_delay)
 
                     frame:
                         style "map_y_coord"
@@ -247,50 +246,52 @@ screen map_navigation(destinations):
                                 ypos ypos
             else:
                 vbox:
-                    xsize 300
-                    spacing 50
-                    text _(selected_destination["label"]):
-                        color "#000"
-                        font "gui/chubhand.ttf"
-                        size 52
-                        xalign 0.5
-                        textalign 0.5
-                        at trans_fade(0.25, 0.5), fade_side_to_side(-100, 0.25)
-
-                    #Worry about more dynamic text later
-                    if (selected_destination["key"] == "venue"):
-                        text _("Isn’t there some small underground place near here that plays jazz or one of those made-up music genres? They’ve got to have some booze there...people wouldn’t go there if they didn’t have any."):
-                            style "destination_description"
-                            at trans_fade(0.5, 0.5), fade_side_to_side(-100, 0.5)
-                    elif (selected_destination["key"] == "restaurant"):
-                        text _("Do they have chips at this place? I kind of want chips now...Oh, I know! I’ll trick them into thinking they have chips if they don’t, and make them make some for me!"):
-                            style "destination_description"
-                            at trans_fade(0.5, 0.5), fade_side_to_side(-100, 0.5)
-
+                    xalign 0.5
+                    yoffset 25
+                    spacing 35
+                    
                     vbox:
-                        xsize 300
-                        spacing 15
-                        at trans_fade(0.75, 0.5), fade_side_to_side(-100, 0.75)
-                        textbutton _("CONFIRM"):
-                            style "yellow_button"
-                            text_font "gui/chubhand.ttf"
-                            xsize 250
-                            xalign 0.5
-                            text_yoffset 2
-                            #Again, worry about making this more dynamic later
-                            action Jump("prologue_music_venue" if selected_destination["key"] == "venue" else "prologue_restaurant")
-                        textbutton _("RETURN"):
-                            style "yellow_button"
-                            text_font "gui/chubhand.ttf"
-                            xsize 250
-                            xalign 0.5
-                            text_yoffset 2
-                            action SetScreenVariable("selected_destination", None)
-                frame:
-                    xsize 960
-                    ysize 540
-                    background Frame("images/backgrounds/venue_exterior.png" if selected_destination["key"] == "venue" else "images/backgrounds/restaurant_night.png")
-                    at trans_fade(0.5, 1.0), fade_side_to_side(75, 0.25)
+                        spacing 10
+
+                        text _(selected_destination["label"]):
+                            color "#000"
+                            font "gui/chubhand.ttf"
+                            size 72
+                            at trans_fade(0.25, 0.5), fade_side_to_side(-50, 0.25)
+
+                        frame:
+                            xsize 864
+                            ysize 486
+                            xoffset 180
+                            background Frame("images/backgrounds/venue_exterior.png" if selected_destination["key"] == "venue" else "images/backgrounds/restaurant_night.png")
+                            at trans_fade(0.25, 0.5), fade_side_to_side(50, 0.25)
+
+                    hbox:
+                        at trans_fade(0.25, 0.5), fade_up_down(50, 0.25)
+                        spacing 50
+                        frame:
+                            background None
+                            xsize 900
+
+                            if (selected_destination["key"] == "venue"):
+                                text _("Isn’t there some small underground place near here that plays jazz or one of those made-up music genres? They’ve got to have some booze there...people wouldn’t go there if they didn’t have any."):
+                                    style "destination_description"
+                            elif (selected_destination["key"] == "restaurant"):
+                                text _("Do they have chips at this place? I kind of want chips now...Oh, I know! I’ll trick them into thinking they have chips if they don’t, and make them make some for me!"):
+                                    style "destination_description"
+
+                        vbox:
+                            xsize 200
+                            spacing 15
+                            yoffset 5
+                
+                            textbutton _("CONFIRM"):
+                                style "destination_option"
+                                #Again, worry about making this more dynamic later
+                                action Jump("prologue_music_venue" if selected_destination["key"] == "venue" else "prologue_restaurant")
+                            textbutton _("RETURN"):
+                                style "destination_option"
+                                action SetScreenVariable("selected_destination", None)
             
 
 style map_y_coord:
@@ -303,10 +304,26 @@ style map_x_coord:
     xfill True
     background Solid("#000")
 
+style destination_button is yellow_button:
+    padding (10, 30, 10, 30)
+
+style destination_button_text is yellow_button_text:
+    font "gui/chubhand.ttf"
+    yoffset 5
+    size 54
+
+style destination_option is yellow_button:
+    xsize 250
+    xalign 0.5
+
+style destination_option_text is yellow_button_text:
+    font "gui/chubhand.ttf"
+    size 44
+    yoffset 4
+
 style destination_description:
     color "#000"
-    xalign 0.5
-    size 24
+    size 34
 
 screen locked_message(message):
     frame:

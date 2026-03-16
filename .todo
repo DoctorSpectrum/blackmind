@@ -11,10 +11,7 @@ BLACKMIND TODO
         - Prototype Actionables:
             - UI Changes:
                 - Potentially invert everything or something like that when we do a mind-read? Play around with some matrices
-                    - Come back to this - I've mostly got the programming of this working, I just need to work out the effect I want
-                - When selecting a destination, the description isn't in-line with the title
-                - Hovering over a button on a yellow background - e.g. Confirm/Return when selecting a destination has a yellow border on yellow. Would we be better off setting the text to be yellow with a black border?
-                    Try it out, see how it goes
+                    - Come back to this - I've mostly got the programming of this working, I just need to work out the effect I want. If we could reduce it to only yellows/blacks that'd be amazing but I feel like that's too difficult to get looking good with a single matrix
 
             - Programming Changes:
                 - Add in a hover_sound effect for buttons

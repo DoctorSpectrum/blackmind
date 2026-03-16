@@ -128,6 +128,12 @@ label variables:
         linear 1.0:
             xoffset 0
 
+    transform fade_up_down(offset=50, pause_time=0.0):
+        yoffset offset
+        pause pause_time
+        linear 1.0:
+            yoffset 0
+
     transform portrait_crop:
         zoom 0.2
         xanchor 0.5
