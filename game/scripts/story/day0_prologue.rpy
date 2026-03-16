@@ -42,7 +42,7 @@ label prologue_01:
 
 label prologue_02:
     hide screen conversation_history
-    $ set_convo_length(6)
+    $ extend_convo_length(6)
     menu (screens=["cash_money"]):
         "Lemonade ($6)":
             hide screen cash_money
@@ -133,7 +133,7 @@ label prologue_04:
 label prologue_05:
     menu:
         "No":
-            $ set_convo_length(7)
+            $ extend_convo_length(7)
             $ current_thought = "barbara_thought_pr_12"
             $ play_music("tense_1")
             jack angry "At the prices you’re offering?[wait_1] No thanks."
@@ -152,7 +152,7 @@ label prologue_05:
             jump prologue_06
         "Ask about interior design" (locked=not check_boolean("prologue_interior_designing"), message="You have not read this information in the bartender's mind"):
             $ current_thought = "barbara_thought_pr_14"
-            $ set_convo_length(7 if not check_boolean("prologue_interior_designing_2") else 4)
+            $ extend_convo_length(7 if not check_boolean("prologue_interior_designing_2") else 4)
             jack smug "What I really wanted was to talk about interior design."
             jack smug "I think that your work is...[wait_1]beautiful, really.[wait_1] Really beautiful, yeah."
             if (check_boolean("prologue_interior_designing_2") == False):
@@ -199,7 +199,7 @@ label prologue_06:
 
     menu:
         "Nothing":
-            $ set_convo_length(8)
+            $ extend_convo_length(8)
             $ play_music("tense_1")
             $ current_thought = "barbara_thought_pr_23"
             jack smug "Oh, no need to worry about it.[wait_1] I’m not looking to drink anything."
@@ -241,7 +241,7 @@ label prologue_07:
 
     menu:
         "Give me a whiskey":
-            $ set_convo_length(8)
+            $ extend_convo_length(8)
             jack smug "(It sounds like she’s pretty keen to give me it for cheaper - I knew that listening to her bang on about all that boring stuff would be worth it)."
             $ current_thought = "barbara_thought_pr_30"
             jack smug "Can I have a whiskey? With all of the discounts applied, of course."
@@ -259,7 +259,7 @@ label prologue_07:
             hide screen conversation_history
             call screen psychic_powers
         "How about you give me a discount since I’m a regular?" (locked=not check_boolean("prologue_drink_discounts"), message="You have not read information about discounts in the bartender's mind"):
-            $ set_convo_length(8)
+            $ extend_convo_length(8)
             jack smug "(Alright, there’s no way that this can go wrong.[wait_1] That drink is as good as mine)."
             $ current_thought = "barbara_thought_pr_33"
             jack smug "How about you give me a drink with a bit of a discount?[wait_1] As a bit of a treat, for one of your regulars?"
@@ -278,7 +278,7 @@ label prologue_07:
             hide screen conversation_history
             call screen psychic_powers
         "I’ll write a good review if you give me a free drink" (locked=not check_boolean("prologue_drink_review"), message="You have not read information about the bar's publicity in the bartender's mind"):
-            $ set_convo_length(22 if drink != "cocktail" else 24)
+            $ extend_convo_length(22 if drink != "cocktail" else 24)
             $ current_thought = "barbara_thought_pr_38"
             jack smug "Tell me - how would you feel about a bit of an exchange?[wait_1] A free drink, and in return I’ll make sure to write a good review."
             $ swap_sprites("barbara_thinking")
@@ -338,7 +338,7 @@ label prologue_09:
     show screen conversation_history
     show screen psychic_powers
     $ rewind_point = "prologue_montage_rewind"
-    $ set_convo_length(15)
+    $ extend_convo_length(15)
     
     $ current_thought = "barbara_thought_pr_38"
     jack smug "Tell me - how would you feel about a bit of an exchange?[wait_1] A free drink, and in return I’ll make sure to write a good review."

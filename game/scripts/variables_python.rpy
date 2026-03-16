@@ -128,6 +128,10 @@ init python:
         convo_progress = progress
         convo_length = length
 
+    def extend_convo_length(extension):
+        global convo_progress, convo_length
+        set_convo_length(convo_length + extension, convo_progress)
+
     def ignore_thoughts_length(subtract=1):
         global convo_progress, progress_convo
         convo_progress -= subtract
