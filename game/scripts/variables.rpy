@@ -156,11 +156,10 @@ label variables:
     transform dark_tint:
         matrixcolor TintMatrix("#6d6d6d")
 
-    transform inverted:
-        #matrixcolor ColorizeMatrix("#000", "#F2EE29")
-
-        #matrixcolor SepiaMatrix("#F2EE29")
-        matrixcolor InvertMatrix(1.0)
+    transform greyscale:
+        matrixcolor SaturationMatrix(1.0)
+        linear 0.33:
+            matrixcolor SaturationMatrix(0.0)
 
     transform opening_text:
         xsize 0.6
@@ -204,9 +203,7 @@ label variables:
 
     #Images
     image barbara_angry = ConditionSwitch(
-        "_last_say_who in ['barbara_thoughts', 'bartender_thoughts']",
-        "barbara_angry_invert",
-        "_last_say_who in ['barbara', 'bartender'] or not renpy.get_screen('say')", 
+        "_last_say_who in ['barbara', 'bartender', 'bartender_thoughts'] or not renpy.get_screen('say')", 
         "images/sprites/barbara_angry.png", 
         "not _last_say_who == 'barbara'", 
         "barbara_angry_tint"
@@ -234,7 +231,7 @@ label variables:
     )
 
     image docherty_neutral = ConditionSwitch(
-        "_last_say_who == 'docherty' or not renpy.get_screen('say')",
+        "_last_say_who in ['docherty', 'docherty_thoughts'] or not renpy.get_screen('say')",
         "images/sprites/docherty_neutral.png",
         "not _last_say_who == 'docherty'",
         "docherty_neutral_tint"
@@ -243,10 +240,6 @@ label variables:
     image barbara_angry_tint:
         "images/sprites/barbara_angry.png"
         dark_tint
-
-    image barbara_angry_invert:
-        "images/sprites/barbara_angry.png"
-        inverted
 
     image barbara_sad_tint:
         "images/sprites/barbara_sad.png"
@@ -280,17 +273,28 @@ label variables:
         "images/sprites/jack_worried.png"
         portrait_crop
 
-    #Background testing
-    #image bar = ConditionSwitch(
-    #    "_last_say_who in ['barbara_thoughts', 'bartender_thoughts']",
-    #    "bar_inverted",
-    #    "True",
-    #    "images/backgrounds/bar.png"
-    #)
-
-    image bar_inverted:
+    #Backgrounds
+    image bar = ConditionSwitch(
+        "_last_say_who in ['barbara_thoughts', 'bartender_thoughts']",
+        "bar_greyscale",
+        "True",
         "images/backgrounds/bar.png"
-        inverted        
+    )
+
+    image bar_greyscale:
+        "images/backgrounds/bar.png"
+        greyscale
+
+    image street = ConditionSwitch(
+        "_last_say_who in ['docherty_thoughts']",
+        "street_greyscale",
+        "True",
+        "images/backgrounds/street.png"
+    )
+
+    image street_greyscale:
+        "images/backgrounds/street.png"
+        greyscale
 
     #Psychic powers
     default current_thought_block = ""

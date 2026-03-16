@@ -9,10 +9,6 @@ BLACKMIND TODO
                     the partials needed and advertise the role(s)
 
         - Prototype Actionables:
-            - UI Changes:
-                - Potentially invert everything or something like that when we do a mind-read? Play around with some matrices
-                    - Come back to this - I've mostly got the programming of this working, I just need to work out the effect I want. If we could reduce it to only yellows/blacks that'd be amazing but I feel like that's too difficult to get looking good with a single matrix
-
             - Programming Changes:
                 - Add in a hover_sound effect for buttons
                 - Add in controller support
