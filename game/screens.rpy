@@ -98,6 +98,7 @@ style frame:
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
 screen say(who, what):
+    default hint = None
     window:
         id "window"
 
@@ -112,17 +113,44 @@ screen say(who, what):
         text what id "what"
 
         if (current_thought in thoughts_read and "_thoughts" not in _last_say_who and renpy.get_screen("psychic_powers")):
-            imagebutton:
-                auto "gui/icons/mind_read_icon_%s.png"
-                xalign 0.175
+            frame:
+                background Frame("gui/small_button_frame.png")
+                padding (5, 5, 5, 5)
+                xalign 0.17
                 yalign 0.35
-                action [
-                    Hide("psychic_powers"),
-                    Show("conversation_history"),
-                    SetVariable("progress_convo", False),
-                    Function(play_sound, "mind_read.mp3", volume=0.5),
-                    Call(current_thought_block, from_current=True)
-                ]
+
+                imagebutton:
+                    auto "gui/icons/mind_read_icon_%s.png"
+                    xalign 0.5 
+                    yalign 0.5
+                    hovered SetScreenVariable("hint", "mind_reread")
+                    unhovered SetScreenVariable("hint", None)
+                    action [
+                        Hide("psychic_powers"),
+                        Show("conversation_history"),
+                        SetVariable("progress_convo", False),
+                        Function(play_sound, "mind_read.mp3", volume=0.5),
+                        Call(current_thought_block, from_current=True)
+                    ]
+
+            if (hint == "mind_reread"):
+                frame:
+                    background Frame("gui/namebox.png", xsize=120, ysize=25)
+                    xalign 0.1575
+                    yoffset 58
+                    xsize 120
+                    ysize 25
+                    #at transform:
+                    #    rotate 3
+                    #    alpha 0.0
+                    #    linear 0.1:
+                    #        alpha 1.0
+
+                    text _("Re-read Mind"):
+                        color "#000"
+                        xalign 0.5
+                        yalign 0.5
+                        size 15
 
 
     ## If there's a side image, display it above the text. Do not display on the
