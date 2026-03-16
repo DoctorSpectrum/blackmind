@@ -150,6 +150,12 @@ label variables:
     transform dark_tint:
         matrixcolor TintMatrix("#6d6d6d")
 
+    transform inverted:
+        #matrixcolor ColorizeMatrix("#000", "#F2EE29")
+
+        #matrixcolor SepiaMatrix("#F2EE29")
+        matrixcolor InvertMatrix(1.0)
+
     transform opening_text:
         xsize 0.6
 
@@ -192,6 +198,8 @@ label variables:
 
     #Images
     image barbara_angry = ConditionSwitch(
+        "_last_say_who in ['barbara_thoughts', 'bartender_thoughts']",
+        "barbara_angry_invert",
         "_last_say_who in ['barbara', 'bartender'] or not renpy.get_screen('say')", 
         "images/sprites/barbara_angry.png", 
         "not _last_say_who == 'barbara'", 
@@ -199,21 +207,21 @@ label variables:
     )
 
     image barbara_sad = ConditionSwitch(
-        "_last_say_who in ['barbara', 'bartender'] or not renpy.get_screen('say')",
+        "_last_say_who in ['barbara', 'bartender', 'bartender_thoughts'] or not renpy.get_screen('say')",
         "images/sprites/barbara_sad.png",
         "not _last_say_who == 'barbara'",
         "barbara_sad_tint"
     )
 
     image barbara_smiling = ConditionSwitch(
-        "_last_say_who in ['barbara', 'bartender'] or not renpy.get_screen('say')",
+        "_last_say_who in ['barbara', 'bartender', 'bartender_thoughts'] or not renpy.get_screen('say')",
         "images/sprites/barbara_smiling.png",
         "not _last_say_who == 'barbara'",
         "barbara_smiling_tint"
     )
 
     image barbara_thinking = ConditionSwitch(
-        "_last_say_who in ['barbara', 'bartender'] or not renpy.get_screen('say')",
+        "_last_say_who in ['barbara', 'bartender', 'bartender_thoughts'] or not renpy.get_screen('say')",
         "images/sprites/barbara_thinking.png",
         "not _last_say_who == 'barbara'",
         "barbara_thinking_tint"
@@ -229,6 +237,10 @@ label variables:
     image barbara_angry_tint:
         "images/sprites/barbara_angry.png"
         dark_tint
+
+    image barbara_angry_invert:
+        "images/sprites/barbara_angry.png"
+        inverted
 
     image barbara_sad_tint:
         "images/sprites/barbara_sad.png"
@@ -261,6 +273,18 @@ label variables:
     image side jack worried:
         "images/sprites/jack_worried.png"
         portrait_crop
+
+    #Background testing
+    #image bar = ConditionSwitch(
+    #    "_last_say_who in ['barbara_thoughts', 'bartender_thoughts']",
+    #    "bar_inverted",
+    #    "True",
+    #    "images/backgrounds/bar.png"
+    #)
+
+    image bar_inverted:
+        "images/backgrounds/bar.png"
+        inverted        
 
     #Psychic powers
     default current_thought_block = ""
