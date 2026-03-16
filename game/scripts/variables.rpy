@@ -161,6 +161,13 @@ label variables:
         linear 0.66:
             matrixcolor SaturationMatrix(0.0)
 
+    transform greyscale_cycle:
+        matrixcolor SaturationMatrix(1.0)
+        linear 1.0:
+            matrixcolor SaturationMatrix(0.0)
+        linear 1.0:
+            matrixcolor SaturationMatrix(1.0)
+
     transform opening_text:
         xsize 0.6
 
@@ -203,6 +210,8 @@ label variables:
 
     #Images
     image barbara_angry = ConditionSwitch(
+        "rewound_mind == True",
+        "barbara_angry_greyscale",
         "_last_say_who in ['barbara', 'bartender', 'bartender_thoughts'] or not renpy.get_screen('say')", 
         "images/sprites/barbara_angry.png", 
         "not _last_say_who == 'barbara'", 
@@ -210,6 +219,8 @@ label variables:
     )
 
     image barbara_sad = ConditionSwitch(
+        "rewound_mind == True",
+        "barbara_sad_greyscale",
         "_last_say_who in ['barbara', 'bartender', 'bartender_thoughts'] or not renpy.get_screen('say')",
         "images/sprites/barbara_sad.png",
         "not _last_say_who == 'barbara'",
@@ -217,6 +228,8 @@ label variables:
     )
 
     image barbara_smiling = ConditionSwitch(
+        "rewound_mind == True",
+        "barbara_smiling_greyscale",
         "_last_say_who in ['barbara', 'bartender', 'bartender_thoughts'] or not renpy.get_screen('say')",
         "images/sprites/barbara_smiling.png",
         "not _last_say_who == 'barbara'",
@@ -224,6 +237,8 @@ label variables:
     )
 
     image barbara_thinking = ConditionSwitch(
+        "rewound_mind == True",
+        "barbara_thinking_greyscale",
         "_last_say_who in ['barbara', 'bartender', 'bartender_thoughts'] or not renpy.get_screen('say')",
         "images/sprites/barbara_thinking.png",
         "not _last_say_who == 'barbara'",
@@ -231,6 +246,8 @@ label variables:
     )
 
     image docherty_neutral = ConditionSwitch(
+        "rewound_mind == True",
+        "docherty_neutral_greyscale",
         "_last_say_who in ['docherty', 'docherty_thoughts'] or not renpy.get_screen('say')",
         "images/sprites/docherty_neutral.png",
         "not _last_say_who == 'docherty'",
@@ -241,21 +258,41 @@ label variables:
         "images/sprites/barbara_angry.png"
         dark_tint
 
+    image barbara_angry_greyscale:
+        "images/sprites/barbara_angry.png"
+        greyscale_cycle
+
     image barbara_sad_tint:
         "images/sprites/barbara_sad.png"
         dark_tint
+
+    image barbara_sad_greyscale:
+        "images/sprites/barbara_sad.png"
+        greyscale_cycle
 
     image barbara_smiling_tint:
         "images/sprites/barbara_smiling.png"
         dark_tint
 
+    image barbara_smiling_greyscale:
+        "images/sprites/barbara_smiling.png"
+        greyscale_cycle
+
     image barbara_thinking_tint:
         "images/sprites/barbara_thinking.png"
         dark_tint
 
+    image barbara_thinking_greyscale:
+        "images/sprites/barbara_thinking.png"
+        dark_tint, greyscale_cycle
+
     image docherty_neutral_tint:
         "images/sprites/docherty_neutral.png"
         dark_tint
+
+    image docherty_neutral_greyscale:
+        "images/sprites/docherty_neutral.png"
+        greyscale_cycle
 
     image side jack angry:
         "images/sprites/jack_angry.png"
@@ -314,6 +351,7 @@ label variables:
     default rewind_point = "prologue_02"
     default thoughts_read = []
     default reading_mind = False
+    default rewound_mind = False
 
     default money = 12
 

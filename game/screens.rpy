@@ -119,6 +119,10 @@ screen say(who, what):
 
         text what id "what"
 
+        if (rewound_mind):
+            timer 2.0:
+                action SetVariable("rewound_mind", False)
+
         if (current_thought in thoughts_read and reading_mind == False and renpy.get_screen("psychic_powers")):
             frame:
                 background Frame("gui/small_button_frame.png")

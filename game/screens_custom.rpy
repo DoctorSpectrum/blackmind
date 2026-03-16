@@ -97,6 +97,7 @@ screen psychic_powers():
                                 SetLocalVariable("icon_hint", None),
                                 Show("conversation_history"),
                                 Function(renpy.choice_for_skipping),
+                                (SetVariable("rewound_mind", True) if max_rewinds == None or minds_rewound < max_rewinds else NullAction()),
                                 (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
                                 (Function(play_sound, "mind_rewind.mp3") if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction()),
                                 (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
@@ -154,6 +155,7 @@ screen psychic_powers():
                     SetLocalVariable("icon_hint", None),
                     Show("conversation_history"),
                     Function(renpy.choice_for_skipping),
+                    (SetVariable("rewound_mind", True) if max_rewinds == None or minds_rewound < max_rewinds else NullAction()),
                     (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
                     (Function(play_sound, "mind_rewind.mp3") if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction()),
                     (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
