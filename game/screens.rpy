@@ -27,10 +27,17 @@ style gui_text:
 
 style button:
     properties gui.button_properties("button")
+    hover_sound "audio/sfx/button_hover.mp3"
 
 style button_text is gui_text:
     properties gui.text_properties("button")
     yalign 0.5
+
+style image_button:
+    hover_sound "audio/sfx/button_hover.mp3"
+
+style text_button:
+    hover_sound "audio/sfx/button_hover.mp3"
 
 
 style label_text is gui_text:
@@ -112,7 +119,7 @@ screen say(who, what):
 
         text what id "what"
 
-        if (current_thought in thoughts_read and "_thoughts" not in _last_say_who and renpy.get_screen("psychic_powers")):
+        if (current_thought in thoughts_read and reading_mind == False and renpy.get_screen("psychic_powers")):
             frame:
                 background Frame("gui/small_button_frame.png")
                 padding (5, 5, 5, 5)
@@ -323,7 +330,8 @@ screen choice(items, screens=["conversation_history"]):
 
 
 style choice_vbox is vbox
-style choice_button is button
+style choice_button is button:
+    hover_sound "audio/sfx/button_hover.mp3"
 style choice_button_text is button_text
 
 style choice_vbox:
@@ -553,6 +561,7 @@ screen main_menu(initialised=False):
     default confirmed = initialised == True
     default confirmable = False
     default cards = [1, 2, 3, 4, 5]     #doing a loop of for k in range(1, 5) has issues being unintialised when we return from menus, for some reason
+    default timer_count = 0
 
     ## This ensures that any other menu screen is replaced.
     tag menu
@@ -561,6 +570,10 @@ screen main_menu(initialised=False):
         action SetScreenVariable("confirmable", True)
 
     if (confirmed):
+        timer 0.5:
+            action SetScreenVariable("timer_count", timer_count + 1)
+            repeat True
+
         frame:
             background Solid("#3B3B3B")
 
@@ -653,37 +666,43 @@ screen main_menu(initialised=False):
 
             textbutton _("START"):
                 style "main_menu_button"
-                action ((ShowMenu("preferences", start=True) if persistent.game_launched == False else Start()) if clickable_button() else NullAction())
+                action ((ShowMenu("preferences", start=True) if persistent.game_launched == False else Start()) if clickable_button() and timer_count >= 2 else NullAction())
+                hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2 else None)
                 if (not initialised):
                     at menu_button(1.0)
             textbutton _("LOAD"):
                 style "main_menu_button"
                 xoffset -66
-                action (ShowMenu("saves_list") if clickable_button() else NullAction())
+                action (ShowMenu("saves_list") if clickable_button() and timer_count >= 2.5 else NullAction())
+                hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2.5 else None)
                 if (not initialised):
                     at menu_button(1.5)
             textbutton _("SETTINGS"):
                 style "main_menu_button"
                 xoffset -132
-                action (ShowMenu("preferences") if clickable_button() else NullAction())
+                action (ShowMenu("preferences") if clickable_button() and timer_count >= 3 else NullAction())
+                hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3 else None)
                 if (not initialised):
                     at menu_button(2.0)
             textbutton _("EXTRAS"):
                 style "main_menu_button"
                 xoffset -198
-                action (Show("modal_popup", message="This doesn't do anything right now; it's just there for working out menu button placement", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+                action (Show("modal_popup", message="This doesn't do anything right now; it's just there for working out menu button placement", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() and timer_count >= 3.5 else NullAction())
+                hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3.5 else None)
                 if (not initialised):
                     at menu_button(2.5)
             textbutton _("CREDITS"):
                 style "main_menu_button"
                 xoffset -264
-                action (ShowMenu("about") if clickable_button() else NullAction())
+                action (ShowMenu("about") if clickable_button() and timer_count >= 4 else NullAction())
+                hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 4 else None)
                 if (not initialised):
                     at menu_button(3.0)
             textbutton _("QUIT"):
                 style "main_menu_button"
                 xoffset -334
-                action Quit()
+                action (Quit() if clickable_button() and timer_count >= 4.5 else NullAction())
+                hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 4.5 else None)
                 if (not initialised):
                     at menu_button(3.5)
     else:

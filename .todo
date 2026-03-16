@@ -10,13 +10,8 @@ BLACKMIND TODO
 
         - Prototype Actionables:
             - Programming Changes:
-                - Add in a hover_sound effect for buttons
-                - Set a flag when we're reading a mind, then we can use that to determine sprites, and also block us from doing any other psychic abilities while the flag is up
                 - Add in a visual effect when we do a mind rewind - for now, let's try having the character's sprite change to greyscale and back before continuing
                 - Add in controller support
-
-            - Audio Changes:
-                - Add in an effect when we do a mind rewind
 
             - MC Feedback:
                 - Sample effect button in sound section I feel looks a bit poorly placed. Maybe a little more to the right so it’s centre aligned on that half and a bit bigger?

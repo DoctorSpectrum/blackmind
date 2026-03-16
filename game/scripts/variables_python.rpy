@@ -133,9 +133,10 @@ init python:
         set_convo_length(convo_length + extension, convo_progress)
 
     def ignore_thoughts_length(subtract=1):
-        global convo_progress, progress_convo
+        global convo_progress, progress_convo, reading_mind
         convo_progress -= subtract
         progress_convo = True
+        reading_mind = False
         renpy.show_screen("psychic_powers")
 
     # Navigation selection

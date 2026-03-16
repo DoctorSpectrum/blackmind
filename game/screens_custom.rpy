@@ -47,116 +47,124 @@ screen debug():
 screen psychic_powers():
     default icon_hint = None
 
-    frame:
-        background None
-        xalign 1.0
-        yalign 0.0
-        yoffset 40
-        xoffset -5
-        xsize 275
-        ysize 82
-
+    if (reading_mind):
+        null
+    else:
         frame:
-            background Frame("gui/button/button_idle.png")
-            padding (10, 10, 10, 10)
-            xalign 0.5
+            background None
+            xalign 1.0
+            yalign 0.0
+            yoffset 40
+            xoffset -5
+            xsize 275
+            ysize 82
 
-            hbox:
-                spacing 20
+            frame:
+                background Frame("gui/button/button_idle.png")
+                padding (10, 10, 10, 10)
+                xalign 0.5
 
-                #image "gui/icons/psychic_icon_idle.png":
-                #    at transform:
-                #        zoom 0.5
+                hbox:
+                    spacing 20
 
-                imagebutton:
-                    auto "gui/icons/mind_read_icon_%s.png"
-                    yalign 0.5
-                    action [
-                        SetLocalVariable("icon_hint", None),
-                        Show("conversation_history"),
-                        (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
-                        SetVariable("progress_convo", False),
-                        (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
-                        (Function(play_sound, "mind_read.mp3", volume=0.5) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
-                        Function(renpy.choice_for_skipping),
-                        (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
-                        (Call(current_thought_block, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
-                    ]
-                    hovered SetLocalVariable("icon_hint", "mind_read")
-                    unhovered SetLocalVariable("icon_hint", None)
+                    #image "gui/icons/psychic_icon_idle.png":
+                    #    at transform:
+                    #        zoom 0.5
 
-                if (check_boolean("mind_wipe_available")):
                     imagebutton:
-                        auto "gui/icons/mind_wipe_icon_%s.png"
+                        auto "gui/icons/mind_read_icon_%s.png"
                         yalign 0.5
                         action [
                             SetLocalVariable("icon_hint", None),
                             Show("conversation_history"),
+                            (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
+                            SetVariable("progress_convo", False),
+                            (SetVariable("reading_mind", True) if max_mind_reads == None or minds_read < max_mind_reads else NullAction()),
+                            (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
+                            (Function(play_sound, "mind_read.mp3", volume=0.5) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
                             Function(renpy.choice_for_skipping),
-                            (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
-                            (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
+                            (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
+                            (Call(current_thought_block, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
                         ]
-                        hovered SetLocalVariable("icon_hint", "mind_wipe")
+                        hovered SetLocalVariable("icon_hint", "mind_read")
                         unhovered SetLocalVariable("icon_hint", None)
 
-                if (check_boolean("future_sight_available")):
-                    imagebutton:
-                        auto "gui/icons/future_sight_icon_%s.png"
-                        action [
-                            SetLocalVariable("icon_hint", None),
-                            NullAction(),
-                        ]
-                        hovered SetLocalVariable("icon_hint", "future_sight")
-                        unhovered SetLocalVariable("icon_hint", None)
-        
-        if (icon_hint != None):
-            frame:
-                background Frame("gui/namebox.png", xsize=120, ysize=25)
-                xalign 0.5
-                yoffset 15
-                xsize 120
-                ysize 25
-                at transform:
-                    rotate 3
-                    alpha 0.0
-                    linear 0.1:
-                        alpha 1.0
+                    if (check_boolean("mind_wipe_available")):
+                        imagebutton:
+                            auto "gui/icons/mind_wipe_icon_%s.png"
+                            yalign 0.5
+                            action [
+                                SetLocalVariable("icon_hint", None),
+                                Show("conversation_history"),
+                                Function(renpy.choice_for_skipping),
+                                (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
+                                (Function(play_sound, "mind_rewind.mp3") if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction()),
+                                (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
+                            ]
+                            hovered SetLocalVariable("icon_hint", "mind_wipe")
+                            unhovered SetLocalVariable("icon_hint", None)
 
-                text _("Read Mind" if icon_hint == "mind_read" else ("Rewind Mind" if icon_hint == "mind_wipe" else "Future Sight")):
-                    color "#000"
+                    if (check_boolean("future_sight_available")):
+                        imagebutton:
+                            auto "gui/icons/future_sight_icon_%s.png"
+                            action [
+                                SetLocalVariable("icon_hint", None),
+                                NullAction(),
+                            ]
+                            hovered SetLocalVariable("icon_hint", "future_sight")
+                            unhovered SetLocalVariable("icon_hint", None)
+            
+            if (icon_hint != None):
+                frame:
+                    background Frame("gui/namebox.png", xsize=120, ysize=25)
                     xalign 0.5
-                    yalign 0.5
-                    size 15
+                    yoffset 15
+                    xsize 120
+                    ysize 25
+                    at transform:
+                        rotate 3
+                        alpha 0.0
+                        linear 0.1:
+                            alpha 1.0
 
-    key "K_1":
-        action [
-            SetLocalVariable("icon_hint", None),
-            Show("conversation_history"),
-            (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
-            SetVariable("progress_convo", False),
-            (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
-            (Function(play_sound, "mind_read.mp3", volume=0.5) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
-            Function(renpy.choice_for_skipping),
-            (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
-            (Call(current_thought_block, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
-        ] 
+                    text _("Read Mind" if icon_hint == "mind_read" else ("Rewind Mind" if icon_hint == "mind_wipe" else "Future Sight")):
+                        color "#000"
+                        xalign 0.5
+                        yalign 0.5
+                        size 15
 
-    if (check_boolean("mind_wipe_available")):
-        key "K_2":
+    
+        key "K_1":
             action [
                 SetLocalVariable("icon_hint", None),
                 Show("conversation_history"),
+                (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
+                SetVariable("progress_convo", False),
+                (SetVariable("reading_mind", True) if max_mind_reads == None or minds_read < max_mind_reads else NullAction()),
+                (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
+                (Function(play_sound, "mind_read.mp3", volume=0.5) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
                 Function(renpy.choice_for_skipping),
-                (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
-                (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
-            ]
+                (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
+                (Call(current_thought_block, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+            ] 
 
-    if (check_boolean("future_sight_available")):
-        key "K_3":
-            action [
-                SetLocalVariable("icon_hint", None),
-                NullAction(),
-            ]
+        if (check_boolean("mind_wipe_available")):
+            key "K_2":
+                action [
+                    SetLocalVariable("icon_hint", None),
+                    Show("conversation_history"),
+                    Function(renpy.choice_for_skipping),
+                    (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
+                    (Function(play_sound, "mind_rewind.mp3") if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction()),
+                    (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
+                ]
+
+        if (check_boolean("future_sight_available")):
+            key "K_3":
+                action [
+                    SetLocalVariable("icon_hint", None),
+                    NullAction(),
+                ]
 
 style convo_progress_bar:
     left_bar Frame("gui/bar/progress_bar_left.png", gui.vbar_borders, tile=gui.bar_tile)

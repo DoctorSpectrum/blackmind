@@ -158,7 +158,7 @@ label variables:
 
     transform greyscale:
         matrixcolor SaturationMatrix(1.0)
-        linear 0.33:
+        linear 0.66:
             matrixcolor SaturationMatrix(0.0)
 
     transform opening_text:
@@ -275,7 +275,7 @@ label variables:
 
     #Backgrounds
     image bar = ConditionSwitch(
-        "_last_say_who in ['barbara_thoughts', 'bartender_thoughts']",
+        "reading_mind == True",
         "bar_greyscale",
         "True",
         "images/backgrounds/bar.png"
@@ -286,7 +286,7 @@ label variables:
         greyscale
 
     image street = ConditionSwitch(
-        "_last_say_who in ['docherty_thoughts']",
+        "reading_mind == True",
         "street_greyscale",
         "True",
         "images/backgrounds/street.png"
@@ -313,6 +313,7 @@ label variables:
     
     default rewind_point = "prologue_02"
     default thoughts_read = []
+    default reading_mind = False
 
     default money = 12
 
