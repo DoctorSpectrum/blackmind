@@ -47,6 +47,11 @@ screen debug():
 screen psychic_powers():
     default icon_hint = None
 
+    if (rewound_mind):
+        timer 2.5:
+            action SetVariable("rewound_mind", False)
+        text _("REWOUND MIND")
+
     if (reading_mind):
         null
     else:

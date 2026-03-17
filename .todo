@@ -11,8 +11,10 @@ BLACKMIND TODO
         - Prototype Actionables:
             - Programming Changes:
                 - Add in a visual effect when we do a mind rewind - for now, let's try having the character's sprite change to greyscale and back before continuing
-                    - Need to account for when tint should be applied - main issue right now
-                    - Right now it's a bit fast - I'll try pausing for 0.5 seconds (and extending the timer) and see how it goes
+                    - Got the tint applying, but new issue - when the image changes (due to no longer needing the tint, or vice versa) the animation restarts. Since the image changing is controlled by the player,
+                        owing to them being able to move to a new line when they want, we can't really forcibly control this. It'll also snap out of the animation once rewound_mind turns offm which looks jarring if
+                        we've moved to a new line and it's started over. Might need to rethink applying the animation to the sprite. Could be easier to just apply a black effect to the edges of the screen briefly?
+                - Rewinding multiple times is adding to the convo_history rather than resetting it
                 - Add in controller support
 
             - MC Feedback:

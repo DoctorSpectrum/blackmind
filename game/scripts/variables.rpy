@@ -165,8 +165,17 @@ label variables:
         matrixcolor SaturationMatrix(1.0)
         linear 1.0:
             matrixcolor SaturationMatrix(0.0)
+        pause 0.5
         linear 1.0:
             matrixcolor SaturationMatrix(1.0)
+
+    transform tinted_greyscale_cycle:
+        matrixcolor SaturationMatrix(1.0) * TintMatrix("#6d6d6d")
+        linear 1.0:
+            matrixcolor SaturationMatrix(0.0) * TintMatrix("#6d6d6d")
+        pause 0.5
+        linear 1.0:
+            matrixcolor SaturationMatrix(1.0) * TintMatrix("#6d6d6d")
 
     transform opening_text:
         xsize 0.6
@@ -210,8 +219,10 @@ label variables:
 
     #Images
     image barbara_angry = ConditionSwitch(
-        "rewound_mind == True",
+        "rewound_mind == True and _last_say_who in ['barbara', 'bartender', 'bartender_thoughts']",
         "barbara_angry_greyscale",
+        "rewound_mind == True",
+        "barbara_angry_tint_greyscale",
         "_last_say_who in ['barbara', 'bartender', 'bartender_thoughts'] or not renpy.get_screen('say')", 
         "images/sprites/barbara_angry.png", 
         "not _last_say_who == 'barbara'", 
@@ -219,8 +230,10 @@ label variables:
     )
 
     image barbara_sad = ConditionSwitch(
-        "rewound_mind == True",
+        "rewound_mind == True and _last_say_who in ['barbara', 'bartender', 'bartender_thoughts']",
         "barbara_sad_greyscale",
+        "rewound_mind == True",
+        "barbara_sad_tint_greyscale",
         "_last_say_who in ['barbara', 'bartender', 'bartender_thoughts'] or not renpy.get_screen('say')",
         "images/sprites/barbara_sad.png",
         "not _last_say_who == 'barbara'",
@@ -228,8 +241,10 @@ label variables:
     )
 
     image barbara_smiling = ConditionSwitch(
-        "rewound_mind == True",
+        "rewound_mind == True and _last_say_who in ['barbara', 'bartender', 'bartender_thoughts']",
         "barbara_smiling_greyscale",
+        "rewound_mind == True",
+        "barbara_smiling_tint_greyscale",
         "_last_say_who in ['barbara', 'bartender', 'bartender_thoughts'] or not renpy.get_screen('say')",
         "images/sprites/barbara_smiling.png",
         "not _last_say_who == 'barbara'",
@@ -237,8 +252,10 @@ label variables:
     )
 
     image barbara_thinking = ConditionSwitch(
-        "rewound_mind == True",
+        "rewound_mind == True and _last_say_who in ['barbara', 'bartender', 'bartender_thoughts']",
         "barbara_thinking_greyscale",
+        "rewound_mind == True",
+        "barbara_thinking_tint_greyscale",
         "_last_say_who in ['barbara', 'bartender', 'bartender_thoughts'] or not renpy.get_screen('say')",
         "images/sprites/barbara_thinking.png",
         "not _last_say_who == 'barbara'",
@@ -262,6 +279,10 @@ label variables:
         "images/sprites/barbara_angry.png"
         greyscale_cycle
 
+    image barbara_angry_tint_greyscale:
+        "images/sprites/barbara_angry.png"
+        tinted_greyscale_cycle
+
     image barbara_sad_tint:
         "images/sprites/barbara_sad.png"
         dark_tint
@@ -269,6 +290,10 @@ label variables:
     image barbara_sad_greyscale:
         "images/sprites/barbara_sad.png"
         greyscale_cycle
+
+    image barbara_sad_tint_greyscale:
+        "images/sprites/barbara_sad.png"
+        tinted_greyscale_cycle
 
     image barbara_smiling_tint:
         "images/sprites/barbara_smiling.png"
@@ -278,13 +303,21 @@ label variables:
         "images/sprites/barbara_smiling.png"
         greyscale_cycle
 
+    image barbara_smiling_tint_greyscale:
+        "images/sprites/barbara_smiling.png"
+        tinted_greyscale_cycle
+
     image barbara_thinking_tint:
         "images/sprites/barbara_thinking.png"
         dark_tint
 
     image barbara_thinking_greyscale:
         "images/sprites/barbara_thinking.png"
-        dark_tint, greyscale_cycle
+        greyscale_cycle
+
+    image barbara_thinking_tint_greyscale:
+        "images/sprites/barbara_thinking.png"
+        tinted_greyscale_cycle
 
     image docherty_neutral_tint:
         "images/sprites/docherty_neutral.png"
