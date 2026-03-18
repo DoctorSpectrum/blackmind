@@ -155,3 +155,10 @@ label prologue_docherty_wipe:
     jack worried "(He...[wait_05]I don't think that did anything to him?)"
     $ ignore_thoughts_length()
     return
+
+label mind_wipe_pause:
+    #hide say
+    $ _window_hide()
+    $ renpy.pause(2.5, hard=True)
+    $ rewound_mind = False
+    jump expression rewind_point

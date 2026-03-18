@@ -47,12 +47,7 @@ screen debug():
 screen psychic_powers():
     default icon_hint = None
 
-    if (rewound_mind):
-        timer 2.5:
-            action SetVariable("rewound_mind", False)
-        text _("REWOUND MIND")
-
-    if (reading_mind):
+    if (reading_mind or rewound_mind):
         null
     else:
         frame:
@@ -105,7 +100,7 @@ screen psychic_powers():
                                 (SetVariable("rewound_mind", True) if max_rewinds == None or minds_rewound < max_rewinds else NullAction()),
                                 (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
                                 (Function(play_sound, "mind_rewind.mp3") if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction()),
-                                (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
+                                (Call("mind_wipe_pause", from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
                             ]
                             hovered SetLocalVariable("icon_hint", "mind_wipe")
                             unhovered SetLocalVariable("icon_hint", None)
@@ -163,7 +158,7 @@ screen psychic_powers():
                     (SetVariable("rewound_mind", True) if max_rewinds == None or minds_rewound < max_rewinds else NullAction()),
                     (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
                     (Function(play_sound, "mind_rewind.mp3") if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction()),
-                    (Call(rewind_point, from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
+                    (Call("mind_wipe_pause", from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
                 ]
 
         if (check_boolean("future_sight_available")):

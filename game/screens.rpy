@@ -136,6 +136,7 @@ screen say(who, what):
                         Hide("psychic_powers"),
                         Show("conversation_history"),
                         SetVariable("progress_convo", False),
+                        SetVariable("reading_mind", True),
                         Function(play_sound, "mind_read.mp3", volume=0.5),
                         Call(current_thought_block, from_current=True)
                     ]
