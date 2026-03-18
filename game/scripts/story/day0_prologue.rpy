@@ -147,7 +147,7 @@ label prologue_05:
             hide screen conversation_history
             call screen psychic_powers
         "Ask about the history of the bar" (locked=not check_boolean("prologue_bar_history"), message="You have not read this information in the bartender's mind"):
-            $ set_convo_length(9)
+            $ set_convo_length(12, 11)
             jack smug "Oh, of course, of course."
             jump prologue_06
         "Ask about interior design" (locked=not check_boolean("prologue_interior_designing"), message="You have not read this information in the bartender's mind"):
@@ -175,6 +175,7 @@ label prologue_05:
                 jump prologue_05
 
 label prologue_06:
+    $ set_convo_length(9)
     show screen psychic_powers
     $ rewind_point = "prologue_06"
     $ current_thought = "barbara_thought_pr_17"

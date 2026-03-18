@@ -10,7 +10,6 @@ BLACKMIND TODO
 
         - Prototype Actionables:
             - Programming Changes:
-                - Rewinding multiple times is adding to the convo_history rather than resetting it
                 - Add in controller support
 
             - MC Feedback:
