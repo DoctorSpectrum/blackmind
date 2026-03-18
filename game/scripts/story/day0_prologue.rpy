@@ -23,7 +23,7 @@ label prologue_01:
     jack smug "(Anyway, how much cash was I able to get from those suckers before the cops spotted me?)"
     show screen cash_money
     jack thinking "(Damn, I was hoping for a bit more than that...if I could take plastic things’d be easier, but it’s just too easy to trace or be blocked)."
-    jack smug "(Well, whatever.[wait_1] This should still be enough for me to get a drink or two)."
+    jack smug "(Well, whatever.[wait_1] Not like I need any of it to get myself a whiskey)."
     hide screen cash_money
     scene black_bg with quick_dissolve
     
@@ -42,16 +42,17 @@ label prologue_01:
 
 label prologue_02:
     hide screen conversation_history
-    $ extend_convo_length(6)
+    $ extend_convo_length(2)
     menu (screens=["cash_money"]):
-        "Lemonade ($6)":
+        "Whiskey ($0)":
             hide screen cash_money
+            $ extend_convo_length(4)
 
-            jack worried "(I guess I’ll have to order a lemonade since it’s the only thing that I have the money for.)"
-            jack worried "(But I was really looking forward to some booze...)"
-            jack thinking "(Unless...[wait_05]I might be able to trick her into giving me a drink for free, if I use my abilities right.)"
-            jack thinking "(Yeah...[wait_05]that’s a pretty good idea.)"
-            jack smug "(She probably already really likes me - it’s not even going to be that much effort to convince her probably.)"
+            jack worried "(There’s no point in looking at the prices she’s got - it’ll all be overpriced, just like every other bloody place.)"
+            jack worried "(Who’s out there making things affordable for the little guy?[wait_1] Nobody, that’s who.)"
+            jack thinking "(So when you think about it, is it really an issue if I use my abilities and trick her into giving me a drink for free?[wait_1] Obviously not.)"
+            jack thinking "(She’ll definitely make all that money back when the first fat cat of the night steps in {size=-10}maybe{/size}.)"
+            jack smug "(I’ll just need to convince her that she’ll benefit from pouring me that drink.)"
             jack smug "(What’s she thinking about right now?)"
 
             hide screen say
@@ -60,21 +61,12 @@ label prologue_02:
             call screen modal_popup("Click on the Read Mind button in the top right-hand corner, or press the 1 key, to read the bartender’s mind.", ["OK"], [Return()])
             call screen psychic_powers
 
-        "Whiskey ($14)":
-            $ drink = "whiskey"
-        "Wine ($21)":
-            $ drink = "wine"
-        "Cocktail ($26)":
-            $ drink = "cocktail"
-    
-    hide screen cash_money
-    jack smug "(It doesn’t matter that I can’t afford it - all that I need is for her to serve it, then I’ll rewind her mind so she doesn’t remember that I haven’t paid)."
-    jack smug "Can you get me a [drink]?"
-    bartender "Just shoot the payment through and we’re good." 
-    jack worried "(What?![wait_1] I can’t rewind her mind if she doesn’t make it!)"
-    bartender "Or would you rather pay with cash?[wait_1] That’s fine too." 
-    jack worried "I...[wait_05]actually, come to think of it, I’d rather order something else."
-    jump prologue_02
+        "Lemonade ($6)":
+            jack smug "(Ha ha ha.)"
+            jack angry "(No.)"
+            jump prologue_02
+        "Whiskey ($14)" (locked=True, message="You cannot legally afford this drink"):
+            jump prologue_02
 
 label prologue_03:
     $ set_convo_length(8)
@@ -279,7 +271,7 @@ label prologue_07:
             hide screen conversation_history
             call screen psychic_powers
         "I’ll write a good review if you give me a free drink" (locked=not check_boolean("prologue_drink_review"), message="You have not read information about the bar's publicity in the bartender's mind"):
-            $ extend_convo_length(22 if drink != "cocktail" else 24)
+            $ extend_convo_length(22)
             $ current_thought = "barbara_thought_pr_38"
             jack smug "Tell me - how would you feel about a bit of an exchange?[wait_1] A free drink, and in return I’ll make sure to write a good review."
             $ swap_sprites("barbara_thinking")
@@ -299,14 +291,7 @@ label prologue_07:
             $ current_thought = "barbara_thought_pr_42"
             bartender "Well in that case - what exactly can I get you?" 
             $ current_thought = "barbara_thought_pr_43"
-            if (drink == "cocktail"):
-                jack smug "How about a cocktail?[wait_1] That’d really wet my whistle."
-                bartender "Anything in particular?"
-                jack smug "Surprise me."
-            elif (drink in ["whiskey", "wine"]):
-                jack smug "How about a [drink]?[wait_1] That'd really wet my whistle."
-            else:
-                jack smug "How about a whiskey and coke?[wait_1] That'd really wet my whistle."
+            jack smug "How about a whiskey and coke?[wait_1] That'd really wet my whistle."
             bartender "Coming right up!"
 
 label prologue_08:

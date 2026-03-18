@@ -160,6 +160,8 @@ label prologue_docherty_wipe:
     return
 
 label mind_wipe_pause:
+    #$ _history_list = []   #Potentially wipe history on a mind wipe?
+    $ narrator.add_history(kind="adv", who=None, what=_("__breakpoint__"))
     show ring at ring_mind_rewind_pause(-25, 200)
     $ _window_hide()
     $ renpy.pause(2.5, hard=True)

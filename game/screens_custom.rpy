@@ -1151,14 +1151,22 @@ screen conversation_history(initial_expanded = False, show_button = True, initia
                                     label h.who:
                                         style "history_who"
                                         at trans_fade(0.5, 0.5)
-                                text _(h.what + "\n"):
-                                    color (h.what_args["color"] if "color" in h.what_args else "#000")
-                                    if ("color" in h.what_args and h.what_args["color"] == "#F2EE29"):
-                                        outlines [ (2, "#000005", 0, 0) ]
-                                    xoffset 50
-                                    xmaximum 400
-                                    size 20
-                                    at trans_fade(0.5, 0.5)
+                                if (h.what == "__breakpoint__"):
+                                    image "gui/icons/mind_wipe_icon_idle.png":
+                                        xoffset 45
+                                        yoffset -10
+                                        at trans_fade(0.5, 0.5)
+                                        at transform:
+                                            zoom 0.75
+                                else:
+                                    text _(h.what + "\n"):
+                                        color (h.what_args["color"] if "color" in h.what_args else "#000")
+                                        if ("color" in h.what_args and h.what_args["color"] == "#F2EE29"):
+                                            outlines [ (2, "#000005", 0, 0) ]
+                                        xoffset 50
+                                        xmaximum 400
+                                        size 20
+                                        at trans_fade(0.5, 0.5)
                 else:
                     null
                 if (len(_history_list) - 1 > 0 and expanded):
