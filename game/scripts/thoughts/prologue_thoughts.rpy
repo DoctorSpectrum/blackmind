@@ -1,4 +1,6 @@
 label mind_read_prologue:
+    show ring at ring_mind_read_expand(-25, 200)
+
     if (current_thought == "barbara_thought_pr_01"):
         show screen conversation_history
         bartender_thoughts "(Is there some sort of issue with the menu?[wait_1] I’m happy to give him whatever he wants, he just has to order it.)" 
@@ -146,6 +148,7 @@ label mind_read_prologue:
     else:
         $ renpy.log("No corresponding mind read line found for [current_thought]")
     
+    hide ring
     $ ignore_thoughts_length()
     return
 
@@ -157,8 +160,9 @@ label prologue_docherty_wipe:
     return
 
 label mind_wipe_pause:
-    #hide say
+    show ring at ring_mind_rewind_pause(-25, 200)
     $ _window_hide()
     $ renpy.pause(2.5, hard=True)
     $ rewound_mind = False
+    hide ring
     jump expression rewind_point

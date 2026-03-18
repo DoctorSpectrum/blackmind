@@ -214,6 +214,41 @@ label variables:
                 zoom (1.1 if zoom != 1.0 else 1.0)
             repeat
 
+    transform ring_mind_read_expand(xoffset=0, yoffset=0):
+        zoom 0.1
+        xalign 0.5 
+        yalign 0.0
+        xoffset xoffset
+        yoffset yoffset
+        xanchor 0.5
+        yanchor 0.5
+        alpha 0.0
+
+        parallel:
+            linear 0.25:
+                alpha 1.0
+        parallel:
+            linear 2.0:
+                zoom 5.0
+
+    transform ring_mind_rewind_pause(xoffset=0, yoffset=0):
+        zoom 5.0
+        xalign 0.5 
+        yalign 0.0
+        xoffset xoffset
+        yoffset yoffset
+        xanchor 0.5
+        yanchor 0.5
+        alpha 1.0
+
+        parallel:
+            pause 0.35
+            linear 0.25:
+                alpha 0.0
+        parallel:
+            linear 0.5:
+                zoom 0.1
+
     define quick_dissolve = Dissolve(0.5)
     define slow_dissolve = Dissolve(2.0)
 
