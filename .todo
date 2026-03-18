@@ -10,20 +10,22 @@ BLACKMIND TODO
 
         - Prototype Actionables:
             - Programming Changes:
+                - Reading mind when we've got the choice menu up reduces the convo history by 1, and it's hella noticeable too, since it's displaying at the same time
                 - Add in controller support
 
-            - MC Feedback:
-                - Sample effect button in sound section I feel looks a bit poorly placed. Maybe a little more to the right so it’s centre aligned on that half and a bit bigger?
-                - When you go into Start, if you’ve already had the sample text speed scroll to show the second paragraph because you’ve gone into options, it briefly shows it all there before deleting the second paragraph and starting it again.
-                - Might just be laptop resolution so ignore if so but it happens even if I resize the window super small. Looks kinda awkward for just the word “time” being on it’s own line in “You can change these settings at any time”
-                - Though on the help menu (yes I know its placeholder text) I think maybe have the help items in the non-mind reading tab be positioned in the same place as the mind reading ability names and have the left part with the mind reading icons just be dead space in the other tabs. I feel like it’s better visual flow to have it in the same spot instead of jumping horizontal position. Or maybe other stuff gets its own icons later? Alternatively if we think dead space is a bad look too, have them all against the left side of the container and put the mind read icons to the right of the ability name
-                - Maybe “Menu” -> “Main Menu” and “Quit” -> “Quit Game”. Kinda obvious what they do but it’s that slight extra bit of clarity.
-                - Thought just occurs to me; pause menu could have a bit of UI off to the side for displaying current cash and uses of powers remaining. Makes it a little less clean but does give you a chance to look them up at any time.
-                - Jack’s line of “What?! I can’t rewind her mind if she doesn’t make it!” isn’t super clear as to what it means.
+            - MC Feedback:0
                 - Does feel a little weird how the other options are “Nah my power won’t be useful here because we haven’t served it” and then this lemonade option is “actually I can make it work after all” with all that’s changed being a few extra text boxes of thought. 
+                    - Change it so that Jack thinks to himself before entering the bar that he's dying for a whiskey. When Barbara asks us what we want, we get given five options:
+                        - Whiskey ($0)
+                        - Lemonade ($6)
+                        - Locked
+                        - Locked
+                        - Locked
+                    The locked options say "you don't have the money to pay for this," and lemonade has Jack thinking, "Ha, yeah right." Selecting the whiskey has Jack thinking about how he's going to use his powers to make it free, and we lead into the mind-reading tutorial.
                 - Wonder if we should have a linebreak in the history to denote when you used rewind. 
-                - Oh neat, you did manage to add the review mind read button. Do we think it needs a hover tooltip for “review mind reading” or maybe one of the tutorials says “You can review any statement you’ve already mind read once by clicking the icon”?
-                - Hmm, I think in dialogue choices, the power usage button should retain default appearance instead of greying out since it’s still a valid time to click rewind.
+                    - Potential solution to this:
+                        - can I manually push a value to the history?
+                        - if yes, can I push something like "rewind" and then when displaying the history log, we render any strings consisting just of that to a line break
 
             - Unix Feedback:
                 - When I close the socials button the load icon is somehow clicked? Not active, just does the colour swap to being clicked. 

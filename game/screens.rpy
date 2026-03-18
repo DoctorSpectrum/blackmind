@@ -902,7 +902,9 @@ screen game_menu(title, title_size=88, return_action=None):
         text_color "#F2EE29"
         text_hover_underline True
         text_size 38
-        action (return_action if return_action is not None else (ShowMenu("main_menu", initialised=True) if main_menu else ShowMenu("pause_menu")))
+        action (return_action if return_action is not None else 
+            ([Hide("sample_text_speed_1"), Hide("sample_text_speed_2"), ShowMenu("main_menu", initialised=True)] if main_menu 
+            else [Hide("sample_text_speed_1"), Hide("sample_text_speed_2"), ShowMenu("pause_menu")]))
         at transform:
             xoffset 400
             pause 1.0
@@ -1137,9 +1139,6 @@ screen about():
                                 text _("Version [config.version!t]\n"):
                                     color "#000"
 
-                            if (persistent.docs_link_shown):
-                                text _("{a=https://docs.google.com/document/d/1wAlhH52z9H0CxoKjtVLBtCwZTfI9KdIqwNmada6nMtQ/edit?usp=sharing}Link to Google Docco{/a}")
-
                             if gui.about:
                                 text "[gui.about!t]\n":
                                     color "#000"
@@ -1171,6 +1170,7 @@ style credits_tabs_button_text:
     size 72
     selected_color "#F2EE29"
     yoffset 6
+    hover_underline True
 
 style credit_heading:
     font "gui/chubhand.ttf"
@@ -1432,53 +1432,52 @@ screen preferences(start=False):
                             ysize 288
                             padding (80, 20, 80, 20)
                             hbox:
-                                spacing 40
-                                vbox:
-                                    hbox:
-                                        style_prefix "audio_bars"
-                                        vbox:
-                                            vbar:
-                                                value Preference("music volume")
-                                                if preferences.get_mute("music"):
-                                                    bottom_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
-                                                    top_bar "#D5D5D5"
+                                spacing 70
+                                hbox:
+                                    style_prefix "audio_bars"
+                                    vbox:
+                                        vbar:
+                                            value Preference("music volume")
+                                            if preferences.get_mute("music"):
+                                                bottom_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
+                                                top_bar "#D5D5D5"
 
-                                            text _("Music"):
-                                                color ("#000" if not preferences.get_mute("music") else "#707070")
+                                        text _("Music"):
+                                            color ("#000" if not preferences.get_mute("music") else "#707070")
 
-                                            imagebutton:
-                                                idle ("gui/icons/mute_hover.png" if preferences.get_mute("music") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
-                                                hover "gui/icons/mute_hover.png"
-                                                xalign 0.5 
-                                                action Preference("music mute", "toggle")
+                                        imagebutton:
+                                            idle ("gui/icons/mute_hover.png" if preferences.get_mute("music") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
+                                            hover "gui/icons/mute_hover.png"
+                                            xalign 0.5 
+                                            action Preference("music mute", "toggle")
 
-                                        vbox:
-                                            vbar:
-                                                value Preference("sound volume")
-                                                if preferences.get_mute("sfx"):
-                                                    bottom_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
-                                                    top_bar "#D5D5D5"
-                                            text _("Effects"):
-                                                color ("#000" if not preferences.get_mute("sfx") else "#707070")
+                                    vbox:
+                                        vbar:
+                                            value Preference("sound volume")
+                                            if preferences.get_mute("sfx"):
+                                                bottom_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
+                                                top_bar "#D5D5D5"
+                                        text _("Effects"):
+                                            color ("#000" if not preferences.get_mute("sfx") else "#707070")
 
-                                            imagebutton:
-                                                idle ("gui/icons/mute_hover.png" if preferences.get_mute("sfx") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
-                                                hover "gui/icons/mute_hover.png"
-                                                action Preference("sound mute", "toggle")
-                                                xalign 0.5 
+                                        imagebutton:
+                                            idle ("gui/icons/mute_hover.png" if preferences.get_mute("sfx") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
+                                            hover "gui/icons/mute_hover.png"
+                                            action Preference("sound mute", "toggle")
+                                            xalign 0.5 
 
-                                        #vbox:
-                                        #    vbar:
-                                        #        value Preference("voice volume")
-                                        #        if preferences.get_mute("voice"):
-                                        #            base_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
-                                        #            thumb "gui/slider/vertical_insensitive_thumb.png"
-                                        #    text _("Voice"):
-                                        #        color ("#0099FF" if not preferences.get_mute("voice") else "#707070")
-                                        #    imagebutton:
-                                        #        idle ("gui/icons/mute_hover.png" if preferences.get_mute("voice") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
-                                        #        hover "gui/icons/mute_hover.png"
-                                        #        action Preference("voice mute", "toggle")
+                                    #vbox:
+                                    #    vbar:
+                                    #        value Preference("voice volume")
+                                    #        if preferences.get_mute("voice"):
+                                    #            base_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
+                                    #            thumb "gui/slider/vertical_insensitive_thumb.png"
+                                    #    text _("Voice"):
+                                    #        color ("#0099FF" if not preferences.get_mute("voice") else "#707070")
+                                    #    imagebutton:
+                                    #        idle ("gui/icons/mute_hover.png" if preferences.get_mute("voice") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
+                                    #        hover "gui/icons/mute_hover.png"
+                                    #        action Preference("voice mute", "toggle")
                                 
                                 vbox:
                                     style_prefix "audio_options"
@@ -1486,6 +1485,7 @@ screen preferences(start=False):
                                     vbox:
                                         spacing 10
                                         yalign 0.8
+                                        xsize 400
                                         if (not preferences.get_mute("sfx")):
                                             textbutton _("Sample Effect"):
                                                 style "yellow_button_dark_hover"
@@ -1630,8 +1630,8 @@ screen preferences(start=False):
                             style "begin_button"
                             xalign 0.1
                             action [
-                                Hide("sample_text_1"),
-                                Hide("sample_text_2"),
+                                Hide("sample_text_speed_1"),
+                                Hide("sample_text_speed_2"),
                                 ShowMenu("help", return_action=ShowMenu("preferences", start=True))
                             ]
 
@@ -1647,7 +1647,7 @@ screen preferences(start=False):
                     text _("These settings can be changed from the Settings menu at any time"):
                         xalign 0.5
                         yalign 0.15
-                        xmaximum 600
+                        xmaximum 500
                         size 20
                         text_align 0.5
                         color "#000"
@@ -2062,33 +2062,41 @@ screen help(return_action=None):
                                                     label _("Future Sight")
                                                     text _("Get a glimpse of the future, and see slightly ahead in the current conversation.")
                                     elif (gameplay_help == "other"):
-                                        vbox:
-                                            spacing 10
-                                            text _("Help Item"):
-                                                style "credit_heading"
-                                            text _("Some sort of assistance goes here"):
-                                                style "credit_person"
+                                        hbox:
+                                            style "help_other"
+                                            vbox:
+                                                spacing 10
+                                                text _("Help Item"):
+                                                    style "credit_heading"
+                                                text _("Some sort of assistance goes here"):
+                                                    style "credit_person"
 
-                                        vbox:
-                                            spacing 10
-                                            text _("Another Help Item"):
-                                                style "credit_heading"
-                                            text _("More assistance here"):
-                                                style "credit_person"
+                                        hbox:
+                                            style "help_other"
+                                            vbox:
+                                                spacing 10
+                                                text _("Another Help Item"):
+                                                    style "credit_heading"
+                                                text _("More assistance here"):
+                                                    style "credit_person"
                                     elif (gameplay_help == "other2"):
-                                        vbox:
-                                            spacing 10
-                                            text _("More Help Items"):
-                                                style "credit_heading"
-                                            text _("Helping players with text descriptions here"):
-                                                style "credit_person"
+                                        hbox:
+                                            style "help_other"
+                                            vbox:
+                                                spacing 10
+                                                text _("More Help Items"):
+                                                    style "credit_heading"
+                                                text _("Helping players with text descriptions here"):
+                                                    style "credit_person"
 
-                                        vbox:
-                                            spacing 10
-                                            text _("Yet More Help Items"):
-                                                style "credit_heading"
-                                            text _("This describes how to use a gameplay mechanic"):
-                                                style "credit_person"
+                                        hbox:
+                                            style "help_other"
+                                            vbox:
+                                                spacing 10
+                                                text _("Yet More Help Items"):
+                                                    style "credit_heading"
+                                                text _("This describes how to use a gameplay mechanic"):
+                                                    style "credit_person"
 
 
 
@@ -2297,6 +2305,10 @@ style help_power_label_text is label_text:
 style help_power_text is text:
     color "#000"
     xmaximum 900
+
+style help_other:
+    box_align 0.0
+    xoffset 194
 
 ################################################################################
 ## Additional screens

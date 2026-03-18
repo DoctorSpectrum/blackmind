@@ -47,6 +47,8 @@ screen debug():
 screen psychic_powers():
     default icon_hint = None
 
+    zorder 20
+
     if (reading_mind or rewound_mind):
         null
     else:
@@ -846,7 +848,7 @@ screen pause_menu():
 
     vbox:
         xalign 0.3
-        yalign 0.75
+        yalign 0.55
         spacing 50
         at trans_fade(1.0, 0.5), fade_side_to_side(-1000, 0.5)
         textbutton _("Flow Chart"):
@@ -860,16 +862,16 @@ screen pause_menu():
         textbutton _("Load"):
             style "yellow_button_on_yellow"
             action (ShowMenu("saves_list") if clickable_button() else NullAction())
-        textbutton _("Menu"):
+        textbutton _("Return"):
+            style "yellow_button_on_yellow"
+            action (Return() if clickable_button() else NullAction())
+        textbutton _("Main Menu"):
             style "yellow_button_on_yellow"
             action (MainMenu() if clickable_button() else NullAction())
-        textbutton _("Quit"):
-            style "yellow_button_on_yellow"
-            action (Quit() if clickable_button() else NullAction())
 
     vbox:
         xalign 0.775
-        yalign 0.55
+        yalign 0.75
         spacing 50
         at trans_fade(1.0, 0.5), fade_side_to_side(1000, 0.5)
         textbutton _("Psychic Powers"):
@@ -886,9 +888,11 @@ screen pause_menu():
         textbutton _("Help"):
             style "black_button_on_black"
             action (ShowMenu("help") if clickable_button() else NullAction())
-        textbutton _("Return"):
+        textbutton _("Quit Game"):
             style "black_button_on_black"
-            action (Return() if clickable_button() else NullAction())
+            action (Quit() if clickable_button() else NullAction())
+
+    use cash_money("pause_menu")
 
 style yellow_button_on_yellow:
     background Frame("gui/button/button_idle.png")
@@ -1230,6 +1234,36 @@ screen cash_money(style="left_small"):
                     xoffset 0
                     ease 0.5:
                         xoffset -200
+                on hide:
+                    ease 0.5:
+                        xoffset 200
+
+            text _("{font=DejaVuSans.ttf}${/font}" + str(f'{money:.2f}')):
+                color "#000"
+                xalign 0.5
+                font "gui/chubhand.ttf"
+                size 66
+                yoffset -10
+    elif (style == "pause_menu"):
+        frame:
+            background Solid("#F2EE29")
+            xsize 225
+            ysize 75
+            xalign 1.0
+            yalign 0.2
+            xoffset 200
+            at transform:
+                on show:
+                    alpha 0.0
+                    pause 1.6
+                    xoffset 0
+                    
+                    parallel:
+                        linear 1.0:
+                            alpha 1.0
+                    parallel:
+                        ease 0.5:
+                            xoffset -200
                 on hide:
                     ease 0.5:
                         xoffset 200
