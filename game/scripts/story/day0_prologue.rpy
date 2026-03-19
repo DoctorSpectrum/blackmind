@@ -22,7 +22,7 @@ label prologue_01:
     jack angry "(Pickpocketing’s considered a petty crime.[wait_1] That basically means that they shouldn’t be wasting any time on it, especially when they’ve got no evidence.)"
     jack smug "(Anyway, how much cash was I able to get from those suckers before the cops spotted me?)"
     show screen cash_money
-    jack thinking "(Damn, I was hoping for a bit more than that...if I could take plastic things’d be easier, but it’s just too easy to trace or be blocked)."
+    jack thinking "(Damn, I was hoping for a bit more than that...it'd be easier if I could take plastic, but it’s just too easy to trace or be blocked)."
     jack smug "(Well, whatever.[wait_1] Not like I need any of it to get myself a whiskey)."
     hide screen cash_money
     scene black_bg with quick_dissolve

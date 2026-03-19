@@ -11,21 +11,17 @@ BLACKMIND TODO
         - Prototype Actionables:
             - Visual Changes:
                 - Add the actual pic of Jack into the main menu
+                    - Test out adjusting the zener cards to be parallel to his body
 
             - Programming Changes:
                 - Reading mind when we've got the choice menu up reduces the convo history by 1, and it's hella noticeable too, since it's displaying at the same time
+                - Add in a gallery to extras - we've got a CG in the demo! I could even do the fancy cycle thing like I've seen a few games do
+                - NGL KINDA WANT TO MAKE A SCREEN FOR A SOUND ROOM SO THAT I CAN WRITE UP A TUTORIAL FOR ONE
                 - Add in controller support
 
             - Unix Feedback:
-                - Things’d. I see what you are going for and it could just be me but it feels visually off? More a “is that how you spell how that would sound?”
-                - Easter egg idea is ask for the expensive things too many times and she could say “I’ll grab you some water while you decide” or something.
-                - It feels weird to me she would think “is there some sort of issue with the menu?” when ordering a lemonade.
-                    - Change it to something like "Is there something wrong with the alcohol?"
-                - Im of 2 minds on being forced to get whisky even after picking lemonade. 1 is that its a little frustrating to be forced into it, but 2 is that it;s extremely in character of jack to do so. 
-                    - Potentially make it that Jack uses his powers for the other options and for lemonade he's like "Pfft fuck no"
                 - The progress bar is not explained super well. Yes we can intiut it but also its rather…vague. I had it hidden for my first playthrough for the most part and only now am I paying attention to it. 
                     - Potentially remove it as Jack, and reintroduce it as Lloyd
-                - Spamming the read mind button causes it to stack X many times and makes the effect repeat X many times. Unsure if fixable. 
 
             - Serena Feedback:
                 - Keep periods within brackets when what is within the bracket constitutes a complete sentence

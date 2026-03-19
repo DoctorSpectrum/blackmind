@@ -643,33 +643,33 @@ screen main_menu(initialised=False):
         use social_links
 
         image "images/menu/ring.png":
-            xpos 900
-            ypos 540
+            xpos 880
+            ypos 430
             xanchor 0.5
             yanchor 0.5
             at menu_expand_ring(3.0)
         image "images/menu/ring.png":
-            xpos 900
-            ypos 540
+            xpos 880
+            ypos 430
             xanchor 0.5
             yanchor 0.5
             at menu_expand_ring(3.2)
-        image "images/menu/menu_placeholder.png":
+        image "images/menu/jack_menu.png":
+            xalign 0.35
+            yalign 1.0
+            yoffset 1
             if (not initialised):
                 at transform:
-                    zoom 0.8
+                    zoom 0.55
                     alpha 0.0
                     xoffset -180
-                    yoffset 220
                     pause 1.0
                     linear 2.0:
                         xoffset 20
                         alpha 1.0
             else:
                 at transform:
-                    zoom 0.8
-                    yoffset 220
-                    xoffset 20
+                    zoom 0.55
 
 
         vbox:

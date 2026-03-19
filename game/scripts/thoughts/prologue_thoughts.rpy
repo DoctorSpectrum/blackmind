@@ -3,7 +3,7 @@ label mind_read_prologue:
 
     if (current_thought == "barbara_thought_pr_01"):
         show screen conversation_history
-        bartender_thoughts "(Is there some sort of issue with the menu?[wait_1] I’m happy to give him whatever he wants, he just has to order it.)" 
+        bartender_thoughts "(He sure is taking his time deciding...[wait_1] I’m happy to give him whatever he wants, he just has to order it.)" 
         $ ignore_thoughts_length()
 
         if (not check_boolean("mind_read_tutorial")):
