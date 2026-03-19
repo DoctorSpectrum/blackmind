@@ -626,7 +626,6 @@ screen main_menu(initialised=False):
                     image "gui/card_2.png":
                         at zener_card_col_up((2.7* 16))
                 else:                   #Col going down
-                    null
                     #vbox:
                     #    spacing 5
                     #    yoffset -180
@@ -638,6 +637,51 @@ screen main_menu(initialised=False):
                     #            image "gui/card_[card].png":
                     #                at transform:
                     #                    zoom 0.3
+
+                    #for j in range(1, 3):
+                        #for card in enumerate(reversed(cards)):
+                    #for card in cards:
+                    #    image "gui/card_[card].png":
+                    #        at zener_card_col_down(1)
+                    #            #at zener_card_col_down(1 + (3.3*((i) + (j * 5))))
+
+                    image "gui/card_1.png":
+                        at zener_card_col_down(1)
+                    image "gui/card_2.png":
+                        at zener_card_col_down(1 + (1.95 * 1))
+                    image "gui/card_3.png":
+                        at zener_card_col_down(1 + (1.95 * 2))
+                    image "gui/card_4.png":
+                        at zener_card_col_down(1 + (1.95 * 3))
+                    image "gui/card_5.png":
+                        at zener_card_col_down(1 + (1.95 * 4))
+
+                    image "gui/card_1.png":
+                        at zener_card_col_down(1 + (1.95 * 5))
+                    image "gui/card_2.png":
+                        at zener_card_col_down(1 + (1.95 * 6))
+                    image "gui/card_3.png":
+                        at zener_card_col_down(1 + (1.95 * 7))
+                    image "gui/card_4.png":
+                        at zener_card_col_down(1 + (1.95 * 8))
+                    image "gui/card_5.png":
+                        at zener_card_col_down(1 + (1.95 * 9))
+
+                    image "gui/card_1.png":
+                        at zener_card_col_down(1 + (1.95 * 10))
+                    image "gui/card_2.png":
+                        at zener_card_col_down(1 + (1.95 * 11))
+                    image "gui/card_3.png":
+                        at zener_card_col_down(1 + (1.95 * 12))
+                    image "gui/card_4.png":
+                        at zener_card_col_down(1 + (1.95 * 13))
+                    image "gui/card_5.png":
+                        at zener_card_col_down(1 + (1.95 * 14))
+
+                    image "gui/card_1.png":
+                        at zener_card_col_down(1 + (1.95 * 15))
+                    image "gui/card_2.png":
+                        at zener_card_col_down(1 + (1.95 * 16))
 
                     #for j in range(4):
                     #    for i, card in enumerate(reversed(cards)):

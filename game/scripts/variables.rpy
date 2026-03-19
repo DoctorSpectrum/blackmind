@@ -41,14 +41,13 @@ label variables:
 
     transform zener_card_col_down (time):
         zoom 0.3
-        ypos -230
+        ypos -345
         pause time
 
         block:
-            ypos -230
-
-            linear 69.1:
-                ypos 1175
+            ypos -345
+            linear 33.4:
+                ypos 940
 
             repeat
     
