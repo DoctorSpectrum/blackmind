@@ -590,14 +590,14 @@ screen main_menu(initialised=False):
         frame:
             background Solid("#3B3B3B")
 
-        for i in range(27):
+        for i in range(26):
             frame:
                 style_prefix "zener_rows"
                 background Solid("#D1CE21", ysize=1620, xsize=50, yanchor=0.25)
                 xoffset (i * 100) -700
                 at transform:
                     #alpha 0.3
-                    rotate 35
+                    rotate 25
 
                 if (i % 2 == 0):        #Col going up
                     vbox:
@@ -685,35 +685,35 @@ screen main_menu(initialised=False):
                     at menu_button(1.0)
             textbutton _("LOAD"):
                 style "main_menu_button"
-                xoffset -66
+                xoffset -45
                 action (ShowMenu("saves_list") if clickable_button() and timer_count >= 2.5 else NullAction())
                 hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2.5 else None)
                 if (not initialised):
                     at menu_button(1.5)
             textbutton _("SETTINGS"):
                 style "main_menu_button"
-                xoffset -132
+                xoffset -90
                 action (ShowMenu("preferences") if clickable_button() and timer_count >= 3 else NullAction())
                 hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3 else None)
                 if (not initialised):
                     at menu_button(2.0)
             textbutton _("EXTRAS"):
                 style "main_menu_button"
-                xoffset -198
+                xoffset -135
                 action (Show("modal_popup", message="This doesn't do anything right now; it's just there for working out menu button placement", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() and timer_count >= 3.5 else NullAction())
                 hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3.5 else None)
                 if (not initialised):
                     at menu_button(2.5)
             textbutton _("CREDITS"):
                 style "main_menu_button"
-                xoffset -264
+                xoffset -180
                 action (ShowMenu("about") if clickable_button() and timer_count >= 4 else NullAction())
                 hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 4 else None)
                 if (not initialised):
                     at menu_button(3.0)
             textbutton _("QUIT"):
                 style "main_menu_button"
-                xoffset -334
+                xoffset -225
                 action (Quit() if clickable_button() and timer_count >= 4.5 else NullAction())
                 hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 4.5 else None)
                 if (not initialised):
