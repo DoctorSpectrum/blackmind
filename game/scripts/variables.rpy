@@ -29,13 +29,13 @@ label variables:
 
     transform zener_card_col_up (time):
         zoom 0.3
-        ypos 1175       #Start out offscreen, at the bottom
+        ypos 960        #Start out offscreen, at the bottom
         pause time      #Pause for a while, unique time for each card
 
         block:          #Move up - we're all moving at the same rate but with the delay in pause that should create natural spacing between cards
-            ypos 1175
-            linear 53.97:
-                ypos -200
+            ypos 960
+            linear 45.9:
+                ypos -345
 
             repeat      #Reset so we're not constantly rendering new cards
 
