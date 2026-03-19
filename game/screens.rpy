@@ -499,6 +499,7 @@ style navigation_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 screen social_links:
     default links_opened = False
+    default links_hover = False
     default transform_links = False
     default social_frame = "circle_frame"
     default social_timer = False
@@ -514,22 +515,32 @@ screen social_links:
     frame:
         style_prefix "social_links"
         background Frame("gui/" + social_frame + ".png")
+        ysize 90
         if (transform_links):
             at transform:
                 alpha 1.0
-                xsize (100 if links_opened == True else 280)
-                linear 0.2 xsize (280 if links_opened == True else 100)
+                xsize (90 if links_opened == True else 280)
+                linear 0.2 xsize (280 if links_opened == True else 90)
         else:
+            xsize 90
             at trans_fade(1.0, 1.0) 
 
         if (links_opened == False):
-            imagebutton:
-                auto "gui/icons/links_%s.png"
+            #This stupid hack is because for some reason using an imagebutton has the second item in the main menu triggering a hover on the links being closed
+            textbutton _("XX"):
                 action [
                     SetScreenVariable("transform_links", True),
                     SetScreenVariable("social_frame", "oval_frame"),
                     SetScreenVariable("links_opened", True)
                 ]
+                hovered SetScreenVariable("links_hover", True)
+                unhovered SetScreenVariable("links_hover", False)
+                at transform:
+                    alpha 0.0
+                
+            image "gui/icons/links_" + ("hover" if links_hover else "idle") + ".png":
+            #imagebutton:
+                #auto "gui/icons/links_%s.png" 
                 at (trans_fade(0.0, 0.0) if transform_links == False else trans_fade(0.2, 1.0))
                 at transform:
                     alpha (1.0 if links_opened == False else 0.0)
@@ -555,6 +566,7 @@ screen social_links:
                     xoffset -10
                     action [
                         SetScreenVariable("links_opened", False),
+                        SetScreenVariable("links_hover", False),
                         SetScreenVariable("social_timer", True)
                     ]
 
