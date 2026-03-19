@@ -34,7 +34,7 @@ label variables:
 
         block:          #Move up - we're all moving at the same rate but with the delay in pause that should create natural spacing between cards
             ypos 960
-            linear 45.9:
+            linear 45.8:
                 ypos -345
 
             repeat      #Reset so we're not constantly rendering new cards
@@ -46,7 +46,7 @@ label variables:
 
         block:
             ypos -345
-            linear 33.4:
+            linear 33.1:
                 ypos 940
 
             repeat
