@@ -9,10 +9,6 @@ BLACKMIND TODO
                     the partials needed and advertise the role(s)
 
         - Prototype Actionables:
-            - Visual Changes:
-                - Add the actual pic of Jack into the main menu
-                    - Test out adjusting the zener cards to be parallel to his body
-
             - Programming Changes:
                 - Reading mind when we've got the choice menu up reduces the convo history by 1, and it's hella noticeable too, since it's displaying at the same time
                 - Add in a gallery to extras - we've got a CG in the demo! I could even do the fancy cycle thing like I've seen a few games do
