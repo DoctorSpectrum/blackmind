@@ -132,14 +132,7 @@ screen say(who, what):
                     yalign 0.5
                     hovered SetScreenVariable("hint", "mind_reread")
                     unhovered SetScreenVariable("hint", None)
-                    action [
-                        Hide("psychic_powers"),
-                        Show("conversation_history"),
-                        SetVariable("progress_convo", False),
-                        SetVariable("reading_mind", True),
-                        Function(play_sound, "mind_read.mp3", volume=0.5),
-                        Call(current_thought_block, from_current=True)
-                    ]
+                    action Call("mind_read_effects", from_current=True)
 
             if (hint == "mind_reread"):
                 frame:
@@ -148,11 +141,6 @@ screen say(who, what):
                     yoffset 58
                     xsize 120
                     ysize 25
-                    #at transform:
-                    #    rotate 3
-                    #    alpha 0.0
-                    #    linear 0.1:
-                    #        alpha 1.0
 
                     text _("Re-read Mind"):
                         color "#000"
@@ -835,6 +823,7 @@ style main_menu_version:
 
 style title_half_card:
     xsize 960
+    ysize 1080
 
 style title_half_card_right is title_half_card:
     xoffset 960

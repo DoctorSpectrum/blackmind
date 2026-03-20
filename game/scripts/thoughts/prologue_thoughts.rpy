@@ -1,6 +1,11 @@
 label mind_read_effects:
     show screen conversation_history
     hide screen psychic_powers
+
+    $ _window_hide()
+    show screen psychic_splash
+    $ renpy.pause(2.0, hard=True)
+
     $ progress_convo = False
     $ reading_mind = True
 
@@ -177,6 +182,11 @@ label mind_wipe_pause:
     #$ _history_list = []   #Potentially wipe history on a mind wipe?
     if (rewind_point not in ineffective_rewinds):
         $ _window_hide()
+        hide screen psychic_powers
+
+        show screen psychic_splash
+        $ renpy.pause(2.0, hard=True)
+
         show screen conversation_history
         $ renpy.choice_for_skipping()
         $ rewound_mind = True
@@ -192,7 +202,9 @@ label mind_wipe_pause:
         if (rewind_point in paused_ineffective_rewinds):
             $ _window_hide()
             hide screen psychic_powers
-            $ renpy.pause(2.5, hard=True)
+
+            show screen psychic_splash
+            $ renpy.pause(4.5, hard=True)
             show screen psychic_powers
 
     jump expression rewind_point

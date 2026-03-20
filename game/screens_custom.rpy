@@ -144,11 +144,37 @@ screen psychic_powers():
                     NullAction(),
                 ]
 
-style convo_progress_bar:
-    left_bar Frame("gui/bar/progress_bar_left.png", gui.vbar_borders, tile=gui.bar_tile)
-    right_bar Frame("gui/bar/progress_bar_right.png", gui.vbar_borders, tile=gui.bar_tile)
-    xmaximum 450
-    ysize 30
+screen psychic_splash():
+    timer 2.0:
+        action Hide("psychic_splash")
+
+    frame:
+        xfill True
+        yfill True
+        background Solid ("#00000066")
+
+        frame:
+            background Solid("#F2EE29")
+            style "title_half_card_right"
+            at transform:
+                yoffset -1080
+                linear 0.25:
+                    yoffset 0
+
+        image "images/menu/jack_menu.png":
+            xalign 1.0
+            yalign 1.0
+
+            at transform:
+                alpha 0.0
+                zoom 0.75
+                crop (103, 0, 1397, 1300)
+                xoffset 100
+                yoffset 1000
+
+                linear 0.25:
+                    alpha 1.0
+                    yoffset 10
 
 screen map_navigation(destinations):
     default xpos = 0
@@ -1177,6 +1203,12 @@ style history_who is label
 style history_who_text is label_text:
     bottom_padding 15
     xoffset 35
+
+style convo_progress_bar:
+    left_bar Frame("gui/bar/progress_bar_left.png", gui.vbar_borders, tile=gui.bar_tile)
+    right_bar Frame("gui/bar/progress_bar_right.png", gui.vbar_borders, tile=gui.bar_tile)
+    xmaximum 450
+    ysize 30
 
 screen cash_money(style="left_small"):
     zorder 20

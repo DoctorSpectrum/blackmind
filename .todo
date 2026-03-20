@@ -9,11 +9,14 @@ BLACKMIND TODO
                     the partials needed and advertise the role(s)
 
         - Prototype Actionables:
-            - Programming Changes:                
-                - Potential idea: on using a power, have a flash in of Jack from the menu, sort of like Ace Attorney's "Objection!" It'll make the powers feel more dramatic
-
+            - Programming Changes:
                 - Add in a gallery to extras - we've got a CG in the demo! I could even do the fancy cycle thing like I've seen a few games do
-                - NGL KINDA WANT TO MAKE A SCREEN FOR A SOUND ROOM SO THAT I CAN WRITE UP A TUTORIAL FOR ONE
+                - Let's try making a sound room, then I can write up a tutorial about it. Needs:
+                    - List of songs
+                    - Play a song
+                    - Pause
+                    - Stop
+                    - Click to jump somewhere in the song
 
                 - Add in controller support
 
