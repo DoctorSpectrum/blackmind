@@ -78,15 +78,7 @@ screen psychic_powers():
                         yalign 0.5
                         action [
                             SetLocalVariable("icon_hint", None),
-                            Show("conversation_history"),
-                            (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
-                            SetVariable("progress_convo", False),
-                            (SetVariable("reading_mind", True) if max_mind_reads == None or minds_read < max_mind_reads else NullAction()),
-                            (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
-                            (Function(play_sound, "mind_read.mp3", volume=0.5) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
-                            Function(renpy.choice_for_skipping),
-                            (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
-                            (Call(current_thought_block, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+                            (Call("mind_read_effects", from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
                         ]
                         hovered SetLocalVariable("icon_hint", "mind_read")
                         unhovered SetLocalVariable("icon_hint", None)
@@ -97,11 +89,6 @@ screen psychic_powers():
                             yalign 0.5
                             action [
                                 SetLocalVariable("icon_hint", None),
-                                Show("conversation_history"),
-                                Function(renpy.choice_for_skipping),
-                                (SetVariable("rewound_mind", True) if max_rewinds == None or minds_rewound < max_rewinds else NullAction()),
-                                (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
-                                (Function(play_sound, "mind_rewind.mp3") if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction()),
                                 (Call("mind_wipe_pause", from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
                             ]
                             hovered SetLocalVariable("icon_hint", "mind_wipe")
@@ -140,26 +127,13 @@ screen psychic_powers():
         key "K_1":
             action [
                 SetLocalVariable("icon_hint", None),
-                Show("conversation_history"),
-                (Hide("psychic_powers") if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
-                SetVariable("progress_convo", False),
-                (SetVariable("reading_mind", True) if max_mind_reads == None or minds_read < max_mind_reads else NullAction()),
-                (SetVariable("minds_read", (minds_read + 1 if minds_read < max_mind_reads else max_mind_reads)) if max_mind_reads is not None and current_thought not in thoughts_read else NullAction()),
-                (Function(play_sound, "mind_read.mp3", volume=0.5) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
-                Function(renpy.choice_for_skipping),
-                (AddToSet(thoughts_read, current_thought) if (current_thought not in thoughts_read and (max_mind_reads == None or minds_read < max_mind_reads)) else NullAction()),
-                (Call(current_thought_block, from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
-            ] 
+                (Call("mind_read_effects", from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+            ]
 
         if (check_boolean("mind_wipe_available")):
             key "K_2":
                 action [
                     SetLocalVariable("icon_hint", None),
-                    Show("conversation_history"),
-                    Function(renpy.choice_for_skipping),
-                    (SetVariable("rewound_mind", True) if max_rewinds == None or minds_rewound < max_rewinds else NullAction()),
-                    (SetVariable("minds_rewound", (minds_rewound + 1 if minds_rewound < max_rewinds else 1)) if max_rewinds is not None else NullAction()),
-                    (Function(play_sound, "mind_rewind.mp3") if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction()),
                     (Call("mind_wipe_pause", from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
                 ]
 

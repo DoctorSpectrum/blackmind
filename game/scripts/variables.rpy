@@ -399,6 +399,9 @@ label variables:
     default reading_mind = False
     default rewound_mind = False
 
+    default ineffective_rewinds = ["prologue_montage_rewind", "prologue_10"]
+    default paused_ineffective_rewinds = ["prologue_10"]
+
     default money = 12
 
     #Map
