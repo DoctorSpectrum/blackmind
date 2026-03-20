@@ -9,14 +9,13 @@ BLACKMIND TODO
                     the partials needed and advertise the role(s)
 
         - Prototype Actionables:
-            - Programming Changes:
-                - Reading mind when we've got the choice menu up reduces the convo history by 1, and it's hella noticeable too, since it's displaying at the same time
+            - Programming Changes:                
+                - Add in functionality for not triggering the effects when we do a mind read/mind-wipe - can use it for Barbara in the prologue when we're drunk, and when we try to rewind/mind read Docherty
+                - Potential idea: on using a power, have a flash in of Jack from the menu, sort of like Ace Attorney's "Objection!" It'll make the powers feel more dramatic
+
                 - Add in a gallery to extras - we've got a CG in the demo! I could even do the fancy cycle thing like I've seen a few games do
                 - NGL KINDA WANT TO MAKE A SCREEN FOR A SOUND ROOM SO THAT I CAN WRITE UP A TUTORIAL FOR ONE
 
-                - Change the convo_length functionality to use a boolean to show it or not - then I can just add one in once we switch to Lloyd. Check existing functionality with it for whether it's easier to drop the current variable and just use a boolean, or whether we should use both
-                - Potential idea: on using a power, have a flash in of Jack from the menu, sort of like Ace Attorney's "Objection!" It'll make the powers feel more dramatic
-                - Add in functionality for not triggering the effects when we do a mind read/mind-wipe - can use it for Barbara in the prologue when we're drunk, and when we try to rewind/mind read Docherty
                 - Add in controller support
 
         - Steam/marketing

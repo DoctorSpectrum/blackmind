@@ -1181,7 +1181,7 @@ screen conversation_history(initial_expanded = False, show_button = True, initia
                 else:
                     null
 
-            if (progress_convo and expanded and False):
+            if (progress_convo and expanded and check_boolean("show_convo_progress")):
                 vbox:
                     xalign 0.5
                     yalign 0.95

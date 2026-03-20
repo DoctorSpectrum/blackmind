@@ -134,7 +134,8 @@ init python:
 
     def ignore_thoughts_length(subtract=1):
         global convo_progress, progress_convo, reading_mind
-        convo_progress -= subtract
+        if (progress_convo):        #We only need to subtract it if it's been added to the length
+            convo_progress -= subtract
         progress_convo = True
         reading_mind = False
         renpy.show_screen("psychic_powers")
