@@ -13,11 +13,10 @@ BLACKMIND TODO
                 - Reading mind when we've got the choice menu up reduces the convo history by 1, and it's hella noticeable too, since it's displaying at the same time
                 - Add in a gallery to extras - we've got a CG in the demo! I could even do the fancy cycle thing like I've seen a few games do
                 - NGL KINDA WANT TO MAKE A SCREEN FOR A SOUND ROOM SO THAT I CAN WRITE UP A TUTORIAL FOR ONE
-                - Add in controller support
 
-            - Unix Feedback:
-                - The progress bar is not explained super well. Yes we can intiut it but also its rather…vague. I had it hidden for my first playthrough for the most part and only now am I paying attention to it. 
-                    - Potentially remove it as Jack, and reintroduce it as Lloyd
+                - Potential idea: on using a power, have a flash in of Jack from the menu, sort of like Ace Attorney's "Objection!" It'll make the powers feel more dramatic
+                - Add in functionality for not triggering the effects when we do a mind read/mind-wipe - can use it for Barbara in the prologue when we're drunk, and when we try to rewind/mind read Docherty
+                - Add in controller support
 
             - Serena Feedback:
                 - Keep periods within brackets when what is within the bracket constitutes a complete sentence
