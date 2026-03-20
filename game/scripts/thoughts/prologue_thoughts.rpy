@@ -21,7 +21,7 @@ label mind_read_prologue:
     elif (current_thought == "barbara_thought_pr_07"):
         bartender_thoughts "(I’d hope you think so, given its history![wait_1] Some of the stories that I could tell you about this place...)" 
         if (check_boolean("prologue_bar_history") == False):
-            jack thinking "(There we go - that’s something that I could focus on)."
+            jack thinking "(There we go - that’s something that I could focus on.)"
             $ add_boolean("prologue_bar_history")
     elif (current_thought == "barbara_thought_pr_08"):
         bartender_thoughts "(Oh god, he’s one of those guys.[wait_05] I haven’t even served him a drink and he already thinks that he’s got a chance.)" 
@@ -29,7 +29,7 @@ label mind_read_prologue:
         bartender_thoughts "(And now he’ll probably be shocked, thinking that a woman shouldn’t - or couldn’t - own a bar.)" 
         bartender_thoughts "(I wonder what he’d say if he knew about the history of the place?)" 
         if (check_boolean("prologue_bar_history") == False):
-            jack thinking "(The history of the bar?[wait_05] That might be something to talk about)."
+            jack thinking "(The history of the bar?[wait_05] That might be something to talk about.)"
             $ add_boolean("prologue_bar_history")
     elif (current_thought == "barbara_thought_pr_10"):
         bartender_thoughts "(That...[wait_05]doesn’t sound like he’s lying? That’s something, at least.)" 
@@ -94,7 +94,7 @@ label mind_read_prologue:
         bartender_thoughts "(You haven’t paid for anything so far, you idiot.)" 
     elif (current_thought == "barbara_thought_pr_36"):
         bartender_thoughts "(Maybe if there was actually some benefit to it, like some publicity.[wait_1] But as much as I’d like to, I can’t afford to just throw money away like that.)" 
-        jack thinking "(Publicity?[wait_1] Hmm...[wait_05]I think that might give me an idea)."
+        jack thinking "(Publicity?[wait_1] Hmm...[wait_05]I think that might give me an idea.)"
         $ add_boolean("prologue_drink_review")
     elif (current_thought == "barbara_thought_pr_37"):
         bartender_thoughts "(I’m willing to bet he’ll just leave the bar now. I know his type.)" 
