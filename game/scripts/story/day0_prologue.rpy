@@ -4,6 +4,7 @@ label prologue_01:
     $ renpy.music.stop()
     scene black_bg
     show cg1_docherty at cg_1_teaser
+    $ unlock_cg(0, 0)
     docherty "I apologise for this, young man, but you are in the way of my plan." (name="???")
     $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
 
@@ -467,6 +468,7 @@ label prologue_end:
     hide screen psychic_powers
     $ play_sound("gunshot.mp3", transition=white_flash)
     scene cg1_placeholder with slow_dissolve
+    $ unlock_cg(0, 1)
     jack worried "(No...[wait_05]no!)"
     jack worried "(I -[wait_05] I can't die!)"
     jack worried "(I just wanted to -[wait_05] please, somebody...[wait_05]help me...)"

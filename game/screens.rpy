@@ -49,8 +49,8 @@ style prompt_text is gui_text:
 
 style bar:
     ysize gui.bar_size
-    left_bar Frame("gui/bar/left.png", gui.bar_borders, tile=gui.bar_tile)
-    right_bar Frame("gui/bar/right.png", gui.bar_borders, tile=gui.bar_tile)
+    left_bar "gui/bar/left.png"
+    right_bar "#000"
 
 style vbar:
     xsize gui.bar_size

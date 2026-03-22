@@ -63,12 +63,21 @@ init python:
         if (value in booleans):
             booleans.remove(value)
 
-    def unlock_cg(cg_id):
-        if (cg_id not in persistent.cgs_unlocked):
-            persistent.cgs_unlocked.append(cg_id)
+    def cg_index_unlocked(index):
+        return list(filter(lambda x: x["locked"] == False, persistent.cgs[0]["images"]))
 
-    def lock_cg(cg_id):
-        persistent.cgs_unlocked.remove(cg_id)
+    def total_cgs_unlocked():
+        total = 0
+        for i in range(1):
+            total += len(cg_index_unlocked(i))
+
+        return total
+
+    def unlock_cg(cg_index, file_index):
+        persistent.cgs[cg_index]["images"][file_index]["locked"] = False
+
+    def lock_cg(cg_index, file_index):
+        persistent.cgs[cg_index]["images"][file_index]["locked"] = True
 
     # Menus
     def close_menu():
