@@ -24,7 +24,20 @@ label variables:
             }]
         }
     ]
-    default persistent.music_unlocked = []
+    default persistent.music_tracks = [
+        {
+            "file": "Blackmind Track 1 - 97 BPM (D minor)v2- LOOPABLE.wav",
+            "title": "Test",
+            "unlocked": True,
+            "length": 277.11
+        },
+        {
+            "file": "Blackmind Track 2.wav",
+            "title": "Test2",
+            "unlocked": False,
+            "length": 90
+        }
+    ]
     default persistent.game_id = 0
     default persistent.docs_link_shown = False
     default persistent.senses_attuned = False

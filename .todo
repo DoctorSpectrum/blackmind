@@ -10,12 +10,11 @@ BLACKMIND TODO
 
         - Prototype Actionables:
             - Programming Changes:
-                - Let's try making a sound room, then I can write up a tutorial about it. Needs:
-                    - List of songs
-                    - Play a song
-                    - Pause
-                    - Stop
-                    - Click to jump somewhere in the song
+                - Sound room:
+                    - Add in functionality for locking/unlocking music
+                    - Adjust icons to look a bit better
+                    - Add in playing icon to currently playing track in song list
+                    - Add in data for all the songs (as we get them)
 
                 - Add in controller support
 

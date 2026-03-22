@@ -738,7 +738,7 @@ screen main_menu(initialised=False, extras=False):
                     padding (40, 15, 40, 15)
                     text_size 54
                     xoffset -45
-                    action (ShowMenu("sound_room") if clickable_button() and timer_count >= 2.5 else NullAction())
+                    action ([ShowMenu("sound_room"), Function(renpy.music.stop)] if clickable_button() and timer_count >= 2.5 else NullAction())
                     hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2.5 else None)
                     at menu_button(0.5)
                 textbutton _("BACK"):

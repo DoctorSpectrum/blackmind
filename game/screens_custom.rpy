@@ -1481,9 +1481,113 @@ screen gallery():
 
 screen sound_room():
     tag menu
+    default show_content = False
+    default currently_playing = None
+    default adjustment_var = ui.adjustment(100, 0, 0.1, adjustable=True, changed=jump_sound)
 
-    use game_menu("SOUND\n ROOM", 81, ShowMenu("main_menu", initialised=True, extras=True)):
-        text _("This is the sound room")
+    timer 1.2:
+        action SetScreenVariable("show_content", True)
+
+    use game_menu("SOUND\n ROOM", 81, [Function(renpy.music.play, "audio/music/1-03. 《4 Minutes Before Death》.mp3"), ShowMenu("main_menu", initialised=True, extras=True)]):
+        if (show_content):
+            grid 2 5:
+                xalign 0.1
+                yalign 0.2
+                spacing 30
+                yspacing 60
+                at trans_fade(0.0, 0.5)
+
+                for i in range(10):
+                    frame:
+                        background None
+                        xsize 350
+                        ysize 20
+
+                        vbox:
+                            if len(persistent.music_tracks) >= i + 1 and persistent.music_tracks[i]["unlocked"]:
+                                textbutton _(persistent.music_tracks[i]["title"]):
+                                    xsize 350
+                                    action [
+                                        Function(renpy.music.play, "audio/music/" + persistent.music_tracks[i]["file"]),
+                                        SetField(adjustment_var, "range", persistent.music_tracks[i]["length"]),
+                                        SetField(adjustment_var, "value", 0),
+                                        SetScreenVariable("currently_playing", persistent.music_tracks[i])
+                                    ]
+                                    selected currently_playing == persistent.music_tracks[i]
+                                    hover_background Solid ("#000")
+                                    selected_background Solid ("#000")
+                                    text_hover_color "#F2EE29"
+                                    text_selected_color "#F2EE29"
+                            else:
+                                text _("???"):
+                                    line_leading 12
+
+                            image Solid("#000"):
+                                xsize 350
+                                ysize 1
+
+            if currently_playing is not None:
+                timer 0.1:
+                    repeat True
+                    action (SetField(adjustment_var, "value", adjustment_var.value + 0.1) if not renpy.music.get_pause() else NullAction())
+                frame:
+                    background None
+                    xalign 0.68
+                    yalign 0.2
+
+                    xsize 600
+                    ysize 500
+
+                    text _(currently_playing["title"]):
+                        xalign 0.5
+                        yalign 0.25
+                        color "#000"
+                        font "gui/chubhand.ttf"
+
+                    vbox:
+                        xsize 450
+                        xalign 0.5
+                        yalign 0.5
+
+                        bar:
+                            xalign 0.5
+                            yalign 0.5
+                            xsize 450
+                            base_bar "gui/bar/audio_progress.png"
+                            thumb "gui/bar/audio_thumb.png"
+
+                            adjustment adjustment_var
+                            released Function(renpy.log, adjustment_var.value)  #If this isn't present, the bar won't advance at all
+
+                        hbox:
+                            xsize 450
+                            text _(convert_to_time(renpy.music.get_pos())):
+                                xalign 0.0
+                                color "#000"
+
+                            if (renpy.music.get_duration() > 0):
+                                text _(convert_to_time(renpy.music.get_duration())):
+                                    xalign 1.0
+                                    color "#000"
+                    
+                    hbox:
+                        yalign 0.8
+                        xalign 0.5
+                        spacing 10
+                        if (not renpy.music.get_pause()):
+                            imagebutton:
+                                auto "gui/icons/pause_%s.png"
+                                action Function(renpy.music.set_pause, True)
+                        else:
+                            imagebutton:
+                                auto "gui/icons/play_%s.png"
+                                action Function(renpy.music.set_pause, False)
+                        imagebutton:
+                            auto "gui/icons/stop_%s.png"
+                            action [
+                                Function(renpy.music.stop),
+                                SetScreenVariable("currently_playing", None)
+                            ]
 
 screen any_key(action):
     key "K_RETURN":

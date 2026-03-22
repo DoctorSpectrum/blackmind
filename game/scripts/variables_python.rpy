@@ -37,6 +37,15 @@ init python:
         if (pause is not None and not preferences.get_mute("sfx") and preferences.get_mixer("sfx") > 0 and not renpy.is_skipping()):
             renpy.pause(pause, hard=True)
 
+    def jump_sound(value):
+        currently_playing = renpy.get_screen_variable("currently_playing", "sound_room")
+        renpy.music.play("<from " + (str(value)) + ">audio/music/" + currently_playing["file"], loop=False)
+
+    def convert_to_time(value):
+        if (value == None):
+            return ""
+        return '{0:02.0f}:{1:02.0f}'.format(*divmod(value, 60))
+
     def queue_sound(effect_name, loop=False):
         if (renpy.is_skipping() == False):
             renpy.sound.queue("audio/sfx/" + effect_name, loop=loop)
