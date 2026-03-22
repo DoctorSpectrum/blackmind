@@ -14,6 +14,7 @@ label variables:
     #Persistent variables
     default persistent.game_launched = False
     default persistent.cgs_unlocked = []
+    default persistent.music_unlocked = []
     default persistent.game_id = 0
     default persistent.docs_link_shown = False
     default persistent.senses_attuned = False
@@ -404,7 +405,7 @@ label variables:
 
     default money = 12
 
-    #Map
+    # Global(ish) variables
     default destinations = [
         {
             "id": 1,
@@ -447,6 +448,16 @@ label variables:
             "label": "New Age Shop",
             "xcoord": 500,
             "ycoord": 300
+        }
+    ]
+
+    default cgs = [
+        {
+            "id": 1,
+            "cgs": [
+                "cg1_docherty.png",
+                "cg1_placeholder.png"
+            ]
         }
     ]
 

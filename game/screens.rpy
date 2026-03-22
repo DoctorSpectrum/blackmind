@@ -558,11 +558,13 @@ screen social_links:
                         SetScreenVariable("social_timer", True)
                     ]
 
-screen main_menu(initialised=False):
+screen main_menu(initialised=False, extras=False):
     default confirmed = initialised == True
     default confirmable = False
     default cards = [1, 2, 3, 4, 5]     #doing a loop of for k in range(1, 5) has issues being unintialised when we return from menus, for some reason
     default timer_count = 0
+    default display_extras = extras
+    default extras_returned = False
 
     ## This ensures that any other menu screen is replaced.
     tag menu
@@ -680,50 +682,72 @@ screen main_menu(initialised=False):
 
         vbox:
             xalign 0.9
-            yalign 0.85
+            yalign (0.85 if not display_extras else 0.6)
             spacing 10
 
-            textbutton _("START"):
-                style "main_menu_button"
-                action ((ShowMenu("preferences", start=True) if persistent.game_launched == False else Start()) if clickable_button() and timer_count >= 2 else NullAction())
-                hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2 else None)
-                if (not initialised):
+            if (display_extras == False):
+                textbutton _("START"):
+                    style "main_menu_button"
+                    action ((ShowMenu("preferences", start=True) if persistent.game_launched == False else Start()) if clickable_button() and timer_count >= 2 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2 else None)
+                    if (not initialised or extras_returned):
+                        at menu_button(1.0 if not extras_returned else 0.0)
+                textbutton _("LOAD"):
+                    style "main_menu_button"
+                    xoffset -45
+                    action (ShowMenu("saves_list") if clickable_button() and timer_count >= 2.5 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2.5 else None)
+                    if (not initialised or extras_returned):
+                        at menu_button(1.5 if not extras_returned else 0.5)
+                textbutton _("SETTINGS"):
+                    style "main_menu_button"
+                    xoffset -90
+                    action (ShowMenu("preferences") if clickable_button() and timer_count >= 3 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3 else None)
+                    if (not initialised or extras_returned):
+                        at menu_button(2.0 if not extras_returned else 1.0)
+                textbutton _("EXTRAS"):
+                    style "main_menu_button"
+                    xoffset -135
+                    action (SetScreenVariable("display_extras", True) if clickable_button() and timer_count >= 3.5 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3.5 else None)
+                    if (not initialised or extras_returned):
+                        at menu_button(2.5 if not extras_returned else 1.5)
+                textbutton _("CREDITS"):
+                    style "main_menu_button"
+                    xoffset -180
+                    action (ShowMenu("about") if clickable_button() and timer_count >= 4 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 4 else None)
+                    if (not initialised or extras_returned):
+                        at menu_button(3.0 if not extras_returned else 2.0)
+                textbutton _("QUIT"):
+                    style "main_menu_button"
+                    xoffset -225
+                    action (Quit() if clickable_button() and timer_count >= 4.5 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 4.5 else None)
+                    if (not initialised or extras_returned):
+                        at menu_button(3.5 if not extras_returned else 2.5)
+            else:
+                textbutton _("GALLERY"):
+                    style "main_menu_button"
+                    action (ShowMenu("gallery") if clickable_button() and timer_count >= 2 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2 else None)
+                    at menu_button(0)
+                textbutton _("SOUND ROOM"):
+                    style "main_menu_button"
+                    padding (40, 15, 40, 15)
+                    text_size 54
+                    xoffset -45
+                    action (ShowMenu("sound_room") if clickable_button() and timer_count >= 2.5 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2.5 else None)
+                    at menu_button(0.5)
+                textbutton _("BACK"):
+                    style "main_menu_button"
+                    xoffset -90
+                    selected False
+                    action ([SetScreenVariable("display_extras", False), SetScreenVariable("extras_returned", True)] if clickable_button() and timer_count >= 3 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3 else None)
                     at menu_button(1.0)
-            textbutton _("LOAD"):
-                style "main_menu_button"
-                xoffset -45
-                action (ShowMenu("saves_list") if clickable_button() and timer_count >= 2.5 else NullAction())
-                hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2.5 else None)
-                if (not initialised):
-                    at menu_button(1.5)
-            textbutton _("SETTINGS"):
-                style "main_menu_button"
-                xoffset -90
-                action (ShowMenu("preferences") if clickable_button() and timer_count >= 3 else NullAction())
-                hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3 else None)
-                if (not initialised):
-                    at menu_button(2.0)
-            textbutton _("EXTRAS"):
-                style "main_menu_button"
-                xoffset -135
-                action (Show("modal_popup", message="This doesn't do anything right now; it's just there for working out menu button placement", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() and timer_count >= 3.5 else NullAction())
-                hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3.5 else None)
-                if (not initialised):
-                    at menu_button(2.5)
-            textbutton _("CREDITS"):
-                style "main_menu_button"
-                xoffset -180
-                action (ShowMenu("about") if clickable_button() and timer_count >= 4 else NullAction())
-                hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 4 else None)
-                if (not initialised):
-                    at menu_button(3.0)
-            textbutton _("QUIT"):
-                style "main_menu_button"
-                xoffset -225
-                action (Quit() if clickable_button() and timer_count >= 4.5 else NullAction())
-                hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 4.5 else None)
-                if (not initialised):
-                    at menu_button(3.5)
     else:
         use any_key(SetScreenVariable("confirmed", True) if confirmable else NullAction())
 

@@ -1347,6 +1347,19 @@ screen attune_senses():
     key "mouseup_3":
         action NullAction()
 
+screen gallery():
+    tag menu
+
+    use game_menu("GALLERY", 80, ShowMenu("main_menu", initialised=True, extras=True)):
+        text _("this is the gallery")
+
+
+screen sound_room():
+    tag menu
+
+    use game_menu("SOUND\n ROOM", 81, ShowMenu("main_menu", initialised=True, extras=True)):
+        text _("This is the sound room")
+
 screen any_key(action):
     key "K_RETURN":
         action action
