@@ -2,31 +2,30 @@ BLACKMIND TODO
     - Demo Phase
         - Delivery Date: 31/08/2026
 
-        - Other deliverables:
+        - Steam page/announcement actionables:
             - Voice acting
-                - Get partials for now
-                - After doing the below actionables, check how the script's looking. If there's no more changes, read through it all again one more time, then work out
-                    the partials needed and advertise the role(s)
+                - Work out a list of partials
+                - Post ad
+            - Steam page
+                - Pay $100 USD
+                - Page content
+                    - "Hooks: focus on the experience, not the mechanics". "Read the minds of people around you to stop a serial killer" should meet this criteria.
+                    - Maybe take a squiz at VA-11 HALL-A to see how it's structured its page content, use that as a template?
+                - Waiting on:
+                    - Screenshots
+                        - Backgrounds
+                        - Sprites
+                    - Trailer
+                        - Storyboard
+                        - Script
+                        - Voice acting
 
-        - Prototype Actionables:
+        - Demo Actionables:
             - Programming Changes:
-                - Sound room:
-                    - Add in functionality for locking/unlocking music
-                    - Adjust icons to look a bit better
-                    - Add in playing icon to currently playing track in song list
-                    - Add in data for all the songs (as we get them)
-
                 - Add in controller support
+            - Voice Acting:
+                - Add in partials, post-recording
+            - Send off to the gang once we've done all of the above, before setting it live
 
-        - Steam/marketing
-            - Get a Steam page up, then do an announcement with a link to the page. 
-                - Assets required:
-                    - Steam page - all the content and stuff in there
-                    - Backgrounds so I can do screenshots - deffo need to chase up background guy on this. Ideally I'd like two so that I can show that the whole thing doesn't take place in one bar
-                    - At least two or three sprites
-                - Sounds like the trailer and demo can come later, although I'd like to proceed with getting VAs sooner rather than later - even if I don't need them for the Steam page, I will need them for the demo,
-                    which has a deadline of August. Fucking wish I'd set an earlier deadline for the other assets now with the knowledge of "this will be part of the Steam page"
-            - Store page
-                - "Hooks: focus on the experience, not the mechanics" - I think that "Read the minds of people around you to stop a serial killer" meets this criteria but think about it a little before going into it too much
-            - After this has been launched on Steam (i.e. the completion of this phase), contact streamers and ask them to play the demo - if even only five or six reply, that's still eyes on the project
-                - lmao if I go into this anything like I have for the AN anniversary it'll be more than five or six
+            - Marketing:
+                - Contact streamers after the demo is up, see if they'll play it

@@ -26,16 +26,32 @@ label variables:
     ]
     default persistent.music_tracks = [
         {
+            "file": "1-03. 《4 Minutes Before Death》.mp3",
+            "title": "Main Menu",
+            "handle": "main_menu",
+            "unlocked": True,
+            "length": 125
+        },
+        {
             "file": "Blackmind Track 1 - 97 BPM (D minor)v2- LOOPABLE.wav",
             "title": "Test",
-            "unlocked": True,
-            "length": 277.11
+            "handle": "neutral_1",
+            "unlocked": False,
+            "length": 277
         },
         {
             "file": "Blackmind Track 2.wav",
             "title": "Test2",
+            "handle": "tense_1",
             "unlocked": False,
             "length": 90
+        },
+        {
+            "file": "Blackmind Track 3 - 140 BPM (C minor) - LOOPABLE.wav",
+            "title": "Test3",
+            "handle": "ambient_1",
+            "unlocked": False,
+            "length": 137
         }
     ]
     default persistent.game_id = 0

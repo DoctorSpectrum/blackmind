@@ -23,11 +23,14 @@ init python:
             #renpy.music.play("audio/music/08 警戒 -keikAI-.mp3", loop=True)
             renpy.music.play("audio/music/Blackmind Track 2.wav", loop=True)
         elif (song_title == "ambient_1"):
-            renpy.music.play("audio/music/1-01. Prelude - The “Night” Begins.mp3", loop=True)
+            #renpy.music.play("audio/music/1-01. Prelude - The “Night” Begins.mp3", loop=True)
+            renpy.music.play("audio/music/Blackmind Track 3 - 140 BPM (C minor) - LOOPABLE.wav", loop=True)
         elif (song_title == "neutral_2"):
             renpy.music.play("audio/music/1-13. Madam - Perfumed Lady.mp3", loop=True)
         elif (song_title == "tense_2"):
             renpy.music.play("audio/music/31 PSYNCIN' IN THE VILLaiN.mp3", loop=True)
+        
+        unlock_music(song_title)
 
     def play_sound(effect_name, loop=False, volume=1.0, from_time="", pause=None, transition=None):
         if (renpy.is_skipping() == False):
@@ -36,6 +39,16 @@ init python:
             renpy.with_statement(transition)
         if (pause is not None and not preferences.get_mute("sfx") and preferences.get_mixer("sfx") > 0 and not renpy.is_skipping()):
             renpy.pause(pause, hard=True)
+
+    def unlock_music(handle):
+        tracks = list(filter(lambda x: x["handle"] == handle, persistent.music_tracks))
+        if (len(tracks) > 0):
+            tracks[0]["unlocked"] = True
+
+    def lock_music(handle):
+        tracks = list(filter(lambda x: x["handle"] == handle, persistent.music_tracks))
+        if (len(tracks) > 0):
+            tracks[0]["unlocked"] = False
 
     def jump_sound(value):
         currently_playing = renpy.get_screen_variable("currently_playing", "sound_room")
@@ -73,7 +86,7 @@ init python:
             booleans.remove(value)
 
     def cg_index_unlocked(index):
-        return list(filter(lambda x: x["locked"] == False, persistent.cgs[0]["images"]))
+        return list(filter(lambda x: x["locked"] == False, persistent.cgs[index]["images"]))
 
     def total_cgs_unlocked():
         total = 0
