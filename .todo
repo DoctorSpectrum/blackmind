@@ -22,6 +22,8 @@ BLACKMIND TODO
 
         - Demo Actionables:
             - Programming Changes:
+                - Songs that aren't unlocked in the sound room still need a line below them
+                - What if we added in a red pulsing filter to the background after Jack's precognition has him thinking that he's been shot?
                 - Add in controller support
             - Voice Acting:
                 - Add in partials, post-recording

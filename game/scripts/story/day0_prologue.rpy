@@ -376,7 +376,7 @@ label prologue_11:
 
 label prologue_music_venue:
     $ scene_setup(33, "Monday", True, 2, 2, True, True)
-    $ play_music("neutral_2")
+    $ play_music("neutral_1")
     $ location = "music_venue"
     scene black_bg with slow_dissolve
     jack smug "(Right...[wait_05]I - I know what I’ve gotta do.)"
@@ -395,7 +395,7 @@ label prologue_music_venue:
 
 label prologue_restaurant:
     $ scene_setup(33, "Monday", True, 2, 2, True, True)
-    $ play_music("neutral_2")
+    $ play_music("neutral_1")
     scene black_bg with slow_dissolve
     $ location = "restaurant"
     jack worried "(I feel kind of dizzy, and - and the street is moving too much, but it’s not that far from here.)"
