@@ -4,7 +4,7 @@ BLACKMIND TODO
 
         - Steam page/announcement actionables:
             - Voice acting
-                - Work out a list of partials
+                - Set up form
                 - Post ad
             - Steam page
                 - Pay $100 USD
@@ -24,7 +24,7 @@ BLACKMIND TODO
             - Programming Changes:
                 - Songs that aren't unlocked in the sound room still need a line below them
                 - What if we added in a red pulsing filter to the background after Jack's precognition has him thinking that he's been shot?
-                - Add in controller support
+                - Add in controller support (post-content - no need to potentially delay the Steam page by focusing on programming first)
             - Voice Acting:
                 - Add in partials, post-recording
             - Send off to the gang once we've done all of the above - including implementing backgrounds and sprites - before setting it live
