@@ -3,9 +3,10 @@ BLACKMIND TODO
         - Delivery Date: 31/08/2026
 
         - Steam page/announcement actionables:
-            - Steam page
+            - Steam page ("Store Presence")
                 - Page content
-                    - "Hooks: focus on the experience, not the mechanics". "Read the minds of people around you to stop a serial killer" should meet this criteria.
+                    - Finish off the checklist stuff that I can do (app/shortcut icon, cloud file quota/limit)
+                    - Create the assets for the demo (description, graphical assets)
                 - Waiting on:
                     - Screenshots
                         - Backgrounds
@@ -20,8 +21,12 @@ BLACKMIND TODO
                 - Songs that aren't unlocked in the sound room still need a line below them
                 - What if we added in a red pulsing filter to the background after Jack's precognition has him thinking that he's been shot?
                 - Add in controller support (post-content - no need to potentially delay the Steam page by focusing on programming first)
-            - Voice Acting:
-                - Add in partials, post-recording
+            - Assets:
+                - Voice Acting:
+                    - Add in partials, post-recording
+                    - Add in functionality for selecting a random partial when doing a mind read/rewind
+                - Trailer:
+                    - Need a trailer for the demo. Need to start storyboarding this.
             - Send off to the gang once we've done all of the above - including implementing backgrounds and sprites - before setting it live
 
             - Marketing:
