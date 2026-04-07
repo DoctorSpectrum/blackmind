@@ -288,6 +288,14 @@ label variables:
             linear 0.5:
                 zoom 0.1
 
+    transform pulse:
+        alpha 0.0
+        linear 2.0:
+            alpha 1.0
+        linear 2.0:
+            alpha 0.0
+        repeat
+
     define quick_dissolve = Dissolve(0.5)
     define slow_dissolve = Dissolve(2.0)
 
@@ -415,6 +423,11 @@ label variables:
     image street_greyscale:
         "images/backgrounds/street.png"
         greyscale
+
+    image red_pulse:
+        Solid("#cc0000")
+        pulse
+        
 
     #Other images
     image rewind = Image("gui/icons/mind_wipe_icon_idle.png", tag="rewind")

@@ -16,11 +16,8 @@ BLACKMIND TODO
         - Demo Actionables:
             - Programming Changes:
                 - Songs that aren't unlocked in the sound room still need a line below them
-                - What if we added in a red pulsing filter to the background after Jack's precognition has him thinking that he's been shot?
+                    - Check this on laptop and whether it's still an issue there - seems fine on the desktop?
                 - Add in controller support (post-content - no need to potentially delay the Steam page by focusing on programming first)
-            - Store assets:
-                - App icon, shortcut icon
-                - Store content
             - Assets:
                 - Voice Acting:
                     - Add in partials, post-recording

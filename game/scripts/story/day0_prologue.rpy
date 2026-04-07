@@ -422,6 +422,7 @@ label prologue_precognition:
     return
 
 label prologue_end:
+    show red_pulse
     jack worried "(My -[wait_05] my stomach, I -[wait_05] what’s happened?!)"
     jack worried "(It feels so -[wait_05] so sharp, and, and -[wait_05] god, breathing is -[wait_05] I -[wait_05] I can feel it with every breath.)"
     jack worried "(I -[wait_05] I -[wait_05] oh god, I -[wait_05] I’m dying!)"
