@@ -15,9 +15,9 @@ BLACKMIND TODO
 
         - Demo Actionables:
             - Programming Changes:
-                - Songs that aren't unlocked in the sound room still need a line below them
-                    - Check this on laptop and whether it's still an issue there - seems fine on the desktop?
-                - Add in controller support (post-content - no need to potentially delay the Steam page by focusing on programming first)
+                - Stop skipping when we do a mind read/mind wipe
+                - Add in a "Pls wishlist on Steam" screen once the demo's over + socials
+                - Add in controller support
             - Assets:
                 - Voice Acting:
                     - Add in partials, post-recording
@@ -27,6 +27,8 @@ BLACKMIND TODO
                     - Script
                     - Voice Acting (?)
             - Send off to the gang once we've done all of the above - including implementing backgrounds and sprites - before setting it live
+                - Question: What do people think of psychic_splash? Too annoying? Potential for displaying it the first time you use that power in a scene?
+                - Question: thoughts on wiping the conversation history on doing a mind rewind?
 
             - Marketing:
                 - Contact streamers after the demo is up, see if they'll play it
