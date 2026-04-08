@@ -1622,6 +1622,74 @@ screen sound_room():
                     text_font "gui/chubhand.ttf"
                     text_hover_underline True
 
+screen cta():
+    
+    frame:
+        style_prefix "cta"
+        background Solid("#F2EE29")
+
+        text _("THANK YOU FOR PLAYING THE DEMO"):
+            xalign 0.5
+            yalign 0.1
+            xmaximum 1400
+            text_align 0.5
+            font "gui/Decade__.ttf"
+            size 96
+
+        hbox:
+            xalign 0.5
+            yalign 0.5
+            spacing 100
+
+            vbox:
+                imagebutton:
+                    auto "gui/icons/discord_cta_%s.png"
+                    action OpenURL("https://discord.gg/HYkSGNa5MZ")
+                textbutton _("Join the Discord!"):
+                    style "block_cta"
+                    action OpenURL("https://discord.gg/HYkSGNa5MZ")
+
+            vbox:
+                imagebutton:
+                    auto "gui/icons/steam_%s.png"
+                    action OpenURL("https://store.steampowered.com")
+                textbutton _("Wishlist on Steam!"):
+                    style "block_cta"
+                    action OpenURL("https://store.steampowered.com")
+
+            vbox:
+                imagebutton:
+                    auto "gui/icons/bluesky_cta_%s.png"
+                    action OpenURL("https://bsky.app/profile/toomanyteeth.net")
+                textbutton _("Follow on Bluesky!"):
+                    style "block_cta"
+                    action OpenURL("https://bsky.app/profile/toomanyteeth.net")
+
+        hbox:
+            xalign 0.5
+            yalign 0.8
+            spacing 250
+
+            textbutton _("Main Menu"):
+                action MainMenu(False)
+
+            textbutton _("Quit"):
+                action Quit(None)
+
+style cta_text:
+    color "#000"
+style cta_image_button:
+    xalign 0.5
+style cta_button_text:
+    color "#000"
+    font "gui/chubhand.ttf"
+    size 58
+    hover_color "#F2EE29"
+    outlines [ (4, "#F2EE29", 0, 0) ]
+    hover_outlines [ (4, "#000", 0, 0) ]
+style block_cta:
+    font gui.preference("font")
+
 screen any_key(action):
     key "K_RETURN":
         action action

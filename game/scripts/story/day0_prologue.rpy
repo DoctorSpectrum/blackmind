@@ -431,6 +431,7 @@ label prologue_end:
     jack worried "{size=-8}(I -[wait_05] I don’t want to die...[wait_05]why isn’t anybody helping me?){/size}"
     jack worried "{size=-8}(Nobody cares about me...[wait_05]nobody wants me...){/size}"
     jack worried "...[wait_05] ..."
+    hide red_pulse
     jack thinking "(No...[wait_05]it’s -[wait_05] whatever’s happened, it’s -[wait_05] it hasn’t happened yet.)"
     jack thinking "(It’s my -[wait_05] it’s my precog-[wait_05] precog-[wait_05] my future sight.)"
     jack thinking "(I -[wait_05] if I go in that building then it’ll...[wait_05]it’ll happen and I’ll...[wait_05]the vision will come true.)"
@@ -475,4 +476,4 @@ label prologue_end:
     jack worried "(I just wanted to -[wait_05] please, somebody...[wait_05]help me...)"
     scene black_bg with slow_dissolve
 
-    $ MainMenu(confirm=False)()
+    call screen cta with slow_dissolve

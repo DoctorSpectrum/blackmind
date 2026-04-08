@@ -15,8 +15,10 @@ BLACKMIND TODO
 
         - Demo Actionables:
             - Programming Changes:
-                - Stop skipping when we do a mind read/mind wipe
                 - Add in a "Pls wishlist on Steam" screen once the demo's over + socials
+                    - Get Bluesky and Discord icons at the right size (200 x 200)
+                    - Get everything in the right size in the frames
+                    - Add in hover_item functionality (+ an underline to the text)
                 - Add in controller support
             - Assets:
                 - Voice Acting:

@@ -1,25 +1,3 @@
-label mind_read_effects:
-    show screen conversation_history
-    hide screen psychic_powers
-
-    $ _window_hide()
-    show screen psychic_splash
-    $ renpy.pause(2.0, hard=True)
-
-    $ progress_convo = False
-    $ reading_mind = True
-
-    if (current_thought not in thoughts_read):
-        $ thoughts_read.append(current_thought)
-        if (max_mind_reads is not None):
-            $ minds_read += 1
-    
-    $ play_sound("mind_read.mp3", volume=0.5)
-    $ renpy.choice_for_skipping()
-    show ring at ring_mind_read_expand(-25, 200)
-
-    jump expression current_thought_block    
-
 label mind_read_prologue:
     if (current_thought == "barbara_thought_pr_01"):
         bartender_thoughts "(He sure is taking his time deciding...[wait_1] I’m happy to give him whatever he wants, he just has to order it.)" 
@@ -177,34 +155,3 @@ label prologue_docherty_wipe:
     jack worried "(He...[wait_05]I don't think that did anything to him?)"
     $ ignore_thoughts_length()
     return
-
-label mind_wipe_pause:
-    #$ _history_list = []   #Potentially wipe history on a mind wipe?
-    if (rewind_point not in ineffective_rewinds):
-        $ _window_hide()
-        hide screen psychic_powers
-
-        show screen psychic_splash
-        $ renpy.pause(2.0, hard=True)
-
-        show screen conversation_history
-        $ renpy.choice_for_skipping()
-        $ rewound_mind = True
-        if (max_rewinds is not None):
-            $ minds_rewound += 1
-        $ play_sound("mind_rewind.mp3")
-        $ narrator.add_history(kind="adv", who=None, what=_("__breakpoint__"))
-        show ring at ring_mind_rewind_pause(-25, 200)
-        $ renpy.pause(2.5, hard=True)
-        hide ring
-        $ rewound_mind = False
-    else:
-        if (rewind_point in paused_ineffective_rewinds):
-            $ _window_hide()
-            hide screen psychic_powers
-
-            show screen psychic_splash
-            $ renpy.pause(4.5, hard=True)
-            show screen psychic_powers
-
-    jump expression rewind_point
