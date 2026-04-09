@@ -1880,3 +1880,37 @@ screen any_key(action):
         action action
     key "K_EQUALS":
         action action
+
+    key "pad_leftshoulder_press":
+        action action
+    key "pad_lefttrigger_pos":
+        action action
+    key "pad_rightshoulder_press":
+        action action
+    key "pad_righttrigger_pos":
+        action action
+
+    key "pad_y_press":
+        action action
+    key "pad_x_press":
+        action action
+    key "pad_a_press":
+        action action 
+    key "pad_b_press":
+        action action   
+
+    key "pad_dpleft_press":
+        action action
+    key "pad_dpright_press":
+        action action
+    key "pad_dpup_press":
+        action action
+    key "pad_dpdown_press":
+        action action
+
+    key "pad_guide_press":
+        action action
+    key "pad_start_press":
+        action action
+    key "pad_back_press":
+        action action

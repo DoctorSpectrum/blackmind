@@ -16,7 +16,6 @@ BLACKMIND TODO
         - Demo Actionables:
             - Programming Changes:
                 - Add in controller support
-                    - Control main menu using controller
                     - Use d-pad to control powers
                     - Disable rollback
                     - Control pause menu
