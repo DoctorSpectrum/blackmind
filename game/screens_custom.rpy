@@ -1069,7 +1069,6 @@ screen calendar(day, section, sections=4):
                         image Solid("#F2EE29")
 
 screen conversation_history(initial_expanded = False, show_button = True, initial_opened=False):
-    zorder 20
     default expanded = initial_expanded
     default opened = initial_opened
 

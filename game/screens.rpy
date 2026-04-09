@@ -154,7 +154,7 @@ screen say(who, what):
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
 
-    key "mousedown_4":
+    key ["mousedown_4", "anyrepeat_K_PAGEUP", "anyrepeat_KP_PAGEUP", "pad_leftshoulder_press", "pad_lefttrigger_pos", "pad_back_press", "repeat_pad_leftshoulder_press", "repeat_pad_lefttrigger_pos", "repeat_pad_back_press"]:
         if (config.developer):
             action Rollback()
         elif (renpy.get_widget("conversation_history", "history_viewport")):
@@ -162,33 +162,9 @@ screen say(who, what):
         else:
             action NullAction()
 
-    key "mousedown_5":
+    key ["mousedown_5", "anyrepeat_K_PAGEDOWN", "anyrepeat_KP_PAGEDOWN", "pad_rightshoulder_press", "repeat_pad_rightshoulder_press"]:
         if (renpy.get_widget("conversation_history", "history_viewport")):
             action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value + 30))
-        else:
-            action NullAction()
-    
-    key "anyrepeat_K_PAGEDOWN":
-        if (renpy.get_widget("conversation_history", "history_viewport")):
-            action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value + 30))
-        else:
-            action NullAction()
-
-    key "anyrepeat_KP_PAGEDOWN":
-        if (renpy.get_widget("conversation_history", "history_viewport")):
-            action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value + 30))
-        else:
-            action NullAction()
-
-    key "anyrepeat_K_PAGEUP":
-        if (renpy.get_widget("conversation_history", "history_viewport")):
-            action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value - 30))
-        else:
-            action NullAction()
-            
-    key "anyrepeat_KP_PAGEUP":
-        if (renpy.get_widget("conversation_history", "history_viewport")):
-            action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value - 30))
         else:
             action NullAction()
 
@@ -288,6 +264,7 @@ style input:
 
 screen choice(items, screens=["conversation_history"]):
     style_prefix "choice"
+    zorder -1
 
     frame:
         xfill True
