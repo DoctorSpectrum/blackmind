@@ -1623,61 +1623,89 @@ screen sound_room():
                     text_hover_underline True
 
 screen cta():
+    default hover_item = None
     
     frame:
         style_prefix "cta"
         background Solid("#F2EE29")
 
-        text _("THANK YOU FOR PLAYING THE DEMO"):
-            xalign 0.5
-            yalign 0.1
-            xmaximum 1400
-            text_align 0.5
-            font "gui/Decade__.ttf"
-            size 96
+        vbox:
+            ysize 1080
+            xfill True
+            spacing 120
 
-        hbox:
-            xalign 0.5
-            yalign 0.5
-            spacing 100
+            text _("THANK YOU FOR PLAYING THE DEMO"):
+                xalign 0.5
+                yoffset 100
+                xmaximum 1400
+                text_align 0.5
+                font "gui/Decade__.ttf"
+                size 96
+                at trans_fade(0.0, 0.75), fade_side_to_side(-150, 0)
 
-            vbox:
-                imagebutton:
-                    auto "gui/icons/discord_cta_%s.png"
-                    action OpenURL("https://discord.gg/HYkSGNa5MZ")
-                textbutton _("Join the Discord!"):
-                    style "block_cta"
-                    action OpenURL("https://discord.gg/HYkSGNa5MZ")
+            hbox:
+                xalign 0.5
+                spacing 100
+                at trans_fade(0.75, 0.75), fade_side_to_side(150, 0.75)
 
-            vbox:
-                imagebutton:
-                    auto "gui/icons/steam_%s.png"
-                    action OpenURL("https://store.steampowered.com")
-                textbutton _("Wishlist on Steam!"):
-                    style "block_cta"
-                    action OpenURL("https://store.steampowered.com")
+                vbox:
+                    imagebutton:
+                        idle "gui/icons/discord_cta" + ("_idle.png" if hover_item != "discord" else "_hover.png") 
+                        hover "gui/icons/discord_cta_hover.png"
+                        action OpenURL("https://discord.gg/HYkSGNa5MZ")
+                        hovered SetScreenVariable("hover_item", "discord")
+                        unhovered SetScreenVariable("hover_item", None)
+                    textbutton _("Join the Discord!"):
+                        style "block_cta"
+                        action OpenURL("https://discord.gg/HYkSGNa5MZ")
+                        hovered SetScreenVariable("hover_item", "discord")
+                        unhovered SetScreenVariable("hover_item", None)
+                        text_underline hover_item == "discord"
 
-            vbox:
-                imagebutton:
-                    auto "gui/icons/bluesky_cta_%s.png"
-                    action OpenURL("https://bsky.app/profile/toomanyteeth.net")
-                textbutton _("Follow on Bluesky!"):
-                    style "block_cta"
-                    action OpenURL("https://bsky.app/profile/toomanyteeth.net")
+                vbox:
+                    imagebutton:
+                        idle "gui/icons/steam" + ("_idle.png" if hover_item != "steam" else "_hover.png") 
+                        hover "gui/icons/steam_hover.png"
+                        action OpenURL("https://store.steampowered.com")
+                        hovered SetScreenVariable("hover_item", "steam")
+                        unhovered SetScreenVariable("hover_item", None)
+                    textbutton _("Wishlist on Steam!"):
+                        style "block_cta"
+                        action OpenURL("https://store.steampowered.com")
+                        hovered SetScreenVariable("hover_item", "steam")
+                        unhovered SetScreenVariable("hover_item", None)
+                        text_underline hover_item == "steam"
 
-        hbox:
-            xalign 0.5
-            yalign 0.8
-            spacing 250
+                vbox:
+                    imagebutton:
+                        idle "gui/icons/bluesky_cta" + ("_idle.png" if hover_item != "bluesky" else "_hover.png") 
+                        hover "gui/icons/bluesky_cta_hover.png"
+                        action OpenURL("https://bsky.app/profile/toomanyteeth.net")
+                        hovered SetScreenVariable("hover_item", "bluesky")
+                        unhovered SetScreenVariable("hover_item", None)
+                    textbutton _("Follow on Bluesky!"):
+                        style "block_cta"
+                        action OpenURL("https://bsky.app/profile/toomanyteeth.net")
+                        hovered SetScreenVariable("hover_item", "bluesky")
+                        unhovered SetScreenVariable("hover_item", None)
+                        text_underline hover_item == "bluesky"
 
-            textbutton _("Main Menu"):
-                action MainMenu(False)
+            hbox:
+                xalign 0.5
+                yoffset -80
+                spacing 250
+                at trans_fade(1.5, 0.75), fade_side_to_side(-150, 1.5)
 
-            textbutton _("Quit"):
-                action Quit(None)
+                textbutton _("Main Menu"):
+                    action MainMenu(False)
+
+                textbutton _("Quit"):
+                    action Quit(None)
 
 style cta_text:
     color "#000"
+style cta_vbox:
+    spacing 25
 style cta_image_button:
     xalign 0.5
 style cta_button_text:
