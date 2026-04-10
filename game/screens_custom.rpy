@@ -1353,116 +1353,132 @@ screen gallery():
     default viewing_index = 0
     default show_content = False
 
-    timer 1.2:
-        action SetScreenVariable("show_content", True)
+    if (not show_content):
+        timer 1.2:
+            action SetScreenVariable("show_content", True)
 
-    use game_menu("GALLERY", 80, ShowMenu("main_menu", initialised=True, extras=True)):
-        if (viewing_cg is not None and show_content):
-            image ("images/cgs/" + cg_index_unlocked(viewing_cg)[viewing_index]["file"]):
-                at transform:
-                    on show:
-                        alpha 0.0
-                        linear 0.25 alpha 1.0
-                    on hide:
-                        alpha 1.0
-                        linear 0.25 alpha 0.0
-                xsize 1920
-                ysize 1080
+    if (viewing_cg is not None and show_content):
+        image ("images/cgs/" + cg_index_unlocked(viewing_cg)[viewing_index]["file"]):
+            at transform:
+                alpha 0.0
+                linear 0.25 alpha 1.0
+            xsize 1920
+            ysize 1080
 
-            if (viewing_index > 0 and cg_index_unlocked(viewing_cg)[viewing_index - 1]["locked"] == False):
-                imagebutton:
-                    auto "gui/nav_arrow_%s_left.png"
-                    action SetScreenVariable("viewing_index", viewing_index - 1)
-                    xalign 0.0
-            if (len(cg_index_unlocked(viewing_cg)) > viewing_index + 1 and cg_index_unlocked(viewing_cg)[viewing_index + 1]["locked"] == False):
-                imagebutton:
-                    auto "gui/nav_arrow_%s_right.png"
-                    action SetScreenVariable("viewing_index", viewing_index + 1)
-                    xalign 1.0
+        if (viewing_index > 0 and cg_index_unlocked(viewing_cg)[viewing_index - 1]["locked"] == False):
+            imagebutton:
+                auto "gui/nav_arrow_%s_left.png"
+                action SetScreenVariable("viewing_index", viewing_index - 1)
+                xalign 0.0
+        if (len(cg_index_unlocked(viewing_cg)) > viewing_index + 1 and cg_index_unlocked(viewing_cg)[viewing_index + 1]["locked"] == False):
+            imagebutton:
+                auto "gui/nav_arrow_%s_right.png"
+                action SetScreenVariable("viewing_index", viewing_index + 1)
+                xalign 1.0
+
+        frame:
+            background Solid("#F2EE29")
+            xsize 100
+            ysize 40
+            xalign 0.5
+            yalign 1.0
+            at transform:
+                yoffset 100
+                linear 0.25:
+                    yoffset 0
 
             textbutton _("BACK"):
-                xalign 1.0
-                yalign 1.0
-                xoffset -25
-                yoffset -25
-                text_color "#000"
-                text_font "gui/chubhand.ttf"
-                action [SetScreenVariable("hover_item", None), SetScreenVariable("viewing_cg", None)]
-        elif(show_content):
-            grid 1 4:
                 xalign 0.5
                 yalign 0.5
-                spacing 10
-                at trans_fade(0.0, 0.5)
+                text_color "#000"
+                text_font "gui/chubhand.ttf"
+                text_hover_underline True
+                action [SetScreenVariable("show_content", False),
+                        SetScreenVariable("hover_item", None), 
+                        SetScreenVariable("viewing_cg", None)]
 
-                for i in range(4):
-                    if (i < 1):
-                        frame:
-                            background Solid("#3B3B3B")
-                            xsize 320
-                            ysize 179
-
-                            button:
-                                background Frame("images/cgs/" + cg_index_unlocked(i)[0]["file"] if len(cg_index_unlocked(i)) > 0 else "images/cgs/locked.png")
-                                action ([
-                                        SetScreenVariable("viewing_cg", i),
-                                        SetScreenVariable("viewing_index", 0)
-                                    ] if len(cg_index_unlocked(i)) > 0 else NullAction())
-                                #focus_mask True
-                                hovered SetScreenVariable("hover_item", i)
-                                unhovered SetScreenVariable("hover_item", None)
-                                at transform:
-                                    on hover:
-                                        matrixcolor TintMatrix("#00000066")
-                                    on idle:
-                                        matrixcolor None
-
-                            if (len(cg_index_unlocked(i)) > 0):
-                                frame:
-                                    background Solid("#000")
-                                    xalign 1.0
-                                    yalign 1.0
-
-                                    text _((str(len(cg_index_unlocked(i)))) + "/" + str(len(persistent.cgs[i]["images"]))):
-                                        color "#F2EE29"
-                                        font "gui/Roboto-Medium.ttf"
-                                        size 18
-                    else:
-                        null
-
-            vbox:
-                xalign 0.5
-                yalign 0.9
-                spacing 10
-                xsize 400
-                at trans_fade(0.0, 0.5)
-
-                bar value StaticValue(total_cgs_unlocked(), 2):
-                    xsize 300
+        key "pad_b_press":
+            action [SetScreenVariable("show_content", False),
+                    SetScreenVariable("hover_item", None), 
+                    SetScreenVariable("viewing_cg", None)]
+            capture True
+    else:
+        use game_menu("GALLERY", 80, ShowMenu("main_menu", initialised=True, extras=True)):
+            if(show_content):
+                grid 1 4:
                     xalign 0.5
                     yalign 0.5
+                    spacing 10
+                    at trans_fade(0.0, 0.5)
 
-                text _(str(total_cgs_unlocked()) + "/2 (" + (str(total_cgs_unlocked() / 2 * 100)) + "%) Unlocked"):
-                    color "#000"
-                    xalign 0.5
-                    text_align 0.5
+                    for i in range(4):
+                        if (i < 1):
+                            frame:
+                                background Solid("#3B3B3B")
+                                xsize 320
+                                ysize 179
 
-            if (hover_item is not None):
-                text _("Locked" if len(cg_index_unlocked(hover_item)) < 1 else "View larger"):
-                    xalign 0.5
-                    yalign 0.95
-                    size 40
-                    color "#000"
-                    font "gui/chubhand.ttf"
+                                button:
+                                    background Frame("images/cgs/" + cg_index_unlocked(i)[0]["file"] if len(cg_index_unlocked(i)) > 0 else "images/cgs/locked.png")
+                                    action ([
+                                            SetScreenVariable("viewing_cg", i),
+                                            SetScreenVariable("viewing_index", 0)
+                                        ] if len(cg_index_unlocked(i)) > 0 else NullAction())
+                                    #focus_mask True
+                                    hovered SetScreenVariable("hover_item", i)
+                                    unhovered SetScreenVariable("hover_item", None)
+                                    at transform:
+                                        on hover:
+                                            matrixcolor TintMatrix("#00000066")
+                                        on idle:
+                                            matrixcolor None
 
-            if (config.developer):
-                textbutton _("Lock all"):
-                    action [Function(lock_cg, 0, 0), Function(lock_cg, 0, 1)]
+                                if (len(cg_index_unlocked(i)) > 0):
+                                    frame:
+                                        background Solid("#000")
+                                        xalign 1.0
+                                        yalign 1.0
+
+                                        text _((str(len(cg_index_unlocked(i)))) + "/" + str(len(persistent.cgs[i]["images"]))):
+                                            color "#F2EE29"
+                                            font "gui/Roboto-Medium.ttf"
+                                            size 18
+                        else:
+                            null
+
+                vbox:
                     xalign 0.5
-                    yalign 0.0
-                    text_color "#000"
-                    text_font "gui/chubhand.ttf"
-                    text_hover_underline True
+                    yalign 0.9
+                    spacing 10
+                    xsize 400
+                    at trans_fade(0.0, 0.5)
+
+                    bar value StaticValue(total_cgs_unlocked(), 2):
+                        xsize 300
+                        xalign 0.5
+                        yalign 0.5
+
+                    text _(str(total_cgs_unlocked()) + "/2 (" + (str(total_cgs_unlocked() / 2 * 100)) + "%) Unlocked"):
+                        color "#000"
+                        xalign 0.5
+                        text_align 0.5
+
+                if (hover_item is not None):
+                    text _("Locked" if len(cg_index_unlocked(hover_item)) < 1 else "View larger"):
+                        xalign 0.5
+                        yalign 0.95
+                        size 40
+                        color "#000"
+                        font "gui/chubhand.ttf"
+
+                if (config.developer):
+                    textbutton _("Lock all"):
+                        action [Function(lock_cg, 0, 0), Function(lock_cg, 0, 1)]
+                        xalign 0.5
+                        yalign 0.0
+                        text_color "#000"
+                        text_font "gui/chubhand.ttf"
+                        text_hover_underline True
 
 
 screen sound_room():

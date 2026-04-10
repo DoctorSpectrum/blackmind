@@ -17,8 +17,6 @@ BLACKMIND TODO
             - Programming Changes:
                 - Add in controller support
                     - Control everything selectable in the main menu
-                        - Gallery: selected arrows
-                        - Gallery: back button hover/selected state
                         - Sound Room: control playing stuff with LB/RB
                     - Control pause menu
                     - Control choices
