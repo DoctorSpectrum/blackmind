@@ -16,7 +16,10 @@ BLACKMIND TODO
         - Demo Actionables:
             - Programming Changes:
                 - Add in controller support
-                    - Use d-pad to control powers
+                    - Control everything selectable in the main menu
+                        - Gallery: selected arrows
+                        - Gallery: back button hover/selected state
+                        - Sound Room: control playing stuff with LB/RB
                     - Control pause menu
                     - Control choices
                     - Control navigation

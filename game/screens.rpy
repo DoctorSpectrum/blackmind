@@ -70,12 +70,14 @@ style vscrollbar:
 style slider:
     ysize gui.slider_size
     left_bar "gui/bar/left.png"
+    hover_left_bar "gui/bar/left_hover.png"
     right_bar "#000"
     thumb None
 
 style vslider:
     xsize gui.slider_size
     bottom_bar "gui/bar/bottom.png"
+    hover_bottom_bar "gui/bar/bottom_hover.png"
     top_bar "#000"
     thumb None
 
@@ -931,6 +933,11 @@ screen game_menu(title, title_size=88, return_action=None):
             ease 0.33:
                 xoffset 0
 
+    key "pad_b_press":
+        action (return_action if return_action is not None else 
+            ([Hide("sample_text_speed_1"), Hide("sample_text_speed_2"), ShowMenu("main_menu", initialised=True)] if main_menu 
+            else [Hide("sample_text_speed_1"), Hide("sample_text_speed_2"), ShowMenu("pause_menu")]))
+
     transclude
 
 
@@ -1571,6 +1578,7 @@ screen preferences(start=False):
                                                 unhovered SetScreenVariable("hover_radio", None)
                                                 text_color ("#3B3B3B" if hover_radio == "fullscreen" else ("#000" if preferences.fullscreen else "#707070"))
                                                 text_bold preferences.fullscreen
+                                                text_underline hover_radio == "fullscreen"
 
                                         hbox:
                                             style_prefix "radio_button"
@@ -1588,6 +1596,7 @@ screen preferences(start=False):
                                                 unhovered SetScreenVariable("hover_radio", None)
                                                 text_color ("#3B3B3B" if hover_radio == "windowed" else ("#000" if not preferences.fullscreen else "#707070"))
                                                 text_bold not preferences.fullscreen
+                                                text_underline hover_radio == "windowed"
                                 vbox:
                                     xalign 0.8
                                     yoffset 20
@@ -1616,6 +1625,7 @@ screen preferences(start=False):
                                                     unhovered SetScreenVariable("hover_radio", None)
                                                     text_color ("3B3B3B" if hover_radio == "roboto" else ("#000" if gui.preference("font") == "gui/Roboto-Medium.ttf" else "#707070"))
                                                     text_bold gui.preference("font") == "gui/Roboto-Medium.ttf"
+                                                    text_underline hover_radio == "roboto"
 
                                             hbox:
                                                 style_prefix "radio_button"
@@ -1635,6 +1645,7 @@ screen preferences(start=False):
                                                     unhovered SetScreenVariable("hover_radio", None)
                                                     text_color ("#3B3B3B" if hover_radio == "atkinson" else ("#000" if gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf" else "#707070"))
                                                     text_bold gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf"
+                                                    text_underline hover_radio == "atkinson"
             
             if (start):
                 frame:

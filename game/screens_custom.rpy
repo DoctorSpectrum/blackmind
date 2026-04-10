@@ -124,14 +124,14 @@ screen psychic_powers():
                         size 15
 
     
-        key "K_1":
+        key ["K_1", "pad_dpleft_press"]:
             action [
                 SetLocalVariable("icon_hint", None),
                 (Call("mind_read_effects", from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
             ]
 
         if (check_boolean("mind_wipe_available")):
-            key "K_2":
+            key ["K_2", "pad_dpup_press"]:
                 action [
                     SetLocalVariable("icon_hint", None),
                     (Call("mind_wipe_pause", from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
@@ -766,7 +766,7 @@ screen modal_popup(message, option_labels, option_actions):
                     action option_actions[i]
 
     if (len(option_labels) == 1):
-        key "K_RETURN":
+        key ["K_ESCAPE", "K_RETURN", "K_SPACE", "pad_a_press"]:
             action option_actions[0]
 
 screen save_name(filename):

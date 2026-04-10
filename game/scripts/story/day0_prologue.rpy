@@ -57,7 +57,7 @@ label prologue_02:
             hide screen say
             hide screen conversation_history
             $ add_boolean("psychic_powers_available")
-            call screen modal_popup("Click on the Read Mind button in the top right-hand corner, or press the 1 key, to read the bartender’s mind.", ["OK"], [Return()])
+            call screen modal_popup("Click on the Read Mind button in the top right-hand corner, or press the 1 key/left on the D-Pad, to read the bartender’s mind.", ["OK"], [Return()])
             call screen psychic_powers
 
         "Lemonade ($6)":
@@ -84,7 +84,7 @@ label prologue_03:
     hide screen conversation_history
     $ rewind_point = "prologue_04"
     $ add_boolean("mind_wipe_available")
-    call screen modal_popup("Click on the Rewind Mind button, or press the 2 key, to make the bartender forget the last few minutes of conversation.", ["OK"], [Return()])
+    call screen modal_popup("Click on the Rewind Mind button, or press the 2 key/up on the D-Pad, to make the bartender forget the last few minutes of conversation.", ["OK"], [Return()])
     call screen psychic_powers
 
 label prologue_04:
