@@ -1136,7 +1136,7 @@ screen conversation_history(initial_expanded = False, show_button = True, initia
                     viewport id "history_viewport":
                         draggable True 
                         mousewheel True
-                        arrowkeys True
+                        arrowkeys not renpy.get_screen("choice")
                         yadjustment ui.adjustment()
                         yinitial 1.0
                     

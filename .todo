@@ -16,18 +16,15 @@ BLACKMIND TODO
         - Demo Actionables:
             - Programming Changes:
                 - Add in controller support
-                    - Control pause menu
-                    - Control choices
-                    - Control navigation
-                    - Quick Menu/History controls
-                        - Actually working really well, but should probably be more obvious/let's add in some button shortcuts
-                    - https://feniksdev.itch.io/controller-support-expansion-for-renpy
-                        - Prolly don't need this?
+                    - We have text inputs when we save the game - do we want to use Feniks' package for the keyboard?
                 - Add in controller controls to controls section of help once we've got everything working well
                     - https://lambdalighthouse.itch.io/controller-keyboard-template
                 - Can do rollback on choice screen since say isn't displaying - change the keymap for stopping rollback to a screen and include it on say and choice, then I can also add it in anywhere else I want to disable rollback
                 - Let's do a better display for skipping - I like the idea of a black inky thing at the edges of the screen
                     - Stop skipping for selecting the destination and CTA screen
+                - Final items for Steam:
+                    - Remove the pause menu items that are currently disabled (or change them to locked)
+                    - Set config.developer to False
             - Assets:
                 - Voice Acting:
                     - Add in partials, post-recording

@@ -320,6 +320,7 @@ style choice_button_text is default:
     properties gui.text_properties("choice_button")
     idle_color "#000"
     hover_color "#F2EE29"
+    hover_underline True
 
 style choice_button_locked is choice_button:
     background Frame("gui/button/button_hover.png")
@@ -338,7 +339,7 @@ screen quick_menu():
     ## Ensure this appears on top of other screens.
     zorder 100
 
-    if (config.developer):
+    if (config.developer and False):
         textbutton _("DEBUG"):
             background Frame("gui/frame.png")
             xalign 0.0
@@ -384,6 +385,7 @@ style quick_button_text:
     properties gui.text_properties("quick_button")
     idle_color "#3B3B3B"
     hover_color "#000"
+    hover_bold True
     selected_underline True
 
 style quick_inverted_button is quick_button
