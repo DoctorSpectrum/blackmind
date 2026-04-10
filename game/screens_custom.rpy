@@ -1739,6 +1739,21 @@ style cta_button_text:
 style block_cta:
     font gui.preference("font")
 
+screen block_rollback():
+    key ["mousedown_4", "anyrepeat_K_PAGEUP", "anyrepeat_KP_PAGEUP", "pad_leftshoulder_press", "pad_lefttrigger_pos", "pad_back_press", "repeat_pad_leftshoulder_press", "repeat_pad_lefttrigger_pos", "repeat_pad_back_press"]:
+        if (config.developer):
+            action Rollback()
+        elif (renpy.get_widget("conversation_history", "history_viewport")):
+            action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value - 30))
+        else:
+            action NullAction()
+
+    key ["mousedown_5", "anyrepeat_K_PAGEDOWN", "anyrepeat_KP_PAGEDOWN", "pad_rightshoulder_press", "repeat_pad_rightshoulder_press"]:
+        if (renpy.get_widget("conversation_history", "history_viewport")):
+            action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value + 30))
+        else:
+            action NullAction()
+
 screen any_key(action):
     key "K_RETURN":
         action action

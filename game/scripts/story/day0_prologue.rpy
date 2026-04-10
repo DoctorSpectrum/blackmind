@@ -371,6 +371,7 @@ label prologue_11:
     jack angry "(Whaddo I care about what she thinks anyway...[wait_1]she’s not even that good a bartender!)"
     jack angry "(Anyway, there’s better places to go to around here...I bet it’ll be easier to get free shit there, too.)"
     hide screen conversation_history
+    $ renpy.choice_for_skipping()
     call screen modal_popup("You have enough time to visit one more location before the night is over.", ["OK"], [Return()])
     call screen map_navigation(find_locations([1, 2]))
 
@@ -475,5 +476,6 @@ label prologue_end:
     jack worried "(I -[wait_05] I can't die!)"
     jack worried "(I just wanted to -[wait_05] please, somebody...[wait_05]help me...)"
     scene black_bg with slow_dissolve
+    $ renpy.choice_for_skipping()
 
     call screen cta with slow_dissolve

@@ -156,19 +156,7 @@ screen say(who, what):
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
 
-    key ["mousedown_4", "anyrepeat_K_PAGEUP", "anyrepeat_KP_PAGEUP", "pad_leftshoulder_press", "pad_lefttrigger_pos", "pad_back_press", "repeat_pad_leftshoulder_press", "repeat_pad_lefttrigger_pos", "repeat_pad_back_press"]:
-        if (config.developer):
-            action Rollback()
-        elif (renpy.get_widget("conversation_history", "history_viewport")):
-            action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value - 30))
-        else:
-            action NullAction()
-
-    key ["mousedown_5", "anyrepeat_K_PAGEDOWN", "anyrepeat_KP_PAGEDOWN", "pad_rightshoulder_press", "repeat_pad_rightshoulder_press"]:
-        if (renpy.get_widget("conversation_history", "history_viewport")):
-            action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value + 30))
-        else:
-            action NullAction()
+    use block_rollback
 
 
 ## Make the namebox available for styling through the Character object.
@@ -295,6 +283,8 @@ screen choice(items, screens=["conversation_history"]):
                 (Show("conversation_history", quick_dissolve, initial_expanded=True, show_button=False, initial_opened=True) if "conversation_history" in screens else NullAction()),
                 (Show("cash_money", style="right_large") if "cash_money" in screens else NullAction())
             ]
+
+    use block_rollback
 
 
 style choice_vbox is vbox
@@ -2424,16 +2414,16 @@ screen skip_indicator():
     zorder 100
     style_prefix "skip"
 
-    frame:
+    #frame:
 
-        hbox:
-            spacing 9
+    #    hbox:
+    #        spacing 9
 
-            text _("Skipping")
+    #        text _("Skipping")
 
-            text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
-            text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
-            text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
+    #        text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
+    #        text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
+    #        text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
 
 
 ## This transform is used to blink the arrows one after another.
