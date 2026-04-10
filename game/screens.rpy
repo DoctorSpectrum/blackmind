@@ -2214,35 +2214,73 @@ screen mouse_help():
 screen gamepad_help():
     style_prefix "gamepad_controls_list"
 
+    #Fix up the spacing for the below, and fade in all text
     hbox:
-        label _("Right Trigger\nA/Bottom Button")
-        text _("Advances dialogue and activates the interface.")
+        spacing 25
+        vbox:
+            vbox:
+                #Triggers
+                text _("Control #1")
+                text _("Control #2")
 
-    hbox:
-        label _("Left Trigger\nLeft Shoulder")
-        text _("Scroll history log up.")
+            vbox:
+                #Buttons
+                text _("Control #3")
 
-    hbox:
-        label _("Right Shoulder")
-        text _("Scroll history log down.")
+            vbox:
+                #Left stick
+                text _("Control #4")
 
-    hbox:
-        label _("D-Pad\nSticks")
-        text _("Navigate the interface.")
+        image "gui/icons/controller.png":
+            xalign 0.5
+            yalign 0.5
+            at trans_fade(0.0, 0.25)
 
-    hbox:
-        label _("Start\nGuide\nB/Right Button")
-        text _("Accesses the game menu.")
+        vbox:
+            vbox:
+                #Triggers
+                text _("Control #5")
+                text _("Control #6")
 
-    hbox:
-        label _("Y/Top Button")
-        text _("Hides the user interface.")
+            vbox:
+                #Buttons
+                text _("Control #7")
 
-    textbutton _("Calibrate"): 
-        style "yellow_button_dark_hover"
-        xalign 0.5
-        yoffset 25
-        action GamepadCalibrate()
+            vbox:
+                #Left stick
+                text _("Control #8")
+
+    
+
+    #hbox:
+    #    label _("Right Trigger\nA/Bottom Button")
+    #    text _("Advances dialogue and activates the interface.")
+
+    #hbox:
+    #    label _("Left Trigger\nLeft Shoulder")
+    #    text _("Scroll history log up.")
+
+    #hbox:
+    #    label _("Right Shoulder")
+    #    text _("Scroll history log down.")
+
+    #hbox:
+    #    label _("D-Pad\nSticks")
+    #    text _("Navigate the interface.")
+
+    #hbox:
+    #    label _("Start\nGuide\nB/Right Button")
+    #    text _("Accesses the game menu.")
+
+    #hbox:
+    #    label _("Y/Top Button")
+    #    text _("Hides the user interface.")
+
+    #textbutton _("Calibrate"): 
+    #    style "yellow_button_dark_hover"
+    #    xalign 0.5
+    #    yoffset 25
+    #    action GamepadCalibrate()
 
 
 style help_button is gui_button
@@ -2414,17 +2452,25 @@ screen skip_indicator():
     zorder 100
     style_prefix "skip"
 
-    #frame:
+    frame:
+        background Solid("#F2EE29")
+        xsize 75
+        ysize 75
+        xalign 1.0
+        yalign 0.1
+        xoffset 75
+        at transform:
+            on show:
+                xoffset 0
+                ease 0.5:
+                    xoffset -75
+            on hide:
+                ease 0.5:
+                    xoffset 75
 
-    #    hbox:
-    #        spacing 9
-
-    #        text _("Skipping")
-
-    #        text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
-    #        text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
-    #        text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
-
+        image "gui/icons/skip.png":
+            xoffset -22
+            yalign 0.5
 
 ## This transform is used to blink the arrows one after another.
 transform delayed_blink(delay, cycle):
