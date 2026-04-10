@@ -16,8 +16,6 @@ BLACKMIND TODO
         - Demo Actionables:
             - Programming Changes:
                 - Add in controller support
-                    - Control everything selectable in the main menu
-                        - Sound Room: control playing stuff with LB/RB
                     - Control pause menu
                     - Control choices
                     - Control navigation
@@ -29,6 +27,7 @@ BLACKMIND TODO
                     - https://lambdalighthouse.itch.io/controller-keyboard-template
                 - Can do rollback on choice screen since say isn't displaying - change the keymap for stopping rollback to a screen and include it on say and choice, then I can also add it in anywhere else I want to disable rollback
                 - Let's do a better display for skipping - I like the idea of a black inky thing at the edges of the screen
+                    - Stop skipping for selecting the destination and CTA screen
             - Assets:
                 - Voice Acting:
                     - Add in partials, post-recording

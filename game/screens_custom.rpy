@@ -1485,7 +1485,8 @@ screen sound_room():
     tag menu
     default show_content = False
     default currently_playing = None
-    default adjustment_var = ui.adjustment(100, 0, 0.1, adjustable=True, changed=jump_sound)
+    default song_placement = 0
+    default bar_hovered = False
 
     timer 1.2:
         action SetScreenVariable("show_content", True)
@@ -1511,8 +1512,7 @@ screen sound_room():
                                     xsize 350
                                     action [
                                         Function(renpy.music.play, "audio/music/" + persistent.music_tracks[i]["file"]),
-                                        SetField(adjustment_var, "range", persistent.music_tracks[i]["length"]),
-                                        SetField(adjustment_var, "value", 0),
+                                        SetScreenVariable("song_placement", 0),
                                         SetScreenVariable("currently_playing", persistent.music_tracks[i])
                                     ]
                                     selected currently_playing == persistent.music_tracks[i]
@@ -1520,6 +1520,7 @@ screen sound_room():
                                     selected_background Solid ("#000")
                                     text_hover_color "#F2EE29"
                                     text_selected_color "#F2EE29"
+                                    text_hover_underline currently_playing == persistent.music_tracks[i]
                                 if (currently_playing == persistent.music_tracks[i]):
                                     image "gui/icons/play_hover.png":
                                         yoffset -50
@@ -1538,7 +1539,7 @@ screen sound_room():
             if currently_playing is not None:
                 timer 0.1:
                     repeat True
-                    action (SetField(adjustment_var, "value", adjustment_var.value + 0.1) if not renpy.music.get_pause() and not preferences.get_mute("music") and not preferences.get_mute("all") else NullAction())
+                    action (SetScreenVariable("song_placement", song_placement + 0.1) if not renpy.music.get_pause() and not preferences.get_mute("music") and not preferences.get_mute("all") and not bar_hovered else NullAction())
                 frame:
                     background None
                     xalign 0.68
@@ -1569,9 +1570,13 @@ screen sound_room():
                                     xsize 450
                                     base_bar "gui/bar/audio_progress.png"
                                     thumb "gui/bar/audio_thumb.png"
+                                    hover_thumb Solid("#000", xsize=15, ysize=30)
 
-                                    adjustment adjustment_var
-                                    released Function(renpy.log, adjustment_var.value)  #If this isn't present, the bar won't advance at all
+                                    value (renpy.music.get_pos() if renpy.music.get_pos() is not None else 0)
+                                    range (renpy.music.get_duration() if renpy.music.get_duration() is not None else 999)
+                                    changed jump_sound
+                                    hovered SetScreenVariable("bar_hovered", True)
+                                    unhovered SetScreenVariable("bar_hovered", False)
 
                                 hbox:
                                     xsize 450
@@ -1622,20 +1627,21 @@ screen sound_room():
                                 idle ("gui/icons/mute_hover.png" if preferences.get_mute("music") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
                                 hover "gui/icons/mute_hover.png"
                                 xalign 0.5 
-                                action [Preference("music mute", "toggle"), SetField(adjustment_var, "value", 0)]
+                                action Preference("music mute", "toggle")
 
             if (config.developer):
-                if (currently_playing is not None):
-                    text _("Duration: " + str(renpy.music.get_duration())):
-                        color "#000"
+                vbox:
+                    if (currently_playing is not None):
+                        text _("Duration: " + str(renpy.music.get_pos()) + "/" + str(renpy.music.get_duration())):
+                            color "#000"
 
-                textbutton _("Lock all"):
-                    action [Function(lock_music, "neutral_1"), Function(lock_music, "tense_1"), Function(lock_music, "ambient_1")]
-                    xalign 0.5
-                    yalign 0.0
-                    text_color "#000"
-                    text_font "gui/chubhand.ttf"
-                    text_hover_underline True
+                    #textbutton _("Lock all"):
+                    #    action [Function(lock_music, "neutral_1"), Function(lock_music, "tense_1"), Function(lock_music, "ambient_1")]
+                    #    xalign 0.5
+                    #    yalign 0.0
+                    #    text_color "#000"
+                    #    text_font "gui/chubhand.ttf"
+                    #    text_hover_underline True
 
 screen cta():
     default hover_item = None
