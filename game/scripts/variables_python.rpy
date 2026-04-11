@@ -148,6 +148,8 @@ init python:
         convo_progress = 0
         convo_length = scene_length
         _history_list.clear()
+        remove_boolean("psychic_splash_read")
+        remove_boolean("psychic_splash_rewind")
 
         if (calendar):
             renpy.show_screen("calendar", day=calendar_day, section=calendar_section, sections=calendar_sections)

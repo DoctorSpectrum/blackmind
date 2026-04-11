@@ -4,8 +4,11 @@ label mind_read_effects:
     $ renpy.choice_for_skipping()
 
     $ _window_hide()
-    show screen psychic_splash
-    $ renpy.pause(2.0, hard=True)
+    if (persistent.psychic_splash == "always" or (persistent.psychic_splash == "scene" and not check_boolean("psychic_splash_read"))):
+        show screen psychic_splash
+        #Play a random line
+        $ renpy.pause(2.0, hard=True)
+        $ add_boolean("psychic_splash_read")
 
     $ progress_convo = False
     $ reading_mind = True
@@ -18,7 +21,7 @@ label mind_read_effects:
     $ play_sound("mind_read.mp3", volume=0.5)
     show ring at ring_mind_read_expand(-25, 200)
 
-    jump expression current_thought_block    
+    jump expression current_thought_block
 
 label mind_wipe_pause:
     #$ _history_list = []   #Potentially wipe history on a mind wipe?
@@ -28,8 +31,11 @@ label mind_wipe_pause:
         $ _window_hide()
         hide screen psychic_powers
 
-        show screen psychic_splash
-        $ renpy.pause(2.0, hard=True)
+        if (persistent.psychic_splash == "always" or (persistent.psychic_splash == "scene" and not check_boolean("psychic_splash_rewind"))):
+            show screen psychic_splash
+            #Play a random line
+            $ renpy.pause(2.0, hard=True)
+            $ add_boolean("psychic_splash_rewind")
 
         show screen conversation_history
         $ rewound_mind = True
@@ -46,8 +52,12 @@ label mind_wipe_pause:
             $ _window_hide()
             hide screen psychic_powers
 
-            show screen psychic_splash
-            $ renpy.pause(4.5, hard=True)
+            if (persistent.psychic_splash == "always" or (persistent.psychic_splash == "scene" and not check_boolean("psychic_splash_rewind"))):
+                show screen psychic_splash
+                #Play a random line
+                $ add_boolean("psychic_splash_rewind")
+            $ renpy.pause(4.5 if persistent.psychic_splash == "always" or (persistent.psychic_splash == "scene" and not check_boolean("psychic_splash_rewind")) else 2.0, hard=True)
+                
             show screen psychic_powers
 
     jump expression rewind_point

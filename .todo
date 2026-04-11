@@ -15,14 +15,9 @@ BLACKMIND TODO
 
         - Demo Actionables:
             - Programming Changes:
-                - Add in controller support
-                    - Only thing remaining that can't be donezo solely with the controller is the save name - try out Feniks' expansion to see how it goes; if it's fiddly or I can't get it to work call it here. If not might as well implement it.
-                        - https://feniksdev.itch.io/controller-support-expansion-for-renpy
-                - Add in controls for having psychic splash appear always/once per scene/never
-               
                 - Final items for Steam:
                     - Remove the pause menu items that are currently disabled (or change them to locked)
-                    - Remove or replace any text in the help/credits menus
+                    - Remove or replace any placeholder text in the help/credits menus
                     - Set config.developer to False
             - Assets:
                 - Voice Acting:
@@ -34,7 +29,6 @@ BLACKMIND TODO
                     - Script
                     - Voice Acting (?)
             - Send off to the gang once we've done all of the above - including implementing backgrounds and sprites - before setting it live
-                - Question: What do people think of psychic_splash? Too annoying? Potential for displaying it the first time you use that power in a scene?
                 - Question: thoughts on wiping the conversation history on doing a mind rewind?
 
             - Marketing:
