@@ -15,13 +15,14 @@ BLACKMIND TODO
 
         - Demo Actionables:
             - Programming Changes:
-                - Finish off controller controls
                 - Add in controller support
                     - Only thing remaining that can't be donezo solely with the controller is the save name - try out Feniks' expansion to see how it goes; if it's fiddly or I can't get it to work call it here. If not might as well implement it.
                         - https://feniksdev.itch.io/controller-support-expansion-for-renpy
+                - Add in controls for having psychic splash appear always/once per scene/never
                
                 - Final items for Steam:
                     - Remove the pause menu items that are currently disabled (or change them to locked)
+                    - Remove or replace any text in the help/credits menus
                     - Set config.developer to False
             - Assets:
                 - Voice Acting:

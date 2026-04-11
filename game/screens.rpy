@@ -2127,62 +2127,77 @@ screen keyboard_help():
     style_prefix "keyboard_controls_list"
 
     hbox:
+        at trans_fade(0.25, 0.25)
         label _("Enter")
         text _("Advances dialogue and activates the interface.")
 
     hbox:
+        at trans_fade(0.3, 0.25)
         label _("Space")
         text _("Advances dialogue without selecting choices.")
 
     hbox:
+        at trans_fade(0.35, 0.25)
         label _("1")
         text _("Activate your Mind Read power.")
 
     hbox:
+        at trans_fade(0.4, 0.25)
         label _("2")
         text _("Activate your Rewind Mind power.")
 
     #hbox:
+    #    at trans_fade(0.45, 0.25)
     #    label _("3")
     #    text _("Activate your Future Sight power.")
 
     hbox:
+        at trans_fade(0.45, 0.25)
         label _("Arrow Keys")
         text _("Navigate the interface.")
 
     hbox:
+        at trans_fade(0.5, 0.25)
         label _("Escape")
         text _("Accesses the game menu.")
 
     hbox:
+        at trans_fade(0.55, 0.25)
         label _("Ctrl")
         text _("Skips dialogue while held down.")
 
     hbox:
+        at trans_fade(0.6, 0.25)
         label _("Tab")
         text _("Toggles dialogue skipping.")
 
     hbox:
+        at trans_fade(0.65, 0.25)
         label _("Page Up")
         text _("Scroll history log up.")
 
     hbox:
+        at trans_fade(0.7, 0.25)
         label _("Page Down")
         text _("Scroll history log down.")
 
     hbox:
+        at trans_fade(0.75, 0.25)
         label "H"
         text _("Hides the user interface.")
 
     hbox:
+        at trans_fade(0.8, 0.25)
         label "S"
         text _("Takes a screenshot.")
 
     hbox:
+        at trans_fade(0.85, 0.25)
         label "V"
         text _("Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}.")
 
     hbox:
+        at trans_fade(0.9, 0.25)
         label "Shift+A"
         text _("Opens the accessibility menu.")
 
@@ -2191,22 +2206,27 @@ screen mouse_help():
     style_prefix "mouse_controls_list"
 
     hbox:
+        at trans_fade(0.25, 0.25)
         label _("Left Click")
         text _("Advances dialogue and activates the interface.")
 
     hbox:
+        at trans_fade(0.3, 0.25)
         label _("Middle Click")
         text _("Hides the user interface.")
 
     hbox:
+        at trans_fade(0.35, 0.25)
         label _("Right Click")
         text _("Accesses the game menu.")
 
     hbox:
+        at trans_fade(0.4, 0.25)
         label _("Mouse Wheel Up")
         text _("Scroll history log up.")
 
     hbox:
+        at trans_fade(0.45, 0.25)
         label _("Mouse Wheel Down")
         text _("Scroll history log down.")
 
@@ -2214,22 +2234,40 @@ screen mouse_help():
 screen gamepad_help():
     style_prefix "gamepad_controls_list"
 
-    #Fix up the spacing for the below, and fade in all text
     hbox:
         spacing 25
         vbox:
-            vbox:
-                #Triggers
-                text _("Control #1")
-                text _("Control #2")
+            style_prefix "controller_left_controls"
+            yoffset 15
+            spacing 25
 
             vbox:
-                #Buttons
-                text _("Control #3")
-
+                spacing 12
+                text _("Scroll history log up"):
+                    at trans_fade(0.25, 0.25)
+                text _("Scroll history log up"):
+                    at trans_fade(0.3, 0.25)
             vbox:
-                #Left stick
-                text _("Control #4")
+                spacing 70
+                vbox:
+                    spacing 13
+                    text _("Open pause menu"):
+                        at trans_fade(0.35, 0.25)
+                    text _("Activate Mind Rewind"):
+                        size 18
+                        at trans_fade(0.4, 0.25)
+                    text _("N/A"):
+                    #text _("Activate Future Sight"):
+                    #    size 18
+                        at trans_fade(0.45, 0.25)
+                    text _("Activate Mind Read"):
+                        at trans_fade(0.5, 0.25)
+                    text _("N/A"):
+                        at trans_fade(0.55, 0.25)
+
+                vbox:
+                    text _("Navigate menus and buttons"):
+                        at trans_fade(0.6, 0.25)
 
         image "gui/icons/controller.png":
             xalign 0.5
@@ -2237,44 +2275,37 @@ screen gamepad_help():
             at trans_fade(0.0, 0.25)
 
         vbox:
+            style_prefix "controller_right_controls"
+            yoffset 15
+            spacing 32
             vbox:
-                #Triggers
-                text _("Control #5")
-                text _("Control #6")
+                spacing 12
+                text _("Advance dialogue, activate the interface"):
+                    size 18
+                    at trans_fade(0.25, 0.25)
+                text _("Scroll history log down"):
+                    at trans_fade(0.3, 0.25)
 
             vbox:
-                #Buttons
-                text _("Control #7")
+                spacing 50
+                vbox:
+                    spacing 12
+                    text _("Open pause menu"):
+                        at trans_fade(0.35, 0.25)
+                    text _("Hide user interface"):
+                        size 18
+                        at trans_fade(0.4, 0.25)
+                    text _("N/A"):
+                        at trans_fade(0.45, 0.25)
+                    text _("Close current menu"):
+                        at trans_fade(0.5, 0.25)
+                    text _("Advance dialogue, activate the interface"):
+                        size 18
+                        at trans_fade(0.55, 0.25)
 
-            vbox:
-                #Left stick
-                text _("Control #8")
-
-    
-
-    #hbox:
-    #    label _("Right Trigger\nA/Bottom Button")
-    #    text _("Advances dialogue and activates the interface.")
-
-    #hbox:
-    #    label _("Left Trigger\nLeft Shoulder")
-    #    text _("Scroll history log up.")
-
-    #hbox:
-    #    label _("Right Shoulder")
-    #    text _("Scroll history log down.")
-
-    #hbox:
-    #    label _("D-Pad\nSticks")
-    #    text _("Navigate the interface.")
-
-    #hbox:
-    #    label _("Start\nGuide\nB/Right Button")
-    #    text _("Accesses the game menu.")
-
-    #hbox:
-    #    label _("Y/Top Button")
-    #    text _("Hides the user interface.")
+                vbox:
+                    text _("Navigate menus and buttons"):
+                        at trans_fade(0.6, 0.25)
 
     #textbutton _("Calibrate"): 
     #    style "yellow_button_dark_hover"
@@ -2349,13 +2380,19 @@ style mouse_controls_list_label_text is keyboard_controls_list_label_text
 style mouse_controls_list_text is keyboard_controls_list_text:
     xsize 700
 
-style gamepad_controls_list_hbox is keyboard_controls_list_hbox
-style gamepad_controls_list_label is keyboard_controls_list_label:
-    xsize 350
+style controller_left_controls_vbox:
+    xsize 180
 
-style gamepad_controls_list_label_text is keyboard_controls_list_label_text
-style gamepad_controls_list_text is keyboard_controls_list_text:
-    xsize 750
+style controller_left_controls_text:
+    color "#000"
+    xalign 1.0
+    text_align 1.0
+    size 20
+
+style controller_right_controls_vbox is controller_left_controls_vbox
+style controller_right_controls_text is controller_left_controls_text:
+    xalign 0.0
+    text_align 0.0
 
 style help_power_hbox is hbox:
     spacing 100
