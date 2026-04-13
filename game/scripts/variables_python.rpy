@@ -28,7 +28,8 @@ init python:
         elif (song_title == "neutral_2"):
             renpy.music.play("audio/music/1-13. Madam - Perfumed Lady.mp3", loop=True)
         elif (song_title == "tense_2"):
-            renpy.music.play("audio/music/31 PSYNCIN' IN THE VILLaiN.mp3", loop=True)
+            #renpy.music.play("audio/music/31 PSYNCIN' IN THE VILLaiN.mp3", loop=True)
+            renpy.music.play("audio/music/Track #5 128 BPM G Maj.wav", loop=True)
         
         unlock_music(song_title)
 

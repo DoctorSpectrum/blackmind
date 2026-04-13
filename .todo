@@ -15,7 +15,9 @@ BLACKMIND TODO
 
         - Demo Actionables:
             - Programming Changes:
+                - Potentially play track #4 when we set it up to look like Jack has been shot/when he's actually been shot?
                 - Final items for Steam:
+                    - Rename the music files, and updoot the sound room to give them actual names
                     - Remove the pause menu items that are currently disabled (or change them to locked)
                     - Remove or replace any placeholder text in the help/credits menus
                     - Set config.developer to False
