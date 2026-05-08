@@ -63,7 +63,8 @@ define config.sample_sound = "audio/sfx/mind_read.mp3"
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-define config.main_menu_music = "audio/music/1-03. 《4 Minutes Before Death》.mp3"
+#define config.main_menu_music = "audio/music/1-03. 《4 Minutes Before Death》.mp3"
+define config.main_menu_music = "audio/music/menu_placeholder.wav"
 
 init python:
     def progress_convo(event, interact=True, **kwargs):
