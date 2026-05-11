@@ -28,6 +28,7 @@ BLACKMIND TODO
                         - Barbara
                         - Docherty
                     - Add in functionality for selecting a random partial when doing a mind read/rewind
+                        - Each one has a line that gets cut off - get a shorter take or shorten it, or increase the pause based on the line
                     - Add in voice controls to audio
                 - Trailer:
                     - Storyboard

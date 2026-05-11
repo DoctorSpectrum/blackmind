@@ -6,7 +6,7 @@ label mind_read_effects:
     $ _window_hide()
     if (persistent.psychic_splash == "always" or (persistent.psychic_splash == "scene" and not check_boolean("psychic_splash_read"))):
         show screen psychic_splash
-        #Play a random line
+        $ mind_read_line()
         $ renpy.pause(2.0, hard=True)
         $ add_boolean("psychic_splash_read")
 
@@ -33,7 +33,7 @@ label mind_wipe_pause:
 
         if (persistent.psychic_splash == "always" or (persistent.psychic_splash == "scene" and not check_boolean("psychic_splash_rewind"))):
             show screen psychic_splash
-            #Play a random line
+            $ mind_rewind_line()
             $ renpy.pause(2.0, hard=True)
             $ add_boolean("psychic_splash_rewind")
 
@@ -54,7 +54,7 @@ label mind_wipe_pause:
 
             if (persistent.psychic_splash == "always" or (persistent.psychic_splash == "scene" and not check_boolean("psychic_splash_rewind"))):
                 show screen psychic_splash
-                #Play a random line
+                $ mind_rewind_line()
                 $ add_boolean("psychic_splash_rewind")
             $ renpy.pause(4.5 if persistent.psychic_splash == "always" or (persistent.psychic_splash == "scene" and not check_boolean("psychic_splash_rewind")) else 2.0, hard=True)
                 

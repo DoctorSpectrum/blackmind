@@ -79,6 +79,19 @@ init python:
         elif (line == "disappointed_01"):
             voice("audio/voice/partials/jack/jack_disappointed_01.ogg")
 
+    def mind_read_line():
+        #In the full version, account for whether we're having Lloyd or Jack read this line
+        voice(random.choice([
+            "audio/voice/partials/jack/jack_mind_read_01.ogg",
+            "audio/voice/partials/jack/jack_mind_read_02.ogg"
+        ]))
+
+    def mind_rewind_line():
+        voice(random.choice([
+            "audio/voice/partials/jack/jack_mind_wipe_01.ogg",
+            "audio/voice/partials/jack/jack_mind_wipe_02.ogg"
+        ]))
+
     def unlock_music(handle):
         tracks = list(filter(lambda x: x["handle"] == handle, persistent.music_tracks))
         if (len(tracks) > 0):
