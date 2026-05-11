@@ -41,6 +41,44 @@ init python:
         if (pause is not None and not preferences.get_mute("sfx") and preferences.get_mixer("sfx") > 0 and not renpy.is_skipping()):
             renpy.pause(pause, hard=True)
 
+    def jack_partial(line):
+        if (line == "cocky_01"):
+            voice("audio/voice/partials/jack/jack_cocky_01.ogg")
+        elif (line == "cocky_02"):
+            voice("audio/voice/partials/jack/jack_cocky_02.ogg")
+        elif (line == "cocky_03"):
+            voice("audio/voice/partials/jack/jack_cocky_03.ogg")
+        elif (line == "analytical_01"):
+            voice("audio/voice/partials/jack/jack_analytical_01.ogg")
+        elif (line == "analytical_02"):
+            voice("audio/voice/partials/jack/jack_analytical_02.ogg")
+        elif (line == "analytical_03"):
+            voice("audio/voice/partials/jack/jack_analytical_03.ogg")
+        elif (line == "scared_01"):
+            voice("audio/voice/partials/jack/jack_scared_01.ogg")
+        elif (line == "scared_02"):
+            voice("audio/voice/partials/jack/jack_scared_02.ogg")
+        elif (line == "irritated_01"):
+            voice("audio/voice/partials/jack/jack_irritated_01.ogg")
+        elif (line == "irritated_02"):
+            voice("audio/voice/partials/jack/jack_irritated_02.ogg")
+        elif (line == "dismissive_01"):
+            voice("audio/voice/partials/jack/jack_dismissive_01.ogg")
+        elif (line == "dismissive_02"):
+            voice("audio/voice/partials/jack/jack_dismissive_02.ogg")
+        elif (line == "confused_01"):
+            voice("audio/voice/partials/jack/jack_confused_01.ogg")
+        elif (line == "confused_02"):
+            voice("audio/voice/partials/jack/jack_confused_02.ogg")
+        elif (line == "friendly_01"):
+            voice("audio/voice/partials/jack/jack_friendly_01.ogg")
+        elif (line == "cheerful_01"):
+            voice("audio/voice/partials/jack/jack_cheerful_01.ogg")
+        elif (line == "angry_01"):
+            voice("audio/voice/partials/jack/jack_angry_01.ogg")
+        elif (line == "disappointed_01"):
+            voice("audio/voice/partials/jack/jack_disappointed_01.ogg")
+
     def unlock_music(handle):
         tracks = list(filter(lambda x: x["handle"] == handle, persistent.music_tracks))
         if (len(tracks) > 0):

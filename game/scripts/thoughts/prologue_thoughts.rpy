@@ -18,6 +18,7 @@ label mind_read_prologue:
     elif (current_thought == "barbara_thought_pr_07"):
         bartender_thoughts "(I’d hope you think so, given its history![wait_1] Some of the stories that I could tell you about this place...)" 
         if (check_boolean("prologue_bar_history") == False):
+            $ jack_partial("analytical_01")
             jack thinking "(There we go - that’s something that I could focus on.)"
             $ add_boolean("prologue_bar_history")
     elif (current_thought == "barbara_thought_pr_08"):
@@ -26,6 +27,7 @@ label mind_read_prologue:
         bartender_thoughts "(And now he’ll probably be shocked, thinking that a woman shouldn’t - or couldn’t - own a bar.)" 
         bartender_thoughts "(I wonder what he’d say if he knew about the history of the place?)" 
         if (check_boolean("prologue_bar_history") == False):
+            $ jack_partial("analytical_01")
             jack thinking "(The history of the bar?[wait_05] That might be something to talk about.)"
             $ add_boolean("prologue_bar_history")
     elif (current_thought == "barbara_thought_pr_10"):
@@ -33,7 +35,9 @@ label mind_read_prologue:
     elif (current_thought == "barbara_thought_pr_11"):
         bartender_thoughts "(This idiot clearly knows nothing about interior design.[wait_1] I could definitely teach him a lesson or two.)" 
         if (check_boolean("prologue_interior_designing") == False):
+            $ jack_partial("analytical_01")
             jack thinking "(Maybe I could ask her to tell me about different interior design styles?)"
+            $ jack_partial("cocky_02")
             jack thinking "(That might get her to like me more.)"
             $ add_boolean("prologue_interior_designing")
     elif (current_thought == "barbara_thought_pr_12"):
@@ -56,6 +60,7 @@ label mind_read_prologue:
         bartender_thoughts "(No need to mention to him anything about what the profitability has been like lately...)" 
     elif (current_thought == "barbara_thought_pr_21"):
         bartender_thoughts "(I really need to review those drinks policies again, work out what the projected differences would be.)" 
+        $ jack_partial("analytical_01")
         jack thinking "(Drinks policies?[wait_1] If she’s looking to change things, maybe I can convince her that she should lower her prices a bit...)"
         $ add_boolean("prologue_drink_policies")
     elif (current_thought == "barbara_thought_pr_22"):
@@ -68,6 +73,7 @@ label mind_read_prologue:
         bartender_thoughts "(The sooner this guy gets out of here, the better.)" 
     elif (current_thought == "barbara_thought_pr_26"):
         bartender_thoughts "(Does he mean something like happy hour?[wait_1] Or discounts for regulars?)" 
+        $ jack_partial("analytical_01")
         jack thinking "(Discounts for regulars?[wait_1] That’s not a bad idea...)"
         $ add_boolean("prologue_drink_discounts")
     elif (current_thought == "barbara_thought_pr_27"):
@@ -91,6 +97,7 @@ label mind_read_prologue:
         bartender_thoughts "(You haven’t paid for anything so far, you idiot.)" 
     elif (current_thought == "barbara_thought_pr_36"):
         bartender_thoughts "(Maybe if there was actually some benefit to it, like some publicity.[wait_1] But as much as I’d like to, I can’t afford to just throw money away like that.)" 
+        $ jack_partial("analytical_01")
         jack thinking "(Publicity?[wait_1] Hmm...[wait_05]I think that might give me an idea.)"
         $ add_boolean("prologue_drink_review")
     elif (current_thought == "barbara_thought_pr_37"):
@@ -141,6 +148,7 @@ label mind_read_prologue:
         bartender_thoughts "(I have no idea what he’s talking about and I don’t care.[wait_1] I’m over this shit.)"
     elif (current_thought == "docherty_thought_pr_1"):
         docherty_thoughts "(...)"
+        $ jack_partial("confused_02")
         jack worried "(No...[wait_05]my powers still aren’t working...[wait_05]I can’t read this guy’s mind!)"
     else:
         $ renpy.log("No corresponding mind read line found for [current_thought]")
@@ -152,6 +160,7 @@ label mind_read_prologue:
 label prologue_docherty_wipe:
     $ progress_convo = False
     docherty_thoughts "(...)"
+    $ jack_partial("confused_01")
     jack worried "(He...[wait_05]I don't think that did anything to him?)"
     $ ignore_thoughts_length()
     return
