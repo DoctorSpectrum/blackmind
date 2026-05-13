@@ -1485,34 +1485,39 @@ screen preferences(start=False):
                                             action Preference("sound mute", "toggle")
                                             xalign 0.5 
 
-                                    #vbox:
-                                    #    vbar:
-                                    #        value Preference("voice volume")
-                                    #        if preferences.get_mute("voice"):
-                                    #            base_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
-                                    #            thumb "gui/slider/vertical_insensitive_thumb.png"
-                                    #    text _("Voice"):
-                                    #        color ("#0099FF" if not preferences.get_mute("voice") else "#707070")
-                                    #    imagebutton:
-                                    #        idle ("gui/icons/mute_hover.png" if preferences.get_mute("voice") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
-                                    #        hover "gui/icons/mute_hover.png"
-                                    #        action Preference("voice mute", "toggle")
+                                    vbox:
+                                        vbar:
+                                            value Preference("voice volume")
+                                            if preferences.get_mute("voice"):
+                                                bottom_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
+                                                top_bar "#D5D5D5"
+                                        text _("Voice"):
+                                            color ("#000" if not preferences.get_mute("voice") else "#707070")
+                                        imagebutton:
+                                            idle ("gui/icons/mute_hover.png" if preferences.get_mute("voice") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
+                                            hover "gui/icons/mute_hover.png"
+                                            action Preference("voice mute", "toggle")
+                                            xalign 0.5
                                 
                                 vbox:
                                     style_prefix "audio_options"
                                     yfill True
+                                    xsize 400
+                                    spacing 50
+
                                     vbox:
-                                        spacing 10
                                         yalign 0.8
-                                        xsize 400
+                                        spacing 10
                                         if (not preferences.get_mute("sfx")):
                                             textbutton _("Sample Effect"):
                                                 style "yellow_button_dark_hover"
                                                 action Play("sound", config.sample_sound)
                                                 text_size 15
-                                        #if (not preferences.get_mute("voice")):
-                                        #    textbutton _("Sample Voice"):
-                                        #        action Play("voice", config.sample_voice)
+                                        if (not preferences.get_mute("voice")):
+                                            textbutton _("Sample Voice"):
+                                                style "yellow_button_dark_hover"
+                                                action Play("voice", config.sample_voice)
+                                                text_size 15
 
                                     hbox:
                                         style_prefix "radio_button"

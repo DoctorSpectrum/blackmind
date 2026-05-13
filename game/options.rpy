@@ -56,7 +56,7 @@ define config.has_voice = True
 ## uncomment a line below and use it to set a sample sound to play.
 
 define config.sample_sound = "audio/sfx/mind_read.mp3"
-# define config.sample_voice = "sample-voice.ogg"
+define config.sample_voice = "audio/voice/partials/jack/jack_mind_read_01.ogg"
 
 
 ## Uncomment the following line to set an audio file that will be played while
