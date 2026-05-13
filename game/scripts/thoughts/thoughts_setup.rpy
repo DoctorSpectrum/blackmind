@@ -5,9 +5,9 @@ label mind_read_effects:
 
     $ _window_hide()
     if (persistent.psychic_splash == "always" or (persistent.psychic_splash == "scene" and not check_boolean("psychic_splash_read"))):
-        show screen psychic_splash
-        $ mind_read_line()
-        $ renpy.pause(2.0, hard=True)
+        $ pause_time = mind_read_line()
+        show screen psychic_splash(pause_time)
+        $ renpy.pause(pause_time, hard=True)
         $ add_boolean("psychic_splash_read")
 
     $ progress_convo = False
@@ -32,9 +32,9 @@ label mind_wipe_pause:
         hide screen psychic_powers
 
         if (persistent.psychic_splash == "always" or (persistent.psychic_splash == "scene" and not check_boolean("psychic_splash_rewind"))):
-            show screen psychic_splash
-            $ mind_rewind_line()
-            $ renpy.pause(2.0, hard=True)
+            $ pause_time = mind_rewind_line()
+            show screen psychic_splash(pause_time)
+            $ renpy.pause(pause_time, hard=True)
             $ add_boolean("psychic_splash_rewind")
 
         show screen conversation_history
@@ -52,11 +52,12 @@ label mind_wipe_pause:
             $ _window_hide()
             hide screen psychic_powers
 
+            $ pause_time = 2.0
             if (persistent.psychic_splash == "always" or (persistent.psychic_splash == "scene" and not check_boolean("psychic_splash_rewind"))):
-                show screen psychic_splash
-                $ mind_rewind_line()
+                $ pause_time = mind_rewind_line()
+                show screen psychic_splash(pause_time)
                 $ add_boolean("psychic_splash_rewind")
-            $ renpy.pause(4.5 if persistent.psychic_splash == "always" or (persistent.psychic_splash == "scene" and not check_boolean("psychic_splash_rewind")) else 2.0, hard=True)
+            $ renpy.pause(pause_time + 2.5 if persistent.psychic_splash == "always" or (persistent.psychic_splash == "scene" and not check_boolean("psychic_splash_rewind")) else pause_time, hard=True)
                 
             show screen psychic_powers
 

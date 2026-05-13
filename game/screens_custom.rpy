@@ -144,8 +144,8 @@ screen psychic_powers():
                     NullAction(),
                 ]
 
-screen psychic_splash():
-    timer 2.0:
+screen psychic_splash(pause_time = 2.0):
+    timer pause_time:
         action Hide("psychic_splash")
 
     frame:
