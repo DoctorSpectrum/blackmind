@@ -14,25 +14,36 @@ BLACKMIND TODO
                         - Work out what I want the screenshots to be of
 
         - Demo Actionables:
-            - Add in VA names to credits
-            - Programming Changes:
-                - Potentially play track #4 when we set it up to look like Jack has been shot/when he's actually been shot?
-                - Final items for Steam:
-                    - Rename the music files, and updoot the sound room to give them actual names
-                    - Remove the pause menu items that are currently disabled (or change them to locked)
-                    - Remove or replace any placeholder text in the help/credits menus
-                    - Set config.developer to False
+            - Images
+                - Try zooming into restaurant and decreasing the yoffset - atm the textbox cuts off the table which is the real focus of the scene. Can I get away with zooming and offsetting and not look like we're looking in too closely?
+            - Logos
+                - Let's add Psychic Social Simulator to the logo - MGS has Tactical Espionage Action on its logo; I doubt anyone is using Sci-Fi Mystery Investigation when describing AN
+                - Will also need to add it into all the Steam assets        
+            - Credits
+                - Voice Actors
+                    - Might be better off making them an hbox of their own - or potentially their own section in the side menu? Could do pics against their characters
+                    - Chase them up to confirm how they want to be credited/any social links
+                - Friends
+                    - Confirm everybody wants to be in the credits; potentially a single hbox for them, same as the VAs (?)
+            - Audio
+                - Rename the music files, and updoot the sound room to give them actual names
             - Assets:
                 - Voice Acting:
                     - Add in partials, post-recording
                         - Barbara
-                        - Docherty
                 - Trailer:
                     - Storyboard
                     - Script
                     - Voice Acting (?)
+            - Programming Changes:
+                - Final items for Steam:
+                    - Remove the pause menu items that are currently disabled (or change them to locked)
+                        - Let's do Locked for now - that makes it more mysterious and makes people go "ooh what will this option be?" as opposed to them being removed
+                    - Remove or replace any placeholder text in the help/credits menus
+                    - Set config.developer to False
             - Send off to the gang once we've done all of the above - including implementing backgrounds and sprites - before setting it live
                 - Question: thoughts on wiping the conversation history on doing a mind rewind?
 
             - Marketing:
                 - Contact streamers after the demo is up, see if they'll play it
+                - Should contact sites - who tho?

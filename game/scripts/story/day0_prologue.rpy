@@ -608,6 +608,7 @@ label prologue_end:
     hide screen calendar
     hide screen conversation_history
     hide screen psychic_powers
+    $ play_music("neutral_2")
     $ play_sound("gunshot.mp3", transition=white_flash)
     scene cg1_placeholder with slow_dissolve
     $ unlock_cg(0, 1)

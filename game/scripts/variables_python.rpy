@@ -26,7 +26,8 @@ init python:
             #renpy.music.play("audio/music/1-01. Prelude - The “Night” Begins.mp3", loop=True)
             renpy.music.play("audio/music/Blackmind Track 3 - 140 BPM (C minor) - LOOPABLE.wav", loop=True)
         elif (song_title == "neutral_2"):
-            renpy.music.play("audio/music/1-13. Madam - Perfumed Lady.mp3", loop=True)
+            #renpy.music.play("audio/music/1-13. Madam - Perfumed Lady.mp3", loop=True)
+            renpy.music.play("audio/music/Track #4.wav")
         elif (song_title == "tense_2"):
             #renpy.music.play("audio/music/31 PSYNCIN' IN THE VILLaiN.mp3", loop=True)
             renpy.music.play("audio/music/Track #5 128 BPM G Maj.wav", loop=True)
