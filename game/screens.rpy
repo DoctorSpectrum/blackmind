@@ -1107,25 +1107,26 @@ screen about():
                                 text _("Background Artwork"):
                                     style "credit_person"
 
-                            vbox:
-                                spacing 10
-                                text _("TBA"):
-                                    style "credit_heading"
-                                text _("Another Credit"):
-                                    style "credit_person"
                         elif (selected_tab == "audio"):
                             vbox:
                                 spacing 10
-                                text _("TBA"):
+                                text _("Julian Dailey"):
                                     style "credit_heading"
-                                text _("Voice of Character #1"):
+                                text _("Voice of Jack"):
                                     style "credit_person"
 
                             vbox:
                                 spacing 10
-                                text _("TBA"):
+                                text _("Vyn Vox"):
                                     style "credit_heading"
-                                text _("Voice of Character #2"):
+                                text _("Voice of Bartender"):
+                                    style "credit_person"
+
+                            vbox:
+                                spacing 10
+                                text _("Ed the Djinn"):
+                                    style "credit_heading"
+                                text _("Voice of ???"):
                                     style "credit_person"
 
                             vbox:
