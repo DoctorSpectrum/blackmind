@@ -79,6 +79,14 @@ init python:
         elif (line == "disappointed_01"):
             voice("audio/voice/partials/jack/jack_disappointed_01.ogg")
 
+    def barbara_partial(line):
+        if (line == "irritated_01"):
+            voice("audio/voice/partials/barbara/barbara_irritated_01.ogg")
+
+    def docherty_partial(line):
+        if (line == "calm_01"):
+            voice("audio/voice/partials/docherty/docherty_calm_01.ogg")
+
     def mind_read_line():
         #In the full version, account for whether we're having Lloyd or Jack read this line
         line = random.choice([

@@ -5,6 +5,7 @@ label prologue_01:
     scene black_bg
     show cg1_docherty at cg_1_teaser
     $ unlock_cg(0, 0)
+    $ docherty_partial("calm_01")
     docherty "I apologise for this, young man, but you are in the way of my plan." (name="???")
     $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
 
@@ -600,6 +601,7 @@ label prologue_end:
     jack worried "There’s -[wait_05] somebody’s after me, and they’re -[wait_05] I -[wait_05] I don’t know if I can get away without some help."
     $ jack_partial("scared_01")
     jack worried "Do you -[wait_05] do you have a car, or...?"
+    $ docherty_partial("calm_01")
     docherty "I apologise for this, young man, but you are in the way of my plan."
     $ jack_partial("confused_02")
     jack angry "What do you -"
