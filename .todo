@@ -6,6 +6,7 @@ BLACKMIND TODO
             - Steam page ("Store Presence")
                 - Page content
                     - Add in screenshots and controller support
+                        - Currently can't do saves with a controller - do I want to try and add in the keyboard naming functionality again?
                 - Waiting on:
                     - Screenshots
                         - Backgrounds
@@ -20,7 +21,9 @@ BLACKMIND TODO
                 - Friends
                     - Confirm everybody wants to be in the credits
             - Audio
-                - Rename the music files, and updoot the sound room to give them actual names
+                - Fix up exporting the music to be at a bitrate that Ren'Py likes
+                - Update the music tracks in variables.rpy to have the actual names
+                - Save the potential names/adjectives to a file somewhere so that I don't lose them
             - Assets:
                 - Voice Acting:
                     - Add in partials, post-recording

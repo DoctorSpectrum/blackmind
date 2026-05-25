@@ -63,8 +63,7 @@ define config.sample_voice = "audio/voice/partials/jack/jack_mind_read_01.ogg"
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-#define config.main_menu_music = "audio/music/1-03. 《4 Minutes Before Death》.mp3"
-define config.main_menu_music = "audio/music/menu_placeholder.wav"
+define config.main_menu_music = "audio/music/brain_matter.mp3"
 
 init python:
     def progress_convo(event, interact=True, **kwargs):

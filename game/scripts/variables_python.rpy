@@ -17,20 +17,15 @@ init python:
 
     def play_music(song_title):
         if(song_title == "neutral_1"):
-            renpy.music.play("audio/music/Blackmind Track 1 - 97 BPM (D minor)v2- LOOPABLE.wav", loop=True)
-            #renpy.music.play("audio/music/PSYNCIN' IN THE CURTaiN.mp3", loop=True)
+            renpy.music.play("audio/music/bourbon_mood.mp3", loop=True)
         elif (song_title == "tense_1"):
-            #renpy.music.play("audio/music/08 警戒 -keikAI-.mp3", loop=True)
-            renpy.music.play("audio/music/Blackmind Track 2.wav", loop=True)
+            renpy.music.play("audio/music/blundering_mistake.mp3", loop=True)
         elif (song_title == "ambient_1"):
-            #renpy.music.play("audio/music/1-01. Prelude - The “Night” Begins.mp3", loop=True)
-            renpy.music.play("audio/music/Blackmind Track 3 - 140 BPM (C minor) - LOOPABLE.wav", loop=True)
+            renpy.music.play("audio/music/before_midnight.mp3", loop=True)
         elif (song_title == "neutral_2"):
-            #renpy.music.play("audio/music/1-13. Madam - Perfumed Lady.mp3", loop=True)
-            renpy.music.play("audio/music/Track #4.wav")
+            renpy.music.play("audio/music/bitter_memories.mp3", loop=True)
         elif (song_title == "tense_2"):
-            #renpy.music.play("audio/music/31 PSYNCIN' IN THE VILLaiN.mp3", loop=True)
-            renpy.music.play("audio/music/Track #5 128 BPM G Maj.wav", loop=True)
+            renpy.music.play("audio/music/beware_murderer.mp3", loop=True)
         
         unlock_music(song_title)
 
