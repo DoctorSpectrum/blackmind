@@ -513,13 +513,13 @@ label prologue_restaurant:
     jack worried "(Anyway, I’d - I’d pay for stuff if I had the money, but I don’t, since I had to - I gave all that I had to that guy.)"
     $ jack_partial("irritated_01")
     jack worried "(He’s soooo expensive...[wait_1]got the info I wanted, but did he - did he have to cost so much?)"
-    scene restaurant_night at drunk_cycle(5, 0, 1.0) with slow_dissolve
+    scene restaurant_night at drunk_cycle(5, 0, 1.0), restaurant with slow_dissolve
     $ jack_partial("irritated_01")
     jack worried "(They’d better have some tables left inside...[wait_1]it’s so cold out here...)"
     $ jack_partial("cocky_01")
     jack smug "(Although if they don’t, I can - I can make somebody go outside.[wait_1] They wouldn’t know that I -)"
     call prologue_precognition from prologue_restaurant_
-    scene restaurant_night at drunk_cycle(5, 0, 1.0) with slow_dissolve
+    scene restaurant_night at drunk_cycle(5, 0, 1.0), restaurant with slow_dissolve
     jump prologue_end
 
 label prologue_precognition:

@@ -296,6 +296,10 @@ label variables:
             alpha 0.0
         repeat
 
+    transform restaurant:
+        zoom 1.25
+        yoffset -130
+
     define quick_dissolve = Dissolve(0.5)
     define slow_dissolve = Dissolve(2.0)
 
