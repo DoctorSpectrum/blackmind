@@ -14,9 +14,6 @@ BLACKMIND TODO
                         - Work out what I want the screenshots to be of
 
         - Demo Actionables:
-            - Logos
-                - Let's add Psychic Social Simulator to the logo - MGS has Tactical Espionage Action on its logo; I doubt anyone is using Sci-Fi Mystery Investigation when describing AN
-                - Will also need to add it into all the Steam assets        
             - Credits
                 - Voice Actors
                     - Might be better off making them an hbox of their own - or potentially their own section in the side menu? Could do pics against their characters
@@ -37,7 +34,7 @@ BLACKMIND TODO
                 - Final items for Steam:
                     - Remove the pause menu items that are currently disabled (or change them to locked)
                         - Let's do Locked for now - that makes it more mysterious and makes people go "ooh what will this option be?" as opposed to them being removed
-                    - Remove or replace any placeholder text in the help/credits menus
+                    - Remove or replace any remaining placeholder text in the help/credits menus
                     - Set config.developer to False
             - Send off to the gang once we've done all of the above - including implementing backgrounds and sprites - before setting it live
                 - Question: thoughts on wiping the conversation history on doing a mind rewind?

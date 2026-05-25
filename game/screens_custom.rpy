@@ -838,13 +838,24 @@ screen pause_menu():
         style "title_half_card_right"
         at title_card_slide("up")
 
-    text _("{color=#000}BLACK{/color}{color=#F2EE29}MIND{/color}"):
+    vbox:
         xalign 0.5
         yalign 0.05
-        font "gui/Decade__.ttf"
-        size 90
-        xoffset -18
+        spacing 0
+
         at trans_fade(0.5, 0.5)
+
+        text _("{color=#000}BLACK{/color}{color=#F2EE29}MIND{/color}"):
+            font "gui/Decade__.ttf"
+            size 90
+            xoffset -18
+        text _("{color=#000}PSYCHIC SOCIAL{/color}{color=#F2EE29} SIMULATOR{/color}"):
+            font "gui/chubhand.ttf"
+            size 18
+            xalign 0.5
+            yalign 0.25
+            xoffset -30
+            kerning 12.6
 
     vbox:
         xalign 0.3

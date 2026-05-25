@@ -769,8 +769,10 @@ screen main_logo(confirmed, initialised):
                         alpha 1.0
                     repeat
         
-    text _("{color=#000}BLACK{/color}{color=#F2EE29}MIND{/color}"):
-        style "logo_text"
+    vbox:
+        xalign 0.5
+        yalign 0.25
+
         if (initialised):
             at transform:
                 yalign 0.15
@@ -786,6 +788,10 @@ screen main_logo(confirmed, initialised):
                     yalign 0.15
                     zoom 0.75
 
+        text _("{color=#000}BLACK{/color}{color=#F2EE29}MIND{/color}"):
+            style "logo_text"
+        text _("{color=#000}PSYCHIC SOCIAL {color=#F2EE29}SIMULATOR{/color}"):
+            style "logo_subtitle"
         
 
 style main_menu_frame is empty
@@ -830,6 +836,15 @@ style logo_text:
     yalign 0.25
     xoffset -25
     spacing 0
+
+style logo_subtitle:
+    font "gui/chubhand.ttf"
+    size 32
+    xalign 0.5
+    yalign 0.25
+    xoffset -43
+    spacing 0
+    kerning 16.1
 
 style yellow_button:
     background Frame("gui/button/button_idle.png")
