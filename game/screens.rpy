@@ -1016,6 +1016,7 @@ screen about():
     default show_content = False
     default hide_content = False
     default selected_tab = "game"
+    default audio_tab = "voice_actors"
     tag menu
 
     timer 1.2:
@@ -1124,39 +1125,55 @@ screen about():
 
                         elif (selected_tab == "audio"):
                             vbox:
-                                spacing 10
-                                text _("Julian Dailey"):
-                                    style "credit_heading"
-                                text _("Voice of Jack"):
-                                    style "credit_person"
+                                style_prefix "controls_help"
+                                spacing 23
 
-                            vbox:
-                                spacing 10
-                                text _("Vyn Vox"):
-                                    style "credit_heading"
-                                text _("Voice of Bartender"):
-                                    style "credit_person"
+                                hbox:
+                                    textbutton _("Voice Actors"): 
+                                        action SetScreenVariable("audio_tab", "voice_actors")
+                                    textbutton _("Music and SFX"): 
+                                        action SetScreenVariable("audio_tab", "music_sfx")
 
-                            vbox:
-                                spacing 10
-                                text _("Ed the Djinn"):
-                                    style "credit_heading"
-                                text _("Voice of ???"):
-                                    style "credit_person"
+                                if (audio_tab == "voice_actors"):
+                                    vbox:
+                                        spacing 10
+                                        at trans_fade(0.25, 0.25)
+                                        text _("Julian Dailey"):
+                                            style "credit_heading"
+                                        text _("Voice of Jack"):
+                                            style "credit_person"
 
-                            vbox:
-                                spacing 10
-                                text _("{a=https://kohdeemusic.com}{font=gui/chubhand.ttf}Cody Webberley{/font}{/a}"):
-                                    style "credit_heading"
-                                text _("Original Music"):
-                                    style "credit_person"
+                                    vbox:
+                                        spacing 10
+                                        at trans_fade(0.3, 0.25)
+                                        text _("Vyn Vox"):
+                                            style "credit_heading"
+                                        text _("Voice of Bartender"):
+                                            style "credit_person"
 
-                            vbox:
-                                spacing 10
-                                text _("{a=https://www.zapsplat.com/}{font=gui/chubhand.ttf}Zapsplat.com{/font}{/a}"):
-                                    style "credit_heading"
-                                text _("Sound Effects"):
-                                    style "credit_person"
+                                    vbox:
+                                        spacing 10
+                                        at trans_fade(0.35, 0.25)
+                                        text _("Ed the Djinn"):
+                                            style "credit_heading"
+                                        text _("Voice of ???"):
+                                            style "credit_person"
+                                elif (audio_tab == "music_sfx"):
+                                    vbox:
+                                        spacing 10
+                                        at trans_fade(0.25, 0.25)
+                                        text _("{a=https://kohdeemusic.com}{font=gui/chubhand.ttf}Cody Webberley{/font}{/a}"):
+                                            style "credit_heading"
+                                        text _("Original Music"):
+                                            style "credit_person"
+
+                                    vbox:
+                                        spacing 10
+                                        at trans_fade(0.4, 0.25)
+                                        text _("{a=https://www.zapsplat.com/}{font=gui/chubhand.ttf}Zapsplat.com{/font}{/a}"):
+                                            style "credit_heading"
+                                        text _("Sound Effects"):
+                                            style "credit_person"
                         elif (selected_tab == "assets"):
                             vbox:
                                 spacing 10
