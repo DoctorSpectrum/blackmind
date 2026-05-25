@@ -862,14 +862,14 @@ screen pause_menu():
         yalign 0.55
         spacing 50
         at trans_fade(1.0, 0.5), fade_side_to_side(-1000, 0.5)
-        textbutton _("Flow Chart"):
+        textbutton _("Locked"): #"Flow Chart"):
             style "yellow_button_on_yellow"
             #action ShowMenu("flow_chart")
-            action (Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
-        textbutton _("Characters"):
+            action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+        textbutton _("Locked"): #"Characters"):
             style "yellow_button_on_yellow"
             #action ShowMenu("characters")
-            action (Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+            action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         textbutton _("Load"):
             style "yellow_button_on_yellow"
             action (ShowMenu("saves_list") if clickable_button() else NullAction())
@@ -885,14 +885,14 @@ screen pause_menu():
         yalign 0.75
         spacing 50
         at trans_fade(1.0, 0.5), fade_side_to_side(1000, 0.5)
-        textbutton _("Psychic Powers"):
+        textbutton _("Locked"): #Psychic Powers"):
             style "black_button_on_black"
             #action ShowMenu("upgrades_screen")
-            action (Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
-        textbutton _("Notes"):
+            action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+        textbutton _("Locked"): #Notes"):
             style "black_button_on_black"
             #action ShowMenu("notes")
-            action (Show("modal_popup", message="Disabled during prototype; will add this in later", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+            action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         textbutton _("Settings"):
             style "black_button_on_black"
             action (ShowMenu("preferences") if clickable_button() else NullAction())

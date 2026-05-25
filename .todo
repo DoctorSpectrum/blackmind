@@ -16,10 +16,9 @@ BLACKMIND TODO
         - Demo Actionables:
             - Credits
                 - Voice Actors
-                    - Might be better off making them an hbox of their own - or potentially their own section in the side menu? Could do pics against their characters
                     - Chase them up to confirm how they want to be credited/any social links
                 - Friends
-                    - Confirm everybody wants to be in the credits; potentially a single hbox for them, same as the VAs (?)
+                    - Confirm everybody wants to be in the credits
             - Audio
                 - Rename the music files, and updoot the sound room to give them actual names
             - Assets:
@@ -31,11 +30,13 @@ BLACKMIND TODO
                     - Script
                     - Voice Acting (?)
             - Programming Changes:
+                - Let's give Jack different visuals for his psychic abilities to Lloyd. The current rings can be used for Lloyd, but Jack is a different person:
+                    - Mind read should be a black bar at a slight angle slicing through the screen, with a sword SFX playing
+                    - Mind rewind should be 6 to 8 triangles, making up a circle, stabbing into the target's head
                 - Final items for Steam:
-                    - Remove the pause menu items that are currently disabled (or change them to locked)
-                        - Let's do Locked for now - that makes it more mysterious and makes people go "ooh what will this option be?" as opposed to them being removed
                     - Remove or replace any remaining placeholder text in the help/credits menus
                     - Set config.developer to False
+
             - Send off to the gang once we've done all of the above - including implementing backgrounds and sprites - before setting it live
                 - Question: thoughts on wiping the conversation history on doing a mind rewind?
 
