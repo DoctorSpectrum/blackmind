@@ -951,13 +951,21 @@ screen chapter_breaks(title, paragraph):
         style "title_half_card_right"
         at title_card_slide("up")
 
-    text _("BLACKMIND"):
-        font "gui/Decade__.ttf"
-        size 150
+    vbox:
         xalign 0.98
         yalign 0.2
-        color "#F2EE29"
         at trans_fade(0.5, 0.5), fade_side_to_side(100)
+
+        text _("BLACKMIND"):
+            font "gui/Decade__.ttf"
+            size 150
+            color "#F2EE29"
+
+        text _("SOCIAL PSYCHIC SIMULATOR"):
+            font "gui/chubhand.ttf"
+            color "#F2EE29"
+            size 38
+            kerning 20
 
     text _("OPEN YOUR THIRD EYE"):    
         color "#000"
@@ -965,13 +973,6 @@ screen chapter_breaks(title, paragraph):
         yalign 0.05
         size 20
         at trans_fade(1.25, 1.5), fade_side_to_side(-50, 0.75)
-
-    text _("SOCIAL PSYCHIC SIMULATOR"):
-        color "#F2EE29"
-        xalign 0.98
-        yalign 0.05
-        size 20
-        at trans_fade(1.25, 1.5), fade_side_to_side(50, 0.75)
 
     vbox:
         xalign 0.05
