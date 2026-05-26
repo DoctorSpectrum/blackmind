@@ -26,30 +26,44 @@ label variables:
     ]
     default persistent.music_tracks = [
         {
-            "file": "1-03. 《4 Minutes Before Death》.mp3",
-            "title": "Main Menu",
-            "handle": "main_menu",
+            "file": "brain_matter.mp3",
+            "title": "Brain Matter",
+            "handle": "brain_matter",
             "unlocked": True,
             "length": 125
         },
         {
-            "file": "Blackmind Track 1 - 97 BPM (D minor)v2- LOOPABLE.wav",
-            "title": "Test",
+            "file": "bourbon_mood.mp3",
+            "title": "Bourbon Mood",
             "handle": "neutral_1",
             "unlocked": False,
             "length": 277
         },
         {
-            "file": "Blackmind Track 2.wav",
-            "title": "Test2",
+            "file": "blundering_mistake.mp3",
+            "title": "Blundering Mistake",
             "handle": "tense_1",
             "unlocked": False,
             "length": 90
         },
         {
-            "file": "Blackmind Track 3 - 140 BPM (C minor) - LOOPABLE.wav",
-            "title": "Test3",
+            "file": "before_midnight.mp3",
+            "title": "Before Midnight",
             "handle": "ambient_1",
+            "unlocked": False,
+            "length": 137
+        },
+        {
+            "file": "beware_murderer.mp3",
+            "title": "Beware! Murderer!",
+            "handle": "tense_2",
+            "unlocked": False,
+            "length": 99
+        },
+        {
+            "file": "bitter_memories.mp3",
+            "title": "Bitter Memories",
+            "handle": "neutral_2",
             "unlocked": False,
             "length": 137
         }

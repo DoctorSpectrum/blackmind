@@ -1502,7 +1502,7 @@ screen sound_room():
     timer 1.2:
         action SetScreenVariable("show_content", True)
 
-    use game_menu("SOUND\n ROOM", 81, [Function(renpy.music.play, "audio/music/1-03. 《4 Minutes Before Death》.mp3"), ShowMenu("main_menu", initialised=True, extras=True)]):
+    use game_menu("SOUND\n ROOM", 81, [Function(renpy.music.play, "audio/music/brain_matter.mp3"), ShowMenu("main_menu", initialised=True, extras=True)]):
         if (show_content):
             grid 2 5:
                 xalign 0.1
@@ -1511,7 +1511,7 @@ screen sound_room():
                 yspacing 60
                 at trans_fade(0.0, 0.5)
 
-                for i in range(4):
+                for i in range(6):
                     frame:
                         background None
                         xsize 350

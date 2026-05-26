@@ -116,7 +116,7 @@ label prologue_03:
 
 label prologue_04:
     show screen psychic_powers
-    if (renpy.music.get_playing() != "audio/music/Blackmind Track 1 - 97 BPM (D minor)v2- LOOPABLE.wav"):
+    if (renpy.music.get_playing() != "audio/music/bourbon_mood.mp3"):
         $ play_music("neutral_1")
 
     $ remove_boolean("prologue_interior_designing_2")
@@ -207,7 +207,7 @@ label prologue_06:
     show screen psychic_powers
     $ rewind_point = "prologue_06"
     $ current_thought = "barbara_thought_pr_17"
-    if (renpy.music.get_playing() != "audio/music/Blackmind Track 1 - 97 BPM (D minor)v2- LOOPABLE.wav"):
+    if (renpy.music.get_playing() != "audio/music/bourbon_mood.mp3"):
         $ play_music("neutral_1")
     
     $ jack_partial("cocky_02")
@@ -258,7 +258,7 @@ label prologue_07:
     show screen conversation_history
     show screen psychic_powers
     $ rewind_point = "prologue_07"
-    if (renpy.music.get_playing() != "audio/music/Blackmind Track 1 - 97 BPM (D minor)v2- LOOPABLE.wav"):
+    if (renpy.music.get_playing() != "audio/music/bourbon_mood.mp3"):
         $ play_music("neutral_1")
 
     $ current_thought = "barbara_thought_pr_26"

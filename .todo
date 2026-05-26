@@ -20,10 +20,6 @@ BLACKMIND TODO
                     - Chase them up to confirm how they want to be credited/any social links
                 - Friends
                     - Confirm everybody wants to be in the credits
-            - Audio
-                - Fix up exporting the music to be at a bitrate that Ren'Py likes
-                - Update the music tracks in variables.rpy to have the actual names
-                - Save the potential names/adjectives to a file somewhere so that I don't lose them
             - Assets:
                 - Voice Acting:
                     - Add in partials, post-recording
@@ -33,6 +29,7 @@ BLACKMIND TODO
                     - Script
                     - Voice Acting (?)
             - Programming Changes:
+                - Add in Psychic Social Simulator properly to the chapter break screen
                 - Let's give Jack different visuals for his psychic abilities to Lloyd. The current rings can be used for Lloyd, but Jack is a different person:
                     - Mind read should be a black bar at a slight angle slicing through the screen, with a sword SFX playing
                     - Mind rewind should be 6 to 8 triangles, making up a circle, stabbing into the target's head
