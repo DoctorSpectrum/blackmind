@@ -267,6 +267,21 @@ label variables:
                 zoom (1.1 if zoom != 1.0 else 1.0)
             repeat
 
+    transform slice_mind_read:
+        ypos 100
+        xanchor 0.0
+        yanchor 0.5
+        ysize 2
+        xsize 1
+        rotate 5
+
+        #xsize 1500
+
+        linear 0.25:
+            xsize 1920
+        linear 1.0:
+            xsize 1
+
     transform ring_mind_read_expand(xoffset=0, yoffset=0):
         zoom 0.1
         xalign 0.5 
