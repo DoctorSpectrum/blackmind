@@ -77,7 +77,7 @@ label variables:
 
     #Transforms
     transform center:
-        zoom 0.45
+        zoom 0.33
         xalign 0.5 
         yalign 0.0
 
@@ -194,8 +194,8 @@ label variables:
         xalign 0.0
         yalign 1.0
         yoffset 350
-        xoffset -200
-        rotate -10
+        xoffset -240
+        rotate -5
         #crop (0, 0, 900, 700)
 
     transform cg_1_teaser:

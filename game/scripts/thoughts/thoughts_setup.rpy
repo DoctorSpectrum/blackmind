@@ -19,10 +19,10 @@ label mind_read_effects:
             $ minds_read += 1
     
     #if Lloyd
-    #$ play_sound("mind_read.mp3", volume=0.5)
-    #show ring at ring_mind_read_expand(-25, 200)
+    $ play_sound("mind_read.mp3", volume=0.5)
+    show ring at ring_mind_read_expand(0, 200)
     #elseif Jack
-    show white_bg at slice_mind_read
+    #show white_bg at slice_mind_read
 
     jump expression current_thought_block
 
@@ -46,7 +46,7 @@ label mind_wipe_pause:
             $ minds_rewound += 1
         $ play_sound("mind_rewind.mp3")
         $ narrator.add_history(kind="adv", who=None, what=_("__breakpoint__"))
-        show ring at ring_mind_rewind_pause(-25, 200)
+        show ring at ring_mind_rewind_pause(0, 200)
         $ renpy.pause(2.5, hard=True)
         hide ring
         $ rewound_mind = False
