@@ -18,11 +18,8 @@ label mind_read_effects:
         if (max_mind_reads is not None):
             $ minds_read += 1
     
-    #if Lloyd
     $ play_sound("mind_read.mp3", volume=0.5)
-    show ring at ring_mind_read_expand(0, 200)
-    #elseif Jack
-    #show white_bg at slice_mind_read
+    show screen psychic_effects
 
     jump expression current_thought_block
 

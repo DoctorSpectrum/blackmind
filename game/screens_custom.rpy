@@ -176,6 +176,48 @@ screen psychic_splash(pause_time = 2.0):
                     alpha 1.0
                     yoffset 10
 
+screen psychic_effects():
+    if False:   #Check for Lloyd/Jack
+        timer 2.25:
+            action Hide("psychic_effects")
+
+        image "images/menu/ring.png":
+            at ring_mind_read_expand(0, 200)
+    else:
+        timer 3.25:
+            action Hide("psychic_effects")
+    
+        frame:
+            background None
+            xfill True
+            yfill True
+            at transform:
+                rotate 5
+
+            image Solid("#F2EE29"):
+                ysize 2
+                xsize 1
+                xanchor 0.0
+                ypos -300
+                xpos -225
+                at transform:
+                    linear 0.25:
+                        xsize 1920
+                    pause 1.25
+                    xsize 0
+            image Solid("#F2EE29"):
+                ysize 2
+                xsize 1
+                xanchor 1.0
+                xpos 1700
+                ypos -300
+                at transform:
+                    pause 1.5
+                    xsize 1920
+                    linear 1.75:
+                        xsize 0
+
+
 screen map_navigation(destinations):
     default xpos = 0
     default ypos = 0
