@@ -31,8 +31,13 @@ BLACKMIND TODO
                     - Voice Acting (?)
             - Programming Changes:
                 - Let's give Jack different visuals for his psychic abilities to Lloyd. The current rings can be used for Lloyd, but Jack is a different person:
-                    - Add sword slicing SFX for mind read
-                    - Mind rewind should be some icons of nails, making up a circle, stabbing into the target's head
+                    - Mind read:
+                        - Add sword slicing SFX
+                        - Make the screen a name similar to the name for the mind wipe screen
+                    - Mind wipe:
+                        - Add in nail piercing SFX
+                        - Test adding in a slight delay so it's 1, 2, 3 in sequence rather than all three at once
+                        - Updoot icon?
                 - Final items for Steam:
                     - Remove or replace any remaining placeholder text in the help/credits menus
                     - Set config.developer to False

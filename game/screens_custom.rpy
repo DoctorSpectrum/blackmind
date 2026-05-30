@@ -217,6 +217,54 @@ screen psychic_effects():
                     linear 1.75:
                         xsize 0
 
+screen psychic_wipe():
+    timer 2.5:
+        action Hide("psychic_wipe")
+
+    if False:
+        image "images/menu/ring.png":
+            at ring_mind_rewind_pause(0, 200)
+    else:
+        image "gui/icons/nail.png":
+            xalign 0.5
+            yalign 0.0
+            yoffset -200
+            at transform:
+                #zoom 0.75
+
+                linear 0.25:
+                    yoffset 400
+                pause 0.5
+                linear 0.25:
+                    alpha 0.0
+
+        image "gui/icons/nail.png":
+            xalign 0.25
+            yalign 0.6
+            at transform:
+                #zoom 0.75
+                rotate -135
+
+                linear 0.25:
+                    yoffset -345
+                    xoffset 430
+                pause 0.5
+                linear 0.25:
+                    alpha 0.0
+
+        image "gui/icons/nail.png":
+            xalign 0.75
+            yalign 0.6
+            at transform:
+                #zoom 0.75
+                rotate 135
+
+                linear 0.25:
+                    yoffset -345
+                    xoffset -430
+                pause 0.5
+                linear 0.25:
+                    alpha 0.0
 
 screen map_navigation(destinations):
     default xpos = 0

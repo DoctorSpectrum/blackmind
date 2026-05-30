@@ -43,9 +43,9 @@ label mind_wipe_pause:
             $ minds_rewound += 1
         $ play_sound("mind_rewind.mp3")
         $ narrator.add_history(kind="adv", who=None, what=_("__breakpoint__"))
-        show ring at ring_mind_rewind_pause(0, 200)
+        
+        show screen psychic_wipe
         $ renpy.pause(2.5, hard=True)
-        hide ring
         $ rewound_mind = False
     else:
         if (rewind_point in paused_ineffective_rewinds):
