@@ -19,7 +19,7 @@ label mind_read_effects:
             $ minds_read += 1
     
     $ play_sound("mind_read.mp3", volume=0.5)
-    show screen psychic_effects
+    show screen psychic_read
 
     jump expression current_thought_block
 

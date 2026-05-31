@@ -176,7 +176,7 @@ screen psychic_splash(pause_time = 2.0):
                     alpha 1.0
                     yoffset 10
 
-screen psychic_effects():
+screen psychic_read():
     if False:   #Check for Lloyd/Jack
         timer 2.25:
             action Hide("psychic_effects")
@@ -230,7 +230,6 @@ screen psychic_wipe():
             yalign 0.0
             yoffset -200
             at transform:
-                #zoom 0.75
 
                 linear 0.25:
                     yoffset 400
@@ -242,10 +241,12 @@ screen psychic_wipe():
             xalign 0.25
             yalign 0.6
             at transform:
-                #zoom 0.75
                 rotate -135
+                alpha 0.0
+                pause 0.2
 
                 linear 0.25:
+                    #alpha 1.0
                     yoffset -345
                     xoffset 430
                 pause 0.5
@@ -258,8 +259,11 @@ screen psychic_wipe():
             at transform:
                 #zoom 0.75
                 rotate 135
+                alpha 0.0
+                pause 0.4
 
                 linear 0.25:
+                    #alpha 1.0
                     yoffset -345
                     xoffset -430
                 pause 0.5
