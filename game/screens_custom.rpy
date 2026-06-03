@@ -144,14 +144,24 @@ screen psychic_powers():
                     NullAction(),
                 ]
 
-screen psychic_splash(pause_time = 2.0):
-    timer pause_time:
+screen psychic_splash(details):
+    timer details["time"]:
         action Hide("psychic_splash")
 
     frame:
         xfill True
         yfill True
         background Solid ("#00000066")
+
+        text _(details["line"]):
+            color "#F2EE29"
+            font "gui/chubhand.ttf"
+            xalign 0.125
+            yalign 0.25
+            size 104
+            at fade_side_to_side(-10) 
+            at transform:
+                rotate -5
 
         frame:
             background Solid("#F2EE29")

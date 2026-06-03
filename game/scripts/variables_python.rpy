@@ -91,11 +91,20 @@ init python:
         ])
         voice(line)
         if (preferences.get_mute("voice") or preferences.get_mixer("voice") < 0.1):
-            return 2.0
+            return {
+                "time": 2.0,
+                "line": "TELL ME\nWHAT YOU'RE \nTHINKING"
+            }
         elif (line == "audio/voice/partials/jack/jack_mind_read_01.ogg"):
-            return 2.2
+            return {
+                "time": 2.2,
+                "line": "TELL ME\nWHAT YOU'RE \nTHINKING"
+            }
         elif (line == "audio/voice/partials/jack/jack_mind_read_02.ogg"):
-            return 3.2
+            return {
+                "time": 3.2,
+                "line": "YOU CAN'T\nHIDE YOUR\nSECRETS\nFROM ME"
+            }
 
     def mind_rewind_line():
         line = random.choice([
@@ -104,11 +113,20 @@ init python:
         ])
         voice(line)
         if (preferences.get_mute("voice") or preferences.get_mixer("voice") < 0.1):
-            return 2.0
+            return {
+                "time": 2.0,
+                "line": "FORGET ALL\nOF THIS!"
+            }
         elif (line == "audio/voice/partials/jack/jack_mind_wipe_01.ogg"):
-            return 2.2
+            return {
+                "time": 2.2,
+                "line": "FORGET ALL\nOF THIS!"
+            }
         elif (line == "audio/voice/partials/jack/jack_mind_wipe_02.ogg"):
-            return 2.8
+            return {
+                "time": 2.8,
+                "line": "YOU WILL NOT\nREMEMBER..."
+            }
 
     def unlock_music(handle):
         tracks = list(filter(lambda x: x["handle"] == handle, persistent.music_tracks))

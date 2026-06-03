@@ -11,7 +11,13 @@ BLACKMIND TODO
                     - Screenshots
                         - Backgrounds
 
-                        - Work out what I want the screenshots to be of
+                        - Content:
+                            - CG of Docherty's hand holding the gun
+                            - Select Your Destination shot
+                            - Psychic Splash
+                            - Jack thinking "(If I use my psychic abilities correctly, I can definitely trick her into giving me something for free.)"
+                            - Jack thinking "(Pickpocketing’s considered a petty crime.[wait_1] That basically means that they shouldn’t be wasting any time on it, especially when they’ve got no evidence.)"
+                            - Timeline screenshot
 
         - Demo Actionables:
             - Credits
@@ -28,7 +34,12 @@ BLACKMIND TODO
                     - Script
                     - Voice Acting (?)
             - Programming Changes:
+                - Slash through for the mind read not working?
                 - Final items for Steam:
+                    - Try adding in text to psychic splash to make it more dramatic
+                        - Works, but we need to account for the single quotes not working. New font? Check out the alternatives we looked up ages back
+                    - Remove the Save Game textbutton, and any Load buttons - it means not having to worry about the controller support. Might have to move other shit around.
+                    - Add in the initial version of the timeline, so that we can make a screenshot for the store page
                     - Remove or replace any remaining placeholder text in the help/credits menus
                     - Set config.developer to False
 
