@@ -189,13 +189,13 @@ screen psychic_splash(details):
 screen psychic_read():
     if False:   #Check for Lloyd/Jack
         timer 2.25:
-            action Hide("psychic_effects")
+            action Hide("psychic_read")
 
         image "images/menu/ring.png":
             at ring_mind_read_expand(0, 200)
     else:
         timer 3.25:
-            action Hide("psychic_effects")
+            action Hide("psychic_read")
     
         frame:
             background None
