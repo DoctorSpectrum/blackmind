@@ -332,14 +332,14 @@ screen map_navigation(destinations):
                                 ]
                                 selected False
                                 at trans_fade(fade_delay, 1.0), fade_side_to_side(-200, fade_delay)
-                    textbutton _("SAVE GAME"):
-                        xalign 0.5
-                        yalign 1.0
-                        text_color "#000"
-                        text_font "gui/Decade__.ttf"
-                        text_hover_underline True
-                        action ShowMenu("saves_list", title="SAVE")
-                        at trans_fade(1.5, 1.0)
+                    #textbutton _("SAVE GAME"):
+                    #    xalign 0.5
+                    #    yalign 1.0
+                    #    text_color "#000"
+                    #    text_font "gui/Decade__.ttf"
+                    #    text_hover_underline True
+                    #    action ShowMenu("saves_list", title="SAVE")
+                    #    at trans_fade(1.5, 1.0)
 
                 frame:
                     xsize 640
@@ -974,9 +974,9 @@ screen pause_menu():
             style "yellow_button_on_yellow"
             #action ShowMenu("characters")
             action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
-        textbutton _("Load"):
-            style "yellow_button_on_yellow"
-            action (ShowMenu("saves_list") if clickable_button() else NullAction())
+        #textbutton _("Load"):
+        #    style "yellow_button_on_yellow"
+        #    action (ShowMenu("saves_list") if clickable_button() else NullAction())
         textbutton _("Return"):
             style "yellow_button_on_yellow"
             action (Return() if clickable_button() else NullAction())
@@ -989,10 +989,10 @@ screen pause_menu():
         yalign 0.75
         spacing 50
         at trans_fade(1.0, 0.5), fade_side_to_side(1000, 0.5)
-        textbutton _("Locked"): #Psychic Powers"):
-            style "black_button_on_black"
+        #textbutton _("Locked"): #Psychic Powers"):
+        #    style "black_button_on_black"
             #action ShowMenu("upgrades_screen")
-            action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+        #    action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         textbutton _("Locked"): #Notes"):
             style "black_button_on_black"
             #action ShowMenu("notes")

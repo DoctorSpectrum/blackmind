@@ -6,7 +6,6 @@ BLACKMIND TODO
             - Steam page ("Store Presence")
                 - Page content
                     - Add in screenshots and controller support
-                        - Currently can't do saves with a controller - do I want to try and add in the keyboard naming functionality again?
                 - Waiting on:
                     - Screenshots
                         - Backgrounds
@@ -35,7 +34,6 @@ BLACKMIND TODO
                     - Voice Acting (?)
             - Programming Changes:
                 - Final items for Steam:
-                    - Remove the Save Game textbutton, and any Load buttons - it means not having to worry about the controller support. Might have to move other shit around.
                     - Add in the initial version of the timeline, so that we can make a screenshot for the store page
                     - Remove or replace any remaining placeholder text in the help/credits menus
                     - Set config.developer to False
