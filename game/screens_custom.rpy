@@ -155,10 +155,10 @@ screen psychic_splash(details):
 
         text _(details["line"]):
             color "#F2EE29"
-            font "gui/chubhand.ttf"
+            font "gui/DCC - Ash.otf"
             xalign 0.125
             yalign 0.25
-            size 104
+            size 140
             at fade_side_to_side(-10) 
             at transform:
                 rotate -5
