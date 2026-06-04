@@ -535,118 +535,222 @@ screen upgrades_screen():
 
 screen flow_chart():
     tag menu
-    default zoom_level = 0.25
+    default zoom_level = 1.0
     default offset = 0
     default zooming_in = False
     default zooming_out = False
     default scrolling_up = False
     default scrolling_down = False
     default active_control = None
+    default show_content = False
 
-    if (zooming_in):
-        timer (0.01):
-            action SetScreenVariable("zoom_level", zoom_level + 0.01 if zoom_level < 1 else 1)
-            repeat True
-    
-    if (zooming_out):
-        timer (0.01):
-            action SetScreenVariable("zoom_level", zoom_level - 0.01 if zoom_level > 0.25 else 0.25)
-            repeat True
+    timer 1.2:
+        action SetScreenVariable("show_content", True)
 
-    if (scrolling_up):
-        timer (0.01):
-            action SetScreenVariable("offset", offset - 2 if offset > -350 else -350)
-            repeat True
-    
-    if (scrolling_down):
-        timer (0.01):
-            action SetScreenVariable("offset", offset + 2 if offset < 350 else 350)
-            repeat True
-                
-    frame:
-        xfill True
-        yfill True
-        xalign 0.5
-        yalign 0.5
-        background None
+    use game_menu("FLOW\n CHART", 90):
 
-        at transform:
-            yoffset offset
-            zoom zoom_level
-
-        vbox:
-            xalign 0.5
-            yalign 0.5
-
-            textbutton _("End of Day #1" if renpy.can_load(str(game_id) + "_A_01_03") else "-"):
-                action (NullAction() if not renpy.can_load(str(game_id) + "_A_01_03") else [
-                    #Function(renpy.log, days),
-                    Function(renpy.load, str(game_id) + "_A_01_03")
-                ])
-            textbutton _("End of Day #2" if renpy.can_load(str(game_id) + "_A_02_03") else "-"):
-                action (NullAction() if not renpy.can_load(str(game_id) + "_A_02_03") else [
-                    #Function(renpy.log, days),
-                    Function(renpy.load, str(game_id) + "_A_02_03")
-                ])
-            textbutton _("End of Day #3" if renpy.can_load(str(game_id) + "_A_03_03") else "-"):
-                action (NullAction() if not renpy.can_load(str(game_id) + "_A_03_03") else [
-                    #Function(renpy.log, days),
-                    Function(renpy.load, str(game_id) + "_A_03_03")
-                ])
-            textbutton _("End of Day #4" if renpy.can_load(str(game_id) + "_A_04_03") else "-"):
-                action (NullAction() if not renpy.can_load(str(game_id) + "_A_04_03") else [
-                    #Function(renpy.log, days),
-                    Function(renpy.load, str(game_id) + "_A_04_03")
-                ])
-
-    vbox:
-        xalign 0.95
-        yalign 0.9
-
-        textbutton _("Up"):
-            if (active_control == "up"):
-                keysym "mousedown_1"
-                alternate_keysym "mouseup_1"
-            action SetScreenVariable("scrolling_up", True)
-            alternate SetScreenVariable("scrolling_up", False)
-            hovered SetScreenVariable("active_control", "up")
-            unhovered SetScreenVariable("active_control", None)
-
-        textbutton _("Down"):
-            if (active_control == "down"):
-                keysym "mousedown_1"
-                alternate_keysym "mouseup_1"
-            action SetScreenVariable("scrolling_down", True)
-            alternate SetScreenVariable("scrolling_down", False)
-            hovered SetScreenVariable("active_control", "down")
-            unhovered SetScreenVariable("active_control", None)
-
-        textbutton _("Zoom In"):
-            if (active_control == "zoom_in"):
-                keysym "mousedown_1"
-                alternate_keysym "mouseup_1"
-            action SetScreenVariable("zooming_in", True)
-            alternate SetScreenVariable("zooming_in", False)
-            hovered SetScreenVariable("active_control", "zoom_in")
-            unhovered SetScreenVariable("active_control", None)
+        if (zooming_in):
+            timer (0.01):
+                action SetScreenVariable("zoom_level", zoom_level + 0.01 if zoom_level < 1 else 1)
+                repeat True
         
-        textbutton _("Zoom Out"):
-            if (active_control == "zoom_out"):
-                keysym "mousedown_1"
-                alternate_keysym "mouseup_1"
-            action SetScreenVariable("zooming_out", True)
-            alternate SetScreenVariable("zooming_out", False)
-            hovered SetScreenVariable("active_control", "zoom_out")
-            unhovered SetScreenVariable("active_control", None)
+        if (zooming_out):
+            timer (0.01):
+                action SetScreenVariable("zoom_level", zoom_level - 0.01 if zoom_level > 0.25 else 0.25)
+                repeat True
 
-        textbutton _("Return"):
-            xalign 0.95
-            yalign 0.95
-            
-            action [
-                Hide("flow_chart"),
-                Show("debug")
-            ]
+        if (scrolling_up):
+            timer (0.01):
+                action SetScreenVariable("offset", offset - 2 if offset > -350 else -350)
+                repeat True
+        
+        if (scrolling_down):
+            timer (0.01):
+                action SetScreenVariable("offset", offset + 2 if offset < 350 else 350)
+                repeat True
+
+        #Mouse wheel up/down should scroll it up/down
+                    
+        if (show_content):
+            frame:
+                xfill True
+                yfill True
+                xalign 0.5
+                yalign 0.5
+                background None
+
+                at trans_fade(0.0, 0.5)
+                at transform:
+                    yoffset offset
+                    zoom zoom_level
+
+                vbox:
+                    hbox:
+                        xsize 960
+                        ysize 600
+                        spacing 0
+
+                        frame:
+                            background None
+                            xalign 0.0
+                            xsize 0
+
+                            text _("PROLOGUE"):
+                                color "#000"
+                                font "gui/chubhand.ttf"
+                                size 96
+                        
+                        vbox:
+                            xalign 1.0
+                            yoffset 200
+                            xsize 98
+                            spacing 10
+
+                            image Solid("#000"):
+                                xsize 70
+                                ysize 70
+                                at transform:
+                                    rotate 45
+                                        
+                            image Solid("#000"):
+                                xsize 5
+                                ysize 125
+                                xalign 0.5
+
+                            image Solid("#000"):
+                                xsize 70
+                                ysize 70
+                                at transform:
+                                    rotate 45
+
+                            image Solid("#000"):
+                                xsize 5
+                                ysize 125
+                                xalign 0.5
+                        
+                    image Solid("#000"):
+                        xsize 1700
+                        ysize 5
+                    
+                    hbox:
+                        xsize 960
+                        ysize 600
+                        spacing 0
+
+                        frame:
+                            background None
+                            xalign 0.0
+                            xsize 400
+
+                            text _("DAY 1"):
+                                color "#000"
+                                font "gui/chubhand.ttf"
+                                size 96
+                        
+                        vbox:
+                            xalign 1.0
+                            yoffset 80
+                            xsize 98
+                            spacing 10
+
+                            image Solid("#000"):
+                                xsize 70
+                                ysize 70
+                                at transform:
+                                    rotate 45
+                                        
+                            image Solid("#000"):
+                                xsize 5
+                                ysize 125
+                                xalign 0.5
+
+                            image Solid("#000"):
+                                xsize 70
+                                ysize 70
+                                at transform:
+                                    rotate 45
+
+                            image Solid("#000"):
+                                xsize 5
+                                ysize 125
+                                xalign 0.5
+                            
+                            image Solid("#000"):
+                                xsize 70
+                                ysize 70
+                                at transform:
+                                    rotate 45
+                                        
+                            image Solid("#000"):
+                                xsize 5
+                                ysize 125
+                                xalign 0.5
+                        
+                    image Solid("#000"):
+                        xsize 1700
+                        ysize 5
+
+
+                    #textbutton _("End of Day #1" if renpy.can_load(str(game_id) + "_A_01_03") else "-"):
+                    #    action (NullAction() if not renpy.can_load(str(game_id) + "_A_01_03") else [
+                            #Function(renpy.log, days),
+                    #        Function(renpy.load, str(game_id) + "_A_01_03")
+                    #    ])
+                    #textbutton _("End of Day #2" if renpy.can_load(str(game_id) + "_A_02_03") else "-"):
+                    #    action (NullAction() if not renpy.can_load(str(game_id) + "_A_02_03") else [
+                            #Function(renpy.log, days),
+                    #        Function(renpy.load, str(game_id) + "_A_02_03")
+                    #    ])
+                    #textbutton _("End of Day #3" if renpy.can_load(str(game_id) + "_A_03_03") else "-"):
+                    #    action (NullAction() if not renpy.can_load(str(game_id) + "_A_03_03") else [
+                            #Function(renpy.log, days),
+                    #        Function(renpy.load, str(game_id) + "_A_03_03")
+                    #    ])
+                    #textbutton _("End of Day #4" if renpy.can_load(str(game_id) + "_A_04_03") else "-"):
+                    #    action (NullAction() if not renpy.can_load(str(game_id) + "_A_04_03") else [
+                            #Function(renpy.log, days),
+                    #        Function(renpy.load, str(game_id) + "_A_04_03")
+                    #    ])
+
+            vbox:
+                xalign 0.95
+                yalign 0.9
+
+                textbutton _("Up"):
+                    if (active_control == "up"):
+                        keysym "mousedown_1"
+                        alternate_keysym "mouseup_1"
+                    action SetScreenVariable("scrolling_up", True)
+                    alternate SetScreenVariable("scrolling_up", False)
+                    hovered SetScreenVariable("active_control", "up")
+                    unhovered SetScreenVariable("active_control", None)
+
+                textbutton _("Down"):
+                    if (active_control == "down"):
+                        keysym "mousedown_1"
+                        alternate_keysym "mouseup_1"
+                    action SetScreenVariable("scrolling_down", True)
+                    alternate SetScreenVariable("scrolling_down", False)
+                    hovered SetScreenVariable("active_control", "down")
+                    unhovered SetScreenVariable("active_control", None)
+
+                textbutton _("Zoom In"):
+                    if (active_control == "zoom_in"):
+                        keysym "mousedown_1"
+                        alternate_keysym "mouseup_1"
+                    action SetScreenVariable("zooming_in", True)
+                    alternate SetScreenVariable("zooming_in", False)
+                    hovered SetScreenVariable("active_control", "zoom_in")
+                    unhovered SetScreenVariable("active_control", None)
+                
+                textbutton _("Zoom Out"):
+                    if (active_control == "zoom_out"):
+                        keysym "mousedown_1"
+                        alternate_keysym "mouseup_1"
+                    action SetScreenVariable("zooming_out", True)
+                    alternate SetScreenVariable("zooming_out", False)
+                    hovered SetScreenVariable("active_control", "zoom_out")
+                    unhovered SetScreenVariable("active_control", None)
 
 screen saves_list(title="LOAD"):
     tag menu
@@ -968,8 +1072,8 @@ screen pause_menu():
         at trans_fade(1.0, 0.5), fade_side_to_side(-1000, 0.5)
         textbutton _("Locked"): #"Flow Chart"):
             style "yellow_button_on_yellow"
-            #action ShowMenu("flow_chart")
-            action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+            action ShowMenu("flow_chart")
+            #action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         textbutton _("Locked"): #"Characters"):
             style "yellow_button_on_yellow"
             #action ShowMenu("characters")
