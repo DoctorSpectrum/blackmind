@@ -1079,6 +1079,10 @@ screen modal_popup(message, option_labels, option_actions):
             for (i, label) in enumerate(option_labels):
                 textbutton _(label):
                     action option_actions[i]
+                    background Frame("gui/button/modal_button_idle.png")
+                    hover_background Frame("gui/button/modal_button_idle.png")
+                    padding (120, 10, 120, 10)
+                    text_hover_color "#F2EE29"
 
     if (len(option_labels) == 1):
         key ["K_ESCAPE", "K_RETURN", "K_SPACE", "pad_a_press"]:
