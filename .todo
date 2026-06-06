@@ -16,7 +16,7 @@ BLACKMIND TODO
                             - Psychic Splash -> ready
                             - Jack thinking "(If I use my psychic abilities correctly, I can definitely trick her into giving me something for free.)" -> ready
                             - Jack thinking "(Pickpocketing’s considered a petty crime. That basically means that they shouldn’t be wasting any time on it, especially when they’ve got no evidence.)"
-                            - Timeline screenshot
+                            - Timeline screenshot -> ready
 
         - Demo Actionables:
             - Credits
@@ -34,7 +34,7 @@ BLACKMIND TODO
                     - Voice Acting (?)
             - Programming Changes:
                 - Final items for Steam:
-                    - Add in the initial version of the timeline, so that we can make a screenshot for the store page
+                    - Modals - can we make them look a little more interesting?
                     - Remove or replace any remaining placeholder text in the help/credits menus
                     - Set config.developer to False
 

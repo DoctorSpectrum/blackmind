@@ -536,18 +536,19 @@ screen upgrades_screen():
 screen flow_chart():
     tag menu
     default zoom_level = 1.0
-    default offset = 0
+    default offset = 10
     default zooming_in = False
     default zooming_out = False
     default scrolling_up = False
     default scrolling_down = False
     default active_control = None
     default show_content = False
+    default loaded_node = None
 
     timer 1.2:
         action SetScreenVariable("show_content", True)
 
-    use game_menu("FLOW\n CHART", 90):
+    use game_menu("FLOW\n CHART", 88):
 
         if (zooming_in):
             timer (0.01):
@@ -572,6 +573,7 @@ screen flow_chart():
         #Mouse wheel up/down should scroll it up/down
                     
         if (show_content):
+            #text _(str(offset))
             frame:
                 xfill True
                 yfill True
@@ -587,7 +589,6 @@ screen flow_chart():
                 vbox:
                     hbox:
                         xsize 960
-                        ysize 600
                         spacing 0
 
                         frame:
@@ -602,26 +603,40 @@ screen flow_chart():
                         
                         vbox:
                             xalign 1.0
-                            yoffset 200
+                            yoffset 60
                             xsize 98
                             spacing 10
 
-                            image Solid("#000"):
+                            frame: 
+                                background Solid("#000")
                                 xsize 70
                                 ysize 70
+                                padding (6, 6, 6, 6)
                                 at transform:
-                                    rotate 45
+                                    rotate -45
+
+                                imagebutton:
+                                    idle Solid("#F2EE29")
+                                    hover Solid("#D1CE21")
+                                    action SetScreenVariable("loaded_node", "prologue_1")
                                         
                             image Solid("#000"):
                                 xsize 5
                                 ysize 125
                                 xalign 0.5
 
-                            image Solid("#000"):
+                            frame: 
+                                background Solid("#000")
                                 xsize 70
                                 ysize 70
+                                padding (6, 6, 6, 6)
                                 at transform:
-                                    rotate 45
+                                    rotate -45
+
+                                imagebutton:
+                                    idle Solid("#F2EE29")
+                                    hover Solid("#D1CE21")
+                                    action SetScreenVariable("loaded_node", "prologue_2")
 
                             image Solid("#000"):
                                 xsize 5
@@ -646,45 +661,58 @@ screen flow_chart():
                                 color "#000"
                                 font "gui/chubhand.ttf"
                                 size 96
+                                yoffset 10
                         
                         vbox:
                             xalign 1.0
-                            yoffset 80
+                            yoffset 60
                             xsize 98
                             spacing 10
 
-                            image Solid("#000"):
+                            frame: 
+                                background Solid("#000")
                                 xsize 70
                                 ysize 70
+                                padding (6, 6, 6, 6)
                                 at transform:
-                                    rotate 45
-                                        
-                            image Solid("#000"):
-                                xsize 5
-                                ysize 125
-                                xalign 0.5
+                                    rotate -45
 
-                            image Solid("#000"):
-                                xsize 70
-                                ysize 70
-                                at transform:
-                                    rotate 45
+                                #image Solid("#F2EE29")
 
-                            image Solid("#000"):
-                                xsize 5
-                                ysize 125
-                                xalign 0.5
+                            #image Solid("#000"):
+                            #    xsize 5
+                            #    ysize 125
+                            #    xalign 0.5
+
+                            #frame: 
+                            #    background Solid("#000")
+                            #    xsize 70
+                            #    ysize 70
+                            #    padding (6, 6, 6, 6)
+                            #    at transform:
+                            #        rotate -45
+
+                                #image Solid("#F2EE29")
+
+                            #image Solid("#000"):
+                            #    xsize 5
+                            #    ysize 125
+                            #    xalign 0.5
                             
-                            image Solid("#000"):
-                                xsize 70
-                                ysize 70
-                                at transform:
-                                    rotate 45
+                            #frame: 
+                            #    background Solid("#000")
+                            #    xsize 70
+                            #    ysize 70
+                            #    padding (6, 6, 6, 6)
+                            #    at transform:
+                            #        rotate -45
+
+                                #image Solid("#F2EE29")
                                         
-                            image Solid("#000"):
-                                xsize 5
-                                ysize 125
-                                xalign 0.5
+                            #image Solid("#000"):
+                            #    xsize 5
+                            #    ysize 125
+                            #    xalign 0.5
                         
                     image Solid("#000"):
                         xsize 1700
@@ -712,45 +740,124 @@ screen flow_chart():
                     #        Function(renpy.load, str(game_id) + "_A_04_03")
                     #    ])
 
+                if (loaded_node is not None):
+                    use node_selected_display(loaded_node)
+
             vbox:
-                xalign 0.95
-                yalign 0.9
+                xalign 0.98
+                yalign 0.62
+                spacing 30
 
-                textbutton _("Up"):
-                    if (active_control == "up"):
-                        keysym "mousedown_1"
-                        alternate_keysym "mouseup_1"
-                    action SetScreenVariable("scrolling_up", True)
-                    alternate SetScreenVariable("scrolling_up", False)
-                    hovered SetScreenVariable("active_control", "up")
-                    unhovered SetScreenVariable("active_control", None)
+                vbox:
+                    spacing 2
+                    xalign 0.5
 
-                textbutton _("Down"):
-                    if (active_control == "down"):
-                        keysym "mousedown_1"
-                        alternate_keysym "mouseup_1"
-                    action SetScreenVariable("scrolling_down", True)
-                    alternate SetScreenVariable("scrolling_down", False)
-                    hovered SetScreenVariable("active_control", "down")
-                    unhovered SetScreenVariable("active_control", None)
+                    imagebutton:
+                        auto "gui/arrow_up_%s.png"
+                        #hover "gui/arrow_up_hover.png"
+                        if (active_control == "down"):
+                            keysym "mousedown_1"
+                            alternate_keysym "mouseup_1"
+                        action SetScreenVariable("scrolling_down", True)
+                        alternate SetScreenVariable("scrolling_down", False)
+                        hovered SetScreenVariable("active_control", "down")
+                        unhovered SetScreenVariable("active_control", None)
 
-                textbutton _("Zoom In"):
-                    if (active_control == "zoom_in"):
-                        keysym "mousedown_1"
-                        alternate_keysym "mouseup_1"
-                    action SetScreenVariable("zooming_in", True)
-                    alternate SetScreenVariable("zooming_in", False)
-                    hovered SetScreenVariable("active_control", "zoom_in")
-                    unhovered SetScreenVariable("active_control", None)
+                    imagebutton:
+                        auto "gui/arrow_down_%s.png"
+                        if (active_control == "up"):
+                            keysym "mousedown_1"
+                            alternate_keysym "mouseup_1"
+                        action SetScreenVariable("scrolling_up", True)
+                        alternate SetScreenVariable("scrolling_up", False)
+                        hovered SetScreenVariable("active_control", "up")
+                        unhovered SetScreenVariable("active_control", None)
+
+                hbox:
+                    spacing 5
+                    xalign 0.5
+
+                    imagebutton:
+                        auto "gui/icons/zoom_out_%s.png"
+                        if (active_control == "zoom_out"):
+                            keysym "mousedown_1"
+                            alternate_keysym "mouseup_1"
+                        action SetScreenVariable("zooming_out", True)
+                        alternate SetScreenVariable("zooming_out", False)
+                        hovered SetScreenVariable("active_control", "zoom_out")
+                        unhovered SetScreenVariable("active_control", None)
+                    imagebutton:
+                        auto "gui/icons/zoom_in_%s.png"
+                        if (active_control == "zoom_in"):
+                            keysym "mousedown_1"
+                            alternate_keysym "mouseup_1"
+                        action SetScreenVariable("zooming_in", True)
+                        alternate SetScreenVariable("zooming_in", False)
+                        hovered SetScreenVariable("active_control", "zoom_in")
+                        unhovered SetScreenVariable("active_control", None)
+
+        #Ensure that the timeline won't flow over the title by rendering a duplicate on top of it
+        frame:
+            style "bottom_left_frame"
+            at menu_bottom_left_slide, trans_fade(1.5, 0.01)
+
+        text _("FLOW\n CHART"):
+            font "gui/Decade__.ttf"
+            size 88
+            color "#F2EE29"
+            xalign 0.0125
+            yalign 0.95
+            at trans_fade(1.5, 0.01)
+
+screen node_selected_display(loaded_node):
+    zorder 100
+    frame:
+        #xsize 400
+        ysize 200
+        padding (10, 10, 10, 10)
+
+        at transform:
+            xsize 0
+            ease 0.5:
+                xsize 400
+
+        if (loaded_node == "prologue_1"):
+            xpos 980
+            ypos 50
+
+            text _("prologue_1 text"):
+                style "node_active_text"
+                at trans_fade(0.6, 0.5)
                 
-                textbutton _("Zoom Out"):
-                    if (active_control == "zoom_out"):
-                        keysym "mousedown_1"
-                        alternate_keysym "mouseup_1"
-                    action SetScreenVariable("zooming_out", True)
-                    alternate SetScreenVariable("zooming_out", False)
-                    hovered SetScreenVariable("active_control", "zoom_out")
-                    unhovered SetScreenVariable("active_control", None)
+        elif (loaded_node == "prologue_2"):
+            xpos 980
+            ypos 300
+
+            text _("Jack chose to go to the Restaurant. While there, he had a psychic vision of an attack that would be happening soon."):
+                style "node_active_text"
+                at trans_fade(0.6, 0.5)
+            
+        hbox:
+            yalign 0.9
+            xsize 380
+            at trans_fade(1.1, 0.5)
+            textbutton _("Jump"):
+                xalign 0.0
+                style "yellow_button"
+                text_font "gui/chubhand.ttf"
+                text_yoffset 2
+                action NullAction()
+
+            textbutton _("Back"):
+                xalign 1.0
+                style "yellow_button"
+                text_font "gui/chubhand.ttf"
+                text_yoffset 2
+                action SetScreenVariable("loaded_node", None)
+
+style node_active_text:
+    color "#000"
+    size 18
 
 screen saves_list(title="LOAD"):
     tag menu
@@ -1072,8 +1179,8 @@ screen pause_menu():
         at trans_fade(1.0, 0.5), fade_side_to_side(-1000, 0.5)
         textbutton _("Locked"): #"Flow Chart"):
             style "yellow_button_on_yellow"
-            action ShowMenu("flow_chart")
-            #action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+            #action ShowMenu("flow_chart")
+            action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         textbutton _("Locked"): #"Characters"):
             style "yellow_button_on_yellow"
             #action ShowMenu("characters")
