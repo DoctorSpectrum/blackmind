@@ -34,7 +34,6 @@ BLACKMIND TODO
                     - Voice Acting (?)
             - Programming Changes:
                 - Final items for Steam:
-                    - Modals - can we make them look a little more interesting?
                     - Remove or replace any remaining placeholder text in the help/credits menus
                     - Set config.developer to False
 

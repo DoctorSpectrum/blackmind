@@ -1074,15 +1074,14 @@ screen modal_popup(message, option_labels, option_actions):
 
         hbox:
             xalign 0.5
-            spacing 150
+            yalign 1.0
+            yoffset 70
 
             for (i, label) in enumerate(option_labels):
                 textbutton _(label):
                     action option_actions[i]
-                    background Frame("gui/button/modal_button_idle.png")
-                    hover_background Frame("gui/button/modal_button_idle.png")
-                    padding (120, 10, 120, 10)
-                    text_hover_color "#F2EE29"
+                    style "yellow_button"
+                    hover_background Frame("gui/button/button_hover_allblack.png")
 
     if (len(option_labels) == 1):
         key ["K_ESCAPE", "K_RETURN", "K_SPACE", "pad_a_press"]:
