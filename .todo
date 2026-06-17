@@ -34,6 +34,8 @@ BLACKMIND TODO
                     - Voice Acting (?)
             - Programming Changes:
                 - Final items for Steam:
+                    - Use controller prompts where viable
+                        - https://lemmasoft.renai.us/forums/viewtopic.php?t=63847
                     - Remove or replace any remaining placeholder text in the help/credits menus
                     - Set config.developer to False
 
