@@ -719,6 +719,14 @@ screen main_menu(initialised=False, extras=False):
                     action ([SetScreenVariable("display_extras", False), SetScreenVariable("extras_returned", True)] if clickable_button() and timer_count >= 3 else NullAction())
                     hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3 else None)
                     at menu_button(1.0)
+                if (config.developer):
+                    textbutton _("TRAILER"):
+                        style "main_menu_button"
+                        xoffset -135
+                        selected False
+                        action (Show("trailer") if clickable_button() and timer_count >= 3.5 else NullAction())
+                        hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3.5 else None)
+                        at menu_button(1.5)
     else:
         use any_key(SetScreenVariable("confirmed", True) if confirmable else NullAction())
 
