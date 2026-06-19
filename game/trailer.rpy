@@ -1,13 +1,46 @@
 screen trailer():
-    default movie = None
+    frame:
+        xfill True
+        yfill True
+        background Solid("#F2EE29")
+
+        grid 2 4:
+            xalign 0.5
+            yalign 0.5
+
+            textbutton _("Scene #1"):
+                action Show("trailer_scene_1")
+            textbutton _("Scene #2"):
+                action Show("trailer_scene_2")
+            textbutton _("Scene #3"):
+                action Show("trailer_scene_3")
+            textbutton _("Scene #4"):
+                action Show("trailer_scene_4")
+            textbutton _("Scene #5"):
+                action Show("trailer_scene_5")
+            textbutton _("Scene #6"):
+                action Show("trailer_scene_6")
+            textbutton _("Scene #7"):
+                action Show("trailer_scene_7")
+            textbutton _("Scene #8"):
+                action Show("trailer_scene_8")
+
+        textbutton _("Return"):
+            xalign 1.0
+            yalign 1.0
+            xoffset -10
+            yoffset -10
+            text_color "#FFF"
+            action Hide("trailer")
+
+screen trailer_scene_1():
+    timer 6.0:
+        action Hide("trailer_scene_1")
 
     frame:
         xfill True
         yfill True
         background Solid("#000")
-
-    timer 14.0:
-        action SetScreenVariable("movie", 1)
 
     image "images/cgs/cg1_docherty.png":
         at transform:
@@ -27,6 +60,9 @@ screen trailer():
                 linear 6.0:
                     xalign 1.0
 
+screen trailer_scene_2():
+    timer 9.0:
+        action Hide("trailer_scene_2")
 
     frame:
         xfill True
@@ -34,8 +70,6 @@ screen trailer():
         background Solid("#F2EE29")
         at transform:
             alpha 0.0
-            pause 6.0
-
             linear 1.0:
                 alpha 1.0
             pause 7.0
@@ -50,7 +84,7 @@ screen trailer():
                 style "trailer_text"
                 at transform:
                     xoffset -1400
-                    pause 7.0
+                    pause 1.0
                     linear 1.0:
                         xoffset 0
                     pause 5.0
@@ -60,33 +94,229 @@ screen trailer():
                 style "trailer_text"
                 at transform:
                     xoffset 2000
-                    pause 7.0
+                    pause 1.0
                     linear 1.0:
                         xoffset 0
                     pause 5.0
                     linear 1.0:
                         xoffset -1800
 
-    if (movie == 1):
-        add Movie(size=(1920, 1080), play="videos/trailer_clip_1.ogv", loop=False)
+screen trailer_scene_3():
+    timer 6.0:
+        action Hide("trailer_scene_3")
 
-    #" Their victims have nothing in common. There is no way to tell where they will strike next."
+    add Movie(size=(1920, 1080), play="videos/trailer_clip_1.ogv", loop=False)
 
-    #flowchart footage, choices footage
+screen trailer_scene_4():
+    timer 14.0:
+        action Hide("trailer_scene_4")
 
-    #"Will your psychic powers be the deciding factor in capturing them?"
+    frame:
+        xfill True
+        yfill True
+        background Solid("#F2EE29")
+        at transform:
+            alpha 0.0
+            linear 1.0:
+                alpha 1.0
+            pause 11.0
+            linear 1.0:
+                alpha 0.0
+        
+        vbox:
+            xalign 0.25
+            yalign 0.1
 
-    #"You can't hide from me"
+            text _("THEIR {color=#F2EE29}{outlinecolor=#000}VICTIMS{/outlinecolor}{/color} HAVE"):
+                style "trailer_text"
+                at transform:
+                    xoffset -1600
+                    pause 1.0
+                    linear 1.0:
+                        xoffset 0
+                    pause 5.0
+                    linear 1.0:
+                        xoffset 2000
+            text _("NOTHING IN COMMON."):
+                style "trailer_text"
+                at transform:
+                    xoffset 2000
+                    pause 1.0
+                    linear 1.0:
+                        xoffset 0
+                    pause 5.0
+                    linear 1.0:
+                        xoffset -1600
+
+        vbox:
+            xalign 0.5
+            yalign 0.9
+
+            text _("THERE IS NO WAY TO TELL"):
+                style "trailer_text"
+                at transform:
+                    xoffset -1800
+                    pause 5.0
+                    linear 1.0:
+                        xoffset 0
+                    pause 5.0
+                    linear 1.0:
+                        xoffset 2000
+            text _("WHERE THEY WILL"):
+                style "trailer_text"
+                at transform:
+                    xoffset 2000
+                    pause 5.0
+                    linear 1.0:
+                        xoffset 0
+                    pause 5.0
+                    linear 1.0:
+                        xoffset -1800
+            text _("{color=#F2EE29}{outlinecolor=#000}STRIKE NEXT{/outlinecolor}{/color}."):
+                style "trailer_text"
+                at transform:
+                    xoffset 2000
+                    pause 5.0
+                    linear 1.0:
+                        xoffset 0
+                    pause 5.0
+                    linear 1.0:
+                        xoffset -1800
 
     #Title, CTA
 
-    textbutton _("Return"):
-        xalign 1.0
-        yalign 1.0
-        xoffset -10
-        yoffset -10
-        text_color "#FFF"
-        action Hide("trailer")
+screen trailer_scene_5():
+    text _("Video of the flowchart, plus choices")
+    
+    timer 1.0:
+        action Hide("trailer_scene_5")
+
+    #add Movie(size=(1920, 1080), play="videos/trailer_clip_2.ogv", loop=False)
+
+screen trailer_scene_6():
+    timer 9.0:
+        action Hide("trailer_scene_6")
+
+    frame:
+        xfill True
+        yfill True
+        background Solid("#F2EE29")
+        at transform:
+            alpha 0.0
+            linear 1.0:
+                alpha 1.0
+            pause 7.0
+            linear 1.0:
+                alpha 0.0
+        
+        vbox:
+            xalign 0.25
+            yalign 0.25
+
+            text _("WILL YOUR {color=#F2EE29}{outlinecolor=#000}PSYCHIC POWERS{/outlinecolor}{/color}"):
+                style "trailer_text"
+                size 120
+                at transform:
+                    xoffset -1800
+                    pause 1.0
+                    linear 1.0:
+                        xoffset 0
+                    pause 5.0
+                    linear 1.0:
+                        xoffset 2000
+            text _("BE ENOUGH TO STOP THEM?"):
+                style "trailer_text"
+                size 120
+                at transform:
+                    xoffset 2000
+                    pause 1.0
+                    linear 1.0:
+                        xoffset 0
+                    pause 5.0
+                    linear 1.0:
+                        xoffset -1800
+
+screen trailer_scene_7():
+    timer 4.0:
+        action Hide("trailer_scene_7")
+    
+    frame:
+        xfill True
+        yfill True
+        background Solid("#F2EE29")
+
+        #play voice line
+
+        frame:
+            background Solid("#000000d0")
+            style "title_half_card_right"
+            at transform:
+                yoffset -1080
+                linear 0.25:
+                    yoffset -6
+
+        text _("YOU CAN'T\nHIDE YOUR\nSECRETS\nFROM ME"):
+            color "#000"
+            font "gui/DCC - Ash.otf"
+            xalign 0.125
+            yalign 0.5
+            size 140
+            at fade_side_to_side(-10) 
+            at transform:
+                rotate -5
+
+        image "images/menu/jack_menu.png":
+            xalign 1.0
+            yalign 1.0
+
+            at transform:
+                alpha 0.0
+                zoom 0.75
+                crop (103, 0, 1397, 1300)
+                xoffset 100
+                yoffset 1000
+
+                linear 0.25:
+                    alpha 1.0
+                    yoffset 10
+
+screen trailer_scene_8():
+    timer 4.0:
+        action Hide("trailer_scene_8")
+
+    frame:
+        background Solid("#000")
+        style "title_half_card"
+    frame:
+        background Solid("#F2EE29")
+        style "title_half_card_right"
+
+    frame:
+        background Solid("#F2EE29")
+        style "title_half_card"
+        at title_card_slide("down")
+
+    frame: 
+        background Solid("#000")
+        style "title_half_card_right"
+        at title_card_slide("up")
+
+    vbox:
+        xalign 0.5
+        yalign 0.5
+
+        at transform:
+            alpha 0.0
+            pause 0.5
+            alpha 1.0
+
+        #Increase the size of the text 
+        text _("{color=#000}BLACK{/color}{color=#F2EE29}MIND{/color}"):
+            style "logo_text"
+        text _("{color=#000}PSYCHIC SOCIAL {color=#F2EE29}SIMULATOR{/color}"):
+            style "logo_subtitle"
+
+    #Add in a fade to the CTA
 
 style trailer_text:
     color "#000"
