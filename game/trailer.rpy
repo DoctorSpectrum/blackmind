@@ -24,6 +24,12 @@ screen trailer():
                 action Show("trailer_scene_7")
             textbutton _("Scene #8"):
                 action Show("trailer_scene_8")
+        
+        textbutton _("Full Trailer"):
+            xalign 0.5
+            text_color "#000"
+            yalign 0.8
+            action Show("full_trailer")
 
         textbutton _("Return"):
             xalign 1.0
@@ -185,13 +191,11 @@ screen trailer_scene_4():
 
     #Title, CTA
 
-screen trailer_scene_5():
-    text _("Video of the flowchart, plus choices")
-    
-    timer 1.0:
+screen trailer_scene_5():    
+    timer 8.2:
         action Hide("trailer_scene_5")
 
-    #add Movie(size=(1920, 1080), play="videos/trailer_clip_2.ogv", loop=False)
+    add Movie(size=(1920, 1080), play="videos/trailer_clip_2.ogv", loop=False)
 
 screen trailer_scene_6():
     timer 9.0:
@@ -281,8 +285,8 @@ screen trailer_scene_7():
                     yoffset 10
 
 screen trailer_scene_8():
-    timer 4.0:
-        action Hide("trailer_scene_8")
+    #timer 8.0:
+    #    action Hide("trailer_scene_8")
 
     frame:
         background Solid("#000")
@@ -310,13 +314,106 @@ screen trailer_scene_8():
             pause 0.5
             alpha 1.0
 
-        #Increase the size of the text 
+            pause 4.0
+            linear 2.0:
+                yalign 0.15
+                zoom 0.75
+
         text _("{color=#000}BLACK{/color}{color=#F2EE29}MIND{/color}"):
             style "logo_text"
+            size 164
         text _("{color=#000}PSYCHIC SOCIAL {color=#F2EE29}SIMULATOR{/color}"):
             style "logo_subtitle"
+            size 41
+            xoffset -55
+            kerning 20
+            
+    vbox:
+        yalign 0.65
+        xalign 0.25
+        xoffset -800
+        at transform:
+            pause 5.5
+            linear 1.0:
+                xoffset 700
 
-    #Add in a fade to the CTA
+        text _("A Game By"):
+            color "#000"
+            xalign 0.5
+            size 48
+
+        image "gui/icons/tmt_black.png"
+
+        text _("https://toomanyteeth.net"):
+            color "#000"
+
+    vbox:
+        yalign 0.65
+        xalign 0.75
+        xoffset 810
+        spacing 120
+        at transform:
+            pause 5.5
+            linear 1.0:
+                xoffset -710
+
+        text _("Wishlist Now"):
+            color "#F2EE29"
+            xalign 0.5
+            size 48
+
+        hbox:
+            spacing 45
+            yoffset -60
+            image "gui/icons/steam_hover.png"
+            image "gui/icons/itch_yellow.png"
+
+screen full_trailer():
+    default countdown = 3
+
+    timer 1.0:
+        repeat True
+        action SetScreenVariable("countdown", countdown - 1)
+
+    timer 3.0:
+        action Show("trailer_scene_1")
+
+    timer 8.5:
+        action Show("trailer_scene_2")
+
+    timer 17.0:
+        action Show("trailer_scene_3")
+
+    timer 22.5:
+        action Show("trailer_scene_4")
+
+    timer 36.0:
+        action Show("trailer_scene_5")
+
+    timer 43.5:
+        action Show("trailer_scene_6")
+
+    timer 52.0:
+        action Show("trailer_scene_7")
+
+    timer 55.5:
+        action Show("trailer_scene_8")
+
+    timer 67.0:
+        action Hide("full_trailer")
+    
+    frame:
+        xfill True
+        yfill True
+        background Solid("#000")
+
+        if (countdown > 0):
+            text _(str(countdown)):
+                xalign 0.5
+                yalign 0.5
+                size 84
+                color "#F2EE29"
+
 
 style trailer_text:
     color "#000"

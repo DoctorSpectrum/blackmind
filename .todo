@@ -6,6 +6,7 @@ BLACKMIND TODO
             - Steam page ("Store Presence")
                 - Page content
                     - Add in screenshots and controller support
+
                 - Waiting on:
                     - Screenshots
                         - Backgrounds
@@ -24,18 +25,19 @@ BLACKMIND TODO
                     - Chase them up to confirm how they want to be credited/any social links
                 - Friends
                     - Confirm everybody wants to be in the credits
+
             - Assets:
                 - Voice Acting:
                     - Add in partials, post-recording
                         - Barbara
-                - Trailer:
-                    - Storyboard
-                    - Script
-                    - Voice Acting (?)
+
             - Programming Changes:
+                - Use controller prompts where viable
+                    - https://lemmasoft.renai.us/forums/viewtopic.php?t=63847
                 - Final items for Steam:
-                    - Use controller prompts where viable
-                        - https://lemmasoft.renai.us/forums/viewtopic.php?t=63847
+                    - Trailer
+                        - Re-record footage to not have placeholders
+                        - Make the footage a tad snappier - faster cuts
                     - Remove or replace any remaining placeholder text in the help/credits menus
                     - Set config.developer to False
 
