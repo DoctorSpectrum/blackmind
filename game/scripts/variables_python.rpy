@@ -3,6 +3,8 @@ init python:
 
     config.fade_music = 1.0
     config.autosave_on_choice = False
+    config.pass_joystick_events = True
+    config.overlay_screens.append("input_checker")
 
     import datetime, random
 
@@ -284,3 +286,20 @@ init python:
         #    renpy.save(str(game_id) + "_A_03_03")
         #elif (len(days[3]) == 3):
         #    renpy.save(str(game_id) + "_A_04_03")
+
+
+    #Classes
+    class InputChecker(renpy.Displayable):
+        def __init__(self, **kwargs):
+            super(InputChecker, self).__init__(**kwargs)
+
+        def render(self, width, height, st, at):
+            return renpy.Render(0, 0)
+
+        def event(self, ev, x, y, st):
+            import pygame
+            if ev.type in (pygame.KEYDOWN, pygame.KEYUP, pygame.MOUSEBUTTONUP, pygame.MOUSEBUTTONDOWN):
+                store.current_input = "KB"
+            elif ev.type in (pygame.JOYBUTTONUP, pygame.JOYBUTTONDOWN, pygame.JOYAXISMOTION, pygame.JOYBALLMOTION, pygame.JOYHATMOTION):
+                store.current_input = "GP"
+            return None

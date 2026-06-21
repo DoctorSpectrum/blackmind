@@ -2071,7 +2071,7 @@ screen help(return_action=None):
     default show_content = False
     default hide_content = False
     default selected_tab = "controls"
-    default device = "keyboard"
+    default device = ("keyboard" if current_input == "KB" else "gamepad")
     default gameplay_help = "powers"
 
     tag menu

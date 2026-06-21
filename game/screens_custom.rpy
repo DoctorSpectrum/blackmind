@@ -2069,6 +2069,9 @@ style cta_button_text:
 style block_cta:
     font gui.preference("font")
 
+screen input_checker():
+    add InputChecker()
+
 screen block_rollback():
     key ["mousedown_4", "anyrepeat_K_PAGEUP", "anyrepeat_KP_PAGEUP", "pad_leftshoulder_press", "pad_lefttrigger_pos", "pad_back_press", "repeat_pad_leftshoulder_press", "repeat_pad_lefttrigger_pos", "repeat_pad_back_press"]:
         if (config.developer):
