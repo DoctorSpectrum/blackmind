@@ -26,13 +26,8 @@ BLACKMIND TODO
                 - Friends
                     - Confirm everybody wants to be in the credits
 
-            - Assets:
-                - Voice Acting:
-                    - Add in partials, post-recording
-                        - Barbara
-                    - Do I want to change the code so we pass in the variable and then just have a single line that calls the code? I think it'd be worth it since the files aren't named for the line contents
-
             - Programming Changes:
+                - Penultimate bar rotate/blur goes off the edges of the screen a bit - either need to reduce the angle or increase the zoom
                 - Final items for Steam:
                     - Trailer
                         - Re-record footage to not have placeholders
