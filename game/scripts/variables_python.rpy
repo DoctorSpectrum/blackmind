@@ -80,6 +80,46 @@ init python:
     def barbara_partial(line):
         if (line == "irritated_01"):
             voice("audio/voice/partials/barbara/barbara_irritated_01.ogg")
+        elif (line == "irritated_02"):
+            voice("audio/voice/partials/barbara/barbara_irritated_02.ogg")
+        elif (line == "irritated_03"):
+            voice("audio/voice/partials/barbara/barbara_irritated_03.ogg")
+        elif (line == "friendly_01"):
+            voice("audio/voice/partials/barbara/barbara_friendly_01.ogg")
+        elif (line == "friendly_02"):
+            voice("audio/voice/partials/barbara/barbara_friendly_02.ogg")
+        elif (line == "cheerful_01"):
+            voice("audio/voice/partials/barbara/barbara_cheerful_01.ogg")
+        elif (line == "cheerful_02"):
+            voice("audio/voice/partials/barbara/barbara_cheerful_02.ogg")
+        elif (line == "confused_01"):
+            voice("audio/voice/partials/barbara/barbara_confused_01.ogg")
+        elif (line == "confused_02"):
+            voice("audio/voice/partials/barbara/barbara_confused_02.ogg")
+        elif (line == "angry_01"):
+            voice("audio/voice/partials/barbara/barbara_angry_01.ogg")
+        elif (line == "angry_02"):
+            voice("audio/voice/partials/barbara/barbara_angry_02.ogg")
+        elif (line == "excited_01"):
+            voice("audio/voice/partials/barbara/barbara_excited_01.ogg")
+        elif (line == "excited_02"):
+            voice("audio/voice/partials/barbara/barbara_excited_02.ogg")
+        elif (line == "guilty_01"):
+            voice("audio/voice/partials/barbara/barbara_guilty_01.ogg")
+        elif (line == "guilty_02"):
+            voice("audio/voice/partials/barbara/barbara_guilty_02.ogg")
+        elif (line == "proud_01"):
+            voice("audio/voice/partials/barbara/barbara_proud_01.ogg")
+        elif (line == "awkward_01"):
+            voice("audio/voice/partials/barbara/barbara_awkward_01.ogg")
+        elif (line == "apologetic_01"):
+            voice("audio/voice/partials/barbara/barbara_apologetic_01.ogg")
+        elif (line == "grateful_01"):
+            voice("audio/voice/partials/barbara/barbara_grateful_01.ogg")
+        elif (line == "dazed_01"):
+            voice("audio/voice/partials/barbara/barbara_dazed_01.ogg")
+        elif (line == "amused_01"):
+            voice("audio/voice/partials/barbara/barbara_amused_01.ogg")
 
     def docherty_partial(line):
         if (line == "calm_01"):

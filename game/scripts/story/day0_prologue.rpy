@@ -47,12 +47,15 @@ label prologue_01:
     jack smug "(They probably want people to do that anyway.[wait_1] You wouldn’t just leave things unattended and then be annoyed that they’re missing; you know what you’re getting in for.)"
     $ swap_sprites("barbara_smiling", slow_dissolve)
     $ current_thought = "barbara_thought_pr_01"
-    bartender "Sorry![wait_1] I was out back, changing over a keg." 
+    $ barbara_partial("apologetic_01")
+    bartender "Sorry![wait_1] I was out back, changing over a keg."
+    $ barbara_partial("friendly_01") 
     bartender "How are you doing?" 
     $ jack_partial("cocky_02")
     jack smug "Not too bad, although I’d definitely be doing better if I had a drink...[wait_05]or two!"
     $ jack_partial("cocky_01")
     jack smug "(God I'm funny!)"
+    $ barbara_partial("friendly_02")
     bartender "I can help you out with that.[wait_1] What exactly were you hoping for?"
 
 label prologue_02:
@@ -100,15 +103,18 @@ label prologue_03:
     $ current_thought = "barbara_thought_pr_02"
     $ jack_partial("friendly_01")
     jack thinking "You’re good to give me a glass of whiskey, yeah?"
+    $ barbara_partial("friendly_02")
     bartender "And coke?[wait_1] Sure thing - just tap your card when you’re ready and I’ll be right with you." 
     $ current_thought = "barbara_thought_pr_03"
     $ jack_partial("angry_01")
     jack angry "Tap my - what do you mean?[wait_1] I thought you were going to give me it for free!"
     $ swap_sprites("barbara_angry")
+    $ barbara_partial("angry_02")
     bartender "And why the hell would I do that?" 
     $ current_thought = "barbara_thought_pr_04"
     $ jack_partial("angry_01")
     jack angry "You thought it![wait_1] Don’t try and deny it, I know you did!"
+    $ barbara_partial("angry_01")
     bartender "What the hell?![wait_1] Just - who the hell are you?" 
     $ jack_partial("irritated_02")
     jack worried "(Shit![wait_05] I shouldn’t have said that - I’d better wipe that from her memory!)"
@@ -132,10 +138,13 @@ label prologue_04:
     $ remove_boolean("prologue_interior_designing_2")
     $ swap_sprites("barbara_thinking")
     $ current_thought = "barbara_thought_pr_05"
-    bartender "Urgh...[wait_05]my head..." 
+    $ barbara_partial("dazed_01")
+    bartender "Urgh...[wait_05]my head..."
+    $ barbara_partial("confused_01") 
     bartender "I - sorry mate, I was out back, changing over a keg.[wait_1] At least...[wait_05]that’s what I thought I was doing." 
     $ current_thought = "barbara_thought_pr_06"
     $ swap_sprites("barbara_smiling")
+    $ barbara_partial("friendly_01")
     bartender "How are you doing?" 
     if (check_boolean("jack_tutorial_psychic_explanation") == False):
         $ jack_partial("cocky_01")
@@ -151,6 +160,7 @@ label prologue_04:
     jack smug "Whoever the owner is, they’ve done a really good job with it...[wait_05]especially at hiring staff."
     $ swap_sprites("barbara_angry")
     $ current_thought = "barbara_thought_pr_09"
+    $ barbara_partial("irritated_01")
     bartender "I’d hope so, given that I’m the owner." 
     $ current_thought = "barbara_thought_pr_10"
     $ jack_partial("cocky_03")
@@ -160,7 +170,9 @@ label prologue_04:
     $ current_thought = "barbara_thought_pr_11"
     $ jack_partial("confused_01")
     jack smug "It's a very...[wait_05] ...[wait_05] ...gothic style, if I'm not mistaken?"
-    bartender "You are mistaken, but that’s neither here nor there." 
+    $ barbara_partial("irritated_02")
+    bartender "You are mistaken, but that’s neither here nor there."
+    $ barbara_partial("irritated_01") 
     bartender "Anyway, did you want a drink?" 
 
 label prologue_05:
@@ -170,12 +182,14 @@ label prologue_05:
             $ play_music("tense_1")
             $ jack_partial("dismissive_01")
             jack angry "At the prices you’re offering?[wait_1] No thanks."
+            $ barbara_partial("angry_02")
             bartender "Then what are you even doing here?!" 
             $ jack_partial("confused_02")
             jack worried "Um..."
             $ jack_partial("confused_01")
             jack worried "(What, exactly, was I thinking with that, again?)"
             $ current_thought = "barbara_thought_pr_13"
+            $ barbara_partial("irritated_03")
             bartender "If you’re not ordering, then please leave.[wait_1] I’ve got better things to do than entertain beggars." 
             $ jack_partial("analytical_03")
             jack thinking "(Okay, so I’ll need to read more of her thoughts so that I can work out what she might want to talk about, to get her to like me more.)"
@@ -195,21 +209,27 @@ label prologue_05:
             jack smug "I think that your work is...[wait_1]beautiful, really.[wait_1] Really beautiful, yeah."
             if (check_boolean("prologue_interior_designing_2") == False):
                 $ swap_sprites("barbara_smiling")
+                $ barbara_partial("proud_01")
                 bartender "Oh, thank you![wait_1] But it’s not actually my work - I just hired an interior designer for it." 
                 $ current_thought = "barbara_thought_pr_15"
                 $ jack_partial("confused_02")
                 jack thinking "What?[wait_05] But you wanted to teach me a lesson or two about it.[wait_05] That’s what you thought before."
                 $ swap_sprites("barbara_thinking")
                 $ current_thought = "barbara_thought_pr_16"
+                $ barbara_partial("confused_01")
                 bartender "I’m...[wait_05]not sure what exactly to tell you.[wait_1] My job is running a bar, not doing interior design." 
                 $ swap_sprites("barbara_smiling")
+                $ barbara_partial("friendly_02")
                 bartender "And on that note - you never answered me when I asked before." 
+                $ barbara_partial("friendly_01")
                 bartender "Did you want a drink?" 
                 $ add_boolean("prologue_interior_designing_2")
                 jump prologue_05
             else:
                 $ swap_sprites("barbara_smiling")
-                bartender "Yes, I heard you the first time." 
+                $ barbara_partial("cheerful_02")
+                bartender "Yes, I heard you the first time."
+                $ barbara_partial("friendly_01") 
                 bartender "But you still haven’t answered my question - do you want a drink?" 
                 jump prologue_05
 
@@ -224,18 +244,24 @@ label prologue_06:
     jack smug "How could I be in such a...[wait_05]historic place and not want to have a drink?"
     $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_pr_18"
+    $ barbara_partial("cheerful_01")
     bartender "You’ve heard of our bar before, then?" 
     $ current_thought = "barbara_thought_pr_19"
     $ jack_partial("confused_02")
     jack worried "\"Our\" bar?"
     $ current_thought = "barbara_thought_pr_20"
+    $ barbara_partial("proud_01")
     bartender "Oh, this bar has been in my family for three generations now." 
+    $ barbara_partial("cheerful_01")
     bartender "Although I’ve only been running it for the last...[wait_05]I want to say eight months?" 
     $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_pr_21"
-    bartender "Which doesn’t sound like a lot, but I’ve got a lot of good ideas about how to make it even better!" 
+    $ barbara_partial("awkward_01")
+    bartender "Which doesn’t sound like a lot, but I’ve got a lot of good ideas about how to make it even better!"
+    $ barbara_partial("proud_01") 
     bartender "Before you know it, this will be your favourite bar in the area - no, in the city!" 
     $ current_thought = "barbara_thought_pr_22"
+    $ barbara_partial("friendly_02")
     bartender "In fact, I can start out by showing you how good our drinks are - what exactly did you want to drink, again?" 
 
     menu:
@@ -245,6 +271,7 @@ label prologue_06:
             $ jack_partial("dismissive_02")
             jack smug "Oh, no need to worry about it.[wait_1] I’m not looking to drink anything."
             $ swap_sprites("barbara_angry")
+            $ barbara_partial("irritated_03")
             bartender "Then why, exactly, did you come in here?" 
             $ current_thought = "barbara_thought_pr_24"
             $ jack_partial("confused_02")
@@ -254,6 +281,7 @@ label prologue_06:
             $ current_thought = "barbara_thought_pr_25"
             $ jack_partial("confused_01")
             jack worried "To...[wait_05]talk to you?"
+            $ barbara_partial("irritated_02")
             bartender "I’m flattered, but please - just leave." 
             $ jack_partial("analytical_01")
             jack thinking "(I’ll wipe her memory of this part of the conversation, and try this again...)"
@@ -276,6 +304,7 @@ label prologue_07:
     jack smug "Well before I answer you that, I’m going to need an answer of my own: what are your drinks policies?"
     $ current_thought = "barbara_thought_pr_27"
     $ swap_sprites("barbara_thinking")
+    $ barbara_partial("confused_01")
     bartender "Drink policies?[wait_1] What exactly do you mean?" 
     $ current_thought = "barbara_thought_pr_28"
     $ jack_partial("cocky_02")
@@ -283,7 +312,9 @@ label prologue_07:
     $ jack_partial("cocky_01")
     jack smug "Surely you’ve got to have something to offer me, yeah?"
     $ current_thought = "barbara_thought_pr_29"
+    $ barbara_partial("apologetic_01")
     bartender "Happy hour ended at six o’clock, sorry." 
+    $ barbara_partial("friendly_02")
     bartender "As for discounts - tell me what exactly you want, and I’ll tell you what I can do." 
 
     menu:
@@ -294,6 +325,7 @@ label prologue_07:
             $ jack_partial("friendly_01")
             jack smug "Can I have a whiskey? With all of the discounts applied, of course."
             $ swap_sprites("barbara_smiling")
+            $ barbara_partial("cheerful_02")
             bartender "Sure! Just so you know, there aren’t any discounts for it, so that’ll be $14." 
             $ current_thought = "barbara_thought_pr_31"
             $ play_music("tense_1")
@@ -301,6 +333,7 @@ label prologue_07:
             jack angry "What?![wait_1] This is bullshit, you’re not willing to give me even a little bit off the top?"
             $ swap_sprites("barbara_angry")
             $ current_thought = "barbara_thought_pr_32"
+            $ barbara_partial("angry_02")
             bartender "What for?[wait_1] If that’s going to be the way you want it, then I’ll do you one better and ask you to get out - right now."
             $ jack_partial("disappointed_01")
             jack thinking "(If I do that, then I won’t get any of that lovely booze...)"
@@ -319,12 +352,15 @@ label prologue_07:
             $ current_thought = "barbara_thought_pr_34"
             $ swap_sprites("barbara_angry")
             $ play_music("tense_1")
+            $ barbara_partial("irritated_02")
             bartender "Interesting idea, although that’s not actually a policy that I run here." 
             $ current_thought = "barbara_thought_pr_35"
             $ jack_partial("cocky_02")
             jack smug "Oh come now - you don’t want to reward your loyal customers?[wait_1] The people who are basically paying your wages for you?"
             $ current_thought = "barbara_thought_pr_36"
-            bartender "Sorry, but it doesn’t work that way."  
+            $ barbara_partial("irritated_02")
+            bartender "Sorry, but it doesn’t work that way."
+            $ barbara_partial("irritated_01")  
             bartender "So are you going to order a drink - at its full price - or not?" 
             $ current_thought = "barbara_thought_pr_37"
             $ jack_partial("irritated_02")
@@ -339,6 +375,7 @@ label prologue_07:
             jack smug "Tell me - how would you feel about a bit of an exchange?[wait_1] A free drink, and in return I’ll make sure to write a good review."
             $ swap_sprites("barbara_thinking")
             $ current_thought = "barbara_thought_pr_39"
+            $ barbara_partial("confused_02")
             bartender "You mean...[wait_05]for a blog or something, right?[wait_1] Or a - a Google review?" 
             $ jack_partial("cocky_03")
             jack smug "Let me put it this way:[wait_05] I’m not supposed to name any names, but I’m thinking of a magazine right now, and it’s definitely one that you’ve heard before."
@@ -348,8 +385,10 @@ label prologue_07:
             jack thinking "(It’s not my fault if she misinterprets that.)"
             $ swap_sprites("barbara_smiling")
             $ current_thought = "barbara_thought_pr_40"
+            $ barbara_partial("excited_01")
             bartender "Well I - if you really are working for someone big, then I - yeah, I - a review would be - yes please!" 
             $ current_thought = "barbara_thought_pr_41"
+            $ barbara_partial("excited_02")
             bartender "Is it - are you sure that it’s alright, though?" 
             $ jack_partial("cocky_01")
             jack smug "Only if you’re alright with getting flooded with customers after they hear what I have to say about this place.[wait_1] Ha!"
@@ -358,10 +397,12 @@ label prologue_07:
             $ jack_partial("dismissive_01")
             jack smug "(It’s not like I’m going to exploit this or anything.)"
             $ current_thought = "barbara_thought_pr_42"
+            $ barbara_partial("friendly_01")
             bartender "Well in that case - what exactly can I get you?" 
             $ current_thought = "barbara_thought_pr_43"
             $ jack_partial("cocky_03")
             jack smug "How about a whiskey and coke?[wait_1] That'd really wet my whistle."
+            $ barbara_partial("friendly_02")
             bartender "Coming right up!"
 
 label prologue_08:
@@ -375,13 +416,16 @@ label prologue_08:
     scene bar with quick_dissolve
     $ swap_sprites("barbara_smiling", quick_dissolve)
     $ current_thought = "barbara_thought_pr_45"
+    $ barbara_partial("friendly_01")
     bartender "How was it?[wait_05] You certainly looked like you enjoyed it; you drank it quickly enough!"
     $ jack_partial("irritated_01")
     jack thinking "(Well obviously.[wait_1] The faster I drink it, the faster I’ll get drunk.)"
     $ current_thought = "barbara_thought_pr_46"
     $ jack_partial("cocky_02")
     jack smug "Well, it wasn’t bad.[wait_1] But I think I’d probably have a better opinion if I could have a follow-up...?"
+    $ barbara_partial("amused_01")
     bartender "Heh, nice try, but one freebie’s all that I can give you."
+    $ barbara_partial("apologetic_01")
     bartender "Technically I shouldn’t have even done that, but I doubt it’ll make that much difference in the long run."
     $ jack_partial("irritated_01")
     jack angry "(Bloody typical - you ask for one small favour and they act like you’re asking for the world.[wait_1] Only out for herself, just like everybody else.)"
@@ -411,6 +455,7 @@ label prologue_09:
     scene bar at drunk_cycle(5, 2, 1.15) with quick_dissolve
     $ swap_sprites("barbara_smiling", quick_dissolve)
     $ current_thought = "barbara_thought_pr_41"
+    $ barbara_partial("excited_02")
     bartender "Is it - are you sure that it’s alright, though?"
     $ jack_partial("friendly_01")
     jack smug "Are you alright with getting more customers?[wait_1] Because if so, then you’d better get pouring!"
@@ -418,6 +463,7 @@ label prologue_09:
     scene bar at drunk_cycle(10, 4, 1.15) with quick_dissolve
     $ swap_sprites("barbara_smiling", quick_dissolve)
     $ current_thought = "barbara_thought_pr_48"
+    $ barbara_partial("excited_02")
     bartender "Is it - are you sure that it’s alright, though?"
     $ jack_partial("cocky_01")
     jack smug "Only if you’re -[wait_05] if you’re -[wait_05] if you want lots of customers here![wait_1] It’s -[wait_05] it’s a good bar, isn’t it?"
@@ -425,24 +471,30 @@ label prologue_09:
     scene bar at drunk_cycle(15, 6, 1.15) with quick_dissolve
     $ swap_sprites("barbara_thinking", quick_dissolve)
     $ current_thought = "barbara_thought_pr_49"
+    $ barbara_partial("excited_02")
     bartender "Is it - are you sure that it’s alright, though?"
     $ current_thought = "barbara_thought_pr_50"
     $ jack_partial("cocky_02")
     jack smug "Yeah![wait_1] I -[wait_05] I like -[wait_05] this bar is great![wait_1] Even if you do water down the drinks!"
     $ swap_sprites("barbara_angry")
+    $ barbara_partial("irritated_03")
     bartender "What?"
     scene black_bg with quick_dissolve
     scene bar at drunk_cycle(20, 8, 1.25) with quick_dissolve
     $ swap_sprites("barbara_angry", quick_dissolve)
     $ current_thought = "barbara_thought_pr_51"
     $ play_music("tense_1")
+    $ barbara_partial("irritated_02")
     bartender "I’m sorry, but - no, I can’t do that."
+    $ barbara_partial("irritated_03")
     bartender "You’re quite clearly drunk, and it wouldn’t be responsible of me to serve you any alcohol in your state."
     $ current_thought = "barbara_thought_pr_52"
     $ jack_partial("confused_02")
     jack smug "What?[wait_1] But I -[wait_05] I can review you![wait_1] You -[wait_05] you normally like that!"
     $ current_thought = "barbara_thought_pr_53"
+    $ barbara_partial("irritated_02")
     bartender "I’d rather give up the most positive review in the world than give alcohol to somebody so obviously drunk."
+    $ barbara_partial("irritated_03")
     bartender "Sorry, but I’m going to have to ask you to leave."
     $ jack_partial("angry_01")
     jack angry "(Oh, screw you![wait_1] I’ll -[wait_05] let’s see how drunk you think I am after this)"
@@ -454,12 +506,14 @@ label prologue_10:
     show screen conversation_history
     show screen psychic_powers
     $ current_thought = "barbara_thought_pr_54"
+    $ barbara_partial("angry_02")
     bartender "Are you trying to do something?"
     $ jack_partial("irritated_02")
     jack angry "(Dammit...[wait_05]she -[wait_05] she must have put something in the drinks...[wait_05]it’s affected my powers!)"
     $ current_thought = "barbara_thought_pr_55"
     $ jack_partial("confused_01")
     jack worried "How -[wait_05] how did you know?[wait_1] You -[wait_05] you shouldn’t know...[wait_05]you couldn’t know..."
+    $ barbara_partial("angry_01")
     bartender "I have no clue what you’re talking about, but that’s enough.[wait_1] Get out of my bar."
     scene black_bg with quick_dissolve
 
