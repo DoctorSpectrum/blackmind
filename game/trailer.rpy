@@ -261,10 +261,10 @@ screen trailer_scene_7():
 
         text _("YOU CAN'T\nHIDE YOUR\nSECRETS\nFROM ME"):
             color "#000"
-            font "gui/DCC - Ash.otf"
-            xalign 0.125
-            yalign 0.5
-            size 140
+            font "gui/twoweekendgo-bold.otf"
+            xalign 0.025
+            yalign 0.25
+            size 116
             at fade_side_to_side(-10) 
             at transform:
                 rotate -5

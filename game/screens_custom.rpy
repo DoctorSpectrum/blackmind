@@ -155,10 +155,10 @@ screen psychic_splash(details):
 
         text _(details["line"]):
             color "#F2EE29"
-            font "gui/DCC - Ash.otf"
-            xalign 0.125
+            font "gui/twoweekendgo-bold.otf"
+            xalign 0.025
             yalign 0.25
-            size 140
+            size 96
             at fade_side_to_side(-10) 
             at transform:
                 rotate -5
@@ -1558,12 +1558,12 @@ screen cash_money(style="left_small"):
                     ease 0.5:
                         xoffset -200
 
-            text _("{font=DejaVuSans.ttf}${/font}" + str(f'{money:.2f}')):
+            text _("$" + str(f'{money:.2f}')):
                 color "#000"
-                xalign 0.25
-                font "gui/chubhand.ttf"
-                size 40
-                yoffset -5
+                xalign 0.5
+                yalign 0.5
+                font "gui/twoweekendgo-bold.otf"
+                size 32
     elif (style == "right_large"):
         frame:
             background Solid("#F2EE29")
@@ -1581,12 +1581,12 @@ screen cash_money(style="left_small"):
                     ease 0.5:
                         xoffset 200
 
-            text _("{font=DejaVuSans.ttf}${/font}" + str(f'{money:.2f}')):
+            text _("$" + str(f'{money:.2f}')):
                 color "#000"
                 xalign 0.5
-                font "gui/chubhand.ttf"
-                size 66
-                yoffset -10
+                yalign 0.5
+                font "gui/twoweekendgo-bold.otf"
+                size 46
     elif (style == "pause_menu"):
         frame:
             background Solid("#F2EE29")
@@ -1611,12 +1611,12 @@ screen cash_money(style="left_small"):
                     ease 0.5:
                         xoffset 200
 
-            text _("{font=DejaVuSans.ttf}${/font}" + str(f'{money:.2f}')):
+            text _("$" + str(f'{money:.2f}')):
                 color "#000"
                 xalign 0.5
-                font "gui/chubhand.ttf"
-                size 66
-                yoffset -10
+                yalign 0.5
+                font "gui/twoweekendgo-bold.otf"
+                size 46
 
 screen attune_senses():
     #default transparency = 0.33

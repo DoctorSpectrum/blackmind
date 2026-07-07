@@ -40,90 +40,13 @@ init python:
             renpy.pause(pause, hard=True)
 
     def jack_partial(line):
-        if (line == "cocky_01"):
-            voice("audio/voice/partials/jack/jack_cocky_01.ogg")
-        elif (line == "cocky_02"):
-            voice("audio/voice/partials/jack/jack_cocky_02.ogg")
-        elif (line == "cocky_03"):
-            voice("audio/voice/partials/jack/jack_cocky_03.ogg")
-        elif (line == "analytical_01"):
-            voice("audio/voice/partials/jack/jack_analytical_01.ogg")
-        elif (line == "analytical_02"):
-            voice("audio/voice/partials/jack/jack_analytical_02.ogg")
-        elif (line == "analytical_03"):
-            voice("audio/voice/partials/jack/jack_analytical_03.ogg")
-        elif (line == "scared_01"):
-            voice("audio/voice/partials/jack/jack_scared_01.ogg")
-        elif (line == "scared_02"):
-            voice("audio/voice/partials/jack/jack_scared_02.ogg")
-        elif (line == "irritated_01"):
-            voice("audio/voice/partials/jack/jack_irritated_01.ogg")
-        elif (line == "irritated_02"):
-            voice("audio/voice/partials/jack/jack_irritated_02.ogg")
-        elif (line == "dismissive_01"):
-            voice("audio/voice/partials/jack/jack_dismissive_01.ogg")
-        elif (line == "dismissive_02"):
-            voice("audio/voice/partials/jack/jack_dismissive_02.ogg")
-        elif (line == "confused_01"):
-            voice("audio/voice/partials/jack/jack_confused_01.ogg")
-        elif (line == "confused_02"):
-            voice("audio/voice/partials/jack/jack_confused_02.ogg")
-        elif (line == "friendly_01"):
-            voice("audio/voice/partials/jack/jack_friendly_01.ogg")
-        elif (line == "cheerful_01"):
-            voice("audio/voice/partials/jack/jack_cheerful_01.ogg")
-        elif (line == "angry_01"):
-            voice("audio/voice/partials/jack/jack_angry_01.ogg")
-        elif (line == "disappointed_01"):
-            voice("audio/voice/partials/jack/jack_disappointed_01.ogg")
+        voice("audio/voice/partials/jack/jack_" + line + ".ogg")
 
     def barbara_partial(line):
-        if (line == "irritated_01"):
-            voice("audio/voice/partials/barbara/barbara_irritated_01.ogg")
-        elif (line == "irritated_02"):
-            voice("audio/voice/partials/barbara/barbara_irritated_02.ogg")
-        elif (line == "irritated_03"):
-            voice("audio/voice/partials/barbara/barbara_irritated_03.ogg")
-        elif (line == "friendly_01"):
-            voice("audio/voice/partials/barbara/barbara_friendly_01.ogg")
-        elif (line == "friendly_02"):
-            voice("audio/voice/partials/barbara/barbara_friendly_02.ogg")
-        elif (line == "cheerful_01"):
-            voice("audio/voice/partials/barbara/barbara_cheerful_01.ogg")
-        elif (line == "cheerful_02"):
-            voice("audio/voice/partials/barbara/barbara_cheerful_02.ogg")
-        elif (line == "confused_01"):
-            voice("audio/voice/partials/barbara/barbara_confused_01.ogg")
-        elif (line == "confused_02"):
-            voice("audio/voice/partials/barbara/barbara_confused_02.ogg")
-        elif (line == "angry_01"):
-            voice("audio/voice/partials/barbara/barbara_angry_01.ogg")
-        elif (line == "angry_02"):
-            voice("audio/voice/partials/barbara/barbara_angry_02.ogg")
-        elif (line == "excited_01"):
-            voice("audio/voice/partials/barbara/barbara_excited_01.ogg")
-        elif (line == "excited_02"):
-            voice("audio/voice/partials/barbara/barbara_excited_02.ogg")
-        elif (line == "guilty_01"):
-            voice("audio/voice/partials/barbara/barbara_guilty_01.ogg")
-        elif (line == "guilty_02"):
-            voice("audio/voice/partials/barbara/barbara_guilty_02.ogg")
-        elif (line == "proud_01"):
-            voice("audio/voice/partials/barbara/barbara_proud_01.ogg")
-        elif (line == "awkward_01"):
-            voice("audio/voice/partials/barbara/barbara_awkward_01.ogg")
-        elif (line == "apologetic_01"):
-            voice("audio/voice/partials/barbara/barbara_apologetic_01.ogg")
-        elif (line == "grateful_01"):
-            voice("audio/voice/partials/barbara/barbara_grateful_01.ogg")
-        elif (line == "dazed_01"):
-            voice("audio/voice/partials/barbara/barbara_dazed_01.ogg")
-        elif (line == "amused_01"):
-            voice("audio/voice/partials/barbara/barbara_amused_01.ogg")
+        voice("audio/voice/partials/barbara/barbara_" + line + ".ogg")
 
     def docherty_partial(line):
-        if (line == "calm_01"):
-            voice("audio/voice/partials/docherty/docherty_calm_01.ogg")
+        voice("audio/voice/partials/docherty/docherty_" + line + ".ogg")
 
     def mind_read_line():
         #In the full version, account for whether we're having Lloyd or Jack read this line
