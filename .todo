@@ -27,6 +27,7 @@ BLACKMIND TODO
                     - Confirm everybody wants to be in the credits
 
             - Programming Changes:
+                - Do I want to do a QR code for the CTA? Where would it go? Steam? Or the links page of the website?
                 - Penultimate bar rotate/blur goes off the edges of the screen a bit - either need to reduce the angle or increase the zoom
                 - Final items for Steam:
                     - Trailer
