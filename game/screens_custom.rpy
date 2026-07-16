@@ -1561,7 +1561,7 @@ screen cash_money(style="left_small"):
             text _("$" + str(f'{money:.2f}')):
                 color "#000"
                 xalign 0.5
-                yalign 0.5
+                yalign 1.0
                 font "gui/twoweekendgo-bold.otf"
                 size 32
     elif (style == "right_large"):

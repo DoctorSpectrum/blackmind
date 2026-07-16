@@ -468,7 +468,7 @@ label prologue_09:
     $ jack_partial("cocky_01")
     jack smug "Only if you’re -[wait_05] if you’re -[wait_05] if you want lots of customers here![wait_1] It’s -[wait_05] it’s a good bar, isn’t it?"
     scene black_bg with quick_dissolve
-    scene bar at drunk_cycle(15, 6, 1.15) with quick_dissolve
+    scene bar at drunk_cycle(15, 6, 1.25) with quick_dissolve
     $ swap_sprites("barbara_thinking", quick_dissolve)
     $ current_thought = "barbara_thought_pr_49"
     $ barbara_partial("excited_02")

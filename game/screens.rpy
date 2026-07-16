@@ -1110,12 +1110,6 @@ screen about():
                                 text _("Beta Testing"):
                                     style "credit_person"
 
-                            vbox:
-                                spacing 10
-                                text _("TBA"):
-                                    style "credit_heading"
-                                text _("Another Credit"):
-                                    style "credit_person"
                         elif (selected_tab == "visuals"):
                             vbox:
                                 spacing 10
@@ -2163,10 +2157,11 @@ screen help(return_action=None):
                                 hbox:
                                     textbutton _("Psychic Powers"): 
                                         action SetScreenVariable("gameplay_help", "powers")
-                                    textbutton _("Other"): 
-                                        action SetScreenVariable("gameplay_help", "other")
-                                    textbutton _("Other #2"):
-                                        action SetScreenVariable("gameplay_help", "other2")
+                                    if (config.developer):
+                                        textbutton _("Other"): 
+                                            action SetScreenVariable("gameplay_help", "other")
+                                        textbutton _("Other #2"):
+                                            action SetScreenVariable("gameplay_help", "other2")
 
                                 vbox:
                                     spacing 50

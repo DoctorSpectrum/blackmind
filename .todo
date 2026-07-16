@@ -20,26 +20,27 @@ BLACKMIND TODO
                             - Timeline screenshot -> ready
 
         - Demo Actionables:
-            - Credits
-                - Voice Actors
-                    - Chase them up to confirm how they want to be credited/any social links
-                - Friends
-                    - Confirm everybody wants to be in the credits
+            - Pre-final assets:
+                - Once Mason confirms he's working on the CG (or he sends it to me), message the gang.
+                    - Let them know that it's going to be donezo soon and ready for feedback
+                    - Confirm that everybody's good to be in the credits
+                    - Get the opinion on setting up a Kickstarter and feedback form now
+                
+                - Message VAs, confirm how they want to be credited/a social link
+                - Updoot credits for VAs and friends
 
-            - Programming Changes:
-                - Do I want to do a QR code for the CTA? Where would it go? Steam? Or the links page of the website?
-                - Penultimate bar rotate/blur goes off the edges of the screen a bit - either need to reduce the angle or increase the zoom
-                - Final items for Steam:
-                    - Trailer
-                        - Re-record footage to not have placeholders
-                        - Make the footage a tad snappier - faster cuts
-                    - Remove or replace any remaining placeholder text in the help/credits menus
-                    - Set config.developer to False
+            - Post-final assets:
+                - Trailer:
+                    - Re-record footage for the trailer
+                    - Staple the trailer footage together and confirm that it looks good
+                - Update Steam page with screenshots and trailer
+                
+                - Set config.developer to False
+                - Play through everything, make sure that nothing breaks and that everything makes sense
+                - Send off to the gang
+                    - See their thoughts on wiping the convo history on doing a mind rewind
+                - Once the gang's finished it and given any feedback, update the Steam build, then set the page live
 
-            - Send off to the gang once we've done all of the above - including implementing backgrounds and sprites - before setting it live
-                - Question: thoughts on wiping the conversation history on doing a mind rewind?
-                - Set up feedback form and Kickstarter to be linked to?
-
-            - Marketing:
-                - Contact streamers after the demo is up, see if they'll play it
-                - Should contact sites - who tho?
+        - Marketing:
+            - Contact streamers after the demo is up, see if they'll play it
+            - Should contact sites - who tho?
