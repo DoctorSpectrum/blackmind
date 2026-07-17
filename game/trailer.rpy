@@ -243,13 +243,14 @@ screen trailer_scene_6():
 screen trailer_scene_7():
     timer 4.0:
         action Hide("trailer_scene_7")
+
+    timer 0.5:
+        action Function(jack_partial, "mind_read_02")
     
     frame:
         xfill True
         yfill True
         background Solid("#F2EE29")
-
-        #play voice line
 
         frame:
             background Solid("#000000d0")
@@ -376,7 +377,10 @@ screen full_trailer():
         action SetScreenVariable("countdown", countdown - 1)
 
     timer 3.0:
-        action Show("trailer_scene_2")
+        action [
+            Function(renpy.music.play, "audio/music/brain_matter.mp3"),
+            Show("trailer_scene_2")
+        ]
 
     timer 12.0:
         action Show("trailer_scene_3")
