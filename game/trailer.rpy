@@ -376,30 +376,27 @@ screen full_trailer():
         action SetScreenVariable("countdown", countdown - 1)
 
     timer 3.0:
-        action Show("trailer_scene_1")
-
-    timer 8.5:
         action Show("trailer_scene_2")
 
-    timer 17.0:
+    timer 12.0:
         action Show("trailer_scene_3")
 
-    timer 22.5:
+    timer 17.0:
         action Show("trailer_scene_4")
 
-    timer 36.0:
+    timer 30.0:
         action Show("trailer_scene_5")
 
-    timer 43.5:
+    timer 38.5:
         action Show("trailer_scene_6")
 
-    timer 52.0:
+    timer 48.5:
         action Show("trailer_scene_7")
 
-    timer 55.5:
+    timer 52.5:
         action Show("trailer_scene_8")
 
-    timer 67.0:
+    timer 60.5:
         action Hide("full_trailer")
     
     frame:
