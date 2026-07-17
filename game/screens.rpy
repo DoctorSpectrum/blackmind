@@ -699,26 +699,25 @@ screen main_menu(initialised=False, extras=False):
                     if (not initialised or extras_returned):
                         at menu_button(3.0 if not extras_returned else 2.0)
             else:
-                textbutton _("GALLERY"):
-                    style "main_menu_button"
-                    action (ShowMenu("gallery") if clickable_button() and timer_count >= 2 else NullAction())
-                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2 else None)
-                    at menu_button(0)
+                #textbutton _("GALLERY"):
+                #    style "main_menu_button"
+                #    action (ShowMenu("gallery") if clickable_button() and timer_count >= 2 else NullAction())
+                #    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2 else None)
+                #    at menu_button(0)
                 textbutton _("SOUND ROOM"):
                     style "main_menu_button"
                     padding (40, 15, 40, 15)
                     text_size 54
-                    xoffset -45
                     action ([ShowMenu("sound_room"), Function(renpy.music.stop)] if clickable_button() and timer_count >= 2.5 else NullAction())
                     hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2.5 else None)
-                    at menu_button(0.5)
+                    at menu_button(0)
                 textbutton _("BACK"):
                     style "main_menu_button"
-                    xoffset -90
+                    xoffset -45
                     selected False
                     action ([SetScreenVariable("display_extras", False), SetScreenVariable("extras_returned", True)] if clickable_button() and timer_count >= 3 else NullAction())
                     hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3 else None)
-                    at menu_button(1.0)
+                    at menu_button(0.5)
                 if (config.developer):
                     textbutton _("TRAILER"):
                         style "main_menu_button"

@@ -208,6 +208,9 @@ label variables:
 
     transform dark_tint:
         matrixcolor TintMatrix("#6d6d6d")
+    
+    transform black_tint:
+        matrixcolor TintMatrix("#000")
 
     transform greyscale:
         matrixcolor SaturationMatrix(1.0)
@@ -533,7 +536,9 @@ label variables:
 
     #Misc. variables
     image black_bg = Solid("#000")
+    image dark_bg = Solid("#3b3b3b")
     image white_bg = Solid("#FFF")
+    image red_bg = Solid("#CC0000")
     default red_flash = Fade(0.25, 0.25, 0.25, color='#cc0000')
     default white_flash = Fade(0.05, 0.25, 0.25, color='#FFF')
     default booleans = []
