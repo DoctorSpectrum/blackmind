@@ -43,6 +43,8 @@ BLACKMIND TODO
                 - Set config.developer to False
                 - Play through everything, make sure that nothing breaks and that everything makes sense
                 - Send off to the gang
+                    - Test with controllers if possible
+                    - Test on Steam deck if possible
                     - See their thoughts on wiping the convo history on doing a mind rewind
                 - Once the gang's finished it and given any feedback, update the Steam build, then set the page live
 
