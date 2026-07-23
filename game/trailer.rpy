@@ -23,7 +23,10 @@ screen trailer():
             textbutton _("Scene #7"):
                 action Show("trailer_scene_7")
             textbutton _("Scene #8"):
-                action Show("trailer_scene_8")
+                action [
+                    Function(renpy.music.stop),
+                    Show("trailer_scene_8")
+                ]
         
         textbutton _("Full Trailer"):
             xalign 0.5
@@ -241,15 +244,34 @@ screen trailer_scene_6():
                         xoffset -1800
 
 screen trailer_scene_7():
+    default word_highlight = 0
     timer 4.0:
         action Hide("trailer_scene_7")
-    
+
+    timer 0.1:
+        action [
+            Play("voice", "audio/voice/partials/jack/jack_mind_read_02.ogg"),
+            SetScreenVariable("word_highlight", 1)
+        ]
+    timer 0.6:
+        action SetScreenVariable("word_highlight", 2)
+    timer 0.8:
+        action SetScreenVariable("word_highlight", 3)
+    timer 1.4:
+        action SetScreenVariable("word_highlight", 4)
+    timer 1.6:
+        action SetScreenVariable("word_highlight", 5)
+    timer 2.1:
+        action SetScreenVariable("word_highlight", 6)
+    timer 2.6:
+        action SetScreenVariable("word_highlight", 7)
+    timer 3.0:
+        action SetScreenVariable("word_highlight", 8)
+
     frame:
         xfill True
         yfill True
         background Solid("#F2EE29")
-
-        #play voice line
 
         frame:
             background Solid("#000000d0")
@@ -259,15 +281,46 @@ screen trailer_scene_7():
                 linear 0.25:
                     yoffset -6
 
-        text _("YOU CAN'T\nHIDE YOUR\nSECRETS\nFROM ME"):
-            color "#000"
-            font "gui/twoweekendgo-bold.otf"
-            xalign 0.025
-            yalign 0.25
-            size 116
-            at fade_side_to_side(-10) 
-            at transform:
-                rotate -5
+        if (word_highlight == 1):
+            text _("{color=#F2EE29}{outlinecolor=#000}YOU{/outlinecolor}{/color} CAN'T\nHIDE YOUR\nSECRETS\nFROM ME!"):
+                style "scene_7_text"
+                at transform:
+                    rotate -5
+        elif (word_highlight == 2):
+            text _("YOU {color=#F2EE29}{outlinecolor=#000}CAN'T{/outlinecolor}{/color}\nHIDE YOUR\nSECRETS\nFROM ME!"):
+                style "scene_7_text"
+                at transform:
+                    rotate -5
+        elif (word_highlight == 3):
+            text _("YOU CAN'T\n{color=#F2EE29}{outlinecolor=#000}HIDE{/outlinecolor}{/color} YOUR\nSECRETS\nFROM ME!"):
+                style "scene_7_text"
+                at transform:
+                    rotate -5
+        elif (word_highlight == 4):
+            text _("YOU CAN'T\nHIDE {color=#F2EE29}{outlinecolor=#000}YOUR{/outlinecolor}{/color}\nSECRETS\nFROM ME!"):
+                style "scene_7_text"
+                at transform:
+                    rotate -5
+        elif (word_highlight == 5):
+            text _("YOU CAN'T\nHIDE YOUR\n{color=#F2EE29}{outlinecolor=#000}SECRETS{/outlinecolor}{/color}\nFROM ME!"):
+                style "scene_7_text"
+                at transform:
+                    rotate -5
+        elif (word_highlight == 6):
+            text _("YOU CAN'T\nHIDE YOUR\nSECRETS\n{color=#F2EE29}{outlinecolor=#000}FROM{/outlinecolor}{/color} ME!"):
+                style "scene_7_text"
+                at transform:
+                    rotate -5
+        elif (word_highlight == 7):
+            text _("YOU CAN'T\nHIDE YOUR\nSECRETS\nFROM {color=#F2EE29}{outlinecolor=#000}ME{/outlinecolor}{/color}!"):
+                style "scene_7_text"
+                at transform:
+                    rotate -5
+        else:
+            text _("YOU CAN'T\nHIDE YOUR\nSECRETS\nFROM ME!"):
+                style "scene_7_text"
+                at transform:
+                    rotate -5
 
         image "images/menu/jack_menu.png":
             xalign 1.0
@@ -376,7 +429,10 @@ screen full_trailer():
         action SetScreenVariable("countdown", countdown - 1)
 
     timer 3.0:
-        action Show("trailer_scene_1")
+        action [
+            Play("music", "audio/music/brain_matter.mp3"),
+            Show("trailer_scene_1")
+        ]
 
     timer 8.5:
         action Show("trailer_scene_2")
@@ -420,3 +476,11 @@ style trailer_text:
     outlines [ (8, "#F2EE29", 0, 0) ]
     font "gui/Roboto-Medium.ttf"
     size 140
+
+style scene_7_text:
+    color "#000"
+    font "gui/twoweekendgo-bold.otf"
+    xalign 0.025
+    yalign 0.25
+    size 116
+    outlines [ (8, "#F2EE29", 0, 0) ]

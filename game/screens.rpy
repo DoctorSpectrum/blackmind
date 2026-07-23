@@ -1105,7 +1105,7 @@ screen about():
 
                             vbox:
                                 spacing 10
-                                text _("TBA"):
+                                text _("Iain McManus\nKim Elliott\nSerena Jordan-Munro"):
                                     style "credit_heading"
                                 text _("Beta Testing"):
                                     style "credit_person"

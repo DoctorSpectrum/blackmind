@@ -58,17 +58,17 @@ init python:
         if (preferences.get_mute("voice") or preferences.get_mixer("voice") < 0.1):
             return {
                 "time": 2.0,
-                "line": "TELL ME\nWHAT YOU'RE \nTHINKING"
+                "line": "TELL ME\nWHAT YOU'RE \nTHINKING!"
             }
         elif (line == "audio/voice/partials/jack/jack_mind_read_01.ogg"):
             return {
                 "time": 2.2,
-                "line": "TELL ME\nWHAT YOU'RE \nTHINKING"
+                "line": "TELL ME\nWHAT YOU'RE \nTHINKING!"
             }
         elif (line == "audio/voice/partials/jack/jack_mind_read_02.ogg"):
             return {
                 "time": 3.2,
-                "line": "YOU CAN'T\nHIDE YOUR\nSECRETS\nFROM ME"
+                "line": "YOU CAN'T\nHIDE YOUR\nSECRETS\nFROM ME!"
             }
 
     def mind_rewind_line():
