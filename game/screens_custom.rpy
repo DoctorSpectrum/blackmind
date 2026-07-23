@@ -185,6 +185,10 @@ screen psychic_splash(details):
                 linear 0.25:
                     alpha 1.0
                     yoffset 10
+    
+    if (not config.developer):
+        key "K_TAB":
+            action NullAction()
 
 screen psychic_read():
     if False:   #Check for Lloyd/Jack

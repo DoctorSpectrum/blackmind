@@ -10,7 +10,7 @@ label prologue_01:
     $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
 
     hide cg1_docherty with quick_dissolve
-    call screen chapter_breaks("PROLOGUE", "A young man with psychic powers is currently walking the streets downtown. He has no idea of what destiny will lead him to tonight.")
+    call screen chapter_breaks("PROLOGUE", "A young man has just been released from police custody. He is trying to work out where best to use his psychic powers.\n\nElsewhere, another man is loading bullets into a gun.")
     $ quick_menu = True
 
     $ play_music("neutral_1")
