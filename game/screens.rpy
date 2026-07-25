@@ -650,6 +650,14 @@ screen main_menu(initialised=False, extras=False):
                 at transform:
                     zoom 0.55
 
+        imagebutton:
+            auto "gui/button/kickstarter_button_%s.png"
+            action OpenURL("https://www.kickstarter.com/projects/too-many-teeth/blackmind-a-psychic-social-simulator")
+            yalign 0.0
+            xalign 1.0
+            xoffset -10
+            yoffset 50
+            at trans_fade(0.0, 1.0)
 
         vbox:
             xalign 0.9

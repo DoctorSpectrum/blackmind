@@ -2058,12 +2058,12 @@ screen cta():
                         imagebutton:
                             idle "gui/icons/kickstarter_cta" + ("_idle.png" if hover_item != "kickstarter" else "_hover.png") 
                             hover "gui/icons/kickstarter_cta_hover.png"
-                            action OpenURL("https://toomanyteeth.net/temp-page")
+                            action OpenURL("https://www.kickstarter.com/projects/too-many-teeth/blackmind-a-psychic-social-simulator")
                             hovered SetScreenVariable("hover_item", "kickstarter")
                             unhovered SetScreenVariable("hover_item", None)
                         textbutton _("Kickstarter"):
                             style "block_cta"
-                            action OpenURL("https://toomanyteeth.net/temp-page")
+                            action OpenURL("https://www.kickstarter.com/projects/too-many-teeth/blackmind-a-psychic-social-simulator")
                             hovered SetScreenVariable("hover_item", "kickstarter")
                             unhovered SetScreenVariable("hover_item", None)
                             text_underline hover_item == "kickstarter"

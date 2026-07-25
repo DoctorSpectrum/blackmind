@@ -21,11 +21,6 @@ BLACKMIND TODO
 
         - Demo Actionables:
             - Pre-final assets:
-                - Kickstarter:
-                    - Build initial page - can just be a copy of the Steam page for now. Take a squiz at Scarlet Hunt and double-check how much info they have there, and the structure of their page
-                    - Link to Kickstarter in game. Other than the CTA, anywhere else that I should stick it in?
-                        - Stick it on the main menu - above or below Extras, maybe?
-
                 - Steam
                     - Build approved, store page pending. Should be good since logos were fixed.
 
@@ -36,16 +31,32 @@ BLACKMIND TODO
                 - Trailer:
                     - Re-record footage for the trailer
                     - Staple the trailer footage together and confirm that it looks good
+                    - Set up trailer on YouTube
                 - Update Steam page with screenshots and trailer
+                    - Submit main page for approval
+                - Set up itch.io page
+                    - Same content as Steam, nothing new there
+                    - Do a web-demo build
 
                 - Set config.developer to False
                 - Play through everything, make sure that nothing breaks and that everything makes sense
                     - Ideally updoot Kickstarter and Steam links to work
                 - Send off to the gang
+                    - Music: it's not amazing but it's what we've got. Might ask people to look over my descriptions and see whether they think I didn't convey information or whether he's a dumbass
                     - Test with controllers if possible
                     - Test on Steam deck if possible
                     - See their thoughts on wiping the convo history on doing a mind rewind
-                - Once the gang's finished it and given any feedback, update the Steam build, then set the page live
+
+            - Post-feedback
+                - Changes required:
+                    - Go here
+
+            - Post-changes:
+                - Upload web build and regular builds to itch.io
+                - Upload build to Steam
+                - Set trailer live on YouTube
+                - Set live on both itch.io and YouTube
+                - Set Kickstarter pre-launch page live
 
         - Marketing:
             - Announcement:
@@ -53,11 +64,16 @@ BLACKMIND TODO
                     - BLACKMIND page
                     - Notification
                     - Blog post with the announcement (do it for August's mid-month post?)
-                - Discord @everyone
+                - Discord
+                    - TMT: @everyone
+                    - Both roleplaying Discords
+                    - VN Devs
+                    - Ren'Py
                 - Bluesky
                 - Tumblr
                 - Repost on VN Devs
                 - Steam
+                - Ren'Py forums
                 - Reddit? (Check rules re: posting trailers)
             - Contact streamers after the demo is up, see if they'll play it
             - Should contact sites - who tho?
