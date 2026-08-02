@@ -51,7 +51,7 @@ screen trailer_scene_1():
         yfill True
         background Solid("#000")
 
-    image "images/cgs/cg1_docherty.png":
+    image "images/cgs/cg1_0.png":
         at transform:
             zoom 1.5
             xalign 0.0

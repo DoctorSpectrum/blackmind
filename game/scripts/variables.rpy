@@ -16,10 +16,13 @@ label variables:
     default persistent.cgs = [
         {
             "images": [{
-                "file": "cg1_docherty.png",
+                "file": "cg1_0.png",
                 "locked": True
             }, {
-                "file": "cg1_placeholder.png",
+                "file": "cg1_1.png",
+                "locked": True 
+            }, {
+                "file": "cg1_2.png",
                 "locked": True
             }]
         }
@@ -199,9 +202,7 @@ label variables:
         #crop (0, 0, 900, 700)
 
     transform cg_1_teaser:
-        zoom 1.2
         xalign 1.0
-        yalign 1.4
         alpha 0.0
         linear 2.0:
             alpha 1.0

@@ -3,13 +3,15 @@ label prologue_01:
 
     $ renpy.music.stop()
     scene black_bg
-    show cg1_docherty at cg_1_teaser
+    show cg1_0 at cg_1_teaser
     $ unlock_cg(0, 0)
     $ docherty_partial("calm_01")
     docherty "I apologise for this, young man, but you are in the way of my plan." (name="???")
+    hide cg1_0
+    show cg1_1
     $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
-
-    hide cg1_docherty with quick_dissolve
+    $ unlock_cg(0, 1)
+    hide cg1_1 with quick_dissolve
     call screen chapter_breaks("PROLOGUE", "A young man has just been released from police custody. He is trying to work out where best to use his psychic powers.\n\nElsewhere, another man is loading bullets into a gun.")
     $ quick_menu = True
 
@@ -673,9 +675,9 @@ label prologue_end:
     hide screen conversation_history
     hide screen psychic_powers
     $ play_music("neutral_2")
+    scene cg1_2
     $ play_sound("gunshot.mp3", transition=white_flash)
-    scene cg1_placeholder with slow_dissolve
-    $ unlock_cg(0, 1)
+    $ unlock_cg(0, 2)
     $ jack_partial("scared_01")
     jack worried "(No...[wait_05]no!)"
     $ jack_partial("scared_02")

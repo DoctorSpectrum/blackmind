@@ -1283,7 +1283,7 @@ screen chapter_breaks(title, paragraph):
             size 150
             color "#F2EE29"
 
-        text _("SOCIAL PSYCHIC SIMULATOR"):
+        text _("PSYCHIC SOCIAL SIMULATOR"):
             font "gui/chubhand.ttf"
             color "#F2EE29"
             size 38
@@ -1787,12 +1787,12 @@ screen gallery():
                     xsize 400
                     at trans_fade(0.0, 0.5)
 
-                    bar value StaticValue(total_cgs_unlocked(), 2):
+                    bar value StaticValue(total_cgs_unlocked(), 3):
                         xsize 300
                         xalign 0.5
                         yalign 0.5
 
-                    text _(str(total_cgs_unlocked()) + "/2 (" + (str(total_cgs_unlocked() / 2 * 100)) + "%) Unlocked"):
+                    text _(str(total_cgs_unlocked()) + "/3 (" + (str(round(total_cgs_unlocked() / 3 * 100, 2))) + "%) Unlocked"):
                         color "#000"
                         xalign 0.5
                         text_align 0.5
@@ -2026,11 +2026,13 @@ screen cta():
                             idle "gui/icons/steam" + ("_idle.png" if hover_item != "steam" else "_hover.png") 
                             hover "gui/icons/steam_hover.png"
                             action OpenURL("https://store.steampowered.com/app/4595360/BLACKMIND/")
+                            #BLACKMIND_Psychic_Social_Simulator
                             hovered SetScreenVariable("hover_item", "steam")
                             unhovered SetScreenVariable("hover_item", None)
                         textbutton _("Wishlist on Steam!"):
                             style "block_cta"
                             action OpenURL("https://store.steampowered.com/app/4595360/BLACKMIND/")
+                            #BLACKMIND_Psychic_Social_Simulator
                             hovered SetScreenVariable("hover_item", "steam")
                             unhovered SetScreenVariable("hover_item", None)
                             text_underline hover_item == "steam"
