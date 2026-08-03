@@ -1979,6 +1979,10 @@ screen sound_room():
 
 screen cta():
     default hover_item = None
+    default clickable = False
+
+    timer 1.6:
+        action SetScreenVariable("clickable", True)
     
     frame:
         style_prefix "cta"
@@ -2011,12 +2015,12 @@ screen cta():
                         imagebutton:
                             idle "gui/icons/discord_cta" + ("_idle.png" if hover_item != "discord" else "_hover.png") 
                             hover "gui/icons/discord_cta_hover.png"
-                            action OpenURL("https://discord.gg/HYkSGNa5MZ")
+                            action (OpenURL("https://discord.gg/HYkSGNa5MZ") if clickable else NullAction())
                             hovered SetScreenVariable("hover_item", "discord")
                             unhovered SetScreenVariable("hover_item", None)
                         textbutton _("Join the Discord!"):
                             style "block_cta"
-                            action OpenURL("https://discord.gg/HYkSGNa5MZ")
+                            action (OpenURL("https://discord.gg/HYkSGNa5MZ") if clickable else NullAction())
                             hovered SetScreenVariable("hover_item", "discord")
                             unhovered SetScreenVariable("hover_item", None)
                             text_underline hover_item == "discord"
@@ -2025,13 +2029,13 @@ screen cta():
                         imagebutton:
                             idle "gui/icons/steam" + ("_idle.png" if hover_item != "steam" else "_hover.png") 
                             hover "gui/icons/steam_hover.png"
-                            action OpenURL("https://store.steampowered.com/app/4595360/BLACKMIND/")
+                            action (OpenURL("https://store.steampowered.com/app/4595360/BLACKMIND/") if clickable else NullAction())
                             #BLACKMIND_Psychic_Social_Simulator
                             hovered SetScreenVariable("hover_item", "steam")
                             unhovered SetScreenVariable("hover_item", None)
                         textbutton _("Wishlist on Steam!"):
                             style "block_cta"
-                            action OpenURL("https://store.steampowered.com/app/4595360/BLACKMIND/")
+                            action (OpenURL("https://store.steampowered.com/app/4595360/BLACKMIND/") if clickable else NullAction())
                             #BLACKMIND_Psychic_Social_Simulator
                             hovered SetScreenVariable("hover_item", "steam")
                             unhovered SetScreenVariable("hover_item", None)
@@ -2041,12 +2045,12 @@ screen cta():
                         imagebutton:
                             idle "gui/icons/bluesky_cta" + ("_idle.png" if hover_item != "bluesky" else "_hover.png") 
                             hover "gui/icons/bluesky_cta_hover.png"
-                            action OpenURL("https://bsky.app/profile/toomanyteeth.net")
+                            action (OpenURL("https://bsky.app/profile/toomanyteeth.net") if clickable else NullAction())
                             hovered SetScreenVariable("hover_item", "bluesky")
                             unhovered SetScreenVariable("hover_item", None)
                         textbutton _("Follow on Bluesky!"):
                             style "block_cta"
-                            action OpenURL("https://bsky.app/profile/toomanyteeth.net")
+                            action (OpenURL("https://bsky.app/profile/toomanyteeth.net") if clickable else NullAction())
                             hovered SetScreenVariable("hover_item", "bluesky")
                             unhovered SetScreenVariable("hover_item", None)
                             text_underline hover_item == "bluesky"
@@ -2060,12 +2064,12 @@ screen cta():
                         imagebutton:
                             idle "gui/icons/kickstarter_cta" + ("_idle.png" if hover_item != "kickstarter" else "_hover.png") 
                             hover "gui/icons/kickstarter_cta_hover.png"
-                            action OpenURL("https://www.kickstarter.com/projects/too-many-teeth/blackmind-a-psychic-social-simulator")
+                            action (OpenURL("https://www.kickstarter.com/projects/too-many-teeth/blackmind-a-psychic-social-simulator") if clickable else NullAction())
                             hovered SetScreenVariable("hover_item", "kickstarter")
                             unhovered SetScreenVariable("hover_item", None)
                         textbutton _("Kickstarter"):
                             style "block_cta"
-                            action OpenURL("https://www.kickstarter.com/projects/too-many-teeth/blackmind-a-psychic-social-simulator")
+                            action (OpenURL("https://www.kickstarter.com/projects/too-many-teeth/blackmind-a-psychic-social-simulator") if clickable else NullAction())
                             hovered SetScreenVariable("hover_item", "kickstarter")
                             unhovered SetScreenVariable("hover_item", None)
                             text_underline hover_item == "kickstarter"
@@ -2074,12 +2078,12 @@ screen cta():
                         imagebutton:
                             idle "gui/icons/feedback_cta" + ("_idle.png" if hover_item != "feedback" else "_hover.png") 
                             hover "gui/icons/feedback_cta_hover.png"
-                            action OpenURL("https://forms.gle/g45xXwVSKNiM4o5f8")
+                            action (OpenURL("https://forms.gle/g45xXwVSKNiM4o5f8") if clickable else NullAction())
                             hovered SetScreenVariable("hover_item", "feedback")
                             unhovered SetScreenVariable("hover_item", None)
                         textbutton _("Provide Feedback"):
                             style "block_cta"
-                            action OpenURL("https://forms.gle/g45xXwVSKNiM4o5f8")
+                            action (OpenURL("https://forms.gle/g45xXwVSKNiM4o5f8") if clickable else NullAction())
                             hovered SetScreenVariable("hover_item", "feedback")
                             unhovered SetScreenVariable("hover_item", None)
                             text_underline hover_item == "feedback"

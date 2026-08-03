@@ -207,6 +207,21 @@ label variables:
         linear 2.0:
             alpha 1.0
 
+    transform cg_1_reveal:
+        zoom 3.0
+        xoffset -600
+        yoffset -200
+        pause 2.0
+
+        linear 7.0:
+            xoffset -550
+            yoffset -1800
+
+        linear 3.0:
+            zoom 1.0
+            xoffset 0
+            yoffset 0
+
     transform dark_tint:
         matrixcolor TintMatrix("#6d6d6d")
 

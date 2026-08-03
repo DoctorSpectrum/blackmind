@@ -675,7 +675,7 @@ label prologue_end:
     hide screen conversation_history
     hide screen psychic_powers
     $ play_music("neutral_2")
-    scene cg1_2
+    scene cg1_2 at cg_1_reveal
     $ play_sound("gunshot.mp3", transition=white_flash)
     $ unlock_cg(0, 2)
     $ jack_partial("scared_01")
