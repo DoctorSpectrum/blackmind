@@ -20,15 +20,17 @@ BLACKMIND TODO
                             - Timeline screenshot -> ready
 
         - Demo Actionables:
-            - Pre-final assets:
-                - Steam
-                    - Build approved, store page pending. Should be good since logos were fixed.
-                        - Ech; bloody fuckers disapproving because of the subheading. If they disapprove again, change the Steam name to BLACKMIND: Psychic Social Simulator; might help with SEO. Note that if this happens I'll prolly need to fix up the link in-game.
-
-                - Message VAs, confirm how they want to be credited/a social link
-                - Updoot credits for VAs
-
             - Post-final assets:
+                - Set config.developer to False
+                - Play through everything, make sure that nothing breaks and that everything makes sense
+                    - Ideally updoot Kickstarter and Steam links to work
+                - Send off to the gang
+                    - Music: it's not amazing but it's what we've got. Might ask people to look over my descriptions and see whether they think I didn't convey information or whether he's a dumbass
+                    - Test with controllers if possible
+                    - Test on Steam deck if possible
+                    - See their thoughts on wiping the convo history on doing a mind rewind
+
+                - Knock out the Steam page/announcement actionables list
                 - Trailer:
                     - Re-record footage for the trailer
                     - Staple the trailer footage together and confirm that it looks good
@@ -38,20 +40,10 @@ BLACKMIND TODO
                 - Set up itch.io page
                     - Same content as Steam, nothing new there
                     - Do a web-demo build
-
-                - Set config.developer to False
-                - Play through everything, make sure that nothing breaks and that everything makes sense
-                    - Ideally updoot Kickstarter and Steam links to work
-                - Send off to the gang
-                    - Music: it's not amazing but it's what we've got. Might ask people to look over my descriptions and see whether they think I didn't convey information or whether he's a dumbass
-                    - Test with controllers if possible
-                    - Test on Steam deck if possible
-                    - See their thoughts on wiping the convo history on doing a mind rewind
                 - Prep up the announcements for the Marketing sections
 
             - Post-feedback
-                - Changes required:
-                    - Go here
+                - Changes required go here
 
             - Post-changes:
                 - Upload web build and regular builds to itch.io
@@ -74,10 +66,11 @@ BLACKMIND TODO
                 - Bluesky
                 - Tumblr
                     - Good example of a post; also note that it's pinned: https://www.tumblr.com/studiointerlude/786822341207490560/the-early-access-version-of-my-yuri-horror-visual
-                - Repost on VN Devs
+                - Repost social media links on VN Devs
                 - Steam
                 - Ren'Py forums
                 - Reddit? (Check rules re: posting trailers)
             - Submit game (+ Many Deaths) to Choose Wisely Festival
             - Contact streamers after the demo is up, see if they'll play it
+            - Let VAs know that the demo is up
             - Should contact sites - who tho?
