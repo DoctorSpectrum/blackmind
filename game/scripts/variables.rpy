@@ -222,6 +222,13 @@ label variables:
             xoffset 0
             yoffset 0
 
+    transform street_zoom:
+        zoom 1.16
+        xalign 0.5
+        yalign 0.5
+        xanchor 0.5
+        yanchor 0.5
+
     transform dark_tint:
         matrixcolor TintMatrix("#6d6d6d")
 
@@ -249,9 +256,9 @@ label variables:
     transform opening_text:
         xsize 0.6
 
-    transform drunk_cycle(blur, angle, zoom):
+    transform drunk_cycle(blur, angle, zoom = 1.0):
         rotate 0
-        zoom (1.1 if zoom != 1.0 else 1.0)
+        zoom (zoom if zoom != 1.0 else 1.0)
         blur 0
         xanchor 0.5
         yanchor 0.5
@@ -280,7 +287,7 @@ label variables:
             linear 2.5:
                 zoom zoom
             linear 2.5:
-                zoom (1.1 if zoom != 1.0 else 1.0)
+                zoom (zoom if zoom != 1.0 else 1.0)
             repeat
 
     transform ring_mind_read_expand(xoffset=0, yoffset=0):

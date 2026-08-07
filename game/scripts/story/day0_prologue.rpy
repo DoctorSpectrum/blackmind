@@ -16,7 +16,7 @@ label prologue_01:
     $ quick_menu = True
 
     $ play_music("neutral_1")
-    scene street with slow_dissolve
+    scene street at street_zoom with slow_dissolve
     $ scene_setup(16, "Monday", True, 1, 2, True, True)
     $ current_thought_block = "mind_read_prologue"
 
@@ -652,7 +652,7 @@ label prologue_end:
     $ jack_partial("scared_02")
     jack worried "(But there’s got to be a way out...[wait_05]there’s got to be!)"
     $ scene_setup(10, "Monday", True, 2, 2, True, True)
-    scene street at drunk_cycle(5, 0, 1.1) with slow_dissolve
+    scene street at drunk_cycle(5, 0, 1.16) with slow_dissolve
     $ jack_partial("scared_01")
     jack worried "(Have I -[wait_05] have I been here before?[wait_1] I don’t -[wait_05] everything’s mixing together.)"
     $ jack_partial("scared_01")
