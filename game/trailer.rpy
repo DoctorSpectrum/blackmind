@@ -111,7 +111,7 @@ screen trailer_scene_2():
                         xoffset -1800
 
 screen trailer_scene_3():
-    timer 6.0:
+    timer 2.8:
         action Hide("trailer_scene_3")
 
     add Movie(size=(1920, 1080), play="videos/trailer_clip_1.ogv", loop=False)
@@ -195,7 +195,7 @@ screen trailer_scene_4():
     #Title, CTA
 
 screen trailer_scene_5():    
-    timer 8.2:
+    timer 6.6:
         action Hide("trailer_scene_5")
 
     add Movie(size=(1920, 1080), play="videos/trailer_clip_2.ogv", loop=False)
@@ -440,22 +440,22 @@ screen full_trailer():
     timer 17.0:
         action Show("trailer_scene_3")
 
-    timer 22.5:
+    timer 19.3:
         action Show("trailer_scene_4")
 
-    timer 36.0:
+    timer 32.8:
         action Show("trailer_scene_5")
 
-    timer 43.5:
+    timer 37.7:
         action Show("trailer_scene_6")
 
-    timer 52.0:
+    timer 46.2:
         action Show("trailer_scene_7")
 
-    timer 55.5:
+    timer 49.6:
         action Show("trailer_scene_8")
 
-    timer 67.0:
+    timer 61.2:
         action Hide("full_trailer")
     
     frame:
