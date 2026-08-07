@@ -117,7 +117,7 @@ screen trailer_scene_3():
     add Movie(size=(1920, 1080), play="videos/trailer_clip_1.ogv", loop=False)
 
 screen trailer_scene_4():
-    timer 14.0:
+    timer 13.0:
         action Hide("trailer_scene_4")
 
     frame:
@@ -192,10 +192,8 @@ screen trailer_scene_4():
                     linear 1.0:
                         xoffset -1800
 
-    #Title, CTA
-
 screen trailer_scene_5():    
-    timer 6.6:
+    timer 7.0:
         action Hide("trailer_scene_5")
 
     add Movie(size=(1920, 1080), play="videos/trailer_clip_2.ogv", loop=False)
@@ -245,7 +243,7 @@ screen trailer_scene_6():
 
 screen trailer_scene_7():
     default word_highlight = 0
-    timer 4.0:
+    timer 6.0:
         action Hide("trailer_scene_7")
 
     timer 0.1:
@@ -443,19 +441,19 @@ screen full_trailer():
     timer 19.3:
         action Show("trailer_scene_4")
 
-    timer 32.8:
+    timer 31.8:
         action Show("trailer_scene_5")
 
-    timer 37.7:
+    timer 37.1:
         action Show("trailer_scene_6")
 
-    timer 46.2:
+    timer 45.6:
         action Show("trailer_scene_7")
 
-    timer 49.6:
+    timer 51.0:
         action Show("trailer_scene_8")
 
-    timer 61.2:
+    timer 62.6:
         action Hide("full_trailer")
     
     frame:
