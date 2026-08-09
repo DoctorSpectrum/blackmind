@@ -222,13 +222,6 @@ label variables:
             xoffset 0
             yoffset 0
 
-    transform street_zoom:
-        zoom 1.16
-        xalign 0.5
-        yalign 0.5
-        xanchor 0.5
-        yanchor 0.5
-
     transform dark_tint:
         matrixcolor TintMatrix("#6d6d6d")
 

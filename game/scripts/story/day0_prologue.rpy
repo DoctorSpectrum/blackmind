@@ -16,7 +16,7 @@ label prologue_01:
     $ quick_menu = True
 
     $ play_music("neutral_1")
-    scene street at street_zoom with slow_dissolve
+    scene street with slow_dissolve
     $ scene_setup(16, "Monday", True, 1, 2, True, True)
     $ current_thought_block = "mind_read_prologue"
 
