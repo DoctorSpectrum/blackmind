@@ -6,15 +6,70 @@ BLACKMIND TODO
             - Post-final assets:
                 - Trailer:
                     - Set up trailer on YouTube (but don't set it live yet)
-                - Update Steam page with trailer
-                    - Submit main page for approval
                 - Set up itch.io page
                     - Same content as Steam, nothing new there
                     - Do a web-demo build
                 - Prep up the announcements for the Marketing sections
+                - I should prolly draw the zener cards myself juuuuust in case someone realises I stole them from Redbubble
 
             - Post-feedback
-                - Changes required go here
+                - Unix
+                    - "Honestly, I dont think the bg thing you have is working as well as it could. it causes weird frame drops. I wonder if having less rows but the cards way bigger would be better?"
+                    - "Jack is delivering a new partial line each click, I'm not a fan. I think it should be done when an emotion is changing."
+                    - "Opening should just be "bloody typical" one first line, then "who cares" on [whats the big deal anyway]. "I'm pretty damn good" works well for [anyway, how much cash...]. "Bloody typical" on [damn, I was hoping...] kind of captures the vibe but doesn't feel quite accurate."
+                    - ""Heya" delivery feels spot on. "You know im right" on [i'll give it thirty seconds...] is unneeded, as with "who cares" on [they probably want people to do that anyway...]"
+                    - ""You know im right" on [not too bad...] feels off. Maybe "heya" is better?"
+                    - "Cut "bloody typical" on [So when you think about it..] "
+                    - ""I know what to do" on [ill just need to convince her..] instead of "im pretty damn good." cut vo line in [what's she thinking about right now]"
+                    - "2 screw you from jack in [tap my- what do you mean?...] and [you thought it!...] feels a lot. change the second or first one to something else"
+                    - ""cant believe this" on [shit! I shouldn't have said that] is a big tonal swap, something else may work better."
+                    - ""you know im right" line cut on [whoever the owner is...]"
+                    - ""how to do this" line cut on [first of all ill need to...]"
+                    - ""i disagree" line cut on [I wonder what he'd say if...]"
+                    - ""its working out well" feels like the wrong line for [huh. you know, I've never thought of this place...]"
+                    - ""oh, haha umm" maybe not the best fit for the line [Which doesn't sound like a lot...] I think she is being passionate here less so awkward."
+                    - ""it's working out well" line cut from [before you know it...]"
+                    - ""i'm pretty damn good" line cut from [surely you've got to have something to offer me, yeah?]"
+                    - ""you know im right" either cut or replace with "i know what to do" on [well luckily for me, I have a nice solution for that]"
+                    - ""who cares" cut from [just one more drink, that's all..]"
+                    - ""you know im right" on [anyway, there's better places to go around here...]"
+                    - ""im pretty damn good" line cut on [ill just- just go up to the door...]"
+                    - ""just listen to me" line cut [then i can - ill go inside...]"
+                    - "I need help" line cut [it feels so - so sharp...]"
+                    - ""i need help" line cut from [I - I'm sorry mum...]"
+                    - ""I know what this is" line cut from [I - if I go in that building...]"
+                    - ""how to do this" line cut from [I dont have control the -...]"
+                    - ""i know what to do" line cut [if I just keep moving...]"
+                    - "VO lines are really repetitive in the shooting segment. I think you need to cut down on them entirely because they lose impact and are more annoying than anything else."
+                    - "Music feels way too chill here. This is something I’d hear at a jazz bar or something." (after Jack is shot)
+                    - "Music cut when ??? appears saying [my apologies] would work really well OR after being shot."
+                    - "When pressing fastforward and doing the rewind or mind read, the UI gets real messy. I couldnt quite get a screenshot of it because it was fast."
+                    - "“Im pretty damn good” line cut from [I can definitely make - make it there…]"
+                    - "“Cant believe this” line cut from [all they care about is themselves…] same for [anyway, i’d - i’d pay for stuff if I had the money]"
+                    - "“Bloody typical” replace with something else for [they’d better have some tables left…]"
+                    - "Having fast forward on when you choose location maintains it being on after choice. I think having to press it again after location choice would be better"
+                - MC
+                    - "After the fact I learned that there was apparently a controller specific help screen I missed, and presumably some other stuff."
+                    - "Kickstart button I think should do the same inverted colour on hover for consistency. It’s also not as obvious when it is selected."
+                    - "I wonder if the social button link swap over to black/yellow instead of black/white too"
+                    - "The underline is a little subtle for menu navigation of things like “return” with just an underline. Easy to miss where the cursor went if you weren’t expecting that to be the next option." (using controller)
+                    - "In music room, on hover for the player timer causes it to freeze in place and the timer to pause."
+                    - "Whiskey listed as $0? Is that made to lead players into choosing it under a “why is it 0?” with the in-universe reason being that Jack intends to pay all of $0? Though in that case why would the lemonade not be $0 as well (even if he doesn’t want it). Double weird when the third option says you can’t afford it"
+                    - "Hmmm. Do not like the power cut-in closing history. I think it’s fine to minimize it for the animation but I’d prefer that it opens up again once it’s done."
+                    - "Distinct UI element for next line/dialogue, remove history log from the navigation entirely and make it up/down controls it, up/down has no other navigation use for the other elements when and only when history is visible. Left/right on Hide/Reread loops to powers. And make it so history retains open state after a power."
+                    - "You do not appear to be able to scroll up/down in the history during a decision point"
+                    - "Hmmm, something on the UX for buttons is throwing me off when you have a locked one. It’s not always clear which you have selected since locked is always fully black background. And when it’s 1 unlocked option (hovered) and X locked options it’s not clear that any is selected at all."
+                    - "Oh wait I just navigated into the history there. Right so it’s… navigate off one of the other options, have no visual indicator that the history log is selected except for the fact that no other option is selected, press the primary button to focus it and then you can go up and down. Requiring to to press the primary button again to unselect it and return to real options. That is… not especially intuitive my dude."
+                    - "Also if you go to “read mind” and then press down you now have the history log highlighted. Pressing down again does nothing because it’s not selected but also does nothing because there is no down to go to. Same for right off one of the options."
+                - Serena
+                    - "The logo is difficult to read against the busy background. Is there a way to bring it forward? (Maybe a white/yellow outline around the black lettering?)"
+                    - "Can you include a DEFAULT button so all the settings reset?"
+                    - "The yellow-on-yellow is a little tricky to read:" (for displaying mind-read thoughts in the history)
+                    - "Should LOCKED be a different colour (or look different) to the selected option? At the moment, they look very similar:"
+                    - "BTW - now that I’ve done some rewinds - it might be nice for the history to clear whenever I rewind, because that just cleans things up and makes the history easier to follow."
+                    - "Again… maybe have the voice lines every second line (rather than every single one) when he’s calling out “I need help” over and over?"
+                    - "Potentially - could add a slight pause just before the CG for the gunshot? To show the impact"
+                    - "I got a random S to the right of the screen going on." (the dollar sign for cash money in the pause menu)
 
             - Post-changes:
                 - Upload web build and regular builds to itch.io
