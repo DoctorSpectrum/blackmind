@@ -164,7 +164,7 @@ screen trailer_scene_4():
             text _("THERE IS NO WAY TO TELL"):
                 style "trailer_text"
                 at transform:
-                    xoffset -1800
+                    xoffset -1850
                     pause 5.0
                     linear 1.0:
                         xoffset 0
