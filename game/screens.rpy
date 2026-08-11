@@ -313,10 +313,10 @@ style choice_button_text is default:
     hover_underline True
 
 style choice_button_locked is choice_button:
-    background Frame("gui/button/button_hover.png")
+    background Frame("gui/button/button_locked.png")
 
 style choice_button_locked_text is choice_button_text:
-    color "#F2EE29"
+    color "#FFFC5E"
 
 
 ## Quick Menu screen ###########################################################
