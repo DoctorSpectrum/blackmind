@@ -34,7 +34,6 @@ label mind_read_prologue:
     elif (current_thought == "barbara_thought_pr_09"):
         $ barbara_partial("irritated_03")
         bartender_thoughts "(And now he’ll probably be shocked, thinking that a woman shouldn’t - or couldn’t - own a bar.)" 
-        $ barbara_partial("irritated_02")
         bartender_thoughts "(I wonder what he’d say if he knew about the history of the place?)" 
         if (check_boolean("prologue_bar_history") == False):
             $ jack_partial("analytical_01")
@@ -68,7 +67,7 @@ label mind_read_prologue:
         $ barbara_partial("awkward_01")
         bartender_thoughts "(Let’s just move on, and assume that I misheard him.)" 
     elif (current_thought == "barbara_thought_pr_17"):
-        $ barbara_partial("proud_01")
+        $ barbara_partial("confused_02")
         bartender_thoughts "(Huh.[wait_1] You know, I’ve never thought of this place as being that historic, but I guess it has been around for decades now.)" 
     elif (current_thought == "barbara_thought_pr_18"):
         $ barbara_partial("excited_01")

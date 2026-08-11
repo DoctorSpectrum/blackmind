@@ -22,16 +22,14 @@ label prologue_01:
 
     $ jack_partial("irritated_01")
     jack angry "(God, it took the cops long enough to let me go.)"
-    $ jack_partial("irritated_02")
     jack angry "(Absolutely no evidence at all that I stole those wallets, but they still managed to draw it out into hours of questioning.)"
     $ jack_partial("dismissive_02")
     jack angry "(What’s the big deal, anyway?)"
-    $ jack_partial("irritated_02")
     jack angry "(Pickpocketing’s considered a petty crime.[wait_1] That basically means that they shouldn’t be wasting any time on it, especially when they’ve got no evidence.)"
     $ jack_partial("cocky_01")
     jack smug "(Anyway, how much cash was I able to get from those suckers before the cops spotted me?)"
     show screen cash_money
-    $ jack_partial("irritated_01")
+    $ jack_partial("irritated_02")
     jack thinking "(Damn, I was hoping for a bit more than that...it'd be easier if I could take plastic, but it’s just too easy to trace or be blocked.)"
     $ jack_partial("dismissive_01")
     jack smug "(Well, whatever.[wait_1] Not like I need any of it to get myself a whiskey.)"
@@ -43,9 +41,7 @@ label prologue_01:
     jack thinking "(Is there no bartender here?[wait_1] And...also no customers?)"
     $ jack_partial("friendly_01")
     jack thinking "Hello![wait_1] Anybody home?"
-    $ jack_partial("cocky_02")
     jack smug "(I’ll give it thirty seconds, then I’m grabbing all the bottles I can hold.)"
-    $ jack_partial("dismissive_02")
     jack smug "(They probably want people to do that anyway.[wait_1] You wouldn’t just leave things unattended and then be annoyed that they’re missing; you know what you’re getting in for.)"
     $ swap_sprites("barbara_smiling", slow_dissolve)
     $ current_thought = "barbara_thought_pr_01"
@@ -53,7 +49,7 @@ label prologue_01:
     bartender "Sorry![wait_1] I was out back, changing over a keg."
     $ barbara_partial("friendly_01") 
     bartender "How are you doing?" 
-    $ jack_partial("cocky_02")
+    $ jack_partial("friendly_01")
     jack smug "Not too bad, although I’d definitely be doing better if I had a drink...[wait_05]or two!"
     $ jack_partial("cocky_01")
     jack smug "(God I'm funny!)"
@@ -70,13 +66,11 @@ label prologue_02:
             jack worried "(There’s no point in looking at the prices she’s got - it’ll all be overpriced, just like every other bloody place.)"
             $ jack_partial("irritated_01")
             jack worried "(Who’s out there making things affordable for the little guy?[wait_1] Nobody, that’s who.)"
-            $ jack_partial("dismissive_01")
             jack thinking "(So when you think about it, is it really an issue if I use my abilities and trick her into giving me a drink for free?[wait_1] Obviously not.)"
             $ jack_partial("dismissive_02")
             jack thinking "(She’ll definitely make all that money back when the first fat cat of the night steps in {size=-10}maybe{/size}.)"
-            $ jack_partial("cocky_01")
-            jack smug "(I’ll just need to convince her that she’ll benefit from pouring me that drink.)"
             $ jack_partial("analytical_01")
+            jack smug "(I’ll just need to convince her that she’ll benefit from pouring me that drink.)"
             jack smug "(What’s she thinking about right now?)"
 
             hide screen say
@@ -108,7 +102,7 @@ label prologue_03:
     $ barbara_partial("friendly_02")
     bartender "And coke?[wait_1] Sure thing - just tap your card when you’re ready and I’ll be right with you." 
     $ current_thought = "barbara_thought_pr_03"
-    $ jack_partial("angry_01")
+    $ jack_partial("irritated_01")
     jack angry "Tap my - what do you mean?[wait_1] I thought you were going to give me it for free!"
     $ swap_sprites("barbara_angry")
     $ barbara_partial("angry_02")
@@ -118,7 +112,7 @@ label prologue_03:
     jack angry "You thought it![wait_1] Don’t try and deny it, I know you did!"
     $ barbara_partial("angry_01")
     bartender "What the hell?![wait_1] Just - who the hell are you?" 
-    $ jack_partial("irritated_02")
+    $ jack_partial("scared_01")
     jack worried "(Shit![wait_05] I shouldn’t have said that - I’d better wipe that from her memory!)"
     hide screen say
     hide screen conversation_history
@@ -158,7 +152,6 @@ label prologue_04:
     $ jack_partial("cheerful_01")
     jack smug "You know, this is a really nice bar."
     $ current_thought = "barbara_thought_pr_08"
-    $ jack_partial("cocky_02")
     jack smug "Whoever the owner is, they’ve done a really good job with it...[wait_05]especially at hiring staff."
     $ swap_sprites("barbara_angry")
     $ current_thought = "barbara_thought_pr_09"
@@ -195,7 +188,6 @@ label prologue_05:
             bartender "If you’re not ordering, then please leave.[wait_1] I’ve got better things to do than entertain beggars." 
             $ jack_partial("analytical_03")
             jack thinking "(Okay, so I’ll need to read more of her thoughts so that I can work out what she might want to talk about, to get her to like me more.)"
-            $ jack_partial("analytical_01")
             jack thinking "(First of all I’ll need to rewind her mind, though.)"
             hide screen conversation_history
             call screen psychic_powers
@@ -258,9 +250,8 @@ label prologue_06:
     bartender "Although I’ve only been running it for the last...[wait_05]I want to say eight months?" 
     $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_pr_21"
-    $ barbara_partial("awkward_01")
+    $ barbara_partial("proud_01")
     bartender "Which doesn’t sound like a lot, but I’ve got a lot of good ideas about how to make it even better!"
-    $ barbara_partial("proud_01") 
     bartender "Before you know it, this will be your favourite bar in the area - no, in the city!" 
     $ current_thought = "barbara_thought_pr_22"
     $ barbara_partial("friendly_02")
@@ -311,7 +302,6 @@ label prologue_07:
     $ current_thought = "barbara_thought_pr_28"
     $ jack_partial("cocky_02")
     jack smug "You know, things like - like happy hour, or jugs being cheaper than the equivalent in pints."
-    $ jack_partial("cocky_01")
     jack smug "Surely you’ve got to have something to offer me, yeah?"
     $ current_thought = "barbara_thought_pr_29"
     $ barbara_partial("apologetic_01")
@@ -432,7 +422,7 @@ label prologue_08:
     $ jack_partial("irritated_01")
     jack angry "(Bloody typical - you ask for one small favour and they act like you’re asking for the world.[wait_1] Only out for herself, just like everybody else.)"
     $ current_thought = "barbara_thought_pr_47"
-    $ jack_partial("cocky_02")
+    $ jack_partial("analytical_01")
     jack smug "(Well, luckily for me, I have a nice solution for that...)"
     $ rewind_point = "prologue_09"
     hide screen conversation_history
@@ -451,7 +441,6 @@ label prologue_09:
     $ current_thought = "barbara_thought_pr_38"
     $ jack_partial("cocky_01")
     jack smug "Tell me - how would you feel about a bit of an exchange?[wait_1] A free drink, and in return I’ll make sure to write a good review."
-    $ jack_partial("dismissive_02")
     jack smug "(Just one more drink, that’s all.[wait_1] Get a nice buzz going, and then I’ll be on my way.)"
     scene black_bg with quick_dissolve
     scene bar at drunk_cycle(5, 2, 1.15) with quick_dissolve
@@ -525,7 +514,6 @@ label prologue_11:
     $ play_music("ambient_1")
     $ jack_partial("dismissive_02")
     jack angry "(Whaddo I care about what she thinks anyway...[wait_1]she’s not even that good a bartender!)"
-    $ jack_partial("cocky_02")
     jack angry "(Anyway, there’s better places to go to around here...I bet it’ll be easier to get free shit there, too.)"
     hide screen conversation_history
     $ renpy.choice_for_skipping()
@@ -539,9 +527,7 @@ label prologue_music_venue:
     scene black_bg with slow_dissolve
     $ jack_partial("analytical_01")
     jack smug "(Right...[wait_05]I - I know what I’ve gotta do.)"
-    $ jack_partial("cocky_01")
     jack smug "(I’ll just - just go up to the door, and then I’ll make ‘em - I’ll make the door person forget that I haven’t paid the fee.)"
-    $ jack_partial("cocky_03")
     jack smug "(Then I can - I’ll go inside, and I’ll - I’ll get stuff for free.)"
     $ jack_partial("cocky_02")
     jack smug "(Yeah...[wait_05]yeah, that’s a good idea! I like this plan!)"
@@ -567,20 +553,17 @@ label prologue_restaurant:
     $ location = "restaurant"
     $ jack_partial("irritated_01")
     jack worried "(I feel kind of dizzy, and - and the street is moving too much, but it’s not that far from here.)"
-    $ jack_partial("cocky_01")
     jack worried "(I can definitely make - make it there.)"
     $ jack_partial("scared_01")
     jack thinking "(I - I hope that my powers are working when I get there...[wait_1]I need them so I can get those chips.)"
     $ jack_partial("irritated_01")
     jack thinking "(They should - they should lower their prices anyway, cos chips are - chips are - they’re too expensive. But they don’t wanna do that, cos they - they just wanna make money.)"
-    $ jack_partial("irritated_02")
     jack thinking "(All they care about is themselves, and - and their profits and stuff...[wait_1]they’re just like that bartender.[wait_1] Everybody only cares about themselves.)"
-    $ jack_partial("irritated_02")
     jack worried "(Anyway, I’d - I’d pay for stuff if I had the money, but I don’t, since I had to - I gave all that I had to that guy.)"
     $ jack_partial("irritated_01")
     jack worried "(He’s soooo expensive...[wait_1]got the info I wanted, but did he - did he have to cost so much?)"
     scene restaurant_night at drunk_cycle(5, 0, 1.0), restaurant with slow_dissolve
-    $ jack_partial("irritated_01")
+    $ jack_partial("disappointed_01")
     jack worried "(They’d better have some tables left inside...[wait_1]it’s so cold out here...)"
     $ jack_partial("cocky_01")
     jack smug "(Although if they don’t, I can - I can make somebody go outside.[wait_1] They wouldn’t know that I -)"
@@ -601,13 +584,11 @@ label prologue_end:
     show red_pulse
     $ jack_partial("scared_01")
     jack worried "(My -[wait_05] my stomach, I -[wait_05] what’s happened?!)"
-    $ jack_partial("scared_02")
     jack worried "(It feels so -[wait_05] so sharp, and, and -[wait_05] god, breathing is -[wait_05] I -[wait_05] I can feel it with every breath.)"
     $ jack_partial("scared_01")
     jack worried "(I -[wait_05] I -[wait_05] oh god, I -[wait_05] I’m dying!)"
     $ jack_partial("scared_02")
     jack worried "(I...[wait_05]{size=-8}Mum.[wait_1] Mum, please come and - and help me!{/size})"
-    $ jack_partial("scared_02")
     jack worried "{size=-8}(I -[wait_05] I’m sorry Mum, I -[wait_05] please make it go away!){/size}"
     $ jack_partial("scared_01")
     jack worried "{size=-8}(I -[wait_05] I don’t want to die...[wait_05]why isn’t anybody helping me?){/size}"
@@ -619,19 +600,16 @@ label prologue_end:
     jack thinking "(No...[wait_05]it’s -[wait_05] whatever’s happened, it’s -[wait_05] it hasn’t happened yet.)"
     $ jack_partial("analytical_02")
     jack thinking "(It’s my -[wait_05] it’s my precog-[wait_05] precog-[wait_05] my future sight.)"
-    $ jack_partial("analytical_02")
     jack thinking "(I -[wait_05] if I go in that building then it’ll...[wait_05]it’ll happen and I’ll...[wait_05]the vision will come true.)"
     $ jack_partial("scared_01")
     jack worried "(Somebody will shoot me and -[wait_05] god, why did I drink so -[wait_05] so much?)"
     $ jack_partial("scared_02")
     jack worried "(I -[wait_05] I can’t -[wait_05] I don’t want to die![wait_1] Can I even -[wait_05] is it even possible for me to get away?)"
-    $ jack_partial("analytical_03")
     jack worried "(I don’t have control over the -[wait_05] over my future sight, so I can’t see if there’s a way that I survive.)"
     $ jack_partial("scared_01")
     jack thinking "(I...[wait_05]I need to calm down.[wait_1] I can do this.)"
     $ jack_partial("analytical_01")
     jack thinking "(I just need to -[wait_05] I need to not go into that building, and then I’ll -[wait_05] yeah, I’ll be fine.)"
-    $ jack_partial("analytical_01")
     jack thinking "(If I just keep moving then I’ll -[wait_05] I can get away.)"
     scene black_bg with quick_dissolve
     $ play_sound("gunshot.mp3", transition=white_flash)
@@ -667,6 +645,7 @@ label prologue_end:
     jack worried "There’s -[wait_05] somebody’s after me, and they’re -[wait_05] I -[wait_05] I don’t know if I can get away without some help."
     $ jack_partial("scared_01")
     jack worried "Do you -[wait_05] do you have a car, or...?"
+    $ renpy.music.stop()
     $ docherty_partial("calm_01")
     docherty "I apologise for this, young man, but you are in the way of my plan."
     $ jack_partial("confused_02")
@@ -674,7 +653,7 @@ label prologue_end:
     hide screen calendar
     hide screen conversation_history
     hide screen psychic_powers
-    $ play_music("neutral_2")
+    #$ play_music("neutral_2")
     scene cg1_2 at cg_1_reveal
     $ play_sound("gunshot.mp3", transition=white_flash)
     $ unlock_cg(0, 2)

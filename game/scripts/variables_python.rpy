@@ -203,6 +203,7 @@ init python:
         _history_list.clear()
         remove_boolean("psychic_splash_read")
         remove_boolean("psychic_splash_rewind")
+        renpy.choice_for_skipping()
 
         if (calendar):
             renpy.show_screen("calendar", day=calendar_day, section=calendar_section, sections=calendar_sections)
