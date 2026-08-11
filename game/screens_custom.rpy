@@ -1225,7 +1225,7 @@ screen pause_menu():
             style "black_button_on_black"
             action (Quit() if clickable_button() else NullAction())
 
-    use cash_money("pause_menu")
+    #use cash_money("pause_menu")
 
 style yellow_button_on_yellow:
     background Frame("gui/button/button_idle.png")
@@ -1820,7 +1820,7 @@ screen sound_room():
     default show_content = False
     default currently_playing = None
     default song_placement = 0
-    default bar_hovered = False
+    default pause_bar = False
 
     timer 1.2:
         action SetScreenVariable("show_content", True)
@@ -1829,7 +1829,7 @@ screen sound_room():
         if (show_content):
             grid 2 5:
                 xalign 0.1
-                yalign 0.2
+                yalign 0.4
                 spacing 30
                 yspacing 60
                 at trans_fade(0.0, 0.5)
@@ -1871,13 +1871,16 @@ screen sound_room():
                                     ysize 1
 
             if currently_playing is not None:
+                if (pause_bar):
+                    timer 1.5:
+                        action SetScreenVariable("pause_bar", False)
                 timer 0.1:
                     repeat True
-                    action (SetScreenVariable("song_placement", song_placement + 0.1) if not renpy.music.get_pause() and not preferences.get_mute("music") and not preferences.get_mute("all") and not bar_hovered else NullAction())
+                    action (SetScreenVariable("song_placement", song_placement + 0.1) if not renpy.music.get_pause() and not preferences.get_mute("music") and not preferences.get_mute("all") and not pause_bar else NullAction())
                 frame:
                     background None
                     xalign 0.68
-                    yalign 0.2
+                    yalign 0.4
 
                     xsize 600
                     ysize 500
@@ -1909,8 +1912,6 @@ screen sound_room():
                                     value (renpy.music.get_pos() if renpy.music.get_pos() is not None else 0)
                                     range (renpy.music.get_duration() if renpy.music.get_duration() is not None else 999)
                                     changed jump_sound
-                                    hovered SetScreenVariable("bar_hovered", True)
-                                    unhovered SetScreenVariable("bar_hovered", False)
 
                                 hbox:
                                     xsize 450

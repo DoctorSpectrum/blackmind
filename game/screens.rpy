@@ -945,8 +945,10 @@ screen game_menu(title, title_size=88, return_action=None):
         yalign 0.975
         text_font "gui/chubhand.ttf"
         text_color "#F2EE29"
-        text_hover_underline True
         text_size 38
+        text_hover_color "#000"
+        text_outlines [ (4, "#000", 0, 0) ]
+        text_hover_outlines [ (4, "#F2EE29", 0, 0) ]
         action (return_action if return_action is not None else 
             ([Hide("sample_text_speed_1"), Hide("sample_text_speed_2"), ShowMenu("main_menu", initialised=True)] if main_menu 
             else [Hide("sample_text_speed_1"), Hide("sample_text_speed_2"), ShowMenu("pause_menu")]))
@@ -2138,10 +2140,8 @@ screen help(return_action=None):
                                         action SetScreenVariable("device", "keyboard")
                                     textbutton _("Mouse"): 
                                         action SetScreenVariable("device", "mouse")
-
-                                    if GamepadExists():
-                                        textbutton _("Gamepad"): 
-                                            action SetScreenVariable("device", "gamepad")
+                                    textbutton _("Gamepad"): 
+                                        action SetScreenVariable("device", "gamepad")
 
                                 if device == "keyboard":
                                     vbox:

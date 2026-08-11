@@ -1,6 +1,8 @@
 label mind_read_effects:
-    show screen conversation_history
     hide screen psychic_powers
+    $ history_expanded = (renpy.get_screen_variable("expanded", "conversation_history") if renpy.get_screen("conversation_history") else False)
+    hide screen conversation_history
+    
     $ renpy.choice_for_skipping()
 
     $ _window_hide()
@@ -20,12 +22,17 @@ label mind_read_effects:
     
     $ play_sound("mind_read.mp3", volume=0.5)
     show screen psychic_read
-
+    if (history_expanded):
+        show screen conversation_history(True, True, True)
+    else:
+        show screen conversation_history(False, True, False)
     jump expression current_thought_block
 
 label mind_wipe_pause:
     #$ _history_list = []   #Potentially wipe history on a mind wipe?
     $ renpy.choice_for_skipping()
+    $ history_expanded = (renpy.get_screen_variable("expanded", "conversation_history") if renpy.get_screen("conversation_history") else False)
+    hide screen conversation_history
 
     if (rewind_point not in ineffective_rewinds):
         $ _window_hide()
@@ -37,7 +44,6 @@ label mind_wipe_pause:
             $ renpy.pause(line["time"], hard=True)
             $ add_boolean("psychic_splash_rewind")
 
-        show screen conversation_history
         $ rewound_mind = True
         if (max_rewinds is not None):
             $ minds_rewound += 1
@@ -61,4 +67,8 @@ label mind_wipe_pause:
                 
             show screen psychic_powers
 
+    if (history_expanded):
+        show screen conversation_history(True, True, True)
+    else:
+        show screen conversation_history(False, True, False)
     jump expression rewind_point

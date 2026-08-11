@@ -106,6 +106,7 @@ init python:
     def jump_sound(value):
         currently_playing = renpy.get_screen_variable("currently_playing", "sound_room")
         renpy.music.play("<from " + (str(value)) + ">audio/music/" + currently_playing["file"], loop=False)
+        renpy.set_screen_variable("pause_bar", True, screen="sound_room")
 
     def convert_to_time(value):
         if (value == None):

@@ -10,20 +10,10 @@ BLACKMIND TODO
                     - Do a web-demo build
                 
             - Post-feedback
-                - Unix
-                    - "Jack is delivering a new partial line each click, I'm not a fan. I think it should be done when an emotion is changing."
-                    - "VO lines are really repetitive in the shooting segment. I think you need to cut down on them entirely because they lose impact and are more annoying than anything else."
-                    - "Music feels way too chill here. This is something I’d hear at a jazz bar or something." (after Jack is shot)
-
-                    - "Honestly, I dont think the bg thing you have is working as well as it could. it causes weird frame drops. I wonder if having less rows but the cards way bigger would be better?"
                 - MC
-                    - "After the fact I learned that there was apparently a controller specific help screen I missed, and presumably some other stuff."
-                    - "Kickstart button I think should do the same inverted colour on hover for consistency. It’s also not as obvious when it is selected."
-                    - "I wonder if the social button link swap over to black/yellow instead of black/white too"
-                    - "The underline is a little subtle for menu navigation of things like “return” with just an underline. Easy to miss where the cursor went if you weren’t expecting that to be the next option." (using controller)
-                    - "In music room, on hover for the player timer causes it to freeze in place and the timer to pause."
-                    - "Whiskey listed as $0? Is that made to lead players into choosing it under a “why is it 0?” with the in-universe reason being that Jack intends to pay all of $0? Though in that case why would the lemonade not be $0 as well (even if he doesn’t want it). Double weird when the third option says you can’t afford it"
                     - "Hmmm. Do not like the power cut-in closing history. I think it’s fine to minimize it for the animation but I’d prefer that it opens up again once it’s done."
+                        - Working for using mind reading/mind wiping but when we do call screen psychic_powers or display choices it also forgets it afterwards
+
                     - "Distinct UI element for next line/dialogue, remove history log from the navigation entirely and make it up/down controls it, up/down has no other navigation use for the other elements when and only when history is visible. Left/right on Hide/Reread loops to powers. And make it so history retains open state after a power."
                     - "You do not appear to be able to scroll up/down in the history during a decision point"
                     - "Hmmm, something on the UX for buttons is throwing me off when you have a locked one. It’s not always clear which you have selected since locked is always fully black background. And when it’s 1 unlocked option (hovered) and X locked options it’s not clear that any is selected at all."
@@ -35,9 +25,11 @@ BLACKMIND TODO
                     - "The yellow-on-yellow is a little tricky to read:" (for displaying mind-read thoughts in the history)
                     - "Should LOCKED be a different colour (or look different) to the selected option? At the moment, they look very similar:"
                     - "BTW - now that I’ve done some rewinds - it might be nice for the history to clear whenever I rewind, because that just cleans things up and makes the history easier to follow."
-                    - "Again… maybe have the voice lines every second line (rather than every single one) when he’s calling out “I need help” over and over?"
                     - "Potentially - could add a slight pause just before the CG for the gunshot? To show the impact"
                     - "I got a random S to the right of the screen going on." (the dollar sign for cash money in the pause menu)
+                - Unix
+                    - "Music feels way too chill here. This is something I’d hear at a jazz bar or something." (after Jack is shot)
+                    - "Honestly, I dont think the bg thing you have is working as well as it could. it causes weird frame drops. I wonder if having less rows but the cards way bigger would be better?"
 
             - Post-changes:
                 - Upload web build and regular builds to itch.io
