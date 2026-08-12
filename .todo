@@ -13,14 +13,13 @@ BLACKMIND TODO
                 - MC
                     - "Hmmm. Do not like the power cut-in closing history. I think it’s fine to minimize it for the animation but I’d prefer that it opens up again once it’s done."
                         - Working for using mind reading/mind wiping but when we do call screen psychic_powers or display choices it also forgets it afterwards
+                        - Let's compact the existing stuff into a function for showing and a function for hiding
 
                     - "Distinct UI element for next line/dialogue, remove history log from the navigation entirely and make it up/down controls it, up/down has no other navigation use for the other elements when and only when history is visible. Left/right on Hide/Reread loops to powers. And make it so history retains open state after a power."
                     - "You do not appear to be able to scroll up/down in the history during a decision point"
                     - "Oh wait I just navigated into the history there. Right so it’s… navigate off one of the other options, have no visual indicator that the history log is selected except for the fact that no other option is selected, press the primary button to focus it and then you can go up and down. Requiring to to press the primary button again to unselect it and return to real options. That is… not especially intuitive my dude."
                     - "Also if you go to “read mind” and then press down you now have the history log highlighted. Pressing down again does nothing because it’s not selected but also does nothing because there is no down to go to. Same for right off one of the options."
                 - Serena
-                    - "Can you include a DEFAULT button so all the settings reset?"
-                    - "BTW - now that I’ve done some rewinds - it might be nice for the history to clear whenever I rewind, because that just cleans things up and makes the history easier to follow."
                     - "Potentially - could add a slight pause just before the CG for the gunshot? To show the impact"
 
                     - "The logo is difficult to read against the busy background. Is there a way to bring it forward? (Maybe a white/yellow outline around the black lettering?)"
@@ -31,9 +30,13 @@ BLACKMIND TODO
             - Post-changes:
                 - Upload web build and regular builds to itch.io
                 - Upload build to Steam (demo)
+
+            - Post-Steam approval:
                 - Set trailer live on YouTube
-                - Set live on both itch.io and YouTube
                 - Set Kickstarter pre-launch page live
+                - Set Steam and itch.io pages live
+                - Confirm Steam and Kickstarter links; updoot if necessary
+                - Post announcements
 
         - Marketing:
             - Announcement:
@@ -55,6 +58,6 @@ BLACKMIND TODO
                 - Repost social media links on VN Devs
                 - Email draft for streamers - write it up, and set them up as drafts -> set up
             - Submit game (+ Many Deaths) to Choose Wisely Festival
-            - Contact streamers after the demo is up, see if they'll play it
             - Let VAs know that the demo is up
+            - Contact streamers after the demo is up, see if they'll play it
             - Should contact sites - who tho?

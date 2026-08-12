@@ -1757,6 +1757,27 @@ screen preferences(start=False):
                                                     text_color ("#3B3B3B" if hover_radio == "psychic_never" else ("#000" if persistent.psychic_splash == "never" else "#707070"))
                                                     text_bold persistent.psychic_splash == "never"
                                                     text_underline hover_radio == "psychic_never"
+            textbutton _("Reset to Default"):
+                xalign 0.795
+                yalign 0.745
+                text_size 20
+                text_color "#000"
+                text_hover_underline True
+                action [
+                    Preference("text speed", 25),
+                    Preference("auto-forward time", 5),
+                    Preference("music mute", "disable"),
+                    Preference("music volume", 0.75),
+                    Preference("sound mute", "disable"),
+                    Preference("sound volume", 1.0),
+                    Preference("voice mute", "disable"),
+                    Preference("voice volume", 1.0),
+                    Preference("all mute", "disable"),
+                    Preference("display", "fullscreen"),
+                    gui.SetPreference("font", "gui/Roboto-Medium.ttf"),
+                    SetVariable("persistent.psychic_splash", "always")
+                ]
+                at trans_fade(0.5, 0.5)
             
             if (start):
                 frame:
