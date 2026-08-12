@@ -630,7 +630,6 @@ label prologue_end:
     jack worried "You...[wait_05]can you -[wait_05] can you help me?[wait_1] Please!"
     jack worried "There’s -[wait_05] somebody’s after me, and they’re -[wait_05] I -[wait_05] I don’t know if I can get away without some help."
     jack worried "Do you -[wait_05] do you have a car, or...?"
-    $ renpy.music.stop()
     $ docherty_partial("calm_01")
     docherty "I apologise for this, young man, but you are in the way of my plan."
     $ jack_partial("confused_02")
@@ -638,7 +637,6 @@ label prologue_end:
     hide screen calendar
     $ hide_history()
     hide screen psychic_powers
-    #$ play_music("neutral_2")
     scene cg1_2 at cg_1_reveal
     $ play_sound("gunshot.mp3", transition=white_flash)
     $ unlock_cg(0, 2)
@@ -651,4 +649,5 @@ label prologue_end:
     scene black_bg with slow_dissolve
     $ renpy.choice_for_skipping()
 
+    $ play_music("neutral_2")
     call screen cta with slow_dissolve
