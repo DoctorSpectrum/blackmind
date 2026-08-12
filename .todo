@@ -10,22 +10,9 @@ BLACKMIND TODO
                     - Do a web-demo build
                 
             - Post-feedback
-                - MC
-                    - "Hmmm. Do not like the power cut-in closing history. I think it’s fine to minimize it for the animation but I’d prefer that it opens up again once it’s done."
-                        - Working for using mind reading/mind wiping but when we do call screen psychic_powers or display choices it also forgets it afterwards
-                        - Let's compact the existing stuff into a function for showing and a function for hiding
-
-                    - "Distinct UI element for next line/dialogue, remove history log from the navigation entirely and make it up/down controls it, up/down has no other navigation use for the other elements when and only when history is visible. Left/right on Hide/Reread loops to powers. And make it so history retains open state after a power."
-                    - "You do not appear to be able to scroll up/down in the history during a decision point"
-                    - "Oh wait I just navigated into the history there. Right so it’s… navigate off one of the other options, have no visual indicator that the history log is selected except for the fact that no other option is selected, press the primary button to focus it and then you can go up and down. Requiring to to press the primary button again to unselect it and return to real options. That is… not especially intuitive my dude."
-                    - "Also if you go to “read mind” and then press down you now have the history log highlighted. Pressing down again does nothing because it’s not selected but also does nothing because there is no down to go to. Same for right off one of the options."
-                - Serena
-                    - "Potentially - could add a slight pause just before the CG for the gunshot? To show the impact"
-
-                    - "The logo is difficult to read against the busy background. Is there a way to bring it forward? (Maybe a white/yellow outline around the black lettering?)"
-                - Unix
-                    - "Music feels way too chill here. This is something I’d hear at a jazz bar or something." (after Jack is shot)
-                    - "Honestly, I dont think the bg thing you have is working as well as it could. it causes weird frame drops. I wonder if having less rows but the cards way bigger would be better?"
+                - Get it to remember whether history is open or close after call screen psychic_powers and making a choice
+                - Work out what music to do during the end, and update it so that we only have five tracks in the sound room
+                - Test out the main menu with larger zener cards and see how it goes
 
             - Post-changes:
                 - Upload web build and regular builds to itch.io
