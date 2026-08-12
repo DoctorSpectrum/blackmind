@@ -562,23 +562,29 @@ screen main_menu(initialised=False, extras=False):
                 if (i % 2 == 0):
                     vbox:
                         spacing 66
-                        yoffset -240
-                        image "gui/card_1.png"
+                        image "gui/card_1_1.png"
                         image "gui/card_2.png"
                         image "gui/card_3.png"
                         image "gui/card_4.png"
                         image "gui/card_5.png"
 
                         at transform:
-                            alpha 0.3   
-                            linear (1400 / 24):
-                                ypos -1685
-                            ypos 1150
-                            repeat
+                            alpha 0.3
+                            ypos -240
+
+                            linear 40.60:
+                                ypos -1580
+                            pause 1.2
+
+                            block:
+                                ypos 1176
+                                linear 83.51:
+                                    ypos -1580
+                                repeat
+
                     vbox:
-                        spacing 66
-                        yoffset 1150
-                        image "gui/card_1.png"
+                        spacing 66    
+                        image "gui/card_1_2.png"
                         image "gui/card_2.png"
                         image "gui/card_3.png"
                         image "gui/card_4.png"
@@ -586,26 +592,27 @@ screen main_menu(initialised=False, extras=False):
 
                         at transform:
                             alpha 0.3   
-                            linear (1400 / 24):
-                                ypos -1685
-                            ypos 1150
-                            repeat
-                else:
-                    vbox:
-                        spacing 12
-                        yoffset -240
-                        image "gui/card_5.png"
-                        image "gui/card_4.png"
-                        image "gui/card_3.png"
-                        image "gui/card_2.png"
-                        image "gui/card_1.png"
+                            block:
+                                ypos 1176
+                                linear 83.51:
+                                    ypos -1580
+                                repeat
+                #else:
+                #    vbox:
+                #        spacing 12
+                #        yoffset -240
+                #        image "gui/card_5.png"
+                #        image "gui/card_4.png"
+                #        image "gui/card_3.png"
+                #        image "gui/card_2.png"
+                #        image "gui/card_1.png"
 
-                        image "gui/card_5.png"
+                #        image "gui/card_5.png"
 
-                        at transform:
-                            alpha 0.3   
-                            linear 32.56:
-                                ypos 1265
+                #        at transform:
+                #            alpha 0.3   
+                #            linear 32.56:
+                #                ypos 1265
                 #for j in range(3):
                 #    for card in cards:
                 #        image "gui/card_[card].png"
