@@ -2030,14 +2030,12 @@ screen cta():
                         imagebutton:
                             idle "gui/icons/steam" + ("_idle.png" if hover_item != "steam" else "_hover.png") 
                             hover "gui/icons/steam_hover.png"
-                            action (OpenURL("https://store.steampowered.com/app/4595360/BLACKMIND/") if clickable else NullAction())
-                            #BLACKMIND_Psychic_Social_Simulator
+                            action (OpenURL("https://store.steampowered.com/app/4595360/BLACKMIND_Psychic_Social_Simulator/") if clickable else NullAction())
                             hovered SetScreenVariable("hover_item", "steam")
                             unhovered SetScreenVariable("hover_item", None)
                         textbutton _("Wishlist on Steam!"):
                             style "block_cta"
-                            action (OpenURL("https://store.steampowered.com/app/4595360/BLACKMIND/") if clickable else NullAction())
-                            #BLACKMIND_Psychic_Social_Simulator
+                            action (OpenURL("https://store.steampowered.com/app/4595360/BLACKMIND_Psychic_Social_Simulator/") if clickable else NullAction())
                             hovered SetScreenVariable("hover_item", "steam")
                             unhovered SetScreenVariable("hover_item", None)
                             text_underline hover_item == "steam"
