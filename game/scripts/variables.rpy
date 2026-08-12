@@ -85,14 +85,14 @@ label variables:
         yalign 0.0
 
     transform zener_card_col_up (time):
-        zoom 0.3
-        ypos 960        #Start out offscreen, at the bottom
+        alpha 0.3
+        ypos 1180        #Start out offscreen, at the bottom
         pause time      #Pause for a while, unique time for each card
 
         block:          #Move up - we're all moving at the same rate but with the delay in pause that should create natural spacing between cards
-            ypos 960
-            linear 45.8:
-                ypos -345
+            ypos 1080
+            linear 54.5:
+                ypos -495
 
             repeat      #Reset so we're not constantly rendering new cards
 
