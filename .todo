@@ -3,15 +3,14 @@ BLACKMIND TODO
         - Delivery Date: 14/08/2026
 
         - Demo Actionables:
-            - Post-final assets:
-                - Set up itch.io page
-                    - Same content as Steam, nothing new there
-                    - Trailer: https://youtu.be/e4jVpofUW5Q
-                    - Do a web-demo build
-                
             - Post-feedback
-                - Test out the main menu with larger zener cards and see how it goes
+                - Finish off the downwards zener cards (don't forget to remove the transforms)
 
+            - Post-final assets:
+                - Do a web build that can be uploaded to itch.io
+                    - Remove quit button
+                    - Add in custom loading screen
+                
             - Post-changes:
                 - Upload web build and regular builds to itch.io
                 - Upload build to Steam (demo)

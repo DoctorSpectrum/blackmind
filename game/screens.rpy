@@ -597,90 +597,45 @@ screen main_menu(initialised=False, extras=False):
                                 linear 83.51:
                                     ypos -1580
                                 repeat
-                #else:
-                #    vbox:
-                #        spacing 12
-                #        yoffset -240
-                #        image "gui/card_5.png"
-                #        image "gui/card_4.png"
-                #        image "gui/card_3.png"
-                #        image "gui/card_2.png"
-                #        image "gui/card_1.png"
+                else:
+                    vbox:
+                        spacing 66
+                        image "gui/card_5.png"
+                        image "gui/card_4.png"
+                        image "gui/card_3.png"
+                        image "gui/card_2.png"
+                        image "gui/card_1_1.png"
 
-                #        image "gui/card_5.png"
+                        at transform:
+                            alpha 0.3
+                            yoffset -240
 
-                #        at transform:
-                #            alpha 0.3   
-                #            linear 32.56:
-                #                ypos 1265
-                #for j in range(3):
-                #    for card in cards:
-                #        image "gui/card_[card].png"
+                            linear 43.18:
+                                ypos 1185
+                            pause 1.2
 
-        #for i in range(26):
-        #    frame:
-        #        style_prefix "zener_rows"
-        #        background Solid("#D1CE21", ysize=1620, xsize=50, yanchor=0.25)
-        #        xoffset (i * 100) -700
-        #        at transform:
-                    #alpha 0.3
-        #            rotate 25
+                            block:
+                                ypos -1375
+                                linear 77.58:
+                                    ypos 1185
+                                repeat
 
-        #        if (i % 2 == 0):        #Col going up
-        #            vbox:
-        #                spacing 12
-        #                yoffset -240
-        #                at transform:
-        #                    linear (1400 / 24):
-        #                        ypos -1685
-
-        #                for j in range(3):
-        #                    for card in cards:
-        #                        image "gui/card_[card].png":
-        #                            at transform:
-        #                                zoom 0.3
-        #                image "gui/card_3.png":
-        #                    at transform:
-        #                        zoom 0.3
-
-        #            for j in range(3):
-        #                for card in cards:
-        #                    image "gui/card_[card].png":
-        #                        at zener_card_col_up((2.7*((card - 1) + (j * 5))))
-
-        #            image "gui/card_1.png":
-        #                at zener_card_col_up((2.7 * 15))
-        #            image "gui/card_2.png":
-        #                at zener_card_col_up((2.7* 16))
-        #        else:                   #Col going down
-        #            vbox:
-        #                spacing 12
-        #                yoffset -305
-        #                at transform:
-        #                    linear 32.56:
-        #                        ypos 1265
-        #                for j in range(3):
-        #                    for i, card in enumerate(reversed(cards)):
-        #                        image "gui/card_[card].png":
-        #                            at transform:
-        #                                zoom 0.3
-        #                image "gui/card_1.png":
-        #                    at transform:
-        #                        zoom 0.3
-        #                image "gui/card_2.png":
-        #                    at transform:
-        #                        zoom 0.3
+                    vbox:
+                        spacing 66
+                        image "gui/card_5.png"
+                        image "gui/card_4.png"
+                        image "gui/card_3.png"
+                        image "gui/card_2.png"
+                        image "gui/card_1_2.png"
+                        at transform:
+                            alpha 0.3
+                            block:
+                                ypos -1375
+                                linear 77.58:
+                                    ypos 1185
+                                repeat
 
 
-        #            for j in range(3):
-        #                for i, card in enumerate(reversed(cards)):
-        #                    image "gui/card_[card].png":
-        #                        at zener_card_col_down(1 + (1.95 * ((card - 1) + (j * 5))))
-
-        #            image "gui/card_1.png":
-        #                at zener_card_col_down(1 + (1.95 * 15))
-        #            image "gui/card_2.png":
-        #                at zener_card_col_down(1 + (1.95 * 16))
 
         frame:
             background Solid("#00000041")
