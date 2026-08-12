@@ -175,6 +175,16 @@ init python:
 
         return False
 
+    # Screens
+    def hide_history():
+        global history_expanded
+        history_expanded = (renpy.get_screen_variable("expanded", "conversation_history") if renpy.get_screen("conversation_history") else history_expanded)
+        renpy.hide_screen("conversation_history")
+
+    def show_history():
+        global history_expanded
+        renpy.show_screen("conversation_history", history_expanded, True, history_expanded)
+
     # Save/load
     def add_date_suffix(date):
         date = int(date)
@@ -209,7 +219,7 @@ init python:
         if (calendar):
             renpy.show_screen("calendar", day=calendar_day, section=calendar_section, sections=calendar_sections)
         if (history):
-            renpy.show_screen("conversation_history")
+            show_history()
 
     def set_convo_length(length, progress=0):
         global convo_progress, convo_length

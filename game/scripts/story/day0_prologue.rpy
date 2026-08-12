@@ -55,9 +55,12 @@ label prologue_01:
     bartender "I can help you out with that.[wait_1] What exactly were you hoping for?"
 
 label prologue_02:
-    hide screen conversation_history
+    $ hide_history()
+    if (history_expanded):
+        $ renpy.notify("history expanded")
     menu:
         "Whiskey":
+            $ show_history()
             $ jack_partial("dismissive_02")
             jack worried "(There’s no point in looking at the prices she’s got - it’ll all be overpriced, just like every other bloody place.)"
             $ jack_partial("irritated_01")
@@ -70,7 +73,7 @@ label prologue_02:
             jack smug "(What’s she thinking about right now?)"
 
             hide screen say
-            hide screen conversation_history
+            $ hide_history()
             $ add_boolean("psychic_powers_available")
             if (current_input == "KB"):
                 call screen modal_popup("Click on the Read Mind button in the top right-hand corner, or press the 1 key, to read the bartender’s mind.", ["OK"], [Return()])
@@ -81,6 +84,7 @@ label prologue_02:
             call screen psychic_powers
 
         "Lemonade":
+            $ show_history()
             $ jack_partial("cocky_01")
             jack smug "(Ha ha ha.)"
             $ jack_partial("irritated_02")
@@ -111,7 +115,7 @@ label prologue_03:
     $ jack_partial("scared_01")
     jack worried "(Shit![wait_05] I shouldn’t have said that - I’d better wipe that from her memory!)"
     hide screen say
-    hide screen conversation_history
+    $ hide_history()
     $ rewind_point = "prologue_04"
     $ add_boolean("mind_wipe_available")
     if (current_input == "KB"):
@@ -165,8 +169,10 @@ label prologue_04:
     bartender "Anyway, did you want a drink?" 
 
 label prologue_05:
+    $ hide_history()
     menu:
         "No":
+            $ show_history()
             $ current_thought = "barbara_thought_pr_12"
             $ play_music("tense_1")
             $ jack_partial("dismissive_01")
@@ -182,13 +188,15 @@ label prologue_05:
             $ jack_partial("analytical_03")
             jack thinking "(Okay, so I’ll need to read more of her thoughts so that I can work out what she might want to talk about, to get her to like me more.)"
             jack thinking "(First of all I’ll need to rewind her mind, though.)"
-            hide screen conversation_history
+            $ hide_history()
             call screen psychic_powers
         "Ask about the history of the bar" (locked=not check_boolean("prologue_bar_history"), message="You have not read this information in the bartender's mind"):
+            $ show_history()
             $ jack_partial("dismissive_01")
             jack smug "Oh, of course, of course."
             jump prologue_06
         "Ask about interior design" (locked=not check_boolean("prologue_interior_designing"), message="You have not read this information in the bartender's mind"):
+            $ show_history()
             $ current_thought = "barbara_thought_pr_14"
             $ jack_partial("cocky_03")
             jack smug "What I really wanted was to talk about interior design."
@@ -248,8 +256,10 @@ label prologue_06:
     $ barbara_partial("friendly_02")
     bartender "In fact, I can start out by showing you how good our drinks are - what exactly did you want to drink, again?" 
 
+    $ hide_history()
     menu:
         "Nothing":
+            $ show_history()
             $ play_music("tense_1")
             $ current_thought = "barbara_thought_pr_23"
             $ jack_partial("dismissive_02")
@@ -269,13 +279,13 @@ label prologue_06:
             $ jack_partial("analytical_03")
             jack thinking "(I’ll wipe her memory of this part of the conversation, and try this again...)"
             jack thinking "(I need to start nudging her towards the idea of free drinks, or I’ll never get anywhere.)"
-            hide screen conversation_history
+            $ hide_history()
             call screen psychic_powers
         "That depends upon your drinks policies" (locked=not check_boolean("prologue_drink_policies"), message="You have not read information about the bar's drinks policies in her mind"):
             jump prologue_07
 
 label prologue_07:
-    show screen conversation_history
+    $ show_history()
     show screen psychic_powers
     $ rewind_point = "prologue_07"
     if (renpy.music.get_playing() != "audio/music/bourbon_mood.mp3"):
@@ -297,9 +307,11 @@ label prologue_07:
     bartender "Happy hour ended at six o’clock, sorry." 
     $ barbara_partial("friendly_02")
     bartender "As for discounts - tell me what exactly you want, and I’ll tell you what I can do." 
+    $ hide_history()
 
     menu:
         "Give me a whiskey":
+            $ show_history()
             $ jack_partial("analytical_02")
             jack smug "(It sounds like she’s pretty keen to give me it for cheaper - I knew that listening to her bang on about all that boring stuff would be worth it.)"
             $ current_thought = "barbara_thought_pr_30"
@@ -321,9 +333,10 @@ label prologue_07:
             $ jack_partial("analytical_03")
             jack thinking "(I guess I’ll need a good reason why she should give me a discount, since apparently I’m not good enough for her.)"
             jack thinking "(Let’s rewind her mind and try again.)"
-            hide screen conversation_history
+            $ hide_history()
             call screen psychic_powers
         "How about you give me a discount since I’m a regular?" (locked=not check_boolean("prologue_drink_discounts"), message="You have not read information about discounts in the bartender's mind"):
+            $ show_history()
             $ jack_partial("cocky_01")
             jack smug "(Alright, there’s no way that this can go wrong.[wait_1] That drink is as good as mine.)"
             $ current_thought = "barbara_thought_pr_33"
@@ -346,9 +359,10 @@ label prologue_07:
             jack angry "(This is bullshit - what was wrong with that argument?!)" 
             $ jack_partial("analytical_01")
             jack angry "(I’d better rewind her mind and try something different.)"
-            hide screen conversation_history
+            $ hide_history()
             call screen psychic_powers
         "I’ll write a good review if you give me a free drink" (locked=not check_boolean("prologue_drink_review"), message="You have not read information about the bar's publicity in the bartender's mind"):
+            $ show_history()
             $ current_thought = "barbara_thought_pr_38"
             $ jack_partial("cocky_01")
             jack smug "Tell me - how would you feel about a bit of an exchange?[wait_1] A free drink, and in return I’ll make sure to write a good review."
@@ -409,7 +423,7 @@ label prologue_08:
     $ jack_partial("analytical_01")
     jack smug "(Well, luckily for me, I have a nice solution for that...)"
     $ rewind_point = "prologue_09"
-    hide screen conversation_history
+    $ hide_history()
     call screen psychic_powers
 
 label prologue_montage_rewind:
@@ -418,7 +432,7 @@ label prologue_montage_rewind:
     return
 
 label prologue_09:
-    show screen conversation_history
+    $ show_history()
     show screen psychic_powers
     $ rewind_point = "prologue_montage_rewind"
     
@@ -472,11 +486,11 @@ label prologue_09:
     $ jack_partial("angry_01")
     jack angry "(Oh, screw you![wait_1] I’ll -[wait_05] let’s see how drunk you think I am after this)"
     $ rewind_point = "prologue_10"
-    hide screen conversation_history
+    $ hide_history()
     call screen psychic_powers
 
 label prologue_10:
-    show screen conversation_history
+    $ show_history()
     show screen psychic_powers
     $ current_thought = "barbara_thought_pr_54"
     $ barbara_partial("angry_02")
@@ -497,7 +511,7 @@ label prologue_11:
     $ jack_partial("dismissive_02")
     jack angry "(Whaddo I care about what she thinks anyway...[wait_1]she’s not even that good a bartender!)"
     jack angry "(Anyway, there’s better places to go to around here...I bet it’ll be easier to get free shit there, too.)"
-    hide screen conversation_history
+    $ hide_history()
     $ renpy.choice_for_skipping()
     call screen modal_popup("You have enough time to visit one more location before the night is over.", ["OK"], [Return()])
     call screen map_navigation(find_locations([1, 2]))
@@ -554,11 +568,11 @@ label prologue_restaurant:
 
 label prologue_precognition:
     scene black_bg
-    hide screen conversation_history
+    $ hide_history()
     $ play_music("tense_2")
     $ play_sound("gunshot.mp3", pause=2.0, transition=white_flash)
     show screen calendar("Monday", 2, 2)
-    show screen conversation_history
+    $ show_history()
     return
 
 label prologue_end:
@@ -622,7 +636,7 @@ label prologue_end:
     $ jack_partial("confused_02")
     jack angry "What do you -"
     hide screen calendar
-    hide screen conversation_history
+    $ hide_history()
     hide screen psychic_powers
     #$ play_music("neutral_2")
     scene cg1_2 at cg_1_reveal

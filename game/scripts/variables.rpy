@@ -557,5 +557,6 @@ label variables:
     default wait_1 = ("{w=1.0}" if preferences.text_cps > 0 else "")
     default wait_05 = ("{w=0.5}" if preferences.text_cps > 0 else "")
     default current_input = "KB"
+    default history_expanded = False
 
     jump prologue_01
