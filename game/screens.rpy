@@ -551,7 +551,7 @@ screen main_menu(initialised=False, extras=False):
         frame:
             background Solid("#3B3B3B")
 
-        for i in range(9):
+        for i in range(10):
             frame:
                 style_prefix "zener_rows"
                 background Solid("#D1CE21", ysize=1620, xsize=142, yanchor=0.25)
@@ -562,7 +562,7 @@ screen main_menu(initialised=False, extras=False):
                 if (i % 2 == 0):
                     vbox:
                         spacing 66
-                        image "gui/card_1_1.png"
+                        image "gui/card_1.png"
                         image "gui/card_2.png"
                         image "gui/card_3.png"
                         image "gui/card_4.png"
@@ -584,7 +584,7 @@ screen main_menu(initialised=False, extras=False):
 
                     vbox:
                         spacing 66    
-                        image "gui/card_1_2.png"
+                        image "gui/card_1.png"
                         image "gui/card_2.png"
                         image "gui/card_3.png"
                         image "gui/card_4.png"
@@ -604,20 +604,20 @@ screen main_menu(initialised=False, extras=False):
                         image "gui/card_4.png"
                         image "gui/card_3.png"
                         image "gui/card_2.png"
-                        image "gui/card_1_1.png"
+                        image "gui/card_1.png"
 
                         at transform:
                             alpha 0.3
-                            yoffset -240
+                            ypos -240
 
-                            linear 43.18:
-                                ypos 1185
+                            linear 40.60:
+                                ypos 1176
                             pause 1.2
 
                             block:
-                                ypos -1375
-                                linear 77.58:
-                                    ypos 1185
+                                ypos -1580
+                                linear 83.51:
+                                    ypos 1176
                                 repeat
 
                     vbox:
@@ -626,13 +626,13 @@ screen main_menu(initialised=False, extras=False):
                         image "gui/card_4.png"
                         image "gui/card_3.png"
                         image "gui/card_2.png"
-                        image "gui/card_1_2.png"
+                        image "gui/card_1.png"
                         at transform:
                             alpha 0.3
                             block:
-                                ypos -1375
-                                linear 77.58:
-                                    ypos 1185
+                                ypos -1580
+                                linear 83.51:
+                                    ypos 1176
                                 repeat
 
 
