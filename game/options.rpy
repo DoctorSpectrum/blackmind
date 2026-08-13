@@ -14,7 +14,7 @@
 
 #define config.log = "log.txt"
 define config.name = _("BLACKMIND")
-define config.developer = True
+define config.developer = False
 
 ## Determines if the title given above is shown on the main menu screen. Set
 ## this to False to hide the title.
