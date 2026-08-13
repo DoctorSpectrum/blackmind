@@ -2,12 +2,7 @@ BLACKMIND TODO
     - Demo Phase
         - Delivery Date: 14/08/2026
 
-        - Demo Actionables:
-            - Post-final assets:
-                - Do a web build that can be uploaded to itch.io
-                    - Remove quit button
-                    - Add in custom loading screen
-                
+        - Demo Actionables:                
             - Post-changes:
                 - Upload web build and regular builds to itch.io
                 - Upload build to Steam (demo)
