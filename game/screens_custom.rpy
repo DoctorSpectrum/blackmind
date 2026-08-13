@@ -1221,9 +1221,6 @@ screen pause_menu():
         textbutton _("Help"):
             style "black_button_on_black"
             action (ShowMenu("help") if clickable_button() else NullAction())
-        textbutton _("Quit Game"):
-            style "black_button_on_black"
-            action (Quit() if clickable_button() else NullAction())
 
     #use cash_money("pause_menu")
 
@@ -2095,9 +2092,6 @@ screen cta():
 
                 textbutton _("Main Menu"):
                     action MainMenu(False)
-
-                textbutton _("Quit"):
-                    action Quit(None)
 
 style cta_text:
     color "#000"

@@ -720,13 +720,6 @@ screen main_menu(initialised=False, extras=False):
                     hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 4 else None)
                     if (not initialised or extras_returned):
                         at menu_button(2.5 if not extras_returned else 1.5)
-                textbutton _("QUIT"):
-                    style "main_menu_button"
-                    xoffset -180
-                    action (Quit() if clickable_button() and timer_count >= 4.5 else NullAction())
-                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 4.5 else None)
-                    if (not initialised or extras_returned):
-                        at menu_button(3.0 if not extras_returned else 2.0)
             else:
                 textbutton _("GALLERY"):
                     style "main_menu_button"
