@@ -1,13 +1,40 @@
 BLACKMIND TODO
-    - Demo Phase
-        - Delivery Date: 31/08/2026
+    - Script Phase
+        - Delivery Date: 31/12/2026
         - Deliverables:
-            - Logo
-            - Sprites
-            - Voice acting
-            - Music
-            - CG
+            - Full script for the game across all routes
 
+    - Alpha Phase
+        - Delivery Date: 30/06/2027
+        - Deliverables:
+            - Initial sprites for remaining characters, drawn by me
+            - Initial CGs for the game
+            - Initial backgrounds for the game
+            - Placeholder music
+            - Entire script put into game; full game playable
+    
+    - Beta Phase
+        - Delivery Date: ?
+        - Deliverables
+            - Remaining assets:
+                - Sprites
+                - Backgrounds
+                - CGs
+                - Music
+
+    - Feedback Phase
+        - Delivery Date: 30/09/2027
+        - Deliverables:
+            - Feedback from the group received and integrated into the game
+
+    - Release Phase
+        - Delivery Date: 31/12/2027
+        - Deliverables:
+            - Remaining assets:
+                - Voice Acting
+            - Game is playable, with final assets, and is enjoyable and engaging to play
+
+    - //Updoot the below two - stash them somewhere and save them for down the track
     - PAX Phase
         - Delivery Date: 31/09/2026
         - Deliverables/Things to work out:
@@ -48,7 +75,3 @@ BLACKMIND TODO
                 - More partial voice acting
 
                 - I think that my stretch goals would be like more songs/more voice acting/more CGs
-    
-    - Release Phase:
-        - Delivery Date: 31/12/2027
-        - Work out the list for this once the other stuff has been sorted; at bare minimum it'll be voice acting
