@@ -5,22 +5,23 @@ BLACKMIND TODO
             - Full script for the game across all routes
 
     - Alpha Phase
-        - Delivery Date: 30/06/2027
+        - Delivery Date: 30/01/2027
         - Deliverables:
             - Initial sprites for remaining characters, drawn by me
             - Initial CGs for the game
             - Initial backgrounds for the game
             - Placeholder music
-            - Entire script put into game; full game playable
     
     - Beta Phase
-        - Delivery Date: ?
+        - Delivery Date: 30/06/2027
+            - Realistically, this date won't be attainable, but that's fine - things will get shuffled around a bit as I work on them
         - Deliverables
             - Remaining assets:
                 - Sprites
                 - Backgrounds
                 - CGs
                 - Music
+            - Entire script put into game; full game playable
 
     - Feedback Phase
         - Delivery Date: 30/09/2027
@@ -34,51 +35,50 @@ BLACKMIND TODO
                 - Voice Acting
             - Game is playable, with final assets, and is enjoyable and engaging to play
 
-    - //Updoot the below two - stash them somewhere and save them for down the track
-    - PAX Phase
-        - Delivery Date: 31/09/2026
-        - Deliverables/Things to work out:
-            - Ability to choose a short or long experience when starting the game
-            - Clear demonstration of how the game plays
-            - Tablecloth
-            - Date on banner with approximation of when game is coming out
-            - No requirements for attendants to interact with/control shit for players
-            - Headphones
-            - Business cards
-            - Two laptops
-            - Interactivity?
-            - Extra decorations?
+    - Optional phases:
+        - PAX Phase
+            - Deliverables/Things to work out:
+                - Ability to choose a short or long experience when starting the game
+                - Clear demonstration of how the game plays
+                - Tablecloth
+                - Date on banner with approximation of when game is coming out
+                - No requirements for attendants to interact with/control shit for players
+                - Headphones
+                - Business cards
+                - Two laptops
+                - Interactivity?
+                - Extra decorations?
 
-        - PROBABLY NOT HAPPENING NOW, at least not this year.
+            - PROBABLY NOT HAPPENING NOW, at least not this year.
 
-    - Kickstarter Phase
-        - Delivery Date: 30/01/2027
-        - Should this be shifted around to be before PAX, or just after it? In an ideal world I'll have most of the script written up by PAX, and it'll mostly be programming/voice acting to implement, but
-            then if this is before PAX it might not make as much money. Possibly have it running during PAX?
-        - I think that the big issue with Many Deaths is that I was selling it too cheap - $5 a copy would require 400 copies to be backed, and I didn't have that pull. 
-        - I think that Blankspace is a good one to use as a bit of a template - it's not a very complex game, but they made close to $10K AUD.
-            - https://www.kickstarter.com/projects/nobreadstudio/blankspace-mystery-puzzle-escape-room-visual-novel
-            - Tiers:
-                - Limited cheapo price ($12)
-                - Regular price ($14)
-                - Name in credits ($17)
-                - Digital artbook ($26) - prolly less relevant for me but I could mock something up
-                - Soundtrack ($35) - would need to get something commissioned
-                - Cheapo early access ($44) - it looks like this was a beta + fully devved chapter 2 (of 3)
-                - Early access ($62)
-                - Mousepad ($106) - note that only two people bought this
-                - T-shirt ($160)
-                - Blackboard message ($500) - only two people bought this but that's $1K right fucking there, and that's for like a single line. I think "heyo you can contribute to the game" stuff tends
-                    to go down well and you can justify making it expensive; this is the stuff to try and push
-            - Stretch goals:
-                - Soundtrack
-                - Bigger soundtrack
-                - Partial voice acting
-                - More partial voice acting
+        - Kickstarter Phase
+            - Delivery Date: 30/01/2027
+            - Should this be shifted around to be before PAX, or just after it? In an ideal world I'll have most of the script written up by PAX, and it'll mostly be programming/voice acting to implement, but
+                then if this is before PAX it might not make as much money. Possibly have it running during PAX?
+            - I think that the big issue with Many Deaths is that I was selling it too cheap - $5 a copy would require 400 copies to be backed, and I didn't have that pull. 
+            - I think that Blankspace is a good one to use as a bit of a template - it's not a very complex game, but they made close to $10K AUD.
+                - https://www.kickstarter.com/projects/nobreadstudio/blankspace-mystery-puzzle-escape-room-visual-novel
+                - Tiers:
+                    - Limited cheapo price ($12)
+                    - Regular price ($14)
+                    - Name in credits ($17)
+                    - Digital artbook ($26) - prolly less relevant for me but I could mock something up
+                    - Soundtrack ($35) - would need to get something commissioned
+                    - Cheapo early access ($44) - it looks like this was a beta + fully devved chapter 2 (of 3)
+                    - Early access ($62)
+                    - Mousepad ($106) - note that only two people bought this
+                    - T-shirt ($160)
+                    - Blackboard message ($500) - only two people bought this but that's $1K right fucking there, and that's for like a single line. I think "heyo you can contribute to the game" stuff tends
+                        to go down well and you can justify making it expensive; this is the stuff to try and push
+                - Stretch goals:
+                    - Soundtrack
+                    - Bigger soundtrack
+                    - Partial voice acting
+                    - More partial voice acting
 
-                - I think that my stretch goals would be like more songs/more voice acting/more CGs
-        - Scarlet Hunt has a Kickstarter which has like 300-odd followers at time of writing, and they don't have anything more than a demo:
-            - https://store.steampowered.com/app/3541320/Scarlet_Hunt/
-            - https://www.kickstarter.com/projects/965301113/scarlet-hunt-a-dark-romance-visual-novel
-        - Wicked Night - Holy Knights (by the Gates of Nayeli dev) had Gates of Nayeli included for free at basically every tier. It was an excellent way to get me to buy the game - no reason that I can't
-            throw in Many Deaths and AN to some low tiers. 
+                    - I think that my stretch goals would be like more songs/more voice acting/more CGs
+            - Scarlet Hunt has a Kickstarter which has like 300-odd followers at time of writing, and they don't have anything more than a demo:
+                - https://store.steampowered.com/app/3541320/Scarlet_Hunt/
+                - https://www.kickstarter.com/projects/965301113/scarlet-hunt-a-dark-romance-visual-novel
+            - Wicked Night - Holy Knights (by the Gates of Nayeli dev) had Gates of Nayeli included for free at basically every tier. It was an excellent way to get me to buy the game - no reason that I can't
+                throw in Many Deaths and AN to some low tiers. 
