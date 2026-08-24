@@ -7,13 +7,32 @@ BLACKMIND TODO
     - Alpha Phase
         - Delivery Date: 30/01/2027
         - Deliverables:
+            - Script added into game
             - Initial sprites for remaining characters, drawn by me
             - Initial CGs for the game
             - Initial backgrounds for the game
+                - I might ask Serena or MC to write me up a description to send to the BG artist
             - Placeholder music
+            - Programming:
+                - Flow chart
+                    - I think that I can do this by having each node let us jump to a point of the script. At that label we wipe any booleans that we generate in the scene, so that we're seeing it as though it's the first time again. Jumping
+                        back and forth might mean that some branches can't be unlocked but if we've unlocked the node we can jump past the lock anyway - any scenes past there we already know that we hit the flag to unlock it.
+                    - If we jump to a node and choose a different place to go to then we need to swap things around. So let's say on A-1 we go Barbara, Cat, Eddie, then later jump back to A-1-1 and choose someone different. If it's Graves we 
+                        change it so that our A-1 is now Graves, Cat, Eddie. If it's, say, Cat, we change it so that it's Cat, Barbara, Eddie. It shouldn't affect anything negatively but I'll need to test the heck out of this.
+                - Location map
+                    - I like the idea of having a bunch of descriptions, and then for each node when we can choose one of them we just update the key we're using to access that description. It...might make things easier?
+                - Future vision
+                    - I really like the keyword idea. I should work on this sooner rather than later and integrate it into the demo.
+                - Other
+                    - Newspaper and Sergei's book: I like the idea of these being actual doccos we browse; for the alpha I might just make a devnote of "I'd like these to actually be browsable; thoughts?" and see what they say
+
+    - Feedback Phase
+        - Delivery Date: 30/03/2027
+        - Deliverables:
+            - Feedback from the group received and integrated into the game
     
     - Beta Phase
-        - Delivery Date: 30/06/2027
+        - Delivery Date: 30/10/2027
             - Realistically, this date won't be attainable, but that's fine - things will get shuffled around a bit as I work on them
         - Deliverables
             - Remaining assets:
@@ -22,11 +41,6 @@ BLACKMIND TODO
                 - CGs
                 - Music
             - Entire script put into game; full game playable
-
-    - Feedback Phase
-        - Delivery Date: 30/09/2027
-        - Deliverables:
-            - Feedback from the group received and integrated into the game
 
     - Release Phase
         - Delivery Date: 31/12/2027
