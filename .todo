@@ -3,6 +3,8 @@ BLACKMIND TODO
         - Delivery Date: 31/12/2026
         - Deliverables:
             - Full script for the game across all routes
+                - Once I've got the core scenes, at the very least, scripted, rewrite the branch notes in the blackmind docco
+                    to account for the changed stuff. I can read over it that way and make sure that it does make sense.
 
     - Alpha Phase
         - Delivery Date: 30/01/2027
