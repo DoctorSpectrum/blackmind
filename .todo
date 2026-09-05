@@ -1,3 +1,31 @@
 BLACKMIND TODO
-    - Demo Phase
-        - DONE!
+    - Version 1.1. The demo's gotten some feedback and the flow needs to improve. Atm it's not the end of the world but if this does get into Choose Wisely it needs to be smoother.
+        - For a start: let's have it tutorialise a bit better. I think the initial mind read/mind wipe tutorials work alright, but once we finish the mind wipe our first mind read
+            should be a lot more directed and obvious.
+            - e.g. Jack: "I wonder what she's thinking of me? I should read her mind when she's talking about me because that will give me an idea."
+            
+                   Barbara: "Sorry if you've been waiting, I was out back".
+                   Barbara: "You look like someone who's waiting for a drink!"
+                   Barbara: "I can get you one."
+
+                - Since we've only got a few lines and the second one is her talking about Jack, that means we should mind read that to proceed.
+
+        - Keywords via future vision. This should prolly happen after the mind wipe tutorial, before we get into the gameplay portion of the game.
+            - Option #1: 
+                - We get a vision where, say, three keywords float up. 
+                - We look for the statement that involves them; it will advance the plot. 
+                - Clicking the future vision button shows us what the keywords are.
+            - Option #2:
+                - We have a character profile where there's, say, eight different bits of info about a given character, with those bits of info being locked.
+                - We can use future vision to unlock keywords for each bit of info.
+                    - E.g. Barbara's first bit of info is "She wants more reviews for her bar since she wants more customers and to be more popular." This is locked, but if we use 
+                        future vision then we can see the first keyword is "reviews", second is "customers", third is "popular" or something. We then know that we can unlock
+                        this information by finding statements involving at least one of those words.
+                - If we unlock a bit of information it's permanently unlocked in the profile
+                - Locked choices are determined by info we know about the character
+                - Potentially restrict the info to just what we can learn about them in this scene? Or would that be too much of a spoiler?
+
+                - Note that this could also be fiddly to do with the flow chart and having to lock or unlock information but we'll deal with that down the track
+
+        - Potentially have the demo continue even if you don't read the mind successfully? I'm thinking of VA-11 HALL-A and how there are correct drinks to serve people but if you
+            serve them something they don't like you don't completely fuck everything up or anything.
