@@ -1,13 +1,13 @@
 BLACKMIND TODO
     - Script Phase
-        - Delivery Date: 31/12/2026
+        - Delivery Date: 30/09/2026
         - Deliverables:
             - Full script for the game across all routes
                 - Once I've got the core scenes, at the very least, scripted, rewrite the branch notes in the blackmind docco
                     to account for the changed stuff. I can read over it that way and make sure that it does make sense.
 
     - Alpha Phase
-        - Delivery Date: 30/01/2027
+        - Delivery Date: 31/12/2027
         - Deliverables:
             - Script added into game
             - Initial sprites for remaining characters, drawn by me
@@ -65,7 +65,7 @@ BLACKMIND TODO
                 - Interactivity?
                 - Extra decorations?
 
-            - PROBABLY NOT HAPPENING NOW, at least not this year.
+            - Potentially happening in 2027. Nothing this year.
 
         - Kickstarter Phase
             - Delivery Date: 30/01/2027
