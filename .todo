@@ -1,7 +1,8 @@
 BLACKMIND TODO
     - Version 1.1. The demo's gotten some feedback and the flow needs to improve. Atm it's not the end of the world but if this does get into Choose Wisely it needs to be smoother.
+
         - For a start: let's have it tutorialise a bit better. I think the initial mind read/mind wipe tutorials work alright, but once we finish the mind wipe our first mind read
-            should be a lot more directed and obvious.
+            should be a lot more directed and obvious. Implement future vision into this.
             - e.g. Jack: "I wonder what she's thinking of me? I should read her mind when she's talking about me because that will give me an idea."
             
                    Barbara: "Sorry if you've been waiting, I was out back".
@@ -27,5 +28,41 @@ BLACKMIND TODO
 
                 - Note that this could also be fiddly to do with the flow chart and having to lock or unlock information but we'll deal with that down the track
 
+                - I kind of like the idea of the profile having two sections: one being long-term information, the other being stuff we can uncover during the current scene.
+                    So Barbara has three locked pieces of information in the current section, each with a keyword. We're not told the order the keywords will appear in. We proceed through
+                    the convo and look for the keywords, reading her mind when they crop up. Each unlocks a piece of information for the current scene. Once all of them have been unlocked,
+                    we unlock a piece of information for the long-term information.
+            - Option #3:
+                - We get one keyword, and then as we upgrade the ability we get more. Tbh I don't think it works super well since it clutters the information you have.
+
+            - On keywords: 
+                - To use the tutorial as an example, we read about the history of the bar in Barbara's mind to proceed past the first check. The line to read on has "I'm the owner" in it.
+                - If the keyword is "owner", it makes it easier to identify the line, but it means that you're not actively thinking about things - you're just looking for a line that has "owner" in it.
+                - If the keyword is "history", it means that we need to think about each line, but the connection won't always be obvious.
+                - MC suggested the keyword be one that's neither "owner" nor "history", but I think it could be the worst of both worlds - if it's, say, "bar" in this case, then while owner relates to it
+                    and history does it's also broad enough that several lines could apply to it.
+
+                - I think for now implement the initial, three-to-four statement check, work out the keyword, and then extrapolate from there.
+
+            - On option #1 vs. option #2: option #1 is fairly easy to implement; how would option #2 work in the tutorial? If I can work out a way then I'll go with it, if not then I'll stick with option #1.
+                I think that option #2 does give me more long-term potential so I'd rather do it if possible.
+
         - Potentially have the demo continue even if you don't read the mind successfully? I'm thinking of VA-11 HALL-A and how there are correct drinks to serve people but if you
             serve them something they don't like you don't completely fuck everything up or anything.
+            - This would need to be demo only since in the main game Jack has to succeed so that on Branch A Lloyd discovers he's psychic by watching the footage of him using his powers
+            - If this were implemented there should be some sort of reward for it. I don't have unlockable codes or anything in this one - is there a way that I could do some story stuff as a reward? A CG would
+                also work but we don't have one.
+
+        - If I do much script rewriting, these are the categories I want thoughts to fall into:
+            - 1. Twist thought. Reveals that the character is lying or has more going on.
+            - 2. Comedy thought. Contrasts greatly with the line or is just really funny.
+            - 3. Extra context thought. Gives extra context and elaborates on what the character is thinking.
+            - 4. Topic thought. Gives a potential topic to talk about or gets the player thinking a bit. Might be unnecessary.
+
+
+    - ACTIONABLE PLAN:
+        - Add in the heavier tutorialising, with the three-to-four statement section
+        - Add in the future vision functionality, ideally using option #2, using option #1 as a fallback if I can't work it out
+        - Rewrite thoughts if possible to fall into one of the categories
+        - If I can work out a reward for passing all of the checks, implement that
+            - Option #2 for future vision would allow for a reward - you get to the end and you unlock everything on Barbara's profile (and then get more info in the main game)
