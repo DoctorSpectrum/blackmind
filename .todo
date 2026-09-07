@@ -1,16 +1,6 @@
 BLACKMIND TODO
     - Version 1.1. The demo's gotten some feedback and the flow needs to improve. Atm it's not the end of the world but if this does get into Choose Wisely it needs to be smoother.
 
-        - For a start: let's have it tutorialise a bit better. I think the initial mind read/mind wipe tutorials work alright, but once we finish the mind wipe our first mind read
-            should be a lot more directed and obvious. Implement future vision into this.
-            - e.g. Jack: "I wonder what she's thinking of me? I should read her mind when she's talking about me because that will give me an idea."
-            
-                   Barbara: "Sorry if you've been waiting, I was out back".
-                   Barbara: "You look like someone who's waiting for a drink!"
-                   Barbara: "I can get you one."
-
-                - Since we've only got a few lines and the second one is her talking about Jack, that means we should mind read that to proceed.
-
         - Keywords via future vision. This should prolly happen after the mind wipe tutorial, before we get into the gameplay portion of the game.
             - Option #1: 
                 - We get a vision where, say, three keywords float up. 
@@ -61,8 +51,8 @@ BLACKMIND TODO
 
 
     - ACTIONABLE PLAN:
-        - Add in the heavier tutorialising, with the three-to-four statement section
-        - Add in the future vision functionality, ideally using option #2, using option #1 as a fallback if I can't work it out
+        - Add in the new bits of the script
+        - Add in the future vision functionality, ideally using option #2
         - Rewrite thoughts if possible to fall into one of the categories
         - If I can work out a reward for passing all of the checks, implement that
             - Option #2 for future vision would allow for a reward - you get to the end and you unlock everything on Barbara's profile (and then get more info in the main game)
