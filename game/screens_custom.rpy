@@ -99,7 +99,7 @@ screen psychic_powers():
                             auto "gui/icons/future_sight_icon_%s.png"
                             action [
                                 SetLocalVariable("icon_hint", None),
-                                NullAction(),
+                                Return()
                             ]
                             hovered SetLocalVariable("icon_hint", "future_sight")
                             unhovered SetLocalVariable("icon_hint", None)
@@ -138,10 +138,10 @@ screen psychic_powers():
                 ]
 
         if (check_boolean("future_sight_available")):
-            key "K_3":
+            key ["K_3", "pad_dpright_press"]:
                 action [
                     SetLocalVariable("icon_hint", None),
-                    NullAction(),
+                    Return()
                 ]
 
 screen psychic_splash(details):
@@ -1068,7 +1068,7 @@ screen modal_base():
 
                     transclude
 
-screen modal_popup(message, option_labels, option_actions):
+screen modal_popup(message, option_labels=["OK"], option_actions=[Return()]):
     modal True
     use modal_base:
         label _(message):
@@ -1187,11 +1187,11 @@ screen pause_menu():
         textbutton _("Locked"): #"Flow Chart"):
             style "yellow_button_on_yellow"
             #action ShowMenu("flow_chart")
-            action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+            action (Show("modal_popup", message="This function is disabled during the demo", option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         textbutton _("Locked"): #"Characters"):
             style "yellow_button_on_yellow"
             #action ShowMenu("characters")
-            action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+            action (Show("modal_popup", message="This function is disabled during the demo", option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         #textbutton _("Load"):
         #    style "yellow_button_on_yellow"
         #    action (ShowMenu("saves_list") if clickable_button() else NullAction())
@@ -1210,11 +1210,11 @@ screen pause_menu():
         #textbutton _("Locked"): #Psychic Powers"):
         #    style "black_button_on_black"
             #action ShowMenu("upgrades_screen")
-        #    action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+        #    action (Show("modal_popup", message="This function is disabled during the demo", option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         textbutton _("Locked"): #Notes"):
             style "black_button_on_black"
             #action ShowMenu("notes")
-            action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+            action (Show("modal_popup", message="This function is disabled during the demo", option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         textbutton _("Settings"):
             style "black_button_on_black"
             action (ShowMenu("preferences") if clickable_button() else NullAction())

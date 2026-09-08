@@ -76,11 +76,11 @@ label prologue_02:
             $ hide_history()
             $ add_boolean("psychic_powers_available")
             if (current_input == "KB"):
-                call screen modal_popup("Click on the Read Mind button in the top right-hand corner, or press the 1 key, to read the bartender’s mind.", ["OK"], [Return()])
+                call screen modal_popup("Click on the Read Mind button in the top right-hand corner, or press the 1 key, to read the bartender’s mind.")
             elif (current_input == "GP"):
-                call screen modal_popup("Click on the Read Mind button in the top right-hand corner, or press left on the D-Pad, to read the bartender’s mind.", ["OK"], [Return()])
+                call screen modal_popup("Click on the Read Mind button in the top right-hand corner, or press left on the D-Pad, to read the bartender’s mind.")
             else:
-                call screen modal_popup("Click on the Read Mind button in the top right-hand corner, or press the 1 key/left on the D-Pad, to read the bartender’s mind.", ["OK"], [Return()])
+                call screen modal_popup("Click on the Read Mind button in the top right-hand corner, or press the 1 key/left on the D-Pad, to read the bartender’s mind.")
             call screen psychic_powers
 
         "Lemonade":
@@ -119,11 +119,11 @@ label prologue_03:
     $ rewind_point = "prologue_04"
     $ add_boolean("mind_wipe_available")
     if (current_input == "KB"):
-        call screen modal_popup("Click on the Rewind Mind button, or press the 2 key, to make the bartender forget the last few minutes of conversation.", ["OK"], [Return()])
+        call screen modal_popup("Click on the Rewind Mind button, or press the 2 key, to make the bartender forget the last few minutes of conversation.")
     elif (current_input == "GP"):
-        call screen modal_popup("Click on the Rewind Mind button, or press up on the D-Pad, to make the bartender forget the last few minutes of conversation.", ["OK"], [Return()])
+        call screen modal_popup("Click on the Rewind Mind button, or press up on the D-Pad, to make the bartender forget the last few minutes of conversation.")
     else:
-        call screen modal_popup("Click on the Rewind Mind button, or press the 2 key/up on the D-Pad, to make the bartender forget the last few minutes of conversation.", ["OK"], [Return()])
+        call screen modal_popup("Click on the Rewind Mind button, or press the 2 key/up on the D-Pad, to make the bartender forget the last few minutes of conversation.")
     call screen psychic_powers
 
 label prologue_04:
@@ -146,34 +146,72 @@ label prologue_04:
         $ jack_partial("cocky_01")
         jack thinking "(If I use my psychic abilities correctly, I can definitely trick her into giving me something for free.)"
         $ jack_partial("analytical_01")
-        jack thinking "(For now I should try to avoid talking about drinks, and focus on getting her to like me first.)"
+        jack thinking "(The best way to do that is by using my precog – my precon – my future vision to see what I need to focus on.)"
         $ add_boolean("jack_tutorial_psychic_explanation")
+    if (current_input == "KB"):
+        call screen modal_popup("Click on the Future Sight button, or press the 3 key, to activate your future sight.")
+    elif (current_input == "GP"):
+        call screen modal_popup("Click on the Future Sight button, or press right on the D-Pad, to activate your future sight.")
+    else:
+        call screen modal_popup("Click on the Future Sight button, or press the 3 key/right on the D-Pad, to activate your future sight.")
+    $ add_boolean("future_sight_available")
+    call screen psychic_powers
+    # Show screen for future vision
+    call screen modal_popup("From here, you can see the keyword which will get Jack what he wants.")
+    jack thinking "(My future sight showed me the word {b}ALCOHOL{/b}. If I focus on comments related to that, I should make some progress.)"
+    $ rewind_point = "prologue_05"
+
+label prologue_05:
+    show screen psychic_powers
     $ current_thought = "barbara_thought_pr_07"
+    bartender "You still with me, mate?[wait_1] You’ve gone kind of quiet."
+    $ current_thought = "barbara_thought_pr_08"
+    bartender "Do you know what you want to have to drink?"
+    $ current_thought = "barbara_thought_pr_09"
+    bartender "If not, I can come back once you’ve decided."
+
+    menu:
+        "I want a whiskey":
+            jack smug "‘Course I know what I want:[wait_05] a whiskey!"
+            $ current_thought = "barbara_thought_pr_10"
+            bartender "Sure thing![wait_1] Just tap your card while I get it ready!"
+            jack worried "(Wait...the whole point of this was to trick her into giving me a drink for free.[wait_1] Just asking for one won’t do it.)"
+            jack worried "(I need to make her forget this, then use my future vision. [wait_1]That’ll help get me to where I want.)"
+            call screen psychic_powers
+        "Talk about the bar" (locked=not check_boolean("prologue_bar_interested"), message="Read the thought related to alcohol to unlock this option"):
+            call screen modal_popup("You’ve managed to move a little further to your goal, but Jack won’t be getting a free drink just yet. Use your future vision again to see what keywords will help you proceed.")
+            call screen psychic_powers
+            call screen modal_popup("You’ve got several keywords available now. Keep these in mind as you proceed through the conversation, and use them to identify the thoughts which will give you the information you need to continue.")
+
+label prologue_06:
+    show screen psychic_powers
+    $ rewind_point = "prologue_06"
+    $ current_thought = "barbara_thought_pr_11"
     $ jack_partial("cheerful_01")
     jack smug "You know, this is a really nice bar."
-    $ current_thought = "barbara_thought_pr_08"
+    $ current_thought = "barbara_thought_pr_12"
     jack smug "Whoever the owner is, they’ve done a really good job with it...[wait_05]especially at hiring staff."
     $ swap_sprites("barbara_angry")
-    $ current_thought = "barbara_thought_pr_09"
+    $ current_thought = "barbara_thought_pr_13"
     $ barbara_partial("irritated_01")
     bartender "I’d hope so, given that I’m the owner." 
-    $ current_thought = "barbara_thought_pr_10"
+    $ current_thought = "barbara_thought_pr_14"
     $ jack_partial("cocky_03")
     jack smug "Oh, really?[wait_05] You’ve done a great job with it - I love the aesthetic you’ve got going."
     $ jack_partial("confused_02")
     jack worried "(What the hell is the name of this style?[wait_1] The only one I know is gothic, and it definitely isn’t that.)"
-    $ current_thought = "barbara_thought_pr_11"
+    $ current_thought = "barbara_thought_pr_15"
     jack smug "It's a very...[wait_05] ...[wait_05] ...gothic style, if I'm not mistaken?"
     $ barbara_partial("irritated_02")
     bartender "You are mistaken, but that’s neither here nor there."
     bartender "Anyway, did you want a drink?" 
 
-label prologue_05:
+label prologue_07:
     $ hide_history()
     menu:
         "No":
             $ show_history()
-            $ current_thought = "barbara_thought_pr_12"
+            $ current_thought = "barbara_thought_pr_16"
             $ play_music("tense_1")
             $ jack_partial("dismissive_01")
             jack angry "At the prices you’re offering?[wait_1] No thanks."
@@ -182,7 +220,7 @@ label prologue_05:
             $ jack_partial("confused_02")
             jack worried "Um..."
             jack worried "(What, exactly, was I thinking with that, again?)"
-            $ current_thought = "barbara_thought_pr_13"
+            $ current_thought = "barbara_thought_pr_17"
             $ barbara_partial("irritated_03")
             bartender "If you’re not ordering, then please leave.[wait_1] I’ve got better things to do than entertain beggars." 
             $ jack_partial("analytical_03")
@@ -194,10 +232,10 @@ label prologue_05:
             $ show_history()
             $ jack_partial("dismissive_01")
             jack smug "Oh, of course, of course."
-            jump prologue_06
+            jump prologue_08
         "Ask about interior design" (locked=not check_boolean("prologue_interior_designing"), message="You have not read this information in the bartender's mind"):
             $ show_history()
-            $ current_thought = "barbara_thought_pr_14"
+            $ current_thought = "barbara_thought_pr_18"
             $ jack_partial("cocky_03")
             jack smug "What I really wanted was to talk about interior design."
             jack smug "I think that your work is...[wait_1]beautiful, really.[wait_1] Really beautiful, yeah."
@@ -205,11 +243,11 @@ label prologue_05:
                 $ swap_sprites("barbara_smiling")
                 $ barbara_partial("proud_01")
                 bartender "Oh, thank you![wait_1] But it’s not actually my work - I just hired an interior designer for it." 
-                $ current_thought = "barbara_thought_pr_15"
+                $ current_thought = "barbara_thought_pr_19"
                 $ jack_partial("confused_02")
                 jack thinking "What?[wait_05] But you wanted to teach me a lesson or two about it.[wait_05] That’s what you thought before."
                 $ swap_sprites("barbara_thinking")
-                $ current_thought = "barbara_thought_pr_16"
+                $ current_thought = "barbara_thought_pr_20"
                 $ barbara_partial("confused_01")
                 bartender "I’m...[wait_05]not sure what exactly to tell you.[wait_1] My job is running a bar, not doing interior design." 
                 $ swap_sprites("barbara_smiling")
@@ -217,42 +255,42 @@ label prologue_05:
                 bartender "And on that note - you never answered me when I asked before."
                 bartender "Did you want a drink?" 
                 $ add_boolean("prologue_interior_designing_2")
-                jump prologue_05
+                jump prologue_07
             else:
                 $ swap_sprites("barbara_smiling")
                 $ barbara_partial("cheerful_02")
                 bartender "Yes, I heard you the first time."
                 $ barbara_partial("friendly_01") 
                 bartender "But you still haven’t answered my question - do you want a drink?" 
-                jump prologue_05
+                jump prologue_07
 
-label prologue_06:
+label prologue_08:
     show screen psychic_powers
-    $ rewind_point = "prologue_06"
-    $ current_thought = "barbara_thought_pr_17"
+    $ rewind_point = "prologue_08"
+    $ current_thought = "barbara_thought_pr_21"
     if (renpy.music.get_playing() != "audio/music/bourbon_mood.mp3"):
         $ play_music("neutral_1")
     
     $ jack_partial("cocky_02")
     jack smug "How could I be in such a...[wait_05]historic place and not want to have a drink?"
     $ swap_sprites("barbara_smiling")
-    $ current_thought = "barbara_thought_pr_18"
+    $ current_thought = "barbara_thought_pr_22"
     $ barbara_partial("cheerful_01")
     bartender "You’ve heard of our bar before, then?" 
-    $ current_thought = "barbara_thought_pr_19"
+    $ current_thought = "barbara_thought_pr_23"
     $ jack_partial("confused_02")
     jack worried "\"Our\" bar?"
-    $ current_thought = "barbara_thought_pr_20"
+    $ current_thought = "barbara_thought_pr_24"
     $ barbara_partial("proud_01")
     bartender "Oh, this bar has been in my family for three generations now." 
     $ barbara_partial("cheerful_01")
     bartender "Although I’ve only been running it for the last...[wait_05]I want to say eight months?" 
     $ swap_sprites("barbara_smiling")
-    $ current_thought = "barbara_thought_pr_21"
+    $ current_thought = "barbara_thought_pr_25"
     $ barbara_partial("proud_01")
     bartender "Which doesn’t sound like a lot, but I’ve got a lot of good ideas about how to make it even better!"
     bartender "Before you know it, this will be your favourite bar in the area - no, in the city!" 
-    $ current_thought = "barbara_thought_pr_22"
+    $ current_thought = "barbara_thought_pr_26"
     $ barbara_partial("friendly_02")
     bartender "In fact, I can start out by showing you how good our drinks are - what exactly did you want to drink, again?" 
 
@@ -261,17 +299,17 @@ label prologue_06:
         "Nothing":
             $ show_history()
             $ play_music("tense_1")
-            $ current_thought = "barbara_thought_pr_23"
+            $ current_thought = "barbara_thought_pr_27"
             $ jack_partial("dismissive_02")
             jack smug "Oh, no need to worry about it.[wait_1] I’m not looking to drink anything."
             $ swap_sprites("barbara_angry")
             $ barbara_partial("irritated_03")
             bartender "Then why, exactly, did you come in here?" 
-            $ current_thought = "barbara_thought_pr_24"
+            $ current_thought = "barbara_thought_pr_28"
             $ jack_partial("confused_02")
             jack worried "Uh..."
             jack worried "(I had something I wanted to say here...[wait_05]didn’t I?)"
-            $ current_thought = "barbara_thought_pr_25"
+            $ current_thought = "barbara_thought_pr_29"
             $ jack_partial("confused_01")
             jack worried "To...[wait_05]talk to you?"
             $ barbara_partial("irritated_02")
@@ -282,27 +320,27 @@ label prologue_06:
             $ hide_history()
             call screen psychic_powers
         "That depends upon your drinks policies" (locked=not check_boolean("prologue_drink_policies"), message="You have not read information about the bar's drinks policies in her mind"):
-            jump prologue_07
+            jump prologue_09
 
-label prologue_07:
+label prologue_09:
     $ show_history()
     show screen psychic_powers
-    $ rewind_point = "prologue_07"
+    $ rewind_point = "prologue_09"
     if (renpy.music.get_playing() != "audio/music/bourbon_mood.mp3"):
         $ play_music("neutral_1")
 
-    $ current_thought = "barbara_thought_pr_26"
+    $ current_thought = "barbara_thought_pr_30"
     $ jack_partial("cocky_03")
     jack smug "Well before I answer you that, I’m going to need an answer of my own: what are your drinks policies?"
-    $ current_thought = "barbara_thought_pr_27"
+    $ current_thought = "barbara_thought_pr_31"
     $ swap_sprites("barbara_thinking")
     $ barbara_partial("confused_01")
     bartender "Drink policies?[wait_1] What exactly do you mean?" 
-    $ current_thought = "barbara_thought_pr_28"
+    $ current_thought = "barbara_thought_pr_32"
     $ jack_partial("cocky_02")
     jack smug "You know, things like - like happy hour, or jugs being cheaper than the equivalent in pints."
     jack smug "Surely you’ve got to have something to offer me, yeah?"
-    $ current_thought = "barbara_thought_pr_29"
+    $ current_thought = "barbara_thought_pr_33"
     $ barbara_partial("apologetic_01")
     bartender "Happy hour ended at six o’clock, sorry." 
     $ barbara_partial("friendly_02")
@@ -314,18 +352,18 @@ label prologue_07:
             $ show_history()
             $ jack_partial("analytical_02")
             jack smug "(It sounds like she’s pretty keen to give me it for cheaper - I knew that listening to her bang on about all that boring stuff would be worth it.)"
-            $ current_thought = "barbara_thought_pr_30"
+            $ current_thought = "barbara_thought_pr_34"
             $ jack_partial("friendly_01")
             jack smug "Can I have a whiskey? With all of the discounts applied, of course."
             $ swap_sprites("barbara_smiling")
             $ barbara_partial("cheerful_02")
             bartender "Sure! Just so you know, there aren’t any discounts for it, so that’ll be $14." 
-            $ current_thought = "barbara_thought_pr_31"
+            $ current_thought = "barbara_thought_pr_35"
             $ play_music("tense_1")
             $ jack_partial("angry_01")
             jack angry "What?![wait_1] This is bullshit, you’re not willing to give me even a little bit off the top?"
             $ swap_sprites("barbara_angry")
-            $ current_thought = "barbara_thought_pr_32"
+            $ current_thought = "barbara_thought_pr_36"
             $ barbara_partial("angry_02")
             bartender "What for?[wait_1] If that’s going to be the way you want it, then I’ll do you one better and ask you to get out - right now."
             $ jack_partial("disappointed_01")
@@ -339,22 +377,22 @@ label prologue_07:
             $ show_history()
             $ jack_partial("cocky_01")
             jack smug "(Alright, there’s no way that this can go wrong.[wait_1] That drink is as good as mine.)"
-            $ current_thought = "barbara_thought_pr_33"
+            $ current_thought = "barbara_thought_pr_37"
             $ jack_partial("cocky_03")
             jack smug "How about you give me a drink with a bit of a discount?[wait_1] As a bit of a treat, for one of your regulars?"
-            $ current_thought = "barbara_thought_pr_34"
+            $ current_thought = "barbara_thought_pr_38"
             $ swap_sprites("barbara_angry")
             $ play_music("tense_1")
             $ barbara_partial("irritated_02")
             bartender "Interesting idea, although that’s not actually a policy that I run here." 
-            $ current_thought = "barbara_thought_pr_35"
+            $ current_thought = "barbara_thought_pr_39"
             $ jack_partial("cocky_02")
             jack smug "Oh come now - you don’t want to reward your loyal customers?[wait_1] The people who are basically paying your wages for you?"
-            $ current_thought = "barbara_thought_pr_36"
+            $ current_thought = "barbara_thought_pr_40"
             $ barbara_partial("irritated_02")
             bartender "Sorry, but it doesn’t work that way."
             bartender "So are you going to order a drink - at its full price - or not?" 
-            $ current_thought = "barbara_thought_pr_37"
+            $ current_thought = "barbara_thought_pr_41"
             $ jack_partial("irritated_02")
             jack angry "(This is bullshit - what was wrong with that argument?!)" 
             $ jack_partial("analytical_01")
@@ -363,11 +401,11 @@ label prologue_07:
             call screen psychic_powers
         "I’ll write a good review if you give me a free drink" (locked=not check_boolean("prologue_drink_review"), message="You have not read information about the bar's publicity in the bartender's mind"):
             $ show_history()
-            $ current_thought = "barbara_thought_pr_38"
+            $ current_thought = "barbara_thought_pr_42"
             $ jack_partial("cocky_01")
             jack smug "Tell me - how would you feel about a bit of an exchange?[wait_1] A free drink, and in return I’ll make sure to write a good review."
             $ swap_sprites("barbara_thinking")
-            $ current_thought = "barbara_thought_pr_39"
+            $ current_thought = "barbara_thought_pr_43"
             $ barbara_partial("confused_02")
             bartender "You mean...[wait_05]for a blog or something, right?[wait_1] Or a - a Google review?" 
             $ jack_partial("cocky_03")
@@ -376,41 +414,41 @@ label prologue_07:
             $ jack_partial("dismissive_02")
             jack thinking "(It’s not my fault if she misinterprets that.)"
             $ swap_sprites("barbara_smiling")
-            $ current_thought = "barbara_thought_pr_40"
+            $ current_thought = "barbara_thought_pr_44"
             $ barbara_partial("excited_01")
             bartender "Well I - if you really are working for someone big, then I - yeah, I - a review would be - yes please!" 
-            $ current_thought = "barbara_thought_pr_41"
+            $ current_thought = "barbara_thought_pr_45"
             bartender "Is it - are you sure that it’s alright, though?" 
             $ jack_partial("cocky_01")
             jack smug "Only if you’re alright with getting flooded with customers after they hear what I have to say about this place.[wait_1] Ha!"
             $ jack_partial("dismissive_02")
             jack smug "(It’s fine.[wait_05] I’ll just get her to give me a single free drink, then I’ll definitely be heading off.)"
             jack smug "(It’s not like I’m going to exploit this or anything.)"
-            $ current_thought = "barbara_thought_pr_42"
+            $ current_thought = "barbara_thought_pr_46"
             $ barbara_partial("friendly_01")
             bartender "Well in that case - what exactly can I get you?" 
-            $ current_thought = "barbara_thought_pr_43"
+            $ current_thought = "barbara_thought_pr_47"
             $ jack_partial("cocky_03")
             jack smug "How about a whiskey and coke?[wait_1] That'd really wet my whistle."
             $ barbara_partial("friendly_02")
             bartender "Coming right up!"
 
-label prologue_08:
+label prologue_10:
     scene black_bg with quick_dissolve
     $ play_sound("ice_cube_clink.mp3")
-    $ current_thought = "barbara_thought_pr_44"
+    $ current_thought = "barbara_thought_pr_48"
     $ jack_partial("irritated_01")
     jack thinking "(I’ve definitely had better, and I bet she’s probably watered this down, just like every other bloody bar.)"
     $ jack_partial("dismissive_01")
     jack thinking "(But I guess if I was a reviewer, I’d pretend to like it.)"
     scene bar with quick_dissolve
     $ swap_sprites("barbara_smiling", quick_dissolve)
-    $ current_thought = "barbara_thought_pr_45"
+    $ current_thought = "barbara_thought_pr_49"
     $ barbara_partial("friendly_01")
     bartender "How was it?[wait_05] You certainly looked like you enjoyed it; you drank it quickly enough!"
     $ jack_partial("irritated_01")
     jack thinking "(Well obviously.[wait_1] The faster I drink it, the faster I’ll get drunk.)"
-    $ current_thought = "barbara_thought_pr_46"
+    $ current_thought = "barbara_thought_pr_50"
     $ jack_partial("cocky_02")
     jack smug "Well, it wasn’t bad.[wait_1] But I think I’d probably have a better opinion if I could have a follow-up...?"
     $ barbara_partial("amused_01")
@@ -419,10 +457,10 @@ label prologue_08:
     bartender "Technically I shouldn’t have even done that, but I doubt it’ll make that much difference in the long run."
     $ jack_partial("irritated_01")
     jack angry "(Bloody typical - you ask for one small favour and they act like you’re asking for the world.[wait_1] Only out for herself, just like everybody else.)"
-    $ current_thought = "barbara_thought_pr_47"
+    $ current_thought = "barbara_thought_pr_51"
     $ jack_partial("analytical_01")
     jack smug "(Well, luckily for me, I have a nice solution for that...)"
-    $ rewind_point = "prologue_09"
+    $ rewind_point = "prologue_11"
     $ hide_history()
     call screen psychic_powers
 
@@ -431,19 +469,19 @@ label prologue_montage_rewind:
     jack smug "(No need to do that quite yet - I haven’t gotten the next drink yet!)"
     return
 
-label prologue_09:
+label prologue_11:
     $ show_history()
     show screen psychic_powers
     $ rewind_point = "prologue_montage_rewind"
     
-    $ current_thought = "barbara_thought_pr_38"
+    $ current_thought = "barbara_thought_pr_42"
     $ jack_partial("cocky_01")
     jack smug "Tell me - how would you feel about a bit of an exchange?[wait_1] A free drink, and in return I’ll make sure to write a good review."
     jack smug "(Just one more drink, that’s all.[wait_1] Get a nice buzz going, and then I’ll be on my way.)"
     scene black_bg with quick_dissolve
     scene bar at drunk_cycle(5, 2, 1.15) with quick_dissolve
     $ swap_sprites("barbara_smiling", quick_dissolve)
-    $ current_thought = "barbara_thought_pr_41"
+    $ current_thought = "barbara_thought_pr_45"
     $ barbara_partial("excited_02")
     bartender "Is it - are you sure that it’s alright, though?"
     $ jack_partial("friendly_01")
@@ -451,7 +489,7 @@ label prologue_09:
     scene black_bg with quick_dissolve
     scene bar at drunk_cycle(10, 4, 1.15) with quick_dissolve
     $ swap_sprites("barbara_smiling", quick_dissolve)
-    $ current_thought = "barbara_thought_pr_48"
+    $ current_thought = "barbara_thought_pr_52"
     $ barbara_partial("excited_02")
     bartender "Is it - are you sure that it’s alright, though?"
     $ jack_partial("cocky_01")
@@ -459,10 +497,10 @@ label prologue_09:
     scene black_bg with quick_dissolve
     scene bar at drunk_cycle(15, 6, 1.25) with quick_dissolve
     $ swap_sprites("barbara_thinking", quick_dissolve)
-    $ current_thought = "barbara_thought_pr_49"
+    $ current_thought = "barbara_thought_pr_53"
     $ barbara_partial("excited_02")
     bartender "Is it - are you sure that it’s alright, though?"
-    $ current_thought = "barbara_thought_pr_50"
+    $ current_thought = "barbara_thought_pr_54"
     $ jack_partial("cocky_02")
     jack smug "Yeah![wait_1] I -[wait_05] I like -[wait_05] this bar is great![wait_1] Even if you do water down the drinks!"
     $ swap_sprites("barbara_angry")
@@ -471,40 +509,40 @@ label prologue_09:
     scene black_bg with quick_dissolve
     scene bar at drunk_cycle(20, 8, 1.25) with quick_dissolve
     $ swap_sprites("barbara_angry", quick_dissolve)
-    $ current_thought = "barbara_thought_pr_51"
+    $ current_thought = "barbara_thought_pr_55"
     $ play_music("tense_1")
     $ barbara_partial("irritated_02")
     bartender "I’m sorry, but - no, I can’t do that."
     bartender "You’re quite clearly drunk, and it wouldn’t be responsible of me to serve you any alcohol in your state."
-    $ current_thought = "barbara_thought_pr_52"
+    $ current_thought = "barbara_thought_pr_56"
     $ jack_partial("confused_02")
     jack smug "What?[wait_1] But I -[wait_05] I can review you![wait_1] You -[wait_05] you normally like that!"
-    $ current_thought = "barbara_thought_pr_53"
+    $ current_thought = "barbara_thought_pr_57"
     $ barbara_partial("irritated_02")
     bartender "I’d rather give up the most positive review in the world than give alcohol to somebody so obviously drunk."
     bartender "Sorry, but I’m going to have to ask you to leave."
     $ jack_partial("angry_01")
     jack angry "(Oh, screw you![wait_1] I’ll -[wait_05] let’s see how drunk you think I am after this)"
-    $ rewind_point = "prologue_10"
+    $ rewind_point = "prologue_12"
     $ hide_history()
     call screen psychic_powers
 
-label prologue_10:
+label prologue_12:
     $ show_history()
     show screen psychic_powers
-    $ current_thought = "barbara_thought_pr_54"
+    $ current_thought = "barbara_thought_pr_58"
     $ barbara_partial("angry_02")
     bartender "Are you trying to do something?"
     $ jack_partial("irritated_02")
     jack angry "(Dammit...[wait_05]she -[wait_05] she must have put something in the drinks...[wait_05]it’s affected my powers!)"
-    $ current_thought = "barbara_thought_pr_55"
+    $ current_thought = "barbara_thought_pr_59"
     $ jack_partial("confused_01")
     jack worried "How -[wait_05] how did you know?[wait_1] You -[wait_05] you shouldn’t know...[wait_05]you couldn’t know..."
     $ barbara_partial("angry_01")
     bartender "I have no clue what you’re talking about, but that’s enough.[wait_1] Get out of my bar."
     scene black_bg with quick_dissolve
 
-label prologue_11:
+label prologue_13:
     hide screen psychic_powers
     $ _history_list = []
     $ play_music("ambient_1")
@@ -513,7 +551,7 @@ label prologue_11:
     jack angry "(Anyway, there’s better places to go to around here...I bet it’ll be easier to get free shit there, too.)"
     $ hide_history()
     $ renpy.choice_for_skipping()
-    call screen modal_popup("You have enough time to visit one more location before the night is over.", ["OK"], [Return()])
+    call screen modal_popup("You have enough time to visit one more location before the night is over.")
     call screen map_navigation(find_locations([1, 2]))
 
 label prologue_music_venue:
