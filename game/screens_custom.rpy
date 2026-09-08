@@ -99,7 +99,7 @@ screen psychic_powers():
                             auto "gui/icons/future_sight_icon_%s.png"
                             action [
                                 SetLocalVariable("icon_hint", None),
-                                Return()
+                                Call("future_sight", from_current=False)
                             ]
                             hovered SetLocalVariable("icon_hint", "future_sight")
                             unhovered SetLocalVariable("icon_hint", None)
@@ -141,7 +141,7 @@ screen psychic_powers():
             key ["K_3", "pad_dpright_press"]:
                 action [
                     SetLocalVariable("icon_hint", None),
-                    Return()
+                    Call("future_sight", from_current=False)
                 ]
 
 screen psychic_splash(details):
@@ -283,6 +283,31 @@ screen psychic_wipe():
                 pause 0.5
                 linear 0.25:
                     alpha 0.0
+
+screen future_sight(returnable=False):
+    modal True
+
+    frame:
+        background Solid("#F2EE29")
+
+        xalign 0.5
+        yalign 0.5
+        xsize 1200
+        ysize 700
+
+        text _("KEYWORDS GO HERE"):
+            color "#000"
+            xalign 0.5
+            yalign 0.5
+
+        textbutton _("RETURN"):
+            text_color "#000"
+            xalign 0.5
+            yalign 0.75
+            action [
+                Hide("future_sight"),
+                (Return() if returnable else NullAction())
+            ]
 
 screen map_navigation(destinations):
     default xpos = 0

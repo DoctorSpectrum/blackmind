@@ -63,3 +63,13 @@ label mind_wipe_pause:
 
     $ show_history()
     jump expression rewind_point
+
+label future_sight:
+    #if we're showing the tutorial
+    show screen future_sight
+    call screen modal_popup("From here, you can see the keyword which will get Jack what he wants.")
+    hide screen future_sight
+    call screen future_sight(True)
+
+    #else
+    #show screen future_sight

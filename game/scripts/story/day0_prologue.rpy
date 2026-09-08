@@ -156,8 +156,7 @@ label prologue_04:
         call screen modal_popup("Click on the Future Sight button, or press the 3 key/right on the D-Pad, to activate your future sight.")
     $ add_boolean("future_sight_available")
     call screen psychic_powers
-    # Show screen for future vision
-    call screen modal_popup("From here, you can see the keyword which will get Jack what he wants.")
+
     jack thinking "(My future sight showed me the word {b}ALCOHOL{/b}. If I focus on comments related to that, I should make some progress.)"
     $ rewind_point = "prologue_05"
 
