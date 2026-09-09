@@ -99,7 +99,7 @@ screen psychic_powers():
                             auto "gui/icons/future_sight_icon_%s.png"
                             action [
                                 SetLocalVariable("icon_hint", None),
-                                Call("future_sight", from_current=False)
+                                (Call("future_sight", from_current=False) if (check_boolean("call_future_sight")) else Show("future_sight"))
                             ]
                             hovered SetLocalVariable("icon_hint", "future_sight")
                             unhovered SetLocalVariable("icon_hint", None)
@@ -141,7 +141,7 @@ screen psychic_powers():
             key ["K_3", "pad_dpright_press"]:
                 action [
                     SetLocalVariable("icon_hint", None),
-                    Call("future_sight", from_current=False)
+                    (Call("future_sight", from_current=False) if (check_boolean("call_future_sight")) else Show("future_sight"))
                 ]
 
 screen psychic_splash(details):
@@ -284,30 +284,101 @@ screen psychic_wipe():
                 linear 0.25:
                     alpha 0.0
 
-screen future_sight(returnable=False):
+screen future_sight(returnable=False, fadein=True, fadeout=True):
     modal True
+    zorder 105
+    default viewing = "current"
 
     frame:
-        background Solid("#F2EE29")
-
+        background Solid("#000")
         xalign 0.5
         yalign 0.5
-        xsize 1200
-        ysize 700
+        xsize 1425
+        ysize 825
 
-        text _("KEYWORDS GO HERE"):
-            color "#000"
+        if (fadein):
+            at transform:
+                on show:
+                    xoffset 500
+                    alpha 0.0
+                    linear 0.35:
+                        xoffset 0
+                        alpha 1.0
+        if (fadeout):
+            at transform:
+                on hide:
+                    xoffset 0
+                    linear 0.35:
+                        xoffset 500
+                        alpha 0.0
+
+        frame:
+            background Solid("#F2EE29")
+
             xalign 0.5
             yalign 0.5
+            xsize 1400
+            ysize 800
 
-        textbutton _("RETURN"):
-            text_color "#000"
-            xalign 0.5
-            yalign 0.75
-            action [
-                Hide("future_sight"),
-                (Return() if returnable else NullAction())
-            ]
+            hbox:
+                frame:
+                    background None
+                    xsize 0.33
+                    image "images/sprites/barbara_smiling.png":
+                        at transform:
+                            zoom 0.2
+
+                frame:
+                    background None
+                    xsize 0.66
+
+                    vbox:
+                        yoffset 50
+                        spacing 40
+                        text _("BARTENDER"):
+                            color "#000"
+                            font "gui/Decade__.ttf"
+                            size 84
+
+                        text _("This is a description of your goal and what you are seeing"):
+                            color "#000"
+                            xalign 0.5
+                            yalign 0.5
+
+                        hbox:
+                            spacing 25
+                            textbutton _("CURRENT"):
+                                style "future_sight_type_button"
+                                action SetScreenVariable("viewing", "current")
+
+                            textbutton _("GENERAL"):
+                                style "future_sight_type_button"
+                                action SetScreenVariable("viewing", "general")
+
+                        if (viewing == "current"):
+                            vbox:
+                                text _("ALCOHOL"):
+                                    color "#000"
+
+                    textbutton _("RETURN"):
+                        style "yellow_button"
+                        xalign 0.5
+                        yalign 0.925
+                        hover_background Frame("gui/button/button_hover_allblack.png")
+                        action [
+                            Hide("future_sight"),
+                            (Return() if returnable else Hide("future_sight"))
+                        ]
+
+style future_sight_type_button:
+    selected_background Frame("gui/button/button_squareish.png")
+    left_padding 10
+    right_padding 10
+
+style future_sight_type_button_text:
+    color "#000"
+    font "gui/chubhand.ttf"
+    hover_underline True
 
 screen map_navigation(destinations):
     default xpos = 0
@@ -1095,6 +1166,7 @@ screen modal_base():
 
 screen modal_popup(message, option_labels=["OK"], option_actions=[Return()]):
     modal True
+    zorder 110
     use modal_base:
         label _(message):
             style "confirm_prompt"

@@ -178,9 +178,9 @@ label prologue_05:
             jack worried "(I need to make her forget this, then use my future vision. [wait_1]That’ll help get me to where I want.)"
             call screen psychic_powers
         "Talk about the bar" (locked=not check_boolean("prologue_bar_interested"), message="Read the thought related to alcohol to unlock this option"):
+            $ add_boolean("call_future_sight")
             call screen modal_popup("You’ve managed to move a little further to your goal, but Jack won’t be getting a free drink just yet. Use your future vision again to see what keywords will help you proceed.")
             call screen psychic_powers
-            call screen modal_popup("You’ve got several keywords available now. Keep these in mind as you proceed through the conversation, and use them to identify the thoughts which will give you the information you need to continue.")
 
 label prologue_06:
     show screen psychic_powers

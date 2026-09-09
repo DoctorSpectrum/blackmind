@@ -1,42 +1,6 @@
 BLACKMIND TODO
     - Version 1.1. The demo's gotten some feedback and the flow needs to improve. Atm it's not the end of the world but if this does get into Choose Wisely it needs to be smoother.
 
-        - Keywords via future vision. This should prolly happen after the mind wipe tutorial, before we get into the gameplay portion of the game.
-            - Option #1: 
-                - We get a vision where, say, three keywords float up. 
-                - We look for the statement that involves them; it will advance the plot. 
-                - Clicking the future vision button shows us what the keywords are.
-            - Option #2:
-                - We have a character profile where there's, say, eight different bits of info about a given character, with those bits of info being locked.
-                - We can use future vision to unlock keywords for each bit of info.
-                    - E.g. Barbara's first bit of info is "She wants more reviews for her bar since she wants more customers and to be more popular." This is locked, but if we use 
-                        future vision then we can see the first keyword is "reviews", second is "customers", third is "popular" or something. We then know that we can unlock
-                        this information by finding statements involving at least one of those words.
-                - If we unlock a bit of information it's permanently unlocked in the profile
-                - Locked choices are determined by info we know about the character
-                - Potentially restrict the info to just what we can learn about them in this scene? Or would that be too much of a spoiler?
-
-                - Note that this could also be fiddly to do with the flow chart and having to lock or unlock information but we'll deal with that down the track
-
-                - I kind of like the idea of the profile having two sections: one being long-term information, the other being stuff we can uncover during the current scene.
-                    So Barbara has three locked pieces of information in the current section, each with a keyword. We're not told the order the keywords will appear in. We proceed through
-                    the convo and look for the keywords, reading her mind when they crop up. Each unlocks a piece of information for the current scene. Once all of them have been unlocked,
-                    we unlock a piece of information for the long-term information.
-            - Option #3:
-                - We get one keyword, and then as we upgrade the ability we get more. Tbh I don't think it works super well since it clutters the information you have.
-
-            - On keywords: 
-                - To use the tutorial as an example, we read about the history of the bar in Barbara's mind to proceed past the first check. The line to read on has "I'm the owner" in it.
-                - If the keyword is "owner", it makes it easier to identify the line, but it means that you're not actively thinking about things - you're just looking for a line that has "owner" in it.
-                - If the keyword is "history", it means that we need to think about each line, but the connection won't always be obvious.
-                - MC suggested the keyword be one that's neither "owner" nor "history", but I think it could be the worst of both worlds - if it's, say, "bar" in this case, then while owner relates to it
-                    and history does it's also broad enough that several lines could apply to it.
-
-                - I think for now implement the initial, three-to-four statement check, work out the keyword, and then extrapolate from there.
-
-            - On option #1 vs. option #2: option #1 is fairly easy to implement; how would option #2 work in the tutorial? If I can work out a way then I'll go with it, if not then I'll stick with option #1.
-                I think that option #2 does give me more long-term potential so I'd rather do it if possible.
-
         - Potentially have the demo continue even if you don't read the mind successfully? I'm thinking of VA-11 HALL-A and how there are correct drinks to serve people but if you
             serve them something they don't like you don't completely fuck everything up or anything.
             - This would need to be demo only since in the main game Jack has to succeed so that on Branch A Lloyd discovers he's psychic by watching the footage of him using his powers
@@ -51,7 +15,10 @@ BLACKMIND TODO
 
 
     - ACTIONABLE PLAN:
-        - Add in the future vision functionality, ideally using option #2
+        - Add in the future vision functionality
+            - Updoot image, text, keywords based on when and who we're talking to
+            - Hide the keyword type selector
+            - Add in a modal popup when we select General for the first time
         - Rewrite thoughts if possible to fall into one of the categories
         - If I can work out a reward for passing all of the checks, implement that
             - Option #2 for future vision would allow for a reward - you get to the end and you unlock everything on Barbara's profile (and then get more info in the main game)

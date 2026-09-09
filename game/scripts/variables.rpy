@@ -528,7 +528,7 @@ label variables:
     image white_bg = Solid("#FFF")
     default red_flash = Fade(0.25, 0.25, 0.25, color='#cc0000')
     default white_flash = Fade(0.05, 0.25, 0.25, color='#FFF')
-    default booleans = []
+    default booleans = ["call_future_sight"]
     default wait_2 = ("{w=2.0}" if preferences.text_cps > 0 else "")
     default wait_1 = ("{w=1.0}" if preferences.text_cps > 0 else "")
     default wait_05 = ("{w=0.5}" if preferences.text_cps > 0 else "")
