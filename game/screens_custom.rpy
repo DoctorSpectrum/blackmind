@@ -380,6 +380,17 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
                                 (Return() if returnable else Hide("future_sight"))
                             ]
 
+    if (check_boolean("future_sight_types")):
+        key "pad_leftshoulder_press":
+            action (SetScreenVariable("viewing", "current") if viewing == "general" else NullAction())
+        key "pad_rightshoulder_press":
+            action [
+                (Show("modal_popup", message="Test general", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
+                Function(add_boolean, "future_sight_general_message"),
+                (SetScreenVariable("viewing", "general") if viewing == "current" else NullAction())
+            ]
+            
+
 style future_sight_type_button:
     selected_background Frame("gui/button/button_squareish.png")
     left_padding 10

@@ -2416,9 +2416,8 @@ screen gamepad_help():
                     text _("Activate Mind Rewind"):
                         size 18
                         at trans_fade(0.4, 0.25)
-                    text _("N/A"):
-                    #text _("Activate Future Sight"):
-                    #    size 18
+                    text _("Activate Future Sight"):
+                        size 18
                         at trans_fade(0.45, 0.25)
                     text _("Activate Mind Read"):
                         at trans_fade(0.5, 0.25)
