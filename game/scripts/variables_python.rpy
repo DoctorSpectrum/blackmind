@@ -136,7 +136,7 @@ init python:
             booleans.append(value)
 
     def remove_boolean(value):
-        if (value in booleans):
+        if (check_boolean(value)):
             booleans.remove(value)
 
     def cg_index_unlocked(index):

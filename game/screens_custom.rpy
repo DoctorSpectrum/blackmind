@@ -290,90 +290,101 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
     default viewing = "current"
 
     frame:
-        background Solid("#000")
-        xalign 0.5
-        yalign 0.5
-        xsize 1425
-        ysize 825
-
-        if (fadein):
-            at transform:
-                on show:
-                    xoffset 500
-                    alpha 0.0
-                    linear 0.35:
-                        xoffset 0
-                        alpha 1.0
-        if (fadeout):
-            at transform:
-                on hide:
-                    xoffset 0
-                    linear 0.35:
-                        xoffset 500
-                        alpha 0.0
+        xfill True
+        yfill True
+        background Solid ("#00000066")
 
         frame:
-            background Solid("#F2EE29")
-
+            background Solid("#000")
             xalign 0.5
             yalign 0.5
-            xsize 1400
-            ysize 800
+            xsize 1440
+            ysize 840
 
-            hbox:
-                frame:
-                    background None
-                    xsize 0.33
-                    image "images/sprites/barbara_smiling.png":
-                        at transform:
-                            zoom 0.2
+            if (fadein):
+                at transform:
+                    on show:
+                        xoffset 500
+                        alpha 0.0
+                        linear 0.35:
+                            xoffset 0
+                            alpha 1.0
+            if (fadeout):
+                at transform:
+                    on hide:
+                        xoffset 0
+                        linear 0.35:
+                            xoffset 500
+                            alpha 0.0
 
-                frame:
-                    background None
-                    xsize 0.66
+            frame:
+                background Solid("#F2EE29")
 
-                    vbox:
-                        yoffset 50
-                        spacing 40
-                        text _("BARTENDER"):
-                            color "#000"
-                            font "gui/Decade__.ttf"
-                            size 84
+                xalign 0.5
+                yalign 0.5
+                xsize 1400
+                ysize 800
 
-                        text _("This is a description of your goal and what you are seeing"):
-                            color "#000"
+                hbox:
+                    frame:
+                        background None
+                        xsize 0.33
+                        image "images/sprites/barbara_smiling.png":
+                            at transform:
+                                zoom 0.2
+
+                    frame:
+                        background None
+                        xsize 0.66
+
+                        vbox:
+                            yoffset 50
+                            spacing 40
+                            text _("BARTENDER"):
+                                color "#000"
+                                font "gui/Decade__.ttf"
+                                size 84
+
+                            text _("This is a description of your goal and what you are seeing"):
+                                color "#000"
+                                xalign 0.5
+                                yalign 0.5
+
+                            if (check_boolean("future_sight_types")):
+                                hbox:
+                                    spacing 25
+                                    textbutton _("CURRENT"):
+                                        style "future_sight_type_button"
+                                        action SetScreenVariable("viewing", "current")
+
+                                    textbutton _("GENERAL"):
+                                        style "future_sight_type_button"
+                                        action [
+                                            (Show("modal_popup", message="Test general", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
+                                            Function(add_boolean, "future_sight_general_message"),
+                                            SetScreenVariable("viewing", "general")
+                                        ]
+
+                            if (viewing == "current"):
+                                vbox:
+                                    text _("ALCOHOL"):
+                                        color "#000"
+
+                        textbutton _("RETURN"):
+                            style "yellow_button"
                             xalign 0.5
-                            yalign 0.5
-
-                        hbox:
-                            spacing 25
-                            textbutton _("CURRENT"):
-                                style "future_sight_type_button"
-                                action SetScreenVariable("viewing", "current")
-
-                            textbutton _("GENERAL"):
-                                style "future_sight_type_button"
-                                action SetScreenVariable("viewing", "general")
-
-                        if (viewing == "current"):
-                            vbox:
-                                text _("ALCOHOL"):
-                                    color "#000"
-
-                    textbutton _("RETURN"):
-                        style "yellow_button"
-                        xalign 0.5
-                        yalign 0.925
-                        hover_background Frame("gui/button/button_hover_allblack.png")
-                        action [
-                            Hide("future_sight"),
-                            (Return() if returnable else Hide("future_sight"))
-                        ]
+                            yalign 0.925
+                            hover_background Frame("gui/button/button_hover_allblack.png")
+                            action [
+                                Hide("future_sight"),
+                                (Return() if returnable else Hide("future_sight"))
+                            ]
 
 style future_sight_type_button:
     selected_background Frame("gui/button/button_squareish.png")
     left_padding 10
     right_padding 10
+    top_padding 12
 
 style future_sight_type_button_text:
     color "#000"
