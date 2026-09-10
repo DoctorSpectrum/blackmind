@@ -284,7 +284,7 @@ screen psychic_wipe():
                 linear 0.25:
                     alpha 0.0
 
-screen future_sight(returnable=False, fadein=True, fadeout=True):
+screen future_sight(info=get_future_sight_info(0), returnable=False, fadein=True, fadeout=True):
     modal True
     zorder 105
     default viewing = "current"
@@ -329,7 +329,7 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
                     frame:
                         background None
                         xsize 0.33
-                        image "images/sprites/barbara_smiling.png":
+                        image "images/sprites/" + info["picture"]:
                             at transform:
                                 zoom 0.2
 
@@ -340,12 +340,12 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
                         vbox:
                             yoffset 50
                             spacing 20
-                            text _("BARTENDER"):
+                            text _(info["title"]):
                                 color "#000"
                                 font "gui/Decade__.ttf"
                                 size 84
 
-                            text _("This is a description of your goal and what you are seeing"):
+                            text _(info["description"]):
                                 color "#000"
                                 xalign 0.0
                                 yalign 0.5
@@ -376,34 +376,21 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
                             vbox:
                                 style_prefix "future_sight_checkbox"
                                 if (viewing == "current"):
-                                    hbox:
-                                        frame:
-                                            text _("ALCOHOL")
-                                        frame:
-                                            style "future_sight_checkbox_checked"
+                                    for current in info["current"]:
+                                        hbox:
+                                            frame:
+                                                text _(current["keyword"])
+                                            frame:
+                                                style ("future_sight_checkbox_checked" if current["discovered"] else "future_sight_checkbox")
                                 elif (viewing == "general"):
-                                    hbox:
-                                        frame:
-                                            text _("DEBT")
-                                        frame:
-                                            style "future_sight_checkbox"
-                                    hbox:
-                                        frame:
-                                            text _("LONGKEYWORD")
-                                        frame:
-                                            style "future_sight_checkbox"
-                                    hbox:
-                                        frame:
-                                            text _("GUILT")
-                                        frame:
-                                            style "future_sight_checkbox"
-                                    hbox:
-                                        frame:
-                                            text _("GUILT")
-                                        frame:
-                                            style "future_sight_checkbox"
+                                    for general in info["general"]:
+                                        hbox:
+                                            frame:
+                                                text _(general["keyword"])
+                                            frame:
+                                                style ("future_sight_checkbox_checked" if general["discovered"] else "future_sight_checkbox")
                                 elif (viewing == "history"):
-                                    text _("Test this is information about this character and so on and so forth lorem ipsum blah blah blah.")
+                                    text _(get_future_sight_history(person=info["person"]))
 
                         textbutton _("RETURN"):
                             style "yellow_button"

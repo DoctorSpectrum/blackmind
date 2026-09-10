@@ -514,8 +514,8 @@ label variables:
     ]
 
     #Timeline variables
-    default game_id = persistent.game_id
-    $ persistent.game_id += 1
+    #default game_id = persistent.game_id
+    #$ persistent.game_id += 1
     default days = [
         [],
         [],

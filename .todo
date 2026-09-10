@@ -17,8 +17,14 @@ BLACKMIND TODO
     - ACTIONABLE PLAN:
         - Add in the future vision functionality
             - Updoot image, text, keywords based on when and who we're talking to
+                - Need to set day, person, branch so that we can pass them in when showing the screen
+                - Need to add in functionality so that we can mark keywords as read
+                - Add in functionality so that we update the history based on what we've unlocked
             - Add in future vision bisso to help section
+            - Fix up the future vision to do the slide in/slide out
+
         - Rewrite thoughts if possible to fall into one of the categories
+        - Work out the keywords for the later sections
         - If I can work out a reward for passing all of the checks, implement that
             - Option #2 for future vision would allow for a reward - you get to the end and you unlock everything on Barbara's profile (and then get more info in the main game)
 

@@ -66,16 +66,16 @@ label mind_wipe_pause:
 
 label future_sight:
     if (not check_boolean("future_sight_tutorial_1")):
-        show screen future_sight(False, True, False)
+        show screen future_sight(get_future_sight_info(1), False, True, False)
         call screen modal_popup("From here, you can see the keyword which will get Jack what he wants.")
         hide screen future_sight
-        call screen future_sight(True, False)
+        call screen future_sight(get_future_sight_info(1), True, False)
         $ add_boolean("future_sight_tutorial_1")
     elif (not check_boolean("future_sight_tutorial_2")):
-        show screen future_sight(False, True, False)
+        show screen future_sight(get_future_sight_info(1), False, True, False)
         call screen modal_popup("You’ve got several keywords available now. Keep these in mind as you proceed through the conversation, and use them to identify the thoughts which will give you the information you need to continue.")
         hide screen future_sight
-        call screen future_sight(True, False)
+        call screen future_sight(get_future_sight_info(1), True, False)
         $ add_boolean("future_sight_tutorial_2")
     else:
         show screen future_sight
