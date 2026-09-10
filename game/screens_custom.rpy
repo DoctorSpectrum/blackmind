@@ -335,11 +335,11 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
 
                     frame:
                         background None
-                        xsize 0.66
+                        xsize 865
 
                         vbox:
                             yoffset 50
-                            spacing 40
+                            spacing 20
                             text _("BARTENDER"):
                                 color "#000"
                                 font "gui/Decade__.ttf"
@@ -347,7 +347,7 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
 
                             text _("This is a description of your goal and what you are seeing"):
                                 color "#000"
-                                xalign 0.5
+                                xalign 0.0
                                 yalign 0.5
 
                             if (check_boolean("future_sight_types")):
@@ -360,15 +360,50 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
                                     textbutton _("GENERAL"):
                                         style "future_sight_type_button"
                                         action [
-                                            (Show("modal_popup", message="Test general", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
+                                            (Show("modal_popup", message="These keywords may or may not be present in the current scene. Reading the corresponding thought will unlock more information about this character.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
                                             Function(add_boolean, "future_sight_general_message"),
                                             SetScreenVariable("viewing", "general")
                                         ]
 
-                            if (viewing == "current"):
-                                vbox:
-                                    text _("ALCOHOL"):
-                                        color "#000"
+                                    textbutton _("HISTORY"):
+                                        style "future_sight_type_button"
+                                        action [
+                                            (Show("modal_popup", message="Information you discover about this character will be displayed here.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_history_message") else NullAction()),
+                                            Function(add_boolean, "future_sight_history_message"),
+                                            SetScreenVariable("viewing", "history")
+                                        ]
+
+                            vbox:
+                                style_prefix "future_sight_checkbox"
+                                if (viewing == "current"):
+                                    hbox:
+                                        frame:
+                                            text _("ALCOHOL")
+                                        frame:
+                                            style "future_sight_checkbox_checked"
+                                elif (viewing == "general"):
+                                    hbox:
+                                        frame:
+                                            text _("DEBT")
+                                        frame:
+                                            style "future_sight_checkbox"
+                                    hbox:
+                                        frame:
+                                            text _("LONGKEYWORD")
+                                        frame:
+                                            style "future_sight_checkbox"
+                                    hbox:
+                                        frame:
+                                            text _("GUILT")
+                                        frame:
+                                            style "future_sight_checkbox"
+                                    hbox:
+                                        frame:
+                                            text _("GUILT")
+                                        frame:
+                                            style "future_sight_checkbox"
+                                elif (viewing == "history"):
+                                    text _("Test this is information about this character and so on and so forth lorem ipsum blah blah blah.")
 
                         textbutton _("RETURN"):
                             style "yellow_button"
@@ -385,7 +420,7 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
             action (SetScreenVariable("viewing", "current") if viewing == "general" else NullAction())
         key "pad_rightshoulder_press":
             action [
-                (Show("modal_popup", message="Test general", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
+                (Show("modal_popup", message="These keywords may or may not be present in the current scene. Reading the corresponding thought will unlock more information about this character.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
                 Function(add_boolean, "future_sight_general_message"),
                 (SetScreenVariable("viewing", "general") if viewing == "current" else NullAction())
             ]
@@ -401,6 +436,23 @@ style future_sight_type_button_text:
     color "#000"
     font "gui/chubhand.ttf"
     hover_underline True
+
+style future_sight_checkbox_frame:
+    xsize 755
+    ysize 60
+    background "gui/keyword_frame.png"
+
+style future_sight_checkbox_text:
+    color "#000"
+    xalign 0.5
+    yalign 0.5
+
+style future_sight_checkbox:
+    xsize 60
+    ysize 60
+    background "gui/keyword_checkbox.png"
+style future_sight_checkbox_checked is future_sight_checkbox:
+    background "gui/keyword_checkbox_checked.png"
 
 screen map_navigation(destinations):
     default xpos = 0
