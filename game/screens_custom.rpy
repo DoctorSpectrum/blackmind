@@ -284,123 +284,124 @@ screen psychic_wipe():
                 linear 0.25:
                     alpha 0.0
 
-screen future_sight(info=get_future_sight_info(0), returnable=False, fadein=True, fadeout=True):
+screen future_sight(returnable=False, fadein=True, fadeout=True):
     modal True
     zorder 105
     default viewing = "current"
+    default info = get_future_sight_info()
 
     frame:
         xfill True
         yfill True
         background Solid ("#00000066")
 
-        frame:
-            background Solid("#000")
-            xalign 0.5
-            yalign 0.5
-            xsize 1440
-            ysize 840
+    frame:
+        background Solid("#000")
+        xalign 0.5
+        yalign 0.5
+        xsize 1440
+        ysize 840
 
-            if (fadein):
-                at transform:
-                    on show:
+        if (fadein):
+            at transform:
+                on show:
+                    xoffset 500
+                    alpha 0.0
+                    linear 0.35:
+                        xoffset 0
+                        alpha 1.0
+        if (fadeout):
+            at transform:
+                on hide:
+                    xoffset 0
+                    linear 0.35:
                         xoffset 500
                         alpha 0.0
-                        linear 0.35:
-                            xoffset 0
-                            alpha 1.0
-            if (fadeout):
-                at transform:
-                    on hide:
-                        xoffset 0
-                        linear 0.35:
-                            xoffset 500
-                            alpha 0.0
 
-            frame:
-                background Solid("#F2EE29")
+        frame:
+            background Solid("#F2EE29")
 
-                xalign 0.5
-                yalign 0.5
-                xsize 1400
-                ysize 800
+            xalign 0.5
+            yalign 0.5
+            xsize 1400
+            ysize 800
 
-                hbox:
-                    frame:
-                        background None
-                        xsize 0.33
-                        image "images/sprites/" + info["picture"]:
-                            at transform:
-                                zoom 0.2
+            hbox:
+                frame:
+                    background None
+                    xsize 0.33
+                    image "images/sprites/" + info["picture"]:
+                        at transform:
+                            zoom 0.2
 
-                    frame:
-                        background None
-                        xsize 865
+                frame:
+                    background None
+                    xsize 865
+
+                    vbox:
+                        yoffset 50
+                        spacing 20
+                        text _(info["title"]):
+                            color "#000"
+                            font "gui/Decade__.ttf"
+                            size 84
+
+                        text _(info["description"]):
+                            color "#000"
+                            xalign 0.0
+                            yalign 0.5
+
+                        if (check_boolean("future_sight_types")):
+                            hbox:
+                                spacing 25
+                                textbutton _("CURRENT"):
+                                    style "future_sight_type_button"
+                                    action SetScreenVariable("viewing", "current")
+
+                                textbutton _("GENERAL"):
+                                    style "future_sight_type_button"
+                                    action [
+                                        (Show("modal_popup", message="These keywords may or may not be present in the current scene. Reading the corresponding thought will unlock more information about this character.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
+                                        Function(add_boolean, "future_sight_general_message"),
+                                        SetScreenVariable("viewing", "general")
+                                    ]
+
+                                textbutton _("HISTORY"):
+                                    style "future_sight_type_button"
+                                    action [
+                                        (Show("modal_popup", message="Information you discover about this character will be displayed here.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_history_message") else NullAction()),
+                                        Function(add_boolean, "future_sight_history_message"),
+                                        SetScreenVariable("viewing", "history")
+                                    ]
 
                         vbox:
-                            yoffset 50
-                            spacing 20
-                            text _(info["title"]):
-                                color "#000"
-                                font "gui/Decade__.ttf"
-                                size 84
+                            style_prefix "future_sight_checkbox"
+                            if (viewing == "current"):
+                                for current in info["current"]:
+                                    hbox:
+                                        frame:
+                                            text _(current["keyword"])
+                                        frame:
+                                            style ("future_sight_checkbox_checked" if current["discovered"] else "future_sight_checkbox")
+                            elif (viewing == "general"):
+                                for general in info["general"]:
+                                    hbox:
+                                        frame:
+                                            text _(general["keyword"])
+                                        frame:
+                                            style ("future_sight_checkbox_checked" if general["discovered"] else "future_sight_checkbox")
+                            elif (viewing == "history"):
+                                text _(get_future_sight_history(person=info["person"]))
 
-                            text _(info["description"]):
-                                color "#000"
-                                xalign 0.0
-                                yalign 0.5
-
-                            if (check_boolean("future_sight_types")):
-                                hbox:
-                                    spacing 25
-                                    textbutton _("CURRENT"):
-                                        style "future_sight_type_button"
-                                        action SetScreenVariable("viewing", "current")
-
-                                    textbutton _("GENERAL"):
-                                        style "future_sight_type_button"
-                                        action [
-                                            (Show("modal_popup", message="These keywords may or may not be present in the current scene. Reading the corresponding thought will unlock more information about this character.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
-                                            Function(add_boolean, "future_sight_general_message"),
-                                            SetScreenVariable("viewing", "general")
-                                        ]
-
-                                    textbutton _("HISTORY"):
-                                        style "future_sight_type_button"
-                                        action [
-                                            (Show("modal_popup", message="Information you discover about this character will be displayed here.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_history_message") else NullAction()),
-                                            Function(add_boolean, "future_sight_history_message"),
-                                            SetScreenVariable("viewing", "history")
-                                        ]
-
-                            vbox:
-                                style_prefix "future_sight_checkbox"
-                                if (viewing == "current"):
-                                    for current in info["current"]:
-                                        hbox:
-                                            frame:
-                                                text _(current["keyword"])
-                                            frame:
-                                                style ("future_sight_checkbox_checked" if current["discovered"] else "future_sight_checkbox")
-                                elif (viewing == "general"):
-                                    for general in info["general"]:
-                                        hbox:
-                                            frame:
-                                                text _(general["keyword"])
-                                            frame:
-                                                style ("future_sight_checkbox_checked" if general["discovered"] else "future_sight_checkbox")
-                                elif (viewing == "history"):
-                                    text _(get_future_sight_history(person=info["person"]))
-
-                        textbutton _("RETURN"):
-                            style "yellow_button"
-                            xalign 0.5
-                            yalign 0.925
-                            hover_background Frame("gui/button/button_hover_allblack.png")
-                            action [
-                                Hide("future_sight"),
-                                (Return() if returnable else Hide("future_sight"))
-                            ]
+                    textbutton _("RETURN"):
+                        style "yellow_button"
+                        xalign 0.5
+                        yalign 0.925
+                        hover_background Frame("gui/button/button_hover_allblack.png")
+                        action [
+                            Hide("future_sight"),
+                            (Return() if returnable else Hide("future_sight"))
+                        ]
 
     if (check_boolean("future_sight_types")):
         key "pad_leftshoulder_press":

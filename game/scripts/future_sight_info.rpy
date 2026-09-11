@@ -20,7 +20,7 @@ init python:
                 "current": [
                     {
                         "keyword": "ALCOHOL",
-                        "discovered": False
+                        "discovered": check_boolean("prologue_bar_interested")
                     }
                 ],
                 "general": []
