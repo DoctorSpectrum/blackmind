@@ -2234,16 +2234,15 @@ screen help(return_action=None):
                                             vbox:
                                                 label _("Rewind Mind")
                                                 text _("Make the person you're speaking to forget the last few minutes, and restart the conversation from the start.")
-                                        if (config.developer):
-                                            hbox:
-                                                style_prefix "help_power"
-                                                image "gui/icons/future_sight_icon_idle.png":
-                                                    xoffset 50
-                                                    at transform:
-                                                        zoom 2
-                                                vbox:
-                                                    label _("Future Sight")
-                                                    text _("Get a glimpse of the future, and see slightly ahead in the current conversation.")
+                                        hbox:
+                                            style_prefix "help_power"
+                                            image "gui/icons/future_sight_icon_idle.png":
+                                                xoffset 50
+                                                at transform:
+                                                    zoom 2
+                                            vbox:
+                                                label _("Future Sight")
+                                                text _("Get a glimpse of the future and see the keywords which will help you reach your goal.")
                                     elif (gameplay_help == "other"):
                                         hbox:
                                             style "help_other"
@@ -2306,10 +2305,10 @@ screen keyboard_help():
         label _("2")
         text _("Activate your Rewind Mind power.")
 
-    #hbox:
-    #    at trans_fade(0.45, 0.25)
-    #    label _("3")
-    #    text _("Activate your Future Sight power.")
+    hbox:
+        at trans_fade(0.45, 0.25)
+        label _("3")
+        text _("Activate your Future Sight power.")
 
     hbox:
         at trans_fade(0.45, 0.25)
