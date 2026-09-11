@@ -543,6 +543,7 @@ label prologue_13:
     $ _history_list = []
     $ play_music("ambient_1")
     $ jack_partial("dismissive_02")
+    $ person = "docherty_prologue"
     jack angry "(Whaddo I care about what she thinks anyway...[wait_1]she’s not even that good a bartender!)"
     jack angry "(Anyway, there’s better places to go to around here...I bet it’ll be easier to get free shit there, too.)"
     $ hide_history()

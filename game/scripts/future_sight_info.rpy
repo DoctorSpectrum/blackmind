@@ -58,6 +58,15 @@ init python:
                         "discovered": check_boolean("prologue_barbara_history_2")
                     },
                 ]
+            }, {
+                "person": "docherty_prologue",
+                "branch": None,
+                "day": 0,
+                "picture": "docherty_neutral.png",
+                "title": "???",
+                "description": "",
+                "current": [],
+                "general": []
             }]
 
         if (id is not None):
@@ -90,6 +99,9 @@ init python:
                     "unlocked": check_boolean("prologue_barbara_history_2")
                 }
             ]
+        }, {
+            "person": "docherty_prologue",
+            "history": []
         }]
 
         if (id is not None):
