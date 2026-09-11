@@ -1,5 +1,6 @@
 init python:
-    def get_future_sight_info(id=None, person=None, branch=None, day=None):
+    def get_future_sight_info(id=None):
+        global day, branch, person
         information = [{
                 "person": None,
                 "branch": None,
@@ -12,7 +13,7 @@ init python:
             }, {
                 "person": "barbara_prologue",
                 "branch": None,
-                "day": None,
+                "day": 0,
                 "picture": "barbara_smiling.png",
                 "title": "BARTENDER",
                 "description": "This is a description of your goal and what you are seeing",
@@ -22,8 +23,29 @@ init python:
                         "discovered": False
                     }
                 ],
-                "general": [
+                "general": []
+            }, {
+                "person": "barbara_prologue_02",
+                "branch": None,
+                "day": 0,
+                "picture": "barbara_smiling.png",
+                "title": "BARTENDER",
+                "description": "This is a description of your goal and what you are seeing",
+                "current": [
                     {
+                        "keyword": "TEST",
+                        "discovered": False
+                    },
+                    {
+                        "keyword": "TEST2",
+                        "discovered": False
+                    },
+                    {
+                        "keyword": "TEST3",
+                        "discovered": False
+                    }
+                ],
+                "general": [{
                         "keyword": "LONG-TERM #1",
                         "discovered": False
                     },
@@ -61,7 +83,7 @@ init python:
                 }
             ]
         }, {
-            "person": "barbara_prologue",
+            "person": "barbara_prologue_02",
             "history": [
                 {
                     "history": "Test history",

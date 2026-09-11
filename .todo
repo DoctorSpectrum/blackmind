@@ -17,7 +17,6 @@ BLACKMIND TODO
     - ACTIONABLE PLAN:
         - Add in the future vision functionality
             - Updoot image, text, keywords based on when and who we're talking to
-                - Need to set day, person, branch so that we can pass them in when showing the screen
                 - Need to add in functionality so that we can mark keywords as read
                 - Add in functionality so that we update the history based on what we've unlocked
             - Add in future vision bisso to help section
