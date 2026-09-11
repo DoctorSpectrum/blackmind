@@ -16,7 +16,7 @@ init python:
                 "day": 0,
                 "picture": "barbara_smiling.png",
                 "title": "BARTENDER",
-                "description": "This is a description of your goal and what you are seeing",
+                "description": "Jack is trying to get a free drink from the bartender",
                 "current": [
                     {
                         "keyword": "ALCOHOL",
@@ -30,37 +30,33 @@ init python:
                 "day": 0,
                 "picture": "barbara_smiling.png",
                 "title": "BARTENDER",
-                "description": "This is a description of your goal and what you are seeing",
+                "description": "Jack is trying to get a free drink from the bartender",
                 "current": [
                     {
-                        "keyword": "TEST",
-                        "discovered": False
+                        "keyword": "EMPLOYER",
+                        "discovered": check_boolean("prologue_bar_history")
                     },
                     {
-                        "keyword": "TEST2",
-                        "discovered": False
+                        "keyword": "IMPROVEMENTS",
+                        "discovered": check_boolean("prologue_drink_policies")
                     },
                     {
-                        "keyword": "TEST3",
-                        "discovered": False
+                        "keyword": "CHEAPER",
+                        "discovered": check_boolean("prologue_drink_discounts")
+                    },
+                    {
+                        "keyword": "INCORRECT",
+                        "discovered": check_boolean("prologue_drink_review")
                     }
                 ],
                 "general": [{
-                        "keyword": "LONG-TERM #1",
-                        "discovered": False
+                        "keyword": "LEGACY",
+                        "discovered": check_boolean("prologue_barbara_history_1")
                     },
                     {
-                        "keyword": "LONG-TERM #2",
-                        "discovered": False
+                        "keyword": "QUALITY",
+                        "discovered": check_boolean("prologue_barbara_history_2")
                     },
-                    {
-                        "keyword": "LONG-TERM #3",
-                        "discovered": False
-                    },
-                    {
-                        "keyword": "LONG-TERM #4",
-                        "discovered": False
-                    }
                 ]
             }]
 
@@ -86,12 +82,12 @@ init python:
             "person": "barbara_prologue_02",
             "history": [
                 {
-                    "history": "Test history",
-                    "unlocked": False
+                    "history": "The bar has been in the bartender's family for three generations. Profitability has been down lately.",
+                    "unlocked": check_boolean("prologue_barbara_history_1")
                 },
                 {
-                    "history": "Test history #2",
-                    "unlocked": False
+                    "history": "The bartender has attended business school.",
+                    "unlocked": check_boolean("prologue_barbara_history_2")
                 }
             ]
         }]
@@ -109,6 +105,6 @@ init python:
         history_string = ""
         for h in history["history"]:
             if h["unlocked"] == True:
-                history_string += h["history"] + "\r\n"
+                history_string += h["history"] + "\r\n\r\n"
 
         return history_string if len(history_string) > 0 else "You have not discovered anything about this character yet."

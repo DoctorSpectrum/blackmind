@@ -46,7 +46,7 @@ label mind_read_prologue:
     elif (current_thought == "barbara_thought_pr_12"):
         $ barbara_partial("irritated_03")
         bartender_thoughts "(Oh god, he’s one of those guys.[wait_05] I haven’t even served him a drink and he already thinks that he’s got a chance.)" 
-    elif (current_thought == "barbara_thought_pr_14"):
+    elif (current_thought == "barbara_thought_pr_13"):
         $ barbara_partial("irritated_03")
         bartender_thoughts "(And now he’ll probably be shocked, thinking that a woman shouldn’t - or couldn’t - own a bar.)" 
         bartender_thoughts "(I wonder what he’d say if he knew about the history of the place?)" 
@@ -92,7 +92,8 @@ label mind_read_prologue:
         bartender_thoughts "(If he doesn’t know of its ownership, then what {i}does{/i} he know about it?)" 
     elif (current_thought == "barbara_thought_pr_24"):
         $ barbara_partial("guilty_02")
-        bartender_thoughts "(No need to mention to him anything about what the profitability has been like lately...)" 
+        bartender_thoughts "(No need to mention to him anything about what the profitability has been like lately...)"
+        $ add_boolean("prologue_barbara_history_1") 
     elif (current_thought == "barbara_thought_pr_25"):
         $ barbara_partial("guilty_01")
         bartender_thoughts "(I really need to review those drinks policies again, work out what the projected differences would be.)" 
@@ -101,7 +102,8 @@ label mind_read_prologue:
         $ add_boolean("prologue_drink_policies")
     elif (current_thought == "barbara_thought_pr_26"):
         $ barbara_partial("awkward_01")
-        bartender_thoughts "(Crap, I got sidetracked there![wait_1] ABC, Barbara, ABC!)" 
+        bartender_thoughts "(Crap, I got sidetracked there![wait_1] ABC, Barbara, ABC![wait_1] They drilled it into your head at business school for a reason!)" 
+        $ add_boolean("prologue_barbara_history_2") 
     elif (current_thought == "barbara_thought_pr_27"):
         $ barbara_partial("irritated_03")
         bartender_thoughts "(Then why, exactly, did you come in here?)" 
@@ -113,19 +115,19 @@ label mind_read_prologue:
         bartender_thoughts "(The sooner this guy gets out of here, the better.)" 
     elif (current_thought == "barbara_thought_pr_30"):
         $ barbara_partial("confused_01")
-        bartender_thoughts "(Does he mean something like happy hour?[wait_1] Or discounts for regulars?)" 
-        $ jack_partial("analytical_01")
-        jack thinking "(Discounts for regulars?[wait_1] That’s not a bad idea...)"
-        $ add_boolean("prologue_drink_discounts")
+        bartender_thoughts "(Where's he going with this?[wait_1] Why can't he just order something, like a normal person?)" 
     elif (current_thought == "barbara_thought_pr_31"):
-        $ barbara_partial("awkward_01")
-        bartender_thoughts "(I still haven’t worked out all of the changes that I’m planning to make...[wait_05]but I’m getting ahead of myself.[wait_1] I should just find out what he means.)" 
+        $ barbara_partial("friendly_02")
+        bartender_thoughts "(I {i}have{/i} been thinking about giving regulars a discount...but no, now's not the time to think about that.)"
+        $ jack_partial("analytical_01")
+        jack thinking "(Discounts for regulars?[wait_1] I like the sounds of that...)"
+        $ add_boolean("prologue_drink_discounts") 
     elif (current_thought == "barbara_thought_pr_32"):
-        $ barbara_partial("confused_01")
-        bartender_thoughts "(Odd that he thinks jugs being cheaper is some sort of special policy...[wait_05]that’s called good pricing, mate.)" 
-    elif (current_thought == "barbara_thought_pr_33"):
         $ barbara_partial("guilty_01")
-        bartender_thoughts "(With happy hour over there’s not much that I can really do for him, but hopefully he’ll just order something and stick with it.)" 
+        bartender_thoughts "(Sorry, mate - you'll need to pay the same as everybody else.)" 
+    elif (current_thought == "barbara_thought_pr_33"):
+        $ barbara_partial("irritated_03")
+        bartender_thoughts "(Please just hurry up and order...)" 
     elif (current_thought == "barbara_thought_pr_34"):
         $ barbara_partial("guilty_02")
         bartender_thoughts "(I wish I could afford to lower the price a bit, but business on Mondays is always pretty slow.)" 

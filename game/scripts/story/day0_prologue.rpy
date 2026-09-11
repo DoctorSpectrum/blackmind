@@ -195,7 +195,7 @@ label prologue_06:
     $ swap_sprites("barbara_angry")
     $ current_thought = "barbara_thought_pr_13"
     $ barbara_partial("irritated_01")
-    bartender "I’d hope so, given that I’m the owner." 
+    bartender "I’d hope so, given that I’m the owner."
     $ current_thought = "barbara_thought_pr_14"
     $ jack_partial("cocky_03")
     jack smug "Oh, really?[wait_05] You’ve done a great job with it - I love the aesthetic you’ve got going."
@@ -332,20 +332,15 @@ label prologue_09:
 
     $ current_thought = "barbara_thought_pr_30"
     $ jack_partial("cocky_03")
-    jack smug "Well before I answer you that, I’m going to need an answer of my own: what are your drinks policies?"
+    jack smug "I'd like to know a bit about your drink policies first."
     $ current_thought = "barbara_thought_pr_31"
-    $ swap_sprites("barbara_thinking")
-    $ barbara_partial("confused_01")
-    bartender "Drink policies?[wait_1] What exactly do you mean?" 
+    jack smug "Got any happy hour specials, or other discounts for me?"
     $ current_thought = "barbara_thought_pr_32"
-    $ jack_partial("cocky_02")
-    jack smug "You know, things like - like happy hour, or jugs being cheaper than the equivalent in pints."
-    jack smug "Surely you’ve got to have something to offer me, yeah?"
-    $ current_thought = "barbara_thought_pr_33"
     $ barbara_partial("apologetic_01")
     bartender "Happy hour ended at six o’clock, sorry." 
     $ barbara_partial("friendly_02")
-    bartender "As for discounts - tell me what exactly you want, and I’ll tell you what I can do." 
+    $ current_thought = "barbara_thought_pr_33"
+    bartender "So with that in mind, how can I help you?" 
     $ hide_history()
 
     menu:
