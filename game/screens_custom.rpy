@@ -356,10 +356,12 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
                                 spacing 25
                                 textbutton _("CURRENT"):
                                     style "future_sight_type_button"
+                                    selected viewing == "current"
                                     action SetScreenVariable("viewing", "current")
 
                                 textbutton _("GENERAL"):
                                     style "future_sight_type_button"
+                                    selected viewing == "general"
                                     action [
                                         (Show("modal_popup", message="These keywords may or may not be present in the current scene. Reading the corresponding thought will unlock more information about this character.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
                                         Function(add_boolean, "future_sight_general_message"),
@@ -368,6 +370,7 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
 
                                 textbutton _("HISTORY"):
                                     style "future_sight_type_button"
+                                    selected viewing == "history"
                                     action [
                                         (Show("modal_popup", message="Information you discover about this character will be displayed here.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_history_message") else NullAction()),
                                         Function(add_boolean, "future_sight_history_message"),
@@ -405,13 +408,27 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
 
     if (check_boolean("future_sight_types")):
         key "pad_leftshoulder_press":
-            action (SetScreenVariable("viewing", "current") if viewing == "general" else NullAction())
+            if (viewing == "general"):
+                action SetScreenVariable("viewing", "current")
+            elif (viewing == "history"):
+                action [
+                    (Show("modal_popup", message="These keywords may or may not be present in the current scene. Reading the corresponding thought will unlock more information about this character.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
+                    Function(add_boolean, "future_sight_general_message"),
+                    SetScreenVariable("viewing", "general")
+                ]
         key "pad_rightshoulder_press":
-            action [
-                (Show("modal_popup", message="These keywords may or may not be present in the current scene. Reading the corresponding thought will unlock more information about this character.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
-                Function(add_boolean, "future_sight_general_message"),
-                (SetScreenVariable("viewing", "general") if viewing == "current" else NullAction())
-            ]
+            if (viewing == "current"):
+                action [
+                    (Show("modal_popup", message="These keywords may or may not be present in the current scene. Reading the corresponding thought will unlock more information about this character.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
+                    Function(add_boolean, "future_sight_general_message"),
+                    SetScreenVariable("viewing", "general")
+                ]
+            elif (viewing == "general"):
+                action [
+                    (Show("modal_popup", message="Information you discover about this character will be displayed here.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_history_message") else NullAction()),
+                    Function(add_boolean, "future_sight_history_message"),
+                    SetScreenVariable("viewing", "history")
+                ]
             
 
 style future_sight_type_button:
