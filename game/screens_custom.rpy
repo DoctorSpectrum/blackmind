@@ -1255,7 +1255,7 @@ screen modal_popup(message, option_labels=["OK"], option_actions=[Return()]):
         hbox:
             xalign 0.5
             yalign 1.0
-            yoffset 70
+            #yoffset 70
 
             for (i, label) in enumerate(option_labels):
                 textbutton _(label):

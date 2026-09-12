@@ -94,6 +94,9 @@ label prologue_02:
             jump prologue_02
 
 label prologue_03:
+    if (check_boolean("reread_thought_tutorial") == False):
+        $ add_boolean("reread_thought_tutorial")
+        call screen modal_popup("{image=gui/icons/mind_read_icon_idle.png}\r\n\r\nThe Read Mind icon will appear in the text box to indicate when you have read the current thought. You can click on the button to re-read that thought.")
     $ jack_partial("cheerful_01")
     jack thinking "(She’s happy to give me what I want?[wait_1] This bar is fucking amazing!)"
     $ current_thought = "barbara_thought_pr_02"
