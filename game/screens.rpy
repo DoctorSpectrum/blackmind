@@ -1554,10 +1554,9 @@ screen preferences(start=False):
                                             xalign 1.0
                                     #text _(str(preferences.afm_time))
 
-                            textbutton _("Reset to default"):
+                            textbutton _("Reset to defaults"):
                                 at trans_fade(0.75, 0.5)
-                                style "yellow_button"
-                                hover_background Frame("gui/button/button_hover_allblack.png")
+                                style "yellow_button_dark_hover"
                                 action [
                                     Preference("text speed", 25),
                                     Preference("auto-forward time", 5),
@@ -1567,12 +1566,12 @@ screen preferences(start=False):
                                 ]
                                 text_size 22
                                 text_idle_color "#000"
-                                #text_hover_color "#F2EE29"
 
                     elif (selected_tab == "audio"):
                         hbox:
                             style_prefix "audio_bars"
                             vbox:
+                                at trans_fade(0.25, 0.5)
                                 vbar:
                                     value Preference("music volume")
                                     if preferences.get_mute("music"):
@@ -1589,6 +1588,7 @@ screen preferences(start=False):
                                     action Preference("music mute", "toggle")
 
                             vbox:
+                                at trans_fade(0.5, 0.5)
                                 vbar:
                                     value Preference("sound volume")
                                     if preferences.get_mute("sfx"):
@@ -1604,6 +1604,7 @@ screen preferences(start=False):
                                     xalign 0.5 
 
                             vbox:
+                                at trans_fade(0.75, 0.5)
                                 vbar:
                                     value Preference("voice volume")
                                     if preferences.get_mute("voice"):
@@ -1618,9 +1619,11 @@ screen preferences(start=False):
                                     xalign 0.5
 
                             vbox:
+                                at trans_fade(1.0, 0.5)
                                 style_prefix "audio_options"
-                                yfill True
-                                xsize 400
+                                xsize 253
+                                ysize 543
+                                yalign 0.5
                                 spacing 50
 
                                 vbox:
@@ -1630,270 +1633,242 @@ screen preferences(start=False):
                                         textbutton _("Sample Effect"):
                                             style "yellow_button_dark_hover"
                                             action Play("sound", config.sample_sound)
-                                            text_size 15
+                                            xsize 253
+                                            text_size 22
                                     if (not preferences.get_mute("voice")):
                                         textbutton _("Sample Voice"):
                                             style "yellow_button_dark_hover"
                                             action Play("voice", config.sample_voice)
-                                            text_size 15
+                                            xsize 253
+                                            text_size 22
 
                                 hbox:
                                     style_prefix "radio_button"
-                                    yalign 1.0
-                                    yoffset 5
+                                    yalign 0.5
+                                    xalign 0.5
 
                                     imagebutton:
-                                        idle ("gui/checkbox_selected_hover.png" if hover_radio == "mute" or (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else ("gui/checkbox_unselected_hover.png" if hover_radio == "mute" else ("gui/checkbox_selected_idle.png" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "gui/checkbox_unselected_idle.png")))
-                                        hover ("gui/checkbox_unselected_hover.png" if hover_radio != "mute" else "gui/checkbox_selected_hover.png") 
+                                        if (hover_radio == "mute"):
+                                            idle ("gui/checkbox_selected_hover.png" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "gui/checkbox_unselected_hover.png")
+                                        else:
+                                            idle ("gui/checkbox_selected_idle.png" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "gui/checkbox_unselected_idle.png")
+                                        hover ("gui/checkbox_selected_hover.png" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "gui/checkbox_unselected_hover.png") 
+                                        yoffset 7
                                         action Preference("all mute", "toggle")
                                         hovered SetScreenVariable("hover_radio", "mute")
                                         unhovered SetScreenVariable("hover_radio", None)
-                                        yoffset 8
                                     textbutton _("Mute All"):
                                         action Preference("all mute", "toggle")
                                         hovered SetScreenVariable("hover_radio", "mute")
                                         unhovered SetScreenVariable("hover_radio", None)
                                         text_color ("#3B3B3B" if hover_radio == "mute" else ("#000" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "#707070"))
                                         text_bold hover_radio == "mute" or (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice"))
-                    elif (selected_tab == "other"):
-                        text _("other")
+                                        text_size 26
 
-                
-                                
-            #                    vbox:
-            #                        style_prefix "audio_options"
-            #                        yfill True
-            #                        xsize 400
-            #                        spacing 50
+                        textbutton _("Reset to defaults"):
+                            style "yellow_button_dark_hover"
+                            at trans_fade(1.25, 0.5)
+                            xalign 0.7
+                            xoffset 7
+                            yalign 0.79
+                            text_size 22
+                            text_idle_color "#000"
 
-            #                        vbox:
-            #                            yalign 0.8
-            #                            spacing 10
-            #                            if (not preferences.get_mute("sfx")):
-            #                                textbutton _("Sample Effect"):
-            #                                    style "yellow_button_dark_hover"
-            #                                    action Play("sound", config.sample_sound)
-            #                                    text_size 15
-            #                            if (not preferences.get_mute("voice")):
-            #                                textbutton _("Sample Voice"):
-            #                                    style "yellow_button_dark_hover"
-            #                                    action Play("voice", config.sample_voice)
-            #                                    text_size 15
-
-            #                        hbox:
-            #                            style_prefix "radio_button"
-            #                            yalign 1.0
-            #                            yoffset 5
-
-            #                            imagebutton:
-            #                                idle ("gui/checkbox_selected_hover_smol.png" if hover_radio == "mute" or (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else ("gui/checkbox_unselected_hover_smol.png" if hover_radio == "mute" else ("gui/checkbox_selected_idle_smol.png" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "gui/checkbox_unselected_idle_smol.png")))
-            #                                hover ("gui/checkbox_unselected_hover_smol.png" if hover_radio != "mute" else "gui/checkbox_selected_hover_smol.png") 
-            #                                action Preference("all mute", "toggle")
-            #                                hovered SetScreenVariable("hover_radio", "mute")
-            #                                unhovered SetScreenVariable("hover_radio", None)
-            #                                yoffset 8
-            #                            textbutton _("Mute All"):
-            #                                action Preference("all mute", "toggle")
-            #                                hovered SetScreenVariable("hover_radio", "mute")
-            #                                unhovered SetScreenVariable("hover_radio", None)
-            #                                text_color ("#3B3B3B" if hover_radio == "mute" else ("#000" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "#707070"))
-            #                                text_bold hover_radio == "mute" or (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice"))
-
-            #        vbox:
-            #            hbox:
-            #                spacing 15
-            #                xalign 0.5
-            #                label _("OTHER"):
-            #                    style "section_label"
-            #            frame:
-            #                xsize 550
-            #                ysize 198
+                            action [
+                                Preference("music mute", "disable"),
+                                Preference("music volume", 0.75),
+                                Preference("sound mute", "disable"),
+                                Preference("sound volume", 1.0),
+                                Preference("voice mute", "disable"),
+                                Preference("voice volume", 1.0),
+                                Preference("all mute", "disable"),
+                            ]
                             
-            #                hbox:
-            #                    spacing 25
-            #                    xalign 0.5
-            #                    xmaximum 500
-            #                    vbox:
-            #                        xalign 0.33
-            #                        yoffset 20
-            #                        spacing 10
-            #                        label _("Display"):
-            #                            text_size 24
-            #                        vbox:
-            #                            spacing 0
-            #                            hbox:
-            #                                style_prefix "radio_button"
+                    elif (selected_tab == "other"):
+                        vbox:
+                            spacing 35
 
-            #                                imagebutton:
-            #                                    idle ("gui/radio_hover.png" if hover_radio == "fullscreen" else ("gui/radio_selected.png" if preferences.fullscreen else "gui/radio_idle.png"))
-            #                                    selected "gui/radio_selected.png"
-            #                                    hover "gui/radio_hover.png"
-            #                                    action Preference("display", "fullscreen")
-            #                                    hovered SetScreenVariable("hover_radio", "fullscreen")
-            #                                    unhovered SetScreenVariable("hover_radio", None)
-            #                                textbutton _("Fullscreen"):
-            #                                    action Preference("display", "fullscreen")
-            #                                    hovered SetScreenVariable("hover_radio", "fullscreen")
-            #                                    unhovered SetScreenVariable("hover_radio", None)
-            #                                    text_color ("#3B3B3B" if hover_radio == "fullscreen" else ("#000" if preferences.fullscreen else "#707070"))
-            #                                    text_bold preferences.fullscreen
-            #                                    text_underline hover_radio == "fullscreen"
+                            hbox:
+                                at trans_fade(0.25, 0.5)
+                                spacing 200
+                                label _("Display")
+                                vbox:
+                                    spacing 0
+                                    hbox:
+                                        style_prefix "radio_button"
 
-            #                            hbox:
-            #                                style_prefix "radio_button"
+                                        imagebutton:
+                                            idle ("gui/radio_hover.png" if hover_radio == "fullscreen" else ("gui/radio_selected.png" if preferences.fullscreen else "gui/radio_idle.png"))
+                                            selected "gui/radio_selected.png"
+                                            hover "gui/radio_hover.png"
+                                            action Preference("display", "fullscreen")
+                                            hovered SetScreenVariable("hover_radio", "fullscreen")
+                                            unhovered SetScreenVariable("hover_radio", None)
+                                        textbutton _("Fullscreen"):
+                                            action Preference("display", "fullscreen")
+                                            hovered SetScreenVariable("hover_radio", "fullscreen")
+                                            unhovered SetScreenVariable("hover_radio", None)
+                                            text_color ("#3B3B3B" if hover_radio == "fullscreen" else ("#000" if preferences.fullscreen else "#707070"))
+                                            text_bold preferences.fullscreen
+                                            text_underline hover_radio == "fullscreen"
 
-            #                                imagebutton:
-            #                                    idle ("gui/radio_hover.png" if hover_radio == "windowed" else ("gui/radio_selected.png" if not preferences.fullscreen else "gui/radio_idle.png"))
-            #                                    selected "gui/radio_selected.png"
-            #                                    hover "gui/radio_hover.png"
-            #                                    action Preference("display", "window")
-            #                                    hovered SetScreenVariable("hover_radio", "windowed")
-            #                                    unhovered SetScreenVariable("hover_radio", None)
-            #                                textbutton _("Windowed"):
-            #                                    action Preference("display", "window")
-            #                                    hovered SetScreenVariable("hover_radio", "windowed")
-            #                                    unhovered SetScreenVariable("hover_radio", None)
-            #                                    text_color ("#3B3B3B" if hover_radio == "windowed" else ("#000" if not preferences.fullscreen else "#707070"))
-            #                                    text_bold not preferences.fullscreen
-            #                                    text_underline hover_radio == "windowed"
-            #                    vbox:
-            #                        xalign 0.66
-            #                        yoffset 20
-            #                        spacing 10
-            #                        vbox:
-            #                            spacing 10
-            #                            label _("Font"):
-            #                                text_size 24
-            #                            vbox:
-            #                                spacing 0
-            #                                hbox:
-            #                                    style_prefix "radio_button"
+                                    hbox:
+                                        style_prefix "radio_button"
 
-            #                                    imagebutton:
-            #                                        idle ("gui/radio_hover.png" if hover_radio == "roboto" else ("gui/radio_selected.png" if gui.preference("font") == "gui/Roboto-Medium.ttf" else "gui/radio_idle.png"))
-            #                                        selected "gui/radio_selected.png"
-            #                                        hover "gui/radio_hover.png"
-            #                                        action gui.SetPreference("font", "gui/Roboto-Medium.ttf")
-            #                                        hovered SetScreenVariable("hover_radio", "roboto")
-            #                                        unhovered SetScreenVariable("hover_radio", None)
+                                        imagebutton:
+                                            idle ("gui/radio_hover.png" if hover_radio == "windowed" else ("gui/radio_selected.png" if not preferences.fullscreen else "gui/radio_idle.png"))
+                                            selected "gui/radio_selected.png"
+                                            hover "gui/radio_hover.png"
+                                            action Preference("display", "window")
+                                            hovered SetScreenVariable("hover_radio", "windowed")
+                                            unhovered SetScreenVariable("hover_radio", None)
+                                        textbutton _("Windowed"):
+                                            action Preference("display", "window")
+                                            hovered SetScreenVariable("hover_radio", "windowed")
+                                            unhovered SetScreenVariable("hover_radio", None)
+                                            text_color ("#3B3B3B" if hover_radio == "windowed" else ("#000" if not preferences.fullscreen else "#707070"))
+                                            text_bold not preferences.fullscreen
+                                            text_underline hover_radio == "windowed"
 
-            #                                    textbutton _("Roboto"):
-            #                                        text_font "gui/Roboto-Medium.ttf"
-            #                                        action gui.SetPreference("font", "gui/Roboto-Medium.ttf")
-            #                                        hovered SetScreenVariable("hover_radio", "roboto")
-            #                                        unhovered SetScreenVariable("hover_radio", None)
-            #                                        text_color ("3B3B3B" if hover_radio == "roboto" else ("#000" if gui.preference("font") == "gui/Roboto-Medium.ttf" else "#707070"))
-            #                                        text_bold gui.preference("font") == "gui/Roboto-Medium.ttf"
-            #                                        text_underline hover_radio == "roboto"
+                            hbox:
+                                at trans_fade(0.5, 0.5)
+                                spacing 200
+                                label _("Font")
+                                vbox:
+                                    spacing 20
+                                    xoffset 47
+                                    hbox:
+                                        style_prefix "radio_button"
 
-            #                                hbox:
-            #                                    style_prefix "radio_button"
+                                        imagebutton:
+                                            idle ("gui/radio_hover.png" if hover_radio == "roboto" else ("gui/radio_selected.png" if gui.preference("font") == "gui/Roboto-Medium.ttf" else "gui/radio_idle.png"))
+                                            selected "gui/radio_selected.png"
+                                            hover "gui/radio_hover.png"
+                                            action gui.SetPreference("font", "gui/Roboto-Medium.ttf")
+                                            hovered SetScreenVariable("hover_radio", "roboto")
+                                            unhovered SetScreenVariable("hover_radio", None)
 
-            #                                    imagebutton:
-            #                                        idle ("gui/radio_hover.png" if hover_radio == "atkinson" else ("gui/radio_selected.png" if gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf" else "gui/radio_idle.png"))
-            #                                        selected "gui/radio_selected.png"
-            #                                        hover "gui/radio_hover.png"
-            #                                        action gui.SetPreference("font", "gui/AtkinsonHyperlegible-Regular.ttf")
-            #                                        hovered SetScreenVariable("hover_radio", "atkinson")
-            #                                        unhovered SetScreenVariable("hover_radio", None)
+                                        vbox:
+                                            textbutton _("Roboto"):
+                                                text_font "gui/Roboto-Medium.ttf"
+                                                action gui.SetPreference("font", "gui/Roboto-Medium.ttf")
+                                                hovered SetScreenVariable("hover_radio", "roboto")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                                text_size 32
+                                                text_color ("#3B3B3B" if hover_radio == "roboto" else ("#000" if gui.preference("font") == "gui/Roboto-Medium.ttf" else "#707070"))
+                                                text_bold gui.preference("font") == "gui/Roboto-Medium.ttf"
+                                                text_underline hover_radio == "roboto"
+                                            text _("The default font."):
+                                                style "radio_option_description"
 
-            #                                    textbutton _("Atkinson \nHyperlegible"):
-            #                                        text_font "gui/AtkinsonHyperlegible-Regular.ttf"
-            #                                        action gui.SetPreference("font", "gui/AtkinsonHyperlegible-Regular.ttf")
-            #                                        hovered SetScreenVariable("hover_radio", "atkinson")
-            #                                        unhovered SetScreenVariable("hover_radio", None)
-            #                                        text_color ("#3B3B3B" if hover_radio == "atkinson" else ("#000" if gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf" else "#707070"))
-            #                                        text_bold gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf"
-            #                                        text_underline hover_radio == "atkinson"
-                                
-            #                    vbox:
-            #                        xalign 0.66
-            #                        yoffset 20
-            #                        spacing 10
-            #                        vbox:
-            #                            spacing 10
-            #                            label _("Psychic Splash"):
-            #                                text_size 20
-            #                            vbox:
-            #                                spacing 0
-            #                                hbox:
-            #                                    style_prefix "radio_button"
+                                    hbox:
+                                        style_prefix "radio_button"
 
-            #                                    imagebutton:
-            #                                        idle ("gui/radio_hover.png" if hover_radio == "psychic_always" else ("gui/radio_selected.png" if persistent.psychic_splash == "always" else "gui/radio_idle.png"))
-            #                                        selected "gui/radio_selected.png"
-            #                                        hover "gui/radio_hover.png"
-            #                                        action SetVariable("persistent.psychic_splash", "always")
-            #                                        hovered SetScreenVariable("hover_radio", "psychic_always")
-            #                                        unhovered SetScreenVariable("hover_radio", None)
+                                        imagebutton:
+                                            idle ("gui/radio_hover.png" if hover_radio == "atkinson" else ("gui/radio_selected.png" if gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf" else "gui/radio_idle.png"))
+                                            selected "gui/radio_selected.png"
+                                            hover "gui/radio_hover.png"
+                                            action gui.SetPreference("font", "gui/AtkinsonHyperlegible-Regular.ttf")
+                                            hovered SetScreenVariable("hover_radio", "atkinson")
+                                            unhovered SetScreenVariable("hover_radio", None)
 
-            #                                    textbutton _("Always"):
-            #                                        action SetVariable("persistent.psychic_splash", "always")
-            #                                        hovered SetScreenVariable("hover_radio", "psychic_always")
-            #                                        unhovered SetScreenVariable("hover_radio", None)
-            #                                        text_color ("3B3B3B" if hover_radio == "psychic_always" else ("#000" if persistent.psychic_splash == "always" else "#707070"))
-            #                                        text_bold persistent.psychic_splash == "always"
-            #                                        text_underline hover_radio == "psychic_always"
+                                        vbox:
+                                            textbutton _("Atkinson Hyperlegible"):
+                                                text_font "gui/AtkinsonHyperlegible-Regular.ttf"
+                                                action gui.SetPreference("font", "gui/AtkinsonHyperlegible-Regular.ttf")
+                                                hovered SetScreenVariable("hover_radio", "atkinson")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                                text_size 32
+                                                text_color ("#3B3B3B" if hover_radio == "atkinson" else ("#000" if gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf" else "#707070"))
+                                                text_bold gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf"
+                                                text_underline hover_radio == "atkinson"
+                                            text _("Recommended for users with dyslexia and similar disorders."):
+                                                style "radio_option_description"
 
-            #                                hbox:
-            #                                    style_prefix "radio_button"
+                            hbox:
+                                at trans_fade(0.75, 0.5)
+                                spacing 25
+                                label _("Psychic Splash")
+                                vbox:
+                                    spacing 20
+                                    xoffset 47
+                                    hbox:
+                                        style_prefix "radio_button"
 
-            #                                    imagebutton:
-            #                                        idle ("gui/radio_hover.png" if hover_radio == "psychic_scene" else ("gui/radio_selected.png" if persistent.psychic_splash == "scene" else "gui/radio_idle.png"))
-            #                                        selected "gui/radio_selected.png"
-            #                                        hover "gui/radio_hover.png"
-            #                                        action SetVariable("persistent.psychic_splash", "scene")
-            #                                        hovered SetScreenVariable("hover_radio", "psychic_scene")
-            #                                        unhovered SetScreenVariable("hover_radio", None)
+                                        imagebutton:
+                                            idle ("gui/radio_hover.png" if hover_radio == "psychic_always" else ("gui/radio_selected.png" if persistent.psychic_splash == "always" else "gui/radio_idle.png"))
+                                            selected "gui/radio_selected.png"
+                                            hover "gui/radio_hover.png"
+                                            action SetVariable("persistent.psychic_splash", "always")
+                                            hovered SetScreenVariable("hover_radio", "psychic_always")
+                                            unhovered SetScreenVariable("hover_radio", None)
 
-            #                                    textbutton _("Once per scene"):
-            #                                        text_size 18
-            #                                        action SetVariable("persistent.psychic_splash", "scene")
-            #                                        hovered SetScreenVariable("hover_radio", "psychic_scene")
-            #                                        unhovered SetScreenVariable("hover_radio", None)
-            #                                        text_color ("#3B3B3B" if hover_radio == "psychic_scene" else ("#000" if persistent.psychic_splash == "scene" else "#707070"))
-            #                                        text_bold persistent.psychic_splash == "scene"
-            #                                        text_underline hover_radio == "psychic_scene"
+                                        vbox:
+                                            textbutton _("Always"):
+                                                action SetVariable("persistent.psychic_splash", "always")
+                                                hovered SetScreenVariable("hover_radio", "psychic_always")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                                text_color ("#3B3B3B" if hover_radio == "psychic_always" else ("#000" if persistent.psychic_splash == "always" else "#707070"))
+                                                text_bold persistent.psychic_splash == "always"
+                                                text_underline hover_radio == "psychic_always"
+                                            text _("Show a dramatic splash of your character whenever you use a psychic power."):
+                                                style "radio_option_description"
 
-            #                                hbox:
-            #                                    style_prefix "radio_button"
+                                    hbox:
+                                        style_prefix "radio_button"
 
-            #                                    imagebutton:
-            #                                        idle ("gui/radio_hover.png" if hover_radio == "psychic_never" else ("gui/radio_selected.png" if persistent.psychic_splash == "never" else "gui/radio_idle.png"))
-            #                                        selected "gui/radio_selected.png"
-            #                                        hover "gui/radio_hover.png"
-            #                                        action SetVariable("persistent.psychic_splash", "never")
-            #                                        hovered SetScreenVariable("hover_radio", "psychic_never")
-            #                                        unhovered SetScreenVariable("hover_radio", None)
+                                        imagebutton:
+                                            idle ("gui/radio_hover.png" if hover_radio == "psychic_scene" else ("gui/radio_selected.png" if persistent.psychic_splash == "scene" else "gui/radio_idle.png"))
+                                            selected "gui/radio_selected.png"
+                                            hover "gui/radio_hover.png"
+                                            action SetVariable("persistent.psychic_splash", "scene")
+                                            hovered SetScreenVariable("hover_radio", "psychic_scene")
+                                            unhovered SetScreenVariable("hover_radio", None)
 
-            #                                    textbutton _("Never"):
-            #                                        action SetVariable("persistent.psychic_splash", "never")
-            #                                        hovered SetScreenVariable("hover_radio", "psychic_never")
-            #                                        unhovered SetScreenVariable("hover_radio", None)
-            #                                        text_color ("#3B3B3B" if hover_radio == "psychic_never" else ("#000" if persistent.psychic_splash == "never" else "#707070"))
-            #                                        text_bold persistent.psychic_splash == "never"
-            #                                        text_underline hover_radio == "psychic_never"
-            #textbutton _("Reset to Default"):
-            #    xalign 0.795
-            #    yalign 0.745
-            #    text_size 20
-            #    text_color "#000"
-            #    text_hover_underline True
-            #    action [
-            #        Preference("text speed", 25),
-            #        Preference("auto-forward time", 5),
-            #        Preference("music mute", "disable"),
-            #        Preference("music volume", 0.75),
-            #        Preference("sound mute", "disable"),
-            #        Preference("sound volume", 1.0),
-            #        Preference("voice mute", "disable"),
-            #        Preference("voice volume", 1.0),
-            #        Preference("all mute", "disable"),
-            #        Preference("display", "fullscreen"),
-            #        gui.SetPreference("font", "gui/Roboto-Medium.ttf"),
-            #        SetVariable("persistent.psychic_splash", "always")
-            #    ]
-            #    at trans_fade(0.5, 0.5)
+                                        vbox:
+                                            textbutton _("Once per scene"):
+                                                action SetVariable("persistent.psychic_splash", "scene")
+                                                hovered SetScreenVariable("hover_radio", "psychic_scene")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                                text_color ("#3B3B3B" if hover_radio == "psychic_scene" else ("#000" if persistent.psychic_splash == "scene" else "#707070"))
+                                                text_bold persistent.psychic_splash == "scene"
+                                                text_underline hover_radio == "psychic_scene"
+                                            text _("Show a dramatic splash of your character the first time you use a psychic power in a scene."):
+                                                style "radio_option_description"
+
+                                    hbox:
+                                        style_prefix "radio_button"
+
+                                        imagebutton:
+                                            idle ("gui/radio_hover.png" if hover_radio == "psychic_never" else ("gui/radio_selected.png" if persistent.psychic_splash == "never" else "gui/radio_idle.png"))
+                                            selected "gui/radio_selected.png"
+                                            hover "gui/radio_hover.png"
+                                            action SetVariable("persistent.psychic_splash", "never")
+                                            hovered SetScreenVariable("hover_radio", "psychic_never")
+                                            unhovered SetScreenVariable("hover_radio", None)
+
+                                        vbox:
+                                            textbutton _("Never"):
+                                                action SetVariable("persistent.psychic_splash", "never")
+                                                hovered SetScreenVariable("hover_radio", "psychic_never")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                                text_color ("#3B3B3B" if hover_radio == "psychic_never" else ("#000" if persistent.psychic_splash == "never" else "#707070"))
+                                                text_bold persistent.psychic_splash == "never"
+                                                text_underline hover_radio == "psychic_never"
+                                            text _("Never show a dramatic splash of your character using their powers."):
+                                                style "radio_option_description"
+
+                            textbutton _("Reset to defaults"):
+                                style "yellow_button_dark_hover"
+                                at trans_fade(1.0, 0.5)
+                                text_size 22
+                                text_idle_color "#000"
+
+                                action [
+                                    Preference("display", "fullscreen"),
+                                    gui.SetPreference("font", "gui/Roboto-Medium.ttf"),
+                                    SetVariable("persistent.psychic_splash", "always")
+                                ]
             
             if (start):
                 frame:
@@ -2012,10 +1987,10 @@ style radio_button_hbox:
     spacing 0
 
 style radio_button_image_button:
-    yoffset 7
+    yoffset 16
 
 style radio_button_button_text:
-    size 20
+    size 32
     font "DejaVuSans.ttf"
     hover_color "#000"
     selected_color "#000"
@@ -2040,6 +2015,11 @@ style radio_button:
 style radio_button_text:
     properties gui.button_text_properties("radio_button")
     selected_color "#000"
+
+style radio_option_description:
+    size 20
+    xoffset 5
+    color "#000"
 
 style check_vbox:
     spacing gui.pref_button_spacing
