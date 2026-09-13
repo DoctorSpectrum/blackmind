@@ -99,7 +99,7 @@ screen psychic_powers():
                             auto "gui/icons/future_sight_icon_%s.png"
                             action [
                                 SetLocalVariable("icon_hint", None),
-                                NullAction(),
+                                (Call("future_sight", from_current=False) if (check_boolean("call_future_sight")) else Show("future_sight"))
                             ]
                             hovered SetLocalVariable("icon_hint", "future_sight")
                             unhovered SetLocalVariable("icon_hint", None)
@@ -138,10 +138,10 @@ screen psychic_powers():
                 ]
 
         if (check_boolean("future_sight_available")):
-            key "K_3":
+            key ["K_3", "pad_dpright_press"]:
                 action [
                     SetLocalVariable("icon_hint", None),
-                    NullAction(),
+                    (Call("future_sight", from_current=False) if (check_boolean("call_future_sight")) else Show("future_sight"))
                 ]
 
 screen psychic_splash(details):
@@ -283,6 +283,204 @@ screen psychic_wipe():
                 pause 0.5
                 linear 0.25:
                     alpha 0.0
+
+screen future_sight(returnable=False, fadein=True, fadeout=True):
+    modal True
+    zorder 105
+    default viewing = "current"
+    default info = get_future_sight_info()
+
+    frame:
+        xfill True
+        yfill True
+        background Solid ("#00000066")
+
+    frame:
+        background Solid("#000")
+        xalign 0.5
+        yalign 0.5
+        xsize 1440
+        ysize 840
+
+        if (fadein):
+            at transform:
+                on show:
+                    xoffset 500
+                    alpha 0.0
+                    linear 0.35:
+                        xoffset 0
+                        alpha 1.0
+        if (fadeout):
+            at transform:
+                on hide:
+                    xoffset 0
+                    linear 0.35:
+                        xoffset 500
+                        alpha 0.0
+
+        frame:
+            background Image("gui/future_sight_frame.png")
+
+            xalign 0.5
+            yalign 0.5
+            xsize 1400
+            ysize 800
+
+            hbox:
+                frame:
+                    background None
+                    xsize 0.33
+                    image "images/sprites/" + info["picture"]:
+                        xoffset 15
+                        yoffset -18
+                        at transform:
+                            zoom 0.205
+                            matrixcolor TintMatrix("#000")
+                            alpha (0.0 if fadein else 0.8)
+
+                            pause (0.4 if fadein else 0.0)
+                            linear 0.25:
+                                alpha 0.8
+                    image "images/sprites/" + info["picture"]:
+                        at transform:
+                            zoom 0.2
+
+                frame:
+                    background None
+                    xsize 865
+
+                    vbox:
+                        yoffset 50
+                        spacing 20
+                        text _(info["description"]):
+                            color "#000"
+                            xalign 0.0
+                            yalign 0.5
+
+                        if (check_boolean("future_sight_types")):
+                            hbox:
+                                spacing 25
+                                textbutton _("CURRENT"):
+                                    style "future_sight_type_button"
+                                    selected viewing == "current"
+                                    action SetScreenVariable("viewing", "current")
+
+                                textbutton _("GENERAL"):
+                                    style "future_sight_type_button"
+                                    selected viewing == "general"
+                                    action [
+                                        (Show("modal_popup", message="These keywords may or may not be present in the current scene. Reading the corresponding thought will unlock more information about this character.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
+                                        Function(add_boolean, "future_sight_general_message"),
+                                        SetScreenVariable("viewing", "general")
+                                    ]
+
+                                textbutton _("HISTORY"):
+                                    style "future_sight_type_button"
+                                    selected viewing == "history"
+                                    action [
+                                        (Show("modal_popup", message="Information you discover about this character will be displayed here.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_history_message") else NullAction()),
+                                        Function(add_boolean, "future_sight_history_message"),
+                                        SetScreenVariable("viewing", "history")
+                                    ]
+
+                        vbox:
+                            style_prefix "future_sight_checkbox"
+                            if (viewing == "current"):
+                                for current in info["current"]:
+                                    hbox:
+                                        frame:
+                                            text _(current["keyword"])
+                                        frame:
+                                            style ("future_sight_checkbox_checked" if current["discovered"] else "future_sight_checkbox")
+                            elif (viewing == "general"):
+                                for general in info["general"]:
+                                    hbox:
+                                        frame:
+                                            text _(general["keyword"])
+                                        frame:
+                                            style ("future_sight_checkbox_checked" if general["discovered"] else "future_sight_checkbox")
+                            elif (viewing == "history"):
+                                text _(get_future_sight_history(person=info["person"]))
+
+                    textbutton _("RETURN"):
+                        style "yellow_button"
+                        xalign 0.5
+                        yalign 0.925
+                        hover_background Frame("gui/button/button_hover_allblack.png")
+                        action [
+                            Hide("future_sight"),
+                            (Return() if returnable else Hide("future_sight"))
+                        ]
+
+        frame:
+            background None
+            ysize 75
+            xsize 480
+            yoffset -170
+            xoffset -30
+            at transform:
+                rotate -25
+
+            text _(info["title"]):
+                color "#F2EE29"
+                font "gui/Decade__.ttf"
+                xalign 0.2
+                yalign 0.5
+                size 50
+                yoffset 5
+
+    if (check_boolean("future_sight_types")):
+        key "pad_leftshoulder_press":
+            if (viewing == "general"):
+                action SetScreenVariable("viewing", "current")
+            elif (viewing == "history"):
+                action [
+                    (Show("modal_popup", message="These keywords may or may not be present in the current scene. Reading the corresponding thought will unlock more information about this character.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
+                    Function(add_boolean, "future_sight_general_message"),
+                    SetScreenVariable("viewing", "general")
+                ]
+        key "pad_rightshoulder_press":
+            if (viewing == "current"):
+                action [
+                    (Show("modal_popup", message="These keywords may or may not be present in the current scene. Reading the corresponding thought will unlock more information about this character.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
+                    Function(add_boolean, "future_sight_general_message"),
+                    SetScreenVariable("viewing", "general")
+                ]
+            elif (viewing == "general"):
+                action [
+                    (Show("modal_popup", message="Information you discover about this character will be displayed here.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_history_message") else NullAction()),
+                    Function(add_boolean, "future_sight_history_message"),
+                    SetScreenVariable("viewing", "history")
+                ]
+            
+
+style future_sight_type_button:
+    selected_background Frame("gui/button/button_squareish.png")
+    left_padding 10
+    right_padding 10
+    top_padding 12
+
+style future_sight_type_button_text:
+    color "#000"
+    font "gui/chubhand.ttf"
+    hover_underline True
+
+style future_sight_checkbox_frame:
+    xsize 755
+    ysize 60
+    background "gui/keyword_frame.png"
+
+style future_sight_checkbox_text:
+    color "#000"
+    xalign 0.5
+    yalign 0.5
+
+style future_sight_checkbox:
+    xsize 60
+    ysize 60
+    background "gui/keyword_checkbox.png"
+style future_sight_checkbox_checked is future_sight_checkbox:
+    background "gui/keyword_checkbox_checked.png"
 
 screen map_navigation(destinations):
     default xpos = 0
@@ -1068,8 +1266,9 @@ screen modal_base():
 
                     transclude
 
-screen modal_popup(message, option_labels, option_actions):
+screen modal_popup(message, option_labels=["OK"], option_actions=[Return()]):
     modal True
+    zorder 110
     use modal_base:
         label _(message):
             style "confirm_prompt"
@@ -1079,7 +1278,7 @@ screen modal_popup(message, option_labels, option_actions):
         hbox:
             xalign 0.5
             yalign 1.0
-            yoffset 70
+            #yoffset 70
 
             for (i, label) in enumerate(option_labels):
                 textbutton _(label):
@@ -1187,11 +1386,11 @@ screen pause_menu():
         textbutton _("Locked"): #"Flow Chart"):
             style "yellow_button_on_yellow"
             #action ShowMenu("flow_chart")
-            action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+            action (Show("modal_popup", message="This function is disabled during the demo", option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         textbutton _("Locked"): #"Characters"):
             style "yellow_button_on_yellow"
             #action ShowMenu("characters")
-            action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+            action (Show("modal_popup", message="This function is disabled during the demo", option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         #textbutton _("Load"):
         #    style "yellow_button_on_yellow"
         #    action (ShowMenu("saves_list") if clickable_button() else NullAction())
@@ -1210,11 +1409,11 @@ screen pause_menu():
         #textbutton _("Locked"): #Psychic Powers"):
         #    style "black_button_on_black"
             #action ShowMenu("upgrades_screen")
-        #    action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+        #    action (Show("modal_popup", message="This function is disabled during the demo", option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         textbutton _("Locked"): #Notes"):
             style "black_button_on_black"
             #action ShowMenu("notes")
-            action (Show("modal_popup", message="This function is disabled during the demo", option_labels=["OK"], option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
+            action (Show("modal_popup", message="This function is disabled during the demo", option_actions=[Hide("modal_popup")]) if clickable_button() else NullAction())
         textbutton _("Settings"):
             style "black_button_on_black"
             action (ShowMenu("preferences") if clickable_button() else NullAction())

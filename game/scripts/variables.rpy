@@ -462,8 +462,8 @@ label variables:
     default reading_mind = False
     default rewound_mind = False
 
-    default ineffective_rewinds = ["prologue_montage_rewind", "prologue_10"]
-    default paused_ineffective_rewinds = ["prologue_10"]
+    default ineffective_rewinds = ["prologue_montage_rewind", "prologue_12"]
+    default paused_ineffective_rewinds = ["prologue_12"]
 
     default money = 12
 
@@ -514,8 +514,11 @@ label variables:
     ]
 
     #Timeline variables
-    default game_id = persistent.game_id
-    $ persistent.game_id += 1
+    #default game_id = persistent.game_id
+    #$ persistent.game_id += 1
+    default day = 0
+    default branch = None
+    default person = "barbara_prologue"
     default days = [
         [],
         [],
@@ -528,7 +531,7 @@ label variables:
     image white_bg = Solid("#FFF")
     default red_flash = Fade(0.25, 0.25, 0.25, color='#cc0000')
     default white_flash = Fade(0.05, 0.25, 0.25, color='#FFF')
-    default booleans = []
+    default booleans = ["call_future_sight"]
     default wait_2 = ("{w=2.0}" if preferences.text_cps > 0 else "")
     default wait_1 = ("{w=1.0}" if preferences.text_cps > 0 else "")
     default wait_05 = ("{w=0.5}" if preferences.text_cps > 0 else "")
