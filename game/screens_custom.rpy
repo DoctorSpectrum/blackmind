@@ -331,6 +331,17 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
                     background None
                     xsize 0.33
                     image "images/sprites/" + info["picture"]:
+                        xoffset 15
+                        yoffset -18
+                        at transform:
+                            zoom 0.205
+                            matrixcolor TintMatrix("#000")
+                            alpha (0.0 if fadein else 0.8)
+
+                            pause (0.4 if fadein else 0.0)
+                            linear 0.25:
+                                alpha 0.8
+                    image "images/sprites/" + info["picture"]:
                         at transform:
                             zoom 0.2
 
@@ -341,11 +352,6 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
                     vbox:
                         yoffset 50
                         spacing 20
-                        text _(info["title"]):
-                            color "#000"
-                            font "gui/Decade__.ttf"
-                            size 84
-
                         text _(info["description"]):
                             color "#000"
                             xalign 0.0
@@ -405,6 +411,23 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
                             Hide("future_sight"),
                             (Return() if returnable else Hide("future_sight"))
                         ]
+
+        frame:
+            background Solid("#000")
+            ysize 75
+            xsize 480
+            yoffset -170
+            xoffset -30
+            at transform:
+                rotate -25
+
+            text _(info["title"]):
+                color "#F2EE29"
+                font "gui/Decade__.ttf"
+                xalign 0.2
+                yalign 0.5
+                size 50
+                yoffset 5
 
     if (check_boolean("future_sight_types")):
         key "pad_leftshoulder_press":

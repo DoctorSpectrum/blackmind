@@ -76,11 +76,11 @@ label prologue_02:
             $ hide_history()
             $ add_boolean("psychic_powers_available")
             if (current_input == "KB"):
-                call screen modal_popup("Click on the Read Mind button in the top right-hand corner, or press the 1 key, to read the bartender’s mind.")
+                call screen modal_popup("{image=gui/icons/mind_read_icon_idle.png}\r\n\r\nClick on the Read Mind button in the top right-hand corner, or press the 1 key, to read the bartender’s mind.")
             elif (current_input == "GP"):
-                call screen modal_popup("Click on the Read Mind button in the top right-hand corner, or press left on the D-Pad, to read the bartender’s mind.")
+                call screen modal_popup("{image=gui/icons/mind_read_icon_idle.png}\r\n\r\nClick on the Read Mind button in the top right-hand corner, or press left on the D-Pad, to read the bartender’s mind.")
             else:
-                call screen modal_popup("Click on the Read Mind button in the top right-hand corner, or press the 1 key/left on the D-Pad, to read the bartender’s mind.")
+                call screen modal_popup("{image=gui/icons/mind_read_icon_idle.png}\r\n\r\nClick on the Read Mind button in the top right-hand corner, or press the 1 key/left on the D-Pad, to read the bartender’s mind.")
             call screen psychic_powers
 
         "Lemonade":
@@ -122,11 +122,11 @@ label prologue_03:
     $ rewind_point = "prologue_04"
     $ add_boolean("mind_wipe_available")
     if (current_input == "KB"):
-        call screen modal_popup("Click on the Rewind Mind button, or press the 2 key, to make the bartender forget the last few minutes of conversation.")
+        call screen modal_popup("{image=gui/icons/mind_wipe_icon_idle.png}\r\n\r\nClick on the Rewind Mind button, or press the 2 key, to make the bartender forget the last few minutes of conversation.")
     elif (current_input == "GP"):
-        call screen modal_popup("Click on the Rewind Mind button, or press up on the D-Pad, to make the bartender forget the last few minutes of conversation.")
+        call screen modal_popup("{image=gui/icons/mind_wipe_icon_idle.png}\r\n\r\nClick on the Rewind Mind button, or press up on the D-Pad, to make the bartender forget the last few minutes of conversation.")
     else:
-        call screen modal_popup("Click on the Rewind Mind button, or press the 2 key/up on the D-Pad, to make the bartender forget the last few minutes of conversation.")
+        call screen modal_popup("{image=gui/icons/mind_wipe_icon_idle.png}\r\n\r\nClick on the Rewind Mind button, or press the 2 key/up on the D-Pad, to make the bartender forget the last few minutes of conversation.")
     call screen psychic_powers
 
 label prologue_04:
@@ -152,11 +152,11 @@ label prologue_04:
         jack thinking "(The best way to do that is by using my precog – my precon – my future vision to see what I need to focus on.)"
         $ add_boolean("jack_tutorial_psychic_explanation")
     if (current_input == "KB"):
-        call screen modal_popup("Click on the Future Sight button, or press the 3 key, to activate your future sight.")
+        call screen modal_popup("{image=gui/icons/future_sight_icon_idle.png}\r\n\r\nClick on the Future Sight button, or press the 3 key, to activate your future sight.")
     elif (current_input == "GP"):
-        call screen modal_popup("Click on the Future Sight button, or press right on the D-Pad, to activate your future sight.")
+        call screen modal_popup("{image=gui/icons/future_sight_icon_idle.png}\r\n\r\nClick on the Future Sight button, or press right on the D-Pad, to activate your future sight.")
     else:
-        call screen modal_popup("Click on the Future Sight button, or press the 3 key/right on the D-Pad, to activate your future sight.")
+        call screen modal_popup("{image=gui/icons/future_sight_icon_idle.png}\r\n\r\nClick on the Future Sight button, or press the 3 key/right on the D-Pad, to activate your future sight.")
     $ add_boolean("future_sight_available")
     call screen psychic_powers
 
