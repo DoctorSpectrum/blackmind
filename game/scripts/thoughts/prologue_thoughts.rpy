@@ -38,10 +38,10 @@ label mind_read_prologue:
         bartender_thoughts "(Sooner this is done, the sooner I can get to setting things up.)"
     elif (current_thought == "barbara_thought_pr_11"):
         $ barbara_partial("irritated_03")
-        bartender_thoughts "(I’d hope you think so, given its history![wait_1] Some of the stories that I could tell you about this place...)" 
+        bartender_thoughts "(If he thinks that this is impressive he should have seen it back in the day.[wait_1] The changes this place has gone through over the years...)" 
         if (check_boolean("prologue_bar_history") == False):
             $ jack_partial("analytical_01")
-            jack thinking "(There we go - that’s something that I could focus on.)"
+            jack thinking "(There we go, that’s something that I could focus on: asking about the history of the bar.)"
             $ add_boolean("prologue_bar_history")
     elif (current_thought == "barbara_thought_pr_12"):
         $ barbara_partial("irritated_03")

@@ -1,21 +1,2 @@
 BLACKMIND TODO
-    - Version 1.1. The demo's gotten some feedback and the flow needs to improve. Atm it's not the end of the world but if this does get into Choose Wisely it needs to be smoother.
-
-        - Potentially have the demo continue even if you don't read the mind successfully? I'm thinking of VA-11 HALL-A and how there are correct drinks to serve people but if you
-            serve them something they don't like you don't completely fuck everything up or anything.
-            - This would need to be demo only since in the main game Jack has to succeed so that on Branch A Lloyd discovers he's psychic by watching the footage of him using his powers
-            - If this were implemented there should be some sort of reward for it. I don't have unlockable codes or anything in this one - is there a way that I could do some story stuff as a reward? A CG would
-                also work but we don't have one.
-
-        - If I do much script rewriting, these are the categories I want thoughts to fall into:
-            - 1. Twist thought. Reveals that the character is lying or has more going on.
-            - 2. Comedy thought. Contrasts greatly with the line or is just really funny.
-            - 3. Extra context thought. Gives extra context and elaborates on what the character is thinking.
-            - 4. Topic thought. Gives a potential topic to talk about or gets the player thinking a bit. Might be unnecessary.
-
-    - ACTIONABLE PLAN:
-        - Updoot the dialogue when Jack's precognition kicks in harder
-
-        - Updoot it so that the first line also references the Employer keyword
-
-        - Rewrite thoughts if possible to fall into one of the categories
+    - Potentially improve flow/satisfaction level down the line. idk.

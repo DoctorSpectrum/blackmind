@@ -319,7 +319,7 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
                         alpha 0.0
 
         frame:
-            background Solid("#F2EE29")
+            background Image("gui/future_sight_frame.png")
 
             xalign 0.5
             yalign 0.5
@@ -413,7 +413,7 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
                         ]
 
         frame:
-            background Solid("#000")
+            background None
             ysize 75
             xsize 480
             yoffset -170

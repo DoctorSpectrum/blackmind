@@ -192,16 +192,16 @@ label prologue_06:
     $ rewind_point = "prologue_06"
     $ current_thought = "barbara_thought_pr_11"
     $ jack_partial("cheerful_01")
-    jack smug "You know, this is a really nice bar."
+    jack smug "You know, your boss has done a really nice job with the place."
     $ current_thought = "barbara_thought_pr_12"
-    jack smug "Whoever the owner is, they’ve done a really good job with it...[wait_05]especially at hiring staff."
+    jack smug "In particular, he’s really good at hiring staff."
     $ swap_sprites("barbara_angry")
     $ current_thought = "barbara_thought_pr_13"
     $ barbara_partial("irritated_01")
-    bartender "I’d hope so, given that I’m the owner."
+    bartender "As a matter of fact, I’m the owner."
     $ current_thought = "barbara_thought_pr_14"
     $ jack_partial("cocky_03")
-    jack smug "Oh, really?[wait_05] You’ve done a great job with it - I love the aesthetic you’ve got going."
+    jack smug "Oh, really?[wait_05] Like I said, you’ve done a great job with it - I love the aesthetic you’ve got going."
     $ jack_partial("confused_02")
     jack worried "(What the hell is the name of this style?[wait_1] The only one I know is gothic, and it definitely isn’t that.)"
     $ current_thought = "barbara_thought_pr_15"
@@ -232,12 +232,12 @@ label prologue_07:
             jack thinking "(First of all I’ll need to rewind her mind, though.)"
             $ hide_history()
             call screen psychic_powers
-        "Ask about the history of the bar" (locked=not check_boolean("prologue_bar_history"), message="You have not read this information in the bartender's mind"):
+        "Talk about the history of the bar" (locked=not check_boolean("prologue_bar_history"), message="You have not read this information in the bartender's mind"):
             $ show_history()
             $ jack_partial("dismissive_01")
             jack smug "Oh, of course, of course."
             jump prologue_08
-        "Ask about interior design" (locked=not check_boolean("prologue_interior_designing"), message="You have not read this information in the bartender's mind"):
+        "Talk about interior design" (locked=not check_boolean("prologue_interior_designing"), message="You have not read this information in the bartender's mind"):
             $ show_history()
             $ current_thought = "barbara_thought_pr_18"
             $ jack_partial("cocky_03")
@@ -630,7 +630,7 @@ label prologue_end:
     $ jack_partial("confused_02")
     jack thinking "(No...[wait_05]it’s -[wait_05] whatever’s happened, it’s -[wait_05] it hasn’t happened yet.)"
     $ jack_partial("analytical_02")
-    jack thinking "(It’s my -[wait_05] it’s my precog-[wait_05] precog-[wait_05] my future sight.)"
+    jack thinking "(It’s my –[wait_05] my future sight –[wait_05] it’s kicked in harder than usual.)"
     jack thinking "(I -[wait_05] if I go in that building then it’ll...[wait_05]it’ll happen and I’ll...[wait_05]the vision will come true.)"
     $ jack_partial("scared_01")
     jack worried "(Somebody will shoot me and -[wait_05] god, why did I drink so -[wait_05] so much?)"
