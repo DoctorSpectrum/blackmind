@@ -27,10 +27,17 @@ style gui_text:
 
 style button:
     properties gui.button_properties("button")
+    hover_sound "audio/sfx/button_hover.mp3"
 
 style button_text is gui_text:
     properties gui.text_properties("button")
     yalign 0.5
+
+style image_button:
+    hover_sound "audio/sfx/button_hover.mp3"
+
+style text_button:
+    hover_sound "audio/sfx/button_hover.mp3"
 
 
 style label_text is gui_text:
@@ -42,8 +49,8 @@ style prompt_text is gui_text:
 
 style bar:
     ysize gui.bar_size
-    left_bar Frame("gui/bar/left.png", gui.bar_borders, tile=gui.bar_tile)
-    right_bar Frame("gui/bar/right.png", gui.bar_borders, tile=gui.bar_tile)
+    left_bar "gui/bar/left.png"
+    right_bar "#000"
 
 style vbar:
     xsize gui.bar_size
@@ -57,18 +64,22 @@ style scrollbar:
 
 style vscrollbar:
     xsize gui.scrollbar_size
-    base_bar Frame("gui/scrollbar/vertical_[prefix_]bar.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
-    thumb Frame("gui/scrollbar/vertical_[prefix_]thumb.png", gui.vscrollbar_borders, tile=gui.scrollbar_tile)
+    base_bar "#F2EE29"
+    thumb "#000"
 
 style slider:
     ysize gui.slider_size
-    base_bar Frame("gui/slider/horizontal_[prefix_]bar.png", gui.slider_borders, tile=gui.slider_tile)
-    thumb "gui/slider/horizontal_[prefix_]thumb.png"
+    left_bar "gui/bar/left.png"
+    hover_left_bar "gui/bar/left_hover.png"
+    right_bar "#000"
+    thumb None
 
 style vslider:
     xsize gui.slider_size
-    base_bar Frame("gui/slider/vertical_[prefix_]bar.png", gui.vslider_borders, tile=gui.slider_tile)
-    thumb "gui/slider/vertical_[prefix_]thumb.png"
+    bottom_bar "gui/bar/bottom.png"
+    hover_bottom_bar "gui/bar/bottom_hover.png"
+    top_bar "#000"
+    thumb None
 
 
 style frame:
@@ -96,24 +107,56 @@ style frame:
 ## https://www.renpy.org/doc/html/screen_special.html#say
 
 screen say(who, what):
-
+    default hint = None
     window:
         id "window"
 
         if who is not None:
-
             window:
                 id "namebox"
                 style "namebox"
                 text who id "who"
+                at transform:
+                    rotate -6
 
         text what id "what"
+
+        if (current_thought in thoughts_read and reading_mind == False and renpy.get_screen("psychic_powers")):
+            frame:
+                background Frame("gui/small_button_frame.png")
+                padding (5, 5, 5, 5)
+                xalign 0.17
+                yalign 0.35
+
+                imagebutton:
+                    auto "gui/icons/mind_read_icon_%s.png"
+                    xalign 0.5 
+                    yalign 0.5
+                    hovered SetScreenVariable("hint", "mind_reread")
+                    unhovered SetScreenVariable("hint", None)
+                    action Call("mind_read_effects", from_current=True)
+
+            if (hint == "mind_reread"):
+                frame:
+                    background Frame("gui/namebox.png", xsize=120, ysize=25)
+                    xalign 0.1575
+                    yoffset 58
+                    xsize 120
+                    ysize 25
+
+                    text _("Re-read Mind"):
+                        color "#000"
+                        xalign 0.5
+                        yalign 0.5
+                        size 15
 
 
     ## If there's a side image, display it above the text. Do not display on the
     ## phone variant - there's no room.
     if not renpy.variant("small"):
         add SideImage() xalign 0.0 yalign 1.0
+
+    use block_rollback
 
 
 ## Make the namebox available for styling through the Character object.
@@ -137,15 +180,20 @@ style window:
 
     background Image("gui/textbox.png", xalign=0.5, yalign=1.0)
 
+style window_inverted is window:
+    background Image("gui/textbox_inverted.png", xalign=0.5, yalign=1.0)
+
 style namebox:
-    xpos gui.name_xpos
-    xanchor gui.name_xalign
-    xsize gui.namebox_width
-    ypos gui.name_ypos
-    ysize gui.namebox_height
+    xalign 0.175
+    xanchor 0.5
+    yanchor 0.5
+    yalign 0.1
 
     background Frame("gui/namebox.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
-    padding gui.namebox_borders.padding
+    padding (40, 5, 40, 10)
+
+style namebox_inverted is namebox:
+    background Frame("gui/namebox_inverted.png", gui.namebox_borders, tile=gui.namebox_tile, xalign=gui.name_xalign)
 
 style say_label:
     properties gui.text_properties("name", accent=True)
@@ -204,30 +252,71 @@ style input:
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#choice
 
-screen choice(items):
+screen choice(items, screens=["conversation_history"]):
     style_prefix "choice"
+    zorder -1
 
-    vbox:
-        for i in items:
-            textbutton i.caption action i.action
+    frame:
+        xfill True
+        yfill True
+        background Solid ("#00000066")
+
+        vbox:
+            at trans_fade(0.0, 0.5), fade_side_to_side(-100, 0.0)
+            for i in items:
+                if ("locked" not in i.kwargs or i.kwargs["locked"] == False):
+                    textbutton (i.caption.upper()):
+                        action [
+                            Show("conversation_history"),
+                            i.action
+                        ]
+                else:
+                    textbutton _("LOCKED"):
+                        style "choice_button_locked"
+                        action NullAction()
+                        hovered Show("locked_message", message=i.kwargs["message"])
+                        unhovered Hide("locked_message")
+
+    if (len(screens) > 0):
+        timer 0.01:
+            action [
+                (Show("conversation_history", quick_dissolve, initial_expanded=True, show_button=False, initial_opened=True) if "conversation_history" in screens else NullAction()),
+                (Show("cash_money", style="right_large") if "cash_money" in screens else NullAction())
+            ]
+
+    use block_rollback
 
 
 style choice_vbox is vbox
-style choice_button is button
+style choice_button is button:
+    hover_sound "audio/sfx/button_hover.mp3"
 style choice_button_text is button_text
 
 style choice_vbox:
-    xalign 0.5
-    ypos 405
+    xalign 0.05
+    yalign 0.5
     yanchor 0.5
 
     spacing gui.choice_spacing
 
 style choice_button is default:
     properties gui.button_properties("choice_button")
+    background Frame("gui/button/button_idle.png")
+    hover_background Frame("gui/button/button_hover.png")
+    padding (40, 60, 40, 60)
+    xsize 780
 
 style choice_button_text is default:
     properties gui.text_properties("choice_button")
+    idle_color "#000"
+    hover_color "#F2EE29"
+    hover_underline True
+
+style choice_button_locked is choice_button:
+    background Frame("gui/button/button_locked.png")
+
+style choice_button_locked_text is choice_button_text:
+    color "#FFFC5E"
 
 
 ## Quick Menu screen ###########################################################
@@ -240,22 +329,33 @@ screen quick_menu():
     ## Ensure this appears on top of other screens.
     zorder 100
 
-    if quick_menu:
+    if (config.developer and False):
+        textbutton _("DEBUG"):
+            background Frame("gui/frame.png")
+            xalign 0.0
+            yalign 1.0
+            xoffset 10
+            yoffset -10
+            action [
+                Hide("say"),
+                Show("debug")
+            ]
+
+    if quick_menu and renpy.get_screen("say"):
 
         hbox:
-            style_prefix "quick"
+            style_prefix ("quick" if _last_say_who is None or "_thoughts" not in _last_say_who else "quick_inverted")
 
-            xalign 0.5
-            yalign 1.0
+            xalign 0.82
+            yalign 0.77
 
-            textbutton _("Back") action Rollback()
-            textbutton _("History") action ShowMenu('history')
-            textbutton _("Skip") action Skip() alternate Skip(fast=True, confirm=True)
-            textbutton _("Auto") action Preference("auto-forward", "toggle")
-            textbutton _("Save") action ShowMenu('save')
-            textbutton _("Q.Save") action QuickSave()
-            textbutton _("Q.Load") action QuickLoad()
-            textbutton _("Prefs") action ShowMenu('preferences')
+            textbutton _("Skip"): 
+                action Skip() 
+                alternate Skip(fast=True, confirm=True)
+            textbutton _("Auto"): 
+                action Preference("auto-forward", "toggle")
+            textbutton _("Menu"):
+                action ShowMenu("pause_menu")
 
 
 ## This code ensures that the quick_menu screen is displayed in-game, whenever
@@ -273,6 +373,16 @@ style quick_button:
 
 style quick_button_text:
     properties gui.text_properties("quick_button")
+    idle_color "#3B3B3B"
+    hover_color "#000"
+    hover_bold True
+    selected_underline True
+
+style quick_inverted_button is quick_button
+style quick_inverted_button_text is quick_button_text:
+    insensitive_color "#D1CE21"
+    idle_color "#FFFC5E"
+    hover_color "#F2EE29"
 
 
 ################################################################################
@@ -348,6 +458,7 @@ style navigation_button_text:
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
 screen social_links:
     default links_opened = False
+    default links_hover = False
     default transform_links = False
     default social_frame = "circle_frame"
     default social_timer = False
@@ -363,20 +474,32 @@ screen social_links:
     frame:
         style_prefix "social_links"
         background Frame("gui/" + social_frame + ".png")
+        ysize 90
         if (transform_links):
             at transform:
                 alpha 1.0
-                xsize (100 if links_opened == True else 280)
-                linear 0.2 xsize (280 if links_opened == True else 100) 
+                xsize (90 if links_opened == True else 280)
+                linear 0.2 xsize (280 if links_opened == True else 90)
+        else:
+            xsize 90
+            at trans_fade(1.0, 1.0) 
 
         if (links_opened == False):
-            imagebutton:
-                auto "gui/icons/links_%s.png"
+            #This stupid hack is because for some reason using an imagebutton has the second item in the main menu triggering a hover on the links being closed
+            textbutton _("XX"):
                 action [
                     SetScreenVariable("transform_links", True),
                     SetScreenVariable("social_frame", "oval_frame"),
                     SetScreenVariable("links_opened", True)
                 ]
+                hovered SetScreenVariable("links_hover", True)
+                unhovered SetScreenVariable("links_hover", False)
+                at transform:
+                    alpha 0.0
+                
+            image "gui/icons/links_" + ("hover" if links_hover else "idle") + ".png":
+            #imagebutton:
+                #auto "gui/icons/links_%s.png" 
                 at (trans_fade(0.0, 0.0) if transform_links == False else trans_fade(0.2, 1.0))
                 at transform:
                     alpha (1.0 if links_opened == False else 0.0)
@@ -402,42 +525,311 @@ screen social_links:
                     xoffset -10
                     action [
                         SetScreenVariable("links_opened", False),
+                        SetScreenVariable("links_hover", False),
                         SetScreenVariable("social_timer", True)
                     ]
 
-screen main_menu():
+screen main_menu(initialised=False, extras=False):
+    default confirmed = initialised == True
+    default confirmable = False
+    default cards = [1, 2, 3, 4, 5]     #doing a loop of for k in range(1, 5) has issues being unintialised when we return from menus, for some reason
+    default timer_count = 0
+    default display_extras = extras
+    default extras_returned = False
 
     ## This ensures that any other menu screen is replaced.
     tag menu
 
-    add gui.main_menu_background
+    timer 1.0:
+        action SetScreenVariable("confirmable", True)
 
-    ## This empty frame darkens the main menu.
-    frame:
-        style "main_menu_frame"
+    if (confirmed):
+        timer 0.5:
+            action SetScreenVariable("timer_count", timer_count + 1)
+            repeat True
 
-    use social_links
+        frame:
+            background Solid("#3B3B3B")
 
-    vbox:
-        xalign 0.1
-        yalign 0.5
+        for i in range(10):
+            frame:
+                style_prefix "zener_rows"
+                background Solid("#D1CE21", ysize=1620, xsize=142, yanchor=0.25)
+                xoffset (i * 284) -800
+                at transform:
+                    rotate 25
 
-        textbutton _("Start"):
-            action (ShowMenu("preferences", start=True) if persistent.game_launched == False else Start())
-        textbutton _("Quit"):
-            action Quit()
+                if (i % 2 == 0):
+                    vbox:
+                        spacing 66
+                        image "gui/card_1.png"
+                        image "gui/card_2.png"
+                        image "gui/card_3.png"
+                        image "gui/card_4.png"
+                        image "gui/card_5.png"
 
-    if gui.show_name:
+                        at transform:
+                            alpha 0.3
+                            ypos -240
+
+                            linear 40.60:
+                                ypos -1580
+                            pause 1.2
+
+                            block:
+                                ypos 1176
+                                linear 83.51:
+                                    ypos -1580
+                                repeat
+
+                    vbox:
+                        spacing 66    
+                        image "gui/card_1.png"
+                        image "gui/card_2.png"
+                        image "gui/card_3.png"
+                        image "gui/card_4.png"
+                        image "gui/card_5.png"
+
+                        at transform:
+                            alpha 0.3   
+                            block:
+                                ypos 1176
+                                linear 83.51:
+                                    ypos -1580
+                                repeat
+                else:
+                    vbox:
+                        spacing 66
+                        image "gui/card_5.png"
+                        image "gui/card_4.png"
+                        image "gui/card_3.png"
+                        image "gui/card_2.png"
+                        image "gui/card_1.png"
+
+                        at transform:
+                            alpha 0.3
+                            ypos -240
+
+                            linear 40.60:
+                                ypos 1176
+                            pause 1.2
+
+                            block:
+                                ypos -1580
+                                linear 83.51:
+                                    ypos 1176
+                                repeat
+
+                    vbox:
+                        spacing 66
+                        image "gui/card_5.png"
+                        image "gui/card_4.png"
+                        image "gui/card_3.png"
+                        image "gui/card_2.png"
+                        image "gui/card_1.png"
+                        at transform:
+                            alpha 0.3
+                            block:
+                                ypos -1580
+                                linear 83.51:
+                                    ypos 1176
+                                repeat
+
+
+
+        frame:
+            background Solid("#00000041")
+
+        use social_links
+
+        image "images/menu/ring.png":
+            xpos 880
+            ypos 430
+            xanchor 0.5
+            yanchor 0.5
+            at menu_expand_ring(3.0)
+        image "images/menu/ring.png":
+            xpos 880
+            ypos 430
+            xanchor 0.5
+            yanchor 0.5
+            at menu_expand_ring(3.2)
+        image "images/menu/jack_menu.png":
+            xalign 0.35
+            yalign 1.0
+            yoffset 1
+            if (not initialised):
+                at transform:
+                    zoom 0.55
+                    alpha 0.0
+                    xoffset -180
+                    pause 1.0
+                    linear 2.0:
+                        xoffset 20
+                        alpha 1.0
+            else:
+                at transform:
+                    zoom 0.55
+
+        imagebutton:
+            auto "gui/button/kickstarter_button_%s.png"
+            action OpenURL("https://www.kickstarter.com/projects/too-many-teeth/blackmind-a-psychic-social-simulator")
+            yalign 0.0
+            xalign 1.0
+            xoffset -10
+            yoffset 50
+            at trans_fade(0.0, 1.0)
 
         vbox:
-            style "main_menu_vbox"
+            xalign 0.9
+            yalign (0.85 if not display_extras else 0.6)
+            spacing 10
 
-            text "[config.name!t]":
-                style "main_menu_title"
+            if (display_extras == False):
+                textbutton _("START"):
+                    style "main_menu_button"
+                    action ((ShowMenu("preferences", start=True) if persistent.game_launched == False else Start()) if clickable_button() and timer_count >= 2 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2 else None)
+                    if (not initialised or extras_returned):
+                        at menu_button(1.0 if not extras_returned else 0.0)
+                #textbutton _("LOAD"):
+                #    style "main_menu_button"
+                #    xoffset -45
+                #    action (ShowMenu("saves_list") if clickable_button() and timer_count >= 2.5 else NullAction())
+                #    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2.5 else None)
+                #    if (not initialised or extras_returned):
+                #        at menu_button(1.5 if not extras_returned else 0.5)
+                textbutton _("SETTINGS"):
+                    style "main_menu_button"
+                    xoffset -45
+                    action (ShowMenu("preferences") if clickable_button() and timer_count >= 3 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3 else None)
+                    if (not initialised or extras_returned):
+                        at menu_button(1.5 if not extras_returned else 0.5)
+                textbutton _("EXTRAS"):
+                    style "main_menu_button"
+                    xoffset -90
+                    action (SetScreenVariable("display_extras", True) if clickable_button() and timer_count >= 3.5 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3.5 else None)
+                    if (not initialised or extras_returned):
+                        at menu_button(2.0 if not extras_returned else 1.0)
+                textbutton _("CREDITS"):
+                    style "main_menu_button"
+                    xoffset -135
+                    action (ShowMenu("about") if clickable_button() and timer_count >= 4 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 4 else None)
+                    if (not initialised or extras_returned):
+                        at menu_button(2.5 if not extras_returned else 1.5)
+                textbutton _("QUIT"):
+                    style "main_menu_button"
+                    xoffset -180
+                    action (Quit() if clickable_button() and timer_count >= 4.5 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 4.5 else None)
+                    if (not initialised or extras_returned):
+                        at menu_button(3.0 if not extras_returned else 2.0)
+            else:
+                textbutton _("GALLERY"):
+                    style "main_menu_button"
+                    action (ShowMenu("gallery") if clickable_button() and timer_count >= 2 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2 else None)
+                    at menu_button(0)
+                textbutton _("SOUND ROOM"):
+                    style "main_menu_button"
+                    padding (40, 15, 40, 15)
+                    text_size 54
+                    xoffset -45
+                    action ([ShowMenu("sound_room"), Function(renpy.music.stop)] if clickable_button() and timer_count >= 2.5 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 2.5 else None)
+                    at menu_button(0.5)
+                textbutton _("BACK"):
+                    style "main_menu_button"
+                    xoffset -90
+                    selected False
+                    action ([SetScreenVariable("display_extras", False), SetScreenVariable("extras_returned", True)] if clickable_button() and timer_count >= 3 else NullAction())
+                    hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3 else None)
+                    at menu_button(1.0)
+                if (config.developer):
+                    textbutton _("TRAILER"):
+                        style "main_menu_button"
+                        xoffset -135
+                        selected False
+                        action (Show("trailer") if clickable_button() and timer_count >= 3.5 else NullAction())
+                        hover_sound ("audio/sfx/button_hover.mp3" if timer_count >= 3.5 else None)
+                        at menu_button(1.5)
+    else:
+        use any_key(SetScreenVariable("confirmed", True) if confirmable else NullAction())
 
-            text "[config.version]":
-                style "main_menu_version"
+    use main_logo(confirmed, initialised)
 
+screen main_logo(confirmed, initialised):
+    if (not confirmed):
+        frame:
+            background Solid("#000")
+            style "title_half_card"
+        frame:
+            background Solid("#F2EE29")
+            style "title_half_card_right"
+
+    frame:
+        background Solid("#F2EE29")
+        style "title_half_card"
+        if (confirmed):
+            at trans_fade_out(0, 1.0)
+        else:
+            at title_card_slide("down")
+
+    frame: 
+        background Solid("#000")
+        style "title_half_card_right"
+        if (confirmed):
+            at trans_fade_out(0, 1.0)
+        else:
+            at title_card_slide("up")
+
+    if (not confirmed):
+        text _("{color=#000}Press{/color} {color=#F2EE29}ANY KEY{/color}"):
+            xalign 0.5
+            xoffset 20
+            yalign 0.8
+            color "#FFF"
+            font "gui/chubhand.ttf"
+            size 50
+            at transform:
+                alpha 0.0
+                pause 0.5
+
+                block:
+                    alpha 1.0
+                    linear 2.0:
+                        alpha 0.0
+                    linear 1.0:
+                        alpha 1.0
+                    repeat
+        
+    vbox:
+        xalign 0.5
+        yalign 0.25
+
+        if (initialised):
+            at transform:
+                yalign 0.15
+                zoom 0.75
+        elif (not confirmed):
+            at transform:
+                alpha 0.0
+                pause 0.5
+                alpha 1.0
+        else:
+            at transform:
+                linear 2.0:
+                    yalign 0.15
+                    zoom 0.75
+
+        text _("{color=#000}BLACK{/color}{color=#F2EE29}MIND{/color}"):
+            style "logo_text"
+        text _("{color=#000}PSYCHIC SOCIAL {color=#F2EE29}SIMULATOR{/color}"):
+            style "logo_subtitle"
+        
 
 style main_menu_frame is empty
 style main_menu_vbox is vbox
@@ -467,6 +859,55 @@ style main_menu_title:
 style main_menu_version:
     properties gui.text_properties("version")
 
+style title_half_card:
+    xsize 960
+    ysize 1080
+
+style title_half_card_right is title_half_card:
+    xoffset 960
+
+style logo_text:
+    font "gui/Decade__.ttf"
+    size 128
+    xalign 0.5
+    yalign 0.25
+    xoffset -25
+    spacing 0
+
+style logo_subtitle:
+    font "gui/chubhand.ttf"
+    size 32
+    xalign 0.5
+    yalign 0.25
+    xoffset -43
+    spacing 0
+    kerning 16.1
+
+style yellow_button:
+    background Frame("gui/button/button_idle.png")
+    hover_background Frame("gui/button/button_hover.png")
+    padding (40, 10, 40, 10)
+
+style yellow_button_text:
+    hover_color "#F2EE29"
+    selected_color "#F2EE29"
+    textalign 0.5
+    xalign 0.5
+
+style yellow_button_small is yellow_button:
+    padding (20, 5, 20, 5)
+
+style yellow_button_small_text is yellow_button_text
+
+style main_menu_button is yellow_button:
+    xsize 343
+    padding (60, 15, 60, 15)
+
+style main_menu_button_text is yellow_button_text:
+    font "gui/chubhand.ttf"
+    yoffset 5
+    size 60
+
 style social_links_frame:
     xalign 0.0
     yalign 0.0
@@ -490,91 +931,60 @@ style social_links_image_button:
 ## This screen is intended to be used with one or more children, which are
 ## transcluded (placed) inside it.
 
-screen game_menu(title, scroll=None, yinitial=0.0, spacing=0, start=False):
-
-    style_prefix "game_menu"
+screen game_menu(title, title_size=88, return_action=None):
+    frame:
+        background Solid("#F2EE29")
+        xfill True
+        yfill True
 
     frame:
-        style "game_menu_outer_frame"
+        style "bottom_left_frame"
+        at menu_bottom_left_slide
 
-        hbox:
+    frame:
+        style "top_right_frame"
+        at menu_top_right_slide
 
-            frame:
-                style "game_menu_content_frame"
-
-                if scroll == "viewport":
-
-                    side ("c r"):
-                        area (0, 30, 1620, 710)
-                        viewport id "menu_viewport":
-                            draggable True 
-                            mousewheel True
-                            yinitial 1.0
-                            vbox:
-                                spacing spacing
-
-                                transclude
-                        vbar value YScrollValue("menu_viewport"):
-                            xsize 10
-
-                elif scroll == "vpgrid":
-
-                    vpgrid:
-                        cols 1
-                        yinitial yinitial
-
-                        scrollbars "vertical"
-                        mousewheel True
-                        draggable True
-                        pagekeys True
-
-                        side_yfill True
-
-                        spacing spacing
-
-                        transclude
-
-                else:
-
-                    transclude
+    frame:
+        style "bottom_right_frame"
+        at menu_bottom_right_slide
+        
+    text _(title):
+        font "gui/Decade__.ttf"
+        size title_size
+        color "#F2EE29"
+        xalign (0.025 if title_size > 90 else 0.0125)
+        yalign 0.95
+        at transform:
+            xoffset -400
+            pause 1.0
+            ease 0.33:
+                xoffset 0
 
     textbutton _("Return"):
-        style "return_button"
-        action Return()
-        if (start):
-            xoffset 550
-            yoffset 2
+        xalign 0.975
+        yalign 0.975
+        text_font "gui/chubhand.ttf"
+        text_color "#F2EE29"
+        text_size 38
+        text_hover_color "#000"
+        text_outlines [ (4, "#000", 0, 0) ]
+        text_hover_outlines [ (4, "#F2EE29", 0, 0) ]
+        action (return_action if return_action is not None else 
+            ([Hide("sample_text_speed_1"), Hide("sample_text_speed_2"), ShowMenu("main_menu", initialised=True)] if main_menu 
+            else [Hide("sample_text_speed_1"), Hide("sample_text_speed_2"), ShowMenu("pause_menu")]))
+        at transform:
+            xoffset 400
+            pause 1.0
+            ease 0.33:
+                xoffset 0
 
-    if (start):
-        frame:
-            xalign 0.5
-            yalign 0.95
-            xsize 800
-            ysize 150
+    key "pad_b_press":
+        action (return_action if return_action is not None else 
+            ([Hide("sample_text_speed_1"), Hide("sample_text_speed_2"), ShowMenu("main_menu", initialised=True)] if main_menu 
+            else [Hide("sample_text_speed_1"), Hide("sample_text_speed_2"), ShowMenu("pause_menu")]))
 
-            textbutton _("START GAME"):
-                xalign 0.5
-                yalign 0.15
-                text_size 45
-                text_color "#757575"
-                text_hover_color "#990000"
-                action [
-                    Hide("preferences", quick_dissolve),
-                    SetVariable("persistent.game_launched", True),
-                    Start()
-                ]
-
-            text _("These settings can be changed from the Settings menu at any time"):
-                xalign 0.5
-                yalign 0.85
-                xmaximum 600
-                size 20
-                text_align 0.5
-                color "#fff"
-    #else:
-    #    use navigation
-
-    text _(title)
+    transclude
 
 
 style game_menu_outer_frame is empty
@@ -642,26 +1052,184 @@ style game_menu_label_text:
 ## example of how to make a custom screen.
 
 screen about():
-
+    default show_content = False
+    default hide_content = False
+    default selected_tab = "game"
+    default audio_tab = "voice_actors"
     tag menu
 
-    ## This use statement includes the game_menu screen inside this one. The
-    ## vbox child is then included inside the viewport inside the game_menu
-    ## screen.
-    use game_menu(_("About"), scroll="viewport"):
+    timer 1.2:
+        action SetScreenVariable("show_content", True)
 
-        style_prefix "about"
+    if (hide_content):
+        timer 0.5:
+            action SetScreenVariable("hide_content", False)
 
-        vbox:
+    use game_menu(_("CREDITS")):
 
-            label "[config.name!t]"
-            text _("Version [config.version!t]\n")
+        if (show_content):
+            vbox:
+                style_prefix "credits_tabs"
+                at trans_fade(0.0, 0.5)
 
-            ## gui.about is usually set in options.rpy.
-            if gui.about:
-                text "[gui.about!t]\n"
+                textbutton _("Game"):
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "game")
+                    ]
+                    selected selected_tab == "game"
+                textbutton _("Visuals"):
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "visuals")
+                    ]
+                    selected selected_tab == "visuals"
+                textbutton _("Audio"):
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "audio")
+                    ]
+                    selected selected_tab == "audio"
+                textbutton _("Assets"):
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "assets")
+                    ]
+                    selected selected_tab == "assets"
+                textbutton _("Other"):
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "other")
+                    ]
+                    selected selected_tab == "other"
 
-            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]")
+            image Solid("#000"):
+                xsize 5
+                ysize 2
+                xpos 355
+                ypos 90
+                yanchor 0.0
+                at transform:
+                    linear 2.5:
+                        ysize 475
+
+            frame:
+                background None
+                xsize 1275
+                ysize 700
+                xalign 0.6
+                yalign 0.2
+
+                if (hide_content == False):
+
+                    vbox:
+                        spacing 80
+                        at trans_fade(0.0, 0.5), fade_side_to_side
+
+                        if (selected_tab == "game"):
+                            vbox:
+                                spacing 10
+                                text _("Harry Sewalski"):
+                                    style "credit_heading"
+                                text _("Writing, Programming, Directing"):
+                                    style "credit_person"
+
+                            vbox:
+                                spacing 10
+                                text _("Iain McManus\nKim Elliott\nSerena Jordan-Munro"):
+                                    style "credit_heading"
+                                text _("Beta Testing"):
+                                    style "credit_person"
+
+                        elif (selected_tab == "visuals"):
+                            vbox:
+                                spacing 10
+                                text _("{a=https://bsky.app/profile/did:plc:p3y4ysrka2ki2xux4d3prrrx}{font=gui/chubhand.ttf}misokatsuhaumai{/font}{/a}"):
+                                    style "credit_heading"
+                                text _("Sprite and CG Artwork"):
+                                    style "credit_person"
+
+                            vbox:
+                                spacing 10
+                                text _("{a=https://www.behance.net/gallery/237746833/2d-artist-portfolio-(character-and-backgrounds)}{font=gui/chubhand.ttf}Sajid Pervez{/font}{/a}"):
+                                    style "credit_heading"
+                                text _("Background Artwork"):
+                                    style "credit_person"
+
+                        elif (selected_tab == "audio"):
+                            vbox:
+                                style_prefix "controls_help"
+                                spacing 23
+
+                                hbox:
+                                    textbutton _("Voice Actors"): 
+                                        action SetScreenVariable("audio_tab", "voice_actors")
+                                    textbutton _("Music and SFX"): 
+                                        action SetScreenVariable("audio_tab", "music_sfx")
+
+                                if (audio_tab == "voice_actors"):
+                                    vbox:
+                                        spacing 10
+                                        at trans_fade(0.25, 0.25)
+                                        text _("Julian Dailey"):
+                                            style "credit_heading"
+                                        text _("Voice of Jack"):
+                                            style "credit_person"
+
+                                    vbox:
+                                        spacing 10
+                                        at trans_fade(0.3, 0.25)
+                                        text _("Vyn Vox"):
+                                            style "credit_heading"
+                                        text _("Voice of Bartender"):
+                                            style "credit_person"
+
+                                    vbox:
+                                        spacing 10
+                                        at trans_fade(0.35, 0.25)
+                                        text _("Ed the Djinn"):
+                                            style "credit_heading"
+                                        text _("Voice of ???"):
+                                            style "credit_person"
+                                elif (audio_tab == "music_sfx"):
+                                    vbox:
+                                        spacing 10
+                                        at trans_fade(0.25, 0.25)
+                                        text _("{a=https://kohdeemusic.com}{font=gui/chubhand.ttf}Cody Webberley{/font}{/a}"):
+                                            style "credit_heading"
+                                        text _("Original Music"):
+                                            style "credit_person"
+
+                                    vbox:
+                                        spacing 10
+                                        at trans_fade(0.4, 0.25)
+                                        text _("{a=https://www.zapsplat.com/}{font=gui/chubhand.ttf}Zapsplat.com{/font}{/a}"):
+                                            style "credit_heading"
+                                        text _("Sound Effects"):
+                                            style "credit_person"
+                        elif (selected_tab == "assets"):
+                            vbox:
+                                spacing 10
+                                text _("{a=https://watabou.itch.io/medieval-fantasy-city-generator}{font=gui/chubhand.ttf}Medieval Fantasy City Generator{/font}{/a}"):
+                                    style "credit_heading"
+                                text _("Map Generator"):
+                                    style "credit_person"
+                        elif (selected_tab == "other"):
+                            vbox:
+                                spacing 10
+                                text _("BLACKMIND"):
+                                    font "gui/Decade__.ttf"
+                                    color "#000"
+                                    size 72
+                                text _("Version [config.version!t]\n"):
+                                    color "#000"
+
+                            if gui.about:
+                                text "[gui.about!t]\n":
+                                    color "#000"
+
+                            text _("Made with {a=https://www.renpy.org/}Ren'Py{/a} [renpy.version_only].\n\n[renpy.license!t]"):
+                                color "#000"
 
 
 style about_label is gui_label
@@ -670,6 +1238,33 @@ style about_text is gui_text
 
 style about_label_text:
     size gui.label_text_size
+
+style credits_tabs_vbox:
+    xoffset 50
+    yalign 0.15
+    spacing 15
+
+style credits_tabs_button:
+    selected_background Solid("#000")
+    xsize 267
+    padding (20, 10, 20, 10)
+
+style credits_tabs_button_text:
+    font "gui/chubhand.ttf"
+    color "#000"
+    size 72
+    selected_color "#F2EE29"
+    yoffset 6
+    hover_underline True
+
+style credit_heading:
+    font "gui/chubhand.ttf"
+    color "#000"
+    size 60
+
+style credit_person:
+    color "#000"
+    size 28
 
 
 ## Load and Save screens #######################################################
@@ -830,191 +1425,275 @@ screen preferences(start=False):
     default display_sample_text_speed = False
     default update_count = 0
     default hover_radio = None
+    default show_content = False
+    default hide_content = False
+    default selected_tab = "reading"
 
-    use game_menu(_("Preferences"), start=start):
+    use game_menu(_("SETTINGS"), 76):
 
-        if (not display_sample_text_speed):
-            timer 0.5:
+        timer 1.2:
+            action SetScreenVariable("show_content", True)
+
+        if (not display_sample_text_speed and selected_tab == "reading"):
+            timer 1.7:
                 action [
                     SetScreenVariable("display_sample_text_speed", True),
                     Hide("sample_text_speed_2"),
                     Show("sample_text_speed_1")
                 ]
 
-        hbox:
-            xfill True
-            spacing 50
+        if (hide_content):
+            timer 0.5:
+                action SetScreenVariable("hide_content", False)
+
+        if (show_content):
             vbox:
-                xalign 1.0
-                hbox:
-                    spacing 10
-                    xalign 0.5
-                    label _("Reading"):
-                        style "section_label"
-                frame:
-                    xsize 600
-                    ysize 550
+                style_prefix "credits_tabs"
+                at trans_fade(0.0, 0.5)
 
-                    padding (20, 20, 20, 20)
-                    vbox:
+                textbutton _("Reading"):
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "reading"),
+                        SetScreenVariable("display_sample_text_speed", False)
+                    ]
+                    selected selected_tab == "reading"
+                textbutton _("Audio"):
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "audio"),
+                        Hide("sample_text_speed_1"),
+                        Hide("sample_text_speed_2"),
+                    ]
+                    selected selected_tab == "audio"
+                textbutton _("Other"):
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "other"),
+                        Hide("sample_text_speed_1"),
+                        Hide("sample_text_speed_2"),
+                    ]
+                    selected selected_tab == "other"
+
+            image Solid("#000"):
+                xsize 5
+                ysize 2
+                xpos 355
+                ypos 90
+                yanchor 0.0
+                at transform:
+                    linear 2.5:
+                        ysize 475
+
+            frame:
+                background None
+                xsize 1275
+                ysize 700
+                xalign 0.8
+                yalign 0.2
+
+                if (hide_content == False):
+                    if (selected_tab == "reading"):
                         vbox:
-                            style_prefix "reading_box"
-                            label _("Text Speed")
-                            bar:
-                                value Preference("text speed")
-                                released [
-                                    SetScreenVariable("display_sample_text_speed", False),
-                                    SetVariable("wait_2", ("" if preferences.text_cps == 0 else "{w=2.0}")),
-                                    SetVariable("wait_1", ("" if preferences.text_cps == 0 else "{w=1.0}")),
-                                    SetVariable("wait_05", ("" if preferences.text_cps == 0 else "{w=0.5}")),
-                                    Hide("sample_text_speed_1"),
-                                    Hide("sample_text_speed_2")
-                                ]
+                            spacing 35
+
                             hbox:
-                                xsize 320
-                                text _("Slow")
-                                text _("Fast"):
-                                    xalign 1.0
-
-                            #text _(str(preferences.text_cps))
-
-                        vbox:
-                            style_prefix "reading_box"
-                            yoffset 20
-                            label _("Auto-Forward Time")
-                            bar:
-                                value Preference("auto-forward time")
-                                released [
-                                    SetScreenVariable("display_sample_text_speed", False),
-                                    Hide("sample_text_speed_1"),
-                                    Hide("sample_text_speed_2")
-                                ]
-                            hbox:
-                                xsize 320
-                                text _("Instant")
-                                text _("Never"):
-                                    xalign 1.0
-                            #text _(str(preferences.afm_time))
-
-                        image Solid("#0099ff"):
-                            xsize 0.9
-                            ysize 4
-                            yoffset 30
-            
-            vbox:
-                xsize 0.5
-                spacing 20
-                vbox:
-                    hbox:
-                        spacing 10
-                        xalign 0.5
-                        label _("Audio"):
-                            style "section_label"
-                    frame:
-                        xsize 550
-                        ysize 288
-                        padding (80, 20, 80, 20)
-                        hbox:
-                            spacing 40
-                            vbox:
-                                hbox:
-                                    style_prefix "audio_bars"
-                                    vbox:
-                                        vbar:
-                                            value Preference("music volume")
-                                            if preferences.get_mute("music"):
-                                                base_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
-                                                thumb "gui/slider/vertical_insensitive_thumb.png"
-
-                                        text _("Music"):
-                                            color ("#0099FF" if not preferences.get_mute("music") else "#707070")
-
-                                    vbox:
-                                        vbar:
-                                            value Preference("sound volume")
-                                            if preferences.get_mute("sfx"):
-                                                base_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
-                                                thumb "gui/slider/vertical_insensitive_thumb.png"
-                                        text _("Effects"):
-                                            color ("#0099FF" if not preferences.get_mute("sfx") else "#707070")
-
-                                    #vbox:
-                                    #    vbar:
-                                    #        value Preference("voice volume")
-                                    #        if preferences.get_mute("voice"):
-                                    #            base_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
-                                    #            thumb "gui/slider/vertical_insensitive_thumb.png"
-                                    #    text _("Voice"):
-                                    #        color ("#0099FF" if not preferences.get_mute("voice") else "#707070")
-                                hbox:
-                                    spacing 40
-                                    imagebutton:
-                                        idle ("gui/icons/mute_hover.png" if preferences.get_mute("music") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
-                                        hover "gui/icons/mute_hover.png"
-                                        action Preference("music mute", "toggle")
-                                        xoffset 5
-
-                                    imagebutton:
-                                        idle ("gui/icons/mute_hover.png" if preferences.get_mute("sfx") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
-                                        hover "gui/icons/mute_hover.png"
-                                        action Preference("sound mute", "toggle")
-
-                                    #imagebutton:
-                                    #    idle ("gui/icons/mute_hover.png" if preferences.get_mute("voice") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
-                                    #    hover "gui/icons/mute_hover.png"
-                                    #    action Preference("voice mute", "toggle")
-                            
-                            vbox:
-                                style_prefix "audio_options"
-                                yfill True
+                                at trans_fade(0.25, 0.5)
+                                spacing 50
                                 vbox:
                                     spacing 10
+
+                                    label _("Text Speed")
+                                    text _("Control the speed at which text appears. Some lines may have pauses which are unaffected by this setting."):
+                                        style "setting_description_text"
+                                vbox:
+                                    yalign 0.5
+                                    bar:
+                                        value Preference("text speed")
+                                        xsize 580
+                                        released [
+                                            SetScreenVariable("display_sample_text_speed", False),
+                                            SetVariable("wait_2", ("" if preferences.text_cps == 0 else "{w=2.0}")),
+                                            SetVariable("wait_1", ("" if preferences.text_cps == 0 else "{w=1.0}")),
+                                            SetVariable("wait_05", ("" if preferences.text_cps == 0 else "{w=0.5}")),
+                                            Hide("sample_text_speed_1"),
+                                            Hide("sample_text_speed_2")
+                                        ]
+                                    hbox:
+                                        style_prefix "slider_bar"
+                                        xsize 580
+                                        text _("Slow")
+                                        text _("Fast"):
+                                            xalign 1.0
+                                    #text _(str(preferences.text_cps))
+                            
+                            hbox:
+                                at trans_fade(0.5, 0.5)
+                                spacing 33
+                                vbox:
+                                    spacing 10
+
+                                    label _("Auto-Forward Time")
+                                    text _("Control the delay between lines when the Auto setting is on."):
+                                        style "setting_description_text"
+                                vbox:
+                                    yalign 0.5
+                                    bar:
+                                        value Preference("auto-forward time")
+                                        xsize 580
+                                        released [
+                                            SetScreenVariable("display_sample_text_speed", False),
+                                            Hide("sample_text_speed_1"),
+                                            Hide("sample_text_speed_2")
+                                        ]
+                                    hbox:
+                                        style_prefix "slider_bar"
+                                        xsize 580
+                                        text _("Instant")
+                                        text _("Never"):
+                                            xalign 1.0
+                                    #text _(str(preferences.afm_time))
+
+                            textbutton _("Reset to defaults"):
+                                at trans_fade(0.75, 0.5)
+                                style "yellow_button_dark_hover"
+                                action [
+                                    Preference("text speed", 25),
+                                    Preference("auto-forward time", 5),
+                                    SetScreenVariable("display_sample_text_speed", False),
+                                    Hide("sample_text_speed_1"),
+                                    Hide("sample_text_speed_2")
+                                ]
+                                text_size 22
+                                text_idle_color "#000"
+
+                    elif (selected_tab == "audio"):
+                        hbox:
+                            style_prefix "audio_bars"
+                            vbox:
+                                at trans_fade(0.25, 0.5)
+                                vbar:
+                                    value Preference("music volume")
+                                    if preferences.get_mute("music"):
+                                        bottom_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
+                                        top_bar "#D5D5D5"
+
+                                text _("Music"):
+                                    color ("#000" if not preferences.get_mute("music") else "#707070")
+
+                                imagebutton:
+                                    idle ("gui/icons/mute_hover.png" if preferences.get_mute("music") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
+                                    hover "gui/icons/mute_hover.png"
+                                    xalign 0.5 
+                                    action Preference("music mute", "toggle")
+
+                            vbox:
+                                at trans_fade(0.5, 0.5)
+                                vbar:
+                                    value Preference("sound volume")
+                                    if preferences.get_mute("sfx"):
+                                        bottom_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
+                                        top_bar "#D5D5D5"
+                                text _("Effects"):
+                                    color ("#000" if not preferences.get_mute("sfx") else "#707070")
+
+                                imagebutton:
+                                    idle ("gui/icons/mute_hover.png" if preferences.get_mute("sfx") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
+                                    hover "gui/icons/mute_hover.png"
+                                    action Preference("sound mute", "toggle")
+                                    xalign 0.5 
+
+                            vbox:
+                                at trans_fade(0.75, 0.5)
+                                vbar:
+                                    value Preference("voice volume")
+                                    if preferences.get_mute("voice"):
+                                        bottom_bar Frame("gui/slider/vertical_insensitive_bar.png", gui.vslider_borders, tile=gui.slider_tile)
+                                        top_bar "#D5D5D5"
+                                text _("Voice"):
+                                    color ("#000" if not preferences.get_mute("voice") else "#707070")
+                                imagebutton:
+                                    idle ("gui/icons/mute_hover.png" if preferences.get_mute("voice") or preferences.get_mute("all") else "gui/icons/mute_idle.png")
+                                    hover "gui/icons/mute_hover.png"
+                                    action Preference("voice mute", "toggle")
+                                    xalign 0.5
+
+                            vbox:
+                                at trans_fade(1.0, 0.5)
+                                style_prefix "audio_options"
+                                xsize 253
+                                ysize 543
+                                yalign 0.5
+                                spacing 50
+
+                                vbox:
                                     yalign 0.8
+                                    spacing 10
                                     if (not preferences.get_mute("sfx")):
                                         textbutton _("Sample Effect"):
+                                            style "yellow_button_dark_hover"
                                             action Play("sound", config.sample_sound)
-                                    #if (not preferences.get_mute("voice")):
-                                    #    textbutton _("Sample Voice"):
-                                    #        action Play("voice", config.sample_voice)
+                                            xsize 253
+                                            text_size 22
+                                    if (not preferences.get_mute("voice")):
+                                        textbutton _("Sample Voice"):
+                                            style "yellow_button_dark_hover"
+                                            action Play("voice", config.sample_voice)
+                                            xsize 253
+                                            text_size 22
 
                                 hbox:
                                     style_prefix "radio_button"
-                                    yalign 1.0
-                                    yoffset 5
+                                    yalign 0.5
+                                    xalign 0.5
 
                                     imagebutton:
-                                        idle ("gui/checkbox_selected_hover_smol.png" if hover_radio == "mute" or (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else ("gui/checkbox_unselected_hover_smol.png" if hover_radio == "mute" else ("gui/checkbox_selected_idle_smol.png" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "gui/checkbox_unselected_idle_smol.png")))
-                                        hover ("gui/checkbox_unselected_hover_smol.png" if hover_radio != "mute" else "gui/checkbox_selected_hover_smol.png") 
+                                        if (hover_radio == "mute"):
+                                            idle ("gui/checkbox_selected_hover.png" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "gui/checkbox_unselected_hover.png")
+                                        else:
+                                            idle ("gui/checkbox_selected_idle.png" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "gui/checkbox_unselected_idle.png")
+                                        hover ("gui/checkbox_selected_hover.png" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "gui/checkbox_unselected_hover.png") 
+                                        yoffset 7
                                         action Preference("all mute", "toggle")
                                         hovered SetScreenVariable("hover_radio", "mute")
                                         unhovered SetScreenVariable("hover_radio", None)
-                                        yoffset 8
                                     textbutton _("Mute All"):
                                         action Preference("all mute", "toggle")
                                         hovered SetScreenVariable("hover_radio", "mute")
                                         unhovered SetScreenVariable("hover_radio", None)
-                                        text_color ("#7CC5F8" if hover_radio == "mute" else ("#0099FF" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "#707070"))
+                                        text_color ("#3B3B3B" if hover_radio == "mute" else ("#000" if (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice")) else "#707070"))
                                         text_bold hover_radio == "mute" or (preferences.get_mute("music") and preferences.get_mute("sfx") and preferences.get_mute("voice"))
+                                        text_size 26
 
-                vbox:
-                    hbox:
-                        spacing 15
-                        xalign 0.5
-                        label _("Other"):
-                            style "section_label"
-                    frame:
-                        xsize 550
-                        ysize 188
-                        
+                        textbutton _("Reset to defaults"):
+                            style "yellow_button_dark_hover"
+                            at trans_fade(1.25, 0.5)
+                            xalign 0.7
+                            xoffset 7
+                            yalign 0.79
+                            text_size 22
+                            text_idle_color "#000"
+
+                            action [
+                                Preference("music mute", "disable"),
+                                Preference("music volume", 0.75),
+                                Preference("sound mute", "disable"),
+                                Preference("sound volume", 1.0),
+                                Preference("voice mute", "disable"),
+                                Preference("voice volume", 1.0),
+                                Preference("all mute", "disable"),
+                            ]
+                            
+                    elif (selected_tab == "other"):
                         vbox:
-                            xalign 0.5
-                            spacing 15
-                            yoffset 40
-                            vbox:
-                                label _("Display"):
-                                    text_size 28
-                                hbox:
-                                    spacing 25
+                            spacing 35
+
+                            hbox:
+                                at trans_fade(0.25, 0.5)
+                                spacing 200
+                                label _("Display")
+                                vbox:
+                                    spacing 0
                                     hbox:
                                         style_prefix "radio_button"
 
@@ -1029,8 +1708,9 @@ screen preferences(start=False):
                                             action Preference("display", "fullscreen")
                                             hovered SetScreenVariable("hover_radio", "fullscreen")
                                             unhovered SetScreenVariable("hover_radio", None)
-                                            text_color ("#7CC5F8" if hover_radio == "fullscreen" else ("#0099FF" if preferences.fullscreen else "#707070"))
+                                            text_color ("#3B3B3B" if hover_radio == "fullscreen" else ("#000" if preferences.fullscreen else "#707070"))
                                             text_bold preferences.fullscreen
+                                            text_underline hover_radio == "fullscreen"
 
                                     hbox:
                                         style_prefix "radio_button"
@@ -1046,8 +1726,185 @@ screen preferences(start=False):
                                             action Preference("display", "window")
                                             hovered SetScreenVariable("hover_radio", "windowed")
                                             unhovered SetScreenVariable("hover_radio", None)
-                                            text_color ("#7CC5F8" if hover_radio == "windowed" else ("#0099FF" if not preferences.fullscreen else "#707070"))
+                                            text_color ("#3B3B3B" if hover_radio == "windowed" else ("#000" if not preferences.fullscreen else "#707070"))
                                             text_bold not preferences.fullscreen
+                                            text_underline hover_radio == "windowed"
+
+                            hbox:
+                                at trans_fade(0.5, 0.5)
+                                spacing 200
+                                label _("Font")
+                                vbox:
+                                    spacing 20
+                                    xoffset 47
+                                    hbox:
+                                        style_prefix "radio_button"
+
+                                        imagebutton:
+                                            idle ("gui/radio_hover.png" if hover_radio == "roboto" else ("gui/radio_selected.png" if gui.preference("font") == "gui/Roboto-Medium.ttf" else "gui/radio_idle.png"))
+                                            selected "gui/radio_selected.png"
+                                            hover "gui/radio_hover.png"
+                                            action gui.SetPreference("font", "gui/Roboto-Medium.ttf")
+                                            hovered SetScreenVariable("hover_radio", "roboto")
+                                            unhovered SetScreenVariable("hover_radio", None)
+
+                                        vbox:
+                                            textbutton _("Roboto"):
+                                                text_font "gui/Roboto-Medium.ttf"
+                                                action gui.SetPreference("font", "gui/Roboto-Medium.ttf")
+                                                hovered SetScreenVariable("hover_radio", "roboto")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                                text_size 32
+                                                text_color ("#3B3B3B" if hover_radio == "roboto" else ("#000" if gui.preference("font") == "gui/Roboto-Medium.ttf" else "#707070"))
+                                                text_bold gui.preference("font") == "gui/Roboto-Medium.ttf"
+                                                text_underline hover_radio == "roboto"
+                                            text _("The default font."):
+                                                style "radio_option_description"
+
+                                    hbox:
+                                        style_prefix "radio_button"
+
+                                        imagebutton:
+                                            idle ("gui/radio_hover.png" if hover_radio == "atkinson" else ("gui/radio_selected.png" if gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf" else "gui/radio_idle.png"))
+                                            selected "gui/radio_selected.png"
+                                            hover "gui/radio_hover.png"
+                                            action gui.SetPreference("font", "gui/AtkinsonHyperlegible-Regular.ttf")
+                                            hovered SetScreenVariable("hover_radio", "atkinson")
+                                            unhovered SetScreenVariable("hover_radio", None)
+
+                                        vbox:
+                                            textbutton _("Atkinson Hyperlegible"):
+                                                text_font "gui/AtkinsonHyperlegible-Regular.ttf"
+                                                action gui.SetPreference("font", "gui/AtkinsonHyperlegible-Regular.ttf")
+                                                hovered SetScreenVariable("hover_radio", "atkinson")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                                text_size 32
+                                                text_color ("#3B3B3B" if hover_radio == "atkinson" else ("#000" if gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf" else "#707070"))
+                                                text_bold gui.preference("font") == "gui/AtkinsonHyperlegible-Regular.ttf"
+                                                text_underline hover_radio == "atkinson"
+                                            text _("Recommended for users with dyslexia and similar disorders."):
+                                                style "radio_option_description"
+
+                            hbox:
+                                at trans_fade(0.75, 0.5)
+                                spacing 25
+                                label _("Psychic Splash")
+                                vbox:
+                                    spacing 20
+                                    xoffset 47
+                                    hbox:
+                                        style_prefix "radio_button"
+
+                                        imagebutton:
+                                            idle ("gui/radio_hover.png" if hover_radio == "psychic_always" else ("gui/radio_selected.png" if persistent.psychic_splash == "always" else "gui/radio_idle.png"))
+                                            selected "gui/radio_selected.png"
+                                            hover "gui/radio_hover.png"
+                                            action SetVariable("persistent.psychic_splash", "always")
+                                            hovered SetScreenVariable("hover_radio", "psychic_always")
+                                            unhovered SetScreenVariable("hover_radio", None)
+
+                                        vbox:
+                                            textbutton _("Always"):
+                                                action SetVariable("persistent.psychic_splash", "always")
+                                                hovered SetScreenVariable("hover_radio", "psychic_always")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                                text_color ("#3B3B3B" if hover_radio == "psychic_always" else ("#000" if persistent.psychic_splash == "always" else "#707070"))
+                                                text_bold persistent.psychic_splash == "always"
+                                                text_underline hover_radio == "psychic_always"
+                                            text _("Show a dramatic splash of your character whenever you use a psychic power."):
+                                                style "radio_option_description"
+
+                                    hbox:
+                                        style_prefix "radio_button"
+
+                                        imagebutton:
+                                            idle ("gui/radio_hover.png" if hover_radio == "psychic_scene" else ("gui/radio_selected.png" if persistent.psychic_splash == "scene" else "gui/radio_idle.png"))
+                                            selected "gui/radio_selected.png"
+                                            hover "gui/radio_hover.png"
+                                            action SetVariable("persistent.psychic_splash", "scene")
+                                            hovered SetScreenVariable("hover_radio", "psychic_scene")
+                                            unhovered SetScreenVariable("hover_radio", None)
+
+                                        vbox:
+                                            textbutton _("Once per scene"):
+                                                action SetVariable("persistent.psychic_splash", "scene")
+                                                hovered SetScreenVariable("hover_radio", "psychic_scene")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                                text_color ("#3B3B3B" if hover_radio == "psychic_scene" else ("#000" if persistent.psychic_splash == "scene" else "#707070"))
+                                                text_bold persistent.psychic_splash == "scene"
+                                                text_underline hover_radio == "psychic_scene"
+                                            text _("Show a dramatic splash of your character the first time you use a psychic power in a scene."):
+                                                style "radio_option_description"
+
+                                    hbox:
+                                        style_prefix "radio_button"
+
+                                        imagebutton:
+                                            idle ("gui/radio_hover.png" if hover_radio == "psychic_never" else ("gui/radio_selected.png" if persistent.psychic_splash == "never" else "gui/radio_idle.png"))
+                                            selected "gui/radio_selected.png"
+                                            hover "gui/radio_hover.png"
+                                            action SetVariable("persistent.psychic_splash", "never")
+                                            hovered SetScreenVariable("hover_radio", "psychic_never")
+                                            unhovered SetScreenVariable("hover_radio", None)
+
+                                        vbox:
+                                            textbutton _("Never"):
+                                                action SetVariable("persistent.psychic_splash", "never")
+                                                hovered SetScreenVariable("hover_radio", "psychic_never")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                                text_color ("#3B3B3B" if hover_radio == "psychic_never" else ("#000" if persistent.psychic_splash == "never" else "#707070"))
+                                                text_bold persistent.psychic_splash == "never"
+                                                text_underline hover_radio == "psychic_never"
+                                            text _("Never show a dramatic splash of your character using their powers."):
+                                                style "radio_option_description"
+
+                            textbutton _("Reset to defaults"):
+                                style "yellow_button_dark_hover"
+                                at trans_fade(1.0, 0.5)
+                                text_size 22
+                                text_idle_color "#000"
+
+                                action [
+                                    Preference("display", "fullscreen"),
+                                    gui.SetPreference("font", "gui/Roboto-Medium.ttf"),
+                                    SetVariable("persistent.psychic_splash", "always")
+                                ]
+            
+            if (start):
+                frame:
+                    xalign 0.5
+                    yalign 0.9
+                    xsize 800
+                    ysize 150
+
+                    hbox:
+                        xfill True
+                        yalign 0.85
+                        textbutton _("CONTROLS"):
+                            style "begin_button"
+                            xalign 0.1
+                            action [
+                                Hide("sample_text_speed_1"),
+                                Hide("sample_text_speed_2"),
+                                ShowMenu("help", return_action=ShowMenu("preferences", start=True))
+                            ]
+
+                        textbutton _("CONTINUE"):
+                            style "begin_button"
+                            xalign 0.9
+                            action [
+                                Hide("preferences", quick_dissolve),
+                                SetVariable("persistent.game_launched", True),
+                                Start()
+                            ]
+
+                    text _("These settings can be changed from the Settings menu at any time"):
+                        xalign 0.5
+                        yalign 0.15
+                        xmaximum 500
+                        size 20
+                        text_align 0.5
+                        color "#000"
 
 style pref_label is gui_label
 style pref_label_text is gui_label_text
@@ -1080,6 +1937,9 @@ style section_label:
     yalign 0.5
     bottom_margin 10
 
+style section_label_text is label_text:
+    font "gui/chubhand.ttf"
+
 style reading_box_label_text:
     size 28
 
@@ -1093,30 +1953,31 @@ style reading_box_slider:
     xsize 300
 
 style reading_box_text:
-    color "#0099ff"
+    color "#000"
     size 20
     yalign 0.5
 
 style audio_bars_hbox:
-    spacing 15
+    spacing 150
 
 style audio_bars_vbox:
     spacing 10
 
 style audio_bars_vslider:
-    ysize 170
+    ysize 450
+    xsize 46
     xalign 0.5
 
 style audio_bars_text:
-    color "#0099ff"
-    size 20
+    color "#000"
+    size 32
 
 style audio_options_button:
     xsize 180
     background Frame("gui/frame_thicc.png")
 
 style audio_options_button_text:
-    color "#0099ff"
+    color "#000"
     font "DejaVuSans.ttf"
     xalign 0.5
     size 20
@@ -1126,13 +1987,13 @@ style radio_button_hbox:
     spacing 0
 
 style radio_button_image_button:
-    yoffset 7
+    yoffset 16
 
 style radio_button_button_text:
-    size 20
+    size 32
     font "DejaVuSans.ttf"
-    hover_color "#0099ff"
-    selected_color "#0099ff"
+    hover_color "#000"
+    selected_color "#000"
 
 style pref_label:
     top_margin gui.pref_spacing
@@ -1153,7 +2014,12 @@ style radio_button:
 
 style radio_button_text:
     properties gui.button_text_properties("radio_button")
-    selected_color "#0099ff"
+    selected_color "#000"
+
+style radio_option_description:
+    size 20
+    xoffset 5
+    color "#000"
 
 style check_vbox:
     spacing gui.pref_button_spacing
@@ -1164,7 +2030,7 @@ style check_button:
 
 style check_button_text:
     properties gui.button_text_properties("check_button")
-    selected_color "#0099ff"
+    selected_color "#000"
 
 style slider_slider:
     xsize 525
@@ -1180,6 +2046,15 @@ style slider_button_text:
 style slider_vbox:
     xsize 675
 
+style setting_description_text:
+    color "#000"
+    size 18
+    xmaximum 300
+
+style slider_bar_text:
+    color "#000"
+    size 16
+
 screen sample_text_speed_1:
     timer (209 / (preferences.text_cps if preferences.text_cps > 0 else 209) + preferences.afm_time):
         repeat True
@@ -1188,25 +2063,38 @@ screen sample_text_speed_1:
         ]
 
     if (renpy.get_screen("preferences")):
-        text _("Sample Text #1"):
+        text _("From as far back as the 1930s, theories about the existence of extrasensory perception have been put forth. Scientific experiments have been performed to detect such abilities, but have never conclusively proved their existence."):
             style "sample_text"
             slow_cps preferences.text_cps
     
 screen sample_text_speed_2:
     if (renpy.get_screen("preferences")):
-        text _("Sample Text #2"):
+        text _("Although many believe that these abilities are pseudoscience, they are wrong. There are people with extrasensory perception who live among us today."):
             style "sample_text"
             slow_cps preferences.text_cps
-            yalign 0.76
-            xoffset -6
+            yalign 0.66
+            xoffset 26
 
 style sample_text:
-    color "#006CBF"
-    size 22
-    xalign 0.27
-    yalign 0.58
-    xmaximum 500
+    color "#000"
+    size 26
+    xalign 0.5
+    yalign 0.51
+    xmaximum 800
 
+style yellow_button_dark_hover is yellow_button:
+    hover_background Frame("gui/button/button_dark.png")
+
+style yellow_button_dark_hover_text is yellow_button_text:
+    hover_color "#000"
+
+style begin_button is button
+style begin_button_text is button_text:
+    size 45
+    color "#000"
+    hover_color "#000"
+    hover_underline True
+    font "gui/chubhand.ttf"
 
 ## History screen ##############################################################
 ##
@@ -1310,136 +2198,363 @@ style history_label_text:
 ## screens (keyboard_help, mouse_help, and gamepad_help) to display the actual
 ## help.
 
-screen help():
+screen help(return_action=None):
+    default show_content = False
+    default hide_content = False
+    default selected_tab = "controls"
+    default device = ("keyboard" if current_input == "KB" else "gamepad")
+    default gameplay_help = "powers"
 
     tag menu
 
-    default device = "keyboard"
+    timer 1.2:
+        action SetScreenVariable("show_content", True)
 
-    use game_menu(_("Help"), scroll="viewport"):
+    if (hide_content):
+        timer 0.5:
+            action SetScreenVariable("hide_content", False)
 
-        style_prefix "help"
+    use game_menu(_("HELP"), return_action=return_action):
 
-        vbox:
-            spacing 23
+        if (show_content):
+            vbox:
+                style_prefix "help_tabs"
+                at trans_fade(0.0, 0.5)
 
-            hbox:
+                textbutton _("Controls"):
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "controls")
+                    ]
+                    selected selected_tab == "controls"
+                textbutton _("Gameplay"):
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "gameplay")
+                    ]
+                    selected selected_tab == "gameplay"
 
-                textbutton _("Keyboard") action SetScreenVariable("device", "keyboard")
-                textbutton _("Mouse") action SetScreenVariable("device", "mouse")
+            image Solid("#000"):
+                xsize 5
+                ysize 2
+                xpos 385
+                ypos 90
+                yanchor 0.0
+                at transform:
+                    linear 1.5:
+                        ysize 180
 
-                if GamepadExists():
-                    textbutton _("Gamepad") action SetScreenVariable("device", "gamepad")
+            frame:
+                background None
+                xsize 1275
+                ysize 800
+                xalign 0.64
+                yalign 0.2
 
-            if device == "keyboard":
-                use keyboard_help
-            elif device == "mouse":
-                use mouse_help
-            elif device == "gamepad":
-                use gamepad_help
+                if (hide_content == False):
+
+                    vbox:
+                        spacing 80
+                        at trans_fade(0.0, 0.5), fade_side_to_side
+
+                        if (selected_tab == "controls"):
+                            vbox:
+                                style_prefix "controls_help"
+                                spacing 23
+
+                                hbox:
+                                    textbutton _("Keyboard"): 
+                                        action SetScreenVariable("device", "keyboard")
+                                    textbutton _("Mouse"): 
+                                        action SetScreenVariable("device", "mouse")
+                                    textbutton _("Gamepad"): 
+                                        action SetScreenVariable("device", "gamepad")
+
+                                if device == "keyboard":
+                                    vbox:
+                                        use keyboard_help
+                                elif device == "mouse":
+                                    use mouse_help
+                                elif device == "gamepad":
+                                    use gamepad_help
+                        elif (selected_tab == "gameplay"):
+                            #Goals
+                                # Try to read peoples' minds at the right time
+                                # Use the progress indicator to determine how far through the convo you are
+
+                            #Navigation 
+                                # Choose where to go, three places per day
+
+                            vbox:
+                                style_prefix "controls_help"
+                                spacing 23
+
+                                hbox:
+                                    textbutton _("Psychic Powers"): 
+                                        action SetScreenVariable("gameplay_help", "powers")
+                                    if (config.developer):
+                                        textbutton _("Other"): 
+                                            action SetScreenVariable("gameplay_help", "other")
+                                        textbutton _("Other #2"):
+                                            action SetScreenVariable("gameplay_help", "other2")
+
+                                vbox:
+                                    spacing 50
+                                    if (gameplay_help == "powers"):
+                                        hbox:
+                                            style_prefix "help_power"
+                                            image "gui/icons/mind_read_icon_idle.png":
+                                                xoffset 50
+                                                at transform:
+                                                    zoom 2
+                                            vbox:
+                                                label _("Mind Read")
+                                                text _("Read the mind of the person you're speaking to. Their thoughts will usually reflect the current line.")
+                                        hbox:
+                                            style_prefix "help_power"
+                                            image "gui/icons/mind_wipe_icon_idle.png":
+                                                xoffset 50
+                                                at transform:
+                                                    zoom 2
+                                            vbox:
+                                                label _("Rewind Mind")
+                                                text _("Make the person you're speaking to forget the last few minutes, and restart the conversation from the start.")
+                                        hbox:
+                                            style_prefix "help_power"
+                                            image "gui/icons/future_sight_icon_idle.png":
+                                                xoffset 50
+                                                at transform:
+                                                    zoom 2
+                                            vbox:
+                                                label _("Future Sight")
+                                                text _("Get a glimpse of the future and see the keywords which will help you reach your goal.")
+                                    elif (gameplay_help == "other"):
+                                        hbox:
+                                            style "help_other"
+                                            vbox:
+                                                spacing 10
+                                                text _("Help Item"):
+                                                    style "credit_heading"
+                                                text _("Some sort of assistance goes here"):
+                                                    style "credit_person"
+
+                                        hbox:
+                                            style "help_other"
+                                            vbox:
+                                                spacing 10
+                                                text _("Another Help Item"):
+                                                    style "credit_heading"
+                                                text _("More assistance here"):
+                                                    style "credit_person"
+                                    elif (gameplay_help == "other2"):
+                                        hbox:
+                                            style "help_other"
+                                            vbox:
+                                                spacing 10
+                                                text _("More Help Items"):
+                                                    style "credit_heading"
+                                                text _("Helping players with text descriptions here"):
+                                                    style "credit_person"
+
+                                        hbox:
+                                            style "help_other"
+                                            vbox:
+                                                spacing 10
+                                                text _("Yet More Help Items"):
+                                                    style "credit_heading"
+                                                text _("This describes how to use a gameplay mechanic"):
+                                                    style "credit_person"
+
 
 
 screen keyboard_help():
+    style_prefix "keyboard_controls_list"
 
     hbox:
+        at trans_fade(0.25, 0.25)
         label _("Enter")
         text _("Advances dialogue and activates the interface.")
 
     hbox:
+        at trans_fade(0.3, 0.25)
         label _("Space")
         text _("Advances dialogue without selecting choices.")
 
     hbox:
+        at trans_fade(0.35, 0.25)
+        label _("1")
+        text _("Activate your Mind Read power.")
+
+    hbox:
+        at trans_fade(0.4, 0.25)
+        label _("2")
+        text _("Activate your Rewind Mind power.")
+
+    hbox:
+        at trans_fade(0.45, 0.25)
+        label _("3")
+        text _("Activate your Future Sight power.")
+
+    hbox:
+        at trans_fade(0.45, 0.25)
         label _("Arrow Keys")
         text _("Navigate the interface.")
 
     hbox:
+        at trans_fade(0.5, 0.25)
         label _("Escape")
         text _("Accesses the game menu.")
 
     hbox:
+        at trans_fade(0.55, 0.25)
         label _("Ctrl")
         text _("Skips dialogue while held down.")
 
     hbox:
+        at trans_fade(0.6, 0.25)
         label _("Tab")
         text _("Toggles dialogue skipping.")
 
     hbox:
+        at trans_fade(0.65, 0.25)
         label _("Page Up")
-        text _("Rolls back to earlier dialogue.")
+        text _("Scroll history log up.")
 
     hbox:
+        at trans_fade(0.7, 0.25)
         label _("Page Down")
-        text _("Rolls forward to later dialogue.")
+        text _("Scroll history log down.")
 
     hbox:
+        at trans_fade(0.75, 0.25)
         label "H"
         text _("Hides the user interface.")
 
     hbox:
+        at trans_fade(0.8, 0.25)
         label "S"
         text _("Takes a screenshot.")
 
     hbox:
+        at trans_fade(0.85, 0.25)
         label "V"
         text _("Toggles assistive {a=https://www.renpy.org/l/voicing}self-voicing{/a}.")
 
     hbox:
+        at trans_fade(0.9, 0.25)
         label "Shift+A"
         text _("Opens the accessibility menu.")
 
 
 screen mouse_help():
+    style_prefix "mouse_controls_list"
 
     hbox:
+        at trans_fade(0.25, 0.25)
         label _("Left Click")
         text _("Advances dialogue and activates the interface.")
 
     hbox:
+        at trans_fade(0.3, 0.25)
         label _("Middle Click")
         text _("Hides the user interface.")
 
     hbox:
+        at trans_fade(0.35, 0.25)
         label _("Right Click")
         text _("Accesses the game menu.")
 
     hbox:
+        at trans_fade(0.4, 0.25)
         label _("Mouse Wheel Up")
-        text _("Rolls back to earlier dialogue.")
+        text _("Scroll history log up.")
 
     hbox:
+        at trans_fade(0.45, 0.25)
         label _("Mouse Wheel Down")
-        text _("Rolls forward to later dialogue.")
+        text _("Scroll history log down.")
 
 
 screen gamepad_help():
+    style_prefix "gamepad_controls_list"
 
     hbox:
-        label _("Right Trigger\nA/Bottom Button")
-        text _("Advances dialogue and activates the interface.")
+        spacing 25
+        vbox:
+            style_prefix "controller_left_controls"
+            yoffset 15
+            spacing 25
 
-    hbox:
-        label _("Left Trigger\nLeft Shoulder")
-        text _("Rolls back to earlier dialogue.")
+            vbox:
+                spacing 12
+                text _("Scroll history log up"):
+                    at trans_fade(0.25, 0.25)
+                text _("Scroll history log up"):
+                    at trans_fade(0.3, 0.25)
+            vbox:
+                spacing 70
+                vbox:
+                    spacing 13
+                    text _("Open pause menu"):
+                        at trans_fade(0.35, 0.25)
+                    text _("Activate Mind Rewind"):
+                        size 18
+                        at trans_fade(0.4, 0.25)
+                    text _("Activate Future Sight"):
+                        size 18
+                        at trans_fade(0.45, 0.25)
+                    text _("Activate Mind Read"):
+                        at trans_fade(0.5, 0.25)
+                    text _("N/A"):
+                        at trans_fade(0.55, 0.25)
 
-    hbox:
-        label _("Right Shoulder")
-        text _("Rolls forward to later dialogue.")
+                vbox:
+                    text _("Navigate menus and buttons"):
+                        at trans_fade(0.6, 0.25)
 
-    hbox:
-        label _("D-Pad, Sticks")
-        text _("Navigate the interface.")
+        image "gui/icons/controller.png":
+            xalign 0.5
+            yalign 0.5
+            at trans_fade(0.0, 0.25)
 
-    hbox:
-        label _("Start, Guide, B/Right Button")
-        text _("Accesses the game menu.")
+        vbox:
+            style_prefix "controller_right_controls"
+            yoffset 15
+            spacing 32
+            vbox:
+                spacing 12
+                text _("Advance dialogue, activate the interface"):
+                    size 18
+                    at trans_fade(0.25, 0.25)
+                text _("Scroll history log down"):
+                    at trans_fade(0.3, 0.25)
 
-    hbox:
-        label _("Y/Top Button")
-        text _("Hides the user interface.")
+            vbox:
+                spacing 50
+                vbox:
+                    spacing 12
+                    text _("Open pause menu"):
+                        at trans_fade(0.35, 0.25)
+                    text _("Hide user interface"):
+                        size 18
+                        at trans_fade(0.4, 0.25)
+                    text _("N/A"):
+                        at trans_fade(0.45, 0.25)
+                    text _("Close current menu"):
+                        at trans_fade(0.5, 0.25)
+                    text _("Advance dialogue, activate the interface"):
+                        size 18
+                        at trans_fade(0.55, 0.25)
 
-    textbutton _("Calibrate") action GamepadCalibrate()
+                vbox:
+                    text _("Navigate menus and buttons"):
+                        at trans_fade(0.6, 0.25)
+
+    #textbutton _("Calibrate"): 
+    #    style "yellow_button_dark_hover"
+    #    xalign 0.5
+    #    yoffset 25
+    #    action GamepadCalibrate()
 
 
 style help_button is gui_button
@@ -1464,7 +2579,77 @@ style help_label_text:
     xalign 1.0
     textalign 1.0
 
+style help_tabs is credits_tabs
+style help_tabs_vbox is credits_tabs_vbox:
+    yalign 0.1
 
+style help_tabs_button is credits_tabs_button:
+    xsize 310
+
+style help_tabs_button_text is credits_tabs_button_text:
+    size 66
+
+style controls_help_hbox:
+    box_align 0.5
+    xsize 1100
+
+style controls_help_button_text:
+    color "#000"
+    selected_color "#F2EE29"
+    selected_outlines [ (4, "#000005", 0, 0) ]
+    font "gui/chubhand.ttf"
+    hover_underline True
+    size 56
+
+style keyboard_controls_list_hbox:
+    box_align 0.0
+
+style keyboard_controls_list_label:
+    xsize 250
+
+style keyboard_controls_list_label_text:
+    text_align 0.0
+    color "#000"
+
+style keyboard_controls_list_text:
+    xsize 850
+    color "#3B3B3B"
+
+style mouse_controls_list_hbox is keyboard_controls_list_hbox
+style mouse_controls_list_label is keyboard_controls_list_label:
+    xsize 400
+
+style mouse_controls_list_label_text is keyboard_controls_list_label_text
+style mouse_controls_list_text is keyboard_controls_list_text:
+    xsize 700
+
+style controller_left_controls_vbox:
+    xsize 180
+
+style controller_left_controls_text:
+    color "#000"
+    xalign 1.0
+    text_align 1.0
+    size 20
+
+style controller_right_controls_vbox is controller_left_controls_vbox
+style controller_right_controls_text is controller_left_controls_text:
+    xalign 0.0
+    text_align 0.0
+
+style help_power_hbox is hbox:
+    spacing 100
+style help_power_label_text is label_text:
+    color "#000"
+    font "gui/chubhand.ttf"
+    size 56
+style help_power_text is text:
+    color "#000"
+    xmaximum 900
+
+style help_other:
+    box_align 0.0
+    xoffset 194
 
 ################################################################################
 ## Additional screens
@@ -1526,13 +2711,14 @@ style confirm_frame:
 style confirm_prompt_text:
     textalign 0.5
     layout "subtitle"
+    color "#000"
 
 style confirm_button:
     properties gui.button_properties("confirm_button")
 
 style confirm_button_text:
     properties gui.text_properties("confirm_button")
-
+    hover_underline True
 
 ## Skip indicator screen #######################################################
 ##
@@ -1547,16 +2733,24 @@ screen skip_indicator():
     style_prefix "skip"
 
     frame:
+        background Solid("#F2EE29")
+        xsize 75
+        ysize 75
+        xalign 1.0
+        yalign 0.1
+        xoffset 75
+        at transform:
+            on show:
+                xoffset 0
+                ease 0.5:
+                    xoffset -75
+            on hide:
+                ease 0.5:
+                    xoffset 75
 
-        hbox:
-            spacing 9
-
-            text _("Skipping")
-
-            text "▸" at delayed_blink(0.0, 1.0) style "skip_triangle"
-            text "▸" at delayed_blink(0.2, 1.0) style "skip_triangle"
-            text "▸" at delayed_blink(0.4, 1.0) style "skip_triangle"
-
+        image "gui/icons/skip.png":
+            xoffset -22
+            yalign 0.5
 
 ## This transform is used to blink the arrows one after another.
 transform delayed_blink(delay, cycle):

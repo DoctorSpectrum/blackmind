@@ -24,7 +24,7 @@ define gui.show_name = True
 
 ## The version of the game.
 
-define config.version = "1.0"
+define config.version = "1.1"
 
 
 ## Text that is placed on the game's about screen. Place the text between the
@@ -38,7 +38,7 @@ define gui.about = _p("""
 ## distribution. This must be ASCII-only, and must not contain spaces, colons,
 ## or semicolons.
 
-define build.name = "BlankProject"
+define build.name = "BLACKMIND"
 
 
 ## Sounds and music ############################################################
@@ -55,15 +55,30 @@ define config.has_voice = True
 ## To allow the user to play a test sound on the sound or voice channel,
 ## uncomment a line below and use it to set a sample sound to play.
 
-# define config.sample_sound = "sample-sound.ogg"
-# define config.sample_voice = "sample-voice.ogg"
+define config.sample_sound = "audio/sfx/mind_read.mp3"
+define config.sample_voice = "audio/voice/partials/jack/jack_mind_read_01.ogg"
 
 
 ## Uncomment the following line to set an audio file that will be played while
 ## the player is at the main menu. This file will continue playing into the
 ## game, until it is stopped or another file is played.
 
-# define config.main_menu_music = "main-menu-theme.ogg"
+define config.main_menu_music = "audio/music/brain_matter.mp3"
+
+init python:
+    def progress_convo(event, interact=True, **kwargs):
+        if not interact:
+            return
+
+        global convo_progress, progress_convo
+
+        if (event == "begin" and progress_convo):
+            convo_progress += 1
+        if (event == "slow_done"):
+            if (renpy.get_widget("conversation_history", "history_viewport")):
+                renpy.get_widget("conversation_history", "history_viewport").yadjustment.value = renpy.get_widget("conversation_history", "history_viewport").yadjustment.range + 50
+
+define config.character_callback = progress_convo
 
 
 ## Transitions #################################################################
@@ -144,7 +159,7 @@ default preferences.afm_time = 5
 ## This generally should not be changed, and if it is, should always be a
 ## literal string, not an expression.
 
-define config.save_directory = "BlankProject-1761704484"
+define config.save_directory = "BLACKMIND-dev"
 
 
 ## Icon ########################################################################

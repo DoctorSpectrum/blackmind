@@ -1,27 +1,117 @@
 init python:
-    #_game_menu_screen = "pause"
+    _game_menu_screen = "pause_menu"
 
     config.fade_music = 1.0
     config.autosave_on_choice = False
+    config.pass_joystick_events = True
+    config.overlay_screens.append("input_checker")
+
+    import datetime, random
 
     #Functions
     def swap_sprites(new_sprite, transition = None, position = center):
         for sprite in renpy.list_images():
-            if (sprite[0:14] == "character_name"):
+            if (sprite[0:7] == "barbara" or sprite[0:6] == "graves" or sprite[0:5] == "eddie" or sprite[0:3] == "cat"):
                 renpy.hide(sprite)
         renpy.show(new_sprite, [position])
         if transition is not None:
             renpy.with_statement(transition)
 
     def play_music(song_title):
-        if(song_title == "song_title"):
-            renpy.music.play("<from 0.0 to 44.000>audio/music/song_title.mp3", loop=True)
+        if(song_title == "neutral_1"):
+            renpy.music.play("audio/music/bourbon_mood.mp3", loop=True)
+        elif (song_title == "tense_1"):
+            renpy.music.play("audio/music/blundering_mistake.mp3", loop=True)
+        elif (song_title == "ambient_1"):
+            renpy.music.play("audio/music/before_midnight.mp3", loop=True)
+        elif (song_title == "neutral_2"):
+            renpy.music.play("audio/music/bitter_memories.mp3", loop=True)
+        elif (song_title == "tense_2"):
+            renpy.music.play("audio/music/beware_murderer.mp3", loop=True)
+        
+        unlock_music(song_title)
 
-    def play_sound(effect_name, loop=False, volume=1.0, from_time="", pause=None):
+    def play_sound(effect_name, loop=False, volume=1.0, from_time="", pause=None, transition=None):
         if (renpy.is_skipping() == False):
             renpy.sound.play(from_time + "audio/sfx/" + effect_name, loop=loop, relative_volume=volume)
+        if (transition is not None):
+            renpy.with_statement(transition)
         if (pause is not None and not preferences.get_mute("sfx") and preferences.get_mixer("sfx") > 0 and not renpy.is_skipping()):
             renpy.pause(pause, hard=True)
+
+    def jack_partial(line):
+        voice("audio/voice/partials/jack/jack_" + line + ".ogg")
+
+    def barbara_partial(line):
+        voice("audio/voice/partials/barbara/barbara_" + line + ".ogg")
+
+    def docherty_partial(line):
+        voice("audio/voice/partials/docherty/docherty_" + line + ".ogg")
+
+    def mind_read_line():
+        #In the full version, account for whether we're having Lloyd or Jack read this line
+        line = random.choice([
+            "audio/voice/partials/jack/jack_mind_read_01.ogg",
+            "audio/voice/partials/jack/jack_mind_read_02.ogg"
+        ])
+        voice(line)
+        if (preferences.get_mute("voice") or preferences.get_mixer("voice") < 0.1):
+            return {
+                "time": 2.0,
+                "line": "TELL ME\nWHAT YOU'RE \nTHINKING!"
+            }
+        elif (line == "audio/voice/partials/jack/jack_mind_read_01.ogg"):
+            return {
+                "time": 2.2,
+                "line": "TELL ME\nWHAT YOU'RE \nTHINKING!"
+            }
+        elif (line == "audio/voice/partials/jack/jack_mind_read_02.ogg"):
+            return {
+                "time": 3.2,
+                "line": "YOU CAN'T\nHIDE YOUR\nSECRETS\nFROM ME!"
+            }
+
+    def mind_rewind_line():
+        line = random.choice([
+            "audio/voice/partials/jack/jack_mind_wipe_01.ogg",
+            "audio/voice/partials/jack/jack_mind_wipe_02.ogg"
+        ])
+        voice(line)
+        if (preferences.get_mute("voice") or preferences.get_mixer("voice") < 0.1):
+            return {
+                "time": 2.0,
+                "line": "FORGET ALL\nOF THIS!"
+            }
+        elif (line == "audio/voice/partials/jack/jack_mind_wipe_01.ogg"):
+            return {
+                "time": 2.2,
+                "line": "FORGET ALL\nOF THIS!"
+            }
+        elif (line == "audio/voice/partials/jack/jack_mind_wipe_02.ogg"):
+            return {
+                "time": 2.8,
+                "line": "YOU WILL NOT\nREMEMBER..."
+            }
+
+    def unlock_music(handle):
+        tracks = list(filter(lambda x: x["handle"] == handle, persistent.music_tracks))
+        if (len(tracks) > 0):
+            tracks[0]["unlocked"] = True
+
+    def lock_music(handle):
+        tracks = list(filter(lambda x: x["handle"] == handle, persistent.music_tracks))
+        if (len(tracks) > 0):
+            tracks[0]["unlocked"] = False
+
+    def jump_sound(value):
+        currently_playing = renpy.get_screen_variable("currently_playing", "sound_room")
+        renpy.music.play("<from " + (str(value)) + ">audio/music/" + currently_playing["file"], loop=False)
+        renpy.set_screen_variable("pause_bar", True, screen="sound_room")
+
+    def convert_to_time(value):
+        if (value == None):
+            return ""
+        return '{0:02.0f}:{1:02.0f}'.format(*divmod(value, 60))
 
     def queue_sound(effect_name, loop=False):
         if (renpy.is_skipping() == False):
@@ -38,9 +128,153 @@ init python:
         disable_rollback()
         enable_rollback()
 
-    def unlock_cg(cg_id):
-        if (cg_id not in persistent.cgs_unlocked):
-            persistent.cgs_unlocked.append(cg_id)
+    def check_boolean(value):
+        return value in booleans
 
-    def lock_cg(cg_id):
-        persistent.cgs_unlocked.remove(cg_id)
+    def add_boolean(value):
+        if (not check_boolean(value)):
+            booleans.append(value)
+
+    def remove_boolean(value):
+        if (check_boolean(value)):
+            booleans.remove(value)
+
+    def cg_index_unlocked(index):
+        return list(filter(lambda x: x["locked"] == False, persistent.cgs[index]["images"]))
+
+    def total_cgs_unlocked():
+        total = 0
+        for i in range(1):
+            total += len(cg_index_unlocked(i))
+
+        return total
+
+    def unlock_cg(cg_index, file_index):
+        persistent.cgs[cg_index]["images"][file_index]["locked"] = False
+
+    def lock_cg(cg_index, file_index):
+        persistent.cgs[cg_index]["images"][file_index]["locked"] = True
+
+    # Menus
+    def close_menu():
+        if (renpy.get_screen("saves_list")):
+            renpy.hide_screen("saves_list")
+        elif (renpy.get_screen("preferences")):
+            renpy.hide_screen("preferences")
+        elif (renpy.get_screen("about")):
+            renpy.hide_screen("about")
+
+        renpy.transition(quick_dissolve)
+        
+        if (not main_menu and not renpy.get_screen("map_navigation")):
+            renpy.show_screen("pause_menu")
+    
+    def clickable_button():
+        if (not renpy.get_screen("saves_list") and not renpy.get_screen("preferences") and not renpy.get_screen("about")):
+            return True
+
+        return False
+
+    # Screens
+    def hide_history():
+        global history_expanded
+        history_expanded = (renpy.get_screen_variable("expanded", "conversation_history") if renpy.get_screen("conversation_history") else history_expanded)
+        renpy.hide_screen("conversation_history")
+
+    def show_history():
+        global history_expanded
+        renpy.show_screen("conversation_history", history_expanded, True, history_expanded)
+
+    # Save/load
+    def add_date_suffix(date):
+        date = int(date)
+        date_suffix = ["th", "st", "nd", "rd"]
+
+        if date % 10 in [1, 2, 3] and date not in [11, 12, 13]:
+            return str(date) + date_suffix[date % 10] + " "
+        else:
+            return str(date) + date_suffix[0] + " "
+
+    def default_save_name():
+        return "Save " + (find_next_save().replace("1-", ""))
+
+    def find_next_save():
+        for i in range(15):
+            if (not renpy.can_load("1-" + str(i + 1))):
+                return "1-" + str(i + 1)
+
+        return "0"
+
+    # General gameplay
+    def scene_setup(scene_length = 0, calendar_day="Monday", calendar=True, calendar_section=1, calendar_sections=4, convo_scene=True, history=True):
+        global progress_convo, convo_progress, convo_length, _history_list
+        progress_convo = convo_scene
+        convo_progress = 0
+        convo_length = scene_length
+        _history_list.clear()
+        remove_boolean("psychic_splash_read")
+        remove_boolean("psychic_splash_rewind")
+        renpy.choice_for_skipping()
+
+        if (calendar):
+            renpy.show_screen("calendar", day=calendar_day, section=calendar_section, sections=calendar_sections)
+        if (history):
+            show_history()
+
+    def set_convo_length(length, progress=0):
+        global convo_progress, convo_length
+        convo_progress = progress
+        convo_length = length
+
+    def extend_convo_length(extension):
+        global convo_progress, convo_length
+        set_convo_length(convo_length + extension, convo_progress)
+
+    def ignore_thoughts_length(subtract=1):
+        global convo_progress, progress_convo, reading_mind
+        if (progress_convo):        #We only need to subtract it if it's been added to the length
+            convo_progress -= subtract
+        progress_convo = True
+        reading_mind = False
+        renpy.show_screen("psychic_powers")
+
+    # Navigation selection
+    def find_locations(ids):
+        return list(filter(lambda x: x["id"] in ids, destinations))
+
+    def visit_location(location):
+        if (len(days[0]) < 3):
+            days[0].append(location)
+        elif (len(days[1]) < 3):
+            days[1].append(location)
+        elif (len(days[2]) < 3):
+            days[2].append(location)
+        elif (len(days[3]) < 3):
+            days[3].append(location)
+
+        #if (len(days[0]) == 3 and len(days[1]) == 0):
+        #    renpy.save(str(game_id) + "_A_01_03")
+        #    [id]_[branch]_[day]_[section]
+        #elif (len(days[1]) == 3 and len(days[2]) == 0):
+        #    renpy.save(str(game_id) + "_A_02_03")
+        #elif (len(days[2]) == 3 and len(days[3]) == 0):
+        #    renpy.save(str(game_id) + "_A_03_03")
+        #elif (len(days[3]) == 3):
+        #    renpy.save(str(game_id) + "_A_04_03")
+
+
+    #Classes
+    class InputChecker(renpy.Displayable):
+        def __init__(self, **kwargs):
+            super(InputChecker, self).__init__(**kwargs)
+
+        def render(self, width, height, st, at):
+            return renpy.Render(0, 0)
+
+        def event(self, ev, x, y, st):
+            import pygame
+            if ev.type in (pygame.KEYDOWN, pygame.KEYUP, pygame.MOUSEBUTTONUP, pygame.MOUSEBUTTONDOWN):
+                store.current_input = "KB"
+            elif ev.type in (pygame.JOYBUTTONUP, pygame.JOYBUTTONDOWN, pygame.JOYAXISMOTION, pygame.JOYBALLMOTION, pygame.JOYHATMOTION):
+                store.current_input = "GP"
+            return None
