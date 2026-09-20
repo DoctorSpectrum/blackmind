@@ -23,10 +23,14 @@ BLACKMIND TODO
                         change it so that our A-1 is now Graves, Cat, Eddie. If it's, say, Cat, we change it so that it's Cat, Barbara, Eddie. It shouldn't affect anything negatively but I'll need to test the heck out of this.
                 - Location map
                     - I like the idea of having a bunch of descriptions, and then for each node when we can choose one of them we just update the key we're using to access that description. It...might make things easier?
-                - Future vision
-                    - I really like the keyword idea. I should work on this sooner rather than later and integrate it into the demo.
+                        - future_sight_info works well because we're returning an object from a function, so if we update it after loading the game it uses the new data. So a function which returns the description is prolly the way to go.
                 - Other
                     - Newspaper and Sergei's book: I like the idea of these being actual doccos we browse; for the alpha I might just make a devnote of "I'd like these to actually be browsable; thoughts?" and see what they say
+                    - Attune your psychic senses: Add this in as an option to settings; menu item can be called ESP or something
+                        - Should have a thing saying something like "this game can be played using psychic abilities. If you have psychic abilities, check this box to enable psychic controls", then checking a box brings up a setting
+                            for the frequency to broadcast psychic abilities at (like three frequencies, with a description for each e.g. "recommended for users with a maximum psychic strength of 101.4 - 118.9 PSI" or something)
+                        - There should also be a button "test psychic abilities" or something and then it brings up a modal which says "concentrate until the thoughts are fully visible" or something and then there's some words at like 99% 
+                            transparency, and we've got a timer that randomly sets a value that increases/decreases their opacity by a tiny amount.
 
     - Feedback Phase
         - Delivery Date: 30/03/2027
