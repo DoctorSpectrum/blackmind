@@ -570,7 +570,7 @@ label prologue_music_venue:
     $ jack_partial("confused_01")
     jack worried "(I - I still don’t know why I got them, or how, but I’m glad that I’ve got - that I have them.)"
     $ jack_partial("cocky_01")
-    jack smug "(I’ve got big plans in the future...[wait_05]just need s’more money...)"
+    jack smug "(I’ve got big plans for the future...[wait_05]just need to work out when to do the confrontation...[wait_05]get my revenge...)"
     scene venue_exterior at drunk_cycle(5, 0, 1.0) with slow_dissolve
     $ jack_partial("irritated_02")
     jack angry "(There’s the door guy...[wait_05]why couldn’t it be a sexy woman on the door?[wait_1] Give us something to - to look at while we’re going in...)"
@@ -592,7 +592,7 @@ label prologue_restaurant:
     $ jack_partial("irritated_01")
     jack thinking "(They should - they should lower their prices anyway, cos chips are - chips are - they’re too expensive. But they don’t wanna do that, cos they - they just wanna make money.)"
     jack thinking "(All they care about is themselves, and - and their profits and stuff...[wait_1]they’re just like that bartender.[wait_1] Everybody only cares about themselves.)"
-    jack worried "(Anyway, I’d - I’d pay for stuff if I had the money, but I don’t, since I had to - I gave all that I had to that guy.)"
+    jack worried "(Anyway, I’d - I’d pay for stuff if I had the money, but I don’t, since I had to - I gave all that I had to that guy, Graves.)"
     $ jack_partial("disappointed_01")
     jack worried "(He’s soooo expensive...[wait_1]got the info I wanted, but did he - did he have to cost so much?)"
     scene restaurant_night at drunk_cycle(5, 0, 1.0), restaurant with slow_dissolve
