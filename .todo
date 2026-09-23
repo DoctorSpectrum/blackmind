@@ -16,6 +16,10 @@ BLACKMIND TODO
                 - I might ask Serena or MC to write me up a description to send to the BG artist
             - Placeholder music
             - Programming:
+                - Debugging:
+                    - Let's add in a debug button (D or something) that displays the name of the current scene and some variables - that way I can get the others to give me variable info if they find bugs.
+                    - For some of the interface-y bits - browsing Sergei's notes, browsing Cat's texts + the articles - let's just display text saying "placeholder, will fill this out later" or something and get people to tell me whether they
+                        would rather an interface or they're fine for Lloyd to narrate the contents of what he's seeing.
                 - Flow chart
                     - I think that I can do this by having each node let us jump to a point of the script. At that label we wipe any booleans that we generate in the scene, so that we're seeing it as though it's the first time again. Jumping
                         back and forth might mean that some branches can't be unlocked but if we've unlocked the node we can jump past the lock anyway - any scenes past there we already know that we hit the flag to unlock it.
