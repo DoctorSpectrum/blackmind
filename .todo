@@ -23,6 +23,10 @@ BLACKMIND TODO
                 - Flow chart
                     - I think that I can do this by having each node let us jump to a point of the script. At that label we wipe any booleans that we generate in the scene, so that we're seeing it as though it's the first time again. Jumping
                         back and forth might mean that some branches can't be unlocked but if we've unlocked the node we can jump past the lock anyway - any scenes past there we already know that we hit the flag to unlock it.
+                        - New issue has occurred to me: if we set a boolean that affects something bad in the future, then jumping back to this scene would wipe it. If we then jump to a future scene before we've re-set the boolean, we'll
+                            effectively get past the check. So booleans should always be written in a way of "did we do a good thing" (so that by default wiping it means we've done the bad thing). Though I guess that then causes the issue 
+                            that if we do the good thing then jump back and it gets reset and we jump forwards, we're then assuming that we've done the bad thing. Unsure what the solution is at this point; might need to do something where we
+                            temporarily wipe them but then if we change scenes mid-scene we reset them to what they were before.
                     - If we jump to a node and choose a different place to go to then we need to swap things around. So let's say on A-1 we go Barbara, Cat, Eddie, then later jump back to A-1-1 and choose someone different. If it's Graves we 
                         change it so that our A-1 is now Graves, Cat, Eddie. If it's, say, Cat, we change it so that it's Cat, Barbara, Eddie. It shouldn't affect anything negatively but I'll need to test the heck out of this.
                 - Location map
@@ -30,6 +34,9 @@ BLACKMIND TODO
                         - future_sight_info works well because we're returning an object from a function, so if we update it after loading the game it uses the new data. So a function which returns the description is prolly the way to go.
                 - Other
                     - Newspaper and Sergei's book: I like the idea of these being actual doccos we browse; for the alpha I might just make a devnote of "I'd like these to actually be browsable; thoughts?" and see what they say
+                        - Updoot: prolly gonna change it to be in-universe interfaces that we go through, and then Lloyd comments once we've read them all.
+                        - Also updoot: newspaper can have a thing "today's popular articles" or whatever, and those can be Kickstarter written (plus a Star-Bot reference and something talking about COEUS). Lower-tier Kickstarter stuff could
+                            allow for comments on the articles.
                     - Attune your psychic senses: Add this in as an option to settings; menu item can be called ESP or something
                         - Should have a thing saying something like "this game can be played using psychic abilities. If you have psychic abilities, check this box to enable psychic controls", then checking a box brings up a setting
                             for the frequency to broadcast psychic abilities at (like three frequencies, with a description for each e.g. "recommended for users with a maximum psychic strength of 101.4 - 118.9 PSI" or something)
