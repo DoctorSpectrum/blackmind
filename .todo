@@ -1,11 +1,4 @@
 BLACKMIND TODO
-    - Script Phase
-        - Delivery Date: 30/09/2026
-        - Deliverables:
-            - Full script for the game across all routes
-                - Once I've got the core scenes, at the very least, scripted, rewrite the branch notes in the blackmind docco
-                    to account for the changed stuff. I can read over it that way and make sure that it does make sense.
-
     - Alpha Phase
         - Delivery Date: 31/12/2027
         - Deliverables:
@@ -25,6 +18,7 @@ BLACKMIND TODO
                         back and forth might mean that some branches can't be unlocked but if we've unlocked the node we can jump past the lock anyway - any scenes past there we already know that we hit the flag to unlock it.
                     - If we jump to a node and choose a different place to go to then we need to swap things around. So let's say on A-1 we go Barbara, Cat, Eddie, then later jump back to A-1-1 and choose someone different. If it's Graves we 
                         change it so that our A-1 is now Graves, Cat, Eddie. If it's, say, Cat, we change it so that it's Cat, Barbara, Eddie. It shouldn't affect anything negatively but I'll need to test the heck out of this.
+                    - For this phase, this'll prolly just be a vbox with a list of scenes the players can access
                 - Location map
                     - I like the idea of having a bunch of descriptions, and then for each node when we can choose one of them we just update the key we're using to access that description. It...might make things easier?
                         - future_sight_info works well because we're returning an object from a function, so if we update it after loading the game it uses the new data. So a function which returns the description is prolly the way to go.
@@ -62,7 +56,10 @@ BLACKMIND TODO
     - Optional phases:
         - PAX Phase
             - Deliverables/Things to work out:
-                - Ability to choose a short or long experience when starting the game
+                - Launching the game:
+                    - Ability to choose a short or long experience when starting the game
+                    - Turn on/off swears
+                    - Choose settings whenever starting a new game
                 - Clear demonstration of how the game plays
                 - Tablecloth
                 - Date on banner with approximation of when game is coming out
@@ -72,8 +69,9 @@ BLACKMIND TODO
                 - Two laptops
                 - Interactivity?
                 - Extra decorations?
+                - At the very least add in QR codes for Many Deaths and AN - it'd be stupid to not try and sell people on them
 
-            - Potentially happening in 2027. Nothing this year.
+            - Potentially happening in 2027.
 
         - Kickstarter Phase
             - Delivery Date: 30/01/2027
@@ -106,3 +104,5 @@ BLACKMIND TODO
                 - https://www.kickstarter.com/projects/965301113/scarlet-hunt-a-dark-romance-visual-novel
             - Wicked Night - Holy Knights (by the Gates of Nayeli dev) had Gates of Nayeli included for free at basically every tier. It was an excellent way to get me to buy the game - no reason that I can't
                 throw in Many Deaths and AN to some low tiers. 
+            - I've got at least two potential add-ons to put in: write a short ~300-word article for the paper, and add in a comment on a paper's article. It's nothing that big in the grand scheme of things but 
+                I reckon people will go for it.
