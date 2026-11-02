@@ -1,15 +1,20 @@
 label variables:
     
-    define narrator = Character(None, what_color="#000")
-    define jack = Character("Jack", what_color="#000", image="jack")
     define barbara= Character("Barbara", what_color="#000")
+    define docherty = Character("???", what_color="#000")
+    define jack = Character("Jack", what_color="#000", image="jack")
+    define lloyd = Character("Lloyd", what_color="#000", image="lloyd")
+    define narrator = Character(None, what_color="#000")
+
     define character_thoughts = Character(who_color="#F2EE29", what_color="#F2EE29", namebox_style="namebox_inverted", window_style="window_inverted")
     define barbara_thoughts = Character(kind=character_thoughts, name="Barbara")
-    define docherty = Character("???", what_color="#000")
-    define docherty_thoughts = Character(kind=character_thoughts, name="???")
-
     define bartender = Character(kind=barbara, name="Bartender")
     define bartender_thoughts = Character(kind=barbara_thoughts, name="Bartender")
+    define docherty_thoughts = Character(kind=character_thoughts, name="???")
+    define dying_jack = Character(kind=jack, name="Dying Man", image=None, what_size=-8)
+    define lloyd_thinking = Character(kind=lloyd, what_prefix="(", what_suffix=")")
+    define lloyd_narrating = Character(kind=lloyd, what_color="#3B3B3B")
+    define phone = Character("Phone", what_color="#000")
 
     #Persistent variables
     default persistent.game_launched = False
@@ -409,6 +414,22 @@ label variables:
     
     image side jack worried:
         "images/sprites/jack_worried.png"
+        portrait_crop
+
+    image side lloyd friendly:
+        "images/sprites/lloyd_friendly.png"
+        portrait_crop
+
+    image side lloyd neutral:
+        "images/sprites/lloyd_neutral.png"
+        portrait_crop
+    
+    image side lloyd scared:
+        "images/sprites/lloyd_scared.png"
+        portrait_crop
+
+    image side lloyd thinking:
+        "images/sprites/lloyd_thinking.png"
         portrait_crop
 
     #Backgrounds
