@@ -710,7 +710,7 @@ label prologue_15:
     lloyd_narrating thinking "The noise was loud and sudden, so it’s difficult to pinpoint where it came from.[wait_1] But it’s easy enough to circle this block and the adjacent ones, to see whether I can find the source of it."
     lloyd_narrating thinking "After a few minutes, I’m losing hope of finding whatever caused the loud bang."
     lloyd_narrating thinking "But then...[wait_1]I find him."
-    scene cg2_0 at slow_dissolve
+    scene cg2_0 with slow_dissolve
     lloyd scared "What –[wait_05] what happened here?!"
     lloyd_narrating scared "It’s the most violent and bloody scene I’ve ever encountered in my life."
     lloyd_narrating scared "A white man is lying on the street, along with what looks like most of the blood in his body." 
@@ -773,7 +773,7 @@ label prologue_help_jack:
     lloyd_thinking thinking "I might add extra complications to my life by doing this."
     lloyd_thinking thinking "But I can’t just stand back and let it be someone else’s problem – I have to try to do something."
     lloyd_narrating thinking "I open my eyes again and force myself to take in the scene."
-    scene cg2_0 at slow_dissolve
+    scene cg2_0 with slow_dissolve
     lloyd_narrating scared "It’s worse than I remember it being."
     lloyd_narrating scared "The blood is all too wet, all too real."
     lloyd_narrating scared "My camera normally puts some distance between myself and the rest of the world; this is more than I’m used to."
@@ -817,7 +817,7 @@ label prologue_help_jack:
     phone "Are you alright?[wait_1] Are you in need of medical assistance?"
     lloyd neutral "I’m not, but..."
     lloyd_narrating neutral "The words die in my throat as I look down at the man."
-    scene cg2_1 at slow_dissolve
+    scene cg2_1 with slow_dissolve
     lloyd_narrating neutral "The lack of the tiny bubbling noise betrays the fact that he’s stopped breathing."
     lloyd_narrating neutral "His body is completely still, and it will never move again."
     lloyd neutral "S-sorry, I –[wait_05] I think that this man is –[wait_05] I think that he’s just –[wait_05] he looks dead."
@@ -829,7 +829,7 @@ label prologue_help_jack:
     lloyd_narrating neutral "The back of my head is still throbbing."
     
     call screen chapter_breaks("HOURS LATER", "People react to stress in different ways. Some people crumple and fold, unable to cope with excessive pressure to their systems.\n\nOthers respond by evolving.")
-    scene apartment_night at slow_dissolve
+    scene apartment_night with slow_dissolve
     lloyd_narrating neutral "The ambulance has come and gone, confirming what I already knew:[wait_05] that the man was dead."
     lloyd_narrating neutral "Because of the nature of the wound I had to talk to some police, but they were fairly sympathetic; they know how stressful seeing that sort of thing is."
     lloyd_narrating neutral "I answered their questions as best as I could and gave them my contact details in case they have to conduct a follow-up interview."
@@ -878,7 +878,7 @@ label prologue_help_jack:
     lloyd_narrating neutral "I imagine that the pain is gradually dissipating, each throb being slightly less painful than the last."
     lloyd_narrating neutral "I pretend that there’s a lump at the back of my head, and that each time I breathe out, it grows a little smaller."
     lloyd_narrating neutral "The pain suddenly disappears – but in its place is a new sensation."
-    scene cg_3_0 at slow_dissolve
+    scene cg3_0 with slow_dissolve
     lloyd_narrating neutral "Although I’ve opened my eyes, I can’t see the walls of my apartment."
     lloyd_narrating neutral "Instead, I’m somewhere dark, facing someone with a gun."
     lloyd_narrating neutral "I don’t know what’s happening, or how I’ve gotten here, but I know that it’s not a dream."
@@ -888,7 +888,7 @@ label prologue_help_jack:
     lloyd_narrating scared "I can’t see who he’s pointing his gun at, but it’s clear that he’s about to shoot them; to end a life."
     lloyd scared "No![wait_1] St-"
     $ play_sound("gunshot.mp3", transition=white_flash)
-    scene apartment_night at slow_dissolve
+    scene apartment_night with slow_dissolve
     lloyd_narrating neutral "Just like that, I’m back in my apartment."
     lloyd_narrating neutral "My strange, out-of-body experience is over, and I’m covered in sweat."
     lloyd_thinking neutral "What was that?[wait_1] I don’t think that it was a dream, but I don’t..."
@@ -905,9 +905,9 @@ label prologue_help_jack:
     lloyd_thinking neutral "Which means that at some point in the future, the man in black is going to commit a murder."
     lloyd_thinking neutral "Man in black...[wait_1]where have I heard something about that recently?"
     lloyd_narrating neutral "It doesn’t take long for me to recall."
-    scene cg_2_0 at slow_dissolve with greyscale_instant
+    scene cg2_0 at greyscale_instant with slow_dissolve 
     dying_jack "...bald guy[wait_1]...with –[wait_1] with dark clothes –"
-    scene apartment_night at quick_dissolve
+    scene apartment_night with quick_dissolve
     lloyd_thinking neutral "This man...[wait_1]whoever he is, he’s already committed at least one other murder."
     lloyd_thinking neutral "How many more does he plan to kill?"
     lloyd_thinking neutral "More importantly...[wait_1]what should I do about it?"
@@ -940,7 +940,7 @@ label prologue_quit_early:
     lloyd_narrating neutral "It feels like the right decision to make."
     lloyd_narrating neutral "I can still help to stop the murderer, but without having to stick my neck out, and butt in where I’m not needed."
     lloyd_narrating neutral "With the decision made, I try to get my mind off everything that’s happened tonight, and get some well-needed sleep."
-    scene black_bg at quick_dissolve
+    scene black_bg with quick_dissolve
     lloyd_narrating neutral "Things don’t go as planned."
     lloyd_narrating neutral "I try leaving an anonymous tip the next day, but I can tell that the police don’t take me seriously."
     lloyd_narrating neutral "Even if they had, simply claiming that a bald man is the suspect they’re looking for isn’t enough detail for them to work with."

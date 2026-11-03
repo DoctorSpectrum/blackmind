@@ -10,7 +10,7 @@ BLACKMIND TODO
             - Placeholder music
             - Programming:
                 - Debugging:
-                    - Early on (post-prologue?), add in functionality so that we have the debug menu back in, and we have an option there to type in a label and jump there, so that I can test stuff quickly
+                    - Add in stuff so that we can change the current branch and day in the debug menu, so that I can focus on getting the script in and testing how it all reads using the label jump function
                     - Let's add in a debug button (D or something) that displays the name of the current scene and some variables - that way I can get the others to give me variable info if they find bugs.
                 - Flow chart
                     - I think that I can do this by having each node let us jump to a point of the script. At that label we wipe any booleans that we generate in the scene, so that we're seeing it as though it's the first time again. Jumping

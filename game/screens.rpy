@@ -329,17 +329,15 @@ screen quick_menu():
     ## Ensure this appears on top of other screens.
     zorder 100
 
-    if (config.developer and False):
+    if (config.developer):
         textbutton _("DEBUG"):
             background Frame("gui/frame.png")
             xalign 0.0
             yalign 1.0
             xoffset 10
             yoffset -10
-            action [
-                Hide("say"),
-                Show("debug")
-            ]
+            action Show("debug")
+            
 
     if quick_menu and renpy.get_screen("say"):
 

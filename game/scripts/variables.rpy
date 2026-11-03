@@ -11,7 +11,7 @@ label variables:
     define bartender = Character(kind=barbara, name="Bartender")
     define bartender_thoughts = Character(kind=barbara_thoughts, name="Bartender")
     define docherty_thoughts = Character(kind=character_thoughts, name="???")
-    define dying_jack = Character(kind=jack, name="Dying Man", image=None, what_size=-8)
+    define dying_jack = Character(kind=jack, name="Dying Man", image=None, what_size=20)
     define lloyd_thinking = Character(kind=lloyd, what_prefix="(", what_suffix=")")
     define lloyd_narrating = Character(kind=lloyd, what_color="#3B3B3B")
     define mental_jack = Character(kind=jack, name="???", image=None)

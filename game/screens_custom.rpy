@@ -1,48 +1,72 @@
 screen debug():
-    
-    vbox:
-        xalign 0.5
-        yalign 0.2
+    default action = None
+    default label_jump = ""
 
-        textbutton _("Test Mind Reading"):
-            action [
-                Hide("debug"),
-                SetVariable("minds_read", 0),
-                SetVariable("minds_rewound", 0),
-                SetVariable("progress_convo", True),
-                Call("test_mind_reading", from_current=True)
-            ]
+    modal True
+    zorder 100
+    style_prefix "debug"
 
-        textbutton _("Test Map Jump"):
-            action [
-                Hide("debug"),
-                SetVariable("progress_convo", False),
-                Show("map_navigation")
-            ]
+    frame:
+        xfill True
+        yfill True
+        background Solid("#F2EE29")
 
-        textbutton _("Test Money"):
-            action [
-                Hide("debug"),
-                Call("test_money", from_current=True)
-            ]
+        if (action == None):
+            vbox:
+                xalign 0.5
+                yalign 0.2
 
-        textbutton _("Test Locking Choices"):
-            action [
-                Hide("debug"),
-                Call("test_choices", from_current=True)
-            ]
+                text _("DEBUG"):
+                    font "gui/Decade__.ttf"
+                    size 60
 
-        textbutton _("Test Upgrading Psychic Abilities"):
-            action [
-                Hide("debug"),
-                Show("upgrades_screen")
-            ]
+                textbutton _("Label Jump"):
+                    action SetScreenVariable("action", "label_jump")
 
-        textbutton _("Test Flow Chart"):
-            action [
-                Hide("debug"),
-                Show("flow_chart")
-            ]
+                #textbutton _("Test Map Jump"):
+                #    action [
+                #        Hide("debug"),
+                #        SetVariable("progress_convo", False),
+                #        Show("map_navigation")
+                #    ]
+
+                #textbutton _("Test Upgrading Psychic Abilities"):
+                #    action [
+                #        Hide("debug"),
+                #        Show("upgrades_screen")
+                #    ]
+
+                #textbutton _("Test Flow Chart"):
+                #    action [
+                #        Hide("debug"),
+                #        Show("flow_chart")
+                #    ]
+        elif (action == "label_jump"):
+            hbox:
+                xalign 0.5
+                yalign 0.2
+                spacing 10
+
+                text _("Label Name:")
+                input:
+                    value ScreenVariableInputValue("label_jump")
+
+            key "K_RETURN":
+                action [
+                    Jump(label_jump),
+                    Hide("debug")
+                ]
+
+        textbutton _("RETURN"):
+            background Frame("gui/frame.png")
+            xalign 0.0
+            yalign 1.0
+            xoffset 10
+            yoffset -10
+            action (Hide("debug") if action is not None else SetScreenVariable("action", None))
+
+style debug_text:
+    color "#000"
 
 screen psychic_powers():
     default icon_hint = None
