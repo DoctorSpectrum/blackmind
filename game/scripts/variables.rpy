@@ -14,6 +14,7 @@ label variables:
     define dying_jack = Character(kind=jack, name="Dying Man", image=None, what_size=-8)
     define lloyd_thinking = Character(kind=lloyd, what_prefix="(", what_suffix=")")
     define lloyd_narrating = Character(kind=lloyd, what_color="#3B3B3B")
+    define mental_jack = Character(kind=jack, name="???", image=None)
     define phone = Character("Phone", what_color="#000")
 
     #Persistent variables
@@ -219,13 +220,8 @@ label variables:
         linear 1.0:
             matrixcolor SaturationMatrix(1.0)
 
-    transform tinted_greyscale_cycle:   #Prolly not needed any more but keep it here just in case
-        matrixcolor SaturationMatrix(1.0) * TintMatrix("#6d6d6d")
-        linear 1.0:
-            matrixcolor SaturationMatrix(0.0) * TintMatrix("#6d6d6d")
-        pause 0.5
-        linear 1.0:
-            matrixcolor SaturationMatrix(1.0) * TintMatrix("#6d6d6d")
+    transform greyscale_instant:
+        matrixcolor SaturationMatrix(0.0)
 
     transform opening_text:
         xsize 0.6

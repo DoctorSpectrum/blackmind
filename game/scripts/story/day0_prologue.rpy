@@ -878,4 +878,98 @@ label prologue_help_jack:
     lloyd_narrating neutral "I imagine that the pain is gradually dissipating, each throb being slightly less painful than the last."
     lloyd_narrating neutral "I pretend that there’s a lump at the back of my head, and that each time I breathe out, it grows a little smaller."
     lloyd_narrating neutral "The pain suddenly disappears – but in its place is a new sensation."
-    
+    scene cg_3_0 at slow_dissolve
+    lloyd_narrating neutral "Although I’ve opened my eyes, I can’t see the walls of my apartment."
+    lloyd_narrating neutral "Instead, I’m somewhere dark, facing someone with a gun."
+    lloyd_narrating neutral "I don’t know what’s happening, or how I’ve gotten here, but I know that it’s not a dream."
+    lloyd_narrating neutral "I’m wide awake, and this feels too real."
+    docherty "You are in my way.[wait_1] You must be removed."
+    lloyd_narrating scared "For a moment I panic, before I realise that the man isn’t looking at me."
+    lloyd_narrating scared "I can’t see who he’s pointing his gun at, but it’s clear that he’s about to shoot them; to end a life."
+    lloyd scared "No![wait_1] St-"
+    $ play_sound("gunshot.mp3", transition=white_flash)
+    scene apartment_night at slow_dissolve
+    lloyd_narrating neutral "Just like that, I’m back in my apartment."
+    lloyd_narrating neutral "My strange, out-of-body experience is over, and I’m covered in sweat."
+    lloyd_thinking neutral "What was that?[wait_1] I don’t think that it was a dream, but I don’t..."
+    lloyd_narrating neutral "I realise then that my headache has disappeared, or at least dulled to a manageable level."
+    lloyd_narrating neutral "My body is finally in something of a normal state, aside from the furious pounding of my heart."
+    lloyd_thinking neutral "I read the minds of my neighbours, and their voices go away."
+    lloyd_thinking neutral "I get a...[wait_05]vision, and my headache goes away."
+    lloyd_thinking neutral "Does that mean that this is related to my new ability?"
+    lloyd_narrating neutral "It would make sense.[wait_1] But what was it?"
+    lloyd_narrating neutral "Earlier, I reached out and was able to read the minds of my neighbours."
+    lloyd_thinking neutral "If this is related, then I suppose I reached out and read...[wait_05]the future?[wait_1] Is this some sort of precognitive ability?"
+    lloyd_narrating neutral "It’s a leap in logic to make, and yet it makes a strangely compelling amount of sense."
+    lloyd_narrating neutral "My new abilities let me read minds, or read the future."
+    lloyd_thinking neutral "Which means that at some point in the future, the man in black is going to commit a murder."
+    lloyd_thinking neutral "Man in black...[wait_1]where have I heard something about that recently?"
+    lloyd_narrating neutral "It doesn’t take long for me to recall."
+    scene cg_2_0 at slow_dissolve with greyscale_instant
+    dying_jack "...bald guy[wait_1]...with –[wait_1] with dark clothes –"
+    scene apartment_night at quick_dissolve
+    lloyd_thinking neutral "This man...[wait_1]whoever he is, he’s already committed at least one other murder."
+    lloyd_thinking neutral "How many more does he plan to kill?"
+    lloyd_thinking neutral "More importantly...[wait_1]what should I do about it?"
+    menu:
+        "Stop the killer":
+            lloyd_thinking neutral "I’m just a photographer – and not one who’s in a great place at the moment."
+            lloyd_thinking neutral "This man is a killer, and I doubt that he’ll have any qualms about stopping people who get in his way."
+            lloyd_thinking neutral "This could end up being incredibly dangerous."
+            lloyd_thinking neutral "Is trying to stop the killer really the best decision?"
+
+            menu:
+                "Stop the killer":
+                    lloyd_thinking neutral "Tracking down killers is usually a job for the police."
+                    lloyd_thinking neutral "I know from the death of the man with the white streak that they’re already looking into it."
+                    lloyd_thinking neutral "Should I really try to stop him myself, or should I stay out of the way and let them do their jobs?"
+                    menu:
+                        "Stop the killer":
+                            jump prologue_stop_killer
+                        "Stay out of it":
+                            jump prologue_quit_early
+                "Stay out of it":
+                    jump prologue_quit_early
+        "Stay out of it":
+            jump prologue_quit_early
+
+label prologue_quit_early:
+    lloyd_thinking neutral "I might have unique information for this case, but that doesn’t mean that I should risk my life."
+    lloyd_thinking neutral "I’m not qualified to do so, and more importantly, it’s not my job."
+    lloyd_thinking neutral "I’ll try and get some sleep tonight, and tomorrow I can leave an anonymous tip with the police."
+    lloyd_narrating neutral "It feels like the right decision to make."
+    lloyd_narrating neutral "I can still help to stop the murderer, but without having to stick my neck out, and butt in where I’m not needed."
+    lloyd_narrating neutral "With the decision made, I try to get my mind off everything that’s happened tonight, and get some well-needed sleep."
+    scene black_bg at quick_dissolve
+    lloyd_narrating neutral "Things don’t go as planned."
+    lloyd_narrating neutral "I try leaving an anonymous tip the next day, but I can tell that the police don’t take me seriously."
+    lloyd_narrating neutral "Even if they had, simply claiming that a bald man is the suspect they’re looking for isn’t enough detail for them to work with."
+    lloyd_narrating neutral "Still, I’ve done what I can."
+    lloyd_narrating neutral "I spend the rest of the week working on my portfolio, taking snapshots around the city of its architecture, artwork, and people."
+    lloyd_narrating neutral "Moving here has gone poorly so far, and I want to make the most of my time here."
+    lloyd_narrating neutral "I intentionally avoid exploring my new abilities, wary both of the crushing pain that could return, and of invading people’s privacy."
+    lloyd_narrating neutral "If there’s a reason that I’ve been gifted with these abilities, I don’t need to know it."
+    lloyd_narrating neutral "I put the murderer out of my mind, and don’t bother to look up the case in the news."
+    lloyd_narrating neutral "It’s not something that affects me, or that I should concern myself with."
+    lloyd_narrating neutral "At least that’s what I believe."
+    lloyd_narrating neutral "As it turns out, though...[wait_1]I’m wrong about that."
+    narrator "THE END"
+    $ MainMenu(confirm=False)()
+
+label prologue_stop_killer:
+    lloyd_narrating neutral "It’s tempting to stand aside."
+    lloyd_narrating neutral "To ignore the information that I’ve been gifted with, and let it become somebody else’s problem."
+    lloyd_narrating neutral "To let somebody else deal with the danger, and the consequences of their actions."
+    lloyd_narrating neutral "But I can’t do that.[wait_1] I’ve been letting too many people down recently by focusing on my own needs."
+    lloyd_narrating neutral "Maybe I could have saved that man tonight if I’d hesitated less, and called an ambulance sooner."
+    lloyd_narrating neutral "Maybe I could have done more good at my previous job if I’d followed orders less blindly."
+    lloyd_narrating neutral "I want to try and stop the man in black, and I’m the only one with the means to do so."
+    lloyd_thinking neutral "If I could stop him...[wait_1]the advantages that would bring me..."
+    lloyd_narrating neutral "Having come to a decision, I find myself growing calmer."
+    lloyd_narrating neutral "It feels like the right choice.[wait_1] It feels like something worth doing."
+    lloyd_narrating neutral "With the decision made, and my headache dealt with, the late hour begins to really hit me."
+    lloyd_narrating neutral "Within a few minutes, the embrace of sleep is drawing me into its coils."
+    scene black_bg with slow_dissolve
+    narrator "Several hours later..."
+    mental_jack "Hmm...[wait_1]not a bad apartment."
+    mental_jack "It’s definitely nicer than my last place."
