@@ -1307,7 +1307,7 @@ style light_yellow_button_small is light_yellow_button:
 
 style light_yellow_button_small_text is light_yellow_button_text
 
-screen modal_base():
+screen modal_base(short=True):
     modal True
     zorder 200
 
@@ -1320,14 +1320,14 @@ screen modal_base():
         frame:
             background Solid("#000000")
             xsize 940
-            ysize 490
+            ysize (490 if short else 980)
             xalign 0.5
             yalign 0.5
 
             frame:
                 background Solid("#F2EE29")
                 xsize 900
-                ysize 450
+                ysize (450 if short else 940)
                 xalign 0.5
                 yalign 0.5
 
@@ -1338,10 +1338,10 @@ screen modal_base():
 
                     transclude
 
-screen modal_popup(message, option_labels=["OK"], option_actions=[Return()]):
+screen modal_popup(message, option_labels=["OK"], option_actions=[Return()], short=True):
     modal True
     zorder 110
-    use modal_base:
+    use modal_base(short):
         label _(message):
             style "confirm_prompt"
             text_color "#000"
