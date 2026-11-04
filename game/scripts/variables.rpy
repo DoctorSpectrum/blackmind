@@ -4,6 +4,7 @@ label variables:
     define cat = Character("Cat", what_color="#000")
     define docherty = Character("???", what_color="#000")
     define eddie = Character("Eddie", what_color="#000")
+    define graves = Character("Graves", what_color="#000")
     define jack = Character("Jack", what_color="#000", image="jack")
     define lloyd = Character("Lloyd", what_color="#000", image="lloyd")
     define narrator = Character(None, what_color="#000")
@@ -13,11 +14,14 @@ label variables:
     define bartender = Character(kind=barbara, name="Bartender")
     define bartender_thoughts = Character(kind=barbara_thoughts, name="Bartender")
     define cat_thoughts = Character(kind=character_thoughts, name="Cat")
+    define detective = Character(kind=graves, name="Detective")
+    define detective_thoughts = Character(kind=character_thoughts, name="Detective")
     define docherty_thoughts = Character(kind=character_thoughts, name="???")
     define dying_jack = Character(kind=jack, name="Dying Man", image=None, what_size=20)
     define eddie_thoughts = Character(kind=character_thoughts, name="Eddie")
     define employee = Character(kind=eddie, name="Employee")
     define employee_thoughts = Character(kind=character_thoughts, name="Employee")
+    define graves_thoughts = Character(kind=character_thoughts, name="Graves")
     define librarian = Character(kind=cat, name="Librarian")
     define librarian_thoughts = Character(kind=cat_thoughts, name="Librarian")
     define lloyd_thinking = Character(kind=lloyd, what_prefix="(", what_suffix=")")
@@ -446,6 +450,17 @@ label variables:
 
     image bar_greyscale:
         "images/backgrounds/bar.png"
+        greyscale
+
+    image detective_office = ConditionSwitch(
+        "reading_mind == True",
+        "detective_office_greyscale",
+        "True",
+        "images/backgrounds/detective_office.png"
+    )
+
+    image detective_office_greyscale:
+        "images/backgrounds/detective_office.png"
         greyscale
 
     image library_day = ConditionSwitch(
