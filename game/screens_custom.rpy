@@ -23,6 +23,9 @@ screen debug():
                 textbutton _("Label Jump"):
                     action SetScreenVariable("action", "label_jump")
 
+                textbutton _("Variable Controls"):
+                    action SetScreenVariable("action", "variable_controls")
+
                 #textbutton _("Test Map Jump"):
                 #    action [
                 #        Hide("debug"),
@@ -56,6 +59,48 @@ screen debug():
                     Jump(label_jump),
                     Hide("debug")
                 ]
+        elif (action == "variable_controls"):
+            vbox:
+                xalign 0.5
+                yalign 0.2
+                spacing 10
+                
+                vbox:
+                    spacing 25
+                    hbox:
+                        spacing 10
+                        text _("Branch:"):
+                            yoffset 5
+                        hbox:
+                            textbutton _("A"):
+                                action SetVariable("branch", "a")
+                            textbutton _("B"):
+                                action SetVariable("branch", "b")
+                            textbutton _("C"):
+                                action SetVariable("branch", "c")
+                            textbutton _("D"):
+                                action SetVariable("branch", "d")
+                            textbutton _("E"):
+                                action SetVariable("branch", "e")
+                            textbutton _("F"):
+                                action SetVariable("branch", "f")
+                            textbutton _("G"):
+                                action SetVariable("branch", "g")
+
+                    hbox:
+                        spacing 10
+                        text _("Day:"):
+                            yoffset 5
+                        hbox:
+                            textbutton _("1"):
+                                action SetVariable("day", 1)
+                            textbutton _("2"):
+                                action SetVariable("day", 2)
+                            textbutton _("3"):
+                                action SetVariable("day", 3)
+                            textbutton _("4"):
+                                action SetVariable("day", 4)
+                
 
         textbutton _("RETURN"):
             background Frame("gui/frame.png")
@@ -63,10 +108,13 @@ screen debug():
             yalign 1.0
             xoffset 10
             yoffset -10
-            action (Hide("debug") if action is not None else SetScreenVariable("action", None))
+            action (Hide("debug") if action != None else SetScreenVariable("action", None))
 
 style debug_text:
     color "#000"
+style debug_button_text:
+    selected_underline True
+    selected_color "#000"
 
 screen psychic_powers():
     default icon_hint = None

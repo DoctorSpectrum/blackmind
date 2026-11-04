@@ -10,7 +10,6 @@ BLACKMIND TODO
             - Placeholder music
             - Programming:
                 - Debugging:
-                    - Add in stuff so that we can change the current branch and day in the debug menu, so that I can focus on getting the script in and testing how it all reads using the label jump function
                     - Let's add in a debug button (D or something) that displays the name of the current scene and some variables - that way I can get the others to give me variable info if they find bugs.
                 - Flow chart
                     - I think that I can do this by having each node let us jump to a point of the script. At that label we wipe any booleans that we generate in the scene, so that we're seeing it as though it's the first time again. Jumping
@@ -26,6 +25,7 @@ BLACKMIND TODO
                     - I like the idea of having a bunch of descriptions, and then for each node when we can choose one of them we just update the key we're using to access that description. It...might make things easier?
                         - future_sight_info works well because we're returning an object from a function, so if we update it after loading the game it uses the new data. So a function which returns the description is prolly the way to go.
                 - Other
+                    - Add in functionality so that the locations list is dynamic depending upon branch + day
                     - Newspaper and Sergei's book: I like the idea of these being actual doccos we browse; for the alpha I might just make a devnote of "I'd like these to actually be browsable; thoughts?" and see what they say
                         - Updoot: prolly gonna change it to be in-universe interfaces that we go through, and then Lloyd comments once we've read them all.
                         - Also updoot: newspaper can have a thing "today's popular articles" or whatever, and those can be Kickstarter written (plus a Star-Bot reference and something talking about COEUS). Lower-tier Kickstarter stuff could
