@@ -3,6 +3,7 @@ label variables:
     define barbara= Character("Barbara", what_color="#000")
     define cat = Character("Cat", what_color="#000")
     define docherty = Character("???", what_color="#000")
+    define eddie = Character("Eddie", what_color="#000")
     define jack = Character("Jack", what_color="#000", image="jack")
     define lloyd = Character("Lloyd", what_color="#000", image="lloyd")
     define narrator = Character(None, what_color="#000")
@@ -14,6 +15,9 @@ label variables:
     define cat_thoughts = Character(kind=character_thoughts, name="Cat")
     define docherty_thoughts = Character(kind=character_thoughts, name="???")
     define dying_jack = Character(kind=jack, name="Dying Man", image=None, what_size=20)
+    define eddie_thoughts = Character(kind=character_thoughts, name="Eddie")
+    define employee = Character(kind=eddie, name="Employee")
+    define employee_thoughts = Character(kind=character_thoughts, name="Employee")
     define librarian = Character(kind=cat, name="Librarian")
     define librarian_thoughts = Character(kind=cat_thoughts, name="Librarian")
     define lloyd_thinking = Character(kind=lloyd, what_prefix="(", what_suffix=")")
@@ -464,6 +468,17 @@ label variables:
 
     image library_night_greyscale:
         "images/backgrounds/library_night.png"
+        greyscale
+
+    image office_interview_room = ConditionSwitch(
+        "reading_mind == True",
+        "office_interview_room_greyscale",
+        "True",
+        "images/backgrounds/office_interview_room.png"
+    )
+
+    image office_interview_room_greyscale:
+        "images/backgrounds/office_interview_room.png"
         greyscale
 
     image street = ConditionSwitch(
