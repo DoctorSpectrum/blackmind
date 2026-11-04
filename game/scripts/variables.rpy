@@ -7,7 +7,7 @@ label variables:
     define narrator = Character(None, what_color="#000")
 
     define character_thoughts = Character(who_color="#F2EE29", what_color="#F2EE29", namebox_style="namebox_inverted", window_style="window_inverted")
-    define barbara_thoughts = Character(kind=character_thoughts, name="Barbara")
+    define barbara_thoughts = Character(kind=character_thoughts, name="Barbara", what_prefix="(", what_suffix=")")
     define bartender = Character(kind=barbara, name="Bartender")
     define bartender_thoughts = Character(kind=barbara_thoughts, name="Bartender")
     define docherty_thoughts = Character(kind=character_thoughts, name="???")
