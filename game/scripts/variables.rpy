@@ -1,17 +1,21 @@
 label variables:
     
     define barbara= Character("Barbara", what_color="#000")
+    define cat = Character("Cat", what_color="#000")
     define docherty = Character("???", what_color="#000")
     define jack = Character("Jack", what_color="#000", image="jack")
     define lloyd = Character("Lloyd", what_color="#000", image="lloyd")
     define narrator = Character(None, what_color="#000")
 
-    define character_thoughts = Character(who_color="#F2EE29", what_color="#F2EE29", namebox_style="namebox_inverted", window_style="window_inverted")
-    define barbara_thoughts = Character(kind=character_thoughts, name="Barbara", what_prefix="(", what_suffix=")")
+    define character_thoughts = Character(who_color="#F2EE29", what_color="#F2EE29", namebox_style="namebox_inverted", window_style="window_inverted", what_prefix="(", what_suffix=")")
+    define barbara_thoughts = Character(kind=character_thoughts, name="Barbara")
     define bartender = Character(kind=barbara, name="Bartender")
     define bartender_thoughts = Character(kind=barbara_thoughts, name="Bartender")
+    define cat_thoughts = Character(kind=character_thoughts, name="Cat")
     define docherty_thoughts = Character(kind=character_thoughts, name="???")
     define dying_jack = Character(kind=jack, name="Dying Man", image=None, what_size=20)
+    define librarian = Character(kind=cat, name="Librarian")
+    define librarian_thoughts = Character(kind=cat_thoughts, name="Librarian")
     define lloyd_thinking = Character(kind=lloyd, what_prefix="(", what_suffix=")")
     define lloyd_narrating = Character(kind=lloyd, what_color="#3B3B3B")
     define mental_jack = Character(kind=jack, name="???", image=None)
@@ -438,6 +442,28 @@ label variables:
 
     image bar_greyscale:
         "images/backgrounds/bar.png"
+        greyscale
+
+    image library_day = ConditionSwitch(
+        "reading_mind == True",
+        "library_day_greyscale",
+        "True",
+        "images/backgrounds/library_day.png"
+    )
+
+    image library_day_greyscale:
+        "images/backgrounds/library_day.png"
+        greyscale
+
+    image library_night = ConditionSwitch(
+        "reading_mind == True",
+        "library_night_greyscale",
+        "True",
+        "images/backgrounds/library_night.png"
+    )
+
+    image library_night_greyscale:
+        "images/backgrounds/library_night.png"
         greyscale
 
     image street = ConditionSwitch(

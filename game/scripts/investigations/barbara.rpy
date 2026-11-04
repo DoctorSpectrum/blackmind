@@ -144,6 +144,8 @@ label barbara_a_1:
     lloyd_narrating neutral "I say my goodbyes and leave the bar."
     lloyd_narrating neutral "It wasn’t anything particularly concrete, but I know that the man in black was in this area last night."
     lloyd_narrating neutral "One of Barbara’s neighbours might have seen or heard something...[wait_05]but is returning here tonight the best use of my time?"
+    
+    return
 
 label barbara_a_2:
     return
