@@ -245,6 +245,8 @@ init python:
     def visit_person(person, branch, day):
         days[branch][day].append(person)
 
+    def person_visited(person, branch, day):
+        return person in days[branch][day]
 
     #Classes
     class InputChecker(renpy.Displayable):

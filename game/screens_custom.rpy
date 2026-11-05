@@ -133,57 +133,98 @@ screen debug():
                 
                 vbox:
                     spacing 25
-                    hbox:
-                        spacing 10
-                        text _("Day 1:"):
-                            yoffset 5
-                        textbutton _("Barbara"):
-                            action NullAction()
-                        textbutton _("Cat"):
-                            action NullAction()
-                        textbutton _("Eddie"):
-                            action NullAction()
-                        textbutton _("Graves"):
-                            action NullAction()
 
                     hbox:
                         spacing 10
-                        text _("Day 2:"):
-                            yoffset 5
+                        if (timeline_branch_selected == "a"):
+                            text _("Day 1:"):
+                                yoffset 5
+                        elif (timeline_branch_selected in ["b", "e"]):
+                            text _("Day 4:"):
+                                yoffset 5
+                        elif (timeline_branch_selected == "c"):
+                            text _("Day 2:"):
+                                yoffset 5
+                        elif (timeline_branch_selected == "d"):
+                            text _("Day 3:"):
+                                yoffset 5
                         textbutton _("Barbara"):
-                            action NullAction()
+                            action (AddToSet(days[timeline_branch_selected][0], "barbara") if not person_visited("barbara", timeline_branch_selected, 0) else RemoveFromSet(days[timeline_branch_selected][0], "barbara"))
+                            selected person_visited("barbara", timeline_branch_selected, 0)
                         textbutton _("Cat"):
-                            action NullAction()
+                            action (AddToSet(days[timeline_branch_selected][0], "cat") if not person_visited("cat", timeline_branch_selected, 0) else RemoveFromSet(days[timeline_branch_selected][0], "cat"))
+                            selected person_visited("cat", timeline_branch_selected, 0)
                         textbutton _("Eddie"):
-                            action NullAction()
+                            action (AddToSet(days[timeline_branch_selected][0], "eddie") if not person_visited("eddie", timeline_branch_selected, 0) else RemoveFromSet(days[timeline_branch_selected][0], "eddie"))
+                            selected person_visited("eddie", timeline_branch_selected, 0)
                         textbutton _("Graves"):
-                            action NullAction()
+                            action (AddToSet(days[timeline_branch_selected][0], "graves") if not person_visited("graves", timeline_branch_selected, 0) else RemoveFromSet(days[timeline_branch_selected][0], "graves"))
+                            selected person_visited("graves", timeline_branch_selected, 0)
 
-                    hbox:
-                        spacing 10
-                        text _("Day 3:"):
-                            yoffset 5
-                        textbutton _("Barbara"):
-                            action NullAction()
-                        textbutton _("Cat"):
-                            action NullAction()
-                        textbutton _("Eddie"):
-                            action NullAction()
-                        textbutton _("Graves"):
-                            action NullAction()
+                    if (timeline_branch_selected in ["a", "c", "d"]):
+                        hbox:
+                            spacing 10
+                            if (timeline_branch_selected == "a"):
+                                text _("Day 2:"):
+                                    yoffset 5
+                            elif (timeline_branch_selected == "c"):
+                                text _("Day 3:"):
+                                    yoffset 5
+                            elif (timeline_branch_selected == "d"):
+                                text _("Day 4:"):
+                                    yoffset 5
+                            textbutton _("Barbara"):
+                                action (AddToSet(days[timeline_branch_selected][1], "barbara") if not person_visited("barbara", timeline_branch_selected, 1) else RemoveFromSet(days[timeline_branch_selected][1], "barbara"))
+                                selected person_visited("barbara", timeline_branch_selected, 1)
+                            textbutton _("Cat"):
+                                action (AddToSet(days[timeline_branch_selected][1], "cat") if not person_visited("cat", timeline_branch_selected, 1) else RemoveFromSet(days[timeline_branch_selected][1], "cat"))
+                                selected person_visited("cat", timeline_branch_selected, 1)
+                            textbutton _("Eddie"):
+                                action (AddToSet(days[timeline_branch_selected][1], "eddie") if not person_visited("eddie", timeline_branch_selected, 1) else RemoveFromSet(days[timeline_branch_selected][1], "eddie"))
+                                selected person_visited("eddie", timeline_branch_selected, 1)
+                            textbutton _("Graves"):
+                                action (AddToSet(days[timeline_branch_selected][1], "graves") if not person_visited("graves", timeline_branch_selected, 1) else RemoveFromSet(days[timeline_branch_selected][1], "graves"))
+                                selected person_visited("graves", timeline_branch_selected, 1)
 
-                    hbox:
-                        spacing 10
-                        text _("Day 4:"):
-                            yoffset 5
-                        textbutton _("Barbara"):
-                            action NullAction()
-                        textbutton _("Cat"):
-                            action NullAction()
-                        textbutton _("Eddie"):
-                            action NullAction()
-                        textbutton _("Graves"):
-                            action NullAction()             
+                    if (timeline_branch_selected in ["a", "c"]):
+                        hbox:
+                            spacing 10
+                            if (timeline_branch_selected == "a"):
+                                text _("Day 3:"):
+                                    yoffset 5
+                            elif (timeline_branch_selected == "c"):
+                                text _("Day 4:"):
+                                    yoffset 5
+                            textbutton _("Barbara"):
+                                action (AddToSet(days[timeline_branch_selected][2], "barbara") if not person_visited("barbara", timeline_branch_selected, 2) else RemoveFromSet(days[timeline_branch_selected][2], "barbara"))
+                                selected person_visited("barbara", timeline_branch_selected, 2)
+                            textbutton _("Cat"):
+                                action (AddToSet(days[timeline_branch_selected][2], "cat") if not person_visited("cat", timeline_branch_selected, 2) else RemoveFromSet(days[timeline_branch_selected][2], "cat"))
+                                selected person_visited("cat", timeline_branch_selected, 2)
+                            textbutton _("Eddie"):
+                                action (AddToSet(days[timeline_branch_selected][2], "eddie") if not person_visited("eddie", timeline_branch_selected, 2) else RemoveFromSet(days[timeline_branch_selected][2], "eddie"))
+                                selected person_visited("eddie", timeline_branch_selected, 2)
+                            textbutton _("Graves"):
+                                action (AddToSet(days[timeline_branch_selected][2], "graves") if not person_visited("graves", timeline_branch_selected, 2) else RemoveFromSet(days[timeline_branch_selected][2], "graves"))
+                                selected person_visited("graves", timeline_branch_selected, 2)
+
+                    if (timeline_branch_selected == "a"):
+                        hbox:
+                            spacing 10
+                            text _("Day 4:"):
+                                yoffset 5
+                            textbutton _("Barbara"):
+                                action (AddToSet(days[timeline_branch_selected][3], "barbara") if not person_visited("barbara", timeline_branch_selected, 3) else RemoveFromSet(days[timeline_branch_selected][3], "barbara"))
+                                selected person_visited("barbara", timeline_branch_selected, 3)
+                            textbutton _("Cat"):
+                                action (AddToSet(days[timeline_branch_selected][3], "cat") if not person_visited("cat", timeline_branch_selected, 3) else RemoveFromSet(days[timeline_branch_selected][3], "cat"))
+                                selected person_visited("cat", timeline_branch_selected, 3)
+                            textbutton _("Eddie"):
+                                action (AddToSet(days[timeline_branch_selected][3], "eddie") if not person_visited("eddie", timeline_branch_selected, 3) else RemoveFromSet(days[timeline_branch_selected][3], "eddie"))
+                                selected person_visited("eddie", timeline_branch_selected, 3)
+                            textbutton _("Graves"):
+                                action (AddToSet(days[timeline_branch_selected][3], "graves") if not person_visited("graves", timeline_branch_selected, 3) else RemoveFromSet(days[timeline_branch_selected][3], "graves"))
+                                selected person_visited("graves", timeline_branch_selected, 3)
 
         textbutton _("RETURN"):
             background Frame("gui/frame.png")
