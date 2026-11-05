@@ -1,4 +1,5 @@
 label mind_read_cat:
+    # A-1
     if (current_thought == "cat_thought_01"):
         librarian_thoughts "I’m working right now...[wait_05]this had better be quick..."
     elif (current_thought == "cat_thought_02"):

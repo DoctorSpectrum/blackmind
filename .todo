@@ -13,6 +13,7 @@ BLACKMIND TODO
                     - Add in functionality so that the locations list is dynamic depending upon branch + day
                     - Add in functionality so that we have limited mind reads + mind wipes
                 - Debugging:
+                    - Add in debugging for setting where we go on each slot
                     - Add in a function that halts skipping when we have config; I can add it in on lines that need to be mind-read and speed up progress
                     - Let's add in a debug button (D or something) that displays the name of the current scene and some variables - that way I can get the others to give me variable info if they find bugs.
                 - Flow chart

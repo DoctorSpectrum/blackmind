@@ -593,12 +593,13 @@ label variables:
     default day = 0
     default branch = None
     default person = "barbara_prologue"
-    default days = [
-        [],
-        [],
-        [],
-        []
-    ]
+    default days = {
+        "a": [[], [], [], []],
+        "b": [[]],
+        "c": [[], [], []],
+        "d": [[], []],
+        "e": [[]]
+    }
 
     #Misc. variables
     image black_bg = Solid("#000")

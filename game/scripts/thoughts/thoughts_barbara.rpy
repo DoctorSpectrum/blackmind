@@ -1,4 +1,5 @@
 label mind_read_barbara:
+    # A-1
     if (current_thought == "barbara_thought_01"):
         bartender_thoughts "Whoa, who sent this hottie here?![wait_1] If he’s looking for a drink, I’d be more than happy to help him!"
     elif (current_thought == "barbara_thought_02"):
@@ -44,7 +45,7 @@ label mind_read_barbara:
         barbara_thoughts "I guess that I’ll still help him out, though...[wait_1]I would like to get to know him a bit better."
     elif (current_thought == "barbara_thought_21"):
         barbara_thoughts "Running a bar involves a lot more than just pouring drinks, buddy!"
-    elif (current_thoguht == "barbara_thought_22"):
+    elif (current_thought == "barbara_thought_22"):
         barbara_thoughts "He seems pretty nice...[wait_05]but I’m a little wary of his interest in this mysterious man.[wait_1] I hope he’s on the up-and-up."
 
     $ ignore_thoughts_length()

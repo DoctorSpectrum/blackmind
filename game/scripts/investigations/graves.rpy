@@ -139,13 +139,17 @@ label graves_a_1:
     lloyd_narrating neutral "Graves didn’t provide me with any guarantees, but he’s at least willing to be transparent about where he’s at by the end of the day."
     lloyd_narrating neutral "If I come by, I might be able to help steer him in the right direction, and he’ll hopefully have a better sense of how long things will take."
 
+    $ visit_person("graves", "a", 0)
     return
 
 label graves_a_2:
+    $ visit_person("graves", "a", 1)
     return
 
 label graves_a_3:
+    $ visit_person("graves", "a", 2)
     return
 
 label graves_a_4:
+    $ visit_person("graves", "a", 3)
     return

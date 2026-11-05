@@ -1,6 +1,7 @@
 screen debug():
     default action = None
     default label_jump = ""
+    default timeline_branch_selected = "a"
 
     modal True
     zorder 100
@@ -25,6 +26,9 @@ screen debug():
 
                 textbutton _("Variable Controls"):
                     action SetScreenVariable("action", "variable_controls")
+
+                textbutton _("Timeline"):
+                    action SetScreenVariable("action", "timeline")
 
                 #textbutton _("Test Map Jump"):
                 #    action [
@@ -59,6 +63,7 @@ screen debug():
                     Jump(label_jump),
                     Hide("debug")
                 ]
+
         elif (action == "variable_controls"):
             vbox:
                 xalign 0.5
@@ -100,7 +105,85 @@ screen debug():
                                 action SetVariable("day", 3)
                             textbutton _("4"):
                                 action SetVariable("day", 4)
+        
+        elif (action == "timeline"):
+            vbox:
+                xalign 0.1
+                yalign 0.2
+                spacing 25
+                label _("BRANCH"):
+                    text_font "gui/Decade__.ttf"
+                vbox:
+                    spacing 10
+                    textbutton _("A"):
+                        action SetScreenVariable("timeline_branch_selected", "a")
+                    textbutton _("B"):
+                        action SetScreenVariable("timeline_branch_selected", "b")
+                    textbutton _("C"):
+                        action SetScreenVariable("timeline_branch_selected", "c")
+                    textbutton _("D"):
+                        action SetScreenVariable("timeline_branch_selected", "d")
+                    textbutton _("E"):
+                        action SetScreenVariable("timeline_branch_selected", "e")
+
+            vbox:
+                xalign 0.5
+                yalign 0.2
+                spacing 10
                 
+                vbox:
+                    spacing 25
+                    hbox:
+                        spacing 10
+                        text _("Day 1:"):
+                            yoffset 5
+                        textbutton _("Barbara"):
+                            action NullAction()
+                        textbutton _("Cat"):
+                            action NullAction()
+                        textbutton _("Eddie"):
+                            action NullAction()
+                        textbutton _("Graves"):
+                            action NullAction()
+
+                    hbox:
+                        spacing 10
+                        text _("Day 2:"):
+                            yoffset 5
+                        textbutton _("Barbara"):
+                            action NullAction()
+                        textbutton _("Cat"):
+                            action NullAction()
+                        textbutton _("Eddie"):
+                            action NullAction()
+                        textbutton _("Graves"):
+                            action NullAction()
+
+                    hbox:
+                        spacing 10
+                        text _("Day 3:"):
+                            yoffset 5
+                        textbutton _("Barbara"):
+                            action NullAction()
+                        textbutton _("Cat"):
+                            action NullAction()
+                        textbutton _("Eddie"):
+                            action NullAction()
+                        textbutton _("Graves"):
+                            action NullAction()
+
+                    hbox:
+                        spacing 10
+                        text _("Day 4:"):
+                            yoffset 5
+                        textbutton _("Barbara"):
+                            action NullAction()
+                        textbutton _("Cat"):
+                            action NullAction()
+                        textbutton _("Eddie"):
+                            action NullAction()
+                        textbutton _("Graves"):
+                            action NullAction()             
 
         textbutton _("RETURN"):
             background Frame("gui/frame.png")

@@ -1,4 +1,5 @@
 label mind_read_graves:
+    # A-1
     if (current_thought == "graves_thought_01"):
         detective_thoughts "Thank goodness he did come up...[wait_05]I’ve been itching to start a new case ever since the previous one finished."
         $ add_boolean("graves_no_cases")

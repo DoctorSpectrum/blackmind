@@ -145,13 +145,17 @@ label barbara_a_1:
     lloyd_narrating neutral "It wasn’t anything particularly concrete, but I know that the man in black was in this area last night."
     lloyd_narrating neutral "One of Barbara’s neighbours might have seen or heard something...[wait_05]but is returning here tonight the best use of my time?"
     
+    $ visit_person("barbara", "a", 0)
     return
 
 label barbara_a_2:
+    $ visit_person("barbara", "a", 1)
     return
 
 label barbara_a_3:
+    $ visit_person("barbara", "a", 2)
     return
 
 label barbara_a_4:
+    $ visit_person("barbara", "a", 3)
     return 

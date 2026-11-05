@@ -6,3 +6,6 @@ label branch_a_1_0:
     call screen modal_popup("You are now ready to begin the main game of BLACKMIND: Psychic Social Simulator. As Lloyd, you’re going to try and track down Jack’s killer and find a way to stop him – but as you uncover new information, you might find your priorities and goals changing.")
     call screen modal_popup("Lloyd isn’t as experienced with using psychic powers as Jack was, and so there are a few things to note when playing as him:\n\n{font=DejaVuSans.ttf}•{/font} You can only use your Mind Read ability 3 times per conversation.\n\n{font=DejaVuSans.ttf}•{/font} You can only use your Mind Rewind ability 1 time per conversation.\n\nRemember to make use of the History log to carefully review conversations, and determine where the best place to use your psychic abilities is.\n\nIn addition, you only have enough time each day to visit three locations. Choose which locations you want to visit carefully. You can only visit a location once per day.\n\nThis information, and more, can be reviewed in the Help section of the pause menu.", short=False)
     call screen map_navigation(find_locations([1, 2]))
+
+label branch_a_1_4:
+    lloyd "test"

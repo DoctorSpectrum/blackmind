@@ -1,4 +1,5 @@
 label mind_read_eddie:
+    # A-1
     if (current_thought == "eddie_thought_01"):
         employee_thoughts "Hope this is something good –[wait_05] I need a –"
     elif (current_thought == "eddie_thought_02"):

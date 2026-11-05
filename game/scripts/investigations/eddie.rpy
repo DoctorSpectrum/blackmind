@@ -105,6 +105,8 @@ label eddie_unrecognised:
     lloyd_narrating neutral "Eddie leaves the room and closes the door behind him."
     lloyd_narrating neutral "I want to go after him but the moment has passed.[wait_1] For now I’ll have to leave."
     lloyd_thinking neutral "If I come back another day, he might be in a better mood.[wait_1] For now I’d better keep moving."
+    
+    $ visit_person("eddie", "a", 0)
     return
 
 label eddie_recognised:
@@ -174,13 +176,17 @@ label eddie_recognised:
     lloyd_thinking neutral "But he made it clear that he’s not happy to work with me."
     lloyd_thinking neutral "I can return here later, but will he tell me anything that I couldn’t discover on my own?"
 
+    $ visit_person("eddie", "a", 0)
     return
 
 label eddie_a_2:
+    $ visit_person("eddie", "a", 1)
     return
 
 label eddie_a_3:
+    $ visit_person("eddie", "a", 2)
     return
 
 label eddie_a_4:
+    $ visit_person("eddie", "a", 3)
     return 

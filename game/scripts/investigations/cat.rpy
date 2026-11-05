@@ -133,13 +133,17 @@ label cat_a_1:
             lloyd_narrating neutral "It could be worth returning here later tonight and taking a look at the books."
             lloyd_narrating neutral "If not then I can return another day."
     
-    return
+    $ visit_person("cat", "a", 0)
+    jump eddie_investigation
 
 label cat_a_2:
+    $ visit_person("cat", "a", 1)
     return
 
 label cat_a_3:
+    $ visit_person("cat", "a", 2)
     return
 
 label cat_a_4:
+    $ visit_person("cat", "a", 3)
     return 
