@@ -48,5 +48,44 @@ label mind_read_barbara:
     elif (current_thought == "barbara_thought_22"):
         barbara_thoughts "He seems pretty nice...[wait_05]but I’m a little wary of his interest in this mysterious man.[wait_1] I hope he’s on the up-and-up."
 
+    # A-1-4
+    elif (current_thought == "barbara_thought_23"):
+        barbara_thoughts "Oh, the hottie is back!"
+    elif (current_thought == "barbara_thought_24"):
+        barbara_thoughts "Crap, how could I forget his name already?[wait_1] Wait...[wait_05]no, I think that’s it!"
+    elif (current_thought == "barbara_thought_25"):
+        barbara_thoughts "Phew!"
+    elif (current_thought == "barbara_thought_26"):
+        barbara_thoughts "I’ve got to get rid of this damn stock![wait_1] He’d like a beer, right?"
+    elif (current_thought == "barbara_thought_27"):
+        barbara_thoughts "Ah, of course...[wait_05]I should have seen that coming." 
+    elif (current_thought == "barbara_thought_28"):
+        barbara_thoughts "I’m kind of relieved that none of them knew anything –[wait_05] his interest in this guy is still a little suspicious."
+    elif (current_thought == "barbara_thought_29"):
+        barbara_thoughts "Hopefully he gets the hint that I’m not his PA."
+    elif (current_thought == "barbara_thought_30"):
+        barbara_thoughts "He’s still happy to spend a bit of money and chat, right?"
+    elif (current_thought == "barbara_thought_31"):
+        barbara_thoughts "Damn...[wait_05]I was hoping that we could have a bit more of a casual conversation."
+        barbara_thoughts "And maybe I could find out a bit more about what his connection with this guy is..."
+    elif (current_thought == "barbara_thought_32"):
+        barbara_thoughts "That has to be, what, the fourth in the last hour?" 
+        barbara_thoughts "He’s been holding them well enough, but why is he drinking so much?"
+    elif (current_thought == "barbara_thought_33"):
+        barbara_thoughts "He’s been holding his drinks fine before now.[wait_1] Why is he pretending to be drunk?"
+    elif (current_thought == "barbara_thought_34"):
+        bartender_thoughts "That has to be, what, the fourth in the last hour?" 
+        bartender_thoughts "He’s been holding them well enough, but why is he drinking so much?"
+    elif (current_thought == "barbara_thought_35"):
+        bartender_thoughts "He’s been holding his drinks fine before now.[wait_1] Why is he pretending to be drunk?"
+    elif (current_thought == "barbara_thought_36"):
+        barbara_thoughts "Wait...[wait_05]is he actually drunk?[wait_1] Was he just faking his sobriety really well before?"
+    elif (current_thought == "barbara_thought_37"):
+        barbara_thoughts "He’s changed completely.[wait_1] This is weird."
+    elif (current_thought == "barbara_thought_38"):
+        bartender_thoughts "Wait...[wait_05]is he actually drunk?[wait_1] Was he just faking his sobriety really well before?"
+    elif (current_thought == "barbara_thought_39"):
+        bartender_thoughts "He’s changed completely.[wait_1] This is weird."
+
     $ ignore_thoughts_length()
     return

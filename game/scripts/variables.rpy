@@ -590,8 +590,8 @@ label variables:
     #Timeline variables
     #default game_id = persistent.game_id
     #$ persistent.game_id += 1
-    default day = 0
     default branch = None
+    default day = 0
     default person = "barbara_prologue"
     default days = {
         "a": [[], [], [], []],

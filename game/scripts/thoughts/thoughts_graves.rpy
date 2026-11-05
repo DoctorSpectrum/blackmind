@@ -50,6 +50,26 @@ label mind_read_graves:
     elif (current_thought == "graves_thought_24"):
         graves_thoughts "Not that I’m expecting them to be much, but if I can show him that I’ve started, that’ll hopefully give him some confidence in me."
     
+    # A-1-4
+    elif (current_thought == "graves_thought_25"):
+        graves_thoughts "Argh, another person who doesn’t understand the benefits of green tea!"
+    elif (current_thought == "graves_thought_26"):
+        graves_thoughts "He’s not expecting things to be too far along, surely?"
+    elif (current_thought == "graves_thought_27"):
+        graves_thoughts "...Apparently he is."
+    elif (current_thought == "graves_thought_28"):
+        graves_thoughts "You set the expectation for the clients, and then they go and ignore it anyway."
+    elif (current_thought == "graves_thought_29"):
+        graves_thoughts "Is he willing to give me some more information now that he can see how it’s hampering the case?"
+    elif (current_thought == "graves_thought_30"):
+        graves_thoughts "I’m not angry, I’m just disappointed."
+    elif (current_thought == "graves_thought_31"):
+        graves_thoughts "Does he see how hypocritical he’s being?[wait_1] How selfish?"
+    elif (current_thought == "graves_thought_32"):
+        graves_thoughts "Thank god.[wait_1] I can finally finish up here and head back home."
+    elif (current_thought == "graves_thought_33"):
+        graves_thoughts "I get that he’s frustrated that I haven’t made solid progress, but I hope that he’s a bit more reasonable tomorrow."
+    
 
     $ ignore_thoughts_length()
     return

@@ -88,10 +88,12 @@ label barbara_a_1:
     $ swap_sprites("barbara_angry")
     barbara "I know them, sure, but I can’t afford to just go around and pester them."
     barbara "I’ve got work to do, buddy![wait_1] If you want their information, then you can go ask them yourself!"
-    # if it's the last section of the day
-    # lloyd_thinking neutral "I might be able to tomorrow, but I definitely don’t have any more time today."
-    # else
-    lloyd_thinking neutral "I’ve got much more promising places on my list – I need to prioritise visiting them."
+
+    if (len(days["a"][0]) >= 1):
+        lloyd_thinking neutral "I might be able to tomorrow, but I definitely don’t have any more time today."
+    else:
+        lloyd_thinking neutral "I’ve got much more promising places on my list – I need to prioritise visiting them."
+    
     lloyd_thinking neutral "It would be much more convenient if Barbara spoke to the other shopowners for me."
 
     menu:
@@ -119,6 +121,7 @@ label barbara_a_1:
             lloyd neutral "Are you certain?"
             barbara "I’ll prove it –[wait_1] I’ll ask around right away, and see if anyone’s heard anything about this guy you’re looking for!"
             barbara "Whatever information people have, I’ll find it out!"
+            $ add_boolean("barbara_convinced_investigate")
     
     $ swap_sprites("barbara_thinking")
     $ current_thought = "barbara_thought_18"

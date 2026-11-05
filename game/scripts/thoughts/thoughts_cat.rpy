@@ -40,5 +40,26 @@ label mind_read_cat:
     elif (current_thought == "cat_thought_19"):
         librarian_thoughts "Please go away...[wait_1]please go away..."
 
+    # A-1-4
+    elif (current_thought == "cat_thought_20"):
+        cat_thoughts "He’s here...[wait_1]and I still don’t know how to get rid of him for good"
+    elif (current_thought == "cat_thought_21"):
+        cat_thoughts "This probably won’t work...[wait_1]but I should try it anyway."
+    elif (current_thought == "cat_thought_22"):
+        cat_thoughts "I’d rather not give him it...[wait_1]but if I don’t..."
+    elif (current_thought == "cat_thought_23"):
+        cat_thoughts "I chose the worst-written of the books...[wait_1]hopefully he’ll think they’re all like this and stop pressuring me..."
+    elif (current_thought == "cat_thought_24"):
+        cat_thoughts "He’s obviously speed-reading it...[wait_1]what is he looking for?"
+    elif (current_thought == "cat_thought_25"):
+        cat_thoughts "The sooner we’re done here...[wait_1]the better."
+    elif (current_thought == "cat_thought_26"):
+        cat_thoughts "He’s so insistent...[wait_1]how do I get rid of him...?"
+    elif (current_thought == "cat_thought_27"):
+        cat_thoughts "If I talk to them before he can...[wait_1]then he has nothing on me.[wait_1] I just need to come up with a good lie..."
+    elif (current_thought == "cat_thought_28"):
+        cat_thoughts "This should buy me some time...[wait_1]I can work out how to stop him by tomorrow..."
+    
+
     $ ignore_thoughts_length()
     return

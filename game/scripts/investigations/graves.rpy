@@ -131,6 +131,7 @@ label graves_a_1:
             graves "I’ll –[wait_05] I’ll start working on this once you leave."
             graves "I can’t guarantee that it’ll get very far along by the end of today, but I’ll at least get some momentum going."
             $ swap_sprites("graves_smiling")
+            $ add_boolean("identify_graves_lie")
     $ current_thought = "graves_thought_24"
     graves "If you do want to come by later tonight, I can show you where things are sitting at the end of the day."
     hide graves_smiling with quick_dissolve

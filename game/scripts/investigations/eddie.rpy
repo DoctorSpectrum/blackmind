@@ -176,6 +176,7 @@ label eddie_recognised:
     lloyd_thinking neutral "But he made it clear that he’s not happy to work with me."
     lloyd_thinking neutral "I can return here later, but will he tell me anything that I couldn’t discover on my own?"
 
+    $ add_boolean("eddie_investigates_docherty")
     $ visit_person("eddie", "a", 0)
     return
 
