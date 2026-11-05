@@ -28,6 +28,7 @@ label variables:
     define lloyd_narrating = Character(kind=lloyd, what_color="#3B3B3B")
     define mental_jack = Character(kind=jack, name="???", image=None)
     define phone = Character("Phone", what_color="#000")
+    define unknown = Character("???", what_color="#000")
 
     #Persistent variables
     default persistent.game_launched = False
