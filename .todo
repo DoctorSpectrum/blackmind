@@ -11,9 +11,11 @@ BLACKMIND TODO
             - Programming:
                 - Post-script programming:
                     - Add in functionality so that the locations list is dynamic depending upon branch + day
+                        - Will also need to add in the text from the script - one of the only bits missing stuff from the script ATM
                     - Add in functionality so that we have limited mind reads + mind wipes
                     - Do we want booleans to start with the branch you read them on? E.g. a_graves_lie, c_cat_helped, stuff like that?
                     - Make sure that we clear out the thoughts_read array or whatever it's called at the start of scenes so we can't just infinitely read thoughts by repeatedly replaying the scene
+                    - Add in power upgrade screen + functionality
                 - Debugging:
                     - Add in debugging for setting where we go on each slot
                     - Add in a function that halts skipping when we have config; I can add it in on lines that need to be mind-read and speed up progress

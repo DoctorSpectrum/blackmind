@@ -315,3 +315,32 @@ label branch_a_1_4_bar:
         lloyd_narrating neutral "It rings a bell but I can’t make the connection.[wait_1] I shrug it off and continue to the train."
     lloyd_narrating neutral "It’s far too late by the time I finally reach home and go to bed."
     
+label branch_a_2_0:
+    # Power upgrade
+    $ branch = "a"
+    $ day = 2
+    call screen chapter_breaks("WEDNESDAY", "It’s now been more than twenty-four hours since Lloyd vowed to find and stop the man in black.\n\nHe has not made any progress in discovering who the man’s identity or what his aims are.")
+    scene apartment_day with slow_dissolve
+    lloyd_narrating neutral "I wake up in bed wondering whether my memory of last night was a bad dream."
+    if (person_visited("barbara", "a", 0)):
+        lloyd_narrating neutral "I remember something about being in Icarus and a cold train ride, but it’s indistinct enough that my mind could be playing tricks."
+    else:
+        lloyd_narrating neutral "I remember something about being in a bar and a cold train ride, but it’s indistinct enough that my mind could be playing tricks."
+    lloyd_narrating neutral "Then the sensation of a head full of cotton wool and a full bladder kicks in."
+    lloyd_narrating neutral "The bright light of day feels far more intense than it should, and when I shamble my way out of bed my stomach hurts enough to force me into a ball."
+    lloyd_narrating neutral "Last night was definitely not a dream.[wait_1] The hangover confirms what memories deny."
+    lloyd_narrating neutral "I went out to a bar and got roaring drunk but don’t remember why."
+    lloyd_thinking neutral "Did I go out to celebrate something and then drink so much that I forgot why I went out?"
+    lloyd_thinking neutral "Or was there some other reason that I visited the bar?[wait_1] Was it to do with the man in black?"
+    lloyd_thinking neutral "My powers only let me read the future...[wait_1]it’s a pity that they won’t let me read the p–"
+    lloyd_narrating neutral "Thinking about my psychic abilities makes me realise what possibly happened."
+    lloyd_thinking neutral "Could my psychic abilities have been responsible for my memories disappearing?"
+    lloyd_thinking neutral "Did they somehow backfire on me and cause me to forget the start of my night out?"
+    lloyd_narrating neutral "The more that I think about it the more it makes sense."
+    lloyd_narrating neutral "My psychic powers affect peoples’ minds, and I’ve forgotten most of my night out."
+    lloyd_narrating neutral "That solves that mystery, but not why I went to the bar in the first place."
+    lloyd_thinking neutral "Nothing on my phone gives me a conclusive answer."
+    lloyd_thinking neutral "It’s a little tenuous but I’d like to talk to some of the contacts I made yesterday and see whether any of them know anything."
+    lloyd_thinking neutral "Maybe one of them will know what happened"
+    
+    call screen map_navigation(find_locations([]))
