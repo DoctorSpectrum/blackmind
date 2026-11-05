@@ -359,6 +359,42 @@ label variables:
         "not _last_say_who == 'barbara'",
         "barbara_thinking_tint"
     )
+    
+    image cat_cold = ConditionSwitch(
+        "rewound_mind == True",
+        "cat_cold_greyscale",
+        "_last_say_who in ['cat', 'librarian', 'librarian_thoughts'] or not renpy.get_screen('say')", 
+        "images/sprites/cat_cold.png", 
+        "not _last_say_who == 'cat'", 
+        "cat_cold_tint"
+    )
+
+    image cat_neutral = ConditionSwitch(
+        "rewound_mind == True",
+        "cat_neutral_greyscale",
+        "_last_say_who in ['cat', 'librarian', 'librarian_thoughts'] or not renpy.get_screen('say')", 
+        "images/sprites/cat_neutral.png", 
+        "not _last_say_who == 'cat'", 
+        "cat_neutral_tint"
+    )
+
+    image cat_sad = ConditionSwitch(
+        "rewound_mind == True",
+        "cat_sad_greyscale",
+        "_last_say_who in ['cat', 'librarian', 'librarian_thoughts'] or not renpy.get_screen('say')", 
+        "images/sprites/cat_sad.png", 
+        "not _last_say_who == 'cat'", 
+        "cat_sad_tint"
+    )
+
+    image cat_smiling = ConditionSwitch(
+        "rewound_mind == True",
+        "cat_smiling_greyscale",
+        "_last_say_who in ['cat', 'librarian', 'librarian_thoughts'] or not renpy.get_screen('say')", 
+        "images/sprites/cat_smiling.png", 
+        "not _last_say_who == 'cat'", 
+        "cat_smiling_tint"
+    )
 
     image docherty_neutral = ConditionSwitch(
         "rewound_mind == True",
@@ -367,6 +403,87 @@ label variables:
         "images/sprites/docherty_neutral.png",
         "not _last_say_who == 'docherty'",
         "docherty_neutral_tint"
+    )
+
+    image eddie_angry = ConditionSwitch(
+        "rewound_mind == True",
+        "eddie_angry_greyscale",
+        "_last_say_who in ['eddie', 'employee', 'employee_thoughts'] or not renpy.get_screen('say')", 
+        "images/sprites/eddie_angry.png", 
+        "not _last_say_who == 'eddie'", 
+        "eddie_angry_tint"
+    )
+
+    image eddie_arrogant = ConditionSwitch(
+        "rewound_mind == True",
+        "eddie_arrogant_greyscale",
+        "_last_say_who in ['eddie', 'employee', 'employee_thoughts'] or not renpy.get_screen('say')", 
+        "images/sprites/eddie_arrogant.png", 
+        "not _last_say_who == 'eddie'", 
+        "eddie_arrogant_tint"
+    )
+
+    image eddie_smiling = ConditionSwitch(
+        "rewound_mind == True",
+        "eddie_smiling_greyscale",
+        "_last_say_who in ['eddie', 'employee', 'employee_thoughts'] or not renpy.get_screen('say')", 
+        "images/sprites/eddie_smiling.png", 
+        "not _last_say_who == 'eddie'", 
+        "eddie_smiling_tint"
+    )
+
+    image eddie_unimpressed = ConditionSwitch(
+        "rewound_mind == True",
+        "eddie_unimpressed_greyscale",
+        "_last_say_who in ['eddie', 'employee', 'employee_thoughts'] or not renpy.get_screen('say')", 
+        "images/sprites/eddie_unimpressed.png", 
+        "not _last_say_who == 'eddie'", 
+        "eddie_unimpressed_tint"
+    )
+
+    image graves_intimidating = ConditionSwitch(
+        "rewound_mind == True",
+        "graves_intimidating_greyscale",
+        "_last_say_who in ['graves', 'detective', 'detective_thoughts'] or not renpy.get_screen('say')", 
+        "images/sprites/graves_intimidating.png", 
+        "not _last_say_who == 'graves'", 
+        "graves_intimidating_tint"
+    )
+
+    image graves_sad = ConditionSwitch(
+        "rewound_mind == True",
+        "graves_sad_greyscale",
+        "_last_say_who in ['graves', 'detective', 'detective_thoughts'] or not renpy.get_screen('say')", 
+        "images/sprites/graves_sad.png", 
+        "not _last_say_who == 'graves'", 
+        "graves_sad_tint"
+    )
+
+    image graves_shocked = ConditionSwitch(
+        "rewound_mind == True",
+        "graves_shocked_greyscale",
+        "_last_say_who in ['graves', 'detective', 'detective_thoughts'] or not renpy.get_screen('say')", 
+        "images/sprites/graves_shocked.png", 
+        "not _last_say_who == 'graves'", 
+        "graves_shocked_tint"
+    )
+
+    image graves_smiling = ConditionSwitch(
+        "rewound_mind == True",
+        "graves_smiling_greyscale",
+        "_last_say_who in ['graves', 'detective', 'detective_thoughts'] or not renpy.get_screen('say')", 
+        "images/sprites/graves_smiling.png", 
+        "not _last_say_who == 'graves'", 
+        "graves_smiling_tint"
+    )
+
+    image graves_thinking = ConditionSwitch(
+        "rewound_mind == True",
+        "graves_thinking_greyscale",
+        "_last_say_who in ['graves', 'detective', 'detective_thoughts'] or not renpy.get_screen('say')", 
+        "images/sprites/graves_thinking.png", 
+        "not _last_say_who == 'graves'", 
+        "graves_thinking_tint"
     )
 
     image barbara_angry_tint:
@@ -401,12 +518,116 @@ label variables:
         "images/sprites/barbara_thinking.png"
         greyscale_cycle
 
+    image cat_cold_tint:
+        "images/sprites/cat_cold.png"
+        dark_tint
+
+    image cat_cold_greyscale:
+        "images/sprites/cat_cold.png"
+        greyscale_cycle
+
+    image cat_neutral_tint:
+        "images/sprites/cat_neutral.png"
+        dark_tint
+
+    image cat_neutral_greyscale:
+        "images/sprites/cat_neutral.png"
+        greyscale_cycle
+
+    image cat_sad_tint:
+        "images/sprites/cat_sad.png"
+        dark_tint
+
+    image cat_sad_greyscale:
+        "images/sprites/cat_sad.png"
+        greyscale_cycle
+
+    image cat_smiling_tint:
+        "images/sprites/cat_smiling.png"
+        dark_tint
+
+    image cat_smiling_greyscale:
+        "images/sprites/cat_smiling.png"
+        greyscale_cycle
+
     image docherty_neutral_tint:
         "images/sprites/docherty_neutral.png"
         dark_tint
 
     image docherty_neutral_greyscale:
         "images/sprites/docherty_neutral.png"
+        greyscale_cycle
+
+    image eddie_angry_tint:
+        "images/sprites/eddie_angry.png"
+        dark_tint
+
+    image eddie_angry_greyscale:
+        "images/sprites/eddie_angry.png"
+        greyscale_cycle
+
+    image eddie_arrogant_tint:
+        "images/sprites/eddie_arrogant.png"
+        dark_tint
+
+    image eddie_arrogant_greyscale:
+        "images/sprites/eddie_arrogant.png"
+        greyscale_cycle
+
+    image eddie_smiling_tint:
+        "images/sprites/eddie_smiling.png"
+        dark_tint
+
+    image eddie_smiling_greyscale:
+        "images/sprites/eddie_smiling.png"
+        greyscale_cycle
+
+    image eddie_unimpressed_tint:
+        "images/sprites/eddie_unimpressed.png"
+        dark_tint
+
+    image eddie_unimpressed_greyscale:
+        "images/sprites/eddie_unimpressed.png"
+        greyscale_cycle
+
+    image graves_intimidating_tint:
+        "images/sprites/graves_intimidating.png"
+        dark_tint
+
+    image graves_intimidating_greyscale:
+        "images/sprites/graves_intimidating.png"
+        greyscale_cycle
+
+    image graves_sad_tint:
+        "images/sprites/graves_sad.png"
+        dark_tint
+
+    image graves_sad_greyscale:
+        "images/sprites/graves_sad.png"
+        greyscale_cycle
+
+    image graves_shocked_tint:
+        "images/sprites/graves_shocked.png"
+        dark_tint
+
+    image graves_shocked_greyscale:
+        "images/sprites/graves_shocked.png"
+        greyscale_cycle
+
+    image graves_smiling_tint:
+        "images/sprites/graves_smiling.png"
+        dark_tint
+
+    image graves_smiling_greyscale:
+        "images/sprites/graves_smiling.png"
+        greyscale_cycle
+
+    image graves_thinking_tint:
+        "images/sprites/graves_thinking.png"
+        dark_tint
+
+    image graves_thinking_greyscale:
+        "images/sprites/graves_thinking.png"
         greyscale_cycle
 
     image side jack angry:
