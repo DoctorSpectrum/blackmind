@@ -275,6 +275,7 @@ label cat_a_2:
             lloyd neutral "Nothing else, Cat."
             cat "Very well.[wait_1] Have a good day."
             hide cat_neutral with quick_dissolve
+            hide screen psychic_powers
             lloyd_narrating neutral "She returns to her pile of books and I take the hint."
             lloyd_narrating neutral "I leave the library, wondering where I could find the way to recover my missing memories."
             $ add_boolean("cat_investigates_murders")
@@ -333,6 +334,7 @@ label cat_a_2:
             cat "I hope for your sake...[wait_1]that they are as well."
             lloyd_thinking thinking "Keeping up the facade to the end."
             hide cat_cold with quick_dissolve
+            hide screen psychic_powers
             lloyd_narrating neutral "Cat returns to her pile of books as though I’ve already left her."
             lloyd_narrating neutral "I take the hint and walk away.[wait_1] I won’t be gaining anything from the library today."
 

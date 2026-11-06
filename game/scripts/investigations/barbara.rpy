@@ -258,6 +258,7 @@ label barbara_a_2:
     barbara "Well, since you brought it up...[wait_05]there actually is something that you could help me with."
     lloyd friendly "Of course."
     hide barbara_smiling with quick_dissolve
+    hide screen psychic_powers
     scene black_bg with quick_dissolve
     lloyd_narrating neutral "Barbara directs me to the bathroom."
     barbara "I doubt that you’re the one responsible for all of this, but...[wait_05]well, you did offer to help..."

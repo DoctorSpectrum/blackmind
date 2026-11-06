@@ -62,5 +62,47 @@ label mind_read_eddie:
     elif (current_thought == "eddie_thought_30"):
         eddie_thoughts "He probably won’t bother coming tonight, the bum."
 
+    # A-2
+    elif (current_thought == "eddie_thought_31"):
+        eddie_thoughts "Better get this bastard out of here.[wait_1] I can’t have him around."
+    elif (current_thought == "eddie_thought_32"):
+        eddie_thoughts "Could he have been...?[wait_1] No, probably not."
+    elif (current_thought == "eddie_thought_33"):
+        eddie_thoughts "He has other leads?[wait_1] I’ve got to find them so I can use them myself.[wait_1] Cut out the middleman."
+    elif (current_thought == "eddie_thought_34"):
+        eddie_thoughts "I’m not telling him what I found out.[wait_1] Not if he’s just going to ignore me."
+    elif (current_thought == "eddie_thought_35"):
+        eddie_thoughts "Better get this bastard out of here.[wait_1] I can’t have him around."
+    elif (current_thought == "eddie_thought_36"):
+        employee_thoughts "I’ll tell whoever this is that we’re not interested in his story but follow it up later.[wait_1] I can get credit for it and cut out the middleman."
+    elif (current_thought == "eddie_thought_37"):
+        employee_thoughts "Wait a fucking second...[wait_1]is that Lloyd Chen?"
+    elif (current_thought == "eddie_thought_38"):
+        employee_thoughts "It is him![wait_1] He’s here to stab me in the back again!"
+    elif (current_thought == "eddie_thought_39"):
+        employee_thoughts "Why is he pretending not to remember me?[wait_1] Or...[wait_05]does he actually mean it?"
+    elif (current_thought == "eddie_thought_40"):
+        employee_thoughts "He’s bluffing.[wait_1] No fucking way did Chen actually bother to memorise somebody else’s name."
+    elif (current_thought == "eddie_thought_41"):
+        employee_thoughts "I’ll get his hopes up that I want to talk, then kick him out and tell him his story’s useless.[wait_1] That’ll show him."
+    elif (current_thought == "eddie_thought_42"):
+        eddie_thoughts "No idea what he’s going on about, but I bet he hasn’t changed from the old days.[wait_1] He’ll have spent his night exactly the same as he did back then."
+    elif (current_thought == "eddie_thought_43"):
+        eddie_thoughts "Yep.[wait_1] Exactly what I expected." 
+        eddie_thoughts "Weak-ass constitution Chen went to bed early, just like he always used to.[wait_1] He never had any time to go out and drink, or have dinner, or meet people."
+    elif (current_thought == "eddie_thought_44"):
+        eddie_thoughts "He’s got to be lying, right?[wait_1] Trying to impress me for some reason?"
+    elif (current_thought == "eddie_thought_45"):
+        eddie_thoughts "It is weird that he decided to go out to a bar...[wait_1]but I’m not going to let him know that I’m interested."
+    elif (current_thought == "eddie_thought_46"):
+        eddie_thoughts "If it was anybody else I reckon the memory loss’d be a bit weird.[wait_1] But Chen’s so lightweight half a pint’s probably enough to knock him out."
+    elif (current_thought == "eddie_thought_47"):
+        eddie_thoughts "Why is he still fucking here?[wait_1] He’s overstayed his welcome.[wait_1] Time to get rid of him."
+    elif (current_thought == "eddie_thought_48"):
+        eddie_thoughts "I think I have heard of it before...[wait_1]run by some snobbish family that didn’t want to sell it off to anybody."
+    elif (current_thought == "eddie_thought_49"):
+        eddie_thoughts "I was wondering whether he’d changed at all from the old days, but he’s exactly the same.[wait_1] I shouldn’t have wasted my time on him."
+    
+
     $ ignore_thoughts_length()
     return
