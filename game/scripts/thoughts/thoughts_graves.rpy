@@ -70,6 +70,48 @@ label mind_read_graves:
     elif (current_thought == "graves_thought_33"):
         graves_thoughts "I get that he’s frustrated that I haven’t made solid progress, but I hope that he’s a bit more reasonable tomorrow."
     
+    # A-2
+    elif (current_thought == "graves_thought_34"):
+        detective_thoughts "Gotta be careful with the image.[wait_1] Not too rough, but not as young as I am."
+    elif (current_thought == "graves_thought_35"):
+        detective_thoughts "He hasn’t laughed![wait_1] We’re off to a good start!"
+    elif (current_thought == "graves_thought_36"):
+        graves_thoughts "Nope, too serious.[wait_1] He thinks I’m weird."
+    elif (current_thought == "graves_thought_37"):
+        graves_thoughts "I wonder whether this’ll match up with what we find out during the background check?"
+    elif (current_thought == "graves_thought_38"):
+        graves_thoughts "How much are you going to lie to me, Lloyd?"
+    elif (current_thought == "graves_thought_39"):
+        graves_thoughts "Nice to see Lloyd again.[wait_1] His background check was pretty clean."
+    elif (current_thought == "graves_thought_40"):
+        graves_thoughts "I doubt that Docherty is who Lloyd is looking for, given everything he said about his mystery person."
+    elif (current_thought == "graves_thought_41"):
+        graves_thoughts "Shit, what do I do in terms of paperwork?[wait_1] Bill additional hours, or open up a separate case?"
+    elif (current_thought == "graves_thought_42"):
+        graves_thoughts "Odd request.[wait_1] Is he trying to keep me busy or distract me from something?"
+    elif (current_thought == "graves_thought_43"):
+        graves_thoughts "Most people wouldn’t go to a detective for this sort of thing.[wait_1] Why has he come to me?"
+    elif (current_thought == "graves_thought_44"):
+        graves_thoughts "This almost sounds like possession.[wait_1] But only temporary?"
+    elif (current_thought == "graves_thought_45"):
+        graves_thoughts "Icarus is famous for hubris.[wait_1] Why would you give something that name?"
+    elif (current_thought == "graves_thought_46"):
+        graves_thoughts "I’d like a bit more information.[wait_1] What is he hoping to get from me?"
+    elif (current_thought == "graves_thought_47"):
+        graves_thoughts "If he hasn’t gone there yet it’s a bit suspicious.[wait_1] Why wouldn’t you make it your first destination?"
+    elif (current_thought == "graves_thought_48"):
+        graves_thoughts "Why would I even want to help somebody with an attitude like this?[wait_1] ...Because he’s asking you to, of course."
+    elif (current_thought == "graves_thought_49"):
+        graves_thoughts "I think that he’s lying to me.[wait_1] I think he remembers why he went there, but doesn’t want to tell me."
+    elif (current_thought == "graves_thought_50"):
+        graves_thoughts "What sort of answer is he hoping I’ll give him?[wait_1] He wants me to tell him something specific, but I don’t know what, or why."
+    elif (current_thought == "graves_thought_51"):
+        graves_thoughts "This must be what he’s been building to.[wait_1] Is there something else at the bar that he wants me to find?"
+    elif (current_thought == "graves_thought_52"):
+        graves_thought "I feel like this is going to be a waste of my time.[wait_1] But as long as he pays me it should be fine.[wait_1] It’s not like I’ll be in danger if I investigate the bar."
+    elif (current_thought == "graves_thought_53"):
+        graves_thought "If I’d known that this was what he wanted from me I would have pretended to be out.[wait_1] I’d rather do work on some of our other cases."
+    
 
     $ ignore_thoughts_length()
     return
