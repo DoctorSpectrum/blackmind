@@ -96,6 +96,7 @@ label cat_a_1:
             librarian "Good.[wait_1] You’re not wanted."
             lloyd_thinking neutral "Her hostility goes beyond my disagreeing with the library’s rules...[wait_05]why is she so determined to keep me from those books?"
             hide cat_cold with quick_dissolve
+            hide screen psychic_powers
             scene black_bg with slow_dissolve
             lloyd_narrating neutral "I exit the library as I said I would."
             lloyd_narrating neutral "I won’t find what I’m looking for today, and the librarian’s wrath is building."
@@ -127,6 +128,7 @@ label cat_a_1:
             librarian "If you do...[wait_1]ask for Cat if you can’t find me.[wait_1] Now...[wait_1]leave me alone."
             $ add_boolean("cat_name_discovered")
             hide cat_cold with quick_dissolve
+            hide screen psychic_powers
             scene black_bg with slow_dissolve
             lloyd_narrating neutral "I do as she requests."
             lloyd_narrating neutral "This trip hasn’t been particularly fruitful but I made some progress."

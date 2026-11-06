@@ -135,6 +135,7 @@ label graves_a_1:
     $ current_thought = "graves_thought_24"
     graves "If you do want to come by later tonight, I can show you where things are sitting at the end of the day."
     hide graves_smiling with quick_dissolve
+    hide screen psychic_powers
     lloyd_narrating neutral "I accept what he says and then spend some time filling out paperwork before leaving the office."
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "Graves didn’t provide me with any guarantees, but he’s at least willing to be transparent about where he’s at by the end of the day."

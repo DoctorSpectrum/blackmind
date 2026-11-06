@@ -143,6 +143,7 @@ label barbara_a_1:
     lloyd friendly "Understood.[wait_1] Thank you for your assistance, Barbara – it’s appreciated."
     barbara "No prob![wait_1] Good luck finding this guy!"
     hide barbara_smiling with quick_dissolve
+    hide screen psychic_powers
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "I say my goodbyes and leave the bar."
     lloyd_narrating neutral "It wasn’t anything particularly concrete, but I know that the man in black was in this area last night."

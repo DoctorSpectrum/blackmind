@@ -169,6 +169,7 @@ label eddie_recognised:
     lloyd neutral "Yes?"
     eddie "This story had better be fuckin’ worth my time."
     hide eddie_angry with quick_dissolve
+    hide screen psychic_powers
     lloyd_narrating neutral "With those words of wisdom he leaves the room."
     lloyd_narrating neutral "I have no more reason to stay in this building and exit it."
     scene black_bg with slow_dissolve
