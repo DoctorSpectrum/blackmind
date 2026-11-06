@@ -344,3 +344,6 @@ label branch_a_2_0:
     lloyd_thinking neutral "Maybe one of them will know what happened"
     
     call screen map_navigation(find_locations([]))
+
+label branch_a_2_4:
+    call screen mobile_articles

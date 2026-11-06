@@ -1938,6 +1938,58 @@ style convo_progress_bar:
     xmaximum 450
     ysize 30
 
+screen mobile_articles():
+    default article = None
+
+    frame:
+        background Solid("#F2EE29")
+        xalign 0.5
+        yalign 0.5
+        xsize 1600
+        ysize 800
+
+        if (article == None):
+            vbox:
+                xalign 0.8
+                yalign 0.1
+
+                text _("Here are the articles that I found.")
+                
+                # Clicking on both of these should append them to an array of articles we've read
+                textbutton _("https://localnewspaper.com/articles/man-shot"):
+                    action SetScreenVariable("article", 0)
+                textbutton _("https://localnewspaper.com/articles/another-man-shot"):
+                    action SetScreenVariable("article", 1)
+
+        else:
+            side ("c r"):
+                area (0, 0, 1145, 625)
+                viewport id "article_viewport":
+                    draggable True 
+                    mousewheel True
+                    arrowkeys True
+                    
+                    vbox:
+                        if (article == 0):
+                            text _("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+                        elif (article == 1):
+                            image "images/backgrounds/apartment_day.png"
+
+                            text _("Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.\n\nLorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.")
+                        elif (article == 2):
+                            text _("this is the popular article")
+
+                        if (article != 2):
+                            text _("POPULAR ARTICLES")
+                            textbutton _("Article #3"):
+                                action SetScreenVariable("article", 2)
+                null
+        
+        # Either once we hit back or once we've scrolled to the bottom of the articles we return
+        textbutton _("Back"):
+            action SetScreenVariable("article", None)
+
+
 screen cash_money(style="left_small"):
     zorder 20
 
@@ -2017,63 +2069,6 @@ screen cash_money(style="left_small"):
                 font "gui/twoweekendgo-bold.otf"
                 size 46
 
-screen attune_senses():
-    #default transparency = 0.33
-
-    #timer 0.5:
-    #    action SetScreenVariable("transparency", random.randint(0, 100) / 100)
-    #    repeat True
-
-    image "images/sprites/jack_smug.png":
-        at center
-
-    text _("Tonight's a good night to continue working on the plan. Where should I go first?"):
-        color "#F2EE29"
-        xalign 0.75
-        yalign 0.25
-        xmaximum 350
-        at transform:
-            alpha 0.0
-            block:
-                ease 1.0:
-                    alpha random.randint(31, 70) / 100
-                pause 0.5
-                linear 1.0:
-                    alpha random.randint(0, 30) / 100
-                pause 0.5
-                repeat
-
-    frame:
-        background "gui/textbox.png"
-        xalign 0.5
-        yalign 0.95
-        xsize 1376
-        ysize 288
-        at trans_fade(0.0, 1.0), fade_side_to_side(1800, 0.0)
-
-        text _("Attune your psychic senses until the thoughts are barely visible"):
-            xalign 0.5
-            yalign 0.25
-            color "#000"
-            at trans_fade(1.0, 0.5)
-
-        textbutton _("START GAME"):
-            xalign 0.5
-            yalign 0.8
-            text_font "gui/chubhand.ttf"
-            text_color "#000"
-            text_hover_color "#F2EE29"
-            text_hover_outlines [ (4, "#000005", 0, 0) ]
-            text_size 72
-            text_yoffset 5
-            action [
-                SetVariable("persistent.senses_attuned", True),
-                Return()
-            ]
-            at trans_fade(6.0, 0.5)
-
-    key "mouseup_3":
-        action NullAction()
 
 screen gallery():
     tag menu
