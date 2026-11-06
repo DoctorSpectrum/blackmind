@@ -60,6 +60,69 @@ label mind_read_cat:
     elif (current_thought == "cat_thought_28"):
         cat_thoughts "This should buy me some time...[wait_1]I can work out how to stop him by tomorrow..."
     
+    # A-2
+    elif (current_thought == "cat_thought_29"):
+        if (check_boolean("cat_name_discovered")):
+            cat_thoughts "It’s him...[wait_1]how can I stop him from asking about those books today?"
+        else:
+            librarian_thoughts "It’s him...[wait_1]how can I stop him from asking about those books today?"
+    elif (current_thought == "cat_thought_30"):
+        if (check_boolean("cat_name_discovered")):
+            cat_thoughts "It’ll be okay...[wait_1]there’s no way for him to find out where they are..."
+        else:
+            librarian_thoughts "It’ll be okay...[wait_1]there’s no way for him to find out where they are..."
+    elif (current_thought == "cat_thought_31"):
+        if (check_boolean("cat_name_discovered")):
+            cat_thoughts "So much nicer...[wait_1]as a name."
+        else:
+            librarian_thoughts "So much nicer...[wait_1]as a name."
+    elif (current_thought == "cat_thought_32"):
+        cat_thoughts "I can’t let him know...[wait_1]where they are.[wait_1] I’ll have to bluff."
+    elif (current_thought == "cat_thought_33"):
+        cat_thoughts "Why is he...[wait_1]making such a big deal about this?[wait_1] It’s not like anybody died..."
+    elif (current_thought == "cat_thought_34"):
+        cat_thoughts "Is he buying it?[wait_1] He’s gone quiet..."
+    elif (current_thought == "cat_thought_35"):
+        cat_thoughts "He’s lying...[wait_1]he must be..."
+    elif (current_thought == "cat_thought_36"):
+        cat_thoughts "What?[wait_1] I need more details about this."
+    elif (current_thought == "cat_thought_37"):
+        cat_thoughts "A shooting?[wait_1] I should check my files...[wait_1]see whether there are any reports about it..."
+    elif (current_thought == "cat_thought_38"):
+        cat_thoughts "Better get all the details...[wait_1]make it easier to find the information in the files..."
+    elif (current_thought == "cat_thought_39"):
+        cat_thoughts "“A hunch.”[wait_1] Could he be one of Sergei’s types?"
+    elif (current_thought == "cat_thought_40"):
+        cat_thoughts "I need more information...[wait_1]to narrow the files down..."
+    elif (current_thought == "cat_thought_41"):
+        cat_thoughts "He sounds like an amateur...[wait_1]I’d better give him some advice..."
+    elif (current_thought == "cat_thought_42"):
+        cat_thoughts "I could use more information...[wait_1]but this should be enough to narrow down the files..."
+    elif (current_thought == "cat_thought_43"):
+        cat_thoughts "This sounds like a fun project to work on!"
+    elif (current_thought == "cat_thought_44"):
+        cat_thoughts "He’ll probably forget to tell me something...[wait_1]but that’s part of the challenge..."
+    elif (current_thought == "cat_thought_45"):
+        cat_thoughts "He’s forgotten about the books...[wait_1]I hope he doesn’t ask about them again..."
+    elif (current_thought == "cat_thought_46"):
+        cat_thoughts "Where did that come from?[wait_1] This man suddenly became interesting!"
+    elif (current_thought == "cat_thought_47"):
+        cat_thoughts "He probably means retrograde amnesia...[wait_1]let’s see what he says..."
+    elif (current_thought == "cat_thought_48"):
+        cat_thoughts "If he remembers going to bed...[wait_1]I think I know what this is..."
+    elif (current_thought == "cat_thought_49"):
+        cat_thoughts "If it isn’t DID...[wait_1]then I have another theory..."
+    elif (current_thought == "cat_thought_50"):
+        cat_thoughts "Traumatic experiences like...[wait_1]being attacked by a shark?"
+    elif (current_thought == "cat_thought_51"):
+        cat_thoughts "I have to direct him away from the books..."
+    elif (current_thought == "cat_thought_52"):
+        cat_thoughts "It didn’t work...[wait_1]he’s going to regret not listening..."
+    elif (current_thought == "cat_thought_53"):
+        cat_thoughts "A hunch?[wait_1] Does this mean...?"
+    elif (current_thought == "cat_thought_54"):
+        cat_thoughts "Finally...[wait_1]it worked..."
+    
 
     $ ignore_thoughts_length()
     return
