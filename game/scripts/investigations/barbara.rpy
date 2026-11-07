@@ -273,6 +273,181 @@ label barbara_a_2:
     return
 
 label barbara_a_3:
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "I’m trying to discover why the man with the white streak was killed by the man in black."
+    lloyd_narrating neutral "There must be something that he has in common with the man in black’s other victims; something that painted targets on their backs."
+    lloyd_narrating neutral "Finding that commonality will make it easier to identify the man in black’s next target, and I might finally be able to do some good with my psychic powers."
+    lloyd_narrating neutral "I encountered the man with the white streak a few streets away from Icarus."
+    lloyd_narrating neutral "I’m not going to get my hopes up but it’s possible that he’s a regular at the bar, or in the area."
+    lloyd_narrating neutral "If he is then I may finally learn something about him.[wait_1] If not then at least I’ve eliminated one of the more likely leads."
+    lloyd_narrating neutral "I walk to the nearest train station, moving at a casual pace."
+    lloyd_narrating neutral "The next train won’t be arriving for nearly ten minutes, and I can afford to spare the time."
+    lloyd_narrating neutral "The temperature in the station is a strong contrast to the air above the ground; it’s chilly enough for me to zip my jacket up part of the way."
+    lloyd_narrating neutral "Once the train finally arrives I enter it and take it to my destination."
+    if (person_visited("barbara", "a", 0) or person_visited("barbara", "a", 1)):
+        lloyd_narrating neutral "I knock on the door of Icarus.[wait_1] I don’t have long to wait before Barbara arrives and lets me in, leading me further inside."
+    else:
+        lloyd_narrating neutral "I’m not surprised to find that the bar is closed, but I knock on the door regardless, hoping that somebody may be inside."
+        lloyd_narrating neutral "My hunch is correct, and the owner comes to the door."
+        lloyd_narrating neutral "I tell her that I’ve got some questions to ask and she leads me inside."
+    
+    scene bar with slow_dissolve
+    lloyd_narrating neutral "To my surprise I find that the bar feels warm and welcoming, even though it hasn’t been fully set up for when it opens tonight."
+    lloyd_narrating neutral "The temperature feels comfortable in spite of my jacket, smooth jazz is playing from some hidden speakers, and the smell of alcohol is being blocked by some type of air freshener."
+    lloyd_narrating neutral "It almost makes me wish that I was more of a drinker so that I could order something and drink it in alongside the atmosphere."
+    $ swap_sprites("barbara_smiling", slow_dissolve)
+    show screen psychic_powers
+
+    if (person_visited("barbara", "a", 1)):
+        $ current_thought = "barbara_thought_59"
+        lloyd_narrating neutral "Barbara seems to be in a good mood.[wait_1] It likely helps that –[wait_05] as far as I know –[wait_05] she didn’t have to deal with any drunkards last night."
+        barbara "So, you decided to pay me another visit, did you?"
+        $ current_thought = "barbara_thought_60"
+        lloyd neutral "Is there somewhere else that you’d rather I be?[wait_1] Am I interrupting anything?"
+        barbara "Oh, nothing that I can’t put off for a little bit."
+        barbara "As a matter of fact, it’s nice to have an excuse to take a break."
+        barbara "You know when you look at a word for so long that it loses all meaning?[wait_1] That’s how I feel right now, except instead of a word it’s numbers."
+        $ current_thought = "barbara_thought_47"
+        lloyd neutral "I hope that I don’t add more mental fatigue to your head, then:[wait_05] I have some questions to ask you."
+        barbara "And here I was hoping you were finally interested in ordering a drink."
+        barbara "But sure, I’ll bite: how can my bar and I help you, Lloyd?"
+    else:
+        if (not person_visited("barbara", "a", 0) and not person_visited("barbara", "a", 1)):
+            $ current_thought = "barbara_thought_42"
+            lloyd_narrating neutral "I’m unsure whether the bartender recognises me from two nights ago."
+            lloyd_narrating neutral "If she does then she seems willing to put the incident behind her."
+        elif (person_visited("barbara", "a", 0)):
+            $ current_thought = "barbara_thought_41"
+            lloyd_narrating neutral "Barbara seems to be in a good mood.[wait_1] I wonder whether she’s forgotten about my visit here on Tuesday evening."
+        $ swap_sprites("barbara_angry")
+        bartender "So, you decided to return to the scene of the crime, did you?"
+        lloyd_narrating neutral "Or not."
+        if (not person_visited("barbara", "a", 0) and not person_visited("barbara", "a", 1)):
+            lloyd neutral "I apologise for the other night, miss...?"
+            bartender "Just Barbara is fine.[wait_1] I don’t need to feel any older than I already am."
+            $ current_thought = "barbara_thought_44"
+            lloyd neutral "I apologise for the other night, Barbara.[wait_1] As much as I’d like to provide you with an explanation, the truth is that simply that I lost track of how much I’d been drinking."
+        elif (person_visited("barbara", "a", 0)):
+            lloyd neutral "I’m sorry for how I was the other night, Barbara."
+            lloyd neutral "As much as I’d like to provide you with an explanation, the truth is that simply that I lost track of how much I’d been drinking."
+        lloyd_narrating neutral "It’s far from the truth.[wait_1] But it’s easier than telling her that my psychic powers wiped most of my memories of that night."
+        $ current_thought = "barbara_thought_57"
+        barbara "That’s all that you have to say for yourself?[wait_1] That you lost track of your drinks?"
+        lloyd neutral "Yes."
+        $ swap_sprites("barbara_smiling")
+        $ current_thought = "barbara_thought_58"
+        barbara "Eh, I’ve heard worse excuses, and seen worse cases."
+        lloyd neutral "You’re willing to forgive me, just like that?"
+        barbara "Life’s too short to hold grudges, and if I held one against everybody who came in here and drank more than they should, I probably wouldn’t have many returning customers."
+        barbara "Just to be clear –[wait_05] that’s a joke, but the principle still applies."
+        lloyd neutral "Right."
+        $ current_thought = "barbara_thought_47"
+        if (not person_visited("barbara", "a", 0) and not person_visited("barbara", "a", 1)):
+            barbara "Anyway, you said that you had a few questions for me.[wait_1] How can I help you, mister...?"
+            lloyd neutral "Just Lloyd is fine.[wait_1] I don’t think we need to make this any more formal than is necessary."
+            barbara "Sounds good to me![wait_1] So, tell me: how can my bar and I help you?"
+        elif (person_visited("barbara", "a", 0)):
+            barbara "Anyway, you said that you had a few questions for me."
+            barbara "How can my bar and I help you, Lloyd?"
+    $ current_thought = "barbara_thought_61"
+    lloyd neutral "This may sound odd, but I’m currently trying to find out a bit of information about somebody."
+    lloyd neutral "I know that they were in the area several nights ago, and it’s possible that they might have visited your bar."
+    $ swap_sprites("barbara_thinking")
+    barbara "When you say several nights ago, when exactly are you talking about?"
+    $ current_thought = "barbara_thought_62"
+    lloyd neutral "Three nights ago.[wait_1] Monday."
+    barbara "Mondays tend to be my worst night for customers, sorry."
+    barbara "Keep going, just –[wait_05] don’t get your hopes up too much."
+    lloyd_thinking thinking "That’s disappointing, but not too surprising."
+    $ current_thought = "barbara_thought_63"
+    lloyd neutral "The person that I’m looking into is a white male."
+    lloyd neutral "He looks a little younger than me, and has a soul patch, and a gap in-between his teeth."
+    lloyd neutral "His most distinguishing feature, however, is a white streak through his hair, which is otherwise brown."
+    lloyd_narrating neutral "I’m not expecting much from her."
+    lloyd_narrating neutral "But as I describe the man with the white streak, Barbara nods thoughtfully several times."
+    $ swap_sprites("barbara_smiling")
+    $ current_thought = "barbara_thought_64"
+    barbara "Yep, I’ve seen him.[wait_1] Only the once, but he was in here on Monday, as you said."
+    lloyd neutral "Really?"
+    barbara "Yeah.[wait_1] He wasn’t in here for long –[wait_05] I actually threw him out after talking to him for a bit; I realised that he was pretty drunk and wasn’t in a state where he should have more alcohol."
+    barbara "What did you want to know about him?"
+    lloyd_narrating neutral "My excitement fades.[wait_1] It sounds as though the man with the white streak is as much a stranger to Barbara as he is to me."
+    lloyd_narrating neutral "Visiting the bar doesn’t mean that Barbara knows that much about him."
+    lloyd_thinking thinking "I may as well find out what she does know about him."
+    $ current_thought = "barbara_thought_65"
+    lloyd neutral "Do you know what his name is?[wait_1] Or what he does for a living?"
+    $ swap_sprites("barbara_angry")
+    barbara "Tch.[wait_1] I can tell you what he doesn’t do –[wait_05] he’s not a reviewer, and he definitely doesn’t deserve any free drinks."
+    lloyd neutral "What do you mean?"
+    $ current_thought = "barbara_thought_66"
+    barbara "Oh, just that he claimed that he could give me a good review if I gave him a drink for free."
+    barbara "I almost fell for it, but then I noticed his body language, and the tone of his voice, and it was obvious that he was just an addict looking for a free handout."
+    lloyd_narrating neutral "The mention of the man with the white streak’s body language gives me an idea."
+    $ current_thought = "barbara_thought_67"
+    lloyd neutral "Do you have any security footage of your interaction?"
+    lloyd_thinking thinking "I’m not expecting to hear their conversation.[wait_1] But if I review the footage of him I might discover some clues that I’ve missed."
+    $ swap_sprites("barbara_thinking")
+    barbara "Um...[wait_05]no offence, but I don’t think that I should –[wait_05] I don’t really want to share the footage with you."
+    barbara "Not that there’s anything on there that you shouldn’t see, but I –[wait_05] it is footage of {i}my{/i} bar, if that makes sense?"
+
+    menu:
+        "Offer a bribe" (locked=not check_boolean("barbara_offer_bribe"), message="You have not read the related thought"):
+            lloyd_thinking thinking "Barbara was thinking earlier about how her profits need to be higher."
+            lloyd_thinking thinking "Let’s see how she responds to a monetary offer."
+            $ current_thought = "barbara_thought_68"
+            lloyd neutral "I’ll give you two hundred dollars if you let me see the footage."
+            barbara "Two hundred dollars?!"
+            barbara "...[wait_05]That’s hard to say no to."
+            barbara "I can’t show you the footage right now –[wait_05] I’ll need to dig through the archives a bit, and I’ve got other things to prioritise."
+            barbara "Can you swing by later tonight?"
+            $ current_thought = "barbara_thought_69"
+            lloyd neutral "I might be able to."
+            $ swap_sprites("barbara_smiling")
+            barbara "Great...![wait_1] If I see you later, then I’ll show you what I’ve got."
+            $ add_boolean("barbara_retrieves_footage")
+        "Insist on it":
+            $ current_thought = "barbara_thought_70"
+            lloyd neutral "You’re being selfish, Barbara.[wait_1] I need to see that footage."
+            lloyd neutral "Can you just show me?"
+            $ swap_sprites("barbara_angry")
+            barbara "Hey, I’m allowed to do what I want with my own footage."
+            barbara "If you think that being forceful is going to have me folding immediately, then you’ve got another thing coming."
+            lloyd_thinking thinking "She’s right...[wait_05]I was too blunt."
+            lloyd_thinking thinking "I think I’ve soured her opinion on me too much.[wait_1] What could I have said to convince her?"
+        "Politely accept":
+            $ current_thought = "barbara_thought_71"
+            lloyd friendly "Of course.[wait_1] It was selfish of me to ask for it."
+            $ swap_sprites("barbara_smiling")
+            barbara "Thanks for understanding, Lloyd."
+            lloyd_thinking thinking "I was hoping that acquiescing to her request would change her mind, but it seems I was wrong."
+            lloyd_thinking thinking "What could have convinced her that I need the footage?"
+    $ current_thought = "barbara_thought_72"
+    barbara "The footage aside, is there anything else that I can help you with?"
+    $ current_thought = "barbara_thought_73"
+    lloyd neutral "You’ve said that you know that the man with the white streak isn’t a reviewer."
+    lloyd neutral "Is there anything else that you can tell me about him?[wait_1] You didn’t learn his name, did you?"
+    $ swap_sprites("barbara_thinking")
+    barbara "No...[wait_05]he mostly asked me some questions about the bar and if we had any deals."
+    barbara "If he’d actually stayed and asked some questions I could have given him something, but –[wait_05] no, I don’t know anything about the guy."
+    if (check_boolean("barbara_retrieves_footage")):
+        lloyd_thinking thinking "The only information I’ll learn from here will be from the security footage."
+        lloyd_thinking thinking "I don’t think that there’s any reason to stay here for any longer."
+    else:
+        lloyd_thinking thinking "Despite a promising start I don’t think that I’ll learn anything from here."
+        lloyd_thinking thinking "There’s no reason to stay here for any longer."
+    $ current_thought = "barbara_thought_74"
+    lloyd neutral "Thank you for what information you did give me.[wait_1] I’d best go then."
+    $ swap_sprites("barbara_smiling")
+    barbara "Sure you don’t want something to wet your whistle before you go?[wait_1] We’re technically closed right now, but I won’t tell anyone if you don’t!"
+    lloyd neutral "Thank you, but I have other things to do."
+    barbara "Alright.[wait_1] Well, see you, Lloyd!"
+    lloyd neutral "Farewell, Barbara."
+    hide barbara_smiling with quick_dissolve
+    hide screen psychic_powers
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "I exit the bar, the door locking itself behind me."
+    lloyd_narrating neutral "For now I should head elsewhere."
+
     $ visit_person("barbara", "a", 2)
     return
 

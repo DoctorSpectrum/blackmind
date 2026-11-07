@@ -126,6 +126,46 @@ label mind_read_barbara:
     elif (current_thought == "barbara_thought_56"):
         barbara_thoughts "I have to seize this opportunity while I can![wait_1] It might never come again!"
     
+    # A-3
+    elif (current_thought == "barbara_thought_57"):
+        barbara_thoughts "Is there anything more to it than that? It feels pretty simple."
+    elif (current_thought == "barbara_thought_58"):
+        barbara_thoughts "If he wasn’t so cute, I wouldn’t let him get away with this.[wait_1] But he is, so I will!"
+    elif (current_thought == "barbara_thought_59"):
+        barbara_thoughts "Hey, it’s Lloyd![wait_1] I can’t afford to entertain him for too long today; I can’t take a break for too long."
+    elif (current_thought == "barbara_thought_60"):
+        barbara_thoughts "You’re interrupting that budgeting that I’ve been putting off, right when I’ve finally made time for it.[wait_1] But people who don’t own businesses never really get it."
+    elif (current_thought == "barbara_thought_61"):
+        barbara_thoughts "What am I, a private investigator?"
+    elif (current_thought == "barbara_thought_62"):
+        barbara_thoughts "Not much activity on Mondays.[wait_1] This might be my excuse to kick him out and get back to work."
+    elif (current_thought == "barbara_thought_63"):
+        barbara_thoughts "It’s that asshat who tried to score free drinks. Is Lloyd friends with him?"
+    elif (current_thought == "barbara_thought_64"):
+        barbara_thoughts "I’ll tell you the truth –[wait_05] but I notice you haven’t told me why you want to find out about him."
+    elif (current_thought == "barbara_thought_65"):
+        barbara_thoughts "I’m not going to downplay what this guy was doing.[wait_1] He deserves whatever he gets."
+    elif (current_thought == "barbara_thought_66"):
+        barbara_thoughts "If only he had been legitimate...[wait_05]I really need my profits to be higher."
+        $ add_boolean("barbara_offer_bribe")
+    elif (current_thought == "barbara_thought_67"):
+        barbara_thoughts "Why is he asking me for that?[wait_1] ...[wait_05]This is still about the jerk with the white streak, right?"
+    elif (current_thought == "barbara_thought_68"):
+        barbara_thoughts "Why is he so desperate to see this footage?[wait_1] It’s kind of suspicious...[wait_05]but I shouldn’t look a gift horse in the mouth."
+    elif (current_thought == "barbara_thought_69"):
+        barbara_thoughts "Weird that he’s suddenly so noncommittal about the whole thing.[wait_1] How much does this actually matter to him?"
+    elif (current_thought == "barbara_thought_70"):
+        barbara_thoughts "And just like that, he turned into a dick, like so many other guys when I say no."
+    elif (current_thought == "barbara_thought_71"):
+        barbara_thoughts "It probably wouldn’t have hurt to show it to him.[wait_1] If he’d asked me in the right way I’d probably let him see it."
+    elif (current_thought == "barbara_thought_72"):
+        barbara_thoughts "I’d better change the topic, before he makes this weird."
+    elif (current_thought == "barbara_thought_73"):
+        barbara_thoughts "I still don’t know what Lloyd’s interest in this guy is."
+    elif (current_thought == "barbara_thought_74"):
+        barbara_thoughts "Thank god.[wait_1] I can finally get back to work."
+    
+
 
     $ ignore_thoughts_length()
     return
