@@ -408,3 +408,18 @@ label branch_a_2_4:
     lloyd_narrating neutral "I send Cat a text thanking her and then finish my meal." 
     lloyd_narrating neutral "I may not have made significant progress today, but I’m feeling more confident about tomorrow."
     scene black_bg with slow_dissolve
+
+label branch_a_3_0:
+    # Power upgrade
+    $ branch = "a"
+    $ day = 3
+    call screen chapter_breaks("THURSDAY", "After two days of investigating Lloyd hasn’t discovered anything about the man in black. He has no idea of his motivation or who he’s targeted.\n\nToday is the day that changes.")
+    scene apartment_day with slow_dissolve
+    lloyd_thinking thinking "Investigating the man in black didn’t turn up any information.[wait_1] I have to change things around and look at things from a different angle."
+    lloyd_thinking thinking "Namely, who was his victim and why was he killed?"
+    lloyd_narrating neutral "The police will be doing the same as I am but they’re missing an essential tool:[wait_05] my psychic powers."
+    lloyd_narrating neutral "I should be able to discover information that they can’t."
+    lloyd_thinking thinking "The police might already have some information which could help me but I can’t get it from them."
+    lloyd_thinking thinking "I’d need to question them about the victim and what they know in order to read their thoughts about him, which will make me look suspicious."
+    lloyd_thinking thinking "Now, who would be the best person to help me discover who the man with the white streak is?"
+    call screen map_navigation(find_locations([]))
