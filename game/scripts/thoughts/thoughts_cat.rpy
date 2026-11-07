@@ -123,6 +123,33 @@ label mind_read_cat:
     elif (current_thought == "cat_thought_54"):
         cat_thoughts "Finally...[wait_1]it worked..."
     
+    # A-3
+    elif (current_thought == "cat_thought_55"):
+        cat_thoughts "No...[wait_05]why has he returned?[wait_1] I can’t talk to him..."
+    elif (current_thought == "cat_thought_56"):
+        cat_thoughts "I’ll just stay silent...[wait_1]he’ll leave when he realises that I’m not talking..."
+    elif (current_thought == "cat_thought_57"):
+        cat_thoughts "Staying silent won’t work...[wait_1]I’ll try and remove him as fast as possible..."
+    elif (current_thought == "cat_thought_58"):
+        cat_thoughts "Shut up![wait_1] You don’t realise how dangerous this is, do you?"
+    elif (current_thought == "cat_thought_59"):
+        cat_thoughts "If I’m just his sounding board then he doesn’t actually need me.[wait_1] I need this conversation to end...[wait_1]now."
+    elif (current_thought == "cat_thought_60"):
+        cat_thoughts "He’s talked for too long already.[wait_1] I need to end this."
+    elif (current_thought == "cat_thought_61"):
+        cat_thoughts "Why don’t you get the hint?[wait_1] Why don’t you leave?"
+    elif (current_thought == "cat_thought_62"):
+        cat_thoughts "I’ll humour him.[wait_1] Maybe then he’ll leave."
+    elif (current_thought == "cat_thought_63"):
+        cat_thoughts "There.[wait_1] I listened to your description.[wait_1] Now go."
+    elif (current_thought == "cat_thought_64"):
+        cat_thoughts "I shouldn’t talk this much.[wait_1] But he isn’t giving up and I need him to."
+    elif (current_thought == "cat_thought_65"):
+        cat_thoughts "If you can take a hint then why are you still here?"
+    elif (current_thought == "cat_thought_66"):
+        cat_thoughts "Naïve idiot.[wait_1] Let’s see how you feel when the killer targets you."
+    
+
 
     $ ignore_thoughts_length()
     return
