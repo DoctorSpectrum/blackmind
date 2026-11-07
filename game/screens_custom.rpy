@@ -64,8 +64,8 @@ screen debug():
 
             key "K_RETURN":
                 action [
-                    Jump(label_jump),
-                    Hide("debug")
+                    Hide("debug"),
+                    Jump(label_jump)
                 ]
 
         elif (action == "variable_controls"):
@@ -261,7 +261,7 @@ screen debug():
             yalign 1.0
             xoffset 10
             yoffset -10
-            action (Hide("debug") if action != None else SetScreenVariable("action", None))
+            action (Hide("debug") if action is None else SetScreenVariable("action", None))
 
 style debug_text:
     color "#000"
