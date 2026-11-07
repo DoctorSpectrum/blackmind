@@ -2,6 +2,7 @@ screen debug():
     default action = None
     default label_jump = ""
     default timeline_branch_selected = "a"
+    default new_boolean = ""
 
     modal True
     zorder 100
@@ -29,6 +30,9 @@ screen debug():
 
                 textbutton _("Timeline"):
                     action SetScreenVariable("action", "timeline")
+                
+                textbutton _("Booleans"):
+                    action SetScreenVariable("action", "booleans")
 
                 #textbutton _("Test Map Jump"):
                 #    action [
@@ -225,6 +229,31 @@ screen debug():
                             textbutton _("Graves"):
                                 action (AddToSet(days[timeline_branch_selected][3], "graves") if not person_visited("graves", timeline_branch_selected, 3) else RemoveFromSet(days[timeline_branch_selected][3], "graves"))
                                 selected person_visited("graves", timeline_branch_selected, 3)
+        elif (action == "booleans"):
+            vbox:
+                xalign 0.5
+                yalign 0.2
+                spacing 25
+
+                text _("BOOLEANS")
+
+                hbox:
+                    spacing 5
+                    text _("Add:")
+                    input:
+                        value ScreenVariableInputValue("new_boolean")
+
+                vbox:
+                    spacing 10
+                    for boolean in booleans:
+                        textbutton _(boolean):
+                            action RemoveFromSet(booleans, boolean)
+
+                key "K_RETURN":
+                    action [
+                        Function(add_boolean, new_boolean),
+                        SetScreenVariable("new_boolean", "")
+                    ]
 
         textbutton _("RETURN"):
             background Frame("gui/frame.png")

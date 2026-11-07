@@ -103,6 +103,60 @@ label mind_read_eddie:
     elif (current_thought == "eddie_thought_49"):
         eddie_thoughts "I was wondering whether he’d changed at all from the old days, but he’s exactly the same.[wait_1] I shouldn’t have wasted my time on him."
     
+    # A-3
+    elif (current_thought == "eddie_thought_50"):
+        eddie_thoughts "Of course he doesn’t remember.[wait_1] No fucking way would Chen actually bother to memorise somebody else’s name."
+    elif (current_thought == "eddie_thought_51"):
+        eddie_thoughts "He might be here for a real reason today.[wait_1] But I’d rather throw him out than have to listen to him again."
+    elif (current_thought == "eddie_thought_52"):
+        eddie_thoughts "I wish somebody would give me some money.[wait_1] I don’t get paid enough for how good my photos are."
+        $ add_boolean("eddie_bribeable")
+    elif (current_thought == "eddie_thought_53"):
+        eddie_thoughts "I was just thinking about how I want money.[wait_1] Is this a coincidence, or...?"
+    elif (current_thought == "eddie_thought_54"):
+        eddie_thoughts "I might be able to string him along and get more money later."
+    elif (current_thought == "eddie_thought_55"):
+        eddie_thoughts "I do wish that they liked my photos more...[wait_05]is he going to tell me about some of his techniques?"
+    elif (current_thought == "eddie_thought_56"):
+        eddie_thoughts "Bastard’s definitely lying to try and get me to listen to him.[wait_1] I’m not falling for it." 
+    elif (current_thought == "eddie_thought_57"):
+        eddie_thoughts "This idiot thinks that COEUS is a bad brand.[wait_1] They might be new to cameras but all their other tech is solid; they’ll get the hang of it over time."
+    elif (current_thought == "eddie_thought_58"):
+        eddie_thoughts "If Chen has more information, I have to get it out of him before getting rid of him."
+    elif (current_thought == "eddie_thought_59"):
+        eddie_thoughts "Thank fuck I didn’t actually stay that late.[wait_1] I would have gone mental waiting for him."
+    elif (current_thought == "eddie_thought_60"):
+        eddie_thoughts "He doesn’t deserve to know what I discovered.[wait_1] Not after ignoring me like that."
+    elif (current_thought == "eddie_thought_61"):
+        eddie_thoughts "I need to find out who his source is and get them to talk to me.[wait_1] I can cut out the middleman and make it look like I found this amazing story."
+    elif (current_thought == "eddie_thought_62"):
+        eddie_thoughts "This sounds interesting.[wait_1] I’ll talk to Jeremiah and see whether we’ve heard anything about this."
+    elif (current_thought == "eddie_thought_63"):
+        eddie_thoughts "Imagine if I brought the killer to justice.[wait_1] That’d show them all!"
+    elif (current_thought == "eddie_thought_64"):
+        eddie_thoughts "I need to find out everything he knows."
+    elif (current_thought == "eddie_thought_65"):
+        eddie_thoughts "Reported in some articles?[wait_1] Shit...[wait_05]I thought this was going to be an exclusive."
+    elif (current_thought == "eddie_thought_66"):
+        eddie_thoughts "Chen’s forgotten that I’m a photographer, not a reporter.[wait_1] Actually, he probably never bothered storing that information in the first place."
+    elif (current_thought == "eddie_thought_67"):
+        eddie_thoughts "Jesus, what a shitty phone."
+    elif (current_thought == "eddie_thought_68"):
+        eddie_thoughts "What piece of shit is this supposed to be?"
+    elif (current_thought == "eddie_thought_69"):
+        eddie_thoughts "I’ll tell Jeremiah to look into it.[wait_1] This is probably a bigger story than whatever he’s currently working on."
+    elif (current_thought == "eddie_thought_70"):
+        eddie_thoughts "How does Chen know about the third victim?"
+    elif (current_thought == "eddie_thought_71"):
+        eddie_thoughts "He doesn’t know who the victim is.[wait_1] Good."
+    elif (current_thought == "eddie_thought_72"):
+        eddie_thoughts "I’ll find out who this person is.[wait_1] It’ll give me one up on him."
+    elif (current_thought == "eddie_thought_73"):
+        eddie_thoughts "Better downplay it.[wait_1] The longer I can keep him away the better."
+    elif (current_thought == "eddie_thought_74"):
+        eddie_thoughts "I don’t want him coming back tonight.[wait_1] I only want to talk to him if I start hitting dead ends."
+    elif (current_thought == "eddie_thought_75"):
+        eddie_thoughts "This oughta keep him from returning in too much of a hurry."    
 
     $ ignore_thoughts_length()
     return
