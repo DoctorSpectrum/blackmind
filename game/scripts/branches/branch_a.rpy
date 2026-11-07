@@ -346,4 +346,65 @@ label branch_a_2_0:
     call screen map_navigation(find_locations([]))
 
 label branch_a_2_4:
+    scene restaurant_night with slow_dissolve
+    lloyd_narrating neutral "The sun is setting on another day.[wait_1] Inversely proportional to its position in the sky is my frustration."
+    lloyd_narrating neutral "I’ve spent the entire day trying to discover what exactly happened last night but haven’t made any progress."
+    lloyd_narrating neutral "None of my contacts have any clue why I would have gone to the bar and I don’t know how to reverse the damage my psychic powers did to my memories."
+    lloyd_narrating neutral "I’ve returned to my favourite restaurant to eat dinner while I think things over."
+    lloyd_thinking thinking "What am I in the mood for today...?"
+    menu:
+        "Chow mein":
+            lloyd_narrating neutral "I order the chow mein and am given a generous serving which I take over to my table."
+            lloyd_narrating neutral "The noodles are steaming hot and I have to blow on them to cool them down, but the dish is fantastic nevertheless."
+            lloyd_narrating neutral "The sauce provides a pleasant sour flavour that complements the vegetables, and whenever I discover a piece of chicken the taste sensation is immediately enhanced."
+        "Yangzhou fried rice":
+            lloyd_narrating neutral "I order some Yangzhou fried rice, knowing that the rice will help sate my hunger after a day with little food."
+            lloyd_narrating neutral "The rice has cooled down since it was cooked and is more lukewarm than anything, but the mixture of its texture with the vegetables and meat is just as delicious as always."
+        "Char siu with rice":
+            lloyd_narrating neutral "I order the char siu with rice, and am slightly disappointed when I see how little of the actual meat is on the plate by the time I’m served."
+            lloyd_narrating neutral "My disappointment vanishes as I begin eating it, however, the umami flavour of the sauce and the texture of the meat impressing me despite the small amount I’ve been given."
+    
+    lloyd_narrating neutral "As I eat my meal I try and think about what to do next, but the solutions aren’t coming to me."
+    lloyd_thinking neutral "It’s been a complete waste of a day."
+    lloyd_thinking neutral "I haven’t learned anything new about the man in black and I haven’t reclaimed my missing memories."
+    lloyd_thinking neutral "What do I do now?"
+
+    if (not check_boolean("cat_investigates_murders")):
+        lloyd_narrating neutral "The answer is obvious."
+        lloyd_narrating neutral "There’s nothing else that I can do."
+        lloyd_narrating neutral "I’m lacking the information I need to find the man in black."
+        lloyd_narrating neutral "Nobody in the city can tell me about my missing memories or how my psychic abilities backfired."
+        lloyd_narrating neutral "Any attempts to uncover the information will get me nowhere."
+        lloyd_thinking thinking "I was hoping to get something out of this investigation...[wait_05]and to save some lives."
+        lloyd_thinking thinking "But there’s wisdom in knowing when to abandon a project."
+        lloyd_narrating neutral "I open up my phone and browse some galleries by some of my favourite photographers."
+        lloyd_narrating neutral "I continue scrolling through them as I finish my meal, making a point to not think about the man in black or anything that I’ve done over the past two days."
+        lloyd_narrating neutral "By the time I’m done at the restaurant I’m feeling good."
+        lloyd_narrating neutral "Focusing on my interests instead of a fruitless cause has loosened a knot of tension in my chest which I hadn’t realised was there."
+        scene black_bg with slow_dissolve
+        lloyd_narrating neutral "I return home, certain that I’m done with the case.[wait_1] And I am."
+        lloyd_narrating neutral "There’s no more investigating, and I turn my focus in the next few days to some personal matters."
+        lloyd_narrating neutral "What I don’t anticipate is that the case isn’t done with me."
+        lloyd_narrating neutral "But without the information I could have discovered, there’s no way for me to avoid my fate."
+        narrator "GAME OVER"
+        $ MainMenu(confirm=False)()
+    
+    lloyd_narrating neutral "The answer is decided for me as my phone receives a notification."
+    # SFX Phone vibrating
+    lloyd_thinking thinking "“This should be of interest to you”...?"
+    lloyd_narrating neutral "The message is from an unknown number, and I’m hesitant to click on the links included with it."
+    lloyd_narrating neutral "My curiosity wins out in the end though."
     call screen mobile_articles
+    lloyd_narrating neutral "The links take me to two separate articles, each one being news reports about two recent deaths in the city.[wait_1] Both victims died of bullet wounds."
+    lloyd_narrating neutral "Neither article says anything about suspects or motivation, and while a comparison is made between the victims, there’s no known connection or commonalities between them."
+    lloyd_thinking thinking "The message must be from Cat.[wait_1] She’s done good work to find these articles...[wait_05]although they don’t give me much."
+    lloyd_narrating neutral "Why did the man in black kill these two?[wait_1] Who could his next victim be?"
+    lloyd_narrating neutral "There’s no connection between them, and it doesn’t sound as though either of them are related to the man with the white streak."
+    lloyd_narrating neutral "Or do they?[wait_1] What do I really know about the man with the white streak?"
+    lloyd_narrating neutral "Nothing, really.[wait_1] I don’t even know his name."
+    lloyd_thinking thinking "Could he be the missing link between the other victims?"
+    lloyd_narrating neutral "There’s only one way to find out.[wait_1] Tomorrow I’ll focus on the man in black’s most recent victim, and see what I can discover about him."
+    lloyd_narrating neutral "If I can find out who exactly he is then I’ll begin to unravel the method to the man in black’s madness."
+    lloyd_narrating neutral "I send Cat a text thanking her and then finish my meal." 
+    lloyd_narrating neutral "I may not have made significant progress today, but I’m feeling more confident about tomorrow."
+    scene black_bg with slow_dissolve

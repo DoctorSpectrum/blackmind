@@ -16,8 +16,9 @@ BLACKMIND TODO
                     - Do we want booleans to start with the branch you read them on? E.g. a_graves_lie, c_cat_helped, stuff like that?
                     - Make sure that we clear out the thoughts_read array or whatever it's called at the start of scenes so we can't just infinitely read thoughts by repeatedly replaying the scene
                     - Add in power upgrade screen + functionality
+                    - Add in a game over/branch ending screen that gives us a hint for what to do to continue
+                        - Look up the $ MainMenu lines
                 - Debugging:
-                    - Add in debugging for setting where we go on each slot
                     - Add in a function that halts skipping when we have config; I can add it in on lines that need to be mind-read and speed up progress
                     - Let's add in a debug button (D or something) that displays the name of the current scene and some variables - that way I can get the others to give me variable info if they find bugs.
                 - Flow chart
