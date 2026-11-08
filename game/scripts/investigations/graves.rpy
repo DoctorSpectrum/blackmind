@@ -454,6 +454,7 @@ label graves_a_3:
             lloyd neutral "I may be able to visit you then.[wait_1] Thank you."
             lloyd_thinking thinking "He seems fairly confident that he can find the information I’m looking for."
             lloyd_thinking thinking "It sounds as though he already knows the man with the white streak.[wait_1] But what’s the connection?"
+            $ add_boolean("graves_mentioned_jack")
         "Nothing else":
             $ current_thought = "graves_thought_72"
             lloyd neutral "Unfortunately not.[wait_1] A description is all that I can give you."

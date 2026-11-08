@@ -163,6 +163,53 @@ label mind_read_graves:
     elif (current_thought == "graves_thought_76"):
         graves_thoughts "I almost hope that he doesn’t visit me later.[wait_1] I’ve got to think about this pretty carefully."
     
+    # A-3-4
+    elif (current_thought == "graves_thought_77"):
+        graves_thoughts "Of course I have.[wait_1] But can I trust Lloyd with it?"
+    elif (current_thought == "graves_thought_78"):
+        graves_thoughts "Lloyd’s still being kind of suspicious.[wait_1] I don’t know what his endgame is."
+    elif (current_thought == "graves_thought_79"):
+        graves_thoughts "If he lies again, I’ll have to enact the backup plan."
+    elif (current_thought == "graves_thought_80"):
+        graves_thoughts "Is he lying again?[wait_1] I don’t think he is."
+    elif (current_thought == "graves_thought_81"):
+        graves_thoughts "Damn...[wait_05]now he’ll never pay off that last invoice we charged him."
+    elif (current_thought == "graves_thought_82"):
+        graves_thoughts "I won’t tell him everything that I know.[wait_1] I still don’t know whether he’s being genuine.[wait_1] For now I’ll just keep it to the safe stuff."
+    elif (current_thought == "graves_thought_83"):
+        graves_thoughts "We probably shouldn’t have given him such a steep discount for it, but I’m a bit of a sucker for helping with this sort of thing."
+    elif (current_thought == "graves_thought_84"):
+        graves_thoughts "Is this relevant to know?[wait_1] I’ll just tell him enough to satisfy his curiosity."
+    elif (current_thought == "graves_thought_85"):
+        graves_thoughts "Is he looking for something in particular?[wait_1] Did I miss something important?"
+    elif (current_thought == "graves_thought_86"):
+        graves_thoughts "He’s determined to find something.[wait_1] We must have missed something."
+    elif (current_thought == "graves_thought_87"):
+        graves_thoughts "He never did anything as serious as murder.[wait_1] That’s more than I can say."
+    elif (current_thought == "graves_thought_88"):
+        graves_thoughts "He’s definitely looking for something in particular.[wait_1] If I find it, how will I know what it is?[wait_1] And whether or not to trust him with it?"
+    elif (current_thought == "graves_thought_89"):
+        graves_thoughts "Why does he see this as an issue?[wait_1] Did I just turn this into a dead end for him?"
+    elif (current_thought == "graves_thought_90"):
+        graves_thoughts "He looks fairly concerned.[wait_1] What’s his next move going to be? Will he let me in on it, or doesn’t he trust me enough?"
+    elif (current_thought == "graves_thought_91"):
+        graves_thoughts "Better make sure he isn’t about to vomit.[wait_1] I’ve cleaned up enough of that this week."
+    elif (current_thought == "graves_thought_92"):
+        graves_thoughts "That’s what had him shaken?[wait_1] He’s more empathetic than I realised."
+    elif (current_thought == "graves_thought_93"):
+        graves_thoughts "We’re more than just reactive and thoughtless animals.[wait_1] I refuse to believe any different."
+    elif (current_thought == "graves_thought_94"):
+        graves_thoughts "There probably is a reason.[wait_1] More importantly, I’d like the time to work out what your stake in all of this is."
+    elif (current_thought == "graves_thought_95"):
+        graves_thoughts "Now to just get his statement on this, and to see how well it matches up with what I can discover."
+    elif (current_thought == "graves_thought_96"):
+        graves_thoughts "I don’t think that’s a lie.[wait_1] He seems fairly genuine."
+    elif (current_thought == "graves_thought_97"):
+        graves_thoughts "I think that I might have misjudged Lloyd a bit.[wait_1] He’s a bit secretive but does seem to be trying to help."
+        graves_thoughts "I’ll still investigate him to be certain, of course."
+    elif (current_thought == "graves_thought_98"):
+        graves_thoughts "That will give me time to investigate both Jack and Lloyd."
+    
 
     $ ignore_thoughts_length()
     return
