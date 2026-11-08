@@ -593,3 +593,17 @@ label branch_a_3_4:
             lloyd_narrating neutral "My investigation is over for good.[wait_1] I won’t be able to stop the man in black or save any of his future victims."
             narrator "GAME OVER"
             $ MainMenu(confirm=False)()
+
+label branch_a_4_0:
+    # Power upgrade
+    $ branch = "a"
+    $ day = 4
+    call screen chapter_breaks("FRIDAY", "Lloyd has found out who the man with the white streak, Jack Usbourne, is, but knows little more than that. He’s going to research Jack further today.\n\nHe has no backup plan for if this plan fails.")
+    scene apartment_day with slow_dissolve
+    lloyd_thinking thinking "Jack Usbourne.[wait_1] The man with the white streak."
+    lloyd_thinking thinking "Graves said that there was nothing particularly remarkable about him...[wait_05]was his death random?"
+    lloyd_thinking thinking "Or are we just lacking the information to see why he was targeted?"
+    lloyd_thinking thinking "Graves is going to dig up what information he can, meaning that I have the entire day to myself."
+    lloyd_thinking thinking "Should I visit any of my other contacts?"
+
+    call screen map_navigation(find_locations([]))
