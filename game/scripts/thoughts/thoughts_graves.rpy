@@ -112,6 +112,57 @@ label mind_read_graves:
     elif (current_thought == "graves_thought_53"):
         graves_thought "If I’d known that this was what he wanted from me I would have pretended to be out.[wait_1] I’d rather do work on some of our other cases."
     
+    # A-3
+    elif (current_thought == "graves_thought_54"):
+        graves_thought "Do I look casual enough?"
+    elif (current_thought == "graves_thought_55"):
+        graves_thought "He’s probably going to be disappointed.[wait_1] I haven’t discovered anything."
+    elif (current_thought == "graves_thought_56"):
+        graves_thought "Another job?[wait_1] He can’t be that interested in the previous one then."
+    elif (current_thought == "graves_thought_57"):
+        graves_thought "I still haven’t found out why it’s called that."
+    elif (current_thought == "graves_thought_58"):
+        graves_thought "He probably doesn’t need to know that the bar’s original owner borrowed money from the mob for the initial payment, right?"
+    elif (current_thought == "graves_thought_59"):
+        graves_thought "Since discovering what happened to Docherty I haven’t learned anything else promising.[wait_1] Is it possible that Docherty {i}is{/i} the person he wanted me to find?"
+    elif (current_thought == "graves_thought_60"):
+        graves_thought "I hope that he gives me more information for this new job than the old one.[wait_1] Lloyd’s a bit of an expert at being vague."
+    elif (current_thought == "graves_thought_61"):
+        detective_thoughts "He probably thinks that I look pretty cool.[wait_1] This should make for a good first impression."
+    elif (current_thought == "graves_thought_62"):
+        detective_thoughts "Too edgy?[wait_1] Or just edgy enough?"
+    elif (current_thought == "graves_thought_63"):
+        graves_thoughts "Got to keep up the tough guy look.[wait_1] I need him to treat me seriously."
+    elif (current_thought == "graves_thought_64"):
+        graves_thoughts "...Shit.[wait_1] Too much tough guy, not enough genuine guy."
+    elif (current_thought == "graves_thought_65"):
+        graves_thoughts "Thank god![wait_1] Now –[wait_05] just don’t screw it up again!"
+    elif (current_thought == "graves_thought_66"):
+        graves_thoughts "Not too unusual a request.[wait_1] But I’d love to know what Lloyd wants with this guy."
+    elif (current_thought == "graves_thought_67"):
+        graves_thoughts "Is this somebody that he’s stalking?[wait_1] Not having any of this information feels suspicious..."
+    elif (current_thought == "graves_thought_68"):
+        graves_thoughts "Sounds kind of like he’s describing Usbourne.[wait_1] Could that be the person he’s looking for?"
+        $ add_boolean("graves_recognises_jack")
+    elif (current_thought == "graves_thought_69"):
+        graves_thoughts "There could be plenty of people with a white streak of hair.[wait_1] He’s not necessarily looking for Usbourne."
+        $ add_boolean("graves_recognises_jack")
+    elif (current_thought == "graves_thought_70"):
+        graves_thoughts "I don’t buy that he misspoke.[wait_1] He decided he didn’t want to keep this to himself."
+    elif (current_thought == "graves_thought_71"):
+        graves_thoughts "It {i}is{/i} Usbourne![wait_1] But why didn’t he initially want me to know?"   
+    elif (current_thought == "graves_thought_72"):
+        graves_thoughts "I can’t confirm that it’s Usbourne, but I’d bet money that it is."
+        $ add_boolean("graves_recognises_jack")
+    elif (current_thought == "graves_thought_73"):
+        graves_thoughts "How much are you going to lie to me, Lloyd?"
+    elif (current_thought == "graves_thought_74"):
+        graves_thoughts "I don’t believe him one bit. He’s lying."
+    elif (current_thought == "graves_thought_75"):
+        graves_thoughts "I’ll pretend to buy his lie for now."
+    elif (current_thought == "graves_thought_76"):
+        graves_thoughts "I almost hope that he doesn’t visit me later.[wait_1] I’ve got to think about this pretty carefully."
+    
 
     $ ignore_thoughts_length()
     return
