@@ -818,6 +818,7 @@ label eddie_a_4:
     $ current_thought = "eddie_thought_101"
     eddie "Good.[wait_1] Some of us have actual work to do here."
     hide eddie_angry with quick_dissolve
+    hide screen psychic_powers
     scene black_bg with slow_dissolve
     lloyd_thinking thinking "Is what Eddie said really true?[wait_1] Do I only care about myself?"
     lloyd_thinking thinking "It is true that I didn’t remember who he was..."
