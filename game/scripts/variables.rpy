@@ -7,6 +7,7 @@ label variables:
     define graves = Character("Graves", what_color="#000")
     define jack = Character("Jack", what_color="#000", image="jack")
     define lloyd = Character("Lloyd", what_color="#000", image="lloyd")
+    define man_in_black = Character(kind=docherty, name="Man in Black")
     define narrator = Character(None, what_color="#000")
 
     define character_thoughts = Character(who_color="#F2EE29", what_color="#F2EE29", namebox_style="namebox_inverted", window_style="window_inverted", what_prefix="(", what_suffix=")")
@@ -26,6 +27,7 @@ label variables:
     define librarian_thoughts = Character(kind=cat_thoughts, name="Librarian")
     define lloyd_thinking = Character(kind=lloyd, what_prefix="(", what_suffix=")")
     define lloyd_narrating = Character(kind=lloyd, what_color="#3B3B3B")
+    define man_in_black_thoughts = Character(kind=character_thoughts, name="Man in Black")
     define mental_jack = Character(kind=jack, name="???", image=None)
     define phone = Character("Phone", what_color="#000")
     define unknown = Character("???", what_color="#000")

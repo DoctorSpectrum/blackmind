@@ -621,4 +621,4 @@ label graves_a_4:
     scene black_bg with slow_dissolve
 
     $ visit_person("graves", "a", 3)
-    return
+    jump branch_a_b_4_4

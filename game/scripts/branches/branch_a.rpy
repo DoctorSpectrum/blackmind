@@ -607,3 +607,37 @@ label branch_a_4_0:
     lloyd_thinking thinking "Should I visit any of my other contacts?"
 
     call screen map_navigation(find_locations([]))
+
+label branch_a_b_4_4:
+    scene black_bg with slow_dissolve
+    if (branch == "a"):
+        lloyd_narrating neutral "It’s been a long day and I’m feeling tired as I make my way back home."
+        lloyd_narrating neutral "I may not have made any significant progress but the discussion with Graves has helped motivate me to continue."
+        lloyd_thinking thinking "I’m still lacking a lot of information about the killer."
+        lloyd_thinking thinking "But that doesn’t mean that I should give up now."
+        lloyd_narrating neutral "If Graves can’t find anything significant in Jack’s past then he might find something notable about one of the other victims."
+        lloyd_narrating neutral "I could get another vision of the future and discover more about the killer, or his next victim."
+        lloyd_narrating neutral "There are still plenty of avenues for us to explore."
+        lloyd_narrating neutral "There’s no way to change the past.[wait_1] No way to do things again and make different choices."
+        lloyd_narrating neutral "But the past doesn’t matter.[wait_1] As long as I continue working towards a goal and look to the future, I’ll eventually find the killer."
+        lloyd_narrating neutral "My stomach growls at me as I walk, and I remember that I haven’t eaten dinner."
+        lloyd_narrating neutral "Most shops are starting to close, so I look up somewhere that will be open for a while."
+        lloyd_narrating neutral "I want to sit down for a while and have a relaxing evening."
+        lloyd_narrating neutral "I find a restaurant that’s open fairly late, but have to travel a significant distance to get to it."
+        lloyd_narrating neutral "It’s worth it though, and I take note of the place for future visits."
+    lloyd_narrating neutral "It’s close to midnight as I approach my apartment."
+    lloyd_narrating neutral "The door handle feels looser than it should as I unlock the door.[wait_1] I should consider what it means, but I’m not thinking clearly."
+    scene apartment_night with slow_dissolve
+    lloyd_narrating neutral "I’m fumbling for the light switch when I notice a shape in the darkness that’s out of place."
+    
+    $ current_thought_block = "mind_read_docherty"
+    $ swap_sprites("docherty_neutral", slow_dissolve)
+    $ current_thought = "docherty_thought_01"
+    show screen psychic_powers
+    man_in_black "I aim to make this painless."
+    lloyd_thinking scared "This isn’t what my vision showed me![wait_1] Why is he targeting me?"
+    lloyd_narrating neutral "It’s the last thought that goes through my head before the bullet follows."
+    hide screen psychic_powers
+    $ play_sound("gunshot.mp3", transition=white_flash)
+    scene cg5_0 with slow_dissolve
+    return
