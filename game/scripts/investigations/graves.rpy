@@ -497,5 +497,128 @@ label graves_a_3:
     return
 
 label graves_a_4:
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "Once again it’s been a long day."
+    lloyd_narrating neutral "I haven’t discovered any new information about Jack Usbourne that would have motivated the man in black to kill him."
+    lloyd_narrating neutral "I still don’t even know who the man in black is."
+    lloyd_narrating neutral "Just like yesterday, I’m relying on Graves to reveal the missing pieces of the puzzle to me.[wait_1] Any scrap of information will be more than I currently have."
+    lloyd_narrating neutral "I skip dinner and instead prioritise making my way to Graves’ office.[wait_1] The sooner that I get in touch with him the better."
+    lloyd_narrating neutral "Beyond my vision of the man in black and a little bit of Jack’s past, I haven’t gained anything particularly insightful from this whole affair."
+    lloyd_narrating neutral "I’m relying on Graves to salvage this investigation and give me some progress.[wait_1] I don’t want to think about the alternative."
+    scene detective_office with slow_dissolve
+    $ swap_sprites("graves_intimidating", slow_dissolve)
+    $ current_thought = "graves_thought_99"
+    show screen psychic_powers
+    lloyd_narrating neutral "There’s a weariness to Graves’ body language as I enter the office."
+    lloyd_narrating neutral "It’s impossible to discern its origin –[wait_05] has he been working himself to the bone and the fatigue is wearing him down?[wait_1] Or is it a side effect of the disappointment that comes with no meaningful progress?"
+    lloyd neutral "Good evening, Graves.[wait_1] How has your day been?"
+    lloyd_narrating neutral "For the brief instant before he begins speaking his expression is a grimace."
+    lloyd_narrating neutral "In that moment I know the answer to my question, and it’s not a good one."
+    $ current_thought = "graves_thought_100"
+    graves "Not great, I’m afraid.[wait_1] Lloyd...[wait_05]I’ve got some bad news for you."
+    lloyd neutral "You weren’t able to discover anything about Jack."
+    graves "That depends upon your definition of discovering things."
+    graves "I found out plenty about him –[wait_05] some odd jobs he’s held, old social media posts, more information on his days in court."
+    $ swap_sprites("graves_sad")
+    $ current_thought = "graves_thought_101"
+    graves "But there’s no –[wait_05] I didn’t find the smoking gun that points to why someone would kill him."
+    graves "I even looked up those other two victims to see whether I could find anything in –[wait_05] any commonalities that they had, but there’s nothing."
+    lloyd_narrating neutral "It was stupid of me to expect anything more."
+    lloyd_narrating neutral "Graves is a professional –[wait_05] in spite of his youth –[wait_05] but he can’t work miracles.[wait_1] He’d need days to investigate everything."
+    lloyd_narrating neutral "To find out whether Jack overheard something he shouldn’t have in a bar, or if the murders are for something far in the past."
+    lloyd_narrating neutral "Or maybe we’re both deluding ourselves."
+    lloyd_narrating neutral "Maybe it really is as I previously considered and Jack is simply a victim of a random act of violence."
+    lloyd_narrating neutral "Maybe I’m just fooling myself into thinking that I can discover something the authorities can’t."
+    lloyd_narrating neutral "Maybe I’ve just been wasting my time all along."
+    $ swap_sprites("graves_smiling")
+    $ current_thought = "graves_thought_102"
+    graves "Hey, Lloyd –[wait_05] are you alright?"
+    graves "You’re pretty –[wait_05] I think I’ve seen statues that are more talkative than you are right now, you know?"
+    lloyd neutral "Sorry.[wait_1] I’m just realising that we –[wait_05] that this is probably a fool’s task."
+    lloyd neutral "And with that realisation I’m thinking that I’ve probably been wasting my time.[wait_1] Yours too."
+    $ swap_sprites("graves_thinking")
+    $ current_thought = "graves_thought_103"
+    graves "Well...[wait_05]not that I’m –[wait_05] I’m not particularly happy about that, I won’t lie."
+    graves "But can I ask what you –[wait_05] why exactly you’re concerning yourself with this?"
+    graves "You did previously say that you’re –[wait_05] that Jack died in front of you, and that you feel that you owe him, yeah."
+    graves "But –[wait_05] correct me if I’m wrong, but you’re not really a cop or anything, right?"
+    $ current_thought = "graves_thought_104"
+    lloyd neutral "Correct.[wait_1] Would you believe that I’m a photographer?[wait_1] Or rather, I used to be one."
+    $ swap_sprites("graves_smiling")
+    graves "Given that I’ve never seen you without that camera, I’m not particularly surprised."
+    graves "What type of photographer?[wait_1] Weddings, nature..?"
+    $ current_thought = "graves_thought_105"
+    lloyd neutral "I worked for a newspaper, until...[wait_05]well, that’s in the past now."
+    lloyd neutral "But ideally I’d like to be a professional artist."
+    graves "Right, I imagine that’d be a lot more fulfilling.[wait_1] Probably more fun, too."
+    $ swap_sprites("graves_thinking")
+    $ current_thought = "graves_thought_106"
+    graves "But with that in mind, you –[wait_05] I don’t get why you’re investigating Jack’s death so much."
+    graves "I was thinking about what you –[wait_05] about what you said yesterday, and I –[wait_05] yeah, he died in front of you, I get it."
+    graves "But I’d have thought that most people in that situation would –[wait_05] that they’d go and talk to their therapist about it."
+    graves "You have a therapist, right?[wait_1] I think that everybody should have one; you’d be amazed at the difference they make."
+    lloyd_thinking thinking "I don’t need a therapist."
+    graves "So anyway, I’m wondering –[wait_05] why exactly are you looking into this so much?"
+    $ current_thought = "graves_thought_107"
+    lloyd neutral "I thought that I could make a difference.[wait_1] That I could do some good with myself and help out."
+    lloyd neutral "I thought that I had advantages the authorities didn’t."
+    lloyd_thinking thinking "Namely, the precognitive vision of the killer."
+    lloyd neutral "I’m realising now that I wasn’t thinking clearly.[wait_1] I didn’t realise what the reality would be like."
+    $ current_thought = "graves_thought_108"
+    graves "Do you wish that you hadn’t bothered, then?"
+    lloyd_narrating neutral "It’s an interesting question.[wait_1] Should I have kept to myself and pretended that I hadn’t had my vision?"
+    lloyd_narrating neutral "I would have liked to have been more productive over the last few days."
+    lloyd neutral "...No, I don’t."
+    lloyd neutral "If nothing else I would have felt bad if I’d turned a blind eye to the situation."
+    $ swap_sprites("graves_smiling")
+    $ current_thought = "graves_thought_109"
+    graves "And that’s how you know that it’s worth doing."
+    graves "Not that –[wait_05] not that we should have guilt motivating us a lot of the time, but if we –[wait_05] if you know that something’s the right thing to do, then why shouldn’t you –[wait_05] why not do it?"
+    lloyd_narrating neutral "Graves leans against his desk as though a weight has come off his shoulders.[wait_1] For the first time since I’ve met him, he removes his sunglasses."
+    scene cg4_0 with slow_dissolve
+    $ current_thought = "graves_thought_110"
+    graves "In this job I sometimes –[wait_05] there’s a lot of pressure, a lot of the time, to make progress and find stuff out."
+    graves "Sometimes I get really stressed out, and I often feel that I’m not –[wait_05] that I should be doing things differently, or that I’m not getting things done as efficiently as I should."
+    graves "It’s not always a great feeling."
+    graves "But the thing I’ve also realised, is that –[wait_05] it’s that if I didn’t do it right –[wait_05] if I just did a half-assed job of everything, then that’d be really shitty of me."
+    graves "If all that I ever did was what I wanted, then I –[wait_05] yeah, there’d be no pressure, but I wouldn’t really be a good person."
+    graves "And I want to be a good person.[wait_1] Don’t you?"
+    graves "The pressure, or the guilt, or the –[wait_05] whatever it is, it might not be fun to deal with, but it’s better to have it there and know that you’re doing the right thing, than to just –[wait_05] I don’t know, be selfish, and only think about yourself."
+    scene detective_office with quick_dissolve
+    $ swap_sprites("graves_smiling", quick_dissolve)
+    $ current_thought = "graves_thought_111"
+    lloyd neutral "So you think that it’s a good thing that I’ve been looking into Jack’s death?"
+    graves "I –[wait_05] it’s possibly a bit quixotic, but I think that as long as you aren’t doing anything stupid, and you’re doing it for the right reasons, yeah."
+    graves "It’s good that you want to help out and do some good."
+    lloyd_thinking thinking "Maybe he’s right.[wait_1] Just because I –[wait_05] we –[wait_05] haven’t found anything yet, it doesn’t mean that stopping the killer is worthless."
+    $ current_thought = "graves_thought_112"
+    lloyd neutral "I’m going to be honest, Graves:[wait_05] I initially thought that you were a bit young for this job."
+    lloyd neutral "I was a bit underwhelmed by our first meeting and thought that I might be wasting my time.[wait_1] But you’re surprisingly knowledgeable."
+    graves "Heh, thanks.[wait_1] I guess I had to grow up pretty fast in high school."
+    $ current_thought = "graves_thought_113"
+    lloyd neutral "What do you mean by that?"
+    $ swap_sprites("graves_sad")
+    graves "I...[wait_1]one of my friends got pretty sick."
+    graves "They –[wait_05] they didn’t get any better, and before long, they...[wait_05]it was all over."
+    $ current_thought = "graves_thought_114"
+    lloyd neutral "I’m sorry for your loss."
+    $ swap_sprites("graves_smiling")
+    graves "Don’t worry about it."
+    graves "It was a while back, and things –[wait_05] they got pretty messy after they died, but they –[wait_05] we got through it in the end."
+    graves "I guess it was that which really taught me –[wait_05] which showed me how important both giving and receiving support is."
+    $ current_thought = "graves_thought_115"
+    lloyd neutral "With that in mind, do you want to continue looking into Jack’s death with me?[wait_1] Even though you think that it’s quixotic?"
+    graves "As long as you can afford the bill, sure."
+    graves "But you shouldn’t expect results to just –[wait_05] to come out of nowhere."
+    lloyd neutral "That’s fine.[wait_1] As you’ve said:[wait_05] it isn’t easy, but it is the right thing to do."
+    lloyd_thinking thinking "And if I can get a benefit out of it, there’s all the more reason to stop the killer."
+    $ current_thought = "graves_thought_116"
+    graves "Great.[wait_1] Well then, do you want to meet again at this time tomorrow?"
+    lloyd neutral "That sounds good to me.[wait_1] Thank you, Graves."
+    graves "No problem, Lloyd.[wait_1] See you then."
+    hide graves_smiling with quick_dissolve
+    hide screen psychic_powers
+    scene black_bg with slow_dissolve
+
     $ visit_person("graves", "a", 3)
     return

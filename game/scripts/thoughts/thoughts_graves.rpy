@@ -210,6 +210,45 @@ label mind_read_graves:
     elif (current_thought == "graves_thought_98"):
         graves_thoughts "That will give me time to investigate both Jack and Lloyd."
     
+    # A-4
+    elif (current_thought == "graves_thought_99"):
+        graves_thoughts "There’s Lloyd.[wait_1] Time to give him the bad news."
+    elif (current_thought == "graves_thought_100"):
+        graves_thoughts "He may be disappointed in me.[wait_1] But he can’t feel as much disappointment as I feel towards myself."
+    elif (current_thought == "graves_thought_101"):
+        graves_thoughts "Is one of the murders a decoy, like in {i}The ABC Murders{/i}?[wait_1] There’s so little to go on."
+    elif (current_thought == "graves_thought_102"):
+        graves_thoughts "He’s probably thinking about how useless I’ve been.[wait_1] I don’t blame him."
+    elif (current_thought == "graves_thought_103"):
+        graves_thoughts "Come on, Lloyd.[wait_1] Be honest with me."
+    elif (current_thought == "graves_thought_104"):
+        graves_thoughts "That matches what I found from his background check.[wait_1] Is he going to keep telling the truth?" 
+    elif (current_thought == "graves_thought_105"):
+        graves_thoughts "Is the reason that he was fired something he wants to keep secret?[wait_1] It wasn’t that difficult to find during his background check."
+    elif (current_thought == "graves_thought_106"):
+        graves_thoughts "There’s some other motive that Lloyd has.[wait_1] I just don’t know what it is." 
+    elif (current_thought == "graves_thought_107"):
+        graves_thoughts "What sort of advantages is he talking about?[wait_1] Is he having vigilante thoughts?"
+    elif (current_thought == "graves_thought_108"):
+        graves_thoughts "Do you only want to try something if you think that you’ll succeed at it?[wait_1] Or do you see the value in trying regardless?"
+    elif (current_thought == "graves_thought_109"):
+        graves_thoughts "I think that I like this guy.[wait_1] Maybe I’ve been a bit too suspicious of him."
+    elif (current_thought == "graves_thought_110"):
+        graves_thoughts "Am I coming across as preachy?[wait_1] He’s probably finding this kind of wanky."
+    elif (current_thought == "graves_thought_111"):
+        graves_thoughts "I hope that I don’t encourage him to do anything dangerous.[wait_1] He seems to be easily influenced."
+    elif (current_thought == "graves_thought_112"):
+        graves_thoughts "I knew it.[wait_1] I should have kept the tough-guy persona going for longer."
+    elif (current_thought == "graves_thought_113"):
+        graves_thoughts "Better stick to the sanitised version.[wait_1] He doesn’t need to know the real story."
+    elif (current_thought == "graves_thought_114"):
+        graves_thoughts "Don’t think about it.[wait_1] Don’t think about the fire; that first night."
+    elif (current_thought == "graves_thought_115"):
+        graves_thoughts "I’ll give him a discount on his bill."
+        graves_thoughts "Is 75% too much?[wait_1] His heart is in the right place."
+    elif (current_thought == "graves_thought_116"):
+        graves_thoughts "I think that Lloyd is being pretty genuine.[wait_1] I hope that I can meet his expectations, and we can solve this case together."
+    
 
     $ ignore_thoughts_length()
     return
