@@ -53,14 +53,17 @@ label branch_b_3_4:
     $ current_thought = "barbara_thought_110"
     lloyd neutral "What do you mean?"
     barbara "Here’s what I would have told you about that night –[wait_05] I set things up for the evening and then waited for the first few customers to come in."
+    scene bar_greyscale with quick_dissolve
     barbara "Mondays are usually pretty quiet, so I wasn’t expecting to be too busy."
-    # TODO: add in a greyscale scene with Jack here
+    show jack_smug at greyscale_instant, center with quick_dissolve
     barbara "Eventually this guy came in and started talking to me.[wait_1] He was kind of up himself, but I was looking forward to the first sale of the night, and so I put up with it."
     barbara "As he kept talking, though...[wait_05]he said that he was a reviewer, and that if I gave him a free drink he’d give me a good review."
     barbara "I was pretty tempted by the deal, but he –[wait_05] his whole demeanour had changed."
     barbara "I realised that he was –[wait_05] somehow I’d missed that he was stinking drunk."
     barbara "He clearly wasn’t a reviewer –[wait_05] just some jerk looking for a handout.[wait_1] I kicked him out then."
     barbara "I realised a bit later that we’d spoken for way longer than I’d thought, but otherwise, I didn’t think about him until you asked about him earlier today."
+    scene bar with quick_dissolve
+    $ swap_sprites("barbara_thinking", quick_dissolve)
     barbara "So with all of that in mind...[wait_05]why is there footage of me serving him drinks?"
     barbara "Why don’t I remember any of this?"
     barbara "It’s –[wait_05] the obvious answer would be that this is faked footage, but how would it have gotten onto my server?[wait_1] And who would benefit from it?"
