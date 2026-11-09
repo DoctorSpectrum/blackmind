@@ -9,6 +9,8 @@ label eddie_investigation:
             jump eddie_a_3
         elif (day == 4):
             jump eddie_a_4
+    elif (branch == "b"):
+        jump eddie_b_4
     
     return
 
@@ -827,3 +829,7 @@ label eddie_a_4:
 
     $ visit_person("eddie", "a", 3)
     return 
+
+label eddie_b_4:
+    $ visit_person("eddie", "b", 3)
+    return

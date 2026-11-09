@@ -9,6 +9,8 @@ label barbara_investigation:
             jump barbara_a_3
         elif (day == 4):
             jump barbara_a_4
+    elif (branch == "b"):
+        jump barbara_b_4
     
     return
 
@@ -642,3 +644,7 @@ label barbara_a_4:
 
     $ visit_person("barbara", "a", 3)
     return 
+
+label barbara_b_4:
+    $ visit_person("barbara", "b", 3)
+    return

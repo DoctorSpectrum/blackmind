@@ -9,6 +9,8 @@ label cat_investigation:
             jump cat_a_3
         elif (day == 4):
             jump cat_a_4
+    elif (branch == "b"):
+        jump cat_b_4
     
     return
 
@@ -589,4 +591,8 @@ label cat_a_4:
     lloyd_narrating neutral "I leave the library and begin thinking about how to get to my next destination."
 
     $ visit_person("cat", "a", 3)
+    return 
+
+label cat_b_4:
+    $ visit_person("cat", "b", 3)
     return 

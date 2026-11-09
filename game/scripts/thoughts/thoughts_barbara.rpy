@@ -223,7 +223,50 @@ label mind_read_barbara:
     elif (current_thought == "barbara_thought_102"):
         barbara_thoughts "I was going to ask him...[wait_05]no, now’s not the time.[wait_1] Talking about Jack’s death and the funeral kind of put a dampener on things."
     
-
+    # B-3-4
+    elif (current_thought == "barbara_thought_103"):
+        barbara_thoughts "Lloyd’s shown up, just as he said he would.[wait_1] What will he make of what I found out?"
+    elif (current_thought == "barbara_thought_104"):
+        barbara_thoughts "What am I doing wrong?[wait_1] Why aren’t people ordering as much as they used to?"
+    elif (current_thought == "barbara_thought_105"):
+        barbara_thoughts "It’s not a sign that business is picking up, Lloyd..."
+    elif (current_thought == "barbara_thought_106"):
+        barbara_thoughts "How long can things sustain themselves like this?[wait_1] And how do I attract a larger crowd?"
+    elif (current_thought == "barbara_thought_107"):
+        barbara_thoughts "C’mon, Lloyd.[wait_1] Surprise me."
+    elif (current_thought == "barbara_thought_108"):
+        barbara_thoughts "What’s he going to think about the footage?[wait_1] It’s so weird."
+    elif (current_thought == "barbara_thought_109"):
+        barbara_thoughts "I did wonder whether maybe –[wait_05] no, that wouldn’t be it."
+    elif (current_thought == "barbara_thought_110"):
+        barbara_thoughts "I’ll share what I have with him, but why does Lloyd want to know?[wait_1] Is he asking for my benefit, or his own?"
+    elif (current_thought == "barbara_thought_111"):
+        barbara_thoughts "No shit, Lloyd.[wait_1] I already told you that."
+    elif (current_thought == "barbara_thought_112"):
+        barbara_thoughts "He goes quiet for so long sometimes, it’s like he’s forgotten that I’m here.[wait_1] But he looks so handsome when he’s brooding."
+    elif (current_thought == "barbara_thought_113"):
+        barbara_thoughts "That’s enough staring.[wait_1] I should remind him that I’m still here."
+    elif (current_thought == "barbara_thought_114"):
+        barbara_thoughts "No, he’s...[wait_05]he’s forgotten about me again."
+    elif (current_thought == "barbara_thought_115"):
+        barbara_thoughts "I haven’t considered it before.[wait_1] But it would explain some things..."
+    elif (current_thought == "barbara_thought_116"):
+        barbara_thoughts "He knows something about how this happened.[wait_1] Is he going to tell me?"
+    elif (current_thought == "barbara_thought_117"):
+        barbara_thoughts "Is there anything that he can actually do?[wait_1] Or does he just want an excuse to see my security footage?"
+    elif (current_thought == "barbara_thought_118"):
+        barbara_thoughts "Whatever this is, I just don’t feel comfortable about it.[wait_1] I want to stay as far away from it as possible."
+    elif (current_thought == "barbara_thought_119"):
+        barbara_thoughts "He’s going to prosecute the guy with the white streak?[wait_1] Then I –[wait_05] oh, Lloyd, I misjudged you![wait_1] I’m so sorry!"
+    elif (current_thought == "barbara_thought_120"):
+        barbara_thoughts "This is –[wait_05] everything’s going to be fine![wait_1] The bar is going to recover![wait_1] Everything will work out, and it’s all thanks to Lloyd!"
+    elif (current_thought == "barbara_thought_121"):
+        barbara_thoughts "How does Lloyd even know about this weird scam?[wait_1] It’s almost too good to be –[wait_05] no, Barbara, stop thinking like that.[wait_1] Don’t look a gift horse in the mouth."
+    elif (current_thought == "barbara_thought_122"):
+        barbara_thoughts "I have to start moving those pilsners.[wait_1] Nobody who’s tried them likes them."
+    elif (current_thought == "barbara_thought_123"):
+        barbara_thoughts "Don’t let him see how you’re really feeling, Barbara.[wait_1] Just smile and wave."
+    
 
     $ ignore_thoughts_length()
     return

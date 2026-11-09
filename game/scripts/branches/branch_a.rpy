@@ -571,6 +571,10 @@ label branch_a_3_4:
             scene apartment_night with slow_dissolve
             lloyd_narrating neutral "I return to my apartment and think about tomorrow.[wait_1] I’ve learned a little about Jack, but it’s not enough."
             lloyd_narrating neutral "Graves had better come through tomorrow."
+            scene black_bg with slow_dissolve
+            mental_jack "{size=-8}(Dammit...[wait_05]I’m too weak.){/size}"
+            mental_jack "{size=-8}(I thought I could build up my strength more...[wait_05]but I can’t.[wait_1] It’s all over.){/size}"
+            mental_jack "{size=-8}(At least I had a bit of fun the other night...){/size}"
             return
         "Travel to Icarus" (locked=not person_visited("barbara", "a", 2) or not check_boolean("barbara_retrieves_footage"), message=("You did not visit the bar today" if not person_visited("barbara", "a", 2) else "You did not convince Barbara to give you the footage")):
             jump branch_b_3_4
