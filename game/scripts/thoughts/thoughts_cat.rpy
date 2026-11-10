@@ -173,7 +173,32 @@ label mind_read_cat:
     elif (current_thought == "cat_thought_77"):
         cat_thoughts "Thank god...[wait_1]he’s finally listening..."
     
-
+    # B-4
+    elif (current_thought == "cat_thought_78"):
+        cat_thoughts "Is that Lloyd...?[wait_1] Don’t look at him..."
+    elif (current_thought == "cat_thought_79"):
+        cat_thoughts "Damn...[wait_1]I shouldn’t have done that..."
+    elif (current_thought == "cat_thought_80"):
+        cat_thoughts "I hope he leaves...[wait_1]it’s not safe..."
+    elif (current_thought == "cat_thought_81"):
+        cat_thoughts "If they’re not here...[wait_1]he should leave...[wait_1]before it’s too late..."
+    elif (current_thought == "cat_thought_82"):
+        cat_thoughts "If only I could help him...[wait_1]but I can’t risk it..."
+    elif (current_thought == "cat_thought_83"):
+        cat_thoughts "This should keep him away from the books...[wait_1]and away from me..."
+    elif (current_thought == "cat_thought_84"):
+        cat_thoughts "What else can I try...?[wait_1] He’s not listening..."
+    elif (current_thought == "cat_thought_85"):
+        cat_thoughts "Do I tell him...?[wait_1] Or is that too much...?[wait_1] Will somebody else die...?"
+    elif (current_thought == "cat_thought_86"):
+        cat_thoughts "Please just listen to me...[wait_1]you’re putting me in danger..."
+    elif (current_thought == "cat_thought_87"):
+        cat_thoughts "Sergei’s already died...[wait_1]who will he target next?"
+    elif (current_thought == "cat_thought_88"):
+        cat_thoughts "If only I hadn’t helped him the other day...[wait_1]then everything would be fine..."
+    elif (current_thought == "cat_thought_89"):
+        cat_thoughts "He’s finally leaving...[wait_1]thank god..."
+    
 
     $ ignore_thoughts_length()
     return
