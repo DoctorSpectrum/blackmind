@@ -8,9 +8,9 @@ label eddie_investigation:
         elif (day == 3):
             jump eddie_a_3
         elif (day == 4):
-            jump eddie_a_4
+            jump eddie_a_b_4
     elif (branch == "b"):
-        jump eddie_b_4
+        jump eddie_a_b_4
     
     return
 
@@ -555,14 +555,19 @@ label eddie_a_3:
     $ visit_person("eddie", "a", 2)
     return
 
-label eddie_a_4:
+label eddie_a_b_4:
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "It’s the fourth day of my investigation and I haven’t found any information to stop the killer."
     lloyd_narrating neutral "I don’t know who his next victim will be.[wait_1] I don’t know what his name is or where he is."
-    lloyd_narrating neutral "I barely know anything about his previous victims, and I don’t know why he killed them."
-    lloyd_narrating neutral "What I do know is the man with the white streak’s name."
-    lloyd_narrating neutral "I don’t know enough about who he was as a person, but with a bit of research I can learn what sort of person he was, and then possibly why he was targeted by the man in black."
-    lloyd_narrating neutral "To do that I’m going to head to the newspaper and find whatever information I can."
+    if (branch == "a"):
+        lloyd_narrating neutral "I barely know anything about his previous victims, and I don’t know why he killed them."
+        lloyd_narrating neutral "What I do know is the man with the white streak’s name."
+        lloyd_narrating neutral "I don’t know enough about who he was as a person, but with a bit of research I can learn what sort of person he was, and then possibly why he was targeted by the man in black."
+        lloyd_narrating neutral "To do that I’m going to head to the newspaper and find whatever information I can."
+    elif (branch == "b"):
+        lloyd_narrating neutral "I barely know anything about his previous victims."
+        lloyd_narrating neutral "What I do know is why he targeted them.[wait_1] The man in black is killing people with psychic abilities."
+        lloyd_narrating neutral "I need to find others with my powers, and to do that I’m going to head to the newspaper and discover what I can."
     lloyd_narrating neutral "I head eastwards towards the skyscraper that the newspaper’s offices are located in."
     lloyd_narrating neutral "It’s tall enough to be seen from multiple blocks away, looming over them like a dragon before a terrified village."
     lloyd_narrating neutral "The skyscraper was erected more than seventy years ago, and the newspaper has held offices within it for more than sixty of those years.[wait_1] In that time over a million stories have been written and published within its walls."
@@ -755,81 +760,171 @@ label eddie_a_4:
         eddie "But tell me what you need."
     if (not person_visited("eddie", "a", 2)):
         $ current_thought = "eddie_thought_92"
-        lloyd neutral "I encountered the killer’s most recent victim before he died.[wait_1] I also recently discovered what his name is."
-        eddie "So?"
-        lloyd neutral "I know very little about him beyond his name and physical appearance.[wait_1] If I can find out more about him then I might be able to deduce why he was targeted."
-        lloyd neutral "Therefore, the potential next target of the killer will be narrowed down."
-        lloyd_narrating neutral "Eddie lets out a short, sharp bark."
-        $ current_thought = "eddie_thought_93"
-        eddie "What, you have some sort of magical database that’s just filled with information about all sorts of people in the city?"
-        eddie "And you can just input whatever fuckin’ info you get and get a list of potential targets from that?"
-        eddie "Get fuckin’ real, Chen."
-        $ current_thought = "eddie_thought_94"
-        lloyd neutral "The information I discover about him could make the targets more obvious.[wait_1] It’s better than nothing."
-        eddie "I kinda fucking doubt that.[wait_1] I think nothing would be better in this case."
-        eddie "I know you think that you can’t do any wrong, Chen, but if you don’t listen to me and stop looking into this you’ll damn well regret it."
-        lloyd neutral "Even so, I’d rather do something than nothing."
-        $ current_thought = "eddie_thought_95"
-        lloyd_narrating neutral "Eddie closes his eyes and sighs deeply."
-        eddie "Fine.[wait_1] Tell me what you want me to do."
-    lloyd neutral "I have the name of the killer’s most recent victim.[wait_1] Jack Usbourne."
-    lloyd neutral "Is a name sufficient for you to find information about him?"
-    $ current_thought = "eddie_thought_96"
-    eddie "It’s a start.[wait_1] It’s not enough to get you his entire fuckin’ family tree, or his job history, or anything like that right now."
-    eddie "But give me a few minutes and I can at least look it up in the archives.[wait_1] How do you spell the surname?"
-    lloyd neutral "I have no idea."
-    eddie "{size=-8}Unbe-fucking-lievable...{/size}"
-    hide eddie_unimpressed with quick_dissolve
-    hide eddie_angry with quick_dissolve
-    hide screen psychic_powers
-    scene black_bg with quick_dissolve
-    lloyd_narrating neutral "I don’t have to wait too long for Eddie to return."
-    lloyd_narrating neutral "He’s holding several pieces of paper when he does."
-    scene office_interview_room with slow_dissolve
-    $ swap_sprites("eddie_unimpressed")
-    show screen psychic_powers
-    $ current_thought = "eddie_thought_97"
-    eddie "Here you go, Chen."
-    eddie "Seems this Usbourne guy got into trouble a few times and wound up in court.[wait_1] Nothing too serious –[wait_05] just some pickpocketing and simple con jobs by the look of it."
-    lloyd_narrating neutral "I skim the papers Eddie hands me."
-    lloyd_narrating neutral "I wouldn’t rule out one of these cases motivating the killer, but I can’t immediately see anything that would relate to the other victims that Cat found."
-    $ current_thought = "eddie_thought_98"
-    lloyd neutral "I already knew most of this, Eddie.[wait_1] Would you be able to –"
-    $ swap_sprites("eddie_angry")
-    eddie "To what, Lloyd?[wait_1] To go and put another search in for Usbourne?"
-    eddie "To bend over backwards and find more information that you apparently already know?[wait_1] To research your damn story for you?"
-    eddie "This is so fucking typical of you, Chen."
-    lloyd_narrating neutral "Eddie’s been perpetually angry at me.[wait_1] I’ve brushed it off and tried to turn the other cheek but it’s wearing me down."
-    $ current_thought = "eddie_thought_99"
-    lloyd neutral "Why are you so angry at me, Eddie?[wait_1] What did I do that made you hold this grudge against me?"
-    eddie "Why the hell wouldn’t I hold a grudge against you, Chen?[wait_1] You only ever think of yourself."
-    eddie "You think that your shit is the most important shit in the world, and that everybody else should cater to your fuckin’ whims.[wait_1] It was exactly the same when we were both working at {i}The Brief{/i}."
-    eddie "You’d always get the good assignments, and rather than asking if I wanted to work with you, or suggesting to the boss that I could do some of them, you’d just walk right out of the room and go do the assignment."
-    eddie "No friendly banter, no apology, nothing.[wait_1] All that mattered was your work, and me not getting any of it meant that I never got noticed."
-    lloyd_thinking thinking "Is that really how he saw it?"
-    lloyd_thinking thinking "...Is that really how I acted?"
-    lloyd neutral "Eddie, I –"
-    $ current_thought = "eddie_thought_100"
-    eddie "Oh, no you fucking don’t.[wait_1] You don’t just get to give me a fake apology and tell me that you never meant it."
-    eddie "You know why?[wait_1] Because I know that seconds after giving it, you’ll just go back to asking me to do more shit for you."
-    eddie "You only ever think of yourself, Chen."
-    eddie "And if you want to prove me wrong, you’ll thank me, take those papers I’ve given you, and come see me again at a later date, when I’ve had the time and space to find out more information about this Usbourne guy."
-    lloyd_thinking thinking "..."
-    lloyd neutral "Thank you, Eddie.[wait_1] I apologise if I’ve treated you poorly."
-    lloyd neutral "I’ll leave now."
-    $ current_thought = "eddie_thought_101"
-    eddie "Good.[wait_1] Some of us have actual work to do here."
-    hide eddie_angry with quick_dissolve
-    hide screen psychic_powers
-    scene black_bg with slow_dissolve
-    lloyd_thinking thinking "Is what Eddie said really true?[wait_1] Do I only care about myself?"
-    lloyd_thinking thinking "It is true that I didn’t remember who he was..."
-    lloyd_narrating neutral "I decide not to dwell on it for now.[wait_1] I still have things to do."
-    lloyd_narrating neutral "Beating myself up won’t stop the man in black."
+        if (branch == "a"):
+            lloyd neutral "I encountered the killer’s most recent victim before he died.[wait_1] I also recently discovered what his name is."
+            eddie "So?"
+            lloyd neutral "I know very little about him beyond his name and physical appearance.[wait_1] If I can find out more about him then I might be able to deduce why he was targeted."
+            lloyd neutral "Therefore, the potential next target of the killer will be narrowed down."
+            lloyd_narrating neutral "Eddie lets out a short, sharp bark."
+            $ current_thought = "eddie_thought_93"
+            eddie "What, you have some sort of magical database that’s just filled with information about all sorts of people in the city?"
+            eddie "And you can just input whatever fuckin’ info you get and get a list of potential targets from that?"
+            eddie "Get fuckin’ real, Chen."
+            $ current_thought = "eddie_thought_94"
+            lloyd neutral "The information I discover about him could make the targets more obvious.[wait_1] It’s better than nothing."
+            eddie "I kinda fucking doubt that.[wait_1] I think nothing would be better in this case."
+            eddie "I know you think that you can’t do any wrong, Chen, but if you don’t listen to me and stop looking into this you’ll damn well regret it."
+            lloyd neutral "Even so, I’d rather do something than nothing."
+            $ current_thought = "eddie_thought_95"
+            lloyd_narrating neutral "Eddie closes his eyes and sighs deeply."
+            eddie "Fine.[wait_1] Tell me what you want me to do."
+        else:
+            lloyd neutral "I encountered the killer’s most recent victim before he died."
+            lloyd neutral "With the information that I’ve discovered I believe that I know what the killer’s motivation is."
+            lloyd neutral "I believe I know who he’s targeting."
+            eddie "You do? Tell me, then."
 
-    $ visit_person("eddie", "a", 3)
+    if (branch == "a"):
+        lloyd neutral "I have the name of the killer’s most recent victim.[wait_1] Jack Usbourne."
+        lloyd neutral "Is a name sufficient for you to find information about him?"
+        $ current_thought = "eddie_thought_96"
+        eddie "It’s a start.[wait_1] It’s not enough to get you his entire fuckin’ family tree, or his job history, or anything like that right now."
+        eddie "But give me a few minutes and I can at least look it up in the archives.[wait_1] How do you spell the surname?"
+        lloyd neutral "I have no idea."
+        eddie "{size=-8}Unbe-fucking-lievable...{/size}"
+        hide eddie_unimpressed with quick_dissolve
+        hide eddie_angry with quick_dissolve
+        hide screen psychic_powers
+        scene black_bg with quick_dissolve
+        lloyd_narrating neutral "I don’t have to wait too long for Eddie to return."
+        lloyd_narrating neutral "He’s holding several pieces of paper when he does."
+        scene office_interview_room with slow_dissolve
+        $ swap_sprites("eddie_unimpressed")
+        show screen psychic_powers
+        $ current_thought = "eddie_thought_97"
+        eddie "Here you go, Chen."
+        eddie "Seems this Usbourne guy got into trouble a few times and wound up in court.[wait_1] Nothing too serious –[wait_05] just some pickpocketing and simple con jobs by the look of it."
+        lloyd_narrating neutral "I skim the papers Eddie hands me."
+        lloyd_narrating neutral "I wouldn’t rule out one of these cases motivating the killer, but I can’t immediately see anything that would relate to the other victims that Cat found."
+        $ current_thought = "eddie_thought_98"
+        lloyd neutral "I already knew most of this, Eddie.[wait_1] Would you be able to –"
+        $ swap_sprites("eddie_angry")
+        eddie "To what, Lloyd?[wait_1] To go and put another search in for Usbourne?"
+        eddie "To bend over backwards and find more information that you apparently already know?[wait_1] To research your damn story for you?"
+        eddie "This is so fucking typical of you, Chen."
+        lloyd_narrating neutral "Eddie’s been perpetually angry at me.[wait_1] I’ve brushed it off and tried to turn the other cheek but it’s wearing me down."
+        $ current_thought = "eddie_thought_99"
+        lloyd neutral "Why are you so angry at me, Eddie?[wait_1] What did I do that made you hold this grudge against me?"
+        eddie "Why the hell wouldn’t I hold a grudge against you, Chen?[wait_1] You only ever think of yourself."
+        eddie "You think that your shit is the most important shit in the world, and that everybody else should cater to your fuckin’ whims.[wait_1] It was exactly the same when we were both working at {i}The Brief{/i}."
+        eddie "You’d always get the good assignments, and rather than asking if I wanted to work with you, or suggesting to the boss that I could do some of them, you’d just walk right out of the room and go do the assignment."
+        eddie "No friendly banter, no apology, nothing.[wait_1] All that mattered was your work, and me not getting any of it meant that I never got noticed."
+        lloyd_thinking thinking "Is that really how he saw it?"
+        lloyd_thinking thinking "...Is that really how I acted?"
+        lloyd neutral "Eddie, I –"
+        $ current_thought = "eddie_thought_100"
+        eddie "Oh, no you fucking don’t.[wait_1] You don’t just get to give me a fake apology and tell me that you never meant it."
+        eddie "You know why?[wait_1] Because I know that seconds after giving it, you’ll just go back to asking me to do more shit for you."
+        eddie "You only ever think of yourself, Chen."
+        eddie "And if you want to prove me wrong, you’ll thank me, take those papers I’ve given you, and come see me again at a later date, when I’ve had the time and space to find out more information about this Usbourne guy."
+        lloyd_thinking thinking "..."
+        lloyd neutral "Thank you, Eddie.[wait_1] I apologise if I’ve treated you poorly."
+        lloyd neutral "I’ll leave now."
+        $ current_thought = "eddie_thought_101"
+        eddie "Good.[wait_1] Some of us have actual work to do here."
+        hide eddie_angry with quick_dissolve
+        hide screen psychic_powers
+        scene black_bg with slow_dissolve
+        lloyd_thinking thinking "Is what Eddie said really true?[wait_1] Do I only care about myself?"
+        lloyd_thinking thinking "It is true that I didn’t remember who he was..."
+        lloyd_narrating neutral "I decide not to dwell on it for now.[wait_1] I still have things to do."
+        lloyd_narrating neutral "Beating myself up won’t stop the man in black."
+        $ visit_person("eddie", "a", 3)
+    else:
+        $ current_thought = "eddie_thought_102"
+        lloyd neutral "How likely is it that you can find people who are...[wait_05]special?"
+        $ swap_sprites("eddie_unimpressed")
+        eddie "You’re going to have to be more specific, Chen."
+        eddie "Special how?[wait_1] People with mental issues?[wait_1] People who break athletic records without even trying?"
+        eddie "Freaks that can solve Rubiks Cubes?"
+        lloyd neutral "Nothing like that.[wait_1] I’m thinking more of people who...[wait_05]know things."
+        eddie "Stop beating around the fucking bush, Chen."
+        eddie "Just say what you fucking mean and cut with the bullshit spy talk."
+        $ current_thought = "eddie_thought_103"
+        lloyd neutral "Have you ever heard about people with extrasensory perception?"
+        eddie "What?"
+        lloyd neutral "Psychic abilities.[wait_1] Reading minds.[wait_1] Seeing the future."
+        lloyd_thinking thinking "Not to mention making people lose memories."
+        $ swap_sprites("eddie_angry")
+        $ current_thought = "eddie_thought_104"
+        eddie "What does this have to do with the guy you encountered?[wait_1] The last known victim of the killer?"
+        $ current_thought = "eddie_thought_105"
+        lloyd neutral "There’s a good chance that the killer targeted him because he thought that he was psychic.[wait_1] It’s likely the same for his other victims, too."
+        eddie "How do you figure that?"
+        lloyd neutral "It’s complicated to explain."
+        eddie "And I wouldn’t get it, right?[wait_1] Because I’m too dumb?"
+        lloyd neutral "No.[wait_1] You just don’t have all of the information that I do."
+        $ current_thought = "eddie_thought_106"
+        eddie "And you’re not going to share that with me because...?"
+        lloyd_thinking thinking "I can’t tell him that I’m psychic, or that I found reliable evidence that the man with the white streak was."
+        lloyd_thinking thinking "I doubt that he would believe me even if I did tell him."
+        lloyd neutral "I can’t share it with you.[wait_1] But trust that my reasoning is sound."
+        lloyd_narrating neutral "Eddie is silent for several moments.[wait_1] The furrow in his brow deepens."
+        $ current_thought = "eddie_thought_107"
+        eddie "So you want me to help you with this shit, but you don’t trust me enough to share anything with you?"
+        lloyd neutral "Well, I –"
+        eddie "This is so fucking like you."
+        eddie "Only you’re allowed to know about the information, because you don’t want anybody else to get the credit for it, right?[wait_1] Or is it that you don’t think highly enough of anybody else?"
+        lloyd neutral "I’d tell you if I could, Eddie."
+        eddie "Like hell you would.[wait_1] You’re arrogant, Chen."
+        eddie "You only think about yourself, and you just treat everybody else like they’re your little tools."
+        eddie "And if you think that ordering me around to do your busywork is the way to get my assistance, you’re wrong.[wait_1] I’m not helping you."
+        lloyd_thinking thinking "I’m losing him.[wait_1] I need his help."
+        $ current_thought = "eddie_thoughts_108"
+        lloyd neutral "I lied."
+        eddie "What?"
+        lloyd neutral "I lied about why the killer targeted his victims."
+        lloyd neutral "He knew that they were psychic.[wait_1] They had extrasensory abilities."
+        lloyd neutral "I don’t know how he found out, but he did.[wait_1] That’s the information that I was keeping from you."
+        lloyd_narrating neutral "Eddie is silent for several moments before answering."
+        eddie "You really think that, Chen?"
+        eddie "Or do you think that I’m that gullible?[wait_1] That I’ll believe a bullshit story like that?"
+        $ current_thought = "eddie_thoughts_109"
+        lloyd neutral "It’s the truth.[wait_1] I know that they had psychic abilities because...[wait_05]I saw it.[wait_1] In some security footage."
+        lloyd_thinking thinking "Better not tell him that I’ve got powers myself just yet."
+        lloyd_narrating neutral "Once again Eddie is silent."
+        lloyd_narrating neutral "He studies my expression, trying to determine what I’m playing at."
+        lloyd_narrating neutral "I’m trying to project earnestness.[wait_1] To look honest.[wait_1] Because I really need help to find other psychics."
+        $ swap_sprites("eddie_unimpressed")
+        $ current_thought = "eddie_thoughts_110"
+        eddie "You’re telling the truth, aren’t you?[wait_1] These people really were psychic."
+        lloyd neutral "Yes.[wait_1] The killer will eliminate more with their abilities, unless we can find them and warn them."
+        eddie "I agree.[wait_1] But I’m not going to help you."
+        lloyd neutral "What?"
+        $ current_thought = "eddie_thoughts_111"
+        eddie "If there are people out there that can read my mind –[wait_05] my private thoughts, which aren’t supposed to for anybody else –[wait_05] then why shouldn’t they be killed?"
+        eddie "How can I trust them to not dig around in my head and find whatever they want?"
+        lloyd neutral "We’re talking about innocent people."
+        eddie "Freaks like that?[wait_1] They’re not innocent."
+        eddie "If I knew about anyone with abilities like theirs, I wouldn’t hesitate to blow their heads off myself."
+        eddie "I can do it, you know –[wait_05] I’ve got the means."
+        lloyd_thinking thinking "I’ve lost him.[wait_1] There’s no way that he’ll help me now."
+        $ swap_sprites("eddie_angry")
+        $ current_thought = "eddie_thoughts_112"
+        eddie "You don’t know where any of these people are, do you, Chen?"
+        lloyd neutral "If I did, would I have come here?"
+        eddie "No, I guess not."
+        lloyd_thinking thinking "I’m not getting anything from him."
+        $ current_thought = "eddie_thoughts_113"
+        lloyd neutral "I think I’ll be leaving now, Eddie."
+        eddie "Off to protect your invasive little friends, are you?"
+        eddie "Just don’t forget that they’ll be scraping every corner of your mind like the monsters they are."
+        hide eddie_angry with quick_dissolve
+        hide screen psychic_powers
+        scene black_bg with slow_dissolve
+        lloyd_thinking thinking "That was a disaster.[wait_1] I never would have thought that Eddie would react like that."
+        lloyd_thinking thinking "What does he have in his head that he’s so determined to keep private?"
+        lloyd_narrating neutral "There’s no way to know.[wait_1] I leave the building and start thinking about my next destination."
+
+        $ visit_person("eddie", "b", 0)
     return 
-
-label eddie_b_4:
-    $ visit_person("eddie", "b", 3)
-    return
