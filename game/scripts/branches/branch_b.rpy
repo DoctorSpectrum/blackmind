@@ -163,3 +163,15 @@ label branch_b_3_4:
     mental_jack "{size=-8}(I thought I could build up my strength more...[wait_05]but I can’t.[wait_1] It’s all over.){/size}"
     mental_jack "{size=-8}(At least I had a bit of fun the other night...){/size}"
     return
+
+label branch_b_4_0:
+    # Power upgrade
+    $ branch = "b"
+    $ day = 4
+    call screen chapter_breaks("FRIDAY", "Lloyd is trying to find others with psychic abilities. He knows that the man in black is killing them and is determined to warn them.\n\nHe hasn’t considered the obvious yet.")
+    scene apartment_day with slow_dissolve
+    lloyd_thinking thinking "I may not have discovered anything about the man in black, but I was able to find out a little about the man with the white streak."
+    lloyd_thinking thinking "He had psychic powers and was killed because of them, but managed to transfer them to me before dying."
+    lloyd_thinking thinking "The man in black is killing others with psychic abilities.[wait_1] I need to find them and warn them about him."
+    lloyd_thinking thinking "I’m already going to Barbara for information, but is it worth visiting my other contacts?"
+    call screen map_navigation(find_locations([]))
