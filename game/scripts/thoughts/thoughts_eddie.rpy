@@ -234,10 +234,48 @@ label mind_read_eddie:
         eddie_thoughts "Good riddance.[wait_1] We don’t need people like that in the world."
     elif (current_thought == "eddie_thought_111"):
         eddie_thoughts "Thank fuck Chen can’t read my thoughts.[wait_1] If he could then I’d really need to be careful."
-    elif (current_thought == "eddie_thoughts_112"):
+    elif (current_thought == "eddie_thought_112"):
         eddie_thoughts "If he can give me even one name..."
-    elif (current_thought == "eddie_thoughts_113"):
+    elif (current_thought == "eddie_thought_113"):
         eddie_thoughts "Chen won’t have realised it but he’s given me a lot to work with today.[wait_1] My next step will be..."
+    
+    # C-1-4
+    elif (current_thought == "eddie_thought_114"):
+        eddie_thoughts "I’m so glad that he showed up.[wait_1] I’m going to tear him a new one."
+    elif (current_thought == "eddie_thought_115"):
+        eddie_thoughts "C’mon, Chen...[wait_1]give me a good reaction."
+    elif (current_thought == "eddie_thought_116"):
+        eddie_thoughts "Nothing too strong there –[wait_05] interesting.[wait_1] Let’s see how he reacts once I give him some more info."
+    elif (current_thought == "eddie_thought_117"):
+        eddie_thoughts "Why does he want to know so much?[wait_1] What does he think will happen?"
+    elif (current_thought == "eddie_thought_118"):
+        eddie_thoughts "Is this even news to Chen?"
+    elif (current_thought == "eddie_thought_119"):
+        eddie_thoughts "Can’t say that I blame him.[wait_1] Some people get everything"
+    elif (current_thought == "eddie_thought_120"):
+        eddie_thoughts "Idiots, to just try and go for petty crime like that.[wait_1] If you’re going to go illegal, might as well go all the way"
+    elif (current_thought == "eddie_thought_121"):
+        eddie_thoughts "They didn’t know what they were doing at all.[wait_1] You’ll never catch me making a mistake like that"
+    elif (current_thought == "eddie_thought_122"):
+        eddie_thoughts "Why didn’t you know this, you idiot?"
+    elif (current_thought == "eddie_thought_123"):
+        eddie_thoughts "Pretty stupid way to die.[wait_1] You wouldn’t catch me going out like that."
+    elif (current_thought == "eddie_thought_124"):
+        eddie_thoughts "I’ve explained enough shit.[wait_1] Let’s hear some explanations from him."
+    elif (current_thought == "eddie_thought_125"):
+        eddie_thoughts "Does he actually know what’s going on?[wait_1] Or is he just making wild guesses?"
+    elif (current_thought == "eddie_thought_126"):
+        eddie_thoughts "This fucking guy...!"
+    elif (current_thought == "eddie_thought_127"):
+        eddie_thoughts "Why did I waste my time looking into this?[wait_1] I knew it wouldn’t get me anything."
+    elif (current_thought == "eddie_thought_128"):
+        eddie_thoughts "Oh, now you’ve pissed me off."
+    elif (current_thought == "eddie_thought_129"):
+        eddie_thoughts "You’ll regret this, Chen![wait_1] I’ll make you fucking regret this!"
+    elif (current_thought == "eddie_thought_130"):
+        eddie_thoughts "I wish I knew who his source was so I could shut them the fuck up!"
+    elif (current_thought == "eddie_thought_131"):
+        eddie_thoughts "He’d better not come back here again, or he’ll regret it."
     
 
     $ ignore_thoughts_length()
