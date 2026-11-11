@@ -157,3 +157,17 @@ label branch_c_1_4:
     mental_jack "I’ll have to try again another time."
 
     return
+
+label branch_c_2_0:
+    # power upgrade
+    $ branch = "c"
+    $ day = 2
+    call screen chapter_breaks("WEDNESDAY", "Allan Docherty, the man in black, is dead.\n\nThere shouldn’t be any more murders now. Everything should be fine from here.")
+    scene apartment_day with slow_dissolve
+    lloyd_narrating neutral "I wake up the next day with my head feeling somewhat better and a better sense of what to do."
+    lloyd_narrating neutral "Although Docherty is dead I saw a vision of him committing a murder.[wait_1] I was able to see a little more of the victim, but not enough to easily identify him."
+    lloyd_narrating neutral "I’m less sure now than ever of how real the threat is."
+    lloyd_thinking thinking "I won’t let that stop me.[wait_1] I’m going to find his victim and warn them."
+    lloyd_thinking thinking "If what I’ve seen has any chance of coming true there’ll be a chance of stopping it."
+    lloyd_thinking thinking "Where should I go to try and identify Docherty’s victim?"
+    call screen map_navigation(find_locations([]))
