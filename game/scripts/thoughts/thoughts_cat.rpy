@@ -199,6 +199,53 @@ label mind_read_cat:
     elif (current_thought == "cat_thought_89"):
         cat_thoughts "He’s finally leaving...[wait_1]thank god..."
     
+    # C-2
+    elif (current_thought == "cat_thought_90"):
+        librarian_thoughts "It’s him...[wait_1]how can I get rid of him today?"
+    elif (current_thought == "cat_thought_91"):
+        cat_thoughts "I’ll play dumb...[wait_1]maybe he’ll get frustrated and leave..."
+    elif (current_thought == "cat_thought_92"):
+        cat_thoughts "Hehehe."
+    elif (current_thought == "cat_thought_93"):
+        cat_thoughts "I wish I could tell him...[wait_1]but I can’t trust him."
+    elif (current_thought == "cat_thought_94"):
+        librarian_thoughts "{i}Riddley Walker{/i}...[wait_1]this one is definitely going in the pile that’s getting burned."
+    elif (current_thought == "cat_thought_95"):
+        librarian_thoughts "This list...[wait_1]why is he looking into these books?[wait_1] Does he know what’s happened?"
+    elif (current_thought == "cat_thought_96"):
+        librarian_thoughts "...I didn’t ask."
+    elif (current_thought == "cat_thought_97"):
+        cat_thoughts "Well, it’s not like you’d be looking for somebody unimportant..."
+    elif (current_thought == "cat_thought_98"):
+        cat_thoughts "I doubt that he’s really looking for someone...[wait_1]but I’ll pretend to help him anyway…"
+    elif (current_thought == "cat_thought_99"):
+        cat_thoughts "Did I make a mistake...?[wait_1] Is he actually looking for someone?"
+    elif (current_thought == "cat_thought_100"):
+        cat_thoughts "I don’t know enough about Asian names to know if that’s a real name or not..."
+    elif (current_thought == "cat_thought_101"):
+        cat_thoughts "I’d better check...[wait_1]just in case I misspelled it and this person does exist..."
+    elif (current_thought == "cat_thought_102"):
+        cat_thoughts "What does Jīngshén Tángláng mean, then?"
+    elif (current_thought == "cat_thought_103"):
+        cat_thoughts "He’s probably still lying to me.[wait_1] I don’t know why he thinks that this will convince me to give him the books."
+    elif (current_thought == "cat_thought_104"):
+        cat_thoughts "He’s being intentionally vague.[wait_1] He must be trying to trick me."
+    elif (current_thought == "cat_thought_105"):
+        cat_thoughts "He isn’t asking about the books any more...[wait_1]maybe he’s forgotten about them..."
+    elif (current_thought == "cat_thought_106"):
+        cat_thoughts "That description...[wait_1]it sounds exactly like Sergei![wait_1] What’s his interest with him?"
+        $ add_boolean("sergei_name_mentioned")
+    elif (current_thought == "cat_thought_107"):
+        cat_thoughts "No...[wait_1]I reacted too strongly![wait_1] Have to downplay it!"
+    elif (current_thought == "cat_thought_108"):
+        cat_thoughts "He even knows Sergei’s name.[wait_1] He {i}has{/i} been spying on us!"
+    elif (current_thought == "cat_thought_109"):
+        cat_thoughts "I need to get away from this guy and warn him!"
+    elif (current_thought == "cat_thought_110"):
+        cat_thoughts "Finally...[wait_1]he’s leaving."
+    elif (current_thought == "cat_thought_111"):
+        cat_thoughts "I think I convinced him...[wait_1]or that his way of dropping a threat?"
+    
 
     $ ignore_thoughts_length()
     return

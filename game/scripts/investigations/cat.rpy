@@ -1,16 +1,17 @@
 label cat_investigation:
     $ current_thought_block = "mind_read_cat"
-    if (branch == "a"):
-        if (day == 1):
-            jump cat_a_1
-        elif (day == 2):
-            jump cat_a_2
-        elif (day == 3):
-            jump cat_a_3
-        elif (day == 4):
-            jump cat_a_4
+    if (branch == "a" and day == 1):
+        jump cat_a_1
+    elif (branch == "a" and day == 2):
+        jump cat_a_2
+    elif (branch == "a" and day == 3):
+        jump cat_a_3
+    elif (branch == "a" and day == 4):
+        jump cat_a_4
     elif (branch == "b"):
         jump cat_b_4
+    elif (branch == "c" and day == 2):
+        jump cat_c_2
     
     return
 
@@ -698,4 +699,177 @@ label cat_b_4:
     lloyd_narrating neutral "I leave the library and begin thinking about my next destination."
 
     $ visit_person("cat", "b", 0)
+    return 
+
+label cat_c_2:
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "Last night I had a vision of the future.[wait_1] My second one."
+    lloyd_narrating neutral "In it, I saw a man I now know to be dead killing somebody else."
+    lloyd_narrating neutral "Was the vision symbolic?[wait_1] Was I actually sighting the past and mistaking it for the future?"
+    lloyd_narrating neutral "Or is there some other aspect to the vision that I don’t understand?"
+    lloyd_narrating neutral "My powers were enough of an unknown to me before I had my second vision.[wait_1] I still don’t understand where they came from or how they work."
+    lloyd_narrating neutral "But seeing the second vision in all of its impossibilities led to a decision."
+    lloyd_narrating neutral "I’m going to visit the library and do what research I can to understand how my powers work and what I saw."
+    if (person_visited("cat", "a", 0)):
+        if (check_boolean("cat_name_discovered")):
+            lloyd_narrating neutral "No matter what Cat says today, I won’t take no for an answer.[wait_1] I will gain access to the books that I need."
+        else:
+            lloyd_narrating neutral "No matter what the librarian says today, I won’t take no for an answer.[wait_1] I will gain access to the books that I need."
+    else:
+        lloyd_narrating neutral "I’ve already checked online to see the library’s catalogue.[wait_1] It’s promising."
+        lloyd_narrating neutral "They have books on extrasensory research by the CIA in the 1960s, unknown phenomena exhibited by people, new age books about unlocking the potential of your mind, and more."
+        lloyd_narrating neutral "Between all of the information there should be some kernels of truth."
+    lloyd_narrating neutral "I travel southwards through the city and to the large park that the library is situated in."
+    lloyd_narrating neutral "The sky is overcast today and I shiver as I walk through the park.[wait_1] There’s little tree cover along my walk which leaves me feeling completely exposed to the weather."
+    lloyd_narrating neutral "I keep an eye on the clouds and hasten my pace, wary of any potential rain."
+    scene library_day with slow_dissolve
+    lloyd_narrating neutral "The library is well-heated and the change in temperature is a blessing as I step through its automatic doors."
+    lloyd_narrating neutral "Given enough time I might start sweating beneath my jacket but for the time being it’s a comfort."
+    if (person_visited("cat", "a", 0)):
+        lloyd_narrating neutral "I immediately make my way to the reception desk. I already know that I won’t find what I need on the shelves."
+        $ swap_sprites("cat_neutral", slow_dissolve)
+        show screen psychic_powers
+        if (not check_boolean("cat_name_discovered")):
+            $ current_thought = "cat_thought_90"
+            lloyd_narrating neutral "The librarian from yesterday is there, splitting a single pile of books into two smaller piles."
+            lloyd neutral "Hello...[wait_05] ...[wait_05] ...you."
+            lloyd_narrating neutral "Her eyes flicker towards me with the barest hint of recognition."
+            $ current_thought = "cat_thought_31"
+            librarian "You can call me...[wait_1]Cat."
+        else:
+            lloyd_narrating neutral "Cat is there, splitting a single pile of books into two smaller piles."
+        $ current_thought = "cat_thought_91"
+        lloyd neutral "Alright, Cat.[wait_1] You know what I’m here for, and I know that you don’t want me to have them."
+        cat "Are you talking about...[wait_1]the books on psychic research?"
+        lloyd neutral "I am.[wait_1] I’ll ask you outright:[wait_05] will you let me see them today?[wait_1] Even a single one?"
+        cat "Yes..."
+        lloyd neutral "Excellent.[wait_1] Where can I –"
+        $ current_thought = "cat_thought_92"
+        cat "...is what I’d say if they were available...[wait_1]but they’re not."
+        lloyd_thinking thinking "She definitely paused long enough to give me false hope on purpose."
+        $ current_thought = "cat_thought_93"
+        lloyd neutral "Is there anything that I can do to convince you to tell the truth?[wait_1] To let me access the books?"        
+        lloyd_narrating neutral "She falls silent for long enough that I wonder whether she’s simply decided to ignore me."
+        lloyd_narrating neutral "But after what feels like an eternity she finally speaks."
+        cat "I can’t give you access...[wait_1]if they’re not available.[wait_1] I keep telling you."
+    else:
+        lloyd_narrating neutral "After giving it some thought I’ve decided that my best bet is to talk to a librarian."
+        lloyd_narrating neutral "They should be able to recommend which books I should use for research and can potentially show me others that I’ve overlooked."
+        $ swap_sprites("cat_neutral", slow_dissolve)
+        show screen psychic_powers
+        $ current_thought = "cat_thought_94"
+        lloyd_narrating neutral "A librarian wearing a purple dress is the only one that’s currently free."
+        lloyd_narrating neutral "She has a stack of books before her, which she’s converting into two smaller stacks."
+        $ current_thought = "cat_thought_01"
+        lloyd neutral "Hello.[wait_1] Are you busy?"
+        lloyd_narrating neutral "Her eyes flicker towards me and then return to the stack of books."
+        librarian "What can I help you with?"
+        lloyd neutral "I’m currently doing some research.[wait_1] Are there any books in this list that you can recommend?"
+        $ current_thought = "cat_thought_95"
+        lloyd_narrating neutral "I have a saved search on my phone which I pass over to her.[wait_1] After a few seconds she shakes her head slowly."
+        librarian "Sorry...[wait_1]none of these books are currently available."
+        lloyd neutral "Sorry?"
+        $ current_thought = "cat_thought_30"
+        librarian "They’ve been checked out."
+        lloyd neutral "The search says that they’re all available."
+        librarian "...It must be a bug."
+        lloyd_thinking thinking "Is that really the case?[wait_1] Or is she hiding something?"
+        lloyd neutral "Look, miss...[wait_1]um..."
+        $ current_thought = "cat_thought_31"
+        librarian "You can call me Cat."
+        $ current_thought = "cat_thought_96"
+        lloyd neutral "Right.[wait_1] My name’s Lloyd, for the record."
+        cat "..."
+        $ current_thought = "cat_thought_93"
+        lloyd neutral "Look, Cat, it’s really critical that I get access to these books for my research."
+        lloyd neutral "Is there any way that I can access them?"
+        cat "Not if they’re unavailable."
+    lloyd_thinking thinking "This won’t get me anywhere.[wait_1] I need to try something new."
+    $ current_thought = "cat_thought_97"
+    lloyd neutral "There’s a reason that I’m asking for these books, Cat.[wait_1] I’m looking for somebody important."
+    lloyd neutral "It’s vital that I find them."
+    $ current_thought = "cat_thought_98"
+    cat "How will reading books...[wait_1]like these...[wait_1]help you find someone?" 
+    cat "Wouldn’t you be better off hiring an investigator?"
+    lloyd neutral "The person that I’m looking for works in a field involving extrasensory research."
+    lloyd neutral "I’m anticipating finding out more about them through some of these books."
+    lloyd_thinking thinking "There’s no value to be gained in telling her the real reason I want the books, or about my vision.[wait_1] She wouldn’t believe me."
+    cat "Then why do you need so many books?[wait_1] And with such diverse topics..."
+    lloyd neutral "As I said, I want to find out more about this person through these books.[wait_1] Casting a wide net will help me find more relevant details about them."
+    $ current_thought = "cat_thought_99"
+    cat "Well...[wait_1]if you’re looking for this person...[wait_1]I can help you without you needing those books."
+    cat "What’s this person’s name?[wait_1] I can see if they have any papers published..."
+    lloyd_thinking thinking "I didn’t anticipate this going this way.[wait_1] But in for a penny, in for a pound."
+    $ current_thought = "cat_thought_100"
+    lloyd neutral "It’s...[wait_1]Jīngshén Tángláng?"
+    lloyd_narrating neutral "Cat presses a few keys on the nearest computer.[wait_1] She doesn’t ask me how to spell the name."
+    cat "No...[wait_1]I’m not seeing any references to this person...[wait_1]how strange."
+    $ swap_sprites("cat_cold")
+    $ current_thought = "cat_thought_101"
+    cat "Unless...[wait_1]this person doesn’t exist?[wait_1] And you’re trying to trick me into giving you the books?"
+    cat "Which aren’t here, anyway..."
+    lloyd_narrating neutral "I sigh internally.[wait_1] I shouldn’t have let myself get carried along with the lie."
+    lloyd_narrating neutral "I’ll tell her the truth...[wait_1]or at least, the parts of it that are safe to share."
+    $ current_thought = "cat_thought_102"
+    lloyd neutral "You’re right that the name I gave you doesn’t exist." 
+    lloyd neutral "But I really am looking for someone, and it really is a matter of life and death."
+    $ swap_sprites("cat_neutral")
+    cat "And...[wait_1]what’s this person’s name?"
+    $ current_thought = "cat_thought_103"
+    lloyd neutral "Allan Docherty.[wait_1] I think he’s somewhere here, in the city."
+    cat "Describe him to me."
+    lloyd_thinking thinking "Does she anticipate recognising him?"
+    lloyd neutral "He’s completely bald, and slightly overweight.[wait_1] Maybe a little taller than me."
+    lloyd neutral "I’ve only known him to wear black."
+    $ current_thought = "cat_thought_104"
+    cat "This person...[wait_1]Allan Docherty..."
+    lloyd neutral "Yes?"
+    cat "...you could be describing anyone." 
+    cat "I don’t think you’ll be able to find this person with such a simple description."
+    lloyd_thinking thinking "I doubt she could have helped me anyway.[wait_1] Docherty is dead." 
+    lloyd_thinking thinking "Although..."
+    $ current_thought = "cat_thought_105"
+    lloyd neutral "Can I describe somebody else to you?[wait_1] There’s a second person that I’m also looking for."
+    cat "Yes."
+    $ current_thought = "cat_thought_106"
+    lloyd neutral "I don’t know the name of this person, but he’s wearing a very loud suit, with black and white stripes.[wait_1] His hair is jet black, and slicked back."
+    lloyd neutral "Additionally, he has a small black moustache."
+    lloyd_narrating neutral "I’m not anticipating a positive response.[wait_1] Cat didn’t know who Docherty was, and it’s unlikely that she’ll know who his target is."
+    lloyd_narrating neutral "But I’m completely mistaken."
+    $ swap_sprites("cat_cold")
+    cat "How do you know that person?[wait_1] Have you been –[wait_05] what are you playing at?"
+    $ current_thought = "cat_thought_107"
+    lloyd neutral "Do you recognise him, Cat?"
+    cat "No![wait_1] Of course not."
+    cat "Your description is –[wait_05] I have no idea who he is!"
+    lloyd_thinking thinking "She definitely knows who he is."
+    menu:
+        "Who is Sergei?" (locked=not check_boolean("sergei_name_mentioned"), message="You have not read the related thought"):
+            $ current_thought = "cat_thought_108"
+            lloyd neutral "You clearly know who he is, Cat.[wait_1] Please tell me:[wait_05] who is this Sergei person?"
+            cat "He’s –[wait_05] I don’t know![wait_1] And it’s none of your business![wait_1] You should just drop it!"
+            $ current_thought = "cat_thought_109"
+            lloyd neutral "It’s very important that I get an answer, Cat.[wait_1] I’m worried that he’s –"
+            cat "Just leave.[wait_1] Get out of here and leave, Lloyd.[wait_1] And don’t come back."
+            lloyd_narrating neutral "Mentioning the name Sergei has changed Cat’s attitude completely.[wait_1] She’s changed from cold and resistant to actively hostile."
+            lloyd_narrating neutral "As much as I’d like to stay and find out the answer, I can see that she’s not listening to me."
+            lloyd_narrating neutral "It’s the same as when I asked about the books on psychics, only worse."
+            $ current_thought = "cat_thought_110"
+            lloyd neutral "Please consider giving me the information another time, Cat."
+            lloyd_narrating neutral "By way of answer, Cat simply glares at me, the same as her namesake would."
+            $ add_boolean("cat_sergei_mentioned")
+        "Leave it for now":
+            lloyd_thinking thinking "She clearly knows who this person is, but doesn’t want to tell me."
+            lloyd_thinking thinking "I can’t force her to tell me.[wait_1] I’ll just have to hope that she’s more forthcoming the next time I see her."
+            $ current_thought = "cat_thought_111"
+            lloyd neutral "Thank you for your assistance regardless, Cat.[wait_1] I may be back in the future, and if you do encounter this person, I’d appreciate you telling me."
+            cat "Of course."
+            lloyd_narrating neutral "Her voice is completely flat.[wait_1] She clearly has no intention of helping me."
+    hide cat_cold with quick_dissolve
+    hide screen psychic_powers
+    lloyd_thinking thinking "I’ve done all that I can here.[wait_1] If Cat won’t help me then all I can do is hope that she defrosts a little."
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "I leave the library and start thinking about my next destination."
+
+    $ visit_person("cat", "c", 0)
     return 
