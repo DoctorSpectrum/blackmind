@@ -822,4 +822,4 @@ label barbara_b_4:
     lloyd_narrating friendly "After all, it’s good to support your local."
 
     $ visit_person("barbara", "b", 0)
-    return
+    jump branch_a_b_4_4

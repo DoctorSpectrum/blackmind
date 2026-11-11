@@ -629,6 +629,18 @@ label branch_a_b_4_4:
         lloyd_narrating neutral "I want to sit down for a while and have a relaxing evening."
         lloyd_narrating neutral "I find a restaurant that’s open fairly late, but have to travel a significant distance to get to it."
         lloyd_narrating neutral "It’s worth it though, and I take note of the place for future visits."
+    else:
+        lloyd_narrating neutral "It’s been a long day and I’m feeling tired as I catch the train home."
+        lloyd_narrating neutral "I probably shouldn’t have stayed at Icarus for as long as I did but I was enjoying talking to Barbara."
+        lloyd_thinking thinking "She’s a good person."
+        lloyd_thinking thinking "I feel a little guilty for the way I’ve treated her, constantly asking her to dig up information.[wait_1] I should have spent a bit more money at the bar."
+        lloyd_narrating neutral "Even if I had a good time with Barbara, I still feel like most of the day was a waste.[wait_1] I didn’t discover any information about anybody with psychic abilities like mine."
+        lloyd_narrating neutral "I suppose that it’s understandable given what I’m searching for.[wait_1] But I feel irked as I read station names and contemplate my plans for tomorrow."
+        lloyd_narrating neutral "Was there anything different that I could have done?[wait_1] Am I chasing a dead end?"
+        lloyd_narrating neutral "A part of me feels that if I’d discovered who the man in black is I’d be further along the investigation by now."
+        lloyd_narrating neutral "There’s no way to change the past.[wait_1] No way to do things again and make different choices."
+        lloyd_narrating neutral "Unless I get another vision of the future all that I can do is continue looking for other psychics."
+        lloyd_narrating neutral "I leave the train station and begin the journey back to my apartment."
     lloyd_narrating neutral "It’s close to midnight as I approach my apartment."
     lloyd_narrating neutral "The door handle feels looser than it should as I unlock the door.[wait_1] I should consider what it means, but I’m not thinking clearly."
     scene apartment_night with slow_dissolve
@@ -644,4 +656,6 @@ label branch_a_b_4_4:
     hide screen psychic_powers
     $ play_sound("gunshot.mp3", transition=white_flash)
     scene cg5_0 with slow_dissolve
+    
+    # Ending A/B, display how to get to the next branch
     return
