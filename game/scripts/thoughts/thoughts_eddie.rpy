@@ -312,6 +312,16 @@ label mind_read_eddie:
     elif (current_thought == "eddie_thought_147"):
         eddie_thoughts "Thank fuck.[wait_1] He’s leaving."
     
+    # C-2-4
+    elif (current_thought == "eddie_thought_148"):
+        eddie_thoughts "I’ll bet Chen has no idea what he’s done...[wait_05]what he’s disturbed..."
+    elif (current_thought == "eddie_thought_149"):
+        eddie_thoughts "He’s always so quick to apologise, but does he ever mean it?[wait_1] Of course not.[wait_1] It’s all just lip service."
+    elif (current_thought == "eddie_thought_150"):
+        eddie_thoughts "Of course, it wasn’t that hard for me to find him...[wait_05]but I can’t have Chen knowing that."
+    elif (current_thought == "eddie_thought_151"):
+        eddie_thoughts "He probably won’t make it in time...[wait_05]suits me perfectly."
+    
 
     $ ignore_thoughts_length()
     return

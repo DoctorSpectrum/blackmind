@@ -171,3 +171,210 @@ label branch_c_2_0:
     lloyd_thinking thinking "If what I’ve seen has any chance of coming true there’ll be a chance of stopping it."
     lloyd_thinking thinking "Where should I go to try and identify Docherty’s victim?"
     call screen map_navigation(find_locations([]))
+
+label branch_c_2_4:
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "The second day of my hunt for the serial killer has come to a close.[wait_1] I still don’t know whether what I’m doing even matters."
+    lloyd_narrating neutral "Docherty is already dead, and the visions I’ve seen seem irrelevant."
+    lloyd_narrating neutral "I don’t know who killed the man with the white streak or how I could stop them.[wait_1] But if I don’t do what I can then I won’t be able to forgive myself."
+    lloyd_narrating neutral "I need to find the man with the loud suit and warn him."
+    lloyd_narrating neutral "The only problem is that I have no idea who that man with the loud suit is or how I can find him."
+    lloyd_narrating neutral " Ideally my contacts will have been doing the necessary work but there’s no guarantee that they’ve discovered anything."
+    scene restaurant_night with slow_dissolve
+    lloyd_narrating neutral "I travel to my favourite restaurant.[wait_1] If I’m going to be thinking it over, there’s no reason not to have a good meal while I’m doing so."
+    lloyd_thinking thinking "What sort of meal do I want, though...?"
+    menu:
+        "Kung Pao Chicken":
+            lloyd_narrating neutral "The server passes me a plate stacked high enough with the kung pao chicken I’ve ordered that I’m moderately concerned it will spill off the edges."
+            lloyd_narrating neutral "I carry it back to my table and as usual am delighted by how delicious the meal is."
+            lloyd_narrating neutral "The chilli present has been absorbed well by the chicken and adds a satisfying kick to the meal."
+            lloyd_narrating neutral "The soft texture of the chicken itself is contrasted well by the peanuts and vegetables, with the included rice rounding out the dish very well."
+        "Yangzhou fried rice":
+            lloyd_narrating neutral "I receive a steaming pile of fried rice from the server which I eagerly take to my table."
+            lloyd_narrating neutral "At this restaurant it includes both pork and chicken, which provide a pleasant difference in both taste and texture to one another."
+            lloyd_narrating neutral "The rice itself is slightly oily, but it’s packed with flavour and tastes just as good as the ingredients it was cooked with."
+        "Zhajiangmian":
+            lloyd_narrating neutral "I order the zhajiangmian, which earns me a nod of approval from the server in addition to a bowl containing my meal."
+            lloyd_narrating neutral "The delicious crunch of the vegetables leaves no doubt in my mind that I’ve made the correct choice, which is proven further once I get to the noodles."
+    lloyd_narrating neutral "But I’m not here to review food.[wait_1] I’m here to think about what my next step should be."
+    lloyd_thinking thinking "Who would be the most likely to have made progress in discovering who the man in the loud suit is?"
+    $ c_2_4_visited = None
+    menu:
+        "Barbara" (locked=not person_visited("barbara", "c", 0) or not check_boolean("barbara_investigates_sergei"), message=("You did not visit the bar today" if not person_visited("barbara", "c", 0) else "You did not convince Barbara to help find the man in the loud suit")):
+            jump branch_d_2_4
+        "Cat" (locked=not person_visited("cat", "c", 0), message="You did not visit the library today"):
+            lloyd_thinking thinking "Cat definitely knew something about the man in the loud suit.[wait_1] I’d be stupid not to follow her up further."
+            $ c_2_4_visited = "cat"
+        "Eddie" (locked=not person_visited("eddie", "c", 0) or not check_boolean("eddie_investigates_sergei"), message=("You did not visit the newspaper today" if not person_visited("eddie", "c", 0) else "You did not convince Eddie to help find the man in the loud suit")):
+            lloyd_thinking thinking "Eddie found me information on Allan Docherty.[wait_1] I’m going to trust that he found out about the man in the loud suit."
+            $ c_2_4_visited = "eddie"
+        "Graves" (locked=not person_visited("graves", "c", 0), message="You did not visit the detective agency today"):
+            lloyd_thinking thinking "Graves was confident that he could find this person even with little information.[wait_1] I hope that his confidence isn’t unfounded."
+            $ c_2_4_visited = "graves"
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "I finish my meal and pay for it, then begin travelling.[wait_1] It’s getting cold, and at times like these I wish that I had a car."
+    lloyd_narrating neutral "But I’ve always prioritised spending money on my camera, and there’s plenty of equipment that I want to buy before I think about purchasing something as expensive as a car."
+    lloyd_thinking thinking "Still...[wait_1]the company cars at {i}The Brief{/i} were useful.[wait_1] Sometimes I miss working there."
+    lloyd_narrating neutral "I recall my last few days at the newspaper.[wait_1] There were also plenty of times that I didn’t enjoy working there."
+    if (c_2_4_visited == "cat"):
+        scene library_night with slow_dissolve
+        lloyd_narrating neutral "Fortunately for me, the library is still open despite the hour."
+        lloyd_narrating neutral "I wander around for a few minutes, trying to find Cat.[wait_1] I assumed that she would be here, but now that I’m here it occurs to me that her shift may have ended earlier."
+        lloyd_narrating neutral "I begin my second lap of the silent library when I see something that takes me by surprise."
+        scene cg6_0 with slow_dissolve
+        lloyd_thinking thinking "It’s the man in the loud suit![wait_1] And it’s telling me where to find him!"
+        lloyd_narrating neutral "According to the flyer, the man’s name is Sergei Maskelyne, and he’s performing a “one-of-a-kind magic act” tonight."
+        lloyd_narrating neutral "I don’t know whether the flyer was here during the day and I missed it, or whether it was placed up after I left."
+        lloyd_narrating neutral "It doesn’t matter.[wait_1] I now know where I can find Sergei, so that I can warn him." 
+        lloyd_narrating neutral "There’s just one issue."
+        lloyd_thinking thinking "This venue...[wait_05]it’s in the north end of the city.[wait_1] How long will it take me to get there?"
+        lloyd_narrating neutral "It’s doubtful that I can make it to the venue before the show starts, especially with how long I’ll have to wait for a train."
+        lloyd_narrating neutral "But it’s worth the attempt regardless."
+        scene black_bg with slow_dissolve
+        lloyd_narrating neutral "My heart is racing as I leave the library and run towards the nearest train station."
+        lloyd_narrating neutral "Sergei can be saved.[wait_1] If he’s willing to be open with me I may find out why he’s a target of the unknown assassin."
+        lloyd_narrating neutral "This is a massive leap forwards in stopping the killer."
+    elif (c_2_4_visited == "eddie"):
+        scene office_interview_room with slow_dissolve
+        lloyd_narrating neutral "I’m slightly surprised when I’m told that Eddie is still present at the newspaper."
+        lloyd_narrating neutral "I’m directed to the same interview room as before and asked to wait until he arrives."
+        $ current_thought_block = "mind_read_eddie"
+        $ swap_sprites("eddie_angry", slow_dissolve)
+        $ current_thought = "eddie_thought_148"
+        show screen psychic_powers
+        eddie "Your good fortune is my bad, eh, Chen?"
+        lloyd neutral "What do you mean?"
+        eddie "Good news for you:[wait_05] I’m pretty sure that I’ve found your guy."
+        eddie "Bad news for me:[wait_05] I wasted a tonne of time on it, so I’ve had to stay back to catch up on the work I missed."
+        eddie "But hey, that’s more good news for you, right?[wait_1] Since it means that I’m here, now, to give you the info."
+        $ current_thought = "eddie_thought_149"
+        lloyd neutral "I’m sorry, Eddie.[wait_1] I didn’t think that you would –"
+        eddie "Like hell you didn’t, Chen.[wait_1] But it’s not like any of that really matters to you, right?"
+        lloyd neutral "Eddie, I –"
+        eddie "Save it.[wait_1] The faster we get this over with, the sooner I can get back to the important shit."
+        lloyd_narrating neutral "Eddie unfolds a piece of paper and passes it over to me."
+        scene cg6_0 with slow_dissolve
+        $ current_thought = "eddie_thought_150"
+        eddie "This is the guy you wanted me to find, right?[wait_1] Sergei Maskelyne?"
+        lloyd neutral "Yes.[wait_1] It’s a perfect match."
+        eddie "Dunno why you couldn’t have told me that he was a magician...[wait_05]would have made things a lot easier."
+        scene office_interview_room with quick_dissolve
+        $ swap_sprites("eddie_angry", quick_dissolve)
+        eddie "He’s playing a show tonight in the northern end of town."
+        eddie "Not sure whether or not you can make it, but as far as I’m concerned, that’s your problem."
+        lloyd_thinking thinking "The venue on the poster...[wait_05]how long will it take me to get there?"
+        $ current_thought = "eddie_thought_151"
+        lloyd neutral "Thank you, Eddie –[wait_05] I won’t forget this."
+        eddie "Yeah, sure you won’t."
+        hide eddie_angry with quick_dissolve
+        hide screen psychic_powers
+        scene black_bg with slow_dissolve
+        lloyd_narrating neutral "I quickly leave the newspaper and begin walking towards the nearest train station."
+        lloyd_narrating neutral "I might miss the opening of Sergei’s act, but I should be able to warn him in time and save him from the killer."
+        lloyd_narrating neutral "Bit by bit, I’m making progress."
+    elif (c_2_4_visited == "graves"):
+        scene detective_office with slow_dissolve
+        lloyd_narrating neutral "I’m incredibly relieved when Graves responds to the intercom and unlocks the door for me.[wait_1] I don’t know what I would have done if he hadn’t been in."
+        $ current_thought_block = "mind_read_graves"
+        $ swap_sprites("graves_smiling", quick_dissolve)
+        $ current_thought = "graves_thought_160"
+        show screen psychic_powers
+        graves "Hey, Lloyd.[wait_1] Care to join me in a container of takeaway?"
+        graves "Fair warning, though –[wait_05] I don’t think that we’ll both fit."
+        lloyd_narrating neutral "He holds out a cheap plastic container to me, half-filled with noodles.[wait_1] I shake my head."
+        $ current_thought = "graves_thought_161"
+        lloyd neutral "Thank you, Graves, but I’d much rather hear whether you’ve discovered anything about the man in the loud suit."
+        lloyd_thinking thinking "Because if you haven’t, I need to get out of here and seek a different source of information."
+        graves "No worries, Lloyd.[wait_1] Take a squiz at this –[wait_05] look familiar?"
+        scene cg6_0 with slow_dissolve
+        lloyd_thinking thinking "It’s a perfect match for the man in the loud suit.[wait_1] It’s advertising a magic act of some kind."
+        $ current_thought = "graves_thought_162"
+        graves "If this is your guy, his name is Sergei Maskelyne.[wait_1] Apparently he’s playing at a venue up north tonight."
+        lloyd neutral "Yes, you’re correct –[wait_05] this is the person I was looking for."
+        lloyd_thinking thinking "The north end of the city...[wait_05]how long would it take me to get there?[wait_1] If I’d known that this was what I’d be told I’d have shown up earlier in the evening."
+        $ current_thought = "graves_thought_163"
+        scene detective_office with quick_dissolve
+        $ swap_sprites("graves_smiling", quick_dissolve)
+        graves "If you want to meet with the guy, you’ll have to hurry.[wait_1] I don’t know if you can make the start of the show, but it’s better to show up late and chat to him than not at all, yes?"
+        lloyd neutral "Yes...[wait_05]you’re right, Graves."
+        lloyd neutral "Thank you for the information –[wait_05] I really appreciate it."
+        graves "Hey, no worries –[wait_05] it comes with the job.[wait_1] Anything else that I can help you with?"
+        lloyd neutral "Not at present...[wait_05]I’d better get moving." 
+        lloyd neutral "Thanks again, Graves."
+        graves "You’re welcome.[wait_1] Good luck!"
+        hide graves_smiling with quick_dissolve
+        hide screen psychic_powers
+        scene black_bg with slow_dissolve
+        lloyd_thinking thinking "Thank goodness Graves understood that I didn’t want to talk for too long."
+        lloyd_thinking thinking "I’ve got to get to the nearest train station and make my way northwards, and then things will be fine."
+        lloyd_thinking thinking "I’ll talk to Sergei, warn him about the killer, and save him.[wait_1] I won’t fail him like I failed the man with the white streak."
+    call screen chapter_breaks("LATER", "At 9:11 PM, Lloyd reaches the venue hosting Sergei’s show.\n\nSomebody else reached it at 8:32 PM.")
+    # TODO: Add some red/blue slow flashes here
+    scene venue_exterior with slow_dissolve
+    lloyd_narrating neutral "I’m too late."
+    lloyd_narrating neutral "Waiting for a train took long enough that I knew I wouldn’t be able to make the show itself.[wait_1] But I thought that the delay wouldn’t affect the evening drastically."
+    lloyd_narrating neutral "I thought that I would be able to meet with Sergei, or at least to get his contact details from one of the venue staff."
+    lloyd_narrating neutral "But as I approach the venue I see blue and red lights flashing, accompanying the police tape at the entrance to the venue."
+    lloyd_thinking thinking "My vision did come true, then.[wait_1] At least, the part of it where Sergei was killed did."
+    lloyd_thinking thinking "But who killed him?"
+    lloyd_narrating neutral "A small crowd has gathered, and it’s clear that they’re not here because they want to go into the venue."
+    lloyd_narrating neutral "Not when there’s a crime scene to investigate and clues to be found.[wait_1] Not when there’s a dead body inside, the skull opened up by a bullet at close range."
+    lloyd_narrating neutral "I walk towards the closest person.[wait_1] I already know what’s happened but they might have information that I don’t have."
+    $ current_thought_block = "mind_read_cat"
+    $ swap_sprites("cat_neutral", quick_dissolve)
+    show screen psychic_powers
+    if (person_visited("cat", "a", 0) or person_visited("cat", "c", 0)):
+        if (check_boolean("cat_name_discovered")):
+            $ current_thought = "cat_thought_112"
+            lloyd_narrating neutral "As I get closer I’m surprised to see that it’s Cat."
+            lloyd_thinking thinking "What’s she doing here?"
+            lloyd neutral "Hey, Cat."
+        else:
+            $ current_thought = "cat_thought_113"
+            lloyd_narrating neutral "As I get closer I’m surprised to see that it’s the librarian."
+            lloyd_thinking thinking "What’s she doing here?"
+            lloyd neutral "Hey, um...[wait_05]you."
+            lloyd_narrating neutral "She turns to me with a cold glare on her face."
+            $ swap_sprites("cat_cold")
+            $ current_thought = "cat_thought_112"
+            librarian "Oh.[wait_1] You."
+            lloyd neutral "It is."
+            $ current_thought = "cat_thought_114"
+            librarian "The name’s Cat."
+            lloyd_thinking thinking "Short for Catherine?"
+            $ current_thought = "cat_thought_115"
+            lloyd neutral "Understood."
+            $ swap_sprites("cat_neutral")
+    else:
+        lloyd neutral "Hey, my name’s Lloyd.[wait_1] Do you have a minute?"
+        $ current_thought = "cat_thought_116"
+        unknown "...I’m Cat."
+        lloyd_thinking thinking "She didn’t say that I couldn’t talk to her."
+    $ current_thought = "cat_thought_117"
+    lloyd neutral "What happened here?"
+    cat "There was...[wait_1]a show that was going on here.[wait_1] Stage magic."
+    cat "During the intermission...[wait_1]the performer went backstage."
+    cat "Then...[wait_1]maybe five minutes later there was a loud noise."
+    $ current_thought = "cat_thought_118"
+    lloyd neutral "Like a gunshot?"
+    lloyd_narrating neutral "She nods slowly, as though only considering the possibility now."
+    $ current_thought = "cat_thought_119"
+    cat "The staff checked what happened...[wait_1]then we were told to leave while the police were called."
+    cat "But not everybody...[wait_1]is here."
+    lloyd_thinking thinking "She doesn’t seem overly surprised or shaken.[wait_1] Why is that?"
+    $ current_thought = "cat_thought_120"
+    lloyd neutral "Was there anyone suspicious around?"
+    $ current_thought = "cat_thought_121"
+    cat "No...[wait_1]not that I saw.[wait_1] But someone else might have seen something."
+    lloyd neutral "Alright.[wait_1] Thank you for answering my questions."
+    lloyd_narrating neutral "She stares at me for several seconds before returning her focus to the venue."
+    hide cat_neutral with quick_dissolve
+    hide screen psychic_powers
+    lloyd_narrating neutral "I ask a few other people whether they saw anyone suspicious but none of the answers are positive."
+    lloyd_narrating neutral "From the sound of things if the loud bang –[wait_05] the gunshot –[wait_05] weren’t so loud none of the patrons would have guessed that anything was amiss."
+    lloyd_narrating neutral "At the end of it all I haven’t learned anything conclusive."
+    lloyd_narrating neutral "I have no new information, other than that I missed my opportunity to warn Sergei about the killer that was coming for him."
+    lloyd_thinking thinking "But why was the killer coming for him?[wait_1] What was it about Sergei –[wait_05] and the man with the white streak –[wait_05] that made the killer determined to silence them?"
+    lloyd_thinking thinking "I’ll have to look further into Sergei tomorrow –[wait_05] I know his name, but I don’t have enough information about who he is."
+    lloyd_narrating neutral "I won’t learn anything else here.[wait_1] I return to the train station and head home."
+    scene black_bg with slow_dissolve

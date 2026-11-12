@@ -246,6 +246,27 @@ label mind_read_cat:
     elif (current_thought == "cat_thought_111"):
         cat_thoughts "I think I convinced him...[wait_1]or that his way of dropping a threat?"
     
+    # C-2-4
+    elif (current_thought == "cat_thought_112"):
+        cat_thoughts "What’s he doing here?"
+    elif (current_thought == "cat_thought_113"):
+        librarian_thoughts "Sergei...[wait_1]please be alright..."
+    elif (current_thought == "cat_thought_114"):
+        librarian_thoughts "I don’t like being called “you”."
+    elif (current_thought == "cat_thought_115"):
+        librarian_thoughts "He’d better not try and make conversation."
+    elif (current_thought == "cat_thought_116"):
+        unknown_thoughts "Whatever he wants...[wait_1]it had better be quick."
+    elif (current_thought == "cat_thought_117"):
+        cat_thoughts "Why is he asking me...?[wait_1] There are plenty of others to talk to..."
+    elif (current_thought == "cat_thought_118"):
+        cat_thoughts "I thought it was something falling...[wait_1]but it could have been a gun..."
+    elif (current_thought == "cat_thought_119"):
+        cat_thoughts "If it was a gun...[wait_1]does that mean this was murder?"
+    elif (current_thought == "cat_thought_120"):
+        cat_thoughts "Lloyd is pretty suspicious...[wait_1]he came from nowhere...[wait_1]he’s asking questions..."
+    elif (current_thought == "cat_thought_121"):
+        cat_thoughts "Go talk to someone else...[wait_1]please..."
 
     $ ignore_thoughts_length()
     return

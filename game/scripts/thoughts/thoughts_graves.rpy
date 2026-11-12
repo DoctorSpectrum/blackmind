@@ -339,6 +339,16 @@ label mind_read_graves:
     elif (current_thought == "graves_thought_159"):
         graves_thoughts "I talked a big game there, but god...[wait_05]I hope that I can work out who this guy is."
     
+    # C-2-4
+    elif (current_thought == "graves_thought_160"):
+        graves_thoughts "Is it racist to offer noodles to the Asian guy...?"
+    elif (current_thought == "graves_thought_161"):
+        graves_thoughts "What’s Lloyd’s interest in someone who does...[wait_05]{i}that{/i} for a living?"
+    elif (current_thought == "graves_thought_162"):
+        graves_thoughts "Surely Sergei wouldn’t have any knowledge of –[wait_05] nah, it’s unlikely.[wait_1] Not if he’s a stage magician."
+    elif (current_thought == "graves_thought_163"):
+        graves_thoughts "I hope that Lloyd does manage to meet with him...[wait_05]because I’d like to pick his brain a bit and hear exactly what the meeting’s all about."
+    
 
     $ ignore_thoughts_length()
     return

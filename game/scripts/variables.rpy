@@ -31,6 +31,7 @@ label variables:
     define mental_jack = Character(kind=jack, name="???", image=None)
     define phone = Character("Phone", what_color="#000")
     define unknown = Character("???", what_color="#000")
+    define unknown_thoughts = Character(kind=character_thoughts, name="???")
 
     #Persistent variables
     default persistent.game_launched = False

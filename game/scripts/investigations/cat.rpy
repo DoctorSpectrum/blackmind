@@ -784,6 +784,7 @@ label cat_c_2:
         lloyd neutral "Look, Cat, it’s really critical that I get access to these books for my research."
         lloyd neutral "Is there any way that I can access them?"
         cat "Not if they’re unavailable."
+        $ add_boolean("cat_name_discovered")
     lloyd_thinking thinking "This won’t get me anywhere.[wait_1] I need to try something new."
     $ current_thought = "cat_thought_97"
     lloyd neutral "There’s a reason that I’m asking for these books, Cat.[wait_1] I’m looking for somebody important."
