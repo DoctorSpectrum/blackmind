@@ -378,3 +378,19 @@ label branch_c_2_4:
     lloyd_thinking thinking "I’ll have to look further into Sergei tomorrow –[wait_05] I know his name, but I don’t have enough information about who he is."
     lloyd_narrating neutral "I won’t learn anything else here.[wait_1] I return to the train station and head home."
     scene black_bg with slow_dissolve
+
+label branch_c_3_0:
+    # Power upgrade
+    call screen chapter_breaks("THURSDAY", "Despite his best efforts, Lloyd was unable to save Sergei Maskelyne from being killed. His psychic powers haven’t shown him any further visions.\n\nHe has no warning of what’s coming.")
+    scene apartment_day with slow_dissolve
+    lloyd_thinking thinking "I wasn’t able to save Sergei.[wait_1] If I’d found where he was sooner then I could have warned him about the killer."
+    lloyd_thinking thinking "But I was too late.[wait_1] Once again I failed to save someone, and their blood is on my hands."
+    lloyd_narrating neutral "I try not to dwell on my failure.[wait_1] I can’t change the choices that I’ve made, but that’s a bitter comfort."
+    lloyd_narrating neutral "It’s too easy to consider what I could have done differently and wish for a way to make that change real.[wait_1] To linger on the past and imagine what things would look like in the present."
+    lloyd_thinking thinking "I can’t change the past but I can move forward with what I have now."
+    lloyd_thinking thinking "I may not have been able to save Sergei, but I did gain something:[wait_05] his death confirms the vision I had."
+    lloyd_thinking thinking "I don’t know who his killer is or how they relate to Docherty, but he was the target, as I saw."
+    lloyd_thinking thinking "Why was that?[wait_1] Why did he need to be silenced?"
+    lloyd_thinking thinking "If I can discover more about who Sergei Maskelyne was, I might be able to work out why the killer silenced him –[wait_05] and from that, the killer’s next target."
+    lloyd_thinking thinking "Where should I go to research Sergei?"
+    call screen map_navigation(find_locations([]))
