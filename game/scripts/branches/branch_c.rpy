@@ -381,6 +381,8 @@ label branch_c_2_4:
 
 label branch_c_3_0:
     # Power upgrade
+    $ branch = "c"
+    $ day = 3
     call screen chapter_breaks("THURSDAY", "Despite his best efforts, Lloyd was unable to save Sergei Maskelyne from being killed. His psychic powers haven’t shown him any further visions.\n\nHe has no warning of what’s coming.")
     scene apartment_day with slow_dissolve
     lloyd_thinking thinking "I wasn’t able to save Sergei.[wait_1] If I’d found where he was sooner then I could have warned him about the killer."

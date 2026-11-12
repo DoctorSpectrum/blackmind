@@ -12,6 +12,8 @@ label barbara_investigation:
         jump barbara_b_4
     elif (branch == "c" and day == 2):
         jump barbara_c_2
+    elif (branch == "c" and day == 3):
+        jump barbara_c_3
     
     return
 
@@ -989,6 +991,7 @@ label barbara_c_2:
             lloyd neutral "Best of luck with your work, Barbara."
             barbara "Thanks."
             hide barbara_angry with quick_dissolve
+            $ add_boolean("lloyd_offers_paperwork")
         "It’s a matter of life and death":
             $ current_thought = "barbara_thought_172"
             lloyd neutral "It’s a matter of life and death, Barbara.[wait_1] If you help me out then you’ll be saving somebody’s life."
@@ -1013,4 +1016,165 @@ label barbara_c_2:
     lloyd_narrating neutral "I leave Icarus behind me and think about my next destination."
 
     $ visit_person("barbara", "c", 0)
+    return
+
+label barbara_c_3:
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "I failed.[wait_1] Sergei Maskelyne died last night and it’s all my fault."
+    lloyd_narrating neutral "Despite having the knowledge that it would happen –[wait_05] despite knowing that he was in danger –[wait_05] I wasn’t able to save him."
+    lloyd_narrating neutral "Sergei was killed by an unknown assailant and I wasn’t good enough to warn him."
+    lloyd_narrating neutral "Next time will be different.[wait_1] Whoever the killer’s next target is, I’ll find and save them."
+    lloyd_narrating neutral "Sergei may be dead, but in death he can provide me with clues as to why the killer targeted him.[wait_1] From there I’ll find the killer’s next target and redeem myself."
+    lloyd_narrating neutral "In order to find out who exactly Sergei was, I’ll need to ask around and find somebody who knows his history."
+    lloyd_narrating neutral "He was performing at a venue near this bar –[wait_05] it’s not impossible that he was a regular patron there, and that there’ll be something that I can discover there."
+    lloyd_narrating neutral "I walk to the nearest train station, taking the stairs underground and into the bowels of the earth."
+    lloyd_narrating neutral "It’s a warm and sunny day outside, but you wouldn’t guess it from the temperature below the ground."
+    lloyd_narrating neutral "None of the sun’s rays penetrate through the stone and concrete, and it feels like I’m in a completely different world."
+    lloyd_narrating neutral "Eventually a train arrives and I take it to the station nearest the bar."
+    if (not person_visited("barbara", "a", 0) and not person_visited("barbara", "c", 0)):
+        lloyd_narrating neutral "From the station it’s a short walk through the streets to the bar."
+        lloyd_narrating neutral "The sign above it confirms that it’s the same place I found online –[wait_05] Icarus."
+        lloyd_narrating neutral "A woman is visible inside it, so I knock on the door.[wait_1] She graciously lets me inside."
+        scene bar with slow_dissolve
+        lloyd_narrating neutral "Although the bar looks to be closed it’s surprisingly comfortable."
+        lloyd_narrating neutral "I would have expected there to be a stronger smell of alcohol and sticky patches on the floor.[wait_1] Instead I’m greeted by a floral scent of some kind and some light jazz."
+        $ swap_sprites("barbara_smiling", slow_dissolve)
+        $ current_thought = "barbara_thought_175"
+        show screen psychic_powers
+        lloyd neutral "Thank you for letting me in.[wait_1] You’ve built a nice atmosphere here."
+        bartender "Hey, no worries![wait_1] You’re here about fixing the bathroom door, right?"
+        $ current_thought = "barbara_thought_176"
+        lloyd neutral "No, sorry –[wait_05] I think that you’ve mistaken me for somebody else.[wait_1] I’m here to ask you some questions."
+        $ swap_sprites("barbara_thinking")
+        bartender "Now that you mention it, I think that he wasn’t supposed to come in until tomorrow."
+        lloyd_thinking thinking "She’ll presumably be in during the day tomorrow as well.[wait_1] I can likely visit then if I need to."
+        $ swap_sprites("barbara_smiling")
+        $ current_thought = "barbara_thought_177"
+        bartender "Well, you’re in now –[wait_05] I guess that I can answer your questions, if they’re quick."
+        bartender "I’m Barbara, by the way."
+        lloyd neutral "Lloyd."
+        barbara "So, what did you want to know, Lloyd?"
+    elif (person_visited("barbara", "c", 0)):
+        scene bar with slow_dissolve
+        lloyd_narrating neutral "The bar is in a much nicer state today than it was yesterday."
+        lloyd_narrating neutral "Soothing music plays from a speaker hidden somewhere, and Barbara looks to have done the cleaning for the day already."
+        $ swap_sprites("barbara_smiling", slow_dissolve)
+        if (check_boolean("barbara_investigates_sergei") or check_boolean("lloyd_offers_paperwork")):
+            $ current_thought = "barbara_thought_178"
+        else:
+            $ current_thought = "barbara_thought_179"
+        show screen psychic_powers
+        barbara "Heya Lloyd![wait_1] How’s it going?"
+        lloyd neutral "I’m alright, Barbara.[wait_1] Thank you for letting me in."
+        barbara "No problem at all."
+        if (check_boolean("barbara_investigates_sergei")):
+            $ current_thought = "barbara_thought_180"
+            barbara "Did you want to know about the guy you were asking about yesterday?[wait_1] I asked around and I think that I found out about him."
+            lloyd_thinking thinking "I wonder when Barbara heard about Sergei.[wait_1] Should I have visited Icarus last night after dinner?"
+            $ current_thought = "barbara_thought_181"
+            lloyd neutral "No, it’s alright.[wait_1] I found him through other sources, but I was too late."
+        else:
+            $ current_thought = "barbara_thought_182"
+            barbara "Did you have any luck finding out about that guy you wanted to find?[wait_1] The one with the Dali?"
+            $ current_thought = "barbara_thought_181"
+            lloyd neutral "I did, but not as swiftly as I hoped for.[wait_1] It was too late by the time I reached him."
+        $ swap_sprites("barbara_thinking")
+        barbara "Too late? What do you mean?"
+    elif (person_visited("barbara", "a", 0)):
+        scene bar with slow_dissolve
+        lloyd_narrating neutral "The bar provides a welcome refuge from the heat outside."
+        lloyd_narrating neutral "The air conditioning has been turned on, and Barbara offers me a glass of water as I enter which I gracefully accept."
+        lloyd_narrating neutral "I initially think that it’s too cold before realising how much I need it."
+        $ swap_sprites("barbara_smiling", slow_dissolve)
+        $ current_thought = "barbara_thought_183"
+        show screen psychic_powers
+        barbara "So, what brings you here today, Lloyd?"
+        barbara "I’m sorry to tell you that I haven’t found out anything about the guy you described.[wait_1] The one who only wears black."
+        lloyd_thinking thinking "I wouldn’t expect her to discover anything about a dead man."
+        lloyd_thinking thinking "If only I knew something of what the actual killer looks like...[wait_05]then I could ask her to investigate him."
+        $ current_thought = "barbara_thought_184"
+        lloyd neutral "That’s fine.[wait_1] I don’t need you to find him any more, but I would like to talk to you about something –[wait_05] someone –[wait_05] related."
+        barbara "Oh yeah?[wait_1] Do tell."
+    $ current_thought = "barbara_thought_185"
+    lloyd neutral "I’m unsure whether you’re aware of it or not, but there’s a music venue a few blocks away from here."
+    lloyd neutral "They may actually be competitors of yours, now that I think about it."
+    $ swap_sprites("barbara_smiling")
+    barbara "There’s one or two in the area, but I think I know the one that you’re talking about."
+    $ current_thought = "barbara_thought_186"
+    if (person_visited("barbara", "c", 0) and check_boolean("barbara_investigates_sergei")):
+        barbara "The one where the guy with the suit was performing, yeah?"
+        lloyd neutral "That’s correct.[wait_1] Said man’s name was Sergei Maskelyne."
+    elif (person_visited("barbara", "c", 0)):
+        lloyd neutral "The man with the loud suit –[wait_05] the one that I was asking about yesterday –[wait_05] he was performing there.[wait_1] A magic act of some kind, if my information is correct."
+        lloyd neutral "His name was Sergei Maskelyne."
+    else:
+        lloyd neutral "Last night at this venue, there was somebody performing.[wait_1] Stage magic, I believe."
+        lloyd neutral "His name was Sergei Maskelyne."
+    lloyd neutral "Have you ever heard the name?[wait_1] Or better yet, did you ever speak to him?"
+    if (person_visited("barbara", "c", 0) and check_boolean("barbara_investigates_sergei")):
+        barbara "Well, I did find out his name from a flyer."
+        barbara "But before then, I –[wait_05] no, I hadn’t ever heard of him.[wait_1] Or spoken to him, for that matter."
+    else:
+        barbara "Sergei Maskelyne?[wait_1] No, I don’t think that I have, or if I have then I don’t remember it."
+    $ current_thought = "barbara_thought_187"
+    barbara "Why?[wait_1] He’s important to you in some way, I take it?"
+    $ current_thought = "barbara_thought_188"
+    lloyd neutral "You could say that.[wait_1] He died last night at the venue."
+    $ swap_sprites("barbara_sad")
+    barbara "What?"
+    $ current_thought = "barbara_thought_189"
+    lloyd neutral "I’m trying to find out more about him.[wait_1] If I can find out what his background is then I may be able to discover the reason why the killer targeted him."
+    lloyd neutral "If there’s anything at all that you know, then it could be a big help."
+    if (person_visited("barbara", "c", 0) and check_boolean("barbara_investigates_sergei")):
+        barbara "No...[wait_05]like I said, I hadn’t heard of him before yesterday."
+    else:
+        barbara "No...[wait_05]I had no idea that he even existed.[wait_1] I’ve never heard of him."
+    $ current_thought = "barbara_thought_190"
+    barbara "What exactly happened?[wait_1] How did he die?"
+    lloyd_thinking thinking "I barely know any details.[wait_1] All that Cat said was that there was a noise that could have been a gunshot."
+    lloyd_thinking thinking "That would match up with the vision that I had if Docherty was still alive, but it can’t have been exactly as I saw it."
+    lloyd_narrating neutral "Was the vision that I had symbolic in some way?[wait_1] Could it have been that the killer was getting revenge on Sergei for Docherty’s sake?"
+    lloyd_narrating neutral "I muse on it for a moment before dismissing the thought.[wait_1] Concepts like that are irrelevant until I find out more about Sergei."
+    $ current_thought = "barbara_thought_191"
+    lloyd neutral "All that I know is that he was shot during the intermission of his show.[wait_1] From my understanding nobody saw the killer."
+    barbara "God...[wait_05]I’ll bet he wasn’t expecting that to happen when he made plans for the show."
+    $ current_thought = "barbara_thought_192"
+    barbara "What the hell is wrong with people, anyway, that they’d just go and kill somebody they don’t like?"
+    barbara "And how is –[wait_05] how can anybody feel safe, knowing that there are psychos out there who’ll resort to such extreme violence in response to minor issues and qualms?"
+    $ current_thought = "barbara_thought_193"
+    lloyd neutral "I suppose it’s as simple as trusting your luck to not run out."
+    barbara "So that’s all that we have that really protects us?[wait_1] Luck?"
+    barbara "If somebody gets injured or killed by gun violence, we should all just shrug and agree that the dice came up bad for them?"
+    $ current_thought = "barbara_thought_194"
+    lloyd neutral "Of course not.[wait_1] We should work to create a society where there’s no need for guns."
+    barbara "Thank you![wait_1] You get it!"
+    barbara "All the bloody –[wait_05] all the damn pro-gun people will make up all sorts of excuses for why they should be allowed to have the stupid things, but do any of those arguments justify the deaths?[wait_1] The injuries?"
+    barbara "Are any of them willing to put themselves on the line when some madman’s running around with a gun?"
+    $ swap_sprites("barbara_sad")
+    barbara "...Sorry."
+    barbara "I just –[wait_05] this sort of thing really gets to me, and I –[wait_05] have you ever searched “mass shootings this year”?"
+    lloyd neutral "I’ve never had the need to."
+    barbara "Try it some time.[wait_1] The statistics are pretty sobering."
+    $ swap_sprites("barbara_thinking")
+    $ current_thought = "barbara_thought_195"
+    barbara "Anyway...[wait_05]I know the owner of the venue where this happened."
+    barbara "I’d recommend going there and asking him about Sergei.[wait_1] He’s generally pretty amiable with his entertainers, and would probably know at least a little bit about Sergei."
+    barbara "If nothing else you should be able to get Sergei’s contact details from him, and –[wait_05] well, it’s not like he’s going to respond to you, but you might be able to contact his friends or family from them."
+    $ current_thought = "barbara_thought_196"
+    lloyd neutral "Thank you.[wait_1] Do you know whether the venue’s open at the moment?"
+    $ swap_sprites("barbara_smiling")
+    barbara "Nah.[wait_1] Freddy doesn’t open up his place up until 8 at the earliest, since they’re focused more on gigs."
+    barbara "If you show up an hour or two earlier you might catch some of his staff getting things prepped for the night, but he usually doesn’t swing by until they’re actually running things." 
+    barbara "You’d be wasting your time if you went by now."
+    lloyd_thinking thinking "It sounds like visiting the venue may be an option for the evening."
+    $ current_thought = "barbara_thought_197"
+    lloyd neutral "You’ve been a big help, Barbara.[wait_1] Thank you."
+    barbara "Hey, no worries.[wait_1] Whatever the reason you’re looking into this stuff, I hope that you find what you’re looking for."
+    lloyd neutral "Have a good day."
+    hide barbara_smiling with quick_dissolve
+    hide screen psychic_powers
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "There’s still plenty of time until I can visit the venue."
+    lloyd_narrating neutral "I make my way back to the train station and begin thinking about my next destination."
+    $ visit_person("barbara", "c", 1)
     return
