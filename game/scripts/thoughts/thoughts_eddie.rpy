@@ -277,6 +277,41 @@ label mind_read_eddie:
     elif (current_thought == "eddie_thought_131"):
         eddie_thoughts "He’d better not come back here again, or he’ll regret it."
     
+    # C-2
+    elif (current_thought == "eddie_thought_132"):
+        eddie_thoughts "Better get this bastard out of here.[wait_1] I can’t have him around."
+    elif (current_thought == "eddie_thought_133"):
+        eddie_thoughts "If I can get him to leave now then I can keep looking into this.[wait_1] Why did he think this Docherty person was so important?"
+    elif (current_thought == "eddie_thought_134"):
+        eddie_thoughts "I’ve got to get as much information from him as possible before he leaves."
+    elif (current_thought == "eddie_thought_135"):
+        eddie_thoughts "Of course.[wait_1] Give me all the legwork, while he gets to take all the photos and do the fun stuff."
+    elif (current_thought == "eddie_thought_136"):
+        eddie_thoughts "Why does he only have a description?[wait_1] Has he met this person before?[wait_1] Or did somebody else describe them to him?"
+    elif (current_thought == "eddie_thought_137"):
+        eddie_thoughts "Should I grow a moustache?[wait_1] I could probably pull off something thick."
+    elif (current_thought == "eddie_thought_138"):
+        eddie_thoughts "What’s in it for me if I do?[wait_1] Better to focus on my own shit."
+    elif (current_thought == "eddie_thought_139"):
+        eddie_thoughts "I don’t want Chen to keep pursuing this story."
+    elif (current_thought == "eddie_thought_140"):
+        eddie_thoughts "Why don’t I ever get any important jobs?[wait_1] Why don’t they trust me on the big stories?[wait_1] It’s all just busywork and doing small shit for other people."
+        $ add_boolean("eddie_work_unimportant")
+    elif (current_thought == "eddie_thought_141"):
+        eddie_thoughts "Is he just fucking daydreaming?[wait_1] He looks like he’s forgotten all about me."
+    elif (current_thought == "eddie_thought_142"):
+        eddie_thoughts "Who cares if this guy dies?[wait_1] He wouldn’t go out of his way to save me."
+    elif (current_thought == "eddie_thought_143"):
+        eddie_thoughts "Does Chen actually know?[wait_1] No, he must be looking down on everybody else like usual.[wait_1] I’ll bluff him."
+    elif (current_thought == "eddie_thought_144"):
+        eddie_thoughts "More important than money?[wait_1] Nothing’s more important than money."
+    elif (current_thought == "eddie_thought_145"):
+        eddie_thoughts "I was already thinking about taking this story for myself...[wait_05]I might as well keep working with Chen until I can cast him aside."
+    elif (current_thought == "eddie_thought_146"):
+        eddie_thoughts "Since when does Chen suddenly care so much about other people?[wait_1] That isn’t like him."
+    elif (current_thought == "eddie_thought_147"):
+        eddie_thoughts "Thank fuck.[wait_1] He’s leaving."
+    
 
     $ ignore_thoughts_length()
     return

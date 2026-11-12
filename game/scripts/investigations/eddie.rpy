@@ -1,16 +1,17 @@
 label eddie_investigation:
     $ current_thought_block = "mind_read_eddie"
-    if (branch == "a"):
-        if (day == 1):
-            jump eddie_a_1
-        elif (day == 2):
-            jump eddie_a_2
-        elif (day == 3):
-            jump eddie_a_3
-        elif (day == 4):
-            jump eddie_a_b_4
+    if (branch == "a" and day == 1):
+        jump eddie_a_1
+    elif (branch == "a" and day == 2):
+        jump eddie_a_2
+    elif (branch == "a" and day == 3):
+        jump eddie_a_3
+    elif (branch == "a" and day == 4):
+        jump eddie_a_b_4
     elif (branch == "b"):
         jump eddie_a_b_4
+    elif (branch == "c" and day == 2):
+        jump eddie_c_2
     
     return
 
@@ -928,3 +929,123 @@ label eddie_a_b_4:
 
         $ visit_person("eddie", "b", 0)
     return 
+
+label eddie_c_2:
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "I’ve taken one step forward but two steps back."
+    lloyd_narrating neutral "I know the identity of the man in black that I saw in my vision, Allan Docherty."
+    lloyd_narrating neutral "I know some of his history and what sort of person he is."
+    lloyd_narrating neutral "But I’ve also discovered that he’s dead.[wait_1] A dead man can’t commit murder."
+    lloyd_narrating neutral "Whoever it is that killed the man with the white streak, it can’t have been Docherty, and it can’t be him that I saw in my vision."
+    lloyd_narrating neutral "Whatever the case may be I’m going to keep moving forward and work with the information that I have."
+    lloyd_narrating neutral "I don’t know who the killer is or why I saw a dead man in my vision.[wait_1] But I do know who his next target is."
+    lloyd_narrating neutral "If I can find that person –[wait_05] the man in the loud suit –[wait_05] then I can warn him about what’s coming and save his life." 
+    lloyd_narrating neutral "The newspaper might have some information on who he is, and be able to help me if not."
+    lloyd_narrating neutral "I make my way eastwards, towards the newspaper."
+    lloyd_narrating neutral "The migraine I suffered when taxing my powers had mostly receded by morning, but as I walk through the streets I feel it building up again as a dull ache."
+    lloyd_narrating neutral "Is it simply time that’s caused it to return, like the aftershocks of an earthquake?[wait_1] The noise of the crowds around me?"
+    lloyd_narrating neutral "Or is there some unknown aspect to the power –[wait_05] a proximity to one of the people in it, or the location I saw –[wait_05] which is causing it to return?" 
+    lloyd_narrating neutral "I don’t know enough about it to say either way."
+    lloyd_narrating neutral "I walk into the newspaper’s building and ask to see Eddie once again."
+    lloyd_narrating neutral "The receptionist places a quick call and asks me to wait for a few minutes.[wait_1] By the time she’s done I’ve been granted access to the same room I was in yesterday."
+    scene office_interview_room with slow_dissolve
+    $ swap_sprites("eddie_angry", slow_dissolve)
+    $ current_thought = "eddie_thought_132"
+    show screen psychic_powers
+    lloyd_narrating neutral "I don’t have to wait long before Eddie arrives."
+    eddie "Chen."
+    lloyd neutral "Hi, Eddie."
+    $ current_thought = "eddie_thought_133"
+    eddie "I don’t care what it is that you have for me today.[wait_1] I busted my ass yesterday for you, did a tonne of research, and for what?"
+    eddie "A dead end of a story that’s going nowhere."
+    eddie "The only reason that I’m even deigning to talk to you today is that I wanted you to know that I was serious last night –[wait_05] I’m not doing you a favour.[wait_1] Do you get it?"
+    $ current_thought = "eddie_thought_134"
+    lloyd neutral "I hear you.[wait_1] But I think that you’ll change your mind when you hear what I have to say today."
+    $ current_thought = "eddie_thought_135"
+    lloyd neutral "There’s somebody that I’d like you to find for me."
+    eddie "What, again?"
+    eddie "Do you have more than a verbal description of this person?[wait_1] A photo, or anything?"
+    lloyd_thinking thinking "If only.[wait_1] That would make this much easier."
+    $ current_thought = "eddie_thought_136"
+    lloyd neutral "A description is still all that I can give you."
+    lloyd neutral "It’s important to take note of it all, though –[wait_05] I believe that the killer I spoke to you about is after this person.[wait_1] I’d like to warn him."
+    lloyd neutral "The most notable thing about this person is the suit he wears.[wait_1] It’s decorated with black and white stripes which create a fairly loud effect."
+    eddie "So if he isn’t wearing the suit, you have no idea how to find him?"
+    lloyd neutral "Not entirely.[wait_1] Beneath the suit he’s fairly bulky, and is possibly a little taller than me.[wait_1] His hair is jet black, and slicked back with some kind of product."
+    lloyd neutral "The other notable thing about his face is that he has a moustache."
+    $ current_thought = "eddie_thought_137"
+    eddie "What type of moustache are we talking about?[wait_1] Something thick like a horseshoe, or more like a toothbrush style?"
+    lloyd_thinking thinking "I have no idea what he’s talking about."
+    lloyd neutral "It’s...[wait_05]thin, and has a gap between the two halves."
+    eddie "So like, parted pencil?"
+    $ current_thought = "eddie_thought_138"
+    lloyd neutral "I suppose.[wait_1] Do you think that you could find this person?"
+    eddie "Fuck off."
+    lloyd neutral "Why not?"
+    $ current_thought = "eddie_thought_139"
+    eddie "The person you thought was the killer is dead, Chen."
+    eddie "Whatever you think this story is, it’s not gonna pan out.[wait_1] Why should I chase down info that isn’t going to come to anything?"
+    $ current_thought = "eddie_thought_140"
+    eddie "Even if it was something, I’ve got a job here, at the newspaper.[wait_1] I’ve got other obligations, and I can’t just drop everything and go running because you want me to."
+    lloyd_thinking thinking "Is Eddie right?[wait_1] If I look into the man with the loud suit, will it amount to anything?"
+    lloyd_narrating neutral "The only source of information that I have is my precognitive visions, and I already know that they’re inaccurate."
+    lloyd_narrating neutral "If they were showing me the future then I shouldn’t have seen a dead man."
+    lloyd_narrating neutral "I can speculate all that I want to about why I saw what I did, but the truth of the matter is simply that I don’t understand how my psychic abilities work."
+    lloyd_narrating neutral "Should I focus on learning more about my powers rather than trying to work them out as I go?"
+    $ current_thought = "eddie_thought_141"
+    lloyd_thinking thinking "No.[wait_1] It may be a long shot, but I don’t want to risk the man in the loud suit’s life."
+    lloyd_thinking thinking "I might have been able to save the man with the white streak if I had acted faster.[wait_1] I don’t know how much time I have, but it’s surely not infinite."
+    $ current_thought = "eddie_thought_142"
+    lloyd neutral "Would you rather risk an innocent man’s life?"
+    $ swap_sprites("eddie_unimpressed")
+    eddie "Of course not.[wait_1] But you still haven’t convinced me that this guy’s life is actually in danger, Chen."
+    eddie "If it’s really that important to you, go hire a private investigator, or tell the police.[wait_1] It’s their job to do shit like this."
+    lloyd_thinking thinking "Eddie isn’t invested in finding the man in the loud suit.[wait_1] How can I convince him that it’s worth doing regardless?"
+    menu:
+        "Your work isn't important" (locked=not check_boolean("eddie_work_unimportant"), message="You have not read the related thought"):
+            $ current_thought = "eddie_thought_143"
+            lloyd neutral "The work you’re currently doing here isn’t that important, Eddie."
+            eddie "Are you kidding, Chen?[wait_1] I’m working on some stuff for the front page at the moment."
+            eddie "My work is going to be the first thing thousands of people see when they pick up the paper tomorrow.[wait_1] But you think that isn’t important?"
+            lloyd neutral "Don’t lie to me, Eddie."
+            lloyd neutral "You’re a busybody for other people.[wait_1] Your work isn’t anything that can’t be delayed."
+            eddie "They wouldn’t have asked me to do it if they didn’t think that I was the best!"
+            eddie "And anyway, at least I actually get paid to work here.[wait_1] That’s more than I can say about you, Chen."
+            $ current_thought = "eddie_thought_144"
+            lloyd neutral "I can give you something much more important than money." 
+            lloyd neutral "A story that will get the attention of your colleagues.[wait_1] Something to show them that you can handle something big."
+            lloyd neutral "Have you considered that by digging your heels in, you’re showing them that you’re unable to?"
+            eddie "If I dig my heels in, it’s because I don’t want to do small story shit."
+            eddie "Because I know that I’m better than that, and I’m not going to let them keep me down."
+            $ current_thought = "eddie_thought_145"
+            lloyd neutral "So prove it.[wait_1] Investigate this story for me."
+            lloyd neutral "Or do you think that a murderer isn’t a compelling enough story?"
+            eddie "...Fine.[wait_1] I’ll see if I can find who this guy is."
+            eddie "Come back here later tonight and I’ll give you an update."
+            lloyd neutral "Very well.[wait_1] I’ll see you then."
+            hide eddie_unimpressed with quick_dissolve
+            hide screen psychic_powers
+            scene black_bg with slow_dissolve
+            lloyd_narrating neutral "Eddie may not be happy with me, but I have convinced him to help me."
+            lloyd_narrating neutral "I leave the building and begin thinking about where to go next."
+            $ add_boolean("eddie_investigates_sergei")
+        "He’ll die if you don’t help":
+            $ current_thought = "eddie_thought_146"
+            lloyd neutral "I understand that you’re uncertain about whether the man in the loud suit is in danger or not, Eddie."
+            lloyd neutral "But ask yourself:[wait_05] if he does die, how will you feel, knowing that you could have saved him?"
+            eddie "You think I can’t live with it?[wait_1] My job is taking photos, not saving people."
+            eddie "I’m not responsible for other peoples’ lives.[wait_1] And quite frankly, if he is getting targeted by a killer, he’s probably done something to attract their attention."
+            eddie "Does that mean he deserves death?[wait_1] Probably not, but I’m not going to make judgement calls when I don’t have the full picture."
+            eddie "That’s what working in the media is all about –[wait_05] seeing the bigger, objective picture and understanding both sides."
+            lloyd_thinking thinking "I’ve lost him."
+            $ current_thought = "eddie_thought_147"
+            lloyd neutral "If you change your mind, your assistance would be appreciated."
+            hide eddie_unimpressed with quick_dissolve
+            hide screen psychic_powers
+            scene black_bg with slow_dissolve
+            lloyd_narrating neutral "Eddie’s too stubborn and set in his ways." 
+            lloyd_narrating neutral "I leave the building and begin thinking about where to go next."
+
+    $ visit_person("eddie", "c", 0)
+
+    return
