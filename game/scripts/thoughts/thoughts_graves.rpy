@@ -305,7 +305,40 @@ label mind_read_graves:
     elif (current_thought == "graves_thought_143"):
         graves_thoughts "The sooner he leaves, the sooner I can find something with lead in it, and stick it on my head."
     
-
+    # C-2
+    elif (current_thought == "graves_thought_144"):
+        graves_thoughts "...the temperature range it was stored at was far lower than it should have been.[wait_1] So that would mean..."
+    elif (current_thought == "graves_thought_145"):
+        graves_thoughts "Did he manage to read any of that?[wait_1] I don’t think so.[wait_1] Even if he did, he shouldn’t understand it."
+    elif (current_thought == "graves_thought_146"):
+        graves_thoughts "Yeah, looks like he doesn’t understand any of it.[wait_1] We’re safe for now."
+    elif (current_thought == "graves_thought_147"):
+        graves_thoughts "Will I get more than just a vague description this time?"
+    elif (current_thought == "graves_thought_148"):
+        detective_thoughts "Should I tilt my chin up more?[wait_1] Or will that look too intimidating?"
+    elif (current_thought == "graves_thought_149"):
+        detective_thoughts "God, this voice is hell on my throat.[wait_1] I really need to find a better way to look the way the clients expect."
+    elif (current_thought == "graves_thought_150"):
+        graves_thoughts "Screw it, I’ll just act like my normal self.[wait_1] If he doesn’t want to hire us then we’ll deal with it."
+    elif (current_thought == "graves_thought_151"):
+        graves_thoughts "An eccentric pattern...[wait_05]sounds like he might be a performer, or entertainer of some kind."
+    elif (current_thought == "graves_thought_152"):
+        graves_thoughts "What’s your relation to him, Lloyd?[wait_1] Is he a relative of yours that you’re trying to connect with?[wait_1] Or do you think that he’s wronged you in some way?"
+    elif (current_thought == "graves_thought_153"):
+        graves_thoughts "Definitely not a zappa then, or an imperial.[wait_1] That makes things much easier."
+    elif (current_thought == "graves_thought_154"):
+        graves_thoughts "It’s not amazing.[wait_1] But it’s enough to work with."
+    elif (current_thought == "graves_thought_155"):
+        graves_thoughts "I hope that this will be enough...[wait_05]I have to show that we really do know what we’re doing."
+    elif (current_thought == "graves_thought_156"):
+        graves_thoughts "I can see that he’s doubting me.[wait_1] I’ll tell him the story about Carol to put his mind at ease."
+    elif (current_thought == "graves_thought_157"):
+        graves_thoughts "Is he still doubting me?[wait_1] I hope he doesn’t think that I’m making this up.[wait_1] Embellishing some details, maybe, but I’m not outright lying."
+    elif (current_thought == "graves_thought_158"):
+        graves_thoughts "Why is he trying to find this person, and why does he know so little about them?[wait_1] Was he shown a picture of them and asked to find them for somebody else?"
+    elif (current_thought == "graves_thought_159"):
+        graves_thoughts "I talked a big game there, but god...[wait_05]I hope that I can work out who this guy is."
+    
 
     $ ignore_thoughts_length()
     return
