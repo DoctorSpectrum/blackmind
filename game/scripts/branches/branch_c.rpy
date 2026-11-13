@@ -565,3 +565,18 @@ label branch_c_3_4:
             mental_jack "{size=-8}(I thought I could build up my strength more...[wait_05]but I can’t.[wait_1] It’s all over.){/size}"
             mental_jack "{size=-8}(I didn’t even get to have any fun the other night...){/size}"
     return
+
+label branch_c_4_0:
+    # Power upgrade
+    $ branch = "c"
+    $ day = 4
+    call screen chapter_breaks("FRIDAY", "The killer is targeting psychics because he wants their powers for himself.\n\nThat’s what Lloyd believes. He wouldn’t be wrong about something like that.")
+    scene apartment_day with slow_dissolve
+    lloyd_narrating neutral "I wake up the next day feeling more confident than I have since this business began."
+    lloyd_narrating neutral "I’ve discovered the killer’s motive, answered the mystery of why I got psychic powers, and will acquire further information about psychic abilities by the end of the night."
+    lloyd_narrating neutral "But there’s still more to discover."
+    lloyd_thinking thinking "Charles Eisenhardt and Morty Telemachus were the first two victims of the killer."
+    lloyd_thinking thinking "I know that he killed them because they had psychic abilities, but I still know barely anything about them."
+    lloyd_thinking thinking "I should try and find out who exactly they were."
+
+    call screen map_navigation(find_locations([]))
