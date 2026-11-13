@@ -12,6 +12,8 @@ label cat_investigation:
         jump cat_b_4
     elif (branch == "c" and day == 2):
         jump cat_c_2
+    elif (branch == "c" and day == 3):
+        jump cat_c_3
     
     return
 
@@ -874,3 +876,155 @@ label cat_c_2:
 
     $ visit_person("cat", "c", 0)
     return 
+
+label cat_c_3:
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "I was too late.[wait_1] I didn’t discover where Sergei was in time, and I couldn’t warn him about the killer."
+    lloyd_narrating neutral "I can’t fix the past, but I can learn from it."
+    lloyd_narrating neutral "If I can learn more about who Sergei was then I might be able to identify the killer’s motivation, and from that either their identity or next target."
+    if (person_visited("cat", "c", 0)):
+        lloyd_narrating neutral "Cat definitely recognised Sergei when I tried describing him yesterday.[wait_1] She must know something about him."
+        lloyd_narrating neutral "I’m going to find out what that is."
+    else:
+        lloyd_narrating neutral "The library should have records of newspapers and other local history.[wait_1] I’ll ask for assistance in searching through them to see what I can find."
+    lloyd_narrating neutral "My destination is in the south end of the city, within a large park.[wait_1] It’s a bright day today, providing excellent lighting for some photos."
+    lloyd_narrating neutral "I pause in the middle of my commute to take some quick shots."
+    # SFX camera shutter
+    lloyd_narrating neutral "When I examine the results on the camera’s screen I’m disappointed."
+    lloyd_narrating neutral "I underestimated how bright the light would look with this lens and didn’t adjust the ISO sufficiently."
+    lloyd_narrating neutral "I’m tempted to try again but decide not to."
+    lloyd_narrating neutral "If I’d been faster the previous night I could have saved Sergei.[wait_1] Time might be of the essence at the library as well."
+    scene library_day with slow_dissolve
+    lloyd_narrating neutral "I step into the library, its air-conditioning a welcome relief from the heat outside."
+    lloyd_narrating neutral "There are hardly any patrons in today, making me feel slightly uncomfortable."
+    lloyd_narrating neutral "My every step feels noisier than usual, as though I’m disturbing people simply by moving around the library.[wait_1] I know that it’s all in my head, but it still feels wrong."
+    if (person_visited("cat", "c", 0) or person_visited("cat", "a", 0)):
+        lloyd_narrating neutral "I wander around the library until I eventually find Cat."
+        $ swap_sprites("cat_neutral", slow_dissolve)
+        $ current_thought = "cat_thought_122"
+        show screen psychic_powers
+        if (person_visited("cat", "c", 0)):
+            lloyd_narrating neutral "If there was any doubt that she knew who Sergei was, it was eliminated when I encountered her outside the venue last night."
+            lloyd_narrating neutral "I’m determined to find out what she knows about him."
+        elif (person_visited("cat", "a", 0)):
+            lloyd_narrating neutral "She was hostile on Monday when I wanted to see the books about psychic research, and was present at the venue last night."
+            lloyd_narrating neutral "Her behaviour has been suspicious, and I’d like to find out whether she knows anything about Sergei."
+    else:
+        lloyd_narrating neutral "I wander around the library until I find a librarian who isn’t busy, spotting this one just as she leaves a break room."
+        $ swap_sprites("cat_neutral", slow_dissolve)
+        $ current_thought = "cat_thought_123"
+        show screen psychic_powers
+        lloyd_narrating neutral "To my surprise, it’s the woman I saw outside the venue last night –[wait_05] Cat."
+        lloyd_narrating neutral "Given where I encountered her there’s a chance that she knew Sergei."
+    lloyd neutral "Hello, Cat.[wait_1] Do you have time for a few questions?"
+    lloyd_narrating neutral "She stares at me for several seconds without speaking."
+    lloyd_narrating neutral "I’ve intentionally kept my voice low so that I won’t disturb anyone, and I wonder whether I’ve spoken the words clearly enough to be understood."
+    $ current_thought = "cat_thought_124"
+    lloyd_narrating neutral "Eventually, however, she speaks."
+    cat "I suppose."
+    lloyd neutral "You recall when we spoke outside the venue last night?[wait_1] What brought you there?"
+    lloyd_thinking thinking "Was it Sergei?[wait_1] Or another act from later in the evening?"
+    $ current_thought = "cat_thought_125"
+    cat "...It was a whim."
+    lloyd neutral "Was there a particular act that interested you?[wait_1] Or do you usually go to that venue?"
+    cat "No.[wait_1] I –[wait_05] I mean, yes, I –[wait_05] it’s a venue that I’ve been to many times."
+    $ current_thought = "cat_thought_126"
+    lloyd neutral "So you’re fairly familiar with the entertainers that perform there?"
+    cat "Not particularly.[wait_1] I’m rarely paying attention to them."
+    lloyd neutral "What’s the appeal of the venue, then?"
+    cat "I usually go with friends.[wait_1] The entertainment is more interesting to them than to me."
+    if (person_visited("cat", "c", 0) or check_boolean("cat_knows_sergei")):
+        lloyd_thinking thinking "She hasn’t admitted yet that she knows Sergei.[wait_1] She clearly wants to keep it under wraps."
+    else:
+        lloyd_thinking thinking "She was clearly on her own in the crowd last night.[wait_1] There’s something that she’s not telling me."
+    lloyd_thinking thinking "Let’s try a less subtle approach."
+    $ current_thought = "cat_thought_127"
+    lloyd neutral "You told me last night that not everybody was outside.[wait_1] You noticed the absence of the entertainer, didn’t you?"
+    lloyd neutral "That man, Sergei Maskelyne, was murdered."
+    $ current_thought = "cat_thought_128"
+    lloyd neutral "What can you tell me about him?[wait_1] It’s important that I find out as much about Sergei as possible."
+    $ current_thought = "cat_thought_129"
+    cat "I can’t tell you anything, and I’d like you to leave.[wait_1] These questions are becoming intrusive."
+    lloyd_thinking thinking "I don’t want her to make a scene, which means that I’d better wrap things up quickly."
+    lloyd_thinking thinking "Or is there something that I could say to earn her trust?"
+    menu:
+        "Claim to be a colleague of Sergei’s" (locked=not check_boolean("cat_references_community"), message="You have not read the related thought"):
+            lloyd_thinking thinking "She thought to herself that she could only trust Sergei’s allies.[wait_1] I’m going to take a risk and assume that she hasn’t met all of them, whoever they are."
+            $ current_thought = "cat_thought_130"
+            lloyd neutral "Sorry about that.[wait_1] It’s just that –[wait_05] I’m not sure whether you’ve realised who I am?"
+            cat "And who would that be?"
+            $ current_thought = "cat_thought_131"
+            lloyd neutral "I’m one of Sergei’s allies."
+            lloyd neutral "I’m –[wait_05] I was hoping that I could get some of his possessions, and that –[wait_05] well, it would be good to know a little bit more about him."
+            lloyd neutral "I never really knew him that well, is all."
+            $ current_thought = "cat_thought_132"
+            cat "Oh, you are?[wait_1] Sorry...[wait_1]I didn’t realise."
+            lloyd_narrating neutral "It feels bad to have her swallow the lie so easily."
+            lloyd_narrating neutral "I’d much rather be honest with her, and tell her why I’m really interested in Sergei."
+            lloyd_narrating neutral "I’d like to explain that I saw a vision of him being killed, and wanted to save him.[wait_1] To explain that I’m trying to save whoever the next victim of the unknown killer is."
+            lloyd_narrating neutral "But she’d never believe me."
+            lloyd neutral "I guess I did come on a bit strong."
+            cat "No, I understand."
+            cat "Sergei has –[wait_05] Sergei had told me...[wait_1]sometimes it’s hard for you to know what to respond to.[wait_1] I can understand if I was confusing you a little."
+            lloyd_thinking thinking "What is she talking about?[wait_1] I don’t think that she’s talking about people that Sergei worked with."
+            lloyd neutral "Thank you for understanding.[wait_1] Now, about that information regarding Sergei...?"
+            cat "You must want his latest research notes, yes?"
+            lloyd_thinking thinking "Research notes?[wait_1] Wasn’t Sergei a stage magician?"
+            lloyd neutral "Yes, exactly."
+            cat "I can bring them here for you tonight.[wait_1] Does that work for you?"
+            lloyd_narrating neutral "I look into Cat’s eyes and try to understand her."
+            lloyd_narrating neutral "Is it really that easy?[wait_1] Simply saying that I’m an ally of Sergei’s?"
+            lloyd_narrating neutral "Or has she seen through me?[wait_1] Is she laying a trap?"
+            lloyd_thinking thinking "Even if it is a trap, I can’t afford to be too cautious."
+            lloyd_thinking thinking "I need to find out as much as I can about Sergei, and these research notes sound like they’re important."
+            lloyd neutral "I should be able to make it."
+            lloyd_thinking thinking "One thing is clear:[wait_05] Sergei was involved with something big."
+            cat "Sorry for my resistance before."
+            cat "I –[wait_05] since he died, I...[wait_1]I’ve been a bit of an emotional wreck."
+            cat "I –[wait_05] I always thought that he and I would – "
+            lloyd_narrating neutral "Before I realise what she’s doing, Cat has reached out to hug me."
+            lloyd_narrating neutral "I reluctantly hug her back.[wait_1] Is this what one of Sergei’s allies would be doing?"
+            lloyd neutral "There there.[wait_1] He’s...[wait_05]many of us have plans that go awry."
+            lloyd_thinking thinking "All that I wanted to do was stop the killer.[wait_1] I never saw myself doing...[wait_05]whatever this is."
+            lloyd_narrating neutral "Cat hugs me silently for perhaps ten seconds before releasing me."
+            cat "Sorry, I –"
+            lloyd neutral "It’s fine.[wait_1] Look after yourself."
+            cat "Thanks, Lloyd."
+            hide cat_neutral with quick_dissolve
+            hide screen psychic_powers
+            lloyd_narrating neutral "I’ve found some information about Sergei.[wait_1] I can use it to identify the killer’s motive."
+            lloyd_narrating neutral "All that I’ve had to do is lie and be fraudulent to somebody close to him."
+            lloyd_thinking thinking "What the hell have I gotten myself into?"
+            scene black_bg with slow_dissolve
+            lloyd_narrating neutral "I’ll return to the library later tonight."
+            lloyd_narrating neutral "As I walk through the park I start thinking about my next destination."
+            $ add_boolean("cat_retrieves_notes")
+        "Claim to work for the venue":
+            lloyd_thinking thinking "If I claim to work for the venue that might earn her trust."
+            lloyd_thinking thinking "I can tell her that there’s some paperwork involving Sergei and that I need to get more information so that it can all be filled out."
+            $ current_thought = "cat_thought_133"
+            lloyd neutral "Apologies if they’re intrusive.[wait_1] You see, I work for the venue that Sergei was performing at, and as you can imagine, there’s a bit of paperwork that we have to fill out ever since last night’s...[wait_05]incident."
+            lloyd neutral "We don’t want to enter anything incorrectly, so I’m trying to find a good source to learn about him."
+            lloyd neutral "It goes without saying that putting in the wrong details will cause issues with the insurance."
+            cat "..."
+            lloyd_narrating neutral "Cat appears to think it over.[wait_1] My argument is fairly convincing."
+            $ swap_sprites("cat_cold")
+            $ current_thought = "cat_thought_134"
+            cat "Do you really think that I’ll fall for a lie like that?"
+            lloyd_thinking thinking "My argument was not convincing."
+            if (person_visited("cat", "c", 0)):
+                cat "You were asking me questions incessantly yesterday.[wait_1] I know that you’re not someone from the venue."
+            else:
+                cat "Why would somebody from the venue come to my work and ask me so many irrelevant questions?"
+            cat "Get out.[wait_1] Now."
+            lloyd_thinking thinking "I’m not going to convince her.[wait_1] I’d better go."
+            lloyd neutral "If you do want to share anything with me –"
+            cat "Just go."
+            hide cat_cold with quick_dissolve
+            hide screen psychic_powers
+            scene black_bg with slow_dissolve
+            lloyd_narrating neutral "I do as she says and leave the library."
+            lloyd_narrating neutral "Whatever Cat knew, I hope that it wasn’t anything important."
+
+    $ visit_person("cat", "c", 1)
+    return

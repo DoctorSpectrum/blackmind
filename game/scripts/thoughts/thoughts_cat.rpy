@@ -268,5 +268,37 @@ label mind_read_cat:
     elif (current_thought == "cat_thought_121"):
         cat_thoughts "Go talk to someone else...[wait_1]please..."
 
+    # C-3
+    elif (current_thought == "cat_thought_122"):
+        cat_thoughts "It’s him![wait_1] Can I get out of here before he sees me?"
+    elif (current_thought == "cat_thought_123"):
+        cat_thoughts "He was at the venue last night...[wait_1]asking me those questions.[wait_1] Could he be...?"
+    elif (current_thought == "cat_thought_124"):
+        cat_thoughts "I should talk to him now.[wait_1] He’ll get suspicious if I try to leave."
+    elif (current_thought == "cat_thought_125"):
+        cat_thoughts "I can’t let him know about Sergei and I."
+        $ add_boolean("cat_knows_sergei")
+    elif (current_thought == "cat_thought_126"):
+        cat_thoughts "What does he want?[wait_1] I didn’t see anything."
+    elif (current_thought == "cat_thought_127"):
+        cat_thoughts "No...[wait_05]he knows too much.[wait_1] How do I get him to leave?"
+    elif (current_thought == "cat_thought_128"):
+        cat_thoughts "I can’t trust him.[wait_1] I can only trust Sergei’s allies...[wait_1]the others in the community..."
+        $ add_boolean("cat_references_community")
+    elif (current_thought == "cat_thought_129"):
+        cat_thoughts "He’s not going to give up.[wait_1] I need to get him to leave."
+    elif (current_thought == "cat_thought_130"):
+        cat_thoughts "This is going to be a lie.[wait_1] I just know that it is."
+    elif (current_thought == "cat_thought_131"):
+        cat_thoughts "Either he’s telling the truth, or he’s found out about Sergei’s allies.[wait_1] Whichever it is...[wait_1]I’d better use the shielding technique."
+    elif (current_thought == "cat_thought_132"):
+        cat_thoughts "..."
+        lloyd_thinking thinking "I can’t read her thoughts...[wait_05]but I could before.[wait_1] What’s going on here?"
+    elif (current_thought == "cat_thought_133"):
+        cat_thoughts "He’s clearly lying.[wait_1] He doesn’t work for the venue."
+    elif (current_thought == "cat_thought_134"):
+        cat_thoughts "Is he going to retaliate?[wait_1] I have to intimidate him."
+    
+
     $ ignore_thoughts_length()
     return
