@@ -349,6 +349,57 @@ label mind_read_graves:
     elif (current_thought == "graves_thought_163"):
         graves_thoughts "I hope that Lloyd does manage to meet with him...[wait_05]because I’d like to pick his brain a bit and hear exactly what the meeting’s all about."
     
+    # C-3
+    elif (current_thought == "graves_thought_164"):
+        graves_thoughts "Everything’s put away safely today –[wait_05] no chance of Lloyd reading something he shouldn’t."
+    elif (current_thought == "graves_thought_165"):
+        graves_thoughts "I never found out why he wanted me to look into that guy yesterday.[wait_1] Is he going to trust me enough to tell me today?"
+    elif (current_thought == "graves_thought_166"):
+        graves_thoughts "Haven’t discovered anything new since we last chatted...[wait_05]should I tell him the truth, or downplay it?"
+    elif (current_thought == "graves_thought_167"):
+        detective_thoughts "Man of few words.[wait_1] That’s me, the man of few words." 
+        detective_thoughts "I don’t talk a lot, because I’m too...[wait_05]dangerous?[wait_1] Wait, why shouldn’t I talk a lot?"
+    elif (current_thought == "graves_thought_168"):
+        graves_thoughts "Should I have said “Because I have a grave”?[wait_1] Or will he understand what I mean?"
+    elif (current_thought == "graves_thought_169"):
+        graves_thoughts "Crap, he didn’t understand."
+    elif (current_thought == "graves_thought_170"):
+        graves_thoughts "Uh..."
+    elif (current_thought == "graves_thought_171"):
+        graves_thoughts "He’s going to think I’m an idiot, isn’t he?[wait_1] I’ve probably cost us a client."
+    elif (current_thought == "graves_thought_172"):
+        graves_thoughts "How above board is all of this?[wait_1] Does Lloyd want to find this out to help Sergei, or to help himself?"
+    elif (current_thought == "graves_thought_173"):
+        graves_thoughts "He’ll probably lie.[wait_1] But I can do a little investigating into Lloyd, too."
+    elif (current_thought == "graves_thought_174"):
+        graves_thoughts "How well did Lloyd know him?[wait_1] I know all too well the pain of losing someone."
+    elif (current_thought == "graves_thought_175"):
+        graves_thoughts "The real question is:[wait_05] what’s he going to do if he does find this killer?[wait_1] Does he have thoughts of taking justice into his own hands?"
+    elif (current_thought == "graves_thought_176"):
+        graves_thoughts "Time to test Lloyd a little..."
+    elif (current_thought == "graves_thought_177"):
+        graves_thoughts "Shit, really?[wait_1] That stings."
+    elif (current_thought == "graves_thought_178"):
+        graves_thoughts "Maybe this will make me sound more mature...[wait_05]or, shit, do I just sound smug?"
+    elif (current_thought == "graves_thought_179"):
+        graves_thoughts "Is he just saying that to be polite, stay on my good side?[wait_1] Or does he really mean it?[wait_1] It could be either."
+    elif (current_thought == "graves_thought_180"):
+        graves_thoughts "How...[wait_05]logical.[wait_1] I don’t think that I could be friends with this guy."
+    elif (current_thought == "graves_thought_181"):
+        graves_thoughts "That’s probably the smartest thing he could have said."
+    elif (current_thought == "graves_thought_182"):
+        graves_thoughts "Let’s see if he takes the bait.[wait_1] I want to know more about why he’s trying to find this killer."
+    elif (current_thought == "graves_thought_183"):
+        graves_thoughts "I’ll make him one more offer, just in case."
+    elif (current_thought == "graves_thought_184"):
+        graves_thoughts "Given how he’s been so far, this’ll probably be a bitter pill to swallow."
+    elif (current_thought == "graves_thought_185"):
+        graves_thoughts "This should give me enough time to see how virtuous Lloyd’s goals are, too."
+    elif (current_thought == "graves_thought_186"):
+        graves_thoughts "Drop this, stay on his good side..."
+    elif (current_thought == "graves_thought_187"):
+        graves_thoughts "Alright, I think that he bought it.[wait_1] This couldn’t have gone any better."
+    
 
     $ ignore_thoughts_length()
     return
