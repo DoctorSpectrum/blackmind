@@ -217,7 +217,7 @@ label mind_read_cat:
     elif (current_thought == "cat_thought_97"):
         cat_thoughts "Well, it’s not like you’d be looking for somebody unimportant..."
     elif (current_thought == "cat_thought_98"):
-        cat_thoughts "I doubt that he’s really looking for someone...[wait_1]but I’ll pretend to help him anyway…"
+        cat_thoughts "I doubt that he’s really looking for someone...[wait_1]but I’ll pretend to help him anyway..."
     elif (current_thought == "cat_thought_99"):
         cat_thoughts "Did I make a mistake...?[wait_1] Is he actually looking for someone?"
     elif (current_thought == "cat_thought_100"):
@@ -298,6 +298,21 @@ label mind_read_cat:
         cat_thoughts "He’s clearly lying.[wait_1] He doesn’t work for the venue."
     elif (current_thought == "cat_thought_134"):
         cat_thoughts "Is he going to retaliate?[wait_1] I have to intimidate him."
+
+    # C-3-4
+    elif (current_thought == "cat_thought_135"):
+        cat_thoughts "He did arrive...[wait_1]good.[wait_1] That means...[wait_1]the plan can proceed."
+    elif (current_thought == "cat_thought_136"):
+        cat_thoughts "It also has...[wait_1]a little surprise for you.[wait_1] I hope he reads it soon."
+    elif (current_thought == "cat_thought_137"):
+        cat_thoughts "I took them from his computer...[wait_1]obviously..."
+    elif (current_thought == "cat_thought_138"):
+        cat_thoughts "Does he suspect something...?[wait_1] That I want his guard lowered for tomorrow...?"
+        $ add_boolean("cat_preparing_trap")
+    elif (current_thought == "cat_thought_139"):
+        cat_thoughts "Finally...[wait_1]what’s got him so cautious...?"
+    elif (current_thought == "cat_thought_140"):
+        cat_thoughts "Now...[wait_1]to work on the next few steps..."
     
 
     $ ignore_thoughts_length()

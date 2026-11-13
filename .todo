@@ -18,6 +18,7 @@ BLACKMIND TODO
                     - Add in power upgrade screen + functionality
                     - Add in a game over/branch ending screen that gives us a hint for what to do to continue
                         - Look up the $ MainMenu lines
+                    - Updoot the pdf browsing so that we update as we scroll and automatically return once we've read everything
                 - Debugging:
                     - Add in a function that halts skipping when we have config; I can add it in on lines that need to be mind-read and speed up progress
                     - Let's add in a debug button (D or something) that displays the name of the current scene and some variables - that way I can get the others to give me variable info if they find bugs.
@@ -34,8 +35,10 @@ BLACKMIND TODO
                 - Location map
                     - I like the idea of having a bunch of descriptions, and then for each node when we can choose one of them we just update the key we're using to access that description. It...might make things easier?
                         - future_sight_info works well because we're returning an object from a function, so if we update it after loading the game it uses the new data. So a function which returns the description is prolly the way to go.
+                - Styling
+                    - Fix up the styling for mobile articles and PDF browsing
                 - Other
-                    - Newspaper and Sergei's book: I like the idea of these being actual doccos we browse; for the alpha I might just make a devnote of "I'd like these to actually be browsable; thoughts?" and see what they say
+                    - Newspaper and Sergei's notes: I like the idea of these being actual doccos we browse; for the alpha I might just make a devnote of "I'd like these to actually be browsable; thoughts?" and see what they say
                         - Updoot: prolly gonna change it to be in-universe interfaces that we go through, and then Lloyd comments once we've read them all.
                         - Also updoot: newspaper can have a thing "today's popular articles" or whatever, and those can be Kickstarter written (plus a Star-Bot reference and something talking about COEUS). Lower-tier Kickstarter stuff could
                             allow for comments on the articles.
