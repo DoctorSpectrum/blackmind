@@ -322,6 +322,36 @@ label mind_read_eddie:
     elif (current_thought == "eddie_thought_151"):
         eddie_thoughts "He probably won’t make it in time...[wait_05]suits me perfectly."
     
+    # C-3
+    elif (current_thought == "eddie_thought_152"):
+        eddie_thoughts "I’d better find out if he has anything new.[wait_1] It’s important to know how far along he is."
+    elif (current_thought == "eddie_thought_153"):
+        eddie_thoughts "No fucking shit, Chen."
+    elif (current_thought == "eddie_thought_154"):
+        eddie_thoughts "Does any of this shit fucking matter?[wait_1] Get to the point, Chen."
+    elif (current_thought == "eddie_thought_155"):
+        eddie_thoughts "How’d Chen get onto any of this?[wait_1] He’s just a photographer, same as me, right?"
+    elif (current_thought == "eddie_thought_156"):
+        eddie_thoughts "You fucked this up big time, didn’t you, Chen?[wait_1] How could you let somebody die?"
+    elif (current_thought == "eddie_thought_157"):
+        eddie_thoughts "I need to get more details about this venue.[wait_1] How much do the people there know about last night?"
+    elif (current_thought == "eddie_thought_158"):
+        eddie_thoughts "He barely knows anything.[wait_1] This guy is useless to me."
+    elif (current_thought == "eddie_thought_159"):
+        eddie_thoughts "Not like that therapist did shit for me after what happened to Dad."
+    elif (current_thought == "eddie_thought_160"):
+        eddie_thoughts "As if I don’t have enough grunt work to keep me busy here."
+    elif (current_thought == "eddie_thought_161"):
+        eddie_thoughts "If only I’d known about this venue.[wait_1] I would have gladly done my cover of Wonderwall for free."
+    elif (current_thought == "eddie_thought_162"):
+        eddie_thoughts "Does Chen know something about Sergei that he isn’t sharing with me?[wait_1] He’s really interested in finding out about him."
+    elif (current_thought == "eddie_thought_163"):
+        eddie_thoughts "Who’s Chen’s source?[wait_1] If I can find out who they are then I can contact them and cut him out of the story."
+    elif (current_thought == "eddie_thought_164"):
+        eddie_thoughts "If he won’t give me his source yet, I’ll just have to do as he says for now.[wait_1] But I’ll find it out sooner or later."
+    elif (current_thought == "eddie_thought_165"):
+        eddie_thoughts "That should buy me a bit of time.[wait_1] Better make use of it."
+    
 
     $ ignore_thoughts_length()
     return
