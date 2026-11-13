@@ -427,6 +427,9 @@ label mind_read_barbara:
     elif (current_thought == "barbara_thought_197"):
         barbara_thoughts "I think he’s leaving, thank god.[wait_1] I can get back to that paperwork."
     
+    # C-4
+    elif (current_thought == "barbara_thought_198"):
+        barbara_thoughts ""
 
     $ ignore_thoughts_length()
     return

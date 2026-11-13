@@ -14,6 +14,8 @@ label barbara_investigation:
         jump barbara_c_2
     elif (branch == "c" and day == 3):
         jump barbara_c_3
+    elif (branch == "c" and day == 4):
+        jump barbara_c_4
     
     return
 
@@ -1177,4 +1179,16 @@ label barbara_c_3:
     lloyd_narrating neutral "There’s still plenty of time until I can visit the venue."
     lloyd_narrating neutral "I make my way back to the train station and begin thinking about my next destination."
     $ visit_person("barbara", "c", 1)
+    return
+
+label barbara_c_4:
+    scene black_bg with slow_dissolve
+
+    scene bar with slow_dissolve
+    $ current_thought = "barbara_thought_198"
+    show screen psychic_powers
+
+    hide screen psychic_powers
+
+    $ visit_person("barbara", "c", 2)
     return
