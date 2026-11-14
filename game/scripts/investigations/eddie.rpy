@@ -14,6 +14,8 @@ label eddie_investigation:
         jump eddie_c_2
     elif (branch == "c" and day == 3):
         jump eddie_c_3
+    elif (branch == "c" and day == 4):
+        jump eddie_c_4
     
     return
 
@@ -1175,3 +1177,139 @@ label eddie_c_3:
 
     $ visit_person("eddie", "c", 1)
     return
+
+label eddie_c_4:
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "Things are coming to an end.[wait_1] Sergei’s notes have given me more information about how my psychic powers work than I’d ever have thought possible."
+    lloyd_narrating neutral "I’ve learned about the existence of others with extrasensory abilities and that the killer eliminated them in an attempt to gain powers for themself."
+    lloyd_narrating neutral "The only thing that I’m lacking is the remainder of Sergei’s notes, which should teach me how to control my precognitive visions and allow me to find the killer."
+    lloyd_narrating neutral "Until I can meet with Cat tonight and retrieve the rest of Sergei’s research, I’d like to investigate the killer’s previous victims."
+    lloyd_narrating neutral "Discovering who exactly they were and how the killer found them may prove to be useful.[wait_1] Knowing more about them will be important to me in the future."
+    lloyd_narrating neutral "I’m going to investigate them at the newspaper, where there may be some information about them."
+    lloyd_narrating neutral "I travel eastwards from my current location, walking along the busy streets."
+    lloyd_narrating neutral "I feel unusually impatient as I walk and have to refrain from snapping at slow pedestrians and others blocking the path."
+    lloyd_narrating neutral "I know that I’m not truly impatient because of them, however.[wait_1] It’s the thought of how long I have to wait before seeing Cat that’s affected my temper."
+    lloyd_narrating neutral "After I see her things will come to a close, but until then all that I can truly do is wait."
+    if (person_visited("eddie", "c", 1)):
+        lloyd_narrating neutral "I enter the newspaper and as I did yesterday ask to see Eddie."
+        lloyd_narrating neutral "The receptionist places a phone call, asking me to be patient while she organises it.[wait_1] Once she’s finished I’m directed through to the same room that I was in previously."
+        scene office_interview_room with slow_dissolve
+        lloyd_narrating neutral "While I’m waiting for Eddie to arrive I look through my photos from the last few days."
+        lloyd_narrating neutral "Most of them are of still imagery and architecture, unrelated to my investigation into the killer, but a few could be said to be related."
+        lloyd_thinking thinking "Which ones would I want to use...?"
+        $ swap_sprites("eddie_angry", slow_dissolve)
+        $ current_thought = "eddie_thought_166"
+        show screen psychic_powers
+        eddie "Chen.[wait_1] I told you not to come by right away."
+        eddie "I haven’t found anything on Sergei yet."
+        lloyd neutral "Hello, Eddie.[wait_1] I’m here regarding something else."
+        $ current_thought = "eddie_thought_167"
+        eddie "More grunt work?[wait_1] Lucky me."
+        lloyd_narrating neutral "Despite his words Eddie sits down in a seat.[wait_1] I notice that today he’s brought a notepad and pen with him."
+        lloyd neutral "Let me tell you what I’ve found out."
+    elif (person_visited("eddie", "c", 0)):
+        lloyd_narrating neutral "I enter the building that the newspaper’s offices are situated in."
+        lloyd_narrating neutral "The receptionist I’ve previously dealt with is engaged in a phone call, and I decide to wait for her to be free rather than risk ejection from another of the receptionists."
+        lloyd_narrating neutral "Once she’s finally free, I’m easily directed to the same room that I was previously in."
+        scene office_interview_room with slow_dissolve
+        lloyd_narrating neutral "Eddie isn’t in the room yet, which isn’t surprising."
+        lloyd_narrating neutral "I take out my camera and scroll through the gallery of the last few days’ worth of shots." 
+        lloyd_narrating neutral "Very few could be said to be related to my investigation into the killer, but there are enough present for me to work with. "
+        lloyd_thinking thinking "Which ones look the best...?"
+        $ swap_sprites("eddie_angry", slow_dissolve)
+        $ current_thought = "eddie_thought_168"
+        show screen psychic_powers
+        eddie "Chen.[wait_1] What do you need me for?"
+        eddie "If you’re still trying to find the guy with the funny moustache, you’re out of luck.[wait_1] Go somewhere else."
+        $ current_thought = "eddie_thought_169"
+        lloyd neutral "I’m not here regarding him, Eddie.[wait_1] Things have moved along quite a bit since I last saw you."
+        eddie "You mind telling me what exactly the go is?"
+        lloyd neutral "Certainly.[wait_1] Let me tell you what I’ve discovered."
+    else:
+        lloyd_narrating neutral "I haven’t been to the building that houses the newspaper’s offices since Tuesday."
+        lloyd_narrating neutral "In spite of that the receptionist I speak to recognises me, and gladly arranges for another meeting with Eddie."
+        lloyd_narrating neutral "I’m slightly surprised that he’s free once again to see me, but appreciate the good fortune regardless.[wait_1] Less explaining will be necessary."
+        scene office_interview_room with slow_dissolve
+        lloyd_narrating neutral "The room is completely empty, which suits me fine."
+        lloyd_narrating neutral "I scroll through the gallery on my camera to see what shots I have from the past few days while I have the opportunity. "
+        lloyd_narrating neutral "Only a few of them are even vaguely related to the investigation into the killer."
+        lloyd_thinking thinking "I don’t have any hard evidence...[wait_1]but they could complement something quite well..."
+        $ swap_sprites("eddie_angry", slow_dissolve)
+        $ current_thought = "eddie_thought_170"
+        show screen psychic_powers
+        eddie "So, you finally remembered me, Chen."
+        eddie "Didn’t think that I was any use to you any more, did you?[wait_1] Did you think that I was lying about Docherty being dead?"
+        $ current_thought = "eddie_thought_171"
+        lloyd neutral "It’s nothing like that, Eddie.[wait_1] I’ve had some more pressing matters to attend to."
+        eddie "Right, right.[wait_1] Mind letting me in on the big secret?"
+        lloyd neutral "Of course.[wait_1] Let me tell you what I’ve discovered."
+    $ current_thought = "eddie_thought_172"
+    lloyd neutral "As of last night I’ve found out some vital information from a source.[wait_1] I’d rather not go into what the information is or who the source is, but I believe that I’m close to stopping the killer."
+    eddie "So what do you need from me, if you’re that good?[wait_1] You just looking for someone to brag to?"
+    $ current_thought = "eddie_thought_173"
+    lloyd neutral "Not in the slightest.[wait_1] I’ve found out some information about prior victims of the killer from before I initially became aware of them."
+    lloyd neutral "I’d like to find out more about them and who exactly they were.[wait_1] It could be important."
+    lloyd_thinking thinking "It won’t be important just yet.[wait_1] But when it is..."
+    $ swap_sprites("eddie_unimpressed")
+    if (not person_visited("eddie", "c", 1)):
+        $ current_thought = "eddie_thought_174"
+    else:
+        $ current_thought = "eddie_thought_175"
+    eddie "Hmm.[wait_1] What do you know about them so far?"
+    $ current_thought = "eddie_thought_176"
+    lloyd neutral "The most relevant information is their names.[wait_1] Charles Eisenhardt and Morty Telemachus."
+    lloyd neutral "Would you be able to look into them?"
+    eddie "I can do it right now if you want.[wait_1] If their deaths were reported by us at any point we might have whatever information was released to the press by the cops."
+    lloyd neutral "Really?[wait_1] That would be helpful."
+    eddie "Yeah, give me a few."
+    hide eddie_unimpressed with quick_dissolve
+    hide screen psychic_powers
+    scene black_bg with quick_dissolve
+    lloyd_narrating neutral "I wait for Eddie for around ten minutes.[wait_1] In that time I go through the rest of my camera’s gallery, marking several shots that I’m unhappy with on a second viewing."
+    scene office_interview_room with slow_dissolve
+    $ swap_sprites("eddie_unimpressed", quick_dissolve)
+    $ current_thought = "eddie_thought_177"
+    show screen psychic_powers
+    eddie "Alright, Chen.[wait_1] I hope you’re not squeamish, because I did find out some stuff on how the two of them died."
+    eddie "Is that relevant to you?"
+    lloyd neutral "It can’t hurt to know it."
+    $ current_thought = "eddie_thought_178"
+    eddie "Right, so first victim:[wait_05] Charles Eisenhardt."
+    eddie "According to the coroner’s report, he was shot with a bullet that went straight through his spine, probably from the back."
+    eddie "If he’d survived it he probably wouldn’t have been able to walk; he’d have needed to use a wheelchair or something similar to get around."
+    eddie "Lucky for him since it did kill him, he didn’t have to deal with that nightmare."
+    lloyd_thinking thinking "Eddie considers dying to be preferable to being disabled?"
+    $ current_thought = "eddie_thought_179"
+    eddie "There’s evidence that he tried dragging himself somewhere for help, increasing the likelihood that he was immediately paralysed."
+    $ current_thought = "eddie_thought_180"
+    lloyd neutral "Was he found by anybody before he died?"
+    eddie "No, but somebody did find him shortly afterwards."
+    eddie "The weird thing is that she said that she heard him calling for help –[wait_05] but his body was easily several blocks away from where was.[wait_1] She couldn’t have heard him over that distance, not with all the ambient noise."
+    lloyd_thinking thinking "Was Eisenhardt able to reach out with his mind to contact this person?[wait_1] And if so, could that have meant that she inherited his powers?"
+    $ current_thought = "eddie_thought_181"
+    eddie "Next victim:[wait_05] Mortimer Telemachus.[wait_1] Or Morty, if you prefer."
+    eddie "Police reported that he was shot in the lung, from the front."
+    eddie "The injury caused intense internal bleeding which filled up said lung; while he wasn’t going to survive the blood loss, he effectively drowned in his own blood before that did him in."
+    lloyd_thinking thinking "The man with the white streak was shot from the front as well."
+    lloyd_thinking thinking "Did the killer change his tactic depending upon the target’s abilities?[wait_1] Or were they simply being opportunistic?"
+    lloyd neutral "Interesting that this time the bullet came from the front."
+    $ current_thought = "eddie_thought_182"
+    eddie "That’s not even the most interesting part.[wait_1] Apparently it was a magic bullet that killed him."
+    lloyd neutral "What do you mean?"
+    eddie "The bullet exited his body, but the angle it came out at doesn’t match the angle it entered."
+    $ current_thought = "eddie_thought_183"
+    lloyd neutral "Could it have ricocheted off some bone?"
+    eddie "You think the doc didn’t fucking consider that?[wait_1] Even factoring that in, the angle’s impossible."
+    lloyd_thinking thinking "Could Morty have had telekinetic powers?[wait_1] Perhaps he tried to make the bullet veer away and miss him, but it was travelling too fast for him to do anything beyond adjusting its trajectory."
+    $ current_thought = "eddie_thought_184"
+    eddie "Anyway, that’s everything I got from the initial police report.[wait_1] Good enough for you, Chen?"
+    lloyd neutral "That’s plenty, Eddie.[wait_1] Thank you."
+    eddie "Yeah, yeah.[wait_1] Don’t come back in a hurry, Chen –[wait_05] this place is a lot nicer without you in it."
+    hide eddie_unimpressed with quick_dissolve
+    hide screen psychic_powers
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "With no more information to be gained from Eddie I leave the building."
+    lloyd_narrating neutral "It’s time to think about where I want to go next."
+
+    $ visit_person("eddie", "c", 2)
+    return 

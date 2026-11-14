@@ -352,6 +352,46 @@ label mind_read_eddie:
     elif (current_thought == "eddie_thought_165"):
         eddie_thoughts "That should buy me a bit of time.[wait_1] Better make use of it."
     
+    # C-4
+    elif (current_thought == "eddie_thought_166"):
+        eddie_thoughts "Does he suspect something?[wait_1] Is he trying to catch me by surprise?"
+    elif (current_thought == "eddie_thought_167"):
+        eddie_thoughts "Okay, I think that I’m safe.[wait_1] He doesn’t know anything."
+    elif (current_thought == "eddie_thought_168"):
+        eddie_thoughts "What does he want from me?[wait_1] Does he suspect anything?"
+    elif (current_thought == "eddie_thought_169"):
+        eddie_thoughts "Things have moved along and he didn’t tell me?[wait_1] Chen must be trying to cut me out of the story."
+    elif (current_thought == "eddie_thought_170"):
+        eddie_thoughts "He must be jealous of me.[wait_1] He didn’t want to come back and feel insignificant compared to me, but he’s had to."
+    elif (current_thought == "eddie_thought_171"):
+        eddie_thoughts "He’s clearly lying.[wait_1] I know Chen better than he knows himself."
+    elif (current_thought == "eddie_thought_172"):
+        eddie_thoughts "This all sounds pretty suspicious.[wait_1] If the information is legit he needs to share his source with me."
+    elif (current_thought == "eddie_thought_173"):
+        eddie_thoughts "He didn’t look into this shit when he first heard about this killer?[wait_1] God he’s unprofessional."
+    elif (current_thought == "eddie_thought_174"):
+        eddie_thoughts "Probably just another damn verbal description..."
+    elif (current_thought == "eddie_thought_175"):
+        eddie_thoughts "Probably some utterly useless shit, with me being the one that has to do all of the legwork, as per usual."
+    elif (current_thought == "eddie_thought_176"):
+        eddie_thoughts "I’ll give him some quick info to get him out of here.[wait_1] The less he’s around here the more comfortable I’ll feel."
+    elif (current_thought == "eddie_thought_177"):
+        eddie_thoughts "I hope he is squeamish.[wait_1] Unless...[wait_05]if he vomited, would I have to clean it up?"
+    elif (current_thought == "eddie_thought_178"):
+        eddie_thoughts "Fucking cowardly to kill someone from behind.[wait_1] Why wouldn’t you do it from the front, anyway?[wait_1] It’s not like anyone can stop a bullet."
+    elif (current_thought == "eddie_thought_179"):
+        eddie_thoughts "Did he seriously think that he was going to drag himself all the way to a hospital?[wait_1] Idiot."
+    elif (current_thought == "eddie_thought_180"):
+        eddie_thoughts "Why would you go help someone calling out like that?[wait_1] You’re just as likely to get killed yourself.[wait_1] Better to just keep your head down and mind your own business."
+    elif (current_thought == "eddie_thought_181"):
+        eddie_thoughts "Nasty death...[wait_05]but still not as nasty as Dad’s."
+    elif (current_thought == "eddie_thought_182"):
+        eddie_thoughts "Magic bullet would be a good name for a band..."
+    elif (current_thought == "eddie_thought_183"):
+        eddie_thoughts "Lungs don’t contain bone, Chen.[wait_1] How stupid can you be?"
+    elif (current_thought == "eddie_thought_184"):
+        eddie_thoughts "He’d better leave now.[wait_1] Otherwise..."
+    
 
     $ ignore_thoughts_length()
     return
