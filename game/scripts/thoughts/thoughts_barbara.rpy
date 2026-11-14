@@ -429,7 +429,67 @@ label mind_read_barbara:
     
     # C-4
     elif (current_thought == "barbara_thought_198"):
-        barbara_thoughts ""
+        barbara_thoughts "Will he take the hint and actually order something today?"
+    elif (current_thought == "barbara_thought_199"):
+        barbara_thoughts "Dammit, I’ll never get rid of that pilsner!"
+    elif (current_thought == "barbara_thought_200"):
+        barbara_thoughts "I still don’t know why he wants that Sergei guy.[wait_1] What’s he up to?"
+    elif (current_thought == "barbara_thought_201"):
+        barbara_thoughts "Why does he carry that with him all the time, anyway?[wait_1] Does he just take random photos while walking from place to place?"
+    elif (current_thought == "barbara_thought_202"):
+        barbara_thoughts "I never found out why exactly he was interested in him...[wait_05]is everything on the up-and-up with Lloyd?"
+    elif (current_thought == "barbara_thought_203"):
+        barbara_thoughts "Please, please, be something I can just answer here and now.[wait_1] I don’t want to be doing Lloyd’s busywork for him."
+    elif (current_thought == "barbara_thought_204"):
+        barbara_thoughts "If he doesn’t like it, then the wedding’s off."
+    elif (current_thought == "barbara_thought_205"):
+        barbara_thoughts "Okay, phew.[wait_1] The wedding’s still on!"
+    elif (current_thought == "barbara_thought_206"):
+        barbara_thoughts "If it was so important, then why didn’t he chase me up about it earlier in the week?"
+    elif (current_thought == "barbara_thought_207"):
+        barbara_thoughts "So it wasn’t important in the end anyway?[wait_1] That explains why he didn’t come back sooner –[wait_05] but why did he ask me in the first place, then?"
+    elif (current_thought == "barbara_thought_208"):
+        bartender_thoughts "Damn, this guy’s hot![wait_1] No ring on his finger, but that doesn’t necessarily mean that he’s single."
+    elif (current_thought == "barbara_thought_209"):
+        barbara_thoughts "He has that camera with him –[wait_05] I guess he’s a reporter of some kind?[wait_1] What if he wants to do a review of the place?!" 
+        barbara_thoughts "...Wow, I have really been thinking about that a lot since that con artist showed up."
+    elif (current_thought == "barbara_thought_210"):
+        barbara_thoughts "Eisenhardt...[wait_1]is that German? Is he asking me because of my surname?"
+    elif (current_thought == "barbara_thought_211"):
+        barbara_thoughts "Who is this person, and what have they done with Lloyd?"
+    elif (current_thought == "barbara_thought_212"):
+        barbara_thoughts "Lloyd does want to know about this guy for good reasons...[wait_05]right?"
+    elif (current_thought == "barbara_thought_213"):
+        barbara_thoughts "Come to think of it, I don’t know what he does for a living."
+    elif (current_thought == "barbara_thought_214"):
+        barbara_thoughts "Wow.[wait_1] He has been reading way too many hard-boiled detective novels if he thinks you can just walk into a bar and find out the information you want that way."
+    elif (current_thought == "barbara_thought_215"):
+        barbara_thoughts "He realises that I’m not some shady information broker, right?[wait_1] I’m just trying to run a bar!"
+    elif (current_thought == "barbara_thought_216"):
+        barbara_thoughts "Wait, did he just mention Morty?[wait_1] I did hear that right, didn’t I?"
+    elif (current_thought == "barbara_thought_217"):
+        barbara_thoughts "Thank god that’s not my job.[wait_1] I can’t imagine how boring that must get."
+    elif (current_thought == "barbara_thought_218"):
+        barbara_thoughts "Another person who doesn’t look at the whole menu![wait_1] Why?!"
+    elif (current_thought == "barbara_thought_219"):
+        barbara_thoughts "Everybody always bloody wants me to expand the range.[wait_1] Like I can afford a trained chef."
+    elif (current_thought == "barbara_thought_220"):
+        barbara_thoughts "Granted, Mum bought them for me when she handed the bar over to me, but still –[wait_05] it was a good purchase!"
+    elif (current_thought == "barbara_thought_221"):
+        barbara_thoughts "Come to think of it, it’s been a little while since I heard from him.[wait_1] I wonder why?"
+    elif (current_thought == "barbara_thought_222"):
+        barbara_thoughts "...Oh god.[wait_1] Is Lloyd –[wait_05] is he thinking...?"
+    elif (current_thought == "barbara_thought_223"):
+        barbara_thoughts "How can Lloyd say that so casually?![wait_1] What the hell is wrong with him?"
+    elif (current_thought == "barbara_thought_224"):
+        barbara_thoughts "He says that he’s sorry, but I doubt that he is.[wait_1] It’s just an automatic response; something that he’s saying because he knows that I expect it."
+    elif (current_thought == "barbara_thought_225"):
+        barbara_thoughts "Yeah, he’s definitely not sorry.[wait_1] What’s wrong with this guy?"
+    elif (current_thought == "barbara_thought_226"):
+        barbara_thoughts "Poor Morty...[wait_05]I wonder how long ago it was."
+    elif (current_thought == "barbara_thought_227"):
+        barbara_thoughts "As if you mean that."
+    
 
     $ ignore_thoughts_length()
     return
