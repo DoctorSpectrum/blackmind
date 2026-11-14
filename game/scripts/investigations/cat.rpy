@@ -14,6 +14,8 @@ label cat_investigation:
         jump cat_c_2
     elif (branch == "c" and day == 3):
         jump cat_c_3
+    elif (branch == "c" and day == 4):
+        jump cat_c_4
     
     return
 
@@ -1028,3 +1030,133 @@ label cat_c_3:
 
     $ visit_person("cat", "c", 1)
     return
+
+label cat_c_4:
+    scene restaurant_night with slow_dissolve
+    lloyd_narrating neutral "It’s the end of the day."
+    lloyd_narrating neutral "I haven’t managed to discover anything new or make any progress in stopping the killer."
+    lloyd_narrating neutral "The research I conducted into Eisenhardt and Telemachus should be useful in the future, but I haven’t learned anything immediately relevant."
+    lloyd_narrating neutral "All that I can do is hope that the rest of the files Cat provides unlock further insight into my powers, and that I can control my visions of the future more precisely."
+    lloyd_thinking thinking "But first, I need to have some dinner."
+    lloyd_narrating neutral "I return to my favourite restaurant and order a hearty meal."
+    lloyd_narrating neutral "Eating at a restaurant this many days in a row probably isn’t very good for my body.[wait_1] It definitely isn’t good for my wallet."
+    lloyd_narrating neutral "But the food is so delicious, and the ease of ordering it so simple, that it’s easy to justify."
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "After I’ve finished my meal I make my way back to the library."
+    lloyd_narrating neutral "The park is freezing at night, and it’s difficult to see anything.[wait_1] Although there are several lamps along the main path they barely illuminate anything, especially in comparison to the moonlight."
+    lloyd_narrating neutral "I wouldn’t want to be here at night during a new moon."
+    scene library_night with slow_dissolve
+    lloyd_narrating neutral "The library’s doors open for me, despite it being far past opening hours.[wait_1] I assume that Cat has set this up for me."
+    lloyd_thinking thinking "Why wouldn’t she simply meet me outside the library?[wait_1] It shouldn’t take that long to give me the rest of the file."
+    lloyd_narrating neutral "I feel uneasy.[wait_1] Cat’s been acting strange since yesterday."
+    lloyd_narrating neutral "But I can’t afford to miss the opportunity to discover more.[wait_1] Sergei’s existing notes have already been the most important information that I’ve found so far."
+    lloyd_narrating neutral "I look around to see whether Cat is in the same place that she was yesterday.[wait_1] She isn’t."
+    lloyd neutral "Hello?[wait_1] Cat?"
+    lloyd_narrating neutral "There’s no reply.[wait_1] I step forward further into the library and –"
+    # SFX - Thud
+    # Screen shake effect
+    scene black_bg with slow_dissolve
+    scene library_night with slow_dissolve
+    $ swap_sprites("cat_cold", slow_dissolve)
+    $ current_thought = "cat_thought_141"
+    show screen psychic_powers
+    cat "Hello, Lloyd."
+    scene cg7_0 with slow_dissolve
+    lloyd_narrating neutral "I don’t know how long I’ve been knocked out for.[wait_1] I try to move but the ropes are too tight."
+    lloyd_narrating neutral "All that I can do for now is talk."
+    scene library_night with slow_dissolve
+    $ swap_sprites("cat_cold", slow_dissolve)
+    lloyd neutral "What’s going on, Cat?"
+    cat "You failed the test, Lloyd."
+    lloyd neutral "What test?"
+    cat "The notes that I gave you...[wait_05]they were old.[wait_1] They were out of date."
+    cat "If you were really one of Sergei’s allies, you should already have them.[wait_1] You wouldn’t need the other half."
+    lloyd_thinking thinking "Does that mean that the information I read in the file was incorrect?[wait_1] Or is it simply incomplete?"
+    lloyd neutral "You’re –[wait_05] you’re mistaken, Cat.[wait_1] I realised that, and so I came here to ask you why you’d given me information that was out of date."
+    lloyd neutral "Obviously I wanted the updated notes."
+    lloyd_narrating neutral "She thinks about it for several seconds." 
+    lloyd_narrating neutral "Then she shrugs, possibly the strongest display of emotion that I’ve seen from her yet."
+    cat "You’re still untrustworthy."
+    lloyd neutral "What makes you say that?"
+    cat "You’re working with Sergei’s killer.[wait_1] You led them to him."
+    lloyd_narrating neutral "Cat reaches into a bag." 
+    lloyd_narrating neutral "I don’t know what I’m expecting to see, but it isn’t what she pulls out next."
+    scene cg7_1 with slow_dissolve
+    cat "I can’t undo what you did to him.[wait_1] But I can avenge him."
+    lloyd scared "W-wait, Cat![wait_1] I’m –[wait_05] I’m not working with Sergei’s killer!"
+    cat "You were asking all sorts of questions about Sergei...[wait_1]trying to find out about him."
+    cat "You were at the venue...[wait_1]having helped the killer get in."
+    cat "You came here tonight...[wait_1]you can’t fool me, Lloyd."
+    lloyd scared "I can explain all of that![wait_1] I was trying to save Sergei!"
+    lloyd scared "I was asking questions because I was trying to find out where he was so that I could warn him![wait_1] I –[wait_05] the reason that I was at the venue is that I was too late."
+    lloyd scared "And then afterwards, I –[wait_05] I wanted to identify what it was about him that had drawn the killer’s attention.[wait_1] I wanted to find the next target and –[wait_05] I wanted to warn them, since I couldn’t for Sergei."
+    scene library_night with slow_dissolve
+    $ swap_sprites("cat_cold", slow_dissolve)
+    cat "Why would you do all of that?"
+    lloyd scared "Because I –[wait_05] I want to help people.[wait_1] Obviously."
+    lloyd_narrating neutral "Cat starts to lower the knife.[wait_1] She realises that she’s misinterpreted my actions and has made a mistake."
+    lloyd_narrating neutral "That’s what I wish I could say." 
+    lloyd_narrating neutral "But her hands are just as steady as ever."
+    cat "I don’t believe you...[wait_1]you’re not that altruistic."
+    cat "Going after a killer...[wait_1]putting so much effort in...[wait_1]why wouldn’t you leave it to the authorities?"
+    cat "Why would you invest in it so much?"
+    lloyd_narrating neutral "I could tell her about my precognitive visions, and that I felt responsible for stopping the killer as I’d seen what would happen."
+    lloyd_narrating neutral "I could tell her about how I found the man with the white streak bleeding to death, and that I felt guilty for not having saved him."
+    lloyd_narrating neutral "All of this is true.[wait_1] But it’s not the whole truth."
+    lloyd scared "I...[wait_1]I had a precognitive vision."
+    lloyd scared "If you’ve worked with Sergei –[wait_05] if you’ve read his notes –[wait_05] then you must know that psychic powers exist."
+    lloyd scared "I saw the killer about to murder somebody.[wait_1] And I realised that...[wait_05]it was an opportunity for me."
+    lloyd scared "If I could stop the killer and discover their goals, then I could sell this as a story."
+    cat "What do you mean?"
+    lloyd scared "I used to be a photographer for a newspaper.[wait_1] It wasn’t my dream job, but it paid well and was enjoyable enough."
+    lloyd scared "Due to...[wait_05]certain circumstances, I was fired, and I’ve been looking for more work since."
+    cat "You thought that if you stopped the killer you could sell it to a newspaper."
+    lloyd scared "I didn’t even need to stop the killer myself.[wait_1] Just to gather up enough evidence for somebody else to believe me."
+    lloyd scared "I’ve been carrying my camera everywhere I go ever since I had the vision, in case I needed to record something on a moment’s notice."
+    lloyd scared "I even spent the day looking into the killer’s previous victims so that they could be included in the story."
+    $ current_thought = "cat_thought_142"
+    lloyd_narrating neutral "Cat sighs deeply.[wait_1] The hand holding the knife drops."
+    cat "This story...[wait_1]I believe.[wait_1] You’re quite selfish, Lloyd."
+    lloyd neutral "I am.[wait_1] But I did want to save Sergei, Cat.[wait_1] I do want to stop the killer."
+    cat "I believe you."
+    $ current_thought = "cat_thought_143"
+    lloyd_narrating neutral "Cat places the knife on the ground and moves behind me.[wait_1] I feel tension in the ropes and realise that she’s undoing my bonds."
+    lloyd neutral "You’re letting me go, then?"
+    cat "For one thing...[wait_1]I’m not going to get revenge on somebody so...[wait_1]uninvolved with Sergei’s death."
+    cat "For another...[wait_1]I suppose I’ve been pretty selfish too."
+    cat "I’ve told myself that I was executing justice...[wait_1]but it was really just an excuse to do what I wanted."
+    $ current_thought = "cat_thought_144"
+    lloyd_narrating neutral "The ropes drop to the ground.[wait_1] I stand up and stretch."
+    lloyd_narrating neutral "I can’t have been bound for more than ten minutes at most but it feels like I’ve been there for hours."
+    cat "I’ve also been fairly shaken since Sergei’s death...[wait_1]I thought that you were responsible and I regretted not doing something outside the venue."
+    cat "I should have recognised that you weren’t guilty...[wait_1]but I’ve never been good at relating to other people...[wait_1]or empathising."
+    cat "It’s cost me a lot of friends...[wait_1]and a lot of opportunities."
+    lloyd_narrating neutral "I nod."
+    $ current_thought = "cat_thought_145"
+    lloyd neutral "Sometimes I find it hard to see people as more than tools...[wait_1]opportunities to be coerced into assisting me."
+    lloyd neutral "I realise it’s callous, but I’ve been distant from people for most of my life."
+    cat "How so?"
+    lloyd neutral "You can probably guess that English wasn’t my first language growing up.[wait_1] I found it hard to communicate with others my age, and so I kept to myself."
+    lloyd neutral "That was how I first got into photography –[wait_1] I found a hobby which didn’t require other people, but which let me...[wait_05]admire them from afar." 
+    lloyd neutral "Through it, I could communicate to people without words."
+    $ current_thought = "cat_thought_146"
+    cat "It’s easier that way sometimes, isn’t it?[wait_1] To keep people at a distance...[wait_1]Sergei was the only exception for me."
+    lloyd neutral "What are you going to do now, then?"
+    cat "I’m not entirely sure...[wait_1]but I will do this."
+    $ current_thought = "cat_thought_147"
+    lloyd_narrating neutral "Cat reaches into her bag and passes me a USB."
+    cat "Just in case...[wait_1]I brought the rest of Sergei’s notes.[wait_1] You can have them now."
+    $ current_thought = "cat_thought_148"
+    lloyd neutral "Thank you, Cat.[wait_1] I hope that over time you feel better."
+    lloyd neutral "If you do want to talk about things, I’ll be willing to listen."
+    cat "Is this you being selfish again?[wait_1] Offering to help in case you need something in future?"
+    $ current_thought = "cat_thought_149"
+    lloyd neutral "No.[wait_1] I just want to know that you’re doing alright."
+    $ swap_sprites("cat_smiling")
+    cat "Thank you, Lloyd."
+    hide cat_smiling with quick_dissolve
+    hide screen psychic_powers
+    scene black_bg with slow_dissolve
+
+    $ visit_person("cat", "c", 2)
+    return 

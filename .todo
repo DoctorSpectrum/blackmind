@@ -19,6 +19,9 @@ BLACKMIND TODO
                     - Add in a game over/branch ending screen that gives us a hint for what to do to continue
                         - Look up the $ MainMenu lines
                     - Updoot the pdf browsing so that we update as we scroll and automatically return once we've read everything
+                    - ngl I wouldn't say no to moving the prologue thoughts to Barbara and Docherty's files as is necessary; I feel they've been broken up fairly well
+                    - The main reason to use a single label for thoughts with a massive if/else statement is so that we can call the ignore_thoughts_length() function at the bottom. If I don't use the convo length
+                        then it prolly makes more sense to make each thought its own label - while checking the if/else statement is prolly relatively negligible, it does feel a bit clunky
                 - Debugging:
                     - Add in a function that halts skipping when we have config; I can add it in on lines that need to be mind-read and speed up progress
                     - Let's add in a debug button (D or something) that displays the name of the current scene and some variables - that way I can get the others to give me variable info if they find bugs.

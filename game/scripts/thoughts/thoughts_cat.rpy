@@ -314,6 +314,27 @@ label mind_read_cat:
     elif (current_thought == "cat_thought_140"):
         cat_thoughts "Now...[wait_1]to work on the next few steps..."
     
+    # C-4
+    elif (current_thought == "cat_thought_141"):
+        cat_thoughts "..."
+        lloyd_thinking thinking "I can’t read her thoughts.[wait_1] She’s blocking me somehow."
+    elif (current_thought == "cat_thought_142"):
+        cat_thoughts "I think that he’s being honest...[wait_1]what have I been chasing after all this time?"
+    elif (current_thought == "cat_thought_143"):
+        cat_thoughts "I might be wrong...[wait_1]but if I am, at least I’ll be with Sergei."
+    elif (current_thought == "cat_thought_144"):
+        cat_thoughts "Why am I so...[wait_1]broken?[wait_1] Why aren’t I like other people?"
+    elif (current_thought == "cat_thought_145"):
+        cat_thoughts "He thinks that he’s like me...[wait_1]but he’s not."
+    elif (current_thought == "cat_thought_146"):
+        cat_thoughts "I don’t think he’s that bad a person...[wait_1]I think I should make up for my mistake..."
+    elif (current_thought == "cat_thought_147"):
+        cat_thoughts "I suppose he can have this."
+    elif (current_thought == "cat_thought_148"):
+        cat_thoughts "What’s he hoping to get out of this?"
+    elif (current_thought == "cat_thought_149"):
+        cat_thoughts "I hope he finds what he’s looking for.[wait_1] He deserves it."
+    
 
     $ ignore_thoughts_length()
     return
