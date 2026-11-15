@@ -9,6 +9,7 @@ label variables:
     define lloyd = Character("Lloyd", what_color="#000", image="lloyd")
     define man_in_black = Character(kind=docherty, name="Man in Black")
     define narrator = Character(None, what_color="#000")
+    define sergei = Character("Sergei", what_color="#000")
 
     define character_thoughts = Character(who_color="#F2EE29", what_color="#F2EE29", namebox_style="namebox_inverted", window_style="window_inverted", what_prefix="(", what_suffix=")")
     define barbara_thoughts = Character(kind=character_thoughts, name="Barbara")
@@ -17,7 +18,7 @@ label variables:
     define cat_thoughts = Character(kind=character_thoughts, name="Cat")
     define detective = Character(kind=graves, name="Detective")
     define detective_thoughts = Character(kind=character_thoughts, name="Detective")
-    define docherty_thoughts = Character(kind=character_thoughts, name="???")
+    define docherty_thoughts = Character(kind=character_thoughts, name="Docherty")
     define dying_jack = Character(kind=jack, name="Dying Man", image=None, what_size=20)
     define eddie_thoughts = Character(kind=character_thoughts, name="Eddie")
     define employee = Character(kind=eddie, name="Employee")
@@ -30,6 +31,7 @@ label variables:
     define man_in_black_thoughts = Character(kind=character_thoughts, name="Man in Black")
     define mental_jack = Character(kind=jack, name="???", image=None)
     define phone = Character("Phone", what_color="#000")
+    define sergei_thoughts = Character(kind=character_thoughts, name="Sergei")
     define unknown = Character("???", what_color="#000")
     define unknown_thoughts = Character(kind=character_thoughts, name="???")
 
@@ -402,7 +404,7 @@ label variables:
     image docherty_neutral = ConditionSwitch(
         "rewound_mind == True",
         "docherty_neutral_greyscale",
-        "_last_say_who in ['docherty', 'docherty_thoughts'] or not renpy.get_screen('say')",
+        "_last_say_who in ['docherty', 'docherty_thoughts', 'man_in_black_thoughts'] or not renpy.get_screen('say')",
         "images/sprites/docherty_neutral.png",
         "not _last_say_who == 'docherty'",
         "docherty_neutral_tint"
@@ -487,6 +489,24 @@ label variables:
         "images/sprites/graves_thinking.png", 
         "not _last_say_who == 'graves'", 
         "graves_thinking_tint"
+    )
+
+    image sergei_welcoming = ConditionSwitch(
+        "rewound_mind == True",
+        "sergei_welcoming_greyscale",
+        "_last_say_who in ['sergei', 'sergei_thoughts'] or not renpy.get_screen('say')", 
+        "images/sprites/sergei_welcoming.png", 
+        "not _last_say_who == 'sergei'", 
+        "sergei_welcoming_tint"
+    )
+
+    image sergei_winking = ConditionSwitch(
+        "rewound_mind == True",
+        "sergei_winking_greyscale",
+        "_last_say_who in ['sergei', 'sergei_thoughts'] or not renpy.get_screen('say')", 
+        "images/sprites/sergei_winking.png", 
+        "not _last_say_who == 'sergei'", 
+        "sergei_winking_tint"
     )
 
     image barbara_angry_tint:
@@ -631,6 +651,22 @@ label variables:
 
     image graves_thinking_greyscale:
         "images/sprites/graves_thinking.png"
+        greyscale_cycle
+
+    image sergei_welcoming_tint:
+        "images/sprites/sergei_welcoming.png"
+        dark_tint
+    
+    image sergei_welcoming_greyscale:
+        "images/sprites/sergei_welcoming.png"
+        greyscale_cycle
+
+    image sergei_winking_tint:
+        "images/sprites/sergei_winking.png"
+        dark_tint
+    
+    image sergei_winking_greyscale:
+        "images/sprites/sergei_winking.png"
         greyscale_cycle
 
     image side jack angry:

@@ -228,7 +228,7 @@ label mind_read_prologue:
         $ barbara_partial("angry_02")
         bartender_thoughts "I have no idea what he’s talking about and I don’t care.[wait_1] I’m over this shit."
     elif (current_thought == "docherty_thought_pr_1"):
-        docherty_thoughts "(...)"
+        man_in_black_thoughts "(...)"
         $ jack_partial("confused_02")
         jack worried "(No...[wait_05]my powers still aren’t working...[wait_05]I can’t read this guy’s mind!)"
     else:
@@ -240,7 +240,7 @@ label mind_read_prologue:
 
 label prologue_docherty_wipe:
     $ progress_convo = False
-    docherty_thoughts "(...)"
+    man_in_black_thoughts "(...)"
     $ jack_partial("confused_01")
     jack worried "(He...[wait_05]I don't think that did anything to him?)"
     $ ignore_thoughts_length()

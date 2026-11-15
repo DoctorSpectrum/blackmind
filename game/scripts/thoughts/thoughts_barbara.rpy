@@ -490,6 +490,32 @@ label mind_read_barbara:
     elif (current_thought == "barbara_thought_227"):
         barbara_thoughts "As if you mean that."
     
+    # D-2-4
+    elif (current_thought == "barbara_thought_228"):
+        barbara_thoughts "Well, this night just got interesting![wait_1] I hope I can get him to stick around for a bit..."
+    elif (current_thought == "barbara_thought_229"):
+        barbara_thoughts "The fruits of my –[wait_05] what?!"
+    elif (current_thought == "barbara_thought_230"):
+        barbara_thoughts "Oh, right![wait_1] I could pretend that I’m waiting on someone to call me, and keep him here for a bit."
+    elif (current_thought == "barbara_thought_231"):
+        barbara_thoughts "No, I can’t do that.[wait_1] Finding this guy seems really important to him."
+    elif (current_thought == "barbara_thought_232"):
+        barbara_thoughts "If not, then he might want to stay here longer...?"
+    elif (current_thought == "barbara_thought_233"):
+        barbara_thoughts "Well, that’s my good deed for the day.[wait_1] I hope he appreciates it, though..."
+    elif (current_thought == "barbara_thought_234"):
+        barbara_thoughts "I don’t normally like this sort of thing; shoving advertisements in peoples’ faces is pretty obnoxious.[wait_1] I’d rather Icarus attract patrons by word of mouth and organic searching.[wait_1] But maybe I do need to be more pushy?"
+    elif (current_thought == "barbara_thought_235"):
+        barbara_thoughts "I’m glad to have helped him out, but I hope he repays the favour."
+    elif (current_thought == "barbara_thought_236"):
+        barbara_thoughts "Good opportunity to sell the pilsner...[wait_05]get rid of it before it goes on discount..."
+    elif (current_thought == "barbara_thought_237"):
+        barbara_thoughts "Of course he does...[wait_05]and he’ll probably buy a drink there.[wait_1] Don’t let your disappointment show on your face, Barbara...[wait_05]be professional about this."
+    elif (current_thought == "barbara_thought_238"):
+        barbara_thoughts "Now that I’ve mentioned it, he’ll come by, right?[wait_1] We’ve got a bit of a rapport...[wait_05]I think."
+    elif (current_thought == "barbara_thought_239"):
+        barbara_thoughts "“I can’t make any promises.”[wait_1] Of course.[wait_1] Everybody’s happy to ask for my help, but never wants to help me."
+    
 
     $ ignore_thoughts_length()
     return
