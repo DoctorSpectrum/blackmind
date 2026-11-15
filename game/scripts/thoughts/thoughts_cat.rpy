@@ -335,6 +335,52 @@ label mind_read_cat:
     elif (current_thought == "cat_thought_149"):
         cat_thoughts "I hope he finds what he’s looking for.[wait_1] He deserves it."
     
+    # D-3
+    elif (current_thought == "cat_thought_150"):
+        if (check_boolean("cat_name_discovered")):
+            cat_thoughts "It’s him...[wait_1]My wait is over."
+        else:
+            librarian_thoughts "It’s him...[wait_1]My wait is over."
+    elif (current_thought == "cat_thought_151"):
+        cat_thoughts "Where do I begin...?[wait_1] Do I tell him about Sergei...?"
+    elif (current_thought == "cat_thought_152"):
+        cat_thoughts "I’ll set the scene first...[wait_1]then I’ll explain about Sergei..."
+    elif (current_thought == "cat_thought_153"):
+        cat_thoughts "How could I have done any different...?"
+    elif (current_thought == "cat_thought_154"):
+        cat_thoughts "It was so positive to see someone volunteering...[wait_1]to see some fresh blood..."
+    elif (current_thought == "cat_thought_155"):
+        cat_thoughts "If only I had known what would happen...[wait_1]if only I could have seen it coming..."
+    elif (current_thought == "cat_thought_156"):
+        cat_thoughts "You tried...[wait_1]but you didn’t do enough..."
+    elif (current_thought == "cat_thought_157"):
+        cat_thoughts "There are some coincidences...[wait_1]but I shouldn’t hold a grudge.[wait_1] He didn’t do anything wrong..."
+    elif (current_thought == "cat_thought_158"):
+        cat_thoughts "Why didn’t you act sooner...?[wait_1] Why didn’t you at least stop the killer...?"
+    elif (current_thought == "cat_thought_159"):
+        cat_thoughts "He doesn’t need to know...[wait_1]Nobody will ever find out..."
+    elif (current_thought == "cat_thought_160"):
+        cat_thoughts "Just to be sure..."
+    elif (current_thought == "cat_thought_161"):
+        cat_thoughts "Is it really a coincidence...?[wait_1] I feel like he’s hiding something..."
+    elif (current_thought == "cat_thought_162"):
+        cat_thoughts "I was wrong...[wait_1]why do I always overthink things...?"
+    elif (current_thought == "cat_thought_163"):
+        cat_thoughts "He won’t understand.[wait_1] How do I tell him?"
+    elif (current_thought == "cat_thought_164"):
+        cat_thoughts "My words are insufficient...[wait_1]if only he could read my thoughts, and feel the emotions that I felt for Sergei."
+    elif (current_thought == "cat_thought_165"):
+        cat_thoughts "Whoever he has lost...[wait_1]they can’t compare to Sergei..."
+    elif (current_thought == "cat_thought_166"):
+        cat_thoughts "If he has overdue fees...[wait_1]I’ll clear them..."
+    elif (current_thought == "cat_thought_167"):
+        cat_thoughts "Why would he want a stranger to find them...?[wait_1] This is strange..."
+    elif (current_thought == "cat_thought_168"):
+        cat_thoughts "Lloyd tried to help Sergei...[wait_1]I shouldn’t be so suspicious of him..."
+    elif (current_thought == "cat_thought_169"):
+        cat_thoughts "He never mentioned a Jack to me...[wait_1]so why would he tell Lloyd the name?"
+    
+
 
     $ ignore_thoughts_length()
     return
