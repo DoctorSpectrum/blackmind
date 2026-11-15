@@ -170,3 +170,23 @@ label branch_d_2_4:
     mental_jack "Another one dead...[wait_05]bastard."
 
     return
+
+label branch_d_3_0:
+    # power upgrade
+    $ branch = "d"
+    $ day = 3
+    call screen chapter_breaks("THURSDAY", "Lloyd has failed to prevent another murder. He has failed to stop Docherty from escaping.\n\nBy the end of the day, another person will be dead.")
+    scene apartment_day with slow_dissolve
+    lloyd_narrating neutral "I wake up in my bed feeling renewed.[wait_1] It’s a good feeling."
+    lloyd_narrating neutral "I’ll need the energy for the long day ahead of me."
+    lloyd_thinking thinking "Who is this Jack person?[wait_1] What’s their connection to Sergei?"
+    lloyd_thinking thinking "And most importantly –[wait_05] how will I find them?"
+    lloyd_narrating neutral "It’s the only clue I have to go on next.[wait_1] After I heard Sergei’s last words, the police were called, the staff and patrons of the venue questioned."
+    lloyd_narrating neutral "Enough testimonies confirmed that Docherty was running away from where Sergei’s body was found, that the gunshot was heard before I leapt up onto the stage, to clear me of any major suspicions."
+    lloyd_narrating neutral "Nobody caught Docherty.[wait_1] He slipped past everybody like a ghost."
+    lloyd_thinking thinking "If I can find this Jack person, they can tell me what Sergei wanted to talk to me about."
+    lloyd_narrating neutral "I’ve briefly considered looking further into Sergei –[wait_05] into who exactly he was –[wait_05] but I concluded that it wouldn’t be helpful."
+    lloyd_narrating neutral "He seemed to be nothing more than an amateur magician using his abilities to wow crowds."
+    lloyd_thinking thinking "Who would be the best person to help me find Jack?"
+
+    call screen map_navigation(find_locations([]))
