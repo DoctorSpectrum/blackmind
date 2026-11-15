@@ -516,6 +516,48 @@ label mind_read_barbara:
     elif (current_thought == "barbara_thought_239"):
         barbara_thoughts "“I can’t make any promises.”[wait_1] Of course.[wait_1] Everybody’s happy to ask for my help, but never wants to help me."
     
+    # D-3
+    elif (current_thought == "barbara_thought_240"):
+        barbara_thoughts "Shit...[wait_05]I should have anticipated him coming by and brought some to share with him![wait_1] Why didn’t I think of that?"
+    elif (current_thought == "barbara_thought_241"):
+        barbara_thoughts "He doesn’t know Bruno’s?[wait_1] But then that would mean..."
+    elif (current_thought == "barbara_thought_242"):
+        barbara_thoughts "Aaaand there’s my foot in my mouth.[wait_1] Great one, Barbara."
+    elif (current_thought == "barbara_thought_243"):
+        barbara_thoughts "If he’s not a local then that’s going to make it harder to see him in the evenings.[wait_1] How far away does he live?"
+    elif (current_thought == "barbara_thought_244"):
+        barbara_thoughts "That’s super far...[wait_05]but if he’s travelling that distance he must like me, right?"
+    elif (current_thought == "barbara_thought_245"):
+        barbara_thoughts "It’s not like you’ve actually ever bought anything here..."
+    elif (current_thought == "barbara_thought_246"):
+        barbara_thoughts "Maybe I can convince him to buy something today..."
+    elif (current_thought == "barbara_thought_247"):
+        barbara_thoughts "He never told me why he wanted to find Sergei...[wait_05]what doesn’t he want me to know?"
+    elif (current_thought == "barbara_thought_248"):
+        barbara_thoughts "What?![wait_1] Did I hear that right?"
+    elif (current_thought == "barbara_thought_249"):
+        barbara_thoughts "If I’d known this would happen, would I have told Lloyd where to go?"
+    elif (current_thought == "barbara_thought_250"):
+        barbara_thoughts "Come to think of it...[wait_05]is it a coincidence that the person Lloyd was looking for was killed last night?"
+    elif (current_thought == "barbara_thought_251"):
+        barbara_thoughts "What were you doing near Sergei, Lloyd?[wait_1] You said that he was backstage."
+    elif (current_thought == "barbara_thought_252"):
+        barbara_thoughts "Who the hell is Lloyd, really?[wait_1] Better question:[wait_05] what have I gotten myself into?"
+    elif (current_thought == "barbara_thought_253"):
+        barbara_thoughts "I hope that he’s a good guy.[wait_1] I really want him to be."
+    elif (current_thought == "barbara_thought_254"):
+        barbara_thoughts "Has Lloyd gone to the authorities with this?[wait_1] And if not, why not?"
+    elif (current_thought == "barbara_thought_255"):
+        barbara_thoughts "Oh no...[wait_05]the sexy bastard is drawing me into this..."
+    elif (current_thought == "barbara_thought_256"):
+        barbara_thoughts "Wouldn’t it be funny if Lloyd was looking for Sergei because –[wait_05] no, that’s stupid."
+    elif (current_thought == "barbara_thought_257"):
+        barbara_thoughts "What do I even ask people about?[wait_1] I doubt I’ll find anything."
+    elif (current_thought == "barbara_thought_258"):
+        barbara_thoughts "{i}Quid pro quo{/i}, Lloyd."
+    elif (current_thought == "barbara_thought_259"):
+        barbara_thoughts "Not even two minutes since he asked me whether I knew anything and he’s already leaving.[wait_1] He’s hot, but he doesn’t really think about others."
+    
 
     $ ignore_thoughts_length()
     return
