@@ -580,3 +580,56 @@ label branch_c_4_0:
     lloyd_thinking thinking "I should try and find out who exactly they were."
 
     call screen map_navigation(find_locations([]))
+
+label branch_c_4_4:
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "The journey back home is uneventful.[wait_1] My mind is mostly still thinking about Cat and everything that just happened."
+    lloyd_thinking thinking "I managed to get the remaining files from her, and she seems stable enough now."
+    lloyd_thinking thinking "Will she stay that way, though?[wait_1] Or will she try something drastic in the future?"
+    lloyd_narrating neutral "There’s no way to know for sure.[wait_1] For now I’m more interested in the prize that Cat gave me."
+    scene apartment_night with slow_dissolve
+    lloyd_narrating neutral "By the time I walk through the door it’s a little after ten PM."
+    lloyd_narrating neutral "I turn on my computer once more and connect the second USB drive.[wait_1] I’ve been anticipating this all day."
+    lloyd_narrating neutral "The first part of Sergei’s notes gave me insight into the killer’s motives and answered questions of my own.[wait_1] What will the second part give me?"
+    lloyd_narrating neutral "This USB is the same as the first one –[wait_05] it only has the one file on it, a PDF named {i}sergei_notes_2.pdf{/i}."
+    lloyd_narrating neutral "I open up the file and begin reading it."
+    call screen read_pdf(True)
+    lloyd_thinking thinking "According to Sergei’s research, a person can only have a maximum of three psychic abilities, with the exact abilities being determined by a person’s individual brainwaves."
+    lloyd_thinking thinking "He lists several of them here."
+    lloyd_narrating neutral "Reading surface thoughts, altering memories, and seeing the future are all listed as some of the abilities a psychic could have."
+    lloyd_narrating neutral "That lines up with my abilities."
+    lloyd_thinking thinking "Some of these other abilities are interesting...[wait_05]detecting the energy of psychics would be useful."
+    lloyd_thinking thinking "It would allow me to find others like me and warn them about the killer."
+    lloyd_narrating neutral "I read through the remainder of the file."
+    lloyd_narrating neutral "I’m a little disappointed when I finish it –[wait_05] the second half of Sergei’s notes haven’t had anything as vitally important as the first half.[wait_1] The information in it is still interesting, though."
+    lloyd_thinking thinking "Sergei discovered that there’s a limited amount of psychic energy for us to tap into, with what energy there is being distributed equally among people with abilities."
+    lloyd_thinking thinking "He theorised that the more psychics there are, the weaker our abilities become, and vice versa."
+    lloyd_narrating neutral "I’d felt my powers growing over the past few days but had assumed that it was due to my becoming more familiar with them."
+    lloyd_narrating neutral "This theory makes more sense though –[wait_1] both the man with the white streak and Sergei were killed, allowing me to access more psychic energy."
+    lloyd_narrating neutral "It seems to take a few days for the energy to fully distribute across the remaining psychics, which is why my powers felt stronger still from this morning."
+    lloyd_thinking thinking "Whether he realises it or not, the killer is increasing the abilities of psychics across the world whenever he ends one of our lives."
+    lloyd_thinking thinking "When he finally receives someone’s abilities, he’ll –"
+    lloyd_narrating neutral "I stop mid-thought and consider that."
+    lloyd_narrating neutral "The killer is murdering psychics in order to gain their abilities.[wait_1] That’s what I assumed ever since reading the first half of Sergei’s research."
+    lloyd_narrating neutral "But something about it feels wrong."
+    lloyd_thinking thinking "If the killer is hoping to gain psychic abilities, then why did he leave the man with the white streak for dead?[wait_1] Why not stick around and wait for him to die?"
+    lloyd_narrating neutral "It’s possible that he was wary about being caught by the authorities, but if that were the case he could have used a quieter weapon –[wait_05] a knife, for instance."
+    lloyd_narrating neutral "Using a gun on your target is asking for trouble if you can’t be certain whether they have the abilities you’re looking for.[wait_1] And then I realise that I’ve had it all backwards."
+    lloyd_thinking scared "The killer isn’t trying to gain psychic abilities –[wait_05] the killer already has psychic abilities!"
+    lloyd_thinking scared "He’s using a gun to guarantee that his targets die –[wait_05] because he wants to increase his own powers!"
+    lloyd_narrating scared "In realising these facts I realise something else.[wait_1] Something that leads me to a chilling conclusion."
+    lloyd_narrating scared "His abilities –[wait_05] he must be a scanner, with the ability to detect psychic energy.[wait_1] He found the man with the white streak, Sergei, and possibly countless others."
+    lloyd_narrating scared "And if he’s able to detect and track psychic energy, then that means that –[wait_05] I’m in danger!"
+    lloyd_narrating neutral "I had been aware that I might be a target, but I hadn’t thought that I’d been overt with my abilities."
+    lloyd_narrating neutral "I thought that I would be able to stay out of the firing line for at least a few more days."
+    lloyd_narrating neutral "But if the killer is tracking people with his abilities, then there’s no telling how long it will take for him to target me."
+    lloyd_thinking thinking "There’s only one thing that I can do now."
+    scene cg8_0 with slow_dissolve
+    lloyd_narrating neutral "I hurriedly pack the essentials into my bags and exit my apartment."
+    lloyd_narrating neutral "I don’t know where I’m going, but I can’t stay in this city for as long as the killer is active."
+    lloyd_narrating neutral "Another person with psychic abilities might be targeted in my stead, but I can’t worry about them."
+    lloyd_narrating neutral "It’s my life that’s important, that I need to protect now."
+    lloyd_thinking thinking "I’ll see what I can do once I’ve made it somewhere safe, but for the time  being, I have to look after myself."
+    
+    # Ending C, display how to get to the next branch
+    return
