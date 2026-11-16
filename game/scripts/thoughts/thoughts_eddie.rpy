@@ -455,6 +455,42 @@ label mind_read_eddie:
     elif (current_thought == "eddie_thought_214"):
         eddie_thoughts "What he said about Docherty was interesting...[wait_05]but screw it, I’ve got bigger plans to take care of."
 
+    # D-3-4
+    elif (current_thought == "eddie_thought_215"):
+        eddie_thoughts "Chen isn’t even questioning why he was kept waiting for so long.[wait_1] That’d better not change."
+    elif (current_thought == "eddie_thought_216"):
+        eddie_thoughts "How are you going to react to the answers, Chen?"
+    elif (current_thought == "eddie_thought_217"):
+        eddie_thoughts "Has he guessed the truth at all?"
+    elif (current_thought == "eddie_thought_218"):
+        eddie_thoughts "Oh, you have no fucking clue how much this is going to cost you, Chen."
+    elif (current_thought == "eddie_thought_219"):
+        eddie_thoughts "Don’t talk to me like I’m your inferior, Chen."
+    elif (current_thought == "eddie_thought_220"):
+        eddie_thoughts "That was a bullet!"
+    elif (current_thought == "eddie_thought_221"):
+        eddie_thoughts "Can’t let him die!"
+    elif (current_thought == "eddie_thought_222"):
+        eddie_thoughts "He’d better fucking stay put!"
+    elif (current_thought == "eddie_thought_223"):
+        eddie_thoughts "Is he still here?"
+    elif (current_thought == "eddie_thought_224"):
+        eddie_thoughts "Good, he’s still here.[wait_1] It wouldn’t be good if he’d run away."
+    elif (current_thought == "eddie_thought_225"):
+        eddie_thoughts "He’d better not ask why I have one.[wait_1] He doesn’t need to know."
+    elif (current_thought == "eddie_thought_226"):
+        eddie_thoughts "Need to keep him with me.[wait_1] And I need to make sure he says what I want him to."
+    elif (current_thought == "eddie_thought_227"):
+        eddie_thoughts "As if I need to ask."
+    elif (current_thought == "eddie_thought_228"):
+        eddie_thoughts "What do you mean by that?[wait_1] Do you think that it’s somebody else?"
+    elif (current_thought == "eddie_thought_229"):
+        eddie_thoughts "You’re welcome, Chen."
+    elif (current_thought == "eddie_thought_230"):
+        eddie_thoughts "I saved you, Chen...[wait_1]you really owe me now."
+    elif (current_thought == "eddie_thought_231"):
+        eddie_thoughts "If anybody disagrees...[wait_1]no, better not think of that."
+    
 
     $ ignore_thoughts_length()
     return

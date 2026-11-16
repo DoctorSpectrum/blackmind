@@ -190,3 +190,208 @@ label branch_d_3_0:
     lloyd_thinking thinking "Who would be the best person to help me find Jack?"
 
     call screen map_navigation(find_locations([]))
+
+label branch_d_3_4:
+    scene restaurant_night with slow_dissolve
+    lloyd_narrating neutral "Today has been nothing but a waste of time.[wait_1] I’ve learned nothing valuable about Sergei or his associate, and the investigation has hit a dead end."
+    lloyd_narrating neutral "All that I can do for now is take a break, visit my favourite restaurant, and hope that inspiration hits me while I’m eating."
+    lloyd_thinking thinking "What do I want to order tonight...?"
+    menu:
+        "Twice-cooked pork":
+            lloyd_narrating neutral "Although the sweet and sour pork looks appealing enough to turn my mind to thoughts of pig, it’s the twice-cooked pork which I end up choosing."
+            lloyd_narrating neutral "The chilli bean paste included with the sauce adds a kick of spice which appeals to me more tonight than the flavour of the sweet and sour pork."
+            lloyd_narrating neutral "The stir-fried vegetables included as part of the meal validate my decision, and I feel that I’ve made the right choice."
+        "Sweet and Sour Pork":
+            lloyd_narrating neutral "Although the twice-cooked pork looks appealing enough to turn my mind to thoughts of pig, it’s the sweet and sour pork which I ultimately choose."
+            lloyd_narrating neutral "The taste of pineapple in the meal appeals to me more tonight than the spice of the twice-cooked pork, and once I’ve begun eating the sauce alone makes me feel that I’ve made the correct choice."
+        "Char siu with rice":
+            lloyd_narrating neutral "No vegetables are included with the meal, but I’m not particularly bothered by it."
+            lloyd_narrating neutral "The rough texture of the meat combined with the strong umami flavour are exactly what I’m looking for, and from the first bite alone I’m convinced that the choice I made is the correct one."
+    lloyd_narrating neutral "While I eat my meal I think about what the fruits of today’s labour are."
+    lloyd_narrating neutral "I have no idea who Jack is."
+    lloyd_narrating neutral "I have no idea why Sergei and the man with the white streak were killed, and no idea who Docherty’s next target is."
+    lloyd_narrating neutral "I have no idea how Docherty is still alive after he was reported dead."
+    lloyd_narrating neutral "I have no idea what my next step will be."
+    lloyd_thinking thinking "There will still be a few hours left in the evening after I finish eating.[wait_1] What should I do with them?"
+    menu:
+        "Return home":
+            lloyd_narrating neutral "It’s not as though I have any other option.[wait_1] I may as well retire for the night and hope that inspiration strikes me come the morning."
+            lloyd_thinking thinking "Maybe I’ll try forcing another vision with my powers."
+            lloyd_thinking thinking "I’d rather not given how excruciating the pain was last time, but it would be worth it to get more insight into Docherty’s actions."
+            lloyd_narrating neutral "It’s not something that I’m looking forward to, but if I have to do it I will.[wait_1] If I can’t stop Docherty then at the very least I want to warn his next victim."
+            lloyd_thinking thinking "Where will he strike next?[wait_1] And more importantly, how will I find the next target?"
+            scene black_bg with slow_dissolve
+            lloyd_narrating neutral "All of these thoughts and more go through my head as I travel home."
+            lloyd_narrating neutral "By the time I’ve arrived I’ve convinced myself to look more deeply into the future, no matter the cost to myself."
+            scene apartment_night with slow_dissolve
+            lloyd_narrating neutral "I’m sitting cross-legged on my bed."
+            lloyd_narrating neutral "I’ve spent the better part of the last hour meditating and focusing my mind."
+            lloyd_narrating neutral "But no matter how hard I concentrate or try to recreate the conditions of my last vision, I’m unable to pierce the veil of the future."
+            lloyd_narrating neutral "Matters aren’t helped by my concentration constantly being broken by all of the different sounds finding their way into the apartment.[wait_1] I’m realising now that it’s a bit of a miracle that I was able to trigger my future vision last time."
+            lloyd_narrating neutral "For the umpteenth time I’ve slowed my breathing down."
+            lloyd_narrating neutral "I’m concentrating on my skull and imagining the flow of energy going to and from it."
+            lloyd_narrating neutral "I’m feeling my psychic abilities as a tangible force."
+            lloyd_narrating neutral "I get a sense of dizziness and begin to slip into a trance –"
+            # SFX - door knocking
+            lloyd_narrating neutral "– and then it’s broken by a knocking at the door."
+            # What if we did a CG of Docherty at the door here? Kinda a waste for a one-off dead end but it'd be a good way to build tension
+            lloyd neutral "I’m coming."
+            lloyd_narrating neutral "I assume that it’s one of my neighbours coming to ask me for something, or to invite me to an event."
+            lloyd_narrating neutral "It’s happened before in the past, with the events usually being related to a matter in the building."
+            lloyd_narrating neutral "My assumption turns out to be incorrect, though.[wait_1] I’m dead wrong."
+            $ swap_sprites("docherty_neutral", quick_dissolve)
+            $ current_thought = "docherty_thought_01"
+            show screen psychic_powers
+            lloyd_thinking scared "Shit!"
+            lloyd scared "Docherty![wait_1] You –"
+            docherty "I aim to make this painless."
+            $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
+            hide screen psychic_powers
+            scene black_bg
+            narrator "GAME OVER"
+            $ MainMenu()
+        "Visit Eddie" (locked=not person_visited("eddie", "d", 0) or not check_boolean("eddie_investigates_docherty2"), message=("You did not visit Eddie today" if not person_visited("eddie", "d", 0) else "You did not convince Eddie to help you")):
+            lloyd_narrating neutral "It’s not as though I have any other viable options."
+            lloyd_narrating neutral "Eddie’s the only one of my contacts who suggested I visit him tonight, after his interest was piqued by my encounter with Docherty."
+            lloyd_narrating neutral "If my story inspired him to look into Docherty once again and identify how he’s still alive, that will be a big help to my investigation."
+            lloyd_narrating neutral "As much as I’d like to savour it, I make an effort to quickly finish the rest of my meal."
+            lloyd_narrating neutral "I don’t know how long Eddie will stay at the office and I wouldn’t want to keep him waiting for longer than I need to."
+            scene black_bg with slow_dissolve
+            lloyd_narrating neutral "As I make my way to Eddie’s workplace I feel my heart racing."
+            lloyd_narrating neutral "If Eddie doesn’t have anything for me then I’ll be at a dead end."
+            lloyd_narrating neutral "Will his access to newspaper archives and investigative journalism have been sufficient to discover the information that I need?[wait_1] Or am I wasting my time?"
+            lloyd_narrating neutral "Should I turn my focus instead to what initially set me on this path, and try to trigger another vision of the future?"
+            lloyd_thinking thinking "I’ll see what information Eddie has to begin with.[wait_1] If he doesn’t have anything then I’ll work out what my remaining options are."
+            lloyd_narrating neutral "I arrive at the newspaper and ask whether Eddie is still in.[wait_1] Once again I’m directed to a side room for interviews."
+            lloyd_narrating neutral "My back is placed to the rest of the office, a glass door behind me."
+            scene office_interview_room with slow_dissolve
+            lloyd_narrating neutral "Eddie sticks his head in the door briefly and tells me to wait while he gets some information together."
+            lloyd_narrating neutral "From the way he words it I’m expecting to be waiting for five minutes, maybe ten at most.[wait_1] But when he finally returns it’s been over half an hour of waiting."
+            $ swap_sprites("eddie_angry", slow_dissolve)
+            $ current_thought = "eddie_thought_215"
+            show screen psychic_powers
+            lloyd neutral "Thanks for doing this, Eddie."
+            $ current_thought = "eddie_thought_216"
+            eddie "I was pretty reluctant at first, you know.[wait_1] But if what you’ve said is true –[wait_05] if Docherty really is still alive –[wait_05] then that raises a lot of questions."
+            lloyd_narrating neutral "He raises a hand and holds up three fingers."
+            $ current_thought = "eddie_thought_217"
+            eddie "One:[wait_05] why was Docherty reported as dead?" 
+            eddie "Two:[wait_05] why isn’t Docherty in prison?" 
+            eddie "Three:[wait_05] what has he been up to this whole time?"
+            $ swap_sprites("eddie_arrogant")
+            lloyd_narrating neutral "Once all three fingers are lowered, Eddie cracks an arrogant smile."
+            $ current_thought = "eddie_thought_218"
+            eddie "Good thing for you, I’ve done a bit of digging.[wait_1] I can answer all the questions, but it’s going to cost you."
+            lloyd_narrating neutral "I nod.[wait_1] I wasn’t expecting this, but I’m willing to pay whatever price I have to if it gives me progress."
+            $ current_thought = "eddie_thought_219"
+            lloyd neutral "Tell me what you’ve discovered."
+            lloyd_narrating neutral "Eddie opens his mouth and begins talking, but I can’t hear him over the noise that erupts."
+            $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
+            $ current_thought = "eddie_thought_220"
+            lloyd_narrating neutral "I feel something whizz past my head and embed itself in the wall at the opposite end of the room to me."
+            lloyd_thinking thinking "What was that?[wait_1] Did something...?"
+            lloyd_narrating neutral "It’s a bullet.[wait_1] Someone is trying to kill me."
+            $ swap_sprites("eddie_angry")
+            $ current_thought = "eddie_thought_221"
+            eddie "Chen![wait_1] Get down!"
+            $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
+            lloyd_narrating scared "Eddie pushes the table to its side and then tackles me to the ground."
+            lloyd_narrating scared "It’s not a moment too soon –[wait_05] another gunshot sounds.[wait_1] If I hadn’t been knocked down then it would have hit me."
+            eddie "Chen –[wait_05] stay here and don’t do anything.[wait_1] I’m going to deal with this."
+            lloyd scared "What do you –"
+            $ current_thought = "eddie_thought_222"
+            eddie "Shut up![wait_1] We don’t have much time!"
+            hide eddie_angry with quick_dissolve
+            hide screen psychic_powers
+            lloyd_narrating scared "Eddie leaves the room, staying low to the ground as he moves out.[wait_1] I have no idea who’s shooting at me or what he plans to do about it."
+            lloyd_thinking thinking "Both bullets were fired at me.[wait_1] I’m clearly the target."
+            lloyd_thinking thinking "Will Eddie be safe out there?"
+            menu:
+                "Prioritise my safety":
+                    lloyd_thinking thinking "Eddie was confident when he left the room.[wait_1] If he wanted my help or needed me to assist him he would have asked for it."
+                    lloyd_narrating neutral "There’s a part of me that feels guilty.[wait_1] I don’t know what Eddie’s planning, nor do I know what the outcome of his action will be."
+                    lloyd_narrating neutral "But I’m clearly the target of the shooter.[wait_1] If I stay in here and draw their attention then he can enact whatever plan he has."
+                    lloyd_narrating neutral "It makes more sense for me to stay here.[wait_1] If I leave the room then things will go awry."
+                    lloyd_narrating neutral "It’ll mess up whatever he’s planning.[wait_1] It’s for the best if I stay here."
+                    lloyd_thinking thinking "Unless his plan doesn’t benefit me."
+                    lloyd_narrating neutral "The thought comes into my head unbidden.[wait_1] Eddie might be acting in his own interests."
+                    lloyd_narrating neutral "He said that he would deal with this, but that could mean anything.[wait_1] He might be calling the police and trusting me to survive on my own."
+                    lloyd_narrating neutral "He could be using me as bait while he escapes to safety."
+                    lloyd_thinking thinking "What’s the most likely way that Eddie would stop an armed gunman?"
+                    lloyd_narrating neutral "Nothing comes to mind and I’m unsure what to do next."
+                    lloyd_narrating neutral "Should I try to sneak out and elude the gunman?[wait_1] Or should I stay here and trust him to deal with it?"
+                    lloyd_thinking thinking "Knowing Eddie...[wait_05]I think that he’s more likely to have left."
+                    lloyd_thinking thinking "He’s probably sold me out and wants me to draw the gunman’s attention.[wait_1] I need to find a way to –"
+                    $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
+                    lloyd_narrating scared "The sound of a gun firing startles me."
+                    lloyd_narrating scared "But more startling is that it wasn’t fired into this room.[wait_1] It was fired somewhere in the newspaper office."
+                    lloyd_thinking thinking "What’s happened to Eddie?[wait_1] Was he caught?"
+                    lloyd_narrating neutral "I receive my answer a moment later."
+                    $ swap_sprites("eddie_arrogant", quick_dissolve)
+                    $ current_thought = "eddie_thought_223"
+                    show screen psychic_powers
+                    eddie "Come out, Chen.[wait_1] I stopped him."
+                    $ current_thought = "eddie_thought_224"
+                    lloyd scared "You –[wait_05] you did?"
+                    $ current_thought = "eddie_thought_225"
+                    eddie "I’ve got a gun in my desk.[wait_1] All that I needed to do was reach it."
+                    lloyd_thinking thinking "He does?[wait_1] That’s convenient."
+                    $ current_thought = "eddie_thought_226"
+                    eddie "Follow me."
+                    hide eddie_arrogant with quick_dissolve
+                    hide screen psychic_powers
+                    lloyd_thinking thinking "But how did he avoid getting shot?[wait_1] And why didn’t the gunman fire any more bullets once Eddie left?"
+                    lloyd_narrating neutral "I’m not going to find answers to my questions in here.[wait_1] I follow Eddie into the office."
+                    scene cg9_0 with slow_dissolve
+                    lloyd_narrating neutral "Unsurprisingly, the shooter was Docherty.[wait_1] He’s the only person that I know with a gun who has committed murder before."
+                    lloyd_narrating neutral "He probably wanted to silence me since I saw him last night."
+                    lloyd_thinking thinking "But then how did he know that I was here?"
+                    $ current_thought = "eddie_thought_227"
+                    show screen psychic_powers
+                    # Maybe do side portraits here for Eddie?
+                    eddie "This is your killer.[wait_1] Allan Docherty, yeah?"
+                    $ current_thought = "eddie_thought_228"
+                    lloyd neutral "Yes.[wait_1] It looks like him."
+                    $ current_thought = "eddie_thought_229"
+                    eddie "Well, he definitely won’t be killing again.[wait_1] He’s a goner for sure."
+                    lloyd_thinking thinking "We thought that he was dead once.[wait_1] Will this time stick?"
+                    $ current_thought = "eddie_thought_230"
+                    eddie "I’ll call the police now.[wait_1] Make sure that your story lines up with mine –[wait_05] that this was self defence."
+                    lloyd neutral "Of course.[wait_1] I imagine the physical evidence will support it."
+                    eddie "It had better."
+                    scene office_interview_room with slow_dissolve
+                    $ swap_sprites("eddie_arrogant", quick_dissolve)
+                    lloyd_narrating neutral "Eddie takes out his mobile phone and calls the police.[wait_1] The call is fairly swift, and once it’s over he reports that we’ll only have to wait a few minutes."
+                    $ current_thought = "eddie_thought_231"
+                    eddie "Luckily, most of the other staff have gone home.[wait_1] We should gather everybody else that’s here though, and get our story straight."
+                    lloyd_thinking thinking "He’s very keen to make sure that the story is consistent.[wait_1] I suppose that I would be too if I needed to keep the death from being mistaken for anything but self-defence."
+                    hide eddie_arrogant with quick_dissolve
+                    hide screen psychic_powers
+                    lloyd_narrating neutral "There’s nothing else to do from here but gather the remaining staff and wait for the police, as Eddie said."
+                    lloyd_narrating neutral "I’ve got an odd sense of anticlimax."
+                    lloyd_narrating neutral "Docherty has been stopped.[wait_1] He can’t threaten anyone again."
+                    lloyd_narrating neutral "Everything might not have been wrapped up with a neat bow, but there will be time to discover answers in the aftermath of it all."
+                    scene black_bg with slow_dissolve
+                    mental_jack "{size=-8}(Dammit...[wait_05]I’m too weak.){/size}"
+                    mental_jack "{size=-8}(I thought I could build up my strength more...[wait_05]but I can’t.[wait_1] It’s all over. ){/size}"
+                    mental_jack "{size=-8}(Still...[wait_05]at least...[wait_05]that fucker was offed...[wait_05]That’ll show him...)"
+                "Back him up" (locked=not person_visited("graves", "d", 0), message="You are not selfless enough"):
+                    jump branch_e_3_4
+
+label branch_d_4_0:
+    # power upgrade
+    $ branch = "d"
+    $ day = 4
+    call screen chapter_breaks("FRIDAY", "Docherty has been killed. There will be no more murders now.\n\nAll that Lloyd needs to do is tidy up some loose ends, and the case will be over.")
+    scene apartment_day with slow_dissolve
+    lloyd_narrating neutral "I wake up in my apartment feeling tired but satisfied."
+    lloyd_narrating neutral "I was questioned by the police until the early hours of the morning, but they eventually released me."
+    lloyd_narrating neutral "As with the deaths of the man with the white streak and Sergei, I was told to keep myself free for any follow-up questions, but I’m confident that there won’t be any."
+    lloyd_narrating neutral "The police will continue investigating their deaths and discovering why Docherty killed them, but my part in things is over.[wait_1] Nobody else is going to die."
+    lloyd_narrating neutral "As he was responsible for killing Docherty, Eddie was subjected to more questioning than me.[wait_1] He hadn’t been released by the time that I was."
+    lloyd_narrating neutral "Before the police arrived we agreed to meet up at the newspaper tonight to discuss the story and what can be done."
+    lloyd_narrating neutral "I’m unsure what Eddie will do during the day –[wait_05] he might take the day off after the stresses of the evening, or he might be questioned throughout the entirety of the day."
+    lloyd_narrating neutral "Irrespective of his activities, I’ve got the day to myself."
+    lloyd_thinking thinking "Where should I go today?"
+
+    call screen map_navigation(find_locations([]))
