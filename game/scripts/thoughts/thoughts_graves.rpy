@@ -444,6 +444,74 @@ label mind_read_graves:
     elif (current_thought == "graves_thought_208"):
         graves_thoughts "Alright, back to work now.[wait_1] What did I do with that x-ray?"
     
+    # D-3
+    elif (current_thought == "graves_thought_209"):
+        graves_thoughts "...if it burst through there, then the infection point would be...[wait_05]let me think about this..."
+    elif (current_thought == "graves_thought_210"):
+        graves_thoughts "Shit![wait_1] Lloyd came up way faster than I thought!"
+    elif (current_thought == "graves_thought_211"):
+        graves_thoughts "Did he see it?[wait_1] I don’t think he got a good look at it in detail, thank god."
+    elif (current_thought == "graves_thought_212"):
+        graves_thoughts "What will he say when he hears what I found out?"
+    elif (current_thought == "graves_thought_213"):
+        graves_thoughts "A new request?[wait_1] Or he already knows what I discovered about Sergei?"
+    elif (current_thought == "graves_thought_214"):
+        graves_thoughts "...if they can get back with the results of the test by tomorrow, then that’ll let us proceed to the next step."
+    elif (current_thought == "graves_thought_215"):
+        graves_thoughts "Has Lloyd been intentionally avoiding me since we last spoke?"
+    elif (current_thought == "graves_thought_216"):
+        graves_thoughts "Did he go to somebody else?[wait_1] Does he not trust me?"
+    elif (current_thought == "graves_thought_217"):
+        graves_thoughts "But if he wasn’t killed, then what was that death certificate I saw?"
+    elif (current_thought == "graves_thought_218"):
+        detective_thoughts "Gotta be careful with the image.[wait_1] Not too rough, but not as young as I am."
+    elif (current_thought == "graves_thought_219"):
+        detective_thoughts "Um...[wait_05]headstone...[wait_05]graveyard...[wait_05]no, can’t think of it!"
+    elif (current_thought == "graves_thought_220"):
+        graves_thoughts "How do I convince him that I’m competent?[wait_1] Do I give him a discount to entice him to stay?"
+    elif (current_thought == "graves_thought_221"):
+        graves_thoughts "Is there anything significant about the venue...?"
+    elif (current_thought == "graves_thought_222"):
+        graves_thoughts "So Lloyd found out about him from somebody else.[wait_1] How many people beyond me is he working with?"
+    elif (current_thought == "graves_thought_223"):
+        graves_thoughts "He must have worked with somebody else to find him.[wait_1] Is there a reason that Lloyd didn’t want me to look for this Sergei person?"
+    elif (current_thought == "graves_thought_224"):
+        graves_thoughts "How did Lloyd find out that he was in danger?[wait_1] There’s something he’s not telling me."
+    elif (current_thought == "graves_thought_225"):
+        graves_thoughts "It couldn’t be another situation like...[wait_05]{i}that{/i} time, could it?"
+    elif (current_thought == "graves_thought_226"):
+        graves_thoughts "Maybe the issue is the death certificate.[wait_1] How easy would it be to fake one?"
+    elif (current_thought == "graves_thought_227"):
+        graves_thoughts "I don’t want to make too big a deal about this...[wait_05]poor guy probably feels guilty enough already."
+    elif (current_thought == "graves_thought_228"):
+        graves_thoughts "Very convenient that he was able to hear the dying words..."
+    elif (current_thought == "graves_thought_229"):
+        graves_thoughts "So there’s some sort of targeted killings going on?[wait_1] How much does Lloyd know, and how much isn’t he telling me?"
+    elif (current_thought == "graves_thought_230"):
+        graves_thoughts "He won’t hide this information from me, surely?"
+    elif (current_thought == "graves_thought_231"):
+        graves_thoughts "Ah, crap.[wait_1] This is going to be one of {i}those{/i} jobs.[wait_1] Better not get his hopes up too much..."
+    elif (current_thought == "graves_thought_232"):
+        graves_thoughts "And if I can look into how Lloyd’s discovered all of his information while I’m at it, I won’t complain."
+    elif (current_thought == "graves_thought_233"):
+        graves_thoughts "First thing to do:[wait_05] find out who Sergei was in contact with."
+    elif (current_thought == "graves_thought_234"):
+        graves_thoughts "Do I tell him about the stats?[wait_1] I’m going to tell him about the stats."
+    elif (current_thought == "graves_thought_235"):
+        graves_thoughts "Damn.[wait_1] I always like it when they guess five, or ten, or some number greater than zero.[wait_1] They always get so damn shocked."
+    elif (current_thought == "graves_thought_236"):
+        graves_thoughts "He’s got to be, what, five years older than me at most?[wait_1] And he’s talking down to me like that?"
+    elif (current_thought == "graves_thought_237"):
+        graves_thoughts "Am I talking too much?[wait_1] Lloyd’s not saying much, but I assume that he’d tell me if he didn’t care..."
+    elif (current_thought == "graves_thought_238"):
+        graves_thoughts "I can’t tell Lloyd the {i}real{/i} reason we opened the detective agency...[wait_05]but nothing that I’m telling him is a lie."
+    elif (current_thought == "graves_thought_239"):
+        graves_thoughts "I don’t know whether anyone will ever understand how much my friends and I have each others’ backs after that one week."
+    elif (current_thought == "graves_thought_240"):
+        graves_thoughts "He’s probably just saying that to get me to shut up.[wait_1] But at least he’s not being a contrarian."
+    elif (current_thought == "graves_thought_241"):
+        graves_thoughts "He probably thinks that I’m really weird.[wait_1] Well, I’d rather be honest and sincere than lie about my beliefs."
+    
 
     $ ignore_thoughts_length()
     return

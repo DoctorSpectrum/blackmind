@@ -1463,6 +1463,7 @@ label eddie_d_3:
             hide screen psychic_powers
             lloyd_narrating neutral "Eddie scoffs before standing up from the table and leaving the room."
             lloyd_narrating neutral "Apparently that’s all the time he deigns to spend on me."
+            $ add_boolean("eddie_investigates_docherty2")
         "Remind him that Jack could die":
             $ current_thought = "eddie_thought_212"
             lloyd neutral "Sergei said that Docherty was after “all of us”, Eddie, when referring to Jack." 
