@@ -392,6 +392,69 @@ label mind_read_eddie:
     elif (current_thought == "eddie_thought_184"):
         eddie_thoughts "He’d better leave now.[wait_1] Otherwise..."
     
+    # D-3
+    elif (current_thought == "eddie_thought_185"):
+        eddie_thoughts "I need to get Chen out of here.[wait_1] The work is too important to be disturbed."
+    elif (current_thought == "eddie_thought_186"):
+        eddie_thoughts "Should I tell Chen what I found out about the guy?"
+    elif (current_thought == "eddie_thought_187"):
+        eddie_thoughts "I’ll give him this, but not everything I learned."
+    elif (current_thought == "eddie_thought_188"):
+        eddie_thoughts "Was Chen in any danger himself?"
+    elif (current_thought == "eddie_thought_189"):
+        eddie_thoughts "Like Dad always said, you can’t let other people tell their stories, or there won’t be any space for yours."
+    elif (current_thought == "eddie_thought_190"):
+        eddie_thoughts "If Chen found the guy he wanted, then that means..."
+    elif (current_thought == "eddie_thought_191"):
+        eddie_thoughts "Was Chen in any danger himself?"
+    elif (current_thought == "eddie_thought_192"):
+        eddie_thoughts "Shit, he did?[wait_1] Then that means..."
+    elif (current_thought == "eddie_thought_193"):
+        eddie_thoughts "The more he gives me, the easier it’ll be to do the story without him."
+    elif (current_thought == "eddie_thought_194"):
+        eddie_thoughts "Sounds like a fucking loser."
+    elif (current_thought == "eddie_thought_195"):
+        eddie_thoughts "He must have been a pretty shitty magician if that’s where he got hired.[wait_1] If he was actually any good he would’ve been in a big theatre or sports stadium."
+    elif (current_thought == "eddie_thought_196"):
+        eddie_thoughts "Christ, this is a boring story.[wait_1] Why is he giving me all the tiny little details?"
+    elif (current_thought == "eddie_thought_197"):
+        eddie_thoughts "Oh, he meant it that way.[wait_1] Yeah, that makes sense."
+    elif (current_thought == "eddie_thought_198"):
+        eddie_thoughts "Surprised you couldn’t talk to him.[wait_1] I’d have thought they’d group the losers together."
+    elif (current_thought == "eddie_thought_199"):
+        eddie_thoughts "Get on with it, Chen.[wait_1] I need to know how much you found out."
+    elif (current_thought == "eddie_thought_200"):
+        eddie_thoughts "This is what I’ve been waiting to hear.[wait_1] This stuff with Docherty is the real meat of the story."
+        $ add_boolean("eddie_interested_docherty")
+    elif (current_thought == "eddie_thought_201"):
+        eddie_thoughts "Or maybe Chen’s lying.[wait_1] Maybe he wasn’t really attacked by Docherty, and he was let go for some reason."
+    elif (current_thought == "eddie_thought_202"):
+        eddie_thoughts "Why wouldn’t you go after Docherty?[wait_1] Chen’s hiding something from me."
+    elif (current_thought == "eddie_thought_203"):
+        eddie_thoughts "He missed his opportunity because he was wasting time with this Sergei guy.[wait_1] What an idiot."
+    elif (current_thought == "eddie_thought_204"):
+        eddie_thoughts "Why is Chen so much more interested in this Sergei guy than Docherty?[wait_1] He’s supposed to be dead."
+    elif (current_thought == "eddie_thought_205"):
+        eddie_thoughts "I bet he wants me to find this Jack guy just based off a name.[wait_1] Like that’s going to happen."
+    elif (current_thought == "eddie_thought_206"):
+        eddie_thoughts "Now that’s more like it![wait_1] If I can find out all the cool details I’ll get way more credit for this story."
+    elif (current_thought == "eddie_thought_207"):
+        eddie_thoughts "Chen wouldn’t lie to me about this, right?[wait_1] He really did encounter the guy?"
+    elif (current_thought == "eddie_thought_208"):
+        eddie_thoughts "Could Docherty have come back from the dead...?[wait_1] Nah, that’s stupid."
+    elif (current_thought == "eddie_thought_209"):
+        eddie_thoughts "Of course the guy who ran away from Docherty thinks I’m in danger.[wait_1] He doesn’t even have any lasting injuries."
+    elif (current_thought == "eddie_thought_210"):
+        eddie_thoughts "It hasn’t been fired since Dad died...[wait_05]it wouldn’t jam, would it?"
+    elif (current_thought == "eddie_thought_211"):
+        eddie_thoughts "The sooner I find out everything Chen knows, the sooner I can drop him from this story."
+    elif (current_thought == "eddie_thought_212"):
+        eddie_thoughts "As if it even matters.[wait_1] Jack is probably just another shitty magician."
+    elif (current_thought == "eddie_thought_213"):
+        eddie_thoughts "So now Chen tries playing the morality card on me?[wait_1] When he’s never cared about morals before?"
+    elif (current_thought == "eddie_thought_214"):
+        eddie_thoughts "What he said about Docherty was interesting...[wait_05]but screw it, I’ve got bigger plans to take care of."
+
 
     $ ignore_thoughts_length()
     return
