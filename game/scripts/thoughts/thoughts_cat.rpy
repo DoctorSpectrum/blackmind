@@ -380,7 +380,49 @@ label mind_read_cat:
     elif (current_thought == "cat_thought_169"):
         cat_thoughts "He never mentioned a Jack to me...[wait_1]so why would he tell Lloyd the name?"
     
-
+    # D-4
+    elif (current_thought == "cat_thought_170"):
+        cat_thoughts "It’s him...[wait_1]I’ll have to tell him."
+    elif (current_thought == "cat_thought_171"):
+        cat_thoughts "If he read Lloyd’s mind, he might have found something and thought that Lloyd’s name was Jack..."
+        lloyd_thinking thinking "Interesting idea.[wait_1] But what could Sergei have read in my mind to think that I identified as someone called Jack?"
+    elif (current_thought == "cat_thought_172"):
+        cat_thoughts "He didn’t refer to Lloyd as Jack...[wait_1]the request was to find Jack.[wait_1] The theory doesn’t work."
+    elif (current_thought == "cat_thought_173"):
+        cat_thoughts "Does he realise what he’s done...?"
+    elif (current_thought == "cat_thought_174"):
+        cat_thoughts "He had nothing to gain from it...[wait_1]no ulterior motive...[wait_1]he was just trying to help."
+    elif (current_thought == "cat_thought_175"):
+        cat_thoughts "Then...[wait_1]all of my preparation...[wait_1]it was all for nothing..."
+    elif (current_thought == "cat_thought_176"):
+        cat_thoughts "Maybe...[wait_1]there’s a chance..."
+    elif (current_thought == "cat_thought_177"):
+        cat_thoughts "I shouldn’t get my hopes up...[wait_1]but maybe..."
+    elif (current_thought == "cat_thought_178"):
+        cat_thoughts "I’ll have to fill in the pit...[wait_1]but at least he’s gone..."
+    elif (current_thought == "cat_thought_179"):
+        cat_thoughts "Should I tell the long version or the short version...?[wait_1] I’ll stick with the short version..."
+    elif (current_thought == "cat_thought_180"):
+        cat_thoughts "I’d better be careful with my words...[wait_1]I can’t have Lloyd guess the real reason why he was researching it..."
+    elif (current_thought == "cat_thought_181"):
+        cat_thoughts "If only I could go back to those days...[wait_1]if only Sergei hadn’t died..."
+    elif (current_thought == "cat_thought_182"):
+        cat_thoughts "Bones and Flowers...by The Screaming Tribesmen..."
+    elif (current_thought == "cat_thought_183"):
+        cat_thoughts "Why is this such a rare trait in people...?[wait_1] Why can’t people think of others more, rather than themselves...?"
+    elif (current_thought == "cat_thought_184"):
+        cat_thoughts "What’s wrong with liking black clothing?[wait_1] What’s wrong with liking tattoos or piercings?"
+    elif (current_thought == "cat_thought_185"):
+        cat_thoughts "Lloyd might sympathise...[wait_1]but he’ll never understand what it’s like to be a woman."
+    elif (current_thought == "cat_thought_186"):
+        cat_thoughts "Maybe I’ll get a new tattoo...[wait_1]one of the ones that Sergei said he was thinking of getting..."
+    elif (current_thought == "cat_thought_187"):
+        cat_thoughts "Do I have to answer this question...?[wait_1] I don’t know..."
+    elif (current_thought == "cat_thought_188"):
+        cat_thoughts "He doesn’t understand...[wait_1]work is the one easy thing at the moment, because it’s the one thing I know how to do..."
+    elif (current_thought == "cat_thought_189"):
+        cat_thoughts "Lloyd really does think about other people a lot...[wait_1]he’s a good person."
+    
 
     $ ignore_thoughts_length()
     return

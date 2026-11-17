@@ -18,6 +18,8 @@ label cat_investigation:
         jump cat_c_4
     elif (branch == "d" and day == 3):
         jump cat_d_3
+    elif (branch == "d" and day == 4):
+        jump cat_d_4
     
     return
 
@@ -1347,4 +1349,149 @@ label cat_d_3:
     lloyd_narrating neutral "It’s time to move elsewhere."
 
     $ visit_person("cat", "d", 0)
+    return
+
+label cat_d_4:
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "Allan Docherty is well and truly dead."
+    lloyd_narrating neutral "I’ve seen his corpse –[wait_05] my third one in the last several days –[wait_05] and saw the damage that Eddie’s gun did to him."
+    lloyd_narrating neutral "Whatever the case behind his supposed death in prison was, this one is genuine.[wait_1] People can’t come back from the dead, and he can’t heal from those injuries."
+    lloyd_narrating neutral "There are still questions to be solved, such as why he killed the people that he did, but the answers to them can come later.[wait_1] His threat is dealt with and there’ll be no more deaths at his hands."
+    lloyd_narrating neutral "I won’t be able to start digging into the mysteries behind his murders until the evening, when I can visit Eddie."
+    if (check_boolean("cat_name_discovered")):
+        lloyd_narrating neutral "In the meantime I’m going to visit Cat, thank her for her help, and tell her that she doesn’t need to assist me any further."
+    else:
+        lloyd_narrating neutral "In the meantime I’m going to visit the librarian, thank her for her help, and tell her that she doesn’t need to assist me any further."
+    lloyd_narrating neutral "I walk through the park and towards the library for what could very well be the last time."
+    lloyd_narrating neutral "It could be, but it probably won’t be."
+    lloyd_narrating neutral "Prior to my investigation I hadn’t been to a library since university.[wait_1] I don’t know why."
+    lloyd_narrating neutral "There’s something very warm and welcoming about a library, and even though I haven’t done much reading at this one, that doesn’t mean that I don’t want to get back into the habit of it."
+    lloyd_narrating neutral "It would be a nice hobby to resume."
+    scene library_day with slow_dissolve
+    lloyd_narrating neutral "I immediately make my way to the reception desk."
+    if (person_visited("cat", "d", 0)):
+        $ swap_sprites("cat_neutral", quick_dissolve)
+        $ current_thought = "cat_thought_170"
+        show screen psychic_powers
+        lloyd_narrating neutral "Cat is sitting there, typing something into a laptop, but she closes it as I approach."
+        lloyd neutral "Hello, Cat."
+        cat "Hello, Lloyd.[wait_1] I haven’t found out who Jack is...[wait_05]although I did have an idea about them..."
+        $ current_thought = "cat_thought_171"
+        lloyd_narrating neutral "She trails off.[wait_1] After roughly twenty seconds of silence I realise that she isn’t planning to resume talking in a hurry."
+        lloyd neutral "Yes?"
+        $ current_thought = "cat_thought_172"
+        cat "No...[wait_1]never mind.[wait_1] It doesn’t make sense..."
+        cat "Sorry, Lloyd.[wait_1] I don’t have anything for you."
+        lloyd neutral "Don’t worry about it.[wait_1] I have good news for you."
+    else:
+        $ swap_sprites("cat_neutral", quick_dissolve)
+        $ current_thought = "cat_thought_170"
+        show screen psychic_powers
+        if (check_boolean("cat_name_discovered")):
+            lloyd_narrating neutral "Cat is sitting there, typing something into a laptop, but she closes it as I approach."
+            lloyd_narrating neutral "It’s hard to read her expression, but I think that she’s slightly surprised to see me."
+            lloyd neutral "Hello, Cat."
+        else:
+            lloyd_narrating neutral "The librarian I’ve previously spoken to is sitting there, typing something into a laptop, but she closes it as I approach."
+            lloyd_narrating neutral "It’s hard to read her expression, but I think that she’s slightly surprised to see me."
+            lloyd neutral "Hello...[wait_05]you."
+            $ current_thought = "cat_thought_31"
+            librarian "I go by Cat."
+            $ add_boolean("cat_name_discovered")
+            lloyd neutral "Well then...[wait_05]hello, Cat.[wait_1] I’m Lloyd."
+        $ current_thought = "cat_thought_173"
+        cat "I didn’t think that I would see you again...[wait_1]I wanted to thank you."
+        lloyd neutral "What for?"
+        cat "I don’t think that you saw me...[wait_1]but I was at the venue on Wednesday."
+        cat "I saw you interact with Sergei on the stage...[wait_1]and saw you run backstage after the noise."
+        lloyd neutral "That’s correct."
+        cat "You were trying to help him, weren’t you?"
+        lloyd neutral "I was.[wait_1] But...[wait_05]I failed."
+        $ current_thought = "cat_thought_174"
+        cat "Thank you even so...[wait_1]you tried."
+        cat "I was his partner, and I...[wait_1]I’m sure that you tried all that you could have."
+        lloyd_thinking thinking "If I’d done all that I could have I’d have saved him from Docherty.[wait_1] He’d still be alive today."
+        lloyd neutral "You’re welcome.[wait_1] I’m sorry that I couldn’t do more."
+        cat "You have nothing to apologise for...[wait_1]it’s the killer who owes me."
+        lloyd neutral "You may not have heard.[wait_1] I have news for you."
+    $ current_thought = "cat_thought_175"
+    lloyd neutral "Sergei’s killer is dead."
+    lloyd_narrating neutral "Cat turns completely silent.[wait_1] Somehow her skin turns even paler."
+    lloyd_narrating neutral "She stares at me without a word for what feels like forever before finally speaking again."
+    $ current_thought = "cat_thought_176"
+    cat "How can you be sure?"
+    lloyd neutral "It happened right before my eyes.[wait_1] He couldn’t be any more deceased if he’d had his head cut off."
+    $ current_thought = "cat_thought_177"
+    cat "It happened in front of you...?[wait_1] Then you’re certain...?"
+    lloyd neutral "Yes.[wait_1] We called the authorities and waited by the body."
+    lloyd neutral "He’s definitely dead."
+    $ swap_sprites("cat_smiling")
+    $ current_thought = "cat_thought_178"
+    cat "Then it seems...[wait_1]justice has been served.[wait_1] Sergei can rest in peace."
+    lloyd_thinking thinking "She really did care about Sergei."
+    $ current_thought = "cat_thought_179"
+    lloyd neutral "How did you and Sergei meet, if you don’t mind my asking?"
+    lloyd_narrating neutral "Cat closes her eyes and falls silent.[wait_1] When she opens them again, she’s smiling; looking happier than I’ve seen her before."
+    cat "It was...[wait_1]years ago.[wait_1] I was working in a shop which specialised in alternative culture and fashion."
+    cat "Clothing of lace and leather...[wait_1]hair dye...[wait_1]piercings...[wait_1]tarot cards...[wait_1]candles...[wait_1]herbs...[wait_1]all of these and more could be purchased there."
+    cat "But it wasn’t any of them which initially brought Sergei there...[wait_1]no...[wait_1]he was there for the books."
+    lloyd neutral "What were the subjects of the books?"
+    $ current_thought = "cat_thought_180"
+    cat "They were books about psychic energies...[wait_1]opening up your third eye and unlocking your chakras...[wait_1]unlocking the true potential of the human brain."
+    cat "Sergei was fascinated by them.[wait_1] He wanted to learn all that he could about extrasensory abilities...[wait_1]about their history and how they worked."
+    lloyd_narrating neutral "If I’d heard this a week ago I would have scoffed."
+    lloyd_narrating neutral "But I know now that psychic powers exist.[wait_1] Sergei had good cause to seek out those books."
+    cat "Sergei asked me for a recommendation...[wait_1]and I gave it to him."
+    cat "We made some small talk as he bought the book...[wait_1]and then he left the store."
+    lloyd neutral "I assume that wasn’t his sole visit."
+    $ current_thought = "cat_thought_181"
+    cat "It wasn’t.[wait_1] He returned a week later, having finished the book and wishing for another."
+    cat "We talked further...[wait_1]he purchased another...[wait_1]the cycle continued."
+    cat "Within several visits I was growing more and more interested in him...[wait_1]his research and the work he was doing...[wait_1]not to mention his personality."
+    cat "I remember a particular turning point between us...[wait_1]the topic had turned to music."
+    $ current_thought = "cat_thought_182"
+    cat "Sergei offered to lend an album to me so that I could listen to it."
+    cat "I would have said yes regardless...[wait_1]but one of the things that intrigued me was him explaining that it was an album he had fallen in love with as a teenager."
+    cat "It was that moment...[wait_1]when he was opening up to me, and sharing a part of his past with me...[wait_1]I realised that very few people were privy to this information."
+    cat "He wanted me to see a part of him that few people had seen...[wait_1]he felt it was something that I should know, and that he trusted me with.[wait_1] It was probably then that I realised I was falling in love with him."
+    $ current_thought = "cat_thought_183"
+    cat "We continued learning about each other, and I felt more and more comfortable with him."
+    cat "He was always polite and listened to me...[wait_1]he didn’t talk down to me or expect me to be subservient."
+    cat "Is that something that you’ve frequently encountered?"
+    $ current_thought = "cat_thought_184"
+    $ swap_sprites("cat_neutral")
+    cat "I’m aware that my fashion sense is...[wait_1]irregular, Lloyd.[wait_1] Believe it or not...[wait_1]this is me toning it down."
+    cat "Because wearing my preferred outfits...[wait_1]it leads to assumptions."
+    cat "People think that I worship and summon demons...[wait_1]or that I drink blood."
+    cat "I have had parents pull their children away from me on the street...[wait_1]questions by authority figures about what my intentions are...[wait_1]all of this is before getting into the sexual side of things."
+    lloyd neutral "Sorry?"
+    $ current_thought = "cat_thought_185"
+    cat "When I wear clothes that I’m more comfortable with...[wait_1]it leads to catcalling."
+    cat "It leads to assumptions that I have daddy issues...[wait_1]that I am a sexual deviant, and that I’m up for anything."
+    cat "My subculture has been fetishised into a grotesque parody of itself by outsiders, twisted to create a more palatable view for them.[wait_1] And that palatable view says: “big titty goth girls are submissive whores.”"
+    lloyd neutral "I didn’t know any of this.[wait_1] I’m sorry to hear that."
+    $ current_thought = "cat_thought_186"
+    cat "Thankfully my colleagues understand...[wait_1]and they don’t mind what I wear."
+    cat "I still tone things down though...[wait_1]to make things easier."
+    cat "With Sergei’s death, though...[wait_1]I’m thinking that I might wear clothes that make me feel more like myself for a bit."
+    $ current_thought = "cat_thought_187"
+    lloyd neutral "What are you planning to do now that his killer is gone?"
+    cat "I don’t entirely know...[wait_1]I’ve started the process of organising Sergei’s funeral, and I’ve been reaching out to as much of his family as possible."
+    cat "There’s a legal side of things to manage...[wait_1]lots of small things that I have to deal with."
+    $ current_thought = "cat_thought_188"
+    lloyd neutral "Should you still be at work while dealing with all of this?"
+    cat "The work is fine...[wait_1]it helps me feel as though my life is still the way it was."
+    cat "It helps keep me busy, and from thinking too much about my feelings...[wait_1]I suppose that at some time in the future, I should probably take a break."
+    cat "But thinking about the future right now...[wait_1]it feels hard."
+    $ current_thought = "cat_thought_189"
+    lloyd neutral "Well, if in the future you want to talk to somebody about your feelings, you’re welcome to reach out to me.[wait_1] I’ll be a shoulder to lean on if you need it, Cat."
+    cat "Thank you, Lloyd.[wait_1] That’s appreciated."
+    hide cat_neutral with quick_dissolve
+    hide screen psychic_powers
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "Cat seems to be fine on her own for now so I leave the library."
+    lloyd_narrating neutral "I hope that she does take up my offer and talk to me; I’m a bit concerned about her."
+    lloyd_narrating neutral "For now though, I have other places to visit."
+
+    $ visit_person("cat", "d", 1)
     return
