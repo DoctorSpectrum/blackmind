@@ -491,6 +491,16 @@ label mind_read_eddie:
     elif (current_thought == "eddie_thought_231"):
         eddie_thoughts "If anybody disagrees...[wait_1]no, better not think of that."
     
+    # D-4
+    elif (current_thought == "eddie_thought_232"):
+        eddie_thoughts "..."
+        eddie "Oh, no, I’d rather you not."
+        lloyd neutral "What?"
+        $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
+        scene black_bg
+        narrator "GAME OVER"
+        $ MainMenu(confirm=False)
+        return
 
     $ ignore_thoughts_length()
     return

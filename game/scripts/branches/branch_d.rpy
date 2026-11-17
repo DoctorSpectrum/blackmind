@@ -395,3 +395,63 @@ label branch_d_4_0:
     lloyd_thinking thinking "Where should I go today?"
 
     call screen map_navigation(find_locations([]))
+
+label branch_d_4_4:
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "It’s evening.[wait_1] If this were one of the past few days I would be making my way to my favourite restaurant for a meal after a busy day of investigating."
+    lloyd_narrating neutral "I’m a little tempted to do so; a habit formed after several days of eating a prepared meal for dinner."
+    lloyd_narrating neutral "Instead I travel towards Eddie’s workplace.[wait_1] I can’t guarantee that he’ll be present but it’s what we agreed on."
+    lloyd_narrating neutral "Although Docherty has been stopped it still feels like there’s a lot to do."
+    lloyd_narrating neutral "Eddie will no doubt have a story to tell about the dangerous serial killer who was only stopped by his efforts.[wait_1] I don’t blame him for making himself the hero."
+    lloyd_narrating neutral "He did enough investigating and fired the fatal bullet, saving my life in the process.[wait_1] He’s earned it."
+    lloyd_narrating neutral "For my part, I’m hoping that Eddie will put in a good word for me and allow me to provide photos for the article.[wait_1] This whole incident should let me get a foot in the door at the newspaper, and it will hopefully lead to a steady job once again."
+    lloyd_narrating neutral "I’ve been thinking about the article that Eddie will write. He’s already done most of the research."
+    lloyd_narrating neutral "From what he said before we were interrupted last night he has the answers to some of the questions that I don’t."
+    lloyd_narrating neutral "There’s likely just one remaining mystery hanging over him:[wait_05] who is my source, and how did I know that Docherty was the killer?"
+    lloyd_narrating neutral "I’ve decided to tell Eddie the truth.[wait_1] I’m going to tell him that I have psychic abilities, and that I initially discovered the truth through a vision of the future."
+    lloyd_narrating neutral "I doubt that Eddie will believe me.[wait_1] I’d prefer it if he didn’t make the information public."
+    lloyd_narrating neutral "But he has a right to know what I can do and where I acquired my information.[wait_1] It’s up to him to decide what to do with that."
+    scene office_interview_room with slow_dissolve
+    lloyd_narrating neutral "I’ve been directed to a different yet identical interview room as the other one is still having its doors fixed."
+    lloyd_narrating neutral "I want this to be the last time that I’m on this side of the table."
+    lloyd_narrating neutral "The next time that I enter this building I want to be asking which desk I should sit at as I begin work for the day."
+    lloyd_narrating neutral "After a short while Eddie enters."
+    $ swap_sprites("eddie_arrogant", quick_dissolve)
+    $ current_thought = "eddie_thought_232"
+    show screen psychic_powers
+    lloyd neutral "Hello, Eddie.[wait_1] Everything with the police is dealt with, I take it?"
+    eddie "Hmm?[wait_1] Oh, yeah, of course."
+    eddie "They’re not going to be an issue for me any time soon."
+    lloyd neutral "And how are you feeling after last night?[wait_1] Did you work today?"
+    eddie "You mean here?[wait_1] At the newspaper?[wait_1] Heh."
+    eddie "I’ve got much more important things to be doing, Chen."
+    lloyd_thinking thinking "Is it my imagination, or is he acting strangely?"
+    lloyd neutral "Do you mean that you were working on the story about Docherty?"
+    eddie "Sure, let’s go with that."
+    lloyd_narrating neutral "He is acting strangely."
+    lloyd_narrating neutral "I’m unsure of the change in attitude but I continue regardless.[wait_1] I’ve already made up my mind."
+    lloyd neutral "Regarding the story about Docherty...[wait_05]there’s something that I need to tell you about it."
+    eddie "Oh yeah?"
+    lloyd neutral "I told you several days ago that I needed you to find out who he was as I’d been told about him by a source.[wait_1] That was a lie."
+    lloyd_thinking thinking "...No additional comments from him."
+    lloyd neutral "I –[wait_05] I didn’t have a source that I was getting my information from."
+    lloyd neutral "I was –[wait_05] I’d had a vision of the future."
+    lloyd neutral "It sounds improbable, but I knew that it was real, because I had –[wait_05] I have psychic abilities."
+    eddie "I know."
+    lloyd scared "You –[wait_05] you know?"
+    eddie "Of course I do."
+    eddie "It was obvious from the way you were sticking your nose into my plans.[wait_1] You almost ruined them, too."
+    lloyd scared "Your plans?[wait_1] But –[wait_05] but Docherty was –"
+    scene cg10_0 with slow_dissolve
+    eddie "Don’t you get it?[wait_1] Docherty wasn’t acting on his own."
+    eddie "A man like him, working with such precision and care?[wait_1] Don’t be ridiculous."
+    eddie "He was under my control the entire time."
+    lloyd scared "But then why did you –"
+    eddie "You think that I’m telling you this because I want to answer your questions?[wait_1] No, you fool."
+    eddie "I’m telling you this because I want to give you some closure in your last moments."
+    eddie "Goodbye, Chen."
+    $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
+    hide screen psychic_powers
+    scene black_bg
+    narrator "ENDING D"
+    $ MainMenu()

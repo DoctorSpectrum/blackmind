@@ -18,6 +18,8 @@ label eddie_investigation:
         jump eddie_c_4
     elif (branch == "d" and day == 3):
         jump eddie_d_3
+    elif (branch == "d" and day == 4):
+        jump branch_d_4_4
     
     return
 
