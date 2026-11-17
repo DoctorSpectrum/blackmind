@@ -6,7 +6,7 @@ label prologue_01:
     show cg1_0 at cg_1_teaser
     $ unlock_cg(0, 0)
     $ docherty_partial("calm_01")
-    docherty "I apologise for this, young man, but you are in the way of my plan." (name="???")
+    unknown "I apologise for this, young man, but you are in the way of my plan." (name="???")
     hide cg1_0
     show cg1_1
     $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
@@ -669,7 +669,7 @@ label prologue_14:
     jack worried "There’s -[wait_05] somebody’s after me, and they’re -[wait_05] I -[wait_05] I don’t know if I can get away without some help."
     jack worried "Do you -[wait_05] do you have a car, or...?"
     $ docherty_partial("calm_01")
-    docherty "I apologise for this, young man, but you are in the way of my plan."
+    man_in_black "I apologise for this, young man, but you are in the way of my plan."
     $ jack_partial("confused_02")
     jack angry "What do you -"
     hide screen calendar
@@ -883,7 +883,7 @@ label prologue_help_jack:
     lloyd_narrating neutral "Instead, I’m somewhere dark, facing someone with a gun."
     lloyd_narrating neutral "I don’t know what’s happening, or how I’ve gotten here, but I know that it’s not a dream."
     lloyd_narrating neutral "I’m wide awake, and this feels too real."
-    docherty "You are in my way.[wait_1] You must be removed."
+    man_in_black "You are in my way.[wait_1] You must be removed."
     lloyd_narrating scared "For a moment I panic, before I realise that the man isn’t looking at me."
     lloyd_narrating scared "I can’t see who he’s pointing his gun at, but it’s clear that he’s about to shoot them; to end a life."
     lloyd scared "No![wait_1] St-"

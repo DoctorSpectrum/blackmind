@@ -502,5 +502,16 @@ label mind_read_eddie:
         $ MainMenu(confirm=False)
         return
 
+    # E-3-4
+    elif (current_thought == "eddie_thought_233"):
+        eddie_thoughts "He {i}really{/i} owes me now.[wait_1] Good."
+    elif (current_thought == "eddie_thought_234"):
+        eddie_thoughts "What the hell is he talking about?"
+    elif (current_thought == "eddie_thought_235"):
+        eddie_thoughts "He doesn’t seem as shocked as I am."
+    elif (current_thought == "eddie_thought_236"):
+        eddie_thoughts "You’re welcome, Chen."
+    
+
     $ ignore_thoughts_length()
     return

@@ -5,6 +5,8 @@ label mind_read_docherty:
     elif (current_thought == "docherty_thought_02"):
         docherty_thoughts "..."
         lloyd_thinking scared "I can’t read his mind![wait_1] But that means..."
+    elif (current_thought == "docherty_thought_03"):
+        docherty_thoughts "{size=-8}Pain...[wait_1]hurts...[wait_1]to breathe...{/size}"
 
     $ ignore_thoughts_length()
     return

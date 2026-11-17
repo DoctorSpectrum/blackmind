@@ -2,7 +2,7 @@ label variables:
     
     define barbara= Character("Barbara", what_color="#000")
     define cat = Character("Cat", what_color="#000")
-    define docherty = Character("???", what_color="#000")
+    define docherty = Character("Docherty", what_color="#000")
     define eddie = Character("Eddie", what_color="#000")
     define graves = Character("Graves", what_color="#000")
     define jack = Character("Jack", what_color="#000", image="jack")
