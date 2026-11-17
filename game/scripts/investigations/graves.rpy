@@ -18,6 +18,8 @@ label graves_investigation:
         jump graves_c_4
     elif (branch == "d" and day == 3):
         jump graves_d_3
+    elif (branch == "d" and day == 4):
+        jump graves_d_4
     
     return
 
@@ -1519,3 +1521,165 @@ label graves_d_3:
 
     $ visit_person("graves", "d", 0)
     return 
+
+label graves_d_4:
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "There will be no more murders." 
+    lloyd_narrating neutral "I may not have discovered why Allan Docherty was killing the people that he did, how he survived his supposed death in prison, or who Sergei’s associate Jack is, but none of it matters."
+    lloyd_narrating neutral "Eddie has killed Docherty and he can’t commit any more murders."
+    lloyd_narrating neutral "We’ll eventually work together to close off the mysteries and discover what the truth behind the case is.[wait_1] There is more to this story than I’ve seen and I will determine what has happened."
+    lloyd_narrating neutral "But the most important thing is that Docherty is gone for good."
+    lloyd_narrating neutral "I start making my way towards Graves’ detective agency.[wait_1] I never pictured myself requiring a private investigator or there being a need to know one."
+    lloyd_narrating neutral "At {i}The Brief{/i} I only ever took the photos that I was assigned to take, and didn’t have any input into the stories or have to assist with any reporting."
+    lloyd_narrating neutral "There was never a need for me to investigate anything before I received my visions of Sergei being killed."
+    lloyd_narrating neutral "But I don’t regret meeting Graves or asking for his assistance.[wait_1] He’s a good person, and I’ll miss my regular interactions with him"
+    scene detective_office with slow_dissolve
+    $ swap_sprites("graves_smiling", slow_dissolve)
+    $ current_thought = "graves_thought_242"
+    show screen psychic_powers
+    lloyd_narrating neutral "When I open the office door Graves is leaning back in his chair, his arms behind his head."
+    lloyd_narrating neutral "Upon seeing me, however, he leaps from the chair and reaches out to embrace me."
+    graves "Lloyd![wait_1] I was just thinking about you!" 
+    graves "How’s it going?[wait_1] Can I get you anything?"
+    $ current_thought = "graves_thought_243"
+    lloyd neutral "Nothing at all, Graves, and I really do mean that."
+    graves "Oh?[wait_1] This is just a social call?"
+    graves "If it’s not business related I can’t chat for too long, but I’m not going to say no to a break."
+    $ current_thought = "graves_thought_244"
+    lloyd neutral "It is business related.[wait_1] I’ve come in today to tell you that I’d like you to put a pause on our ongoing investigations."
+    graves "Oh.[wait_1] So, I hope you don’t mind if I –[wait_05] can I ask why that is?"
+    $ current_thought = "graves_thought_245"
+    lloyd neutral "They’re not required at present."
+    $ current_thought = "graves_thought_246"
+    if (person_visited("graves", "d", 0)):
+        lloyd neutral "The person that I wanted to find, Allan Docherty, is dead."
+    elif (person_visited("graves", "a", 0)):
+        lloyd neutral "I initially wanted you to find the man in black –[wait_05] someone called Allan Docherty."
+        graves "I found out about him during my investigations.[wait_1] He died in prison."
+        lloyd neutral "You thought that he was dead.[wait_1] But he was alive."
+        $ swap_sprites("graves_thinking")
+        graves "And you found him?"
+        lloyd neutral "I did.[wait_1] But now he’s dead."
+        graves "...Again?"
+    else:
+        lloyd neutral "I’ve been looking for a man named Allan Docherty.[wait_1] As of last night, he’s dead."
+        graves "Sorry to hear that, Lloyd."
+        lloyd neutral "Docherty was a murderer.[wait_1] I’d rather that he had lived, but I’m not going to mourn his death."
+    graves "Can you tell me what happened?[wait_1] How did he die?"
+    $ current_thought = "graves_thought_247"
+    if (person_visited("graves", "d", 0) or person_visited("graves", "a", 0)):
+        lloyd neutral "I was meeting with a colleague yesterday.[wait_1] He’d been looking into Docherty and how he’d survived after being reported killed in prison."
+    else:
+        lloyd neutral "I was meeting with a colleague yesterday.[wait_1] Docherty had been reported killed in prison, but I’d encountered him in-person after his supposed death."
+        lloyd neutral "My colleague was investigating how he might have survived."
+    $ current_thought = "graves_thought_248"
+    lloyd neutral "Before we could get too far into the discussion, however, Docherty arrived.[wait_1] He had a gun with him."
+    graves "Your colleague –[wait_05] is he alright?"
+    $ current_thought = "graves_thought_249"
+    lloyd neutral "He’s fine.[wait_1] Docherty shot at us, but he missed."
+    graves "That’s a relief.[wait_1] I’m assuming that the authorities were called, and one of them shot Docherty?"
+    $ current_thought = "graves_thought_250"
+    lloyd neutral "Incorrect.[wait_1] We were at my colleague’s workplace, and he had a gun in his desk drawer."
+    lloyd neutral "He was able to retrieve it and kill Docherty."
+    $ swap_sprites("graves_thinking")
+    $ current_thought = "graves_thought_251"
+    graves "And...[wait_05]that’s it, then?[wait_1] You don’t want me to keep investigating because you think it’s all over?"
+    lloyd neutral "There are still several unsolved questions about the entire case."
+    lloyd neutral "I’m going to meet with my colleague tonight and we’ll share information, and then work out what answers we’re still missing."
+    lloyd neutral "We might require your services to find some of them, but the main case is wrapped up."
+    $ swap_sprites("graves_intimidating")
+    $ current_thought = "graves_thought_252"
+    graves "Lloyd, I really don’t mean to be this harsh.[wait_1] But are you an idiot?"
+    lloyd_thinking thinking "What does this dumb child think he’s saying?"
+    lloyd neutral "What do you mean, Graves?"
+    graves "Does none of that strike you as suspicious?[wait_1] Or set up?"
+    $ current_thought = "graves_thought_253"
+    lloyd neutral "Which parts are you talking about?"
+    $ swap_sprites("graves_thinking")
+    graves "Okay, so I’ll buy that Docherty somehow –[wait_05] that he maybe guessed that the two of you were at your colleague’s workplace, and decided to go there."
+    graves "Tell me, though –[wait_05] how far away was he when he shot at you?"
+    $ current_thought = "graves_thought_254"
+    lloyd neutral "Maybe twenty metres."
+    graves "And he didn’t hit either of you?[wait_1] Not even a flesh wound?" 
+    graves "How bad a shot is he?"
+    lloyd neutral "I couldn’t tell you.[wait_1] I’m not familiar with handguns."
+    $ current_thought = "graves_thought_255"
+    graves "Then, the next thing is –[wait_1] you’re telling me that your colleague went and got a gun from his desk, right?"
+    lloyd neutral "Correct."
+    $ swap_sprites("graves_intimidating")
+    graves "What was the gun doing there?[wait_1] Was it –[wait_05] I mean, better question, what does your colleague do for a living?"
+    lloyd neutral "He’s a photographer."
+    graves "You see what I mean?[wait_1] Why does he have a gun in his desk if he’s just a photographer?"
+    lloyd neutral "...I couldn’t tell you."
+    $ current_thought = "graves_thought_256"
+    graves "And then on top of all that, this guy, he –[wait_05] he shoots Docherty dead?[wait_1] Who does that?"
+    lloyd neutral "He might have been shooting to wound but misjudged his shot.[wait_1] Or he judged it to be the only way to save the two of us."
+    lloyd neutral "We were being shot at, after all."
+    $ swap_sprites("graves_thinking")
+    graves "...Alright, that’s pretty fair;[wait_05] I’ll give you that."
+    $ current_thought = "graves_thought_257"
+    graves "I just –[wait_05] does it sound kind of suspicious to you when I point some of that stuff out?[wait_1] Does it sound like you’re maybe…missing something?"
+    lloyd neutral "I do hear you, Graves, but I think you’re being a bit paranoid."
+    lloyd neutral "I can’t explain why my colleague had a gun, but as for the rest of it...[wait_05]if you were there, you’d know how real it all was."
+    $ swap_sprites("graves_smiling")
+    $ current_thought = "graves_thought_258"
+    graves "Fair enough.[wait_1] I guess that hearing it from the outside is –[wait_05] it felt odd to me, is all."
+    graves "But if you think that everything happened as it did, then I’ll trust your judgement."
+    lloyd_thinking thinking "I hope that Graves is wrong.[wait_1] I want this to be over."
+    if (person_visited("graves", "a", 0) and person_visited("graves", "d", 0)):
+        $ current_thought = "graves_thought_259"
+        graves "By the way, I looked into the situation with Docherty supposedly dying at the prison.[wait_1] Our discussion yesterday had me curious about it."
+        lloyd neutral "What did you find out?"
+        graves "It was faked.[wait_1] I placed some calls and it looks like the death certificate was written up, but Docherty never actually died at the prison."
+        $ current_thought = "graves_thought_260"
+        lloyd neutral "Why was it made?"
+        graves "I don’t know.[wait_1] There’s still an ongoing investigation into it."
+        graves "The administrator that entered the death certificate swears that he doesn’t remember doing so, but he could easily be lying."
+        lloyd neutral "Do you think that he is?"
+        $ swap_sprites("graves_thinking")
+        $ current_thought = "graves_thought_261"
+        graves "I’m not sure.[wait_1] I think that it’s safe to say that Docherty wasn’t working on his own, though."
+        graves "He couldn’t have faked his own death certificate."
+        lloyd neutral "...I wish that you’d told me that earlier."
+    $ current_thought = "graves_thought_262"
+    graves "Anyway, given all of that, are you sure that you want me to put the current investigations on hold?[wait_1] I’m happy to continue working the case."
+    lloyd_thinking thinking "Even putting aside Graves’ concerns, there are several things which Eddie and I need to look into."
+    $ current_thought = "graves_thought_263"
+    lloyd neutral "...Yes, put them on hold."
+    lloyd neutral "I’d like to do some work with my colleague and get to know him better.[wait_1] It seems I have a lot to make up for."
+    $ swap_sprites("graves_smiling")
+    graves "Got it;[wait_05] you’re the boss."
+    graves "If I’m not going to be seeing you again for the –[wait_05] in the near future, though, can I ask you something, Lloyd?"
+    lloyd neutral "Certainly."
+    $ swap_sprites("graves_thinking")
+    $ current_thought = "graves_thought_264"
+    graves "Why do you always wear that same jacket every single day?"
+    lloyd neutral "What?[wait_1] I could ask you the same question!"
+    $ swap_sprites("graves_intimidating")
+    graves "No you couldn’t."
+    lloyd neutral "Yes I could!"
+    $ current_thought = "graves_thought_265"
+    graves "For your information, this isn’t the same jacket."
+    lloyd neutral "Oh really?"
+    graves "I have four different jackets with the same design.[wait_1] I wear a different one each day."
+    $ swap_sprites("graves_thinking")
+    $ current_thought = "graves_thought_266"
+    graves "...Do you know how to wash leather jackets?"
+    lloyd neutral "Not really."
+    graves "Damn.[wait_1] So much for my plan."
+    $ current_thought = "graves_thought_267"
+    lloyd neutral "I do actually have a question of my own, Graves.[wait_1] How come I never see your partner around?"
+    $ swap_sprites("graves_smiling")
+    graves "Out on a big case at the moment."
+    lloyd_thinking thinking "Is that really true...?"
+    $ current_thought = "graves_thought_268"
+    lloyd neutral "I’d better be going, especially given you said you couldn’t talk for long."
+    lloyd neutral "Thank you for your help, Graves.[wait_1] It’s truly appreciated."
+    graves "No worries, Lloyd.[wait_1] If you do decide you need us, we’ll welcome you back with open arms."
+    hide graves_smiling with quick_dissolve
+    hide screen psychic_powers
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "I leave the building and start thinking about my next destination."
+
+    $ visit_person("graves", "d", 1)
+    return
