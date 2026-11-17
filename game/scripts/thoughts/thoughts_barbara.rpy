@@ -558,6 +558,58 @@ label mind_read_barbara:
     elif (current_thought == "barbara_thought_259"):
         barbara_thoughts "Not even two minutes since he asked me whether I knew anything and he’s already leaving.[wait_1] He’s hot, but he doesn’t really think about others."
     
+    # D-4-4
+    elif (current_thought == "barbara_thought_260"):
+        barbara_thoughts "Phew, he did come by.[wait_1] I would have felt like a bit of an idiot if he hadn’t!"
+    elif (current_thought == "barbara_thought_261"):
+        barbara_thoughts "What has he been looking into all this time, anyway?[wait_1] I barely understand it."
+    elif (current_thought == "barbara_thought_262"):
+        barbara_thoughts "Which means that it’s a good thing I didn’t put that much effort into looking into Jack.[wait_1] Phew!"
+    elif (current_thought == "barbara_thought_263"):
+        barbara_thoughts "Shit...[wait_05]should I have been paying more attention when he visited in the past?[wait_1] Do I need to congratulate him on something specific?"
+    elif (current_thought == "barbara_thought_264"):
+        barbara_thoughts "Wait, he’s not coming back again?[wait_1] But then...[wait_05]that means..."
+    elif (current_thought == "barbara_thought_265"):
+        barbara_thoughts "Well, I’ve sort of been happy to help.[wait_1] His timing sure could have been a bit better." 
+    elif (current_thought == "barbara_thought_266"):
+        barbara_thoughts "Bit of a non-answer, there.[wait_1] I never really found out why he was looking into the stuff that he was –[wait_05] is he intentionally hiding his next plans from me?"
+    elif (current_thought == "barbara_thought_267"):
+        barbara_thoughts "Will this be enough to convince him to return?"
+    elif (current_thought == "barbara_thought_268"):
+        barbara_thoughts "Right now?[wait_1] I wanted to finish filling out that form, but screw it –[wait_05] gotta take advantage of opportunity when it arrives!"
+    elif (current_thought == "barbara_thought_269"):
+        barbara_thoughts "Maybe he doesn’t normally drink, but he’s making an exception for me! That’s got to mean something, right?"
+    elif (current_thought == "barbara_thought_270"):
+        barbara_thoughts "Thank god, he does like alcohol.[wait_1] The wedding can go ahead!"
+    elif (current_thought == "barbara_thought_271"):
+        barbara_thoughts "I feel like he probably doesn’t like sweet drinks –[wait_05] he doesn’t seem like the kind of guy that has much of a sweet tooth."
+    elif (current_thought == "barbara_thought_272"):
+        barbara_thoughts "There is no way that he’s told me anywhere near the truth about his mysterious investigation that’s just been solved."
+    elif (current_thought == "barbara_thought_273"):
+        barbara_thoughts "Why would he –[wait_05] oh, wait, he’s probably only bought premixed.[wait_1] I’ll have to show him what proper quality is some time."
+    elif (current_thought == "barbara_thought_274"):
+        barbara_thoughts "Did I forget to review the security footage last night?[wait_1] I did, come to think of it."
+    elif (current_thought == "barbara_thought_275"):
+        barbara_thoughts "I did have to replace that whiskey bottle much sooner than I thought I did, though...[wait_05]it’s almost like..."
+    elif (current_thought == "barbara_thought_276"):
+        barbara_thoughts "Go with the classic?[wait_1] Yeah, I’ll go with the classic."
+    elif (current_thought == "barbara_thought_277"):
+        barbara_thoughts "C’mon Lloyd...[wait_05]tell me that it’s good..."
+    elif (current_thought == "barbara_thought_278"):
+        barbara_thoughts "Phew![wait_1] Gambled a little on him liking coffee, but it looks like it paid off!"
+    elif (current_thought == "barbara_thought_279"):
+        barbara_thoughts "Should I tell Lloyd some of the stories about those parties?[wait_1] ...No, they might put him off a bit.[wait_1] Maybe if we do this again some time."
+    elif (current_thought == "barbara_thought_280"):
+        barbara_thoughts "God, when was the last time I actually had more than two or three drinks?[wait_1] It’s been too long."
+    elif (current_thought == "barbara_thought_281"):
+        barbara_thoughts "I should let him pay, but...[wait_05]this sort of conversation, this sort of atmosphere –[wait_05] it’s the exact sort of thing I want to encourage here.[wait_1] I’d feel bad charging when he’s reminded me of why I wanted to take over the bar."
+    elif (current_thought == "barbara_thought_282"):
+        barbara_thoughts "...I guess if he pays for this, I can pay for the drinks next time."
+    elif (current_thought == "barbara_thought_283"):
+        barbara_thoughts "It’s now or never, Barbara!"
+    elif (current_thought == "barbara_thought_284"):
+        barbara_thoughts "He said yes![wait_1] He said yes!"
+    
 
     $ ignore_thoughts_length()
     return

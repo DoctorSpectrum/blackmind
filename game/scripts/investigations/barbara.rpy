@@ -18,6 +18,8 @@ label barbara_investigation:
         jump barbara_c_4
     elif (branch == "d" and day == 3):
         jump barbara_d_3
+    elif (branch == "d" and day == 4):
+        jump barbara_d_4
     
     return
 
@@ -1505,4 +1507,150 @@ label barbara_d_3:
     lloyd_narrating neutral "It’s time to make my way to the next destination."
 
     $ visit_person("barbara", "d", 0)
+    return
+
+label barbara_d_4:
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "Even though it’s a long distance to travel, there’s enough time in the day for me to travel to Icarus and talk to Barbara."
+    lloyd_narrating neutral "Now that Docherty has been stopped I’d like to thank Barbara for her assistance and for giving me support."
+    lloyd_narrating neutral "I can also inform her that I don’t need her help any further, something that she’ll surely be relieved to hear."
+    lloyd_narrating neutral "Although I’m waiting for the train for a while, and the journey itself will take some time, I’m not feeling upset or impatient."
+    lloyd_narrating neutral "The train ride is enjoyable in its own way, helped by the knowledge that I’ll be seeing Barbara at the other end."
+    lloyd_thinking thinking "Should I maintain a friendship with Barbara in the future?[wait_1] Continue visiting her bar, and get to know her better?"
+    lloyd_narrating neutral "It’s something to think about at another date.[wait_1] For now I’m only thinking about the present."
+    scene bar with slow_dissolve
+    lloyd_narrating neutral "The bar is probably as comfortable as ever today.[wait_1] The atmosphere feels comfortable, it’s not noticeably unclean, and the temperature is moderate."
+    lloyd_narrating neutral "I barely notice any of it, though, as my attention is taken up by Barbara."
+    $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ current_thought = "barbara_thought_260"
+    show screen psychic_powers
+    lloyd_narrating neutral "There’s a subtle scent in the area, separate to the scent of the bar, which I deduce is perfume that she’s wearing."
+    lloyd_narrating neutral "She’s applied a little more makeup than usual today, thankfully in subtle enough quantities that it’s not overwhelming."
+    lloyd_narrating neutral "I’m unsure why she’s put in extra effort today, but it does complement her well."
+    barbara "Hey, Lloyd![wait_1] How are you doing today?"
+    lloyd neutral "Hello, Barbara.[wait_1] I’m doing very well."
+    $ current_thought = "barbara_thought_261"
+    barbara "Oh yeah?[wait_1] You manage to make a bit of a breakthrough in your investigation stuff?[wait_1] Or you’re just confident that I can give you one?"
+    lloyd neutral "The former.[wait_1] As a matter of fact, the case is essentially finished."
+    lloyd neutral "I’m meeting with a colleague tonight to discuss how we want to wrap things up and create a story about it."
+    barbara "Wow, really?[wait_1] Congratulations, that’s great to hear!"
+    if (person_visited("barbara", "d", 0)):
+        $ current_thought = "barbara_thought_262"
+        barbara "I guess you found out what you needed to about that Jack guy?"
+        lloyd neutral "Not exactly, but the core of the case has resolved itself."
+    else:
+        lloyd neutral "Thank you."
+    $ current_thought = "barbara_thought_263"
+    lloyd neutral "I trust you understand what this all means?"
+    $ swap_sprites("barbara_thinking")
+    barbara "Um, not exactly."
+    $ current_thought = "barbara_thought_264"
+    lloyd neutral "It’s good news for you: from here I won’t need your assistance any further.[wait_1] You can work your duties at the bar on your own time, without having it drained by my requests."
+    $ swap_sprites("barbara_smiling")
+    $ current_thought = "barbara_thought_265"
+    barbara "Aww, c’mon, Lloyd![wait_1] It wasn’t that bad –[wait_05] I’ve been happy to help you out!"
+    barbara "And even if you’re not going to be asking me for stuff any more, you’re still going to come by in the future, right?"
+    barbara "What are your plans from here?[wait_1] What’s up next?"
+    $ current_thought = "barbara_thought_266"
+    lloyd neutral "I’m not entirely sure, to be honest.[wait_1] I suppose that working my plans out is the next step."
+    lloyd_thinking thinking "A lot of it will depend upon what happens with Eddie.[wait_1] I should be able to talk to him tonight and find out what his intentions are."
+    lloyd_thinking thinking "Ideally I’d like to work with him to write a story about Docherty.[wait_1] Between what I know about the investigation and his journalistic contacts, that should be enough leverage to get me some work."
+    lloyd_thinking thinking "We will need to dig deeper into the story.[wait_1] We don’t know what Docherty’s motivations were, or why he was reported killed in prison."
+    lloyd_thinking thinking "Those answers will come later, though."
+    $ current_thought = "barbara_thought_267"
+    barbara "Well, if you want to nurse a drink while you do work it out, feel free to let me know, Lloyd![wait_1] I’m more than happy to help you out in that area."
+    $ current_thought = "barbara_thought_268"
+    lloyd neutral "Why not?[wait_1] What would you recommend, Barbara?"
+    barbara "Wait, what?[wait_1] Did I hear you right?[wait_1] You’re actually ordering a drink?"
+    $ current_thought = "barbara_thought_269"
+    lloyd neutral "I am in a bar, aren’t I?"
+    barbara "Not just {i}a{/i} bar –[wait_05] the best damn bar in the entire city!"
+    barbara "You just didn’t seem that interested previously, so I thought you were a lost cause."
+    $ current_thought = "barbara_thought_270"
+    lloyd neutral "I’m not a heavy drinker, but that doesn’t mean I never partake."
+    barbara "Would have been nice to know that earlier in the week!" 
+    barbara "Anyway, you wanted a recommendation, you said?[wait_1] What are you in the mood for –[wait_05] a craft beer?[wait_1] A spirit?[wait_1] A cocktail?"
+    lloyd neutral "I wouldn’t disagree with a cocktail.[wait_1] I’m technically celebrating completing my investigation."
+    $ current_thought = "barbara_thought_271"
+    barbara "Oh, really?[wait_1] I would have guessed you were more a drinker of spirits."
+    barbara "You know, raising that camera of yours and taking some sort of moody, shadowy shot, then pausing to have a swig of something dark and bitter."
+    barbara "“Maybe I lie from time to time, but my camera never does.[wait_1] Together, we solve the cases that no one else will touch.”"
+    $ current_thought = "barbara_thought_272"
+    lloyd neutral "What makes you think that I lie?"
+    barbara "Oh, nothing –[wait_05] I was just saying it for the line.[wait_1] It feels fitting with the spirit."
+    lloyd neutral "I think that you’ve been reading too many crime novels." 
+    $ current_thought = "barbara_thought_273"
+    lloyd neutral "But no, I’m not a fan of spirits.[wait_1] I’ve found that either the mixer overwhelms them, or they’re absurdly strong to combat the mixer."
+    barbara "That’s not the case when I make ‘em, but there’s no need to justify yourself."
+    barbara "That reminds me, actually –[wait_05] I had the weirdest thing happen the other night."
+    $ current_thought = "barbara_thought_274"
+    lloyd neutral "Relating to spirits?"
+    $ swap_sprites("barbara_thinking")
+    barbara "Yeah.[wait_1] This guy came in, chatted to me for a little bit, then asked if he could have a free drink since he was a reviewer."
+    barbara "He wanted a whiskey."
+    lloyd neutral "What’s so strange about that?"
+    barbara "It was only when he claimed that he was a reviewer that I realised –[wait_05] he was drunk off his ass!"
+    barbara "He could barely stand straight, and all of his words were slurred.[wait_1] I’m a little ashamed of myself for not picking it up earlier, to be honest."
+    lloyd_thinking thinking "Something about this story…why do I get a sense of {i}déjà vu{/i}?"
+    $ current_thought = "barbara_thought_275"
+    lloyd neutral "At least you realised before you poured him a drink."
+    $ swap_sprites("barbara_smiling")
+    barbara "Yeah, that’s true."
+    $ current_thought = "barbara_thought_276"
+    barbara "Anyway, sorry –[wait_05] I’m supposed to be making you a cocktail, aren’t I?[wait_1] Give me a few."
+    lloyd neutral "You’re not going to ask what flavour I want?"
+    lloyd_narrating neutral "She winks at me."
+    barbara "Trust me."
+    lloyd_narrating neutral "Barbara presses a few buttons on a nearby machine, creating a horrible grinding noise."
+    lloyd_narrating neutral "She then picks up a bottle of dark liquid and pours some into a shaker, followed by a clear liquid."
+    lloyd_narrating neutral "By the time she’s finished there, the machine is dispensing another dark liquid, which she puts into the shaker."
+    # SFX - cocktail shaking
+    lloyd_narrating neutral "Once she’s finished shaking it, she pours it into a martini glass."
+    lloyd_narrating neutral "The cocktail is a heavy dark brown, but topped with a light foam."
+    $ current_thought = "barbara_thought_277"
+    barbara "Alright, let me know what you think of that."
+    lloyd_narrating neutral "I have a sip."
+    $ current_thought = "barbara_thought_278"
+    lloyd neutral "This is good, Barbara.[wait_1] I didn’t realise that cocktails could have a coffee flavour."
+    barbara "Never heard of an espresso martini?[wait_1] Wow, you really don’t drink a lot."
+    $ current_thought = "barbara_thought_279"
+    barbara "This was my go-to drink in high school.[wait_1] Bit difficult to take to parties, granted, but I made do with a bottle of premix."
+    lloyd_narrating neutral "I drink some more of the cocktail, licking the foam off my lips once I’m done."
+    lloyd_narrating neutral "The bitterness of the coffee is offset by the sweetness of one of its other ingredients."
+    lloyd neutral "I suppose you were drinking before most of your friends?"
+    barbara "Well...[wait_05]yeah.[wait_1] It kind of comes with the territory."
+    barbara "Mum said that she was fine with me drinking alcohol once I was a teenager –[wait_05] she knew it was bound to happen regardless –[wait_05] so long as I didn’t get drunk."
+    barbara "I did, of course –[wait_05] I was a petty teenager who thought that she was too cool to obey her parents –[wait_05] but I learned to be responsible much sooner than pretty much everybody I knew."
+    lloyd_narrating neutral "The one problem with the cocktail is that the glass it’s served in isn’t particularly big.[wait_1] I’ve already finished most of what Barbara’s served me."
+    $ current_thought = "barbara_thought_280"
+    barbara "It also helps that I developed a pretty strong stomach for alcohol pretty quickly."
+    barbara "It doesn’t really come up these days, but if I need to, I can drink pretty much anyone under the table.[wait_1] I’ve also got a nice party trick where I down a pint in twelve seconds."
+    lloyd neutral "I’d normally be wondering why you want to drink something that fast, but after this cocktail, I can somewhat see the appeal.[wait_1] That was delicious, Barbara."
+    $ current_thought = "barbara_thought_281"
+    lloyd_narrating neutral "I take out my card to pay her and she shakes her head."
+    barbara "It’s on the house."
+    $ current_thought = "barbara_thought_282"
+    lloyd neutral "After your assistance?[wait_1] I insist."
+    lloyd_narrating neutral "Barbara hesitates for a few seconds before retrieving the machine for payment.[wait_1] I tap my card and pay for the drink."
+    lloyd_narrating neutral "The price seems too low by my understanding, but I trust Barbara to know what she’s doing."
+    $ current_thought = "barbara_thought_283"
+    lloyd neutral "I’m going to head off now, Barbara.[wait_1] Thank you once again for the drink, and for your help."
+    barbara "Yeah.[wait_1] Um, Lloyd..."
+    lloyd neutral "Yes?"
+    barbara "Not that it’d be as good as what I make, but if you enjoyed that espresso martini...[wait_05]would you want to go out for a drink some time?"
+    barbara "Just you and me, together."
+    $ current_thought = "barbara_thought_284"
+    lloyd neutral "Certainly.[wait_1] That sounds good."
+    lloyd_narrating neutral "Barbara giggles a little, then stifles it.[wait_1] She looks a little embarrassed."
+    barbara "Alright, well...[wait_05]here’s my number.[wait_1] Let me know when works for you and I’ll clear up my schedule here."
+    lloyd neutral "Sounds like a plan, Barbara.[wait_1] I’ll talk to you soon."
+    barbara "Great.[wait_1] See you!"
+    lloyd neutral "Goodbye."
+    hide barbara_smiling with quick_dissolve
+    hide screen psychic_powers
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "I didn’t expect that to be the outcome when I came to Icarus today, but I’m not complaining about it."
+    lloyd_narrating neutral "I exit the bar and make my way to my next destination."
+
+    $ visit_person("barbara", "d", 1)
     return
