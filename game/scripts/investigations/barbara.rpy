@@ -20,6 +20,8 @@ label barbara_investigation:
         jump barbara_d_3
     elif (branch == "d" and day == 4):
         jump barbara_d_4
+    elif (branch == "e"):
+        jump barbara_e_4
     
     return
 
@@ -1653,4 +1655,122 @@ label barbara_d_4:
     lloyd_narrating neutral "I exit the bar and make my way to my next destination."
 
     $ visit_person("barbara", "d", 1)
+    return
+
+label barbara_e_4:
+    scene bar with slow_dissolve
+    jack_possessing_thinking angry "Man...[wait_05]it took me absolutely forever to get here.[wait_1] Why does Lloyd have to live so far away from this bar?"
+    jack_possessing_thinking angry "Dunno if I’ll want to keep coming here all that often once I’m properly living his life.[wait_1] The only reason I was willing to make the trip today is ‘cos I know I can get a shittonne of drinks for free."
+    $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ current_thought = "barbara_thought_285"
+    show screen psychic_powers
+    bartender "Hey, Lloyd![wait_1] Glad to see you again today!"
+    jack_possessing_thinking smug "She’s so damn gullible.[wait_1] This won’t be any trouble at all."
+    $ current_thought = "barbara_thought_286"
+    jack_possessing worried "Hey, uh...[wait_05]you.[wait_1] How’s it going?"
+    bartender "Not too bad![wait_1] Had a pretty good turnout last night, but since we’ve come to the end of the week tonight should be even better."
+    bartender "What’s new with you?[wait_1] I see you’ve dyed that streak into your hair."
+    jack_possessing_thinking worried "It’s not dye.[wait_1] The lock just turned completely white, just like back when I first got my powers."
+    jack_possessing_thinking smug "Dunno what it means, but it’s prolly a sign of how much more psychic power I have than Lloyd."
+    $ current_thought = "barbara_thought_287"
+    jack_possessing smug "Yeah, you know, I just thought that it was time I changed up my look a bit.[wait_1] Gotta make the image match the man, y’know?"
+    bartender "What are you talking about, Lloyd?[wait_1] You already looked great!"
+    $ current_thought = "barbara_thought_288"
+    jack_possessing smug "Well, yeah, I know that.[wait_1] But I wanna up my game a bit and really feel more like myself."
+    $ current_thought = "barbara_thought_289"
+    jack_possessing smug "Don’t be surprised if you see a whole new side of me in the next few days, uh...[wait_05]bartender."
+    $ swap_sprites("barbara_thinking")
+    bartender "Did you hit your head or something?[wait_1] You can call me by my name, Lloyd."
+    $ current_thought = "barbara_thought_290"
+    jack_possessing smug "Yeah, obviously I know that![wait_1] But I, uh –[wait_05] just wanted to show the proper respect and stuff.[wait_1] You’re in a noble profession."
+    $ swap_sprites("barbara_smiling")
+    bartender "Well, it’s nice to see somebody realising how vital my duties are![wait_1] Speaking of –[wait_05] what can I help you with today?"
+    if (person_visited("barbara", "d", 0)):
+        $ current_thought = "barbara_thought_291"
+        bartender "I wasn’t able to find out about that Jack guy you were asking about, but –"
+        $ current_thought = "barbara_thought_292"
+        jack_possessing smug "Nah, don’t worry about looking into him.[wait_1] I mean, he’s probably someone that’s really busy, or really smart, or something like that."
+    else:
+        $ current_thought = "barbara_thought_293"
+        bartender "You were able to find Sergei Maskelyne without issue, yeah?"
+        jack_possessing smug "Yeah, yeah, of course![wait_1] Everything went fine, it was good to catch up with him."
+        jack_possessing_thinking worried "Who the fuck is Sergei Maskaline?"
+    $ current_thought = "barbara_thought_294"
+    jack_possessing smug "What I really want your help with is kinda different, but it oughta be perfect for you.[wait_1] What I want is a drink."
+    $ swap_sprites("barbara_thinking")
+    bartender "Really?[wait_1] You don’t need any information from me?"
+    bartender "I thought you still were doing a bit of an investigation."
+    jack_possessing smug "Oh, that silly thing?[wait_1] Nah, all sorted, no big deal."
+    jack_possessing_thinking worried "I’ll deal with Killian later.[wait_1] But why shouldn’t I be allowed to have a nice cold drink beforehand?"
+    jack_possessing smug "I don’t have anything else I need to do for it –[wait_05] but I do need a drink."
+    $ current_thought = "barbara_thought_295"
+    $ swap_sprites("barbara_smiling")
+    bartender "Well, glad to hear that you’ve dealt with it; the impression I got from you was certainly that it was important."
+    bartender "Can you tell me more about it?"
+    jack_possessing_thinking angry "Why isn’t she getting me a damn drink?"
+    jack_possessing smug "Yeah, of course.[wait_1] It wasn’t anything big, though –[wait_05] just some stuff to do with all my photographing."
+    $ current_thought = "barbara_thought_296"
+    bartender "Don’t you mean photography?"
+    jack_possessing smug "Hey, I don’t tell you how to pour drinks, do I?[wait_1] Speaking of..."
+    $ current_thought = "barbara_thought_297"
+    bartender "Oh, sorry –[wait_05] I got a bit distracted, didn’t I?[wait_1] What are you in the mood for, Lloyd?"
+    bartender "A craft beer?[wait_1] A spirit?[wait_1] A cocktail?"
+    $ current_thought = "barbara_thought_298"
+    jack_possessing smug "A whiskey’d be perfect."
+    bartender "Sure, give me half a minute."
+    jack_possessing_thinking smug "I’ll drink this one after she’s done pouring, then wipe her memory of it.[wait_1] Rinse and repeat, baby."
+    $ current_thought = "barbara_thought_299"
+    # TODO: block mind-wiping; Jack thinks that he wants to finish the drink first
+    bartender "Here you go.[wait_1] Tell me what you think of it."
+    $ current_thought = "barbara_thought_300"
+    jack_possessing angry "I’ll tell you right now –[wait_05] I saw how much whiskey you put into it.[wait_1] Would it have killed you to put in a bit more than that?"
+    $ swap_sprites("barbara_angry")
+    barbara "What was that about not telling me how to pour drinks?"
+    jack_possessing smug "Hey, just tryin’ to help.[wait_1] I’m sure it tastes fine."
+    jack_possessing_thinking angry "Just like the other night.[wait_1] Definitely watered down."
+    $ swap_sprites("barbara_thinking")
+    $ current_thought = "barbara_thought_301"
+    bartender "You know, I had the weirdest thing happen the other night with some whiskey."
+    jack_possessing smug "Yeah?"
+    jack_possessing_thinking angry "Like I give a shit.[wait_1] Why are you telling me this?"
+    bartender "It was a pretty quiet night –[wait_05] Mondays usually are –[wait_05] when this guy came in."
+    jack_possessing_thinking smug "Oh, right.[wait_1] Heh, she’ll never guess the reason behind this."
+    bartender "He chatted to me for a little bit, then asked if he could have a free drink since he was a reviewer.[wait_1] He wanted a whiskey, same as you’re drinking now."
+    $ current_thought = "barbara_thought_302"
+    jack_possessing smug "You ask me, that sounds like a pretty good deal you’d be getting.[wait_1] A reviewer like that’d really be able to put this place on the map."
+    bartender "That’s what I thought, too."
+    bartender "But the weird thing is that –[wait_05] I was going to pour him a drink and see what he thought of it.[wait_1] I had no qualms with it."
+    bartender "But then I realised –[wait_05] he was completely drunk off his ass![wait_1] I’m amazed that I hadn’t realised it earlier, actually."
+    jack_possessing smug "You say that now, but you probably misread the situation.[wait_1] I bet if you’d just given him the drink it would have been fine."
+    jack_possessing smug "What’s the worst that could have happened, anyway?"
+    $ swap_sprites("barbara_angry")
+    bartender "For a start, he’d be getting alcohol that he hadn’t earned."
+    $ current_thought = "barbara_thought_303"
+    jack_possessing angry "Oh, what?[wait_1] He’s drunk, so that means he can’t be a reviewer?"
+    jack_possessing angry "You’re just being prejudiced."
+    bartender "I think I’m pretty happy with my decision, Lloyd.[wait_1] If he does write reviews, he’s pretty damn unprofessional, and I wouldn’t want him writing about my bar."
+    bartender "Believe me, if you’d seen this guy you also wouldn’t have wanted me to serve him."
+    jack_possessing_thinking angry "I wasn’t even that drunk.[wait_1] It’s pretty much impossible to have booze affect you when it’s this watered down."
+    $ swap_sprites("barbara_thinking")
+    $ current_thought = "barbara_thought_304"
+    bartender "Come to think of it...[wait_05]I could always show you the footage of that night.[wait_1] Then you’d understand."
+    jack_possessing worried "Show me the what?!"
+    bartender "The security footage.[wait_1] I usually review it towards the end of the week, but I guess I forgot to do it last night."
+    jack_possessing_thinking worried "I was caught on camera?[wait_1] ...Shit, this isn’t any good."
+    jack_possessing_thinking worried "I’d better finish this drink then get out of here."
+    jack_possessing_thinking worried "My powers still aren’t as powerful as when they were in my body –[wait_05] I don’t know if I could trick her into wiping the footage, either."
+    $ current_thought = "barbara_thought_305"
+    bartender "Come to think of it...[wait_05]the guy that night had a white streak in his hair, too.[wait_1] Just like yours..."
+    $ current_thought = "barbara_thought_306"
+    jack_possessing worried "Funny coincidence, huh?[wait_1] Anyway, I’d better get going –[wait_05] I’ve got places to be and those photos won’t take themselves."
+    bartender "Well...[wait_05]if you insist, but you still haven’t paid for the drink.[wait_1] Could you –"
+    $ current_thought = "barbara_thought_307"
+    jack_possessing worried "Put it on my tab.[wait_1] Bye!"
+    hide barbara_thinking with quick_dissolve
+    hide screen psychic_powers
+    scene black_bg with slow_dissolve
+    jack_possessing_thinking worried "Just got out of there in time.[wait_1] I’ll have to go back later when my powers are strong enough and see what she thinks...[wait_05]might be able to sort it all out."
+    jack_possessing_thinking smug "But for now I’ve got elsewhere to be."
+
+    $ visit_person("barbara", "e", 0)
     return

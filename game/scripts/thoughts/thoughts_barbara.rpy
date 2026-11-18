@@ -558,7 +558,7 @@ label mind_read_barbara:
     elif (current_thought == "barbara_thought_259"):
         barbara_thoughts "Not even two minutes since he asked me whether I knew anything and he’s already leaving.[wait_1] He’s hot, but he doesn’t really think about others."
     
-    # D-4-4
+    # D-4
     elif (current_thought == "barbara_thought_260"):
         barbara_thoughts "Phew, he did come by.[wait_1] I would have felt like a bit of an idiot if he hadn’t!"
     elif (current_thought == "barbara_thought_261"):
@@ -609,6 +609,61 @@ label mind_read_barbara:
         barbara_thoughts "It’s now or never, Barbara!"
     elif (current_thought == "barbara_thought_284"):
         barbara_thoughts "He said yes![wait_1] He said yes!"
+    
+    # E-4
+    elif (current_thought == "barbara_thought_285"):
+        bartender_thoughts "That white streak in his hair makes him look so...[wait_05]different."
+    elif (current_thought == "barbara_thought_286"):
+        bartender_thoughts "He sounded kind of unsure of himself.[wait_1] What’s going on?" 
+    elif (current_thought == "barbara_thought_287"):
+        bartender_thoughts "Lloyd didn’t seem like the sort of person to care that much about aesthetics.[wait_1] And he sounds much more...[wait_05]proud."
+    elif (current_thought == "barbara_thought_288"):
+        bartender_thoughts "Lloyd’s acting kind of strange.[wait_1] He must be under a lot of pressure...[wait_05]is there anything I can do to help?"
+        $ add_boolean("barbara_sympathetic")
+        if ((check_boolean("cat_sympathetic") and check_boolean("eddie_sympathetic")) or (check_boolean("cat_sympathetic") and check_boolean("graves_sympathetic")) or (check_boolean("eddie_sympathetic") and check_boolean("graves_sympathetic"))):
+            jack_possessing_thinking angry "She’s another person that cares about Lloyd...[wait_05]what does he have that I don’t?!"
+        elif (check_boolean("cat_sympathetic") or check_boolean("eddie_sympathetic") or check_boolean("graves_sympathetic")):
+            jack_possessing_thinking angry "Why’s she care so much about Lloyd?[wait_1] What’s he done for her lately?"
+        else:
+            jack_possessing_thinking smug "Yeah, I can think of plenty of ways for you to help me out.[wait_1] Heh heh."
+    elif (current_thought == "barbara_thought_289"):
+        bartender_thoughts "“Bartender”?[wait_1] Something’s going on here..."
+    elif (current_thought == "barbara_thought_290"):
+        bartender_thoughts "Wait, is he trying to be extra formal with me?[wait_1] Is he nervous about something?[wait_1] He’s cute!"
+    elif (current_thought == "barbara_thought_291"):
+        bartender_thoughts "I hope he’s not too upset;[wait_05] it sounded like this was important."
+    elif (current_thought == "barbara_thought_292"):
+        bartender_thoughts "He’s...[wait_05]really smart?[wait_1] What does Lloyd already know about him?"
+    elif (current_thought == "barbara_thought_293"):
+        bartender_thoughts "I did hear that there was some sort of incident at the venue...[wait_05]I should talk to Freddy and see how things are going."
+    elif (current_thought == "barbara_thought_294"):
+        bartender_thoughts "I’m not complaining, but..."
+    elif (current_thought == "barbara_thought_295"):
+        bartender_thoughts "Is it important, or isn’t it?[wait_1] He’s sort of downplaying it today...[wait_05]is he trying to hide something from me?"
+    elif (current_thought == "barbara_thought_296"):
+        bartender_thoughts "I wasn’t sure before, but I am now.[wait_1] There’s definitely something different about the way Lloyd’s speaking today."
+    elif (current_thought == "barbara_thought_297"):
+        bartender_thoughts "If he doesn’t have any preference, I’ll make him an espresso martini.[wait_1] I feel like Lloyd is a coffee drinker."
+    elif (current_thought == "barbara_thought_298"):
+        bartender_thoughts "When did this bottle get so low?[wait_1] I thought it had more in it than that.[wait_1] Good thing we didn’t have many people order some over the last few nights."
+    elif (current_thought == "barbara_thought_299"):
+        bartender_thoughts "I was thinking about offering it to him on the house, but I think not.[wait_1] Lloyd’s acting really weird today."
+    elif (current_thought == "barbara_thought_300"):
+        bartender_thoughts "Is he trying to trick me into getting him drunk?[wait_1] Actually...[wait_05]that reminds me..."
+    elif (current_thought == "barbara_thought_301"):
+        bartender_thoughts "Am I imagining things, or is Lloyd’s attitude kind of like that guy’s?"
+    elif (current_thought == "barbara_thought_302"):
+        bartender_thoughts "On the surface he doesn’t sound suspicious.[wait_1] But in comparison to when he’s visited in the past..."
+    elif (current_thought == "barbara_thought_303"):
+        bartender_thoughts "Lloyd is reacting pretty strongly to such a simple statement.[wait_1] It’s another red flag, but surely it’s not what I’m thinking..."
+    elif (current_thought == "barbara_thought_304"):
+        bartender_thoughts "How would Lloyd react to the footage?[wait_1] His reaction would be pretty telling."
+    elif (current_thought == "barbara_thought_305"):
+        bartender_thoughts "It’s so weird to think about.[wait_1] But the more I consider it..."
+    elif (current_thought == "barbara_thought_306"):
+        bartender_thoughts "He’s running.[wait_1] But he won’t be leaving without paying."
+    elif (current_thought == "barbara_thought_307"):
+        bartender_thoughts "He doesn’t have a –[wait_05] fuck."
     
 
     $ ignore_thoughts_length()
