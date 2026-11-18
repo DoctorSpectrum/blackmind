@@ -423,6 +423,74 @@ label mind_read_cat:
     elif (current_thought == "cat_thought_189"):
         cat_thoughts "Lloyd really does think about other people a lot...[wait_1]he’s a good person."
     
+    # E-4
+    elif (current_thought == "cat_thought_190"):
+        hot_librarian_thoughts "It’s him...[wait_1]I need to talk to him..."
+    elif (current_thought == "cat_thought_191"):
+        hot_librarian_thoughts "I really owe Lloyd...he’s such a good person."
+        $ add_boolean("cat_sympathetic")
+        if ((check_boolean("barbara_sympathetic") and check_boolean("eddie_sympathetic")) or (check_boolean("barbara_sympathetic") and check_boolean("graves_sympathetic")) or (check_boolean("eddie_sympathetic") and check_boolean("graves_sympathetic"))):
+            jack_possessing_thinking angry "She’s another person that Lloyd matters to...[wait_05]what does he have that I don’t?!"
+        elif (check_boolean("barbara_sympathetic") or check_boolean("eddie_sympathetic") or check_boolean("graves_sympathetic")):
+            jack_possessing_thinking angry "Why does she think so highly of Lloyd?[wait_1] What’s he done for her lately?"
+        else:
+            jack_possessing_thinking smug "If I’m such a good person...[wait_05]how will you show me your appreciation?[wait_1] Heh heh."
+    elif (current_thought == "cat_thought_192"):
+        hot_librarian_thoughts "So then he was trying to occupy me...[wait_1]but why?"
+    elif (current_thought == "cat_thought_193"):
+        hot_librarian_thoughts "I need to be on guard...[wait_1]this might be another attempt to distract me..."
+    elif (current_thought == "cat_thought_194"):
+        hot_librarian_thoughts "I have to tell him..."
+    elif (current_thought == "cat_thought_195"):
+        hot_librarian_thoughts "It was so thoughtful of him...[wait_1]he’s such a good person..."
+        $ add_boolean("cat_sympathetic")
+        if ((check_boolean("barbara_sympathetic") and check_boolean("eddie_sympathetic")) or (check_boolean("barbara_sympathetic") and check_boolean("graves_sympathetic")) or (check_boolean("eddie_sympathetic") and check_boolean("graves_sympathetic"))):
+            jack_possessing_thinking angry "She’s another person that Lloyd matters to...[wait_05]what does he have that I don’t?!"
+        elif (check_boolean("barbara_sympathetic") or check_boolean("eddie_sympathetic") or check_boolean("graves_sympathetic")):
+            jack_possessing_thinking angry "Why does she think so highly of Lloyd?[wait_1] What’s he done for her lately?"
+        else:
+            jack_possessing_thinking smug "If I’m such a good person...[wait_05]how will you show me your appreciation?[wait_1] Heh heh."
+    elif (current_thought == "cat_thought_196"):
+        hot_librarian_thoughts "Was he running from the murderer?[wait_1] Did he never intend to help Sergei?"
+    elif (current_thought == "cat_thought_197"):
+        hot_librarian_thoughts "A hero would have saved Sergei..."
+    elif (current_thought == "cat_thought_198"):
+        hot_librarian_thoughts "Not a difficult request to fulfill..."
+    elif (current_thought == "cat_thought_199"):
+        hot_librarian_thoughts "Is he...[wait_1]hitting on me?"
+    elif (current_thought == "cat_thought_200"):
+        hot_librarian_thoughts "I suppose that I can recommend some classics..."
+    elif (current_thought == "cat_thought_201"):
+        hot_librarian_thoughts "He seems easily distracted...[wait_1]but I think he could manage it."
+    elif (current_thought == "cat_thought_202"):
+        hot_librarian_thoughts "I think he might have only seen an adaptation of Dracula...[wait_1]possibly a porn version..."
+    elif (current_thought == "cat_thought_203"):
+        hot_librarian_thoughts "I’ll test him...[wait_1]see whether he has read it or not..."
+    elif (current_thougt == "cat_thought_204"):
+        hot_librarian_thoughts "I’ll try one more time...[wait_1]this isn’t as enjoyable as I thought it would be."
+    elif (current_thought == "cat_thought_205"):
+        hot_librarian_thoughts "He probably thinks that Frankenstein is the name of the creature..."
+    elif (current_thought == "cat_thought_206"):
+        hot_librarian_thoughts "I hate when people just watch the movie instead of reading the book...[wait_1]why are so many people against reading these days?"
+    elif (current_thought == "cat_thought_207"):
+        hot_librarian_thoughts "And just like that...[wait_1]he’s completely missed the point."
+    elif (current_thought == "cat_thought_208"):
+        hot_librarian_thoughts "This should be entertaining...[wait_1]will it be by Dr. Seuss?[wait_1] Or more along the lines of Mr. Nice?"
+    elif (current_thought == "cat_thought_209"):
+        hot_librarian_thoughts "It’s Carrie.[wait_1] He’s talking about Carrie."
+    elif (current_thought == "cat_thought_210"):
+        hot_librarian_thoughts "How few books has he read...[wait_1]if he thinks that Carrie is obscure?"
+    elif (current_thought == "cat_thought_211"):
+        hot_librarian_thoughts "Will he mention anything beyond the prom scene?"
+    elif (current_thought == "cat_thought_212"):
+        hot_librarian_thoughts "I feel like he hasn’t actually read it...[wait_1]but it is a good book."
+    elif (current_thought == "cat_thought_213"):
+        hot_librarian_thoughts "Does he think I don’t have access to any books...?"
+    elif (current_thought == "cat_thought_214"):
+        hot_librarian_thoughts "I’ll try to let him down gently...[wait_1]he hasn’t been very enjoyable to talk to but his nerves might have gotten the better of him."
+    elif (current_thought == "cat_thought_215"):
+        hot_librarian_thoughts "I...[wait_1]don’t think that I want him to return.[wait_1] He was very off-putting."
+        
 
     $ ignore_thoughts_length()
     return

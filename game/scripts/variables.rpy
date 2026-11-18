@@ -27,6 +27,8 @@ label variables:
     define employee = Character(kind=eddie, name="Employee")
     define employee_thoughts = Character(kind=character_thoughts, name="Employee")
     define graves_thoughts = Character(kind=character_thoughts, name="Graves")
+    define hot_librarian = Character(kind=cat, name="Hot Librarian")
+    define hot_librarian_thoughts = Character(kind=character_thoughts, name="Hot Librarian")
     define librarian = Character(kind=cat, name="Librarian")
     define librarian_thoughts = Character(kind=cat_thoughts, name="Librarian")
     define lloyd_thinking = Character(kind=lloyd, what_prefix="(", what_suffix=")")

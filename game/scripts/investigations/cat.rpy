@@ -20,6 +20,8 @@ label cat_investigation:
         jump cat_d_3
     elif (branch == "d" and day == 4):
         jump cat_d_4
+    elif (branch == "e"):
+        jump cat_e_4
     
     return
 
@@ -1494,4 +1496,145 @@ label cat_d_4:
     lloyd_narrating neutral "For now though, I have other places to visit."
 
     $ visit_person("cat", "d", 1)
+    return
+
+label cat_e_4:
+    scene library_day with slow_dissolve
+    jack_possessing_thinking angry "How does a place like this even still exist?[wait_1] Who the hell still reads these days?"
+    jack_possessing_thinking angry "We’ve got tvs, youtube, video games –[wait_1] we don’t need books any more."
+    jack_possessing_thinking angry "Though I guess some freaks do things like playing video games that are all about reading, so it just goes to show that some people don’t know how to have any fun."
+    $ swap_sprites("cat_neutral", slow_dissolve)
+    $ current_thought = "cat_thought_190"
+    show screen psychic_powers
+    jack_possessing_thinking smug "Wow...[wait_05]she’s super hot!"
+    jack_possessing_thinking smug "Reckon it’s worth chatting to her for a bit...[wait_05]just to be friendly.[wait_1] Nothing wrong with that, is there?"
+    if (person_visited("cat", "d", 0)):
+        $ current_thought = "cat_thought_191"
+        hot_librarian "Lloyd...[wait_1]if you’re hoping for significant progress, I’m afraid I don’t have it."
+        jack_possessing smug "Eh?[wait_1] Ah, really?[wait_1] That’s such a pity."
+        jack_possessing worried "Remind me what I wanted you to do, again?"
+        hot_librarian "I was trying to find Sergei’s colleague Jack...[wait_1]to no avail."
+        jack_possessing_thinking worried "Who the fuck is Sergei?[wait_1] He must know some other guy called Jack."
+        $ current_thought = "cat_thought_192"
+        jack_possessing smug "Ah, yeah, well in that case it’s probably not worth looking into it, right?[wait_1] You tried your best but you’re better off just giving up while you’re ahead."
+        hot_librarian "I can keep –"
+        $ current_thought = "cat_thought_193"
+        jack_possessing smug "Nah, nah –[wait_05] no need to worry about it.[wait_1] I’m actually here cos I’d like your help with some other shit."
+        hot_librarian "What is it?"
+    else:
+        $ swap_sprites("cat_smiling")
+        $ current_thought = "cat_thought_194"
+        jack_possessing_thinking smug "Holy shit, she’s smiling at me![wait_1] She must think I’m hot, too!"
+        hot_librarian "Hello...[wait_1]I know what you did."
+        jack_possessing_thinking worried "You...[wait_05]what?"
+        $ current_thought = "cat_thought_195"
+        hot_librarian "I saw you on stage the other night.[wait_1] I saw you rush backstage after the gunshot."
+        jack_possessing_thinking worried "I kinda remember Lloyd visiting some crappy club...[wait_05]don’t know why, though."
+        $ current_thought = "cat_thought_196"
+        jack_possessing smug "Yeah, well, you know.[wait_1] Can you blame me for running from it?"
+        jack_possessing angry "I’ll bet you wouldn’t have done any different."
+        hot_librarian "I think you misinterpret me...[wait_1]I’m grateful for what you did...[wait_1]what you tried doing for Sergei..."
+        $ current_thought = "cat_thought_197"
+        jack_possessing smug "Oh, right![wait_1] Yeah, I –[wait_05] what can I say?[wait_1] I guess I’m a bit of a hero, huh?"
+        $ swap_sprites("cat_neutral")
+        hot_librarian "I wouldn’t necessarily put it that way..."
+        jack_possessing smug "Well, even so, surely you can do me a favour, right?[wait_1] For the man of the hour?"
+        hot_librarian "What were you thinking of?"
+    jack_possessing_thinking smug "She works at a library.[wait_1] So that means that if I talk to her about books and stuff, she oughta get interested in me."
+    $ current_thought = "cat_thought_198"
+    jack_possessing smug "I’m looking for something good to read.[wait_1] What sorta stuff can you recommend?"
+    hot_librarian "What genres...[wait_1]do you like to read?"
+    jack_possessing_thinking angry "She’s gotta be doing that dramatic pausing on purpose, yeah?"
+    jack_possessing smug "I’m interested in whatever you’re interested in."
+    $ current_thought = "cat_thought_199"
+    hot_librarian "...What do you mean?"
+    jack_possessing smug "Oh, you know –[wait_05] just that since you run the library and stuff, you must know a lot about books, obviously."
+    $ current_thought = "cat_thought_200"
+    jack_possessing smug "So if you’re –[wait_05] if you want to tell me what things you like, then I can give them a try and see how they go."
+    jack_possessing smug "I mean, if what you like isn’t good enough, then what is?"
+    hot_librarian "Are you averse...[wait_1]to horror?"
+    jack_possessing_thinking worried "What does averse mean?[wait_1] She probably won’t think I really do read much if I say I don’t know what a super fancy word like that means;[wait_05] I’ll just have to bluff it."
+    jack_possessing smug "Oh, obviously I’m not scared of horror.[wait_1] It’s my favourite thing to read."
+    jack_possessing smug "Sorry, I should have started off by saying that –[wait_05] duh!"
+    $ current_thought = "cat_thought_201"
+    hot_librarian "Have you read Dracula?"
+    jack_possessing_thinking smug "Ha![wait_1] Perfect opportunity!"
+    $ current_thought = "cat_thought_202"
+    jack_possessing smug "Oh yeah, I love it.[wait_1] The part of it that I really like is when Dracula bites the girl’s neck.[wait_1] I mean, it’s just such a powerful image, isn’t it?"
+    jack_possessing smug "Picturing someone just standing directly behind you...[wait_05]reaching around you and opening their mouth...[wait_05]the teeth slowly sinking into your neck, as you feel the pressure rising..."
+    $ current_thought = "cat_thought_203"
+    hot_librarian "Which girl are you talking about...?"
+    jack_possessing worried "What?"
+    hot_librarian "You said that you enjoy when Dracula bites the girl’s neck...[wait_1]do you prefer the scenes with Lucy Westenra, or Mina Harker?"
+    jack_possessing_thinking angry "Who the hell are these characters?"
+    $ current_thought = "cat_thought_204"
+    jack_possessing smug "Definitely Mina.[wait_1] It’s just so much more...[wait_05]better, don’t you think?"
+    jack_possessing smug "Do you ever think about neck biting?"
+    hot_librarian "Since you said you’ve already read Dracula...[wait_1]I won’t recommend it to you."
+    jack_possessing_thinking angry "The hell?[wait_1] She completely ignored what I asked her."
+    jack_possessing_thinking angry "I don’t know if there’s anyone ruder than her on the planet."
+    $ current_thought = "cat_thought_205"
+    hot_librarian "How about...[wait_1]Frankenstein?"
+    jack_possessing smug "Well, I haven’t read it.[wait_1] But I mean, is it really worth reading?"
+    jack_possessing smug "Everyone already knows the story.[wait_1] Mad scientist creates a monster by electrocuting a bunch of corpses, it turns evil, and then the peasants burn down the windmill."
+    jack_possessing smug "It’s not like there’s gonna be anything in the book that I haven’t seen before."
+    $ swap_sprites("cat_cold")
+    $ current_thought = "cat_thought_206"
+    hot_librarian "You clearly have no idea...[wait_1]of the true story of Frankenstein."
+    jack_possessing worried "Eh?"
+    hot_librarian "It’s not about a scientist creating a monster...[wait_1]it’s about how much responsibility we owe to our inheritors."
+    hot_librarian "It’s about how a lack of love can create monsters...[wait_1]how rejection and persecution can lead to victims becoming tormentors themselves, who see themselves as guiltless in light of the hand they’ve been dealt."
+    hot_librarian "It’s about how we should show love and care to others...[wait_1]because they deserve it, regardless of the circumstances of their birth, or who they are."
+    hot_librarian "It’s about the relative nature of evil and the question of how to judge it." 
+    hot_librarian "It’s about so many more things...[wait_1]than just a monster."
+    jack_possessing_thinking angry "What a load of bullshit.[wait_1] If somebody does something shitty then obviously there’s no need for them in society."
+    jack_possessing_thinking angry "Who needs to read a book to know stuff like that?"
+    $ current_thought = "cat_thought_207"
+    jack_possessing smug "But it does have a monster in it, right?[wait_1] Frankenstein."
+    hot_librarian "Yes."
+    jack_possessing smug "Exactly.[wait_1] So I don’t need to read it;[wait_05] I already know what it’s about."
+    hot_librarian "Frankenstein is the monster...[wait_1]but he is also not the monster."
+    jack_possessing angry "What are you on about?[wait_1] That doesn’t make any sense;[wait_05] you can’t be two different things at once."
+    jack_possessing angry "I’m starting to think that it’s you who doesn’t know much about books."
+    $ current_thought = "cat_thought_208"
+    hot_librarian "Tell me, then...[wait_1]what’s a book that you’d recommend?"
+    jack_possessing_thinking smug "Alright, I need to convince her that I like the same books as she does, but not talk about some stupid metaphorical stuff.[wait_1] What could I talk about...?"
+    $ current_thought = "cat_thought_209"
+    jack_possessing smug "So there’s this really good book that’s like, super interesting and stuff.[wait_1] It’s about a girl with these psychic powers, and she uses them to get revenge on the people that are always picking on her."
+    jack_possessing smug "You probably wouldn’t have heard of it, though;[wait_05] it’s pretty obscure."
+    hot_librarian "It’s Carrie...[wait_1]isn’t it?"
+    $ current_thought = "cat_thought_210"
+    jack_possessing_thinking worried "How the hell could she know that?[wait_1] Wait...[wait_05]she must have seen the trailer for the movie as well."
+    jack_possessing smug "Well yeah, obviously![wait_1] Have you read it?"
+    $ current_thought = "cat_thought_211"
+    hot_librarian "I have.[wait_1] What did you like most about it?"
+    jack_possessing smug "Well for a start, it’s not about metaphors or made up things like symbolism and things."
+    jack_possessing smug "Things just happen exactly like they’re told, and you don’t have to have a degree in writing or whatever to understand it."
+    jack_possessing angry "It’s just about someone getting back at a world which has persecuted and hated them for no reason, and I think we can all agree that that’s a pretty good way for a story to go."
+    $ current_thought = "cat_thought_212"
+    hot_librarian "It is a good story...[wait_1]if you like Steven King, then your taste in books isn’t bad."
+    jack_possessing_thinking smug "I’m in![wait_1] Thank you, Steven King, whoever you are!"
+    $ current_thought = "cat_thought_213"
+    jack_possessing smug "Yeah, exactly.[wait_1] So anyway, I was going to ask you if you wanted to maybe read some books I’ve got at some point?"
+    jack_possessing smug "Only...[wait_05]the thing is that I’m pretty attached to some of them, so I don’t really like lending them out to people."
+    jack_possessing smug "I’d need you to come over to my place if you wanted to read them.[wait_1] Just as friends, of course."
+    $ swap_sprites("cat_sad")
+    $ current_thought = "cat_thought_214"
+    if (person_visited("cat", "d", 0)):
+        hot_librarian "Lloyd...[wait_1]I already told you about my...[wait_1]relationship with Sergei."
+        hot_librarian "It may be over...[wait_1]but I don’t know if he’ll ever leave my heart."
+    else:
+        hot_librarian "I’m sorry, but...[wait_1]I recently lost my partner."
+        hot_librarian "I’m currently going through a lot...[wait_1]but even if I wasn’t I don’t think I’d want to be with you."
+    jack_possessing smug "Hey, it’s cool.[wait_1] That’s why I said you’d just come over as a friend."
+    jack_possessing smug "You’ve got friends, right?"
+    $ current_thought = "cat_thought_215"
+    hot_librarian "I...[wait_1]think it’s best if you leave, now.[wait_1] I have to resume my work."
+    hide cat_sad with quick_dissolve
+    hide screen psychic_powers
+    jack_possessing_thinking angry "Whatever.[wait_1] I didn’t like you that much anyway."
+    scene black_bg with slow_dissolve
+    jack_possessing_thinking angry "This place is pretty lame.[wait_1] Time to head somewhere else."
+
+    $ visit_person("cat", "e", 0)
     return
