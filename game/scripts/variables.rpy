@@ -36,6 +36,8 @@ label variables:
     define man_in_black_thoughts = Character(kind=character_thoughts, name="Man in Black")
     define mental_jack = Character(kind=jack, name="???", image=None)
     define phone = Character("Phone", what_color="#000")
+    define reporter = Character(kind=eddie, name="Reporter?")
+    define reporter_thoughts = Character(kind=character_thoughts, name="Reporter?")
     define sergei_thoughts = Character(kind=character_thoughts, name="Sergei")
     define unknown = Character("???", what_color="#000")
     define unknown_thoughts = Character(kind=character_thoughts, name="???")
@@ -373,7 +375,7 @@ label variables:
     image cat_cold = ConditionSwitch(
         "rewound_mind == True",
         "cat_cold_greyscale",
-        "_last_say_who in ['cat', 'librarian', 'librarian_thoughts'] or not renpy.get_screen('say')", 
+        "_last_say_who in ['cat', 'librarian', 'librarian_thoughts', 'hot_librarian', 'hot_librarian_thoughts'] or not renpy.get_screen('say')", 
         "images/sprites/cat_cold.png", 
         "not _last_say_who == 'cat'", 
         "cat_cold_tint"
@@ -382,7 +384,7 @@ label variables:
     image cat_neutral = ConditionSwitch(
         "rewound_mind == True",
         "cat_neutral_greyscale",
-        "_last_say_who in ['cat', 'librarian', 'librarian_thoughts'] or not renpy.get_screen('say')", 
+        "_last_say_who in ['cat', 'librarian', 'librarian_thoughts', 'hot_librarian', 'hot_librarian_thoughts'] or not renpy.get_screen('say')", 
         "images/sprites/cat_neutral.png", 
         "not _last_say_who == 'cat'", 
         "cat_neutral_tint"
@@ -391,7 +393,7 @@ label variables:
     image cat_sad = ConditionSwitch(
         "rewound_mind == True",
         "cat_sad_greyscale",
-        "_last_say_who in ['cat', 'librarian', 'librarian_thoughts'] or not renpy.get_screen('say')", 
+        "_last_say_who in ['cat', 'librarian', 'librarian_thoughts', 'hot_librarian', 'hot_librarian_thoughts'] or not renpy.get_screen('say')", 
         "images/sprites/cat_sad.png", 
         "not _last_say_who == 'cat'", 
         "cat_sad_tint"
@@ -400,7 +402,7 @@ label variables:
     image cat_smiling = ConditionSwitch(
         "rewound_mind == True",
         "cat_smiling_greyscale",
-        "_last_say_who in ['cat', 'librarian', 'librarian_thoughts'] or not renpy.get_screen('say')", 
+        "_last_say_who in ['cat', 'librarian', 'librarian_thoughts', 'hot_librarian', 'hot_librarian_thoughts'] or not renpy.get_screen('say')", 
         "images/sprites/cat_smiling.png", 
         "not _last_say_who == 'cat'", 
         "cat_smiling_tint"
@@ -418,7 +420,7 @@ label variables:
     image eddie_angry = ConditionSwitch(
         "rewound_mind == True",
         "eddie_angry_greyscale",
-        "_last_say_who in ['eddie', 'employee', 'employee_thoughts'] or not renpy.get_screen('say')", 
+        "_last_say_who in ['eddie', 'employee', 'employee_thoughts', 'reporter', 'reporter_thoughts'] or not renpy.get_screen('say')", 
         "images/sprites/eddie_angry.png", 
         "not _last_say_who == 'eddie'", 
         "eddie_angry_tint"
@@ -427,7 +429,7 @@ label variables:
     image eddie_arrogant = ConditionSwitch(
         "rewound_mind == True",
         "eddie_arrogant_greyscale",
-        "_last_say_who in ['eddie', 'employee', 'employee_thoughts'] or not renpy.get_screen('say')", 
+        "_last_say_who in ['eddie', 'employee', 'employee_thoughts', 'reporter', 'reporter_thoughts'] or not renpy.get_screen('say')", 
         "images/sprites/eddie_arrogant.png", 
         "not _last_say_who == 'eddie'", 
         "eddie_arrogant_tint"
@@ -436,7 +438,7 @@ label variables:
     image eddie_smiling = ConditionSwitch(
         "rewound_mind == True",
         "eddie_smiling_greyscale",
-        "_last_say_who in ['eddie', 'employee', 'employee_thoughts'] or not renpy.get_screen('say')", 
+        "_last_say_who in ['eddie', 'employee', 'employee_thoughts', 'reporter', 'reporter_thoughts'] or not renpy.get_screen('say')", 
         "images/sprites/eddie_smiling.png", 
         "not _last_say_who == 'eddie'", 
         "eddie_smiling_tint"
@@ -445,7 +447,7 @@ label variables:
     image eddie_unimpressed = ConditionSwitch(
         "rewound_mind == True",
         "eddie_unimpressed_greyscale",
-        "_last_say_who in ['eddie', 'employee', 'employee_thoughts'] or not renpy.get_screen('say')", 
+        "_last_say_who in ['eddie', 'employee', 'employee_thoughts', 'reporter', 'reporter_thoughts'] or not renpy.get_screen('say')", 
         "images/sprites/eddie_unimpressed.png", 
         "not _last_say_who == 'eddie'", 
         "eddie_unimpressed_tint"

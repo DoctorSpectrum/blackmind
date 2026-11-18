@@ -20,6 +20,8 @@ label eddie_investigation:
         jump eddie_d_3
     elif (branch == "d" and day == 4):
         jump branch_d_4_4
+    elif (branch == "e"):
+        jump eddie_e_4
     
     return
 
@@ -1488,4 +1490,114 @@ label eddie_d_3:
     lloyd_narrating neutral "I leave the building and start thinking about my next destination."
 
     $ visit_person("eddie", "d", 0)
+    return
+
+label eddie_e_4:
+    scene office_interview_room with slow_dissolve
+    jack_possessing_thinking smug "Alright, they let me into this nice swanky room without any problems.[wait_1] Probably safe to say that they wouldn’t have done that if they weren’t already interested in what I’ve got." 
+    jack_possessing_thinking smug "How much can you sell a single photo for, anyway?[wait_1] I’ll start the bidding at about $500 and can prolly get them up to a grand each with a bit of haggling."
+    $ swap_sprites("eddie_unimpressed", quick_dissolve)
+    $ current_thought = "eddie_thought_237"
+    show screen psychic_powers
+    reporter "Chen.[wait_1] I thought you weren’t coming by until this evening."
+    jack_possessing_thinking smug "So Lloyd’s already started some discussions?[wait_1] Nice, that should make this go a bit faster."
+    $ current_thought = "eddie_thought_238"
+    jack_possessing smug "Well, yeah, that was the original plan.[wait_1] But then I thought about it and was like, “Why shouldn’t we get the ball rolling early on? There’s good money to be made here.”"
+    reporter "You mean in the story we’ll put together?[wait_1] About Docherty?"
+    $ current_thought = "eddie_thought_239"
+    jack_possessing worried "The story?"
+    $ swap_sprites("eddie_angry")
+    reporter "C’mon, Chen, don’t joke around.[wait_1] The story you’ve been talking to me about whenever you visit?"
+    reporter "The one that came to a pretty damn unforgettable climax last night, when Docherty tried killing us both?"
+    jack_possessing_thinking worried "Shit.[wait_1] This is about something completely different."
+    jack_possessing_thinking worried "I’ll just have to roll with it for now and try to shift the topic to selling photos later on."
+    $ current_thought = "eddie_thought_240"
+    jack_possessing smug "Well, yeah, obviously we’ll talk about that."
+    reporter "So why couldn’t you wait until tonight to come by?[wait_1] It’s a miracle that the police let me go, and I’ve barely put together any sort of plan for us."
+    $ current_thought = "eddie_thought_241"
+    jack_possessing smug "So I was going to wait until tonight, just like we discussed, obviously.[wait_1] But then I was thinking about it and I was like, “Is, um, my mate going to be okay after last night?[wait_1] When we were nearly killed?”"
+    jack_possessing smug "So I thought I should come by and talk to you about it now.[wait_1] But if it’s still too raw, we can talk about some photos I’ve got."
+    jack_possessing_thinking smug "Think I managed to pull that off."
+    reporter "..."
+    $ swap_sprites("eddie_smiling")
+    reporter "You know, Chen, you’re not as bad as I remember."
+    $ swap_sprites("eddie_angry")
+    $ current_thought = "eddie_thought_242"
+    reporter "I mean, it’s not like you’re that great.[wait_1] You’re fine, I guess."
+    reporter "But you probably don’t deserve what happened to you at {i}The Brief{/i}."
+    jack_possessing_thinking angry "The fuck is {i}The Brief{/i}?"
+    $ current_thought = "eddie_thought_243"
+    jack_possessing worried "Uh, yeah, well, you know how it is –[wait_05] greedy bastards are always taking the best stuff for themselves;[wait_05] they never want to share anything."
+    reporter "Are we talking about the same thing, Chen?[wait_1] I heard you were fired ‘cos you objected to how they were using your photos."
+    $ current_thought = "eddie_thought_244"
+    jack_possessing smug "Yeah, obviously we’re talking about the same thing![wait_1] They took my photos and made a whole lot of profit for themselves; they didn’t want to share any of it with me."
+    jack_possessing smug "All that even though they were some of the best photos of my career;[wait_05] I should’ve spread them around to all sorts of places."
+    reporter "That’s what you wanted to do with them?"
+    jack_possessing smug "Well, yeah, obviously.[wait_1] What did you think I had planned?"
+    reporter "Way I heard it, you didn’t like those photos."
+    reporter "You’d taken a whole lotta photos framing the homeless in a sympathetic light, since you thought the article was going to be raising awareness about the problem."
+    reporter "I heard that you only took the more critical shots because they told you to, “for balance,” and then those were the only ones they used."
+    reporter "Supposedly they’d lied to you about the article, and that it was actually criticising the homeless, and for that you got into an argument which led to them firing you."
+    jack_possessing_thinking angry "If that’s true, then Lloyd’s an idiot."
+    jack_possessing_thinking angry "Why would you stick your neck out for other people that much?[wait_1] He should’ve just kept his head down and done what they told him to."
+    $ current_thought = "eddie_thought_245"
+    jack_possessing smug "That’s one side of the story."
+    reporter "Is it the truth, or isn’t it?"
+    jack_possessing_thinking worried "He’s asking way too many questions about Lloyd’s past, and I don’t know the answers."
+    $ current_thought = "eddie_thought_246"
+    jack_possessing smug "The real question isn’t whether it’s the truth or not.[wait_1] The real question is:[wait_05] how’s your own work going?"
+    $ swap_sprites("eddie_unimpressed")
+    reporter "Pretty bullshit.[wait_1] I’m always getting asked to help people with their work, or do a task for somebody that they reckon they don’t have time for."
+    reporter "I wish they’d cut it out –[wait_05] I seem to be the only person who realises we’re supposed to be competitors, not friends."
+    jack_possessing worried "Whaddya mean by competitors?"
+    reporter "Think about it, Chen.[wait_1] There’s only so many people that can stand out and get promoted, right?"
+    reporter "They’re not gonna choose it randomly –[wait_05] they’re going to go for the people who do the best work.[wait_1] That means we all need to focus on our own tasks if we want to move ahead."
+    reporter "At least, that’s what I want to do, but all my colleagues seem to think that I’m their dedicated help desk.[wait_1] It’s ridiculous."
+    $ current_thought = "eddie_thought_247"
+    jack_possessing worried "It’s not worth it, though.[wait_1] Sure, getting promoted means more money –[wait_05] but it also means more work and responsibilities."
+    jack_possessing smug "There’s way easier ways to make money quickly."
+    reporter "Who said that it’s about the money?[wait_1] I don’t care about that half as much as I care about the position."
+    reporter "I want to be an editor at the very least.[wait_1] I want to be able to choose what stories we’re putting about and what we’re saying about them."
+    $ current_thought = "eddie_thought_248"
+    reporter "I want to control the narrative of the story and only let people hear what they should be hearing.[wait_1] That’s what’s important to me."
+    $ current_thought = "eddie_thought_249"
+    reporter "Speaking about stories –[wait_05] we were going to talk about last night, weren’t we?"
+    jack_possessing_thinking worried "I want to sell him these photos...[wait_05]this had better be quick."
+    jack_possessing smug "Yeah, of course."
+    jack_possessing smug "What were you thinking about it?[wait_1] Happy to follow your lead."
+    $ swap_sprites("eddie_unimpressed")
+    reporter "Firstly, tell me what you think of this:[wait_05] you know how Docherty said that name last night?[wait_1] Killian Morgensen."
+    jack_possessing_thinking angry "Killian![wait_1] Bastard!"
+    jack_possessing angry "Yeah.[wait_1] How could I forget?"
+    $ current_thought = "eddie_thought_250"
+    reporter "Well, get this –[wait_05] a bit after I came in today, I got a call from reception."
+    reporter "I thought it was you coming in at first, but then they told me the name.[wait_1] Guess who?"
+    jack_possessing angry "...Killian."
+    reporter "Yeah, exactly.[wait_1] If I hadn’t heard his name from Docherty I prolly would have agreed to meet with him and see what he wanted, but it felt kinda creepy for him to just show up like that."
+    reporter "So I told ‘em to not let him in.[wait_1] What do you think, though?"
+    reporter "Should I have met with him?[wait_1] We’re going to need to do some research into what his relation to Docherty is, and talking to him might have given us a bit of a starting point."
+    jack_possessing_thinking angry "No idea why Killian came here, but I can’t let this guy find out about him.[wait_1] At least not until after I’ve dealt with him."
+    $ current_thought = "eddie_thought_251"
+    jack_possessing smug "Y’know what, my guy?[wait_1] I think it’s probably better to just leave it."
+    jack_possessing smug "Definitely just a dead end, I’d say."
+    reporter "But Docherty said –"
+    jack_possessing smug "He was probably lying.[wait_1] Trying to get us looking in the wrong direction."
+    jack_possessing smug "It’s what I’d do, wouldn’t you?"
+    $ swap_sprites("eddie_angry")
+    reporter "C’mon, Chen.[wait_1] You’re pretty dumb, but you’re not {i}that{/i} dumb."
+    reporter "Or are you afraid?" 
+    $ current_thought = "eddie_thought_252"
+    jack_possessing angry "You’re the idiot.[wait_1] You’re not going to find shit if you look into whoever this guy is."
+    reporter "Chen, you idiot![wait_1] I don’t know what’s gotten into you –"
+    $ current_thought = "eddie_thought_253"
+    jack_possessing angry "You’re right, I am afraid.[wait_1] Afraid that if I work with you the story’ll go nowhere because you don’t know what you’re doing, you idiot."
+    reporter "Fuck you, Chen.[wait_1] If you’re going to be that way then I don’t see a need to talk to you."
+    hide eddie_angry with quick_dissolve
+    jack_possessing_thinking smug "Heh heh.[wait_1] There we go, that got rid of him, and should delay him finding out about Killian."
+    jack_possessing_thinking angry "Only –[wait_05] shit, I didn’t sell any photos!"
+    scene black_bg with slow_dissolve
+    jack_possessing_thinking smug "Well, whatever.[wait_1] I can come back another day and do that then."
+    jack_possessing_thinking smug "I’ve got other places to be, anyway."
+
+    $ visit_person("eddie", "e", 0)
     return

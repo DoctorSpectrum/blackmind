@@ -511,7 +511,52 @@ label mind_read_eddie:
         eddie_thoughts "He doesn’t seem as shocked as I am."
     elif (current_thought == "eddie_thought_236"):
         eddie_thoughts "You’re welcome, Chen."
-    
+
+    # E-4
+    elif (current_thought == "eddie_thought_237"):
+        reporter_thoughts "Has he found something he needs to tell me about?[wait_1] More likely he’s wasting more of my precious time."
+    elif (current_thought == "eddie_thought_238"):
+        reporter_thoughts "If I can put together the information the way I want it to go then I should get a good bonus.[wait_1] Dunno where Chen thinks he’s getting his money."
+    elif (current_thought == "eddie_thought_239"):
+        reporter_thoughts "Did he change his mind about what we should do with what we learned?[wait_1] Typical Chen."
+    elif (current_thought == "eddie_thought_240"):
+        reporter_thoughts "What the hell is wrong with Chen today?[wait_1] He’s acting even weirder than usual."
+    elif (current_thought == "eddie_thought_241"):
+        reporter_thoughts "Chen wanted to check on me?[wait_1] ...Maybe I should stop lying to myself." 
+        reporter_thoughts "He is a good person;[wait_05] I’ve just been blaming him for my problems."
+        $ add_boolean("eddie_sympathetic")
+        $ add_boolean("cat_sympathetic")
+        if ((check_boolean("barbara_sympathetic") and check_boolean("cat_sympathetic")) or (check_boolean("barbara_sympathetic") and check_boolean("graves_sympathetic")) or (check_boolean("cat_sympathetic") and check_boolean("graves_sympathetic"))):
+            jack_possessing_thinking angry "Another person that likes Lloyd...[wait_05]what does he have that I don’t?!"
+        elif (check_boolean("barbara_sympathetic") or check_boolean("cat_sympathetic") or check_boolean("graves_sympathetic")):
+            jack_possessing_thinking angry "Why’s he care so much about Lloyd?[wait_1] What’s Lloyd done for him lately?"
+        else:
+            jack_possessing_thinking smug "Sounds pretty typical.[wait_1] He blames someone else for all his problems but does nothing to fix them himself."
+    elif (current_thought == "eddie_thought_242"):
+        reporter_thoughts "What’s wrong with me?[wait_1] He’s still an arrogant prick."
+    elif (current_thought == "eddie_thought_243"):
+        reporter_thoughts "Is he trying to make himself sound like more of a victim?[wait_1] This isn’t what I heard."
+    elif (current_thought == "eddie_thought_244"):
+        reporter_thoughts "I always thought Chen cared more about the art of photography, but it sounds like money’s more important to him.[wait_1] Guess that explains why he treated me the way he did."
+    elif (current_thought == "eddie_thought_245"):
+        reporter_thoughts "So he just told people that to make himself sound more sympathetic?"
+    elif (current_thought == "eddie_thought_246"):
+        reporter_thoughts "For once in his life Chen is asking me about myself.[wait_1] I don’t know why, but it’s nice to see him acting human."
+    elif (current_thought == "eddie_thought_247"):
+        reporter_thoughts "Chen’s just as short-sighted as everybody else.[wait_1] And I bet he’ll be as jealous as everybody else when my plans come to fruition."
+    elif (current_thought == "eddie_thought_248"):
+        reporter_thoughts "I’m not going to make the same mistakes as Dad did.[wait_1] I won’t end things like he did."
+    elif (current_thought == "eddie_thought_249"):
+        reporter_thoughts "Gotta tell Chen what happened this morning with Killian, and what we do next."
+    elif (current_thought == "eddie_thought_250"):
+        reporter_thoughts "Is he going to visit Chen next?[wait_1] Or maybe he already did, and Chen sent him here?"
+    elif (current_thought == "eddie_thought_251"):
+        reporter_thoughts "Does Chen know something?[wait_1] That’s a weird reaction."
+    elif (current_thought == "eddie_thought_252"):
+        reporter_thoughts "Why the fuck did I think Chen had changed?[wait_1] Of course he’s gonna do the wrong thing."
+    elif (current_thought == "eddie_thought_253"):
+        reporter_thoughts "Arrogant dick.[wait_1] I’ll show you, Chen."
+
 
     $ ignore_thoughts_length()
     return
