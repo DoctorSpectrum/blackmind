@@ -88,3 +88,27 @@ label branch_e_3_4:
     mental_jack "{size=-8}(That bastard...[wait_05]I...[wait_05]I thought that I was too weak, but –[wait_05] no...[wait_05]I can’t just let myself fade away.){/size}"
     mental_jack "({size=-8}I{/size} – I won’t! He won’t get away with this!)"
     return
+
+label branch_e_4_0:
+    # power upgrade
+    $ branch = "e"
+    $ day = 4
+    call screen chapter_breaks("FRIDAY", "Lloyd went to bed determined to find out who Killian Morgensen is.\n\nThe next day, it isn’t Lloyd who wakes up in his body.")
+    scene cg11_0 with slow_dissolve
+    jack_possessing_thinking smug "I’m pretty damn good." (name="???")
+    jack_possessing_thinking smug "Who else would feel their psychic abilities transferring into another person’s body as the life started bleeding out of them, and think to push the rest of their mind along with them?" (name="???")
+    jack_possessing_thinking smug "Who else would be able to hide in the back of the new host’s mind without being noticed?" (name="???")
+    jack_possessing_thinking smug "Who else would manage to gather their strength up and overtake that person’s mind, scrunching them up into a tiny ball and throwing them into the back of the brain?" (name="???")
+    jack_possessing_thinking smug "Jack Usbourne, that’s who." (name="???")
+    jack_possessing_thinking smug "Sure, I might have tried borrowing the body for a bit the other day and failed since this Lloyd guy had a migraine."
+    jack_possessing_thinking smug "Sure, I might not have been able to perceive everything that he’s been up to, and a lot of it’s come through kinda blurry, real distorted and shit."
+    jack_possessing_thinking smug "But I’ve got his body now, and I got enough info about who he is that I can definitely impersonate him for the rest of my life."
+    jack_possessing_thinking worried "The only problem is the psychic powers.[wait_1] I guess they were weakened or something when they were transferred to this body, because they’re not as strong as when I had them."
+    jack_possessing_thinking smug "But it’s cool.[wait_1] I’ll definitely make them stronger and able to be used more over time; it’ll be just like training a muscle."
+    jack_possessing_thinking smug "From today on, my new life begins."
+    jack_possessing_thinking smug "It’ll take me a little while to get used to pretending to be Lloyd, and I’m pretty torn up about what I’ve done to him.[wait_1] But I reckon he’d agree that it was a worthy sacrifice to undo my premature death."
+    jack_possessing_thinking smug "He seemed like a decent enough guy that he definitely would have been okay with it if he’d known about me."
+    jack_possessing_thinking smug "Anyway, the best way to get used to my new life is to get out there and start practicing.[wait_1] Meet with some of Lloyd’s friends and get the hang of interacting with them."
+    jack_possessing_thinking smug "Who should I start with?"
+
+    call screen map_navigation(find_locations([]))

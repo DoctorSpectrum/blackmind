@@ -6,7 +6,10 @@ label variables:
     define eddie = Character("Eddie", what_color="#000")
     define graves = Character("Graves", what_color="#000")
     define jack = Character("Jack", what_color="#000", image="jack")
+    define jack_possessing = Character("Jack", what_color="#000", image="lloyd_ws")
+    define jack_possessing_thinking = Character(kind=jack_possessing, what_prefix="(", what_suffix=")")
     define lloyd = Character("Lloyd", what_color="#000", image="lloyd")
+    define lloyd_ws = Character("Lloyd", kind=lloyd, image="lloyd_ws")
     define man_in_black = Character(kind=docherty, name="Man in Black")
     define narrator = Character(None, what_color="#000")
     define sergei = Character("Sergei", what_color="#000")
@@ -699,6 +702,26 @@ label variables:
 
     image side lloyd thinking:
         "images/sprites/lloyd_thinking.png"
+        portrait_crop
+
+    image side lloyd_ws angry:
+        "images/sprites/lloyd_ws_angry.png"
+        portrait_crop
+    
+    image side lloyd_ws friendly:
+        "images/sprites/lloyd_ws_friendly.png"
+        portrait_crop
+    
+    image side lloyd_ws neutral:
+        "images/sprites/lloyd_ws_neutral.png"
+        portrait_crop
+
+    image side lloyd_ws smug:
+        "images/sprites/lloyd_ws_smug.png"
+        portrait_crop
+
+    image side lloyd_ws worried:
+        "images/sprites/lloyd_ws_worried.png"
         portrait_crop
 
     #Backgrounds
