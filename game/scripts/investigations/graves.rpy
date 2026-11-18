@@ -20,6 +20,8 @@ label graves_investigation:
         jump graves_d_3
     elif (branch == "d" and day == 4):
         jump graves_d_4
+    elif (branch == "e"):
+        jump graves_e_4
     
     return
 
@@ -1682,4 +1684,125 @@ label graves_d_4:
     lloyd_narrating neutral "I leave the building and start thinking about my next destination."
 
     $ visit_person("graves", "d", 1)
+    return
+
+label graves_e_4:
+    scene detective_office with slow_dissolve
+    $ swap_sprites("graves_smiling")
+    $ current_thought = "graves_thought_269"
+    show screen psychic_powers
+    jack_possessing_thinking angry "There the smug asshole is."
+    jack_possessing_thinking angry "Why is he always smiling so much?[wait_1] Does he think that he’s better than everybody else, just because he can do a few things that the rest of us can’t?"
+    jack_possessing_thinking angry "I hate people like that.[wait_1] You don’t see me giving all those pitying looks to people, or acting as though I’m better than other people."
+    jack_possessing_thinking angry "I mean, I am better than other people, but you don’t see me never shutting up about it, like him."
+    graves "So anyway, Lloyd –[wait_05] how can I help you today?"
+    $ current_thought = "graves_thought_270"
+    jack_possessing angry "Uh, yeah, so I’ve actually got a few complaints about how things have been going so far.[wait_1] You’re not really bringing me any actual results, are you?"
+    jack_possessing_thinking angry "He probably is bringing results.[wait_1] He did when I visited him."
+    jack_possessing_thinking smug "But I’ll tell him it’s not good enough anyway."
+    $ swap_sprites("graves_thinking")
+    graves "Yeah, I can’t deny that it’s been a bit slow-going lately."
+    jack_possessing_thinking smug "Wait, he actually is doing a shit job?"
+    graves "I did warn you that I wouldn’t be able to find out who Jack was right away, though."
+    graves "I understand that you’re –[wait_05] that you want to find out where he is right away, but I’d like to request that you get a bit more –[wait_05] that you stay patient for now.[wait_1] This isn’t an easy job."
+    jack_possessing_thinking worired "Hang on...[wait_05]did Lloyd know about me?[wait_1] What the hell was he looking into me for?"
+    $ swap_sprites("graves_smiling")
+    graves "You can wait another few days, right?"
+    $ current_thought = "graves_thought_271"
+    jack_possessing worried "Uh, no, not really.[wait_1] In fact, you’d better stop looking into who Jack is right away."
+    $ swap_sprites("graves_thinking")
+    graves "But what about –"
+    jack_possessing worried "And also, actually, I’d like to know what you did find out about him.[wait_1] I don’t want you to keep looking into him, but you’d better drop everything you have on him right away."
+    $ swap_sprites("graves_smiling")
+    $ current_thought = "graves_thought_272"
+    graves "If it’s really that important to you, Lloyd, then sure.[wait_1] I can stop the investigation."
+    jack_possessing smug "And give me what you have on him."
+    graves "Of course.[wait_1] But are you sure that you want me to stop?"
+    graves "I’m a little disappointed in you, to be honest."
+    $ current_thought = "graves_thought_273"
+    jack_possessing angry "Who do you think you are, my mum?[wait_1] If anything, I’m the one that’s disappointed."
+    jack_possessing angry "I want a refund, while you’re at it."
+    $ swap_sprites("graves_intimidating")
+    $ current_thought = "graves_thought_274"
+    graves "Investigations are non-refundable, Lloyd.[wait_1] It was on the contract you signed when you agreed to our services."
+    jack_possessing angry "What, in tiny fine print?[wait_1] At size negative eight, probably."
+    graves "It was in bright red ink, actually.[wait_1] Size sixteen font."
+    graves "And anyway, I can’t give you a refund.[wait_1] I haven’t sent you any invoices yet."
+    $ current_thought = "graves_thought_275"
+    jack_possessing angry "Well...[wait_05]I still don’t think I should pay any that you do send me."
+    $ swap_sprites("graves_thinking")
+    graves "What’s the matter, Lloyd?[wait_1] Are you having financial difficulties at the moment?"
+    $ current_thought = "graves_thought_276"
+    jack_possessing smug "Well, uh, yeah, now that you mention it.[wait_1] I probably should have said beforehand that I’m –[wait_05] that I can’t really afford to hire you.[wait_1] You know what it’s like, with the economy and everything."
+    graves "Sorry to hear that, Lloyd.[wait_1] I’ll offer you whatever assistance you need."
+    $ current_thought = "graves_thought_277"
+    jack_possessing smug "Thanks, Graves.[wait_1] I think about a grand oughta do it."
+    graves "...Sorry?"
+    jack_possessing smug "I think that should be enough to keep me on my feet for a day or two.[wait_1] Maybe.[wait_1] But if you can spare some more, that’d be even better."
+    $ swap_sprites("graves_intimidating")
+    $ current_thought = "graves_thought_278"
+    graves "That’s not what I meant, Lloyd."
+    graves "I can delay the due date of the invoice I send you, and I can even potentially give you a discount if you can pay it early.[wait_1] But I’m not going to send you any money."
+    jack_possessing smug "That’s cool by me.[wait_1] I usually prefer cash, anyway."
+    graves "...I’m also not going to give you cash.[wait_1] In fact, that’s even less likely to happen than me transferring you money."
+    $ current_thought = "graves_thought_279"
+    jack_possessing angry "Why not?[wait_1] Just think of it as a tiny bit of a loan for a good friend.[wait_1] You know that I’d pay it back, with interest."
+    jack_possessing angry "So when you think about it, you’re actually making a profit.[wait_1] How is that not winning?"
+    $ swap_sprites("graves_thinking")
+    graves "Are you absolutely certain that you’d be able to –[wait_05] that you could pay it back?"
+    jack_possessing_thinking smug "I’ve hooked the sucker.[wait_1] Everybody always acts like they’ve got principles and things matter to them, but they always take the bait once you throw money into the mix."
+    $ current_thought = "graves_thought_280"
+    jack_possessing smug "Oh yeah, of course![wait_1] I’ve got some –[wait_05] I’m just waiting to hear back about some photos that I’m selling."
+    jack_possessing smug "It’s just taking the buyer a while to get back to me, but we’ve already agreed on a price and everything."
+    $ swap_sprites("graves_smiling")
+    graves "In that case, congratulations on the sale.[wait_1] What were the photos of?"
+    $ current_thought = "graves_thought_281"
+    jack_possessing worried "The photos?[wait_1] Oh, um...[wait_05]anything and everything, really."
+    jack_possessing worried "When you’re a photographer you can just take a snap of pretty much whatever you want.[wait_1] I mean, it’s not like you need anything for it other than a camera, you know?"
+    jack_possessing_thinking smug "Why haven’t I ever thought about taking photos with my phone, and then selling them?[wait_1] That’s gotta be the easiest way in the world to make money."
+    $ swap_sprites("graves_thinking")
+    graves "...Well, you’re the professional."
+    $ swap_sprites("graves_smiling")
+    $ current_thought = "graves_thought_282"
+    graves "Anyway, if you think that you will be getting paid soon, I guess I can loan you some money."
+    jack_possessing_thinking smug "Look at this sucker.[wait_1] I don’t think I’ve ever met someone as dumb as him."
+    jack_possessing smug "Yeah, thanks a tonne, Graves.[wait_1] It makes a really big difference."
+    graves "No worries."
+    $ current_thought = "graves_thought_283"
+    graves "By the way, Lloyd, I couldn’t help but notice...[wait_05]that’s an interesting streak of white you’ve got in your hair.[wait_1] You decide to bleach it last night?"
+    jack_possessing smug "Uh, yeah, pretty much.[wait_1] I figured that there’s –[wait_05] it was time for a bit of a change."
+    graves "Right, that makes sense.[wait_1] I like it a lot."
+    graves "In fact, I wouldn’t be surprised if you ended up setting a bit of a fashion trend."
+    jack_possessing_thinking worried "Something weird about what he’s saying..."
+    jack_possessing smug "Yeah?[wait_1] Why do you reckon that?"
+    $ current_thought = "graves_thought_284"
+    graves "Oh, just that I’ve seen something like it before.[wait_1] So you must be onto something popular."
+    $ swap_sprites("graves_thinking")
+    graves "Where was it that I saw it, again...?"
+    jack_possessing_thinking worried "He couldn’t have realised...[wait_05]could he?"
+    graves "Oh yeah, that’s right![wait_1] It was one of our former –[wait_05] it was a client that we had not too long ago."
+    jack_possessing worried "Uh, yeah?"
+    $ current_thought = "graves_thought_285"
+    graves "Yeah...[wait_05]his name was Jack Usbourne."
+    graves "He had a streak of white hair just like that.[wait_1] Uncanny, isn’t it?"
+    jack_possessing worried "Well like you said, it must be a fashion trend.[wait_1] Or it’s becoming one."
+    jack_possessing worried "I mean, who knows how any of these things work, really?"
+    $ current_thought = "graves_thought_286"
+    graves "Yeah, Jack Usbourne...[wait_05]his case wasn’t anything particularly unusual, but what was an issue is that he didn’t end up paying his invoices."
+    graves "I wonder...[wait_05]maybe we should try and track him down..."
+    # TODO: Ideally we do a zoom in on his face (+ the background) here 
+    $ swap_sprites("graves_smiling")
+    graves "...wherever he might be."
+    jack_possessing_thinking worried "...Fuck this shit."
+    $ current_thought = "graves_thought_287"
+    jack_possessing worried "Well, good luck with that, Graves –[wait_05] I’d better get going."
+    graves "But I haven’t given you your money yet, Lloyd!"
+    jack_possessing worried "Keep it!"
+    hide graves_smiling with quick_dissolve
+    hide screen psychic_powers
+    scene black_bg with slow_dissolve
+    jack_possessing_thinking worried "Dunno how much he guessed...[wait_05]if he even had a serious clue about what was going on...[wait_05]but I can’t risk staying there."
+    jack_possessing_thinking worried "I have to keep moving."
+
+    $ visit_person("graves", "e", 0)
     return

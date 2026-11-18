@@ -525,7 +525,6 @@ label mind_read_eddie:
         reporter_thoughts "Chen wanted to check on me?[wait_1] ...Maybe I should stop lying to myself." 
         reporter_thoughts "He is a good person;[wait_05] I’ve just been blaming him for my problems."
         $ add_boolean("eddie_sympathetic")
-        $ add_boolean("cat_sympathetic")
         if ((check_boolean("barbara_sympathetic") and check_boolean("cat_sympathetic")) or (check_boolean("barbara_sympathetic") and check_boolean("graves_sympathetic")) or (check_boolean("cat_sympathetic") and check_boolean("graves_sympathetic"))):
             jack_possessing_thinking angry "Another person that likes Lloyd...[wait_05]what does he have that I don’t?!"
         elif (check_boolean("barbara_sympathetic") or check_boolean("cat_sympathetic") or check_boolean("graves_sympathetic")):

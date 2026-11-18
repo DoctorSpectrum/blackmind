@@ -568,6 +568,54 @@ label mind_read_graves:
     elif (current_thought == "graves_thought_268"):
         graves_thoughts "I hope that everything works out for you, Lloyd.[wait_1] I really do."
     
+    # E-4
+    elif (current_thought == "graves_thought_269"):
+        graves_thoughts "I won’t tell Lloyd what I’ve found out so far, since I need to verify it.[wait_1] But if what I’ve found is true..."
+    elif (current_thought == "graves_thought_270"):
+        graves_thoughts "Complaints?[wait_1] Alright, damage control time...[wait_05]I don’t want to share anything unnecessarily."
+    elif (current_thought == "graves_thought_271"):
+        graves_thoughts "Now he wants me to {i}stop{/i} looking into Jack?[wait_1] Has he discovered something that needs to stay private?"
+    elif (current_thought == "graves_thought_272"):
+        graves_thoughts "Let’s see if I can get him to tell me why he wants the investigation stopped...[wait_05]how do I play this...?"
+    elif (current_thought == "graves_thought_273"):
+        graves_thoughts "I wish I was your mum.[wait_1] You probably wouldn’t speak to me like this."
+    elif (current_thought == "graves_thought_274"):
+        graves_thoughts "If this does get closed it’d be the first case that we didn’t complete.[wait_1] I’d rather not have that record, even if it’ll probably happen sooner or later."
+    elif (current_thought == "graves_thought_275"):
+        graves_thoughts "If Lloyd does need help, I’d like to give it to him."
+        $ add_boolean("graves_sympathetic")
+        if ((check_boolean("barbara_sympathetic") and check_boolean("cat_sympathetic")) or (check_boolean("barbara_sympathetic") and check_boolean("eddie_sympathetic")) or (check_boolean("cat_sympathetic") and check_boolean("eddie_sympathetic"))):
+            jack_possessing_thinking angry "He’s another person that cares about Lloyd...[wait_05]what does he have that I don’t?!"
+        elif (check_boolean("barbara_sympathetic") or check_boolean("cat_sympathetic") or check_boolean("graves_sympathetic")):
+            jack_possessing_thinking angry "Why’s he care so much about Lloyd?[wait_1] What’s Lloyd done for him lately?"
+        else:
+            jack_possessing_thinking angry "If you want to help me, give me some damn money!"
+    elif (current_thought == "graves_thought_276"):
+        graves_thoughts "Who’s this reminding me of?[wait_1] There was somebody else who said something about the economy affecting their ability to pay us..."
+    elif (current_thought == "graves_thought_277"):
+        graves_thoughts "Is he joking?"
+    elif (current_thought == "graves_thought_278"):
+        graves_thoughts "Did Lloyd ever want me to investigate for him?[wait_1] Or was the whole thing a trick to try and get into my good graces, then borrow money?"
+    elif (current_thought == "graves_thought_279"):
+        graves_thoughts "If he’s that confident that he can pay it back...[wait_05]maybe I should help him out."
+    elif (current_thought == "graves_thought_280"):
+        graves_thoughts "That could be true.[wait_1] Freelance photography would involve a lot of negotiating."
+    elif (current_thought == "graves_thought_281"):
+        graves_thoughts "I take that back.[wait_1] This sounds made up...[wait_05]and who’s he reminding me of?"
+    elif (current_thought == "graves_thought_282"):
+        graves_thoughts "Wait...[wait_05]I think I’ve got it.[wait_1] I think I know who Lloyd is reminding me of."
+    elif (current_thought == "graves_thought_283"):
+        graves_thoughts "Let’s see how he reacts to this.[wait_1] It really does look pretty much identical."
+    elif (current_thought == "graves_thought_284"):
+        graves_thoughts "He hasn’t reacted too strongly yet, but it’s still early days..."
+    elif (current_thought == "graves_thought_285"):
+        graves_thoughts "What do you think of this, Lloyd?[wait_1] Does the name sound familiar to you?"
+    elif (current_thought == "graves_thought_286"):
+        graves_thoughts "How long can I keep him here for?[wait_1] If I can just get a few minutes alone with the phone..."
+    elif (current_thought == "graves_thought_287"):
+        graves_thoughts "You can’t run forever.[wait_1] I know where you live."
+    
+
 
     $ ignore_thoughts_length()
     return
