@@ -122,8 +122,6 @@ label branch_d_2_4:
     sergei "Although he tried hard to conceal it from me, he was unable to overpower my magic."
     sergei "You there![wait_1] Is the card he gave you...[wait_05]the seven of clubs?!"
     lloyd_narrating neutral "The audience member confirms it.[wait_1] In comparison to Sergei’s other tricks so far the applause is slightly louder, although I’m certain that plenty of the patrons still think that this is a trick of some kind."
-    # Unsure why it's still displaying here?? Debug this when tightening things up later
-    hide sergei_winking
     hide sergei_welcoming with quick_dissolve
     hide screen psychic_powers
     lloyd_narrating neutral "I return to my seat and continue watching the show.[wait_1] After what should have been a genuine trick Sergei’s act resumes its previous level of quality."

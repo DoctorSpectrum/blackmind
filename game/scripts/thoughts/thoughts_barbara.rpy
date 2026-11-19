@@ -672,7 +672,10 @@ label mind_read_barbara:
         barbara_thoughts "I hope I can offer him enough to make a difference...[wait_05]it might make things a bit tight for me, but I want to help him."
     elif (current_thought == "barbara_thought_310"):
         barbara_thoughts "He’s acted a bit differently lately, but he’s probably stressed about this money issue.[wait_1] I’m sure he’ll be fine once he’s sorted it out."
-    
+
+    # F-4-4
+    elif (current_thought == "barbara_thought_311"):
+        lloyd_ws_thinking "I’m not going to read her thoughts.[wait_1] It’s intrusive, and I don’t need to know what she's thinking."
 
     $ ignore_thoughts_length()
     return

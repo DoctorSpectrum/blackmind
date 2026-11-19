@@ -466,7 +466,7 @@ label mind_read_cat:
         hot_librarian_thoughts "I think he might have only seen an adaptation of Dracula...[wait_1]possibly a porn version..."
     elif (current_thought == "cat_thought_203"):
         hot_librarian_thoughts "I’ll test him...[wait_1]see whether he has read it or not..."
-    elif (current_thougt == "cat_thought_204"):
+    elif (current_thought == "cat_thought_204"):
         hot_librarian_thoughts "I’ll try one more time...[wait_1]this isn’t as enjoyable as I thought it would be."
     elif (current_thought == "cat_thought_205"):
         hot_librarian_thoughts "He probably thinks that Frankenstein is the name of the creature..."
@@ -491,6 +491,9 @@ label mind_read_cat:
     elif (current_thought == "cat_thought_215"):
         hot_librarian_thoughts "I...[wait_1]don’t think that I want him to return.[wait_1] He was very off-putting."
         
+    # F-4-4
+    elif (current_thought == "cat_thought_216"):
+        lloyd_ws_thinking neutral "I’m not going to read her thoughts.[wait_1] It’s intrusive, and I don’t need to know what she's thinking."
 
     $ ignore_thoughts_length()
     return

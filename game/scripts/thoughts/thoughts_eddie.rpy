@@ -556,6 +556,9 @@ label mind_read_eddie:
     elif (current_thought == "eddie_thought_253"):
         reporter_thoughts "Arrogant dick.[wait_1] I’ll show you, Chen."
 
+    # F-4-4
+    elif (current_thought == "eddie_thought_254"):
+        lloyd_ws_thinking neutral "I’m not going to read his thoughts.[wait_1] It’s intrusive, and I don’t need to know what he's thinking."
 
     $ ignore_thoughts_length()
     return

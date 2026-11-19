@@ -35,6 +35,8 @@ label variables:
     define librarian_thoughts = Character(kind=cat_thoughts, name="Librarian")
     define lloyd_thinking = Character(kind=lloyd, what_prefix="(", what_suffix=")")
     define lloyd_narrating = Character(kind=lloyd, what_color="#3B3B3B")
+    define lloyd_ws_narrating = Character(kind=lloyd_ws, what_color="#3B3B3B")
+    define lloyd_ws_thinking = Character(kind=lloyd_ws, what_prefix="(", what_suffix=")")
     define man_in_black_thoughts = Character(kind=character_thoughts, name="Man in Black")
     define mental_jack = Character(kind=jack, name="???", image=None)
     define phone = Character("Phone", what_color="#000")
@@ -249,6 +251,9 @@ label variables:
 
     transform greyscale_instant:
         matrixcolor SaturationMatrix(0.0)
+
+    transform semi_trans(value=0.9):
+        alpha value
 
     transform opening_text:
         xsize 0.6

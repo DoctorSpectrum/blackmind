@@ -276,7 +276,7 @@ label mind_read_graves:
         graves_thoughts "Tough persona.[wait_1] Got to keep the tough, grizzled persona going."
     elif (current_thought == "graves_thought_129"):
         graves_thoughts "If only I knew where they were.[wait_1] But I can’t interrupt a case as important as that one."
-    elif (current_thought = "graves_thought_130"):
+    elif (current_thought == "graves_thought_130"):
         graves_thoughts "Better play stupid for the minute until I can find out whether or not he’s asking about one of “those” cases."
     elif (current_thought == "graves_thought_131"):
         graves_thoughts "Okay, he’s not asking about one of “those” cases.[wait_1] That should make things much less risky."
@@ -615,7 +615,9 @@ label mind_read_graves:
     elif (current_thought == "graves_thought_287"):
         graves_thoughts "You can’t run forever.[wait_1] I know where you live."
     
-
+    # F-4-4
+    elif (current_thought == "graves_thought_288"):
+        lloyd_ws_thinking neutral "I’m not going to read his thoughts.[wait_1] It’s intrusive, and I don’t need to know what he's thinking."
 
     $ ignore_thoughts_length()
     return
