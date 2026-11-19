@@ -664,6 +664,14 @@ label mind_read_barbara:
         bartender_thoughts "He’s running.[wait_1] But he won’t be leaving without paying."
     elif (current_thought == "barbara_thought_307"):
         bartender_thoughts "He doesn’t have a –[wait_05] fuck."
+
+    # E-4-4
+    elif (current_thought == "barbara_thought_308"):
+        barbara_thoughts "I’d better make sure I take the time to freshen up after close...[wait_05]who knows where things could lead?"
+    elif (current_thought == "barbara_thought_309"):
+        barbara_thoughts "I hope I can offer him enough to make a difference...[wait_05]it might make things a bit tight for me, but I want to help him."
+    elif (current_thought == "barbara_thought_310"):
+        barbara_thoughts "He’s acted a bit differently lately, but he’s probably stressed about this money issue.[wait_1] I’m sure he’ll be fine once he’s sorted it out."
     
 
     $ ignore_thoughts_length()

@@ -112,3 +112,92 @@ label branch_e_4_0:
     jack_possessing_thinking smug "Who should I start with?"
 
     call screen map_navigation(find_locations([]))
+
+label branch_e_4_4:
+    scene black_bg with slow_dissolve
+    jack_possessing_thinking smug "I’d call that a pretty successful first day."
+    jack_possessing_thinking smug "Pretty safe to say that I do a pretty seamless impersonation of Lloyd;[wait_05] nobody guessed that I wasn’t really him.[wait_1] I guess I’m just that good."
+    jack_possessing_thinking angry "Just one last thing to deal with before I can really enjoy myself...[wait_05]Killian."
+    jack_possessing_thinking angry "Bastard was coming after Lloyd...[wait_05]did he know that I was hiding at the back of his mind and wanted to eliminate me for good?"
+    jack_possessing_thinking angry "Whatever, it doesn’t fucking matter.[wait_1] I would have gone to see him even if he hadn’t killed my old body."
+    scene killian_house_exterior with slow_dissolve
+    jack_possessing_thinking angry "It’s more modest than I expected.[wait_1] But I guess it’s easier for monsters to hide among ordinary people."
+    jack_possessing_thinking angry "Alright...[wait_05]just need to get in there, confront him, and put all of this behind me.[wait_1] Then I can keep living the easy life as Lloyd."
+    jack_possessing_thinking worried "Is there anything else I have to do before I meet Killian?"
+    menu:
+        "Yes" (locked=not (check_boolean("barbara_sympathetic") and check_boolean("cat_sympathetic") and check_boolean("eddie_sympathetic")) and not(check_boolean("barbara_sympathetic") and check_boolean("eddie_sympathetic") and check_boolean("graves_sympathetic")) and not (check_boolean("cat_sympathetic") and check_boolean("eddie_sympathetic") and check_boolean("graves_sympathetic")) and not (check_boolean("barbara_sympathetic") and check_boolean("cat_sympathetic") and check_boolean("graves_sympathetic")), message="Jack has not read sufficient thoughts related to Lloyd"):
+            jump branch_f_4_4
+        "No":
+            jack_possessing_thinking smug "Yeah, didn’t think so.[wait_1] Alright, let’s get this shit done and dusted."
+    # SFX - doorbell
+    $ swap_sprites("killian_smiling", quick_dissolve)
+    $ current_thought_block = "mind_read_killian"
+    $ current_thought = "killian_thought_01"
+    show screen psychic_powers
+    killian "Hello, how can I –"
+    $ swap_sprites("killian_shocked")
+    killian "Oh.[wait_1] It’s you."
+    jack_possessing smug "Heya, Killian.[wait_1] How d’ya feel about letting me inside and we can have a nice little chat, like civilised people?"
+    $ swap_sprites("killian_smiling")
+    killian "Somebody with manners.[wait_1] Yes, I think that sounds good.[wait_1] Come inside."
+    jack_possessing_thinking smug "No witnesses to see what’s coming next...[wait_05]exactly how I want it."
+    hide killian_smiling with quick_dissolve
+    scene killian_house_interior with slow_dissolve
+    $ swap_sprites("killian_smiling", quick_dissolve)
+    killian "Please, take a seat."
+    jack_possessing_thinking angry "If you insist, old man."
+    killian "I’d offer you some tea or coffee, but you’ll probably make the assumption that it’s poisoned."
+    killian "Now, would I be wrong in presuming that you are here as Docherty informed you about me once my control over him was broken?"
+    killian "A pity about that.[wait_1] He really was a most excellent pawn."
+    jack_possessing smug "Yeah, something like that."
+    killian "I was hoping to replace him with that friend of yours –[wait_05] Mr. Thompson –[wait_05] but I made the mistake of introducing myself when I approached him earlier today for the initial contact."
+    killian "He was too cautious and declined to have a meeting with me.[wait_1] I suppose that he also learned of me from Docherty."
+    $ swap_sprites("killian_confident")
+    $ play_sound("mind_read_l.mp3")
+    killian "But anyway, enough about what could have been.[wait_1] I take it that you wish to ask me why I’ve been embarking on my little project, Mr...[wait_05]Long, is it?"
+    jack_possessing angry "Actually, that’s the name of this body’s previous mind.[wait_1] I’m your victim from Monday;[wait_05] the name’s Jack."
+    killian "...Jack?"
+    jack_possessing angry "Yep.[wait_1] How about you?[wait_1] Do you want me to address you as Killian?"
+    jack_possessing angry "Or is it alright if I call you Dad?"
+    $ swap_sprites("killian_shocked")
+    killian "What?![wait_1] No...[wait_05]you can’t be!"
+    killian "I –[wait_05] Jack, how did you –[wait_05] I swear, I didn’t mean to kill you![wait_1] I –[wait_05] I didn’t even know that you’d inherited my abilities!"
+    jack_possessing angry "But if it’s anyone other than me, killing ‘em is no biggie?"
+    jack_possessing angry "Fuck, you really are everything that Mum said you were.[wait_1] There’s a reason why I switched to her surname, y’know –[wait_05] puts a bit more distance between us."
+    $ swap_sprites("killian_despairing")
+    killian "But I –[wait_05] Jack, don’t you see?[wait_1] This is our opportunity to –[wait_05] we’ve never had a chance to try and be a family."
+    killian "I haven’t seen you since you were a baby.[wait_1] This –[wait_05] this might not be your original body, but you –[wait_05] surely you’ll give me a chance?[wait_1] Won’t you?"
+    jack_possessing angry "You fucking kidding?[wait_1] Why the fuck did you think I rocked up here?"
+    killian "I –[wait_05] I don’t know."
+    jack_possessing angry "It’s because I want you dead, you fucking deadbeat."
+    # TODO: Use powers to kill Killian
+    hide screen psychic_powers
+    hide killian_despairing
+    scene cg12_0 with slow_dissolve
+    jack_possessing_thinking worried "Whoo...[wait_05]all that energy at once...[wait_05]put a bit of strain on Lloyd’s body...[wait_05]but I’m alright...[wait_05]I think."
+    jack_possessing_thinking worried "I’ve done what I needed to...[wait_05]wiped out Killian’s mind completely..."
+    jack_possessing_thinking worried "He probably would have blocked it...[wait_05]but he let his guard down around me..."
+    scene killian_house_interior with slow_dissolve
+    jack_possessing_thinking smug "Alright...[wait_05]kill my monster of a father?[wait_1] Check."
+    jack_possessing_thinking smug "Get rid of the threat to this body?[wait_1] Check."
+    jack_possessing_thinking smug "Set myself up with a new body, new life, and enough cash to keep me going for a while?[wait_1] Check, check, and check."
+    jack_possessing_thinking smug "Things are looking like they’ll be pretty good for Jack Usbourne."
+    scene black_bg
+    call screen chapter_breaks("LATER", "Jack has a new lease on life and new opportunities. He has a fresh new start that few are ever given.\n\nNobody actually believes that he’s going to use it wisely though, right?")
+    scene bar with slow_dissolve
+    $ current_thought_block = "mind_read_barbara"
+    $ swap_sprites("barbara_smiling", quick_dissolve)
+    $ current_thought = "barbara_thought_308"
+    show screen psychic_powers
+    barbara "...when you put it that way –[wait_05] yeah, I can swing by your apartment after the bar closes!"
+    jack_possessing_thinking smug "Oh yeah –[wait_05] gimme some sugar, baby."
+    $ current_thought = "barbara_thought_309"
+    jack_possessing smug "Thanks, babe –[wait_05] I mean Barbara.[wait_1] And you won’t forget the money?[wait_1] That you said I could borrow?"
+    $ current_thought = "barbara_thought_310"
+    barbara "Of course.[wait_1] I really feel like I can trust you, Lloyd."
+    jack_possessing smug "You know it!"
+    jack_possessing_thinking "Man, it’s a good life."
+    hide screen psychic_powers
+    scene black_bg
+    narrator "ENDING E"
+    $ MainMenu()

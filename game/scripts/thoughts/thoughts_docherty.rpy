@@ -10,3 +10,11 @@ label mind_read_docherty:
 
     $ ignore_thoughts_length()
     return
+
+label mind_read_killian:
+    if (current_thought == "killian_thought_01"):
+        killian_thoughts "..."
+        jack_possessing_thinking worried "Nope, that won’t work."
+
+    $ ignore_thoughts_length()
+    return
