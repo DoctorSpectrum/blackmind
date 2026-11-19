@@ -15,7 +15,7 @@ label mind_read_jack:
     if (current_thought == "jack_thought_01"):
         lloyd_thinking "...It doesn’t look like I can read his mind."
     elif (current_thought == "jack_thought_02"):
-        lloyd_thinking "What I really hope...[wait_05]is that you enjoy the surprise."
+        unknown_thoughts "What I really hope...[wait_05]is that you enjoy the surprise."
         $ add_boolean("ending_g_unlocked")
 
     $ ignore_thoughts_length()
@@ -42,6 +42,8 @@ label mind_read_killian:
         killian_thoughts "Does he know about my powers?"
     elif (current_thought == "killian_thought_08"):
         lloyd_ws_thinking "No.[wait_1] I’m not going to read his mind.[wait_1] I don’t want to betray his trust."
+    elif (current_thought == "killian_thought_09"):
+        killian_thoughts "Now now, Lloyd, you shouldn’t go peeking in here.[wait_1] You wouldn’t want to spoil the surprise, would you?"
 
     $ ignore_thoughts_length()
     return

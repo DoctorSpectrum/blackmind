@@ -505,6 +505,51 @@ label variables:
         "graves_thinking_tint"
     )
 
+    image killian_cold = ConditionSwitch(
+        "rewound_mind == True",
+        "killian_cold_greyscale",
+        "_last_say_who in ['killian', 'killian_thoughts'] or not renpy.get_screen('say')",
+        "images/sprites/killian_cold.png",
+        "not _last_say_who == 'killian'",
+        "killian_cold_tint"
+    )
+
+    image killian_confident = ConditionSwitch(
+        "rewound_mind == True",
+        "killian_confident_greyscale",
+        "_last_say_who in ['killian', 'killian_thoughts'] or not renpy.get_screen('say')",
+        "images/sprites/killian_confident.png",
+        "not _last_say_who == 'killian'",
+        "killian_confident_tint"
+    )
+
+    image killian_despairing = ConditionSwitch(
+        "rewound_mind == True",
+        "killian_despairing_greyscale",
+        "_last_say_who in ['killian', 'killian_thoughts'] or not renpy.get_screen('say')",
+        "images/sprites/killian_despairing.png",
+        "not _last_say_who == 'killian'",
+        "killian_despairing_tint"
+    )
+
+    image killian_shocked = ConditionSwitch(
+        "rewound_mind == True",
+        "killian_shocked_greyscale",
+        "_last_say_who in ['killian', 'killian_thoughts'] or not renpy.get_screen('say')",
+        "images/sprites/killian_shocked.png",
+        "not _last_say_who == 'killian'",
+        "killian_shocked_tint"
+    )
+
+    image killian_smiling = ConditionSwitch(
+        "rewound_mind == True",
+        "killian_smiling_greyscale",
+        "_last_say_who in ['killian', 'killian_thoughts'] or not renpy.get_screen('say')",
+        "images/sprites/killian_smiling.png",
+        "not _last_say_who == 'killian'",
+        "killian_smiling_tint"
+    )
+
     image sergei_welcoming = ConditionSwitch(
         "rewound_mind == True",
         "sergei_welcoming_greyscale",
@@ -665,6 +710,46 @@ label variables:
 
     image graves_thinking_greyscale:
         "images/sprites/graves_thinking.png"
+        greyscale_cycle
+
+    image killian_cold_tint:
+        "images/sprites/killian_cold.png"
+        dark_tint
+
+    image killian_cold_greyscale:
+        "images/sprites/killian_cold.png"
+        greyscale_cycle
+
+    image killian_confident_tint:
+        "images/sprites/killian_confident.png"
+        dark_tint
+
+    image killian_confident_greyscale:
+        "images/sprites/killian_confident.png"
+        greyscale_cycle
+
+    image killian_despairing_tint:
+        "images/sprites/killian_despairing.png"
+        dark_tint
+
+    image killian_despairing_greyscale:
+        "images/sprites/killian_despairing.png"
+        greyscale_cycle
+
+    image killian_shocked_tint:
+        "images/sprites/killian_shocked.png"
+        dark_tint
+
+    image killian_shocked_greyscale:
+        "images/sprites/killian_shocked.png"
+        greyscale_cycle
+
+    image killian_smiling_tint:
+        "images/sprites/killian_smiling.png"
+        dark_tint
+
+    image killian_smiling_greyscale:
+        "images/sprites/killian_smiling.png"
         greyscale_cycle
 
     image sergei_welcoming_tint:

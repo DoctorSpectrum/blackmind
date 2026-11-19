@@ -57,6 +57,9 @@ label branch_f_4_4:
     lloyd_ws_thinking neutral "I’m here now.[wait_1] There’s no reason to hold off on this any further."
     # SFX - Doorbell
     lloyd_ws_narrating neutral "I approach the door and ring the bell.[wait_1] It feels odd to be approaching the house of the man who masterminded the killings so politely, but I’m not the type to kick the door down and fight my way in."
+    # TODO - make this bring up the option for whether we get ending F or G
+    if (check_boolean("ending_g_unlocked")):
+        jump branch_g_4_4
     $ swap_sprites("killian_smiling", quick_dissolve)
     $ current_thought_block = "mind_read_killian"
     $ current_thought = "killian_thought_02"
@@ -396,4 +399,42 @@ label branch_f_ending:
     $ MainMenu()
 
 label branch_g_4_4:
+    $ swap_sprites("killian_smiling", quick_dissolve)
+    $ current_thought_block = "mind_read_killian"
+    $ current_thought = "killian_thought_09"
+    show screen psychic_powers
+    killian "Hello, how can I –"
+    $ swap_sprites("killian_shocked")
+    killian "Oh.[wait_1] It’s you."
+    lloyd_ws neutral "Hello.[wait_1] Can I...[wait_05]come in?"
+    $ swap_sprites("killian_smiling")
+    killian "Why not?[wait_1] Let’s discuss this as civilised people.[wait_1] Follow me inside."
+    hide killian_smiling
+    hide screen psychic_powers
+    lloyd_ws_narrating neutral "I follow Killian inside."
+    scene black_bg with slow_dissolve
+    lloyd_ws_narrating neutral "What I find next is a complete surprise."
+    scene cg14_0 with slow_dissolve
+    unknown "SURPRISE!" (name="Everyone")
+    lloyd_ws smiling "Aww, guys.[wait_1] How did you know that it was my birthday?"
+    barbara "Jack told us![wait_1] He found all sorts of information while he was in your head."
+    jack "No need to thank me or anything, Lloyd.[wait_1] I do it for the love of the game."
+    lloyd_ws smiling "And you managed to get this all ready in such little time?"
+    sergei "Of course![wait_1] Are we not the most magnificent group that the eyes of the world have ever gazed upon?"
+    sergei "Have we not the skill, the abilities, to –"
+    graves "He’s saying this now, but he was panicking more than anybody else when it looked like we were going to be –[wait_05] when it looked like we couldn’t get it set up in time."
+    killian "Why is everybody standing around talking, when we could be having cake?"
+    docherty "Go on, Lloyd –[wait_05] you have the first piece."
+    lloyd_ws smiling "Are you sure?[wait_1] I’m happy for somebody else to –"
+    cat "Go on...[wait_1]you deserve it..."
+    lloyd_ws smiling "If you insist."
+    eddie "Chen![wait_1] Get in close with the others, so I can show you how much better my photography is than yours!"
+    eddie "...Alright, ready?"
+    unknown "Ready!" (name="Everyone")
+    eddie "Three...[wait_05]two...[wait_05]one..."
+    unknown "CHEESE!" (name="Everyone")
+    scene cg15_0 with slow_dissolve
+    narrator "ENDING G"
+    $ MainMenu()
+
     return
