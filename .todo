@@ -7,18 +7,15 @@ BLACKMIND TODO
             - Placeholder music
             - Programming:
                 - Post-script programming:
-                    - Add in functionality so that the locations list is dynamic depending upon branch + day
-                        - Will also need to add in the text from the script - one of the only bits missing stuff from the script ATM
                     - Add in functionality so that we have limited mind reads + mind wipes
                     - Do we want booleans to start with the branch you read them on? E.g. a_graves_lie, c_cat_helped, stuff like that?
                     - Make sure that we clear out the thoughts_read array or whatever it's called at the start of scenes so we can't just infinitely read thoughts by repeatedly replaying the scene
                     - Add in power upgrade screen + functionality
                     - Add in a game over/branch ending screen that gives us a hint for what to do to continue
                         - Look up the $ MainMenu lines
+                        - Trying to jump to the main menu is currently infinite looping, prolly cos of something to do with a call somewhere - sort this issue out
                     - Updoot the pdf browsing so that we update as we scroll and automatically return once we've read everything
                     - ngl I wouldn't say no to moving the prologue thoughts to Barbara and Docherty's files as is necessary; I feel they've been broken up fairly well
-                    - The main reason to use a single label for thoughts with a massive if/else statement is so that we can call the ignore_thoughts_length() function at the bottom. If I don't use the convo length
-                        then it prolly makes more sense to make each thought its own label - while checking the if/else statement is prolly relatively negligible, it does feel a bit clunky
                     - Simple way to stop the psychic effects occuring when we use them, so we can turn them off during CGs. A flag?
                 - Debugging:
                     - Add in a function that halts skipping when we have config; I can add it in on lines that need to be mind-read and speed up progress
@@ -33,16 +30,9 @@ BLACKMIND TODO
                     - If we jump to a node and choose a different place to go to then we need to swap things around. So let's say on A-1 we go Barbara, Cat, Eddie, then later jump back to A-1-1 and choose someone different. If it's Graves we 
                         change it so that our A-1 is now Graves, Cat, Eddie. If it's, say, Cat, we change it so that it's Cat, Barbara, Eddie. It shouldn't affect anything negatively but I'll need to test the heck out of this.
                     - For this phase, this'll prolly just be a vbox with a list of scenes the players can access
-                - Location map
-                    - I like the idea of having a bunch of descriptions, and then for each node when we can choose one of them we just update the key we're using to access that description. It...might make things easier?
-                        - future_sight_info works well because we're returning an object from a function, so if we update it after loading the game it uses the new data. So a function which returns the description is prolly the way to go.
                 - Styling
                     - Fix up the styling for mobile articles and PDF browsing
                 - Other
-                    - Newspaper and Sergei's notes: I like the idea of these being actual doccos we browse; for the alpha I might just make a devnote of "I'd like these to actually be browsable; thoughts?" and see what they say
-                        - Updoot: prolly gonna change it to be in-universe interfaces that we go through, and then Lloyd comments once we've read them all.
-                        - Also updoot: newspaper can have a thing "today's popular articles" or whatever, and those can be Kickstarter written (plus a Star-Bot reference and something talking about COEUS). Lower-tier Kickstarter stuff could
-                            allow for comments on the articles.
                     - Attune your psychic senses: Add this in as an option to settings; menu item can be called ESP or something
                         - Should have a thing saying something like "this game can be played using psychic abilities. If you have psychic abilities, check this box to enable psychic controls", then checking a box brings up a setting
                             for the frequency to broadcast psychic abilities at (like three frequencies, with a description for each e.g. "recommended for users with a maximum psychic strength of 101.4 - 118.9 PSI" or something)

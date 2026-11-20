@@ -162,7 +162,6 @@ label branch_b_3_4:
     mental_jack "{size=-8}(Dammit...[wait_05]I’m too weak.){/size}"
     mental_jack "{size=-8}(I thought I could build up my strength more...[wait_05]but I can’t.[wait_1] It’s all over.){/size}"
     mental_jack "{size=-8}(At least I had a bit of fun the other night...){/size}"
-    return
 
 label branch_b_4_0:
     # Power upgrade

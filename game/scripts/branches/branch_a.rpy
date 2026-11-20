@@ -575,7 +575,7 @@ label branch_a_3_4:
             mental_jack "{size=-8}(Dammit...[wait_05]I’m too weak.){/size}"
             mental_jack "{size=-8}(I thought I could build up my strength more...[wait_05]but I can’t.[wait_1] It’s all over.){/size}"
             mental_jack "{size=-8}(At least I had a bit of fun the other night...){/size}"
-            return
+            jump branch_a_4_0
         "Travel to Icarus" (locked=not person_visited("barbara", "a", 2) or not check_boolean("barbara_retrieves_footage"), message=("You did not visit the bar today" if not person_visited("barbara", "a", 2) else "You did not convince Barbara to give you the footage")):
             jump branch_b_3_4
         "Return home":
@@ -658,4 +658,8 @@ label branch_a_b_4_4:
     scene cg5_0 with slow_dissolve
     
     # Ending A/B, display how to get to the next branch
-    return
+    if (branch == "a"):
+        narrator "ENDING A"
+    else:
+        narrator "ENDING B"
+    $ MainMenu()
