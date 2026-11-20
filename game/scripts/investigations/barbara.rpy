@@ -1,29 +1,29 @@
 label barbara_investigation:
     $ current_thought_block = "mind_read_barbara"
     if (branch == "a" and day == 1):
-        jump barbara_a_1
+        call barbara_a_1
     elif (branch == "a" and day == 2):
-        jump barbara_a_2
+        call barbara_a_2
     elif (branch == "a" and day == 3):
-        jump barbara_a_3
+        call barbara_a_3
     elif (branch == "a" and day == 4):
-        jump barbara_a_4
+        call barbara_a_4
     elif (branch == "b"):
-        jump barbara_b_4
+        call barbara_b_4
     elif (branch == "c" and day == 2):
-        jump barbara_c_2
+        call barbara_c_2
     elif (branch == "c" and day == 3):
-        jump barbara_c_3
+        call barbara_c_3
     elif (branch == "c" and day == 4):
-        jump barbara_c_4
+        call barbara_c_4
     elif (branch == "d" and day == 3):
-        jump barbara_d_3
+        call barbara_d_3
     elif (branch == "d" and day == 4):
-        jump barbara_d_4
+        call barbara_d_4
     elif (branch == "e"):
-        jump barbara_e_4
+        call barbara_e_4
     
-    return
+    jump move_location
 
 label barbara_a_1:
     scene black_bg with quick_dissolve

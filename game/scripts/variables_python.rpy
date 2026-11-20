@@ -245,8 +245,8 @@ init python:
                 {
                     "key": "venue",
                     "label": "Music Venue",
-                    "xcoord": 200,
-                    "ycoord": 300,
+                    "xcoord": 180,
+                    "ycoord": 340,
                     "image": "images/backgrounds/venue_exterior.png",
                     "description": "Isn’t there some small underground place near here that plays jazz or one of those made-up music genres? They’ve got to have some booze there...people wouldn’t go there if they didn’t have any.",
                     "active": True,
@@ -257,8 +257,8 @@ init python:
                 {
                     "key": "restaurant",
                     "label": "Restaurant",
-                    "xcoord": 250,
-                    "ycoord": 350,
+                    "xcoord": 182,
+                    "ycoord": 312,
                     "image": "images/backgrounds/restaurant_night.png",
                     "description": "Do they have chips at this place? I kind of want chips now...Oh, I know! I’ll trick them into thinking they have chips if they don’t, and make them make some for me!",
                     "active": True,
@@ -272,7 +272,7 @@ init python:
             {
                 "key": "bar",
                 "label": "Bar",
-                "xcoord": 200,
+                "xcoord": 197,
                 "ycoord": 300,
                 "image": "images/backgrounds/bar.png",
                 "description": get_location_description("bar"),
@@ -284,8 +284,8 @@ init python:
             {
                 "key": "library",
                 "label": "Library",
-                "xcoord": 250,
-                "ycoord": 350,
+                "xcoord": 294,
+                "ycoord": 504,
                 "image": "images/backgrounds/library_day.png",
                 "description": get_location_description("library"),
                 "active": get_location_active("library"),
@@ -296,8 +296,8 @@ init python:
             {
                 "key": "newspaper",
                 "label": "Newspaper",
-                "xcoord": 300,
-                "ycoord": 400,
+                "xcoord": 342,
+                "ycoord": 362,
                 "image": "images/backgrounds/office_interview_room.png",
                 "description": get_location_description("newspaper"),
                 "active": get_location_active("newspaper"),
@@ -308,8 +308,8 @@ init python:
             {
                 "key": "detective",
                 "label": "Detective Agency",
-                "xcoord": 350,
-                "ycoord": 450,
+                "xcoord": 253,
+                "ycoord": 419,
                 "image": "images/backgrounds/detective_office.png",
                 "description": get_location_description("detective"),
                 "active": get_location_active("detective"),

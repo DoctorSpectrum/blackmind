@@ -707,7 +707,7 @@ style future_sight_checkbox:
 style future_sight_checkbox_checked is future_sight_checkbox:
     background "gui/keyword_checkbox_checked.png"
 
-screen map_navigation(destinations):
+screen map_navigation():
     default xpos = 0
     default ypos = 0
     default fade_delay = 1
@@ -745,7 +745,7 @@ screen map_navigation(destinations):
                         yalign 0.5
                         xalign 0.5
                         spacing 25
-                        for i, destination in enumerate(list(filter(lambda x: x["hidden"] == False, destinations))):
+                        for i, destination in enumerate(list(filter(lambda x: x["hidden"] == False, find_locations()))):
                             textbutton _(destination["label"]):
                                 style ("destination_button" if destination["active"] else "destination_button_inactive")
                                 xsize 500

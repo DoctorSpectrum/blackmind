@@ -1,29 +1,29 @@
 label eddie_investigation:
     $ current_thought_block = "mind_read_eddie"
     if (branch == "a" and day == 1):
-        jump eddie_a_1
+        call eddie_a_1
     elif (branch == "a" and day == 2):
-        jump eddie_a_2
+        call eddie_a_2
     elif (branch == "a" and day == 3):
-        jump eddie_a_3
+        call eddie_a_3
     elif (branch == "a" and day == 4):
-        jump eddie_a_b_4
+        call eddie_a_b_4
     elif (branch == "b"):
-        jump eddie_a_b_4
+        call eddie_a_b_4
     elif (branch == "c" and day == 2):
-        jump eddie_c_2
+        call eddie_c_2
     elif (branch == "c" and day == 3):
-        jump eddie_c_3
+        call eddie_c_3
     elif (branch == "c" and day == 4):
-        jump eddie_c_4
+        call eddie_c_4
     elif (branch == "d" and day == 3):
-        jump eddie_d_3
+        call eddie_d_3
     elif (branch == "d" and day == 4):
-        jump branch_d_4_4
+        call branch_d_4_4
     elif (branch == "e"):
-        jump eddie_e_4
+        call eddie_e_4
     
-    return
+    jump move_location
 
 label eddie_a_1:
     scene black_bg with quick_dissolve

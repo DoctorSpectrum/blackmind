@@ -1,29 +1,29 @@
 label cat_investigation:
     $ current_thought_block = "mind_read_cat"
     if (branch == "a" and day == 1):
-        jump cat_a_1
+        call cat_a_1
     elif (branch == "a" and day == 2):
-        jump cat_a_2
+        call cat_a_2
     elif (branch == "a" and day == 3):
-        jump cat_a_3
+        call cat_a_3
     elif (branch == "a" and day == 4):
-        jump cat_a_4
+        call cat_a_4
     elif (branch == "b"):
-        jump cat_b_4
+        call cat_b_4
     elif (branch == "c" and day == 2):
-        jump cat_c_2
+        call cat_c_2
     elif (branch == "c" and day == 3):
-        jump cat_c_3
+        call cat_c_3
     elif (branch == "c" and day == 4):
-        jump cat_c_4
+        call cat_c_4
     elif (branch == "d" and day == 3):
-        jump cat_d_3
+        call cat_d_3
     elif (branch == "d" and day == 4):
-        jump cat_d_4
+        call cat_d_4
     elif (branch == "e"):
-        jump cat_e_4
+        call cat_e_4
     
-    return
+    jump move_location
 
 label cat_a_1:
     scene black_bg with quick_dissolve

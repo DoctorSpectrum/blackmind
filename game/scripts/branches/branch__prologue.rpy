@@ -552,7 +552,7 @@ label prologue_13:
     $ hide_history()
     $ renpy.choice_for_skipping()
     call screen modal_popup("You have enough time to visit one more location before the night is over.")
-    call screen map_navigation(find_locations())
+    call screen map_navigation()
 
 label prologue_music_venue:
     $ scene_setup(33, "Monday", True, 2, 2, True, True)

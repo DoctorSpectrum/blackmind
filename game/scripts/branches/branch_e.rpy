@@ -111,7 +111,7 @@ label branch_e_4_0:
     jack_possessing_thinking smug "Anyway, the best way to get used to my new life is to get out there and start practicing.[wait_1] Meet with some of Lloyd’s friends and get the hang of interacting with them."
     jack_possessing_thinking smug "Who should I start with?"
 
-    call screen map_navigation(find_locations())
+    call screen map_navigation()
 
 label branch_e_4_4:
     scene black_bg with slow_dissolve

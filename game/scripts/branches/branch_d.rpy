@@ -187,7 +187,7 @@ label branch_d_3_0:
     lloyd_narrating neutral "He seemed to be nothing more than an amateur magician using his abilities to wow crowds."
     lloyd_thinking thinking "Who would be the best person to help me find Jack?"
 
-    call screen map_navigation(find_locations())
+    call screen map_navigation()
 
 label branch_d_3_4:
     scene restaurant_night with slow_dissolve
@@ -392,7 +392,7 @@ label branch_d_4_0:
     lloyd_narrating neutral "Irrespective of his activities, I’ve got the day to myself."
     lloyd_thinking thinking "Where should I go today?"
 
-    call screen map_navigation(find_locations())
+    call screen map_navigation()
 
 label branch_d_4_4:
     scene black_bg with slow_dissolve

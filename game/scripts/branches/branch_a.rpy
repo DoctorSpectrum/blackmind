@@ -7,7 +7,7 @@ label branch_a_1_0:
     lloyd_narrating neutral "I’m not sure that I’ll have time for all of them, though, so I’ll need to prioritise carefully."
     call screen modal_popup("You are now ready to begin the main game of BLACKMIND: Psychic Social Simulator. As Lloyd, you’re going to try and track down Jack’s killer and find a way to stop him – but as you uncover new information, you might find your priorities and goals changing.")
     call screen modal_popup("Lloyd isn’t as experienced with using psychic powers as Jack was, and so there are a few things to note when playing as him:\n\n{font=DejaVuSans.ttf}•{/font} You can only use your Mind Read ability 3 times per conversation.\n\n{font=DejaVuSans.ttf}•{/font} You can only use your Mind Rewind ability 1 time per conversation.\n\nRemember to make use of the History log to carefully review conversations, and determine where the best place to use your psychic abilities is.\n\nIn addition, you only have enough time each day to visit three locations. Choose which locations you want to visit carefully. You can only visit a location once per day.\n\nThis information, and more, can be reviewed in the Help section of the pause menu.", short=False)
-    call screen map_navigation(find_locations())
+    call screen map_navigation()
 
 label branch_a_1_4:
     scene black_bg with quick_dissolve
@@ -343,7 +343,7 @@ label branch_a_2_0:
     lloyd_thinking neutral "It’s a little tenuous but I’d like to talk to some of the contacts I made yesterday and see whether any of them know anything."
     lloyd_thinking neutral "Maybe one of them will know what happened"
     
-    call screen map_navigation(find_locations())
+    call screen map_navigation()
 
 label branch_a_2_4:
     scene restaurant_night with slow_dissolve
@@ -422,7 +422,7 @@ label branch_a_3_0:
     lloyd_thinking thinking "The police might already have some information which could help me but I can’t get it from them."
     lloyd_thinking thinking "I’d need to question them about the victim and what they know in order to read their thoughts about him, which will make me look suspicious."
     lloyd_thinking thinking "Now, who would be the best person to help me discover who the man with the white streak is?"
-    call screen map_navigation(find_locations())
+    call screen map_navigation()
 
 label branch_a_3_4:
     scene restaurant_night with slow_dissolve
@@ -610,7 +610,7 @@ label branch_a_4_0:
     lloyd_thinking thinking "Graves is going to dig up what information he can, meaning that I have the entire day to myself."
     lloyd_thinking thinking "Should I visit any of my other contacts?"
 
-    call screen map_navigation(find_locations())
+    call screen map_navigation()
 
 label branch_a_b_4_4:
     scene black_bg with slow_dissolve

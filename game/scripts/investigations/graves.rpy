@@ -1,29 +1,29 @@
 label graves_investigation:
     $ current_thought_block = "mind_read_graves"
     if (branch == "a" and day == 1):
-        jump graves_a_1
+        call graves_a_1
     elif (branch == "a" and day == 2):
-        jump graves_a_2
+        call graves_a_2
     elif (branch == "a" and day == 3):
-        jump graves_a_3
+        call graves_a_3
     elif (branch == "a" and day == 4):
-        jump graves_a_4
+        call graves_a_4
     elif (branch == "b"):
-        jump graves_b_4
+        call graves_b_4
     elif (branch == "c" and day == 2):
-        jump graves_c_2
+        call graves_c_2
     elif (branch == "c" and day == 3):
-        jump graves_c_3
+        call graves_c_3
     elif (branch == "c" and day == 4):
-        jump graves_c_4
+        call graves_c_4
     elif (branch == "d" and day == 3):
-        jump graves_d_3
+        call graves_d_3
     elif (branch == "d" and day == 4):
-        jump graves_d_4
+        call graves_d_4
     elif (branch == "e"):
-        jump graves_e_4
+        call graves_e_4
     
-    return
+    jump move_location
 
 label graves_a_1:
     scene black_bg with quick_dissolve
