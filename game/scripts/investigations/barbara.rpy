@@ -1593,7 +1593,7 @@ label barbara_d_4:
     lloyd neutral "What’s so strange about that?"
     barbara "It was only when he claimed that he was a reviewer that I realised –[wait_05] he was drunk off his ass!"
     barbara "He could barely stand straight, and all of his words were slurred.[wait_1] I’m a little ashamed of myself for not picking it up earlier, to be honest."
-    lloyd_thinking thinking "Something about this story…why do I get a sense of {i}déjà vu{/i}?"
+    lloyd_thinking thinking "Something about this story...why do I get a sense of {i}déjà vu{/i}?"
     $ current_thought = "barbara_thought_275"
     lloyd neutral "At least you realised before you poured him a drink."
     $ swap_sprites("barbara_smiling")

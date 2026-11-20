@@ -712,6 +712,7 @@ screen map_navigation(destinations):
     default ypos = 0
     default fade_delay = 1
     default selected_destination = None
+    default warning = False
 
     timer 1.0:
         action SetScreenVariable("fade_delay", 0)
@@ -744,7 +745,7 @@ screen map_navigation(destinations):
                         yalign 0.5
                         xalign 0.5
                         spacing 25
-                        for i, destination in enumerate(destinations):
+                        for i, destination in enumerate(list(filter(lambda x: x["hidden"] == False, destinations))):
                             textbutton _(destination["label"]):
                                 style ("destination_button" if destination["active"] else "destination_button_inactive")
                                 xsize 500
@@ -826,7 +827,7 @@ screen map_navigation(destinations):
                 
                             textbutton _("CONFIRM"):
                                 style "destination_option"
-                                action Jump(selected_destination["action"])
+                                action (Jump(selected_destination["action"]) if not selected_destination["warning"] else Show("modal_popup", message="Are you sure? This will end the day.", option_labels=["Back", "Continue"], option_actions=[Hide("modal_popup"), [Hide("modal_popup"), Jump(selected_destination["action"])]]))
                             textbutton _("RETURN"):
                                 style "destination_option"
                                 action SetScreenVariable("selected_destination", None)
@@ -1504,6 +1505,7 @@ screen modal_popup(message, option_labels=["OK"], option_actions=[Return()], sho
         hbox:
             xalign 0.5
             yalign 1.0
+            spacing 10
             #yoffset 70
 
             for (i, label) in enumerate(option_labels):

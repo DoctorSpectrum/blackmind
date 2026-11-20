@@ -1620,7 +1620,7 @@ label graves_d_4:
     $ swap_sprites("graves_thinking")
     graves "...Alright, that’s pretty fair;[wait_05] I’ll give you that."
     $ current_thought = "graves_thought_257"
-    graves "I just –[wait_05] does it sound kind of suspicious to you when I point some of that stuff out?[wait_1] Does it sound like you’re maybe…missing something?"
+    graves "I just –[wait_05] does it sound kind of suspicious to you when I point some of that stuff out?[wait_1] Does it sound like you’re maybe...[wait_05]missing something?"
     lloyd neutral "I do hear you, Graves, but I think you’re being a bit paranoid."
     lloyd neutral "I can’t explain why my colleague had a gun, but as for the rest of it...[wait_05]if you were there, you’d know how real it all was."
     $ swap_sprites("graves_smiling")
