@@ -746,17 +746,17 @@ screen map_navigation(destinations):
                         spacing 25
                         for i, destination in enumerate(destinations):
                             textbutton _(destination["label"]):
-                                style "destination_button"
+                                style ("destination_button" if destination["active"] else "destination_button_inactive")
                                 xsize 500
-                                action [
+                                action ([
                                     SetScreenVariable("selected_destination", destination),
                                     SetScreenVariable("xpos", 0),
                                     SetScreenVariable("ypos", 0),
-                                ]
-                                hovered [
+                                ] if destination["active"] else NullAction())
+                                hovered ([
                                     SetScreenVariable("xpos", destination["xcoord"]),
                                     SetScreenVariable("ypos", destination["ycoord"])
-                                ]
+                                ] if destination["active"] else NullAction())
                                 selected False
                                 at trans_fade(fade_delay, 1.0), fade_side_to_side(-200, fade_delay)
                     textbutton _("SAVE GAME"):
@@ -806,7 +806,7 @@ screen map_navigation(destinations):
                             xsize 864
                             ysize 486
                             xoffset 180
-                            background Frame("images/backgrounds/venue_exterior.png" if selected_destination["key"] == "venue" else "images/backgrounds/restaurant_night.png")
+                            background Frame(selected_destination["image"])
                             at trans_fade(0.25, 0.5), fade_side_to_side(50, 0.25)
 
                     hbox:
@@ -816,12 +816,8 @@ screen map_navigation(destinations):
                             background None
                             xsize 900
 
-                            if (selected_destination["key"] == "venue"):
-                                text _("Isn’t there some small underground place near here that plays jazz or one of those made-up music genres? They’ve got to have some booze there...people wouldn’t go there if they didn’t have any."):
-                                    style "destination_description"
-                            elif (selected_destination["key"] == "restaurant"):
-                                text _("Do they have chips at this place? I kind of want chips now...Oh, I know! I’ll trick them into thinking they have chips if they don’t, and make them make some for me!"):
-                                    style "destination_description"
+                            text _(selected_destination["description"]):
+                                style "destination_description"
 
                         vbox:
                             xsize 200
@@ -830,8 +826,7 @@ screen map_navigation(destinations):
                 
                             textbutton _("CONFIRM"):
                                 style "destination_option"
-                                #Again, worry about making this more dynamic later
-                                action Jump("prologue_music_venue" if selected_destination["key"] == "venue" else "prologue_restaurant")
+                                action Jump(selected_destination["action"])
                             textbutton _("RETURN"):
                                 style "destination_option"
                                 action SetScreenVariable("selected_destination", None)
@@ -850,10 +845,16 @@ style map_x_coord:
 style destination_button is yellow_button:
     padding (10, 30, 10, 30)
 
+style destination_button_inactive is destination_button:
+    background Frame("gui/button/button_locked.png")
+
 style destination_button_text is yellow_button_text:
     font "gui/chubhand.ttf"
     yoffset 5
     size 54
+
+style destination_button_inactive_text is destination_button_text:
+    color "#FFFC5E"
 
 style destination_option is yellow_button:
     xsize 250

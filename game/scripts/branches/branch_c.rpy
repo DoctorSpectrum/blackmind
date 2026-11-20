@@ -170,7 +170,7 @@ label branch_c_2_0:
     lloyd_thinking thinking "I won’t let that stop me.[wait_1] I’m going to find his victim and warn them."
     lloyd_thinking thinking "If what I’ve seen has any chance of coming true there’ll be a chance of stopping it."
     lloyd_thinking thinking "Where should I go to try and identify Docherty’s victim?"
-    call screen map_navigation(find_locations([]))
+    call screen map_navigation(find_locations())
 
 label branch_c_2_4:
     scene black_bg with slow_dissolve
@@ -395,7 +395,7 @@ label branch_c_3_0:
     lloyd_thinking thinking "Why was that?[wait_1] Why did he need to be silenced?"
     lloyd_thinking thinking "If I can discover more about who Sergei Maskelyne was, I might be able to work out why the killer silenced him –[wait_05] and from that, the killer’s next target."
     lloyd_thinking thinking "Where should I go to research Sergei?"
-    call screen map_navigation(find_locations([]))
+    call screen map_navigation(find_locations())
 
 label branch_c_3_4:
     scene restaurant_night with slow_dissolve
@@ -579,7 +579,7 @@ label branch_c_4_0:
     lloyd_thinking thinking "I know that he killed them because they had psychic abilities, but I still know barely anything about them."
     lloyd_thinking thinking "I should try and find out who exactly they were."
 
-    call screen map_navigation(find_locations([]))
+    call screen map_navigation(find_locations())
 
 label branch_c_4_4:
     scene black_bg with slow_dissolve

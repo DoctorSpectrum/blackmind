@@ -239,8 +239,32 @@ init python:
         renpy.show_screen("psychic_powers")
 
     # Navigation selection
-    def find_locations(ids):
-        return list(filter(lambda x: x["id"] in ids, destinations))
+    def find_locations():
+        if (day == 0):
+            return [
+                {
+                    "key": "venue",
+                    "label": "Music Venue",
+                    "xcoord": 200,
+                    "ycoord": 300,
+                    "image": "images/backgrounds/venue_exterior.png",
+                    "description": "Isn’t there some small underground place near here that plays jazz or one of those made-up music genres? They’ve got to have some booze there...people wouldn’t go there if they didn’t have any.",
+                    "active": True,
+                    "action": "prologue_music_venue"
+                },
+                {
+                    "key": "restaurant",
+                    "label": "Restaurant",
+                    "xcoord": 250,
+                    "ycoord": 350,
+                    "image": "images/backgrounds/restaurant_night.png",
+                    "description": "Do they have chips at this place? I kind of want chips now...Oh, I know! I’ll trick them into thinking they have chips if they don’t, and make them make some for me!",
+                    "active": True,
+                    "action": "prologue_restaurant"
+                },
+            ]
+
+        return []
 
     def visit_person(person, branch, day):
         days[branch][day].append(person)

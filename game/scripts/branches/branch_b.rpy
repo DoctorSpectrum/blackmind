@@ -174,4 +174,4 @@ label branch_b_4_0:
     lloyd_thinking thinking "He had psychic powers and was killed because of them, but managed to transfer them to me before dying."
     lloyd_thinking thinking "The man in black is killing others with psychic abilities.[wait_1] I need to find them and warn them about him."
     lloyd_thinking thinking "I’m already going to Barbara for information, but is it worth visiting my other contacts?"
-    call screen map_navigation(find_locations([]))
+    call screen map_navigation(find_locations())
