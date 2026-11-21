@@ -21,7 +21,6 @@ BLACKMIND TODO
                         - Rewind points need to be added in, along with stuff so we don't rewind at certain points
                         - Rewinding is currently kinda jancky due to some sort of call functionality - can we change it to jump and not break things?
                 - Debugging:
-                    - Add in a function that halts skipping when we have config; I can add it in on lines that need to be mind-read and speed up progress
                     - Let's add in a debug button (D or something) that displays the name of the current scene and some variables - that way I can get the others to give me variable info if they find bugs.
                 - Flow chart
                     - I think that I can do this by having each node let us jump to a point of the script. At that label we wipe any booleans that we generate in the scene, so that we're seeing it as though it's the first time again. Jumping
