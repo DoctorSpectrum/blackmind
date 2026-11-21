@@ -43,6 +43,7 @@ label graves_a_1:
     $ swap_sprites("graves_intimidating", slow_dissolve)
     $ current_thought = "graves_thought_01"
     show screen psychic_powers
+    $ pause_for_mind_read()
     detective "You’re the guy who called through?"
     lloyd_narrating neutral "The accent matches the person who responded on the intercom."
     lloyd_narrating neutral "I’m insulted by his prior referral to me as “kid” – he looks like he’s straight out of high school."
@@ -448,12 +449,14 @@ label graves_a_3:
         graves "Better than nothing, I guess."
     graves "What does this person look like, then?"
     $ current_thought = "graves_thought_68"
+    $ pause_for_mind_read()
     lloyd neutral "He’s a young adult male, perhaps a little younger than me.[wait_1] He has a small soul patch and a gap in his teeth."
     lloyd neutral "His most prominent feature, however, is a streak of white in his hair, which is otherwise brown."
     lloyd_narrating neutral "He was also coated in blood and dying when I saw him last.[wait_1] But I’d rather not share that information with Graves."
     lloyd_narrating neutral "If he finds out that this is related to a murder case he might be scared away from investigating."
     $ swap_sprites("graves_thinking")
     $ current_thought = "graves_thought_69"
+    $ pause_for_mind_read()
     graves "A white streak of hair, huh?[wait_1] That’s not something that you see every day."
     graves "That’s pretty much all the information that you have, yeah?[wait_1] Or is there anything else?"
     menu:
@@ -470,6 +473,7 @@ label graves_a_3:
             $ add_boolean("graves_mentioned_jack")
         "Nothing else":
             $ current_thought = "graves_thought_72"
+            $ pause_for_mind_read()
             lloyd neutral "Unfortunately not.[wait_1] A description is all that I can give you."
             $ swap_sprites("graves_thinking")
             graves "Mmm.[wait_1] That’ll make things a bit more difficult then...[wait_05]can you give me a day or two to try and find out about this person?"
@@ -1729,6 +1733,7 @@ label graves_e_4:
     graves "It was in bright red ink, actually.[wait_1] Size sixteen font."
     graves "And anyway, I can’t give you a refund.[wait_1] I haven’t sent you any invoices yet."
     $ current_thought = "graves_thought_275"
+    $ pause_for_mind_read()
     jack_possessing angry "Well...[wait_05]I still don’t think I should pay any that you do send me."
     $ swap_sprites("graves_thinking")
     graves "What’s the matter, Lloyd?[wait_1] Are you having financial difficulties at the moment?"

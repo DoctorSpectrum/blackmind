@@ -83,6 +83,7 @@ label cat_a_1:
     $ swap_sprites("cat_cold")
     lloyd_narrating neutral "The librarian’s eyes narrow.[wait_1] She looks at me with venomous disgust as she speaks, the hatred naked on her face."
     $ current_thought = "cat_thought_08"
+    $ pause_for_mind_read()
     librarian "Get out."
     lloyd neutral "...Pardon?"
     librarian "I’ve explained how this works...[wait_1]that they’re being kept aside for another patron."
@@ -843,6 +844,7 @@ label cat_c_2:
     lloyd neutral "Can I describe somebody else to you?[wait_1] There’s a second person that I’m also looking for."
     cat "Yes."
     $ current_thought = "cat_thought_106"
+    $ pause_for_mind_read()
     lloyd neutral "I don’t know the name of this person, but he’s wearing a very loud suit, with black and white stripes.[wait_1] His hair is jet black, and slicked back."
     lloyd neutral "Additionally, he has a small black moustache."
     lloyd_narrating neutral "I’m not anticipating a positive response.[wait_1] Cat didn’t know who Docherty was, and it’s unlikely that she’ll know who his target is."
@@ -933,6 +935,7 @@ label cat_c_3:
     lloyd neutral "You recall when we spoke outside the venue last night?[wait_1] What brought you there?"
     lloyd_thinking thinking "Was it Sergei?[wait_1] Or another act from later in the evening?"
     $ current_thought = "cat_thought_125"
+    $ pause_for_mind_read()
     cat "...It was a whim."
     lloyd neutral "Was there a particular act that interested you?[wait_1] Or do you usually go to that venue?"
     cat "No.[wait_1] I –[wait_05] I mean, yes, I –[wait_05] it’s a venue that I’ve been to many times."
@@ -950,6 +953,7 @@ label cat_c_3:
     lloyd neutral "You told me last night that not everybody was outside.[wait_1] You noticed the absence of the entertainer, didn’t you?"
     lloyd neutral "That man, Sergei Maskelyne, was murdered."
     $ current_thought = "cat_thought_128"
+    $ pause_for_mind_read()
     lloyd neutral "What can you tell me about him?[wait_1] It’s important that I find out as much about Sergei as possible."
     $ current_thought = "cat_thought_129"
     cat "I can’t tell you anything, and I’d like you to leave.[wait_1] These questions are becoming intrusive."
@@ -1165,7 +1169,7 @@ label cat_c_4:
     scene black_bg with slow_dissolve
 
     $ visit_person("cat", "c", 2)
-    return 
+    jump branch_c_4_4
 
 label cat_d_3:
     scene black_bg with slow_dissolve
@@ -1510,6 +1514,7 @@ label cat_e_4:
     jack_possessing_thinking smug "Reckon it’s worth chatting to her for a bit...[wait_05]just to be friendly.[wait_1] Nothing wrong with that, is there?"
     if (person_visited("cat", "d", 0)):
         $ current_thought = "cat_thought_191"
+        $ pause_for_mind_read()
         hot_librarian "Lloyd...[wait_1]if you’re hoping for significant progress, I’m afraid I don’t have it."
         jack_possessing smug "Eh?[wait_1] Ah, really?[wait_1] That’s such a pity."
         jack_possessing worried "Remind me what I wanted you to do, again?"
@@ -1528,6 +1533,7 @@ label cat_e_4:
         hot_librarian "Hello...[wait_1]I know what you did."
         jack_possessing_thinking worried "You...[wait_05]what?"
         $ current_thought = "cat_thought_195"
+        $ pause_for_mind_read()
         hot_librarian "I saw you on stage the other night.[wait_1] I saw you rush backstage after the gunshot."
         jack_possessing_thinking worried "I kinda remember Lloyd visiting some crappy club...[wait_05]don’t know why, though."
         $ current_thought = "cat_thought_196"

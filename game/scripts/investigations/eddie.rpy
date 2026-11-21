@@ -95,6 +95,7 @@ label eddie_unrecognised:
     employee "I’ve got real stories to follow.[wait_1] And I have actual deadlines so –[wait_05] see ya."
     lloyd_narrating neutral "The man stands up and begins leaving.[wait_1] I’m trying to work out what to say that will make him stay when he clears his throat."
     $ current_thought = "eddie_thought_12"
+    $ rewind_point = "eddie_a_1"
     employee "Oh, and by the way, Chen:[wait_05] I know you won’t bother to look it up, or try to remember, so out of the kindness of my heart –[wait_05] Eddie Thompson."
     $ add_boolean("eddie_name_learned")
     eddie "I also worked at {i}The Brief{/i}.[wait_1] Dick."
@@ -400,6 +401,7 @@ label eddie_a_3:
         eddie "Nope.[wait_1] Don’t care."
         eddie "You had your chance to impress me yesterday and you wasted it."
         $ current_thought = "eddie_thought_52"
+        $ pause_for_mind_read()
         eddie "I don’t care if you’ve found a cache of gold and you want to donate it to me; I’m not listening.[wait_1] And you’re leaving.[wait_1] Now."
         menu:
             "I’ll pay you to listen" (locked=not check_boolean("eddie_bribeable"), message="You have not read the related thought"):
@@ -676,6 +678,7 @@ label eddie_a_b_4:
         eddie "You can’t just trick people into organising meetings and expect there to be no consequences."
         lloyd neutral "What if this meeting could be beneficial to you, Eddie?"
         $ current_thought = "eddie_thought_80"
+        $ pause_for_mind_read()
         eddie "You think I’m going to fall for that, Chen?[wait_1] I don’t care what you’re selling –[wait_05] I’m not buying it." 
         eddie "Ten."
         $ current_thought = "eddie_thought_81"
@@ -996,6 +999,7 @@ label eddie_c_2:
     eddie "The person you thought was the killer is dead, Chen."
     eddie "Whatever you think this story is, it’s not gonna pan out.[wait_1] Why should I chase down info that isn’t going to come to anything?"
     $ current_thought = "eddie_thought_140"
+    $ pause_for_mind_read()
     eddie "Even if it was something, I’ve got a job here, at the newspaper.[wait_1] I’ve got other obligations, and I can’t just drop everything and go running because you want me to."
     lloyd_thinking thinking "Is Eddie right?[wait_1] If I look into the man with the loud suit, will it amount to anything?"
     lloyd_narrating neutral "The only source of information that I have is my precognitive visions, and I already know that they’re inaccurate."
@@ -1407,6 +1411,7 @@ label eddie_d_3:
     lloyd_narrating neutral "Eddie grunts slightly, but otherwise makes no indication that he cares that much about the climax of my story."
     lloyd neutral "I ran onto the stage and made my way backstage.[wait_1] I wanted to reach Sergei and check what state he was in, but instead –"
     $ current_thought = "eddie_thought_200"
+    $ pause_for_mind_read()
     eddie "Here’s where you ran into Docherty?[wait_1] Backstage?"
     lloyd neutral "Correct.[wait_1] He had a gun, and he hit me with the butt of it."
     eddie "You’re not lying to me, are you?[wait_1] If he wanted to get you out of the way, why wouldn’t he shoot you?"
@@ -1515,6 +1520,7 @@ label eddie_e_4:
     jack_possessing smug "Well, yeah, obviously we’ll talk about that."
     reporter "So why couldn’t you wait until tonight to come by?[wait_1] It’s a miracle that the police let me go, and I’ve barely put together any sort of plan for us."
     $ current_thought = "eddie_thought_241"
+    $ pause_for_mind_read()
     jack_possessing smug "So I was going to wait until tonight, just like we discussed, obviously.[wait_1] But then I was thinking about it and I was like, “Is, um, my mate going to be okay after last night?[wait_1] When we were nearly killed?”"
     jack_possessing smug "So I thought I should come by and talk to you about it now.[wait_1] But if it’s still too raw, we can talk about some photos I’ve got."
     jack_possessing_thinking smug "Think I managed to pull that off."

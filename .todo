@@ -17,6 +17,9 @@ BLACKMIND TODO
                     - Updoot the pdf browsing so that we update as we scroll and automatically return once we've read everything
                     - ngl I wouldn't say no to moving the prologue thoughts to Barbara and Docherty's files as is necessary; I feel they've been broken up fairly well
                     - Simple way to stop the psychic effects occuring when we use them, so we can turn them off during CGs. A flag?
+                    - Rewinding:
+                        - Rewind points need to be added in, along with stuff so we don't rewind at certain points
+                        - Rewinding is currently kinda jancky due to some sort of call functionality - can we change it to jump and not break things?
                 - Debugging:
                     - Add in a function that halts skipping when we have config; I can add it in on lines that need to be mind-read and speed up progress
                     - Let's add in a debug button (D or something) that displays the name of the current scene and some variables - that way I can get the others to give me variable info if they find bugs.
@@ -32,6 +35,7 @@ BLACKMIND TODO
                     - For this phase, this'll prolly just be a vbox with a list of scenes the players can access
                 - Styling
                     - Fix up the styling for mobile articles and PDF browsing
+                    - Add in the calendar for post-prologue scenes
                 - Other
                     - Attune your psychic senses: Add this in as an option to settings; menu item can be called ESP or something
                         - Should have a thing saying something like "this game can be played using psychic abilities. If you have psychic abilities, check this box to enable psychic controls", then checking a box brings up a setting

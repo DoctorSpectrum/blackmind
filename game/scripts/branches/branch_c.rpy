@@ -156,8 +156,6 @@ label branch_c_1_4:
     mental_jack "Dammit...[wait_05]the migraine is too much...[wait_05]I can’t do it tonight."
     mental_jack "I’ll have to try again another time."
 
-    return
-
 label branch_c_2_0:
     # power upgrade
     $ branch = "c"
@@ -564,6 +562,7 @@ label branch_c_3_4:
             mental_jack "{size=-8}(Dammit...[wait_05]I’m too weak.){/size}"
             mental_jack "{size=-8}(I thought I could build up my strength more...[wait_05]but I can’t.[wait_1] It’s all over.){/size}"
             mental_jack "{size=-8}(I didn’t even get to have any fun the other night...){/size}"
+            jump branch_c_4_0
     return
 
 label branch_c_4_0:

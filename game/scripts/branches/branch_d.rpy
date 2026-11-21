@@ -167,8 +167,6 @@ label branch_d_2_4:
     scene black_bg with slow_dissolve
     mental_jack "Another one dead...[wait_05]bastard."
 
-    return
-
 label branch_d_3_0:
     # power upgrade
     $ branch = "d"

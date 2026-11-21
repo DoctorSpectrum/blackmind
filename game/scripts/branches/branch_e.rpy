@@ -87,7 +87,6 @@ label branch_e_3_4:
     mental_jack "{size=-8}(Fucking Killian?![wait_1] He was responsible?!){/size}"
     mental_jack "{size=-8}(That bastard...[wait_05]I...[wait_05]I thought that I was too weak, but –[wait_05] no...[wait_05]I can’t just let myself fade away.){/size}"
     mental_jack "({size=-8}I{/size} – I won’t! He won’t get away with this!)"
-    return
 
 label branch_e_4_0:
     # power upgrade

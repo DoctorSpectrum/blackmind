@@ -243,11 +243,18 @@ screen debug():
                     input:
                         value ScreenVariableInputValue("new_boolean")
 
-                vbox:
-                    spacing 10
-                    for boolean in booleans:
-                        textbutton _(boolean):
-                            action RemoveFromSet(booleans, boolean)
+                side ("c r"):
+                    area(0, 0, 700, 800)
+                    viewport id "boolean_list":
+                        draggable True
+                        mousewheel True
+                        arrowkeys True
+                        vbox:
+                            spacing 10
+                            for boolean in booleans:
+                                textbutton _(boolean):
+                                    action RemoveFromSet(booleans, boolean)
+                    vbar value YScrollValue("boolean_list")
 
                 key "K_RETURN":
                     action [
@@ -865,6 +872,7 @@ style destination_option_text is yellow_button_text:
     font "gui/chubhand.ttf"
     size 44
     yoffset 4
+    selected_color "#000"
 
 style destination_description:
     color "#000"

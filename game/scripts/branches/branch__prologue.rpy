@@ -168,6 +168,7 @@ label prologue_05:
     $ current_thought = "barbara_thought_pr_07"
     bartender "You still with me, mate?[wait_1] You’ve gone kind of quiet."
     $ current_thought = "barbara_thought_pr_08"
+    $ pause_for_mind_read()
     bartender "Do you know what you want to have to drink?"
     $ current_thought = "barbara_thought_pr_09"
     bartender "If not, I can come back once you’ve decided."
@@ -198,6 +199,7 @@ label prologue_06:
     $ swap_sprites("barbara_angry")
     $ current_thought = "barbara_thought_pr_13"
     $ barbara_partial("irritated_01")
+    $ pause_for_mind_read()
     bartender "As a matter of fact, I’m the owner."
     $ current_thought = "barbara_thought_pr_14"
     $ jack_partial("cocky_03")
@@ -291,6 +293,7 @@ label prologue_08:
     bartender "Although I’ve only been running it for the last...[wait_05]I want to say eight months?" 
     $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_pr_25"
+    $ pause_for_mind_read()
     $ barbara_partial("proud_01")
     bartender "Which doesn’t sound like a lot, but I’ve got a lot of good ideas about how to make it even better!"
     bartender "Before you know it, this will be your favourite bar in the area - no, in the city!" 
@@ -337,6 +340,7 @@ label prologue_09:
     $ jack_partial("cocky_03")
     jack smug "I'd like to know a bit about your drink policies first."
     $ current_thought = "barbara_thought_pr_31"
+    $ pause_for_mind_read()
     jack smug "Got any happy hour specials, or other discounts for me?"
     $ current_thought = "barbara_thought_pr_32"
     $ barbara_partial("apologetic_01")
@@ -388,6 +392,7 @@ label prologue_09:
             $ jack_partial("cocky_02")
             jack smug "Oh come now - you don’t want to reward your loyal customers?[wait_1] The people who are basically paying your wages for you?"
             $ current_thought = "barbara_thought_pr_40"
+            $ pause_for_mind_read()
             $ barbara_partial("irritated_02")
             bartender "Sorry, but it doesn’t work that way."
             bartender "So are you going to order a drink - at its full price - or not?" 
@@ -577,7 +582,7 @@ label prologue_music_venue:
     jack angry "(Y’know, if I was a doorman, I’d let anybody in for free.[wait_1] It’s not fair how we have to -)"
     call prologue_precognition from prologue_music
     scene venue_exterior at drunk_cycle(5, 0, 1.0) with quick_dissolve
-    jump prologue_end
+    jump prologue_14
 
 label prologue_restaurant:
     $ scene_setup(33, "Monday", True, 2, 2, True, True)
@@ -827,6 +832,7 @@ label prologue_help_jack:
     lloyd_thinking neutral "Why did he die with a smile on his face?[wait_1] He was panicking before; he was scared."
     lloyd_thinking neutral "Now he looks more...serene."
     lloyd_narrating neutral "The back of my head is still throbbing."
+    scene black_bg
     
     call screen chapter_breaks("HOURS LATER", "People react to stress in different ways. Some people crumple and fold, unable to cope with excessive pressure to their systems.\n\nOthers respond by evolving.")
     scene apartment_night with slow_dissolve
@@ -973,3 +979,4 @@ label prologue_stop_killer:
     narrator "Several hours later..."
     mental_jack "Hmm...[wait_1]not a bad apartment."
     mental_jack "It’s definitely nicer than my last place."
+    jump branch_a_1_0

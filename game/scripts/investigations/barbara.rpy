@@ -96,6 +96,7 @@ label barbara_a_1:
     lloyd_thinking thinking "The man in black isn’t a patron of this bar –[wait_05] it could mean that he’s not from the area."
     lloyd_thinking thinking "It would be good to get confirmation of that fact."
     $ current_thought = "barbara_thought_13"
+    $ pause_for_mind_read()
     lloyd neutral "Thanks anyway."
     lloyd neutral "Do you know any of the other shop owners around here?[wait_1] Could you ask them if they remember him?"
     $ swap_sprites("barbara_angry")
@@ -393,6 +394,7 @@ label barbara_a_3:
     barbara "Tch.[wait_1] I can tell you what he doesn’t do –[wait_05] he’s not a reviewer, and he definitely doesn’t deserve any free drinks."
     lloyd neutral "What do you mean?"
     $ current_thought = "barbara_thought_66"
+    $ pause_for_mind_read()
     barbara "Oh, just that he claimed that he could give me a good review if I gave him a drink for free."
     barbara "I almost fell for it, but then I noticed his body language, and the tone of his voice, and it was obvious that he was just an addict looking for a free handout."
     lloyd_narrating neutral "The mention of the man with the white streak’s body language gives me an idea."
@@ -932,6 +934,7 @@ label barbara_c_2:
     barbara "That was a rhetorical question, Lloyd!"
     lloyd_narrating neutral "She begins counting on her fingers."
     $ current_thought = "barbara_thought_161"
+    $ pause_for_mind_read()
     barbara "Firstly, I need to finish cleaning this place up."
     barbara "It might look pretty good right now, but this is the hospitality industry –[wait_05] if you don’t mop the floors, scrub the tables, and dust the tops of the fridges, you get mice.[wait_1] Or better yet, a visit from the health department."
     barbara "Even if I didn’t have to worry about them, I can tell you right now that somebody probably spilled some of their drink last night, and there’ll be a sticky patch on the floor {i}somewhere{/i}."
@@ -1676,6 +1679,7 @@ label barbara_e_4:
     jack_possessing smug "Yeah, you know, I just thought that it was time I changed up my look a bit.[wait_1] Gotta make the image match the man, y’know?"
     bartender "What are you talking about, Lloyd?[wait_1] You already looked great!"
     $ current_thought = "barbara_thought_288"
+    $ pause_for_mind_read()
     jack_possessing smug "Well, yeah, I know that.[wait_1] But I wanna up my game a bit and really feel more like myself."
     $ current_thought = "barbara_thought_289"
     jack_possessing smug "Don’t be surprised if you see a whole new side of me in the next few days, uh...[wait_05]bartender."
