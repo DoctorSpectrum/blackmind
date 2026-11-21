@@ -386,8 +386,7 @@ label branch_a_2_4:
         lloyd_narrating neutral "There’s no more investigating, and I turn my focus in the next few days to some personal matters."
         lloyd_narrating neutral "What I don’t anticipate is that the case isn’t done with me."
         lloyd_narrating neutral "But without the information I could have discovered, there’s no way for me to avoid my fate."
-        narrator "GAME OVER"
-        $ MainMenu(confirm=False)()
+        call screen ending_screen("GAME OVER", "Test2")
     
     lloyd_narrating neutral "The answer is decided for me as my phone receives a notification."
     # SFX Phone vibrating

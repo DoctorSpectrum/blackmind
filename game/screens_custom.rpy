@@ -1296,7 +1296,7 @@ style node_active_text:
     color "#000"
     size 18
 
-screen saves_list(title="LOAD"):
+screen saves_list(title="LOAD", menu_action=None):
     tag menu
     default hover_row = None
     default selected_save = None
@@ -1305,7 +1305,7 @@ screen saves_list(title="LOAD"):
     timer 1.2:
         action SetScreenVariable("show_content", True)
 
-    use game_menu(title, 96, Return() if title == "SAVE" else None):
+    use game_menu(title, 96, Return() if title == "SAVE" else menu_action):
 
         if (show_content):
             vbox:
@@ -1762,6 +1762,89 @@ screen chapter_breaks(title, paragraph):
                 repeat
 
         use any_key(Return())
+    
+    key "mouseup_3":
+        action NullAction()
+
+screen ending_screen(title, hint):
+    default show_hint = False
+
+    frame:
+        background Solid("#000")
+        style "title_half_card"
+    frame:
+        background Solid("#F2EE29")
+        style "title_half_card_right"
+
+    frame:
+        background Solid("#F2EE29")
+        style "title_half_card"
+        at title_card_slide("down")
+
+    frame: 
+        background Solid("#000")
+        style "title_half_card_right"
+        at title_card_slide("up")
+
+
+    text _("OPEN YOUR THIRD EYE"):    
+        color "#000"
+        xpos 58
+        ypos 50
+        size 20
+        at trans_fade(1.25, 1.5), fade_side_to_side(-50, 0.75)
+
+    vbox:
+        xpos 60
+        ypos 120
+        at trans_fade(0.5, 0.5), fade_side_to_side(100)
+
+        text _("BLACKMIND"):
+            font "gui/Decade__.ttf"
+            size 140
+            color "#000"
+
+        text _("PSYCHIC SOCIAL SIMULATOR"):
+            font "gui/chubhand.ttf"
+            color "#000"
+            size 36
+            kerning 18.5
+
+    vbox:
+        xalign 0.15
+        yalign 0.65
+        spacing 10
+        at trans_fade(1.25, 1.5), fade_side_to_side(100, 0.75)
+
+        textbutton _("HINT"):
+            style "yellow_button_on_yellow"
+            action ToggleScreenVariable("show_hint")
+        textbutton _("LOAD"):
+            style "yellow_button_on_yellow"
+            action ShowMenu("saves_list", menu_action=Return())
+        textbutton _("MAIN MENU"):
+            style "yellow_button_on_yellow"
+            action MainMenu(confirm=False)
+        textbutton _("QUIT"):
+            style "yellow_button_on_yellow"
+            action Quit()
+
+    vbox:
+        xalign 0.85
+        yalign 0.4
+        spacing 50
+        xmaximum 700
+        
+        text _(title):
+            color "#F2EE29"
+            font "gui/chubhand.ttf"
+            size 100
+            xoffset -10
+            at trans_fade(1.25, 1.5), fade_side_to_side(-100, 0.75)
+
+        if (show_hint):
+            text _(hint):
+                color "#F2EE29"
     
     key "mouseup_3":
         action NullAction()
