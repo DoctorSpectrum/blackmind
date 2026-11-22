@@ -3,15 +3,12 @@ BLACKMIND TODO
         - Delivery Date: 31/12/2027
         - Deliverables:
             - Current task(s):
-                - Attune psychic senses screen
-                    - Add in modal with varying number
-
                 - Debug button
                 - Style mobile articles
                 - Style PDF browsing
 
                 - PDF scrolling updoots stuff
-                - Stop psychic effects occurring when we use them                
+                - Flag to Stop psychic effects occurring when we use them
                 - Fix up rewinding stuff - testing with Eddie works well - so we don't infinitely loop
 
             - Initial sprites for remaining characters, drawn by me
@@ -43,6 +40,7 @@ BLACKMIND TODO
                     - For this phase, this'll prolly just be a vbox with a list of scenes the players can access
                 - Styling
                     - Fix up the styling for mobile articles and PDF browsing
+                    - Potentially make a selected radio option black instead of dark yellow? See how it looks
                 - Other
                     - Attune your psychic senses: Add this in as an option to settings; menu item can be called ESP or something
                         - Should have a thing saying something like "this game can be played using psychic abilities. If you have psychic abilities, check this box to enable psychic controls", then checking a box brings up a setting

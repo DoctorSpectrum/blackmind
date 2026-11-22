@@ -1470,7 +1470,7 @@ style light_yellow_button_small is light_yellow_button:
 
 style light_yellow_button_small_text is light_yellow_button_text
 
-screen modal_base(short=True):
+screen modal_base(short=True, vbox_spacing=45):
     modal True
     zorder 200
 
@@ -1497,7 +1497,7 @@ screen modal_base(short=True):
                 vbox:
                     xalign .5
                     yalign .5
-                    spacing 45
+                    spacing vbox_spacing
 
                     transclude
 
@@ -1574,6 +1574,58 @@ screen save_name(filename):
             Function(renpy.save, find_next_save(), input_variable if len(input_variable) > 0 else default_save_name()),
             Hide("save_name"),
         ]
+
+screen psychic_attunement():
+    default power = 0.05
+    modal True
+    zorder 110
+    timer 1.0:
+        repeat True
+        action SetScreenVariable("power", random.choice([0.05, 0.06, 0.07, 0.08, 0.09, 0.1, 0.11, 0.12, 0.13, 0.14, 0.15, 0.16, 0.17, 0.18, 0.19, 0.2]))
+
+    use modal_base(True, 30):
+        text _("Psychic Attunement"):
+            xalign 0.5
+            yalign 0.0
+            font "gui/chubhand.ttf"
+            size 48
+
+        text _("Adjust the square using your psychic abilities until it is entirely solid. If you cannot achieve a PSI rating of at least 35 it is recommended that you turn psychic controls off."):
+            size 24
+            xmaximum 750
+
+        vbox:
+            xalign 0.5
+            spacing 10
+            frame:
+                background Solid("#000")
+                xsize 100
+                ysize 100
+                xalign 0.5
+                yalign 0.5
+                at transform:
+                    alpha power
+
+                image Solid("#F2EE29"):
+                    xsize 90
+                    ysize 90
+                    xalign 0.5
+                    yalign 0.5
+
+        
+            text _("Estimated PSI: " + str(round((power * 10) + (random.choice(range(0, 99))/ 100), 2))):
+                xalign 0.5
+                size 20
+
+        textbutton _("OK"):
+            xalign 0.5
+            style "yellow_button"
+            hover_background Frame("gui/button/button_hover_allblack.png")
+            action Hide("psychic_attunement")
+
+    key ["K_ESCAPE", "K_RETURN", "K_SPACE", "pad_a_press"]:
+        action Hide("psychic_attunement")
+
 
 screen pause_menu():
     tag menu

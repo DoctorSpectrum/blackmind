@@ -1709,7 +1709,7 @@ screen preferences(start=False):
                                     spacing 10
 
                                     label _("Psychic Controls")
-                                    text _("Control the game with your psychic abilities"):
+                                    text _("Control the game with your psychic abilities."):
                                         style "setting_description_text"
 
                                 hbox:
@@ -1814,7 +1814,7 @@ screen preferences(start=False):
                                     vbox:
                                         spacing 10
 
-                                        label _("Test abilities")
+                                        label _("Test Abilities")
                                         text _("Confirm your PSI rating"):
                                             style "setting_description_text"
 
@@ -1823,7 +1823,7 @@ screen preferences(start=False):
                                         text_size 22
                                         text_idle_color "#000"
 
-                                        action NullAction()
+                                        action Show("psychic_attunement")
                             
                     elif (selected_tab == "other"):
                         vbox:
