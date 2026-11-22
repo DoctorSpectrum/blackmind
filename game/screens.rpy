@@ -1472,6 +1472,14 @@ screen preferences(start=False):
                         Hide("sample_text_speed_2"),
                     ]
                     selected selected_tab == "audio"
+                textbutton _("PSI"):
+                    action [
+                        SetScreenVariable("hide_content", True),
+                        SetScreenVariable("selected_tab", "psi"),
+                        Hide("sample_text_speed_1"),
+                        Hide("sample_text_speed_2"),
+                    ]
+                    selected selected_tab == "psi"
                 textbutton _("Other"):
                     action [
                         SetScreenVariable("hide_content", True),
@@ -1689,6 +1697,133 @@ screen preferences(start=False):
                                 Preference("voice volume", 1.0),
                                 Preference("all mute", "disable"),
                             ]
+
+                    elif (selected_tab == "psi"):
+                        vbox:
+                            spacing 35
+
+                            hbox:
+                                at trans_fade(0.25, 0.5)
+                                spacing 100
+                                vbox:
+                                    spacing 10
+
+                                    label _("Psychic Controls")
+                                    text _("Control the game with your psychic abilities"):
+                                        style "setting_description_text"
+
+                                hbox:
+                                    style_prefix "radio_button"
+                                    yalign 0.5
+
+                                    imagebutton:
+                                        idle ("gui/checkbox_selected_hover.png" if persistent.use_psi and hover_radio == "psi_on" else ("gui/checkbox_selected_idle.png" if persistent.use_psi else ("gui/checkbox_unselected_idle.png" if not hover_radio == "psi_on" else "gui/checkbox_unselected_hover.png")))
+                                        hover ("gui/checkbox_selected_hover.png" if persistent.use_psi else "gui/checkbox_unselected_hover.png") 
+                                        yoffset 7
+                                        action ToggleVariable("persistent.use_psi")
+                                        hovered SetScreenVariable("hover_radio", "psi_on")
+                                        unhovered SetScreenVariable("hover_radio", None)
+                                    textbutton _("On" if persistent.use_psi == True else "Off"):
+                                        action ToggleVariable("persistent.use_psi")
+                                        hovered SetScreenVariable("hover_radio", "psi_on")
+                                        unhovered SetScreenVariable("hover_radio", None)
+                                        text_color ("#3B3B3B" if hover_radio == "psi_on" else ("#000" if persistent.use_psi else "#707070"))
+                                        text_bold hover_radio == "psi_on" or persistent.use_psi
+                                        text_size 26
+
+                            if (persistent.use_psi):
+                                hbox:
+                                    at trans_fade(0.5, 0.5)
+                                    spacing 100
+
+                                    vbox:
+                                        spacing 10
+
+                                        label _("Psychic Frequency")
+                                        text _("The frequency your abilities operate on."):
+                                            style "setting_description_text"
+                                    vbox:
+                                        spacing 20
+                                        hbox:
+                                            style_prefix "radio_button"
+
+                                            imagebutton:
+                                                idle ("gui/radio_hover.png" if hover_radio == "psi_0" else ("gui/radio_selected.png" if persistent.psi_setting == 0 else "gui/radio_idle.png"))
+                                                selected "gui/radio_selected.png"
+                                                hover "gui/radio_hover.png"
+                                                action SetVariable("persistent.psi_setting", 0)
+                                                hovered SetScreenVariable("hover_radio", "psi_0")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                            vbox:
+                                                textbutton _("350 - 550 MHz"):
+                                                    action SetVariable("persistent.psi_setting", 0)
+                                                    hovered SetScreenVariable("hover_radio", "psi_0")
+                                                    unhovered SetScreenVariable("hover_radio", None)
+                                                    text_color ("#3B3B3B" if hover_radio == "psi_0" else ("#000" if persistent.psi_setting == 0 else "#707070"))
+                                                    text_bold persistent.psi_setting == 0
+                                                    text_underline hover_radio == "psi_0"
+                                                text _("Standard frequency range for players with a PSI rating of 30 - 42"):
+                                                    style "radio_option_description"
+
+                                        hbox:
+                                            style_prefix "radio_button"
+
+                                            imagebutton:
+                                                idle ("gui/radio_hover.png" if hover_radio == "psi_1" else ("gui/radio_selected.png" if persistent.psi_setting == 1 else "gui/radio_idle.png"))
+                                                selected "gui/radio_selected.png"
+                                                hover "gui/radio_hover.png"
+                                                action SetVariable("persistent.psi_setting", 1)
+                                                hovered SetScreenVariable("hover_radio", "psi_1")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                            vbox:
+                                                textbutton _("551 - 850 MHz"):
+                                                    action SetVariable("persistent.psi_setting", 1)
+                                                    hovered SetScreenVariable("hover_radio", "psi_1")
+                                                    unhovered SetScreenVariable("hover_radio", None)
+                                                    text_color ("#3B3B3B" if hover_radio == "psi_1" else ("#000" if persistent.psi_setting == 1 else "#707070"))
+                                                    text_bold persistent.psi_setting == 1
+                                                    text_underline hover_radio == "psi_1"
+                                                text _("Standard frequency range for players with a PSI rating of 43 - 58"):
+                                                    style "radio_option_description"
+
+                                        hbox:
+                                            style_prefix "radio_button"
+
+                                            imagebutton:
+                                                idle ("gui/radio_hover.png" if hover_radio == "psi_2" else ("gui/radio_selected.png" if persistent.psi_setting == 2 else "gui/radio_idle.png"))
+                                                selected "gui/radio_selected.png"
+                                                hover "gui/radio_hover.png"
+                                                action SetVariable("persistent.psi_setting", 2)
+                                                hovered SetScreenVariable("hover_radio", "psi_2")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                            vbox:
+                                                textbutton _("851 MHz - 1 GHz"):
+                                                    action SetVariable("persistent.psi_setting", 2)
+                                                    hovered SetScreenVariable("hover_radio", "psi_2")
+                                                    unhovered SetScreenVariable("hover_radio", None)
+                                                    text_color ("#3B3B3B" if hover_radio == "psi_2" else ("#000" if persistent.psi_setting == 2 else "#707070"))
+                                                    text_bold persistent.psi_setting == 2
+                                                    text_underline hover_radio == "psi_2"
+                                                text _("Standard frequency range for players with a PSI rating of 59+"):
+                                                    style "radio_option_description"
+                                
+                                hbox:
+                                    at trans_fade(0.75, 0.5)
+                                    spacing 180
+
+                                    vbox:
+                                        spacing 10
+
+                                        label _("Test abilities")
+                                        text _("Confirm your PSI rating"):
+                                            style "setting_description_text"
+
+                                    textbutton _("Check Rating"):
+                                        style "yellow_button_dark_hover"
+                                        text_size 22
+                                        text_idle_color "#000"
+
+                                        action NullAction()
                             
                     elif (selected_tab == "other"):
                         vbox:

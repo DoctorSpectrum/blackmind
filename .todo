@@ -2,6 +2,18 @@ BLACKMIND TODO
     - Alpha Phase
         - Delivery Date: 31/12/2027
         - Deliverables:
+            - Current task(s):
+                - Attune psychic senses screen
+                    - Add in modal with varying number
+
+                - Debug button
+                - Style mobile articles
+                - Style PDF browsing
+
+                - PDF scrolling updoots stuff
+                - Stop psychic effects occurring when we use them                
+                - Fix up rewinding stuff - testing with Eddie works well - so we don't infinitely loop
+
             - Initial sprites for remaining characters, drawn by me
             - Initial CGs for the game
             - Placeholder music
@@ -16,7 +28,7 @@ BLACKMIND TODO
                     - Simple way to stop the psychic effects occuring when we use them, so we can turn them off during CGs. A flag?
                     - Rewinding:
                         - Rewind points need to be added in, along with stuff so we don't rewind at certain points
-                        - Rewinding is currently kinda jancky due to some sort of call functionality - can we change it to jump and not break things?
+                        - Rewinding is currently kinda janky due to some sort of call functionality - can we change it to jump and not break things?
                 - Debugging:
                     - Let's add in a debug button (D or something) that displays the name of the current scene and some variables - that way I can get the others to give me variable info if they find bugs.
                 - Flow chart

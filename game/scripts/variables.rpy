@@ -107,8 +107,9 @@ label variables:
         }
     ]
     default persistent.game_id = 0
-    default persistent.senses_attuned = False
     default persistent.psychic_splash = "always"
+    default persistent.use_psi = False
+    default persistent.psi_setting = 0
 
     default preferences.fullscreen = True
     default preferences.music_volume = 0.75 
