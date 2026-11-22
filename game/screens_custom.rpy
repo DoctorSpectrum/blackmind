@@ -1766,7 +1766,7 @@ screen chapter_breaks(title, paragraph):
     key "mouseup_3":
         action NullAction()
 
-screen ending_screen(title, hint):
+screen ending_screen(title, description, hint=None):
     default show_hint = False
 
     frame:
@@ -1816,9 +1816,6 @@ screen ending_screen(title, hint):
         spacing 10
         at trans_fade(1.25, 1.5), fade_side_to_side(100, 0.75)
 
-        textbutton _("HINT"):
-            style "yellow_button_on_yellow"
-            action ToggleScreenVariable("show_hint")
         textbutton _("LOAD"):
             style "yellow_button_on_yellow"
             action ShowMenu("saves_list", menu_action=Return())
@@ -1830,21 +1827,49 @@ screen ending_screen(title, hint):
             action Quit()
 
     vbox:
-        xalign 0.85
-        yalign 0.4
-        spacing 50
+        xalign 0.875
+        yalign 0.56
+        spacing 45
         xmaximum 700
         
         text _(title):
             color "#F2EE29"
             font "gui/chubhand.ttf"
             size 100
-            xoffset -10
             at trans_fade(1.25, 1.5), fade_side_to_side(-100, 0.75)
 
-        if (show_hint):
-            text _(hint):
+        vbox:
+            spacing 15
+            at trans_fade(1.5, 1.5), fade_side_to_side(-100, 0.75)
+
+            text _(description):
                 color "#F2EE29"
+                xmaximum 600
+                size 38
+
+            image Solid("#F2EE29"):
+                xsize 600
+                ysize 1
+
+        if (show_hint and hint != None):
+            text _(hint):
+                xmaximum 600
+                color "#F2EE29"
+                at trans_fade(0.0, 0.5), fade_side_to_side(-50, 0.0)
+        elif (not show_hint and hint != None):
+            text _(hint):
+                xmaximum 600
+                color "#F2EE29"
+                at transform:
+                    alpha 0.0
+        else:
+            text _("\n")
+
+        if (hint != None):
+            textbutton _("SHOW HINT" if not show_hint else "HIDE HINT"):
+                style "black_button_on_black"
+                action ToggleScreenVariable("show_hint")
+                at trans_fade(1.75, 1.5), fade_side_to_side(-100, 0.75)
     
     key "mouseup_3":
         action NullAction()

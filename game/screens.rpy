@@ -897,6 +897,14 @@ style yellow_button_small is yellow_button:
 
 style yellow_button_small_text is yellow_button_text
 
+style black_button_small is yellow_button_small:
+    background Frame("gui/button/button_hover.png")
+    hover_background Frame("gui/button/button_hover.png")
+
+style black_button_small_text is yellow_button_small_text:
+    color "#F2EE29"
+    hover_underline True
+
 style main_menu_button is yellow_button:
     xsize 343
     padding (60, 15, 60, 15)

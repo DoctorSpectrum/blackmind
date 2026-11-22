@@ -244,8 +244,7 @@ label branch_d_3_4:
             $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
             hide screen psychic_powers
             scene black_bg
-            narrator "GAME OVER"
-            $ MainMenu()
+            call screen ending_screen("GAME OVER", "Lloyd was found by Docherty and killed.", "Visit Eddie during the day and read his mind when he brings up Docherty. Then visit him in the evening.")
         "Visit Eddie" (locked=not person_visited("eddie", "d", 0) or not check_boolean("eddie_investigates_docherty2"), message=("You did not visit Eddie today" if not person_visited("eddie", "d", 0) else "You did not convince Eddie to help you")):
             lloyd_narrating neutral "It’s not as though I have any other viable options."
             lloyd_narrating neutral "Eddie’s the only one of my contacts who suggested I visit him tonight, after his interest was piqued by my encounter with Docherty."
@@ -449,5 +448,4 @@ label branch_d_4_4:
     $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
     hide screen psychic_powers
     scene black_bg
-    narrator "ENDING D"
-    $ MainMenu()
+    call screen ending_screen("ENDING D", "Lloyd was killed by Eddie, the mastermind behind Docherty.", "In addition to Eddie, visit the detective on Day 3. Then help Eddie when Docherty attacks.")

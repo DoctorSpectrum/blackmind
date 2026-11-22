@@ -498,9 +498,7 @@ label mind_read_eddie:
         lloyd neutral "What?"
         $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
         scene black_bg
-        narrator "GAME OVER"
-        $ MainMenu(confirm=False)
-        return
+        call screen ending_screen("ENDING F", "Lloyd was killed by Eddie.")
 
     # E-3-4
     elif (current_thought == "eddie_thought_233"):

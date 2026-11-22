@@ -239,8 +239,7 @@ label branch_f_4_4:
     killian "Well then –[wait_05] let’s see you dodge this one."
     $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
     scene black_bg
-    narrator "GAME OVER"
-    $ MainMenu()
+    call screen ending_screen("GAME OVER", "Killian murdered Lloyd.", "Killian was taken off-guard when Lloyd avoided his shot. He should be briefly vulnerable.")
 
 label branch_f_ending:
     show screen psychic_powers
@@ -395,8 +394,7 @@ label branch_f_ending:
     hide killian_smiling with quick_dissolve
     hide screen psychic_powers
     scene black_bg with slow_dissolve
-    narrator "ENDING F"
-    $ MainMenu()
+    call screen ending_screen("ENDING F", "Lloyd stopped the killer, and vowed to make the world a better place.", "What does Jack think about Lloyd?")
 
 label branch_g_4_4:
     $ swap_sprites("killian_smiling", quick_dissolve)
@@ -434,7 +432,4 @@ label branch_g_4_4:
     eddie "Three...[wait_05]two...[wait_05]one..."
     unknown "CHEESE!" (name="Everyone")
     scene cg15_0 with slow_dissolve
-    narrator "ENDING G"
-    $ MainMenu()
-
-    return
+    call screen ending_screen("ENDING G", "Lloyd had the best birthday ever!")

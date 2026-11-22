@@ -770,8 +770,7 @@ label prologue_leave_jack:
     lloyd_narrating neutral "Within a few weeks I’ve mostly pushed the incident out of my mind."
     lloyd_narrating neutral "I’ve continued with my photography, and I’m expecting something big to come up soon."
     lloyd_narrating neutral "I may not have been of any help, but I’ve been able to focus on and advance my own goals.[wait_1] That’s all that matters, really."
-    narrator "THE END"
-    $ MainMenu(confirm=False)()
+    call screen ending_screen("GAME OVER", "Lloyd chose to focus on himself.")
 
 label prologue_help_jack:
     lloyd_thinking thinking "I might not be able to help this dying man."
@@ -919,7 +918,7 @@ label prologue_help_jack:
     lloyd_thinking neutral "More importantly...[wait_1]what should I do about it?"
     menu:
         "Stop the killer":
-            lloyd_thinking neutral "I’m just a photographer – and not one who’s in a great place at the moment."
+            lloyd_thinking neutral "I’m just a photographer –[wait_05] and not one who’s in a great place at the moment."
             lloyd_thinking neutral "This man is a killer, and I doubt that he’ll have any qualms about stopping people who get in his way."
             lloyd_thinking neutral "This could end up being incredibly dangerous."
             lloyd_thinking neutral "Is trying to stop the killer really the best decision?"
@@ -959,8 +958,7 @@ label prologue_quit_early:
     lloyd_narrating neutral "It’s not something that affects me, or that I should concern myself with."
     lloyd_narrating neutral "At least that’s what I believe."
     lloyd_narrating neutral "As it turns out, though...[wait_1]I’m wrong about that."
-    narrator "THE END"
-    $ MainMenu(confirm=False)()
+    call screen ending_screen("GAME OVER", "Lloyd chose not to stop the killer.")
 
 label prologue_stop_killer:
     lloyd_narrating neutral "It’s tempting to stand aside."

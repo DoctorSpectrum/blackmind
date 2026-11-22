@@ -198,5 +198,4 @@ label branch_e_4_4:
     jack_possessing_thinking "Man, it’s a good life."
     hide screen psychic_powers
     scene black_bg
-    narrator "ENDING E"
-    $ MainMenu()
+    call screen ending_screen("ENDING E", "Jack got away with it.", "Find the thoughts related to how people feel about Lloyd while playing as Jack. Enough of them will make him rethink his plan.")

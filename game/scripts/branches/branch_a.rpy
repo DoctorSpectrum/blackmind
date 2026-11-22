@@ -386,7 +386,7 @@ label branch_a_2_4:
         lloyd_narrating neutral "There’s no more investigating, and I turn my focus in the next few days to some personal matters."
         lloyd_narrating neutral "What I don’t anticipate is that the case isn’t done with me."
         lloyd_narrating neutral "But without the information I could have discovered, there’s no way for me to avoid my fate."
-        call screen ending_screen("GAME OVER", "Test2")
+        call screen ending_screen("GAME OVER", "Lloyd lost the trail of the killer.", "Visit the library, and be honest to the librarian.")
     
     lloyd_narrating neutral "The answer is decided for me as my phone receives a notification."
     # SFX Phone vibrating
@@ -594,8 +594,7 @@ label branch_a_3_4:
             lloyd_narrating neutral "Reading the mind of the officer I’m questioning doesn’t give me anything useful, and things go awry when I push a bit harder."
             lloyd_narrating neutral "It doesn’t take long for me to be arrested and placed in a holding cell."
             lloyd_narrating neutral "My investigation is over for good.[wait_1] I won’t be able to stop the man in black or save any of his future victims."
-            narrator "GAME OVER"
-            $ MainMenu(confirm=False)()
+            call screen ending_screen("GAME OVER", "Lloyd was mistakenly arrested.", "Visit the detective agency, and read the detective's mind when describing the man with the white streak.")
 
 label branch_a_4_0:
     # Power upgrade
@@ -658,7 +657,6 @@ label branch_a_b_4_4:
     
     # Ending A/B, display how to get to the next branch
     if (branch == "a"):
-        narrator "ENDING A"
+        call screen ending_screen("ENDING A", "Lloyd was killed by the man in black.", "On Day 3, visit the bar. Read the bartender's mind when she describes the visitor she had.")
     else:
-        narrator "ENDING B"
-    $ MainMenu()
+        call screen ending_screen("ENDING B", "Lloyd was killed by the man in black.", "On Day 1, visit the newspaper. Rewind the employee's mind after learning his name, and visit him in the evening.")

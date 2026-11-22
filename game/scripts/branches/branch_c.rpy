@@ -452,8 +452,7 @@ label branch_c_3_4:
             lloyd_narrating neutral "I’m questioned by the officer who caught me and although I protest my innocence, they stop listening once I’m recognised as the person who was found with the man with the white streak."
             lloyd_narrating neutral "If I hadn’t gone to Sergei’s venue, I wouldn’t have been locked up for questioning."
             lloyd_narrating neutral "And while I doubt that I’ll end up with strong charges, for now my role in the investigation is done."
-            narrator "GAME OVER"
-            $ MainMenu()
+            call screen ending_screen("GAME OVER", "Lloyd's investigation ended with him being arrested.", "Visit the library during the day. Read the librarian's mind when Lloyd asks about Sergei directly.")
         "Visit Cat" (locked=not person_visited("cat", "c", 1) or not check_boolean("cat_retrieves_notes"), message=("You did not visit the library today" if not person_visited("cat", "c", 1) else "You did not convince Cat to retrieve Sergei's notes")):
             lloyd_thinking thinking "Visiting Cat is the obvious decision to make."
             lloyd_thinking thinking "She said that she could get me some notes that Sergei has.[wait_1] It’s the next best thing to talking to the man himself and discovering why he was targeted by the killer."
@@ -630,5 +629,4 @@ label branch_c_4_4:
     lloyd_narrating neutral "It’s my life that’s important, that I need to protect now."
     lloyd_thinking thinking "I’ll see what I can do once I’ve made it somewhere safe, but for the time  being, I have to look after myself."
     
-    # Ending C, display how to get to the next branch
-    return
+    call screen ending_screen("ENDING C", "Lloyd fled the city out of fear.", "On Day 2, visit the bar. Read the bartender's mind when she describes her tasks, and find the task she doesn't like. Then visit her in the evening.")
