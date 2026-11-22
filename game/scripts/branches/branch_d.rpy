@@ -168,6 +168,7 @@ label branch_d_2_4:
     mental_jack "Another one dead...[wait_05]bastard."
 
 label branch_d_3_0:
+    hide screen calendar
     # power upgrade
     $ branch = "d"
     $ day = 3
@@ -188,6 +189,7 @@ label branch_d_3_0:
     call screen map_navigation()
 
 label branch_d_3_4:
+    $ scene_setup(0, "Thursday", True, 4, 4, True, True)
     scene restaurant_night with slow_dissolve
     lloyd_narrating neutral "Today has been nothing but a waste of time.[wait_1] I’ve learned nothing valuable about Sergei or his associate, and the investigation has hit a dead end."
     lloyd_narrating neutral "All that I can do for now is take a break, visit my favourite restaurant, and hope that inspiration hits me while I’m eating."
@@ -374,6 +376,7 @@ label branch_d_3_4:
                     jump branch_e_3_4
 
 label branch_d_4_0:
+    hide screen calendar
     # power upgrade
     $ branch = "d"
     $ day = 4
@@ -392,6 +395,7 @@ label branch_d_4_0:
     call screen map_navigation()
 
 label branch_d_4_4:
+    $ scene_setup(0, "Friday", True, 4, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "It’s evening.[wait_1] If this were one of the past few days I would be making my way to my favourite restaurant for a meal after a busy day of investigating."
     lloyd_narrating neutral "I’m a little tempted to do so; a habit formed after several days of eating a prepared meal for dinner."

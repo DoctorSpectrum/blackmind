@@ -157,6 +157,7 @@ label branch_c_1_4:
     mental_jack "I’ll have to try again another time."
 
 label branch_c_2_0:
+    hide screen calendar
     # power upgrade
     $ branch = "c"
     $ day = 2
@@ -171,6 +172,7 @@ label branch_c_2_0:
     call screen map_navigation()
 
 label branch_c_2_4:
+    $ scene_setup(0, "Wednesday", True, 4, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "The second day of my hunt for the serial killer has come to a close.[wait_1] I still don’t know whether what I’m doing even matters."
     lloyd_narrating neutral "Docherty is already dead, and the visions I’ve seen seem irrelevant."
@@ -378,6 +380,7 @@ label branch_c_2_4:
     scene black_bg with slow_dissolve
 
 label branch_c_3_0:
+    hide screen calendar
     # Power upgrade
     $ branch = "c"
     $ day = 3
@@ -396,6 +399,7 @@ label branch_c_3_0:
     call screen map_navigation()
 
 label branch_c_3_4:
+    $ scene_setup(0, "Thursday", True, 4, 4, True, True)
     scene restaurant_night with slow_dissolve
     lloyd_narrating neutral "Once again I head to my favourite restaurant for a meal.[wait_1] I wouldn’t normally eat out this much but I want to keep things moving."
     lloyd_narrating neutral "There’s not enough time in the day to talk to everybody that I want to.[wait_1] For now though, I need to slow down and take a break."
@@ -565,6 +569,7 @@ label branch_c_3_4:
     return
 
 label branch_c_4_0:
+    hide screen calendar
     # Power upgrade
     $ branch = "c"
     $ day = 4

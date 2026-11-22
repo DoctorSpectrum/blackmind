@@ -26,6 +26,7 @@ label eddie_investigation:
     jump move_location
 
 label eddie_a_1:
+    $ scene_setup(0, "Tuesday", True, len(days["a"][0]) + 1, 4, True, True)
     scene black_bg with quick_dissolve
     lloyd_narrating neutral "I travel eastwards for a quarter of an hour with mixed feelings in my stomach throughout the duration of the journey."
     lloyd_narrating neutral "Of all the places to visit today this is both the one I’m most excited for, but also looking forward to the least."
@@ -196,6 +197,7 @@ label eddie_recognised:
     return
 
 label eddie_a_2:
+    $ scene_setup(0, "Wednesday", True, len(days["a"][1]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "Everything from last night is a blank."
     lloyd_narrating neutral "I have no memory of waking up from my sleep."
@@ -344,6 +346,7 @@ label eddie_a_2:
     return
 
 label eddie_a_3:
+    $ scene_setup(0, "Thursday", True, len(days["a"][2]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "Cat was able to find out information about the man in black’s first two victims for me, but I couldn’t find a connection between them."
     lloyd_narrating neutral "There’s no reason that I can see for why he chose to kill the two of them."
@@ -569,6 +572,10 @@ label eddie_a_3:
     return
 
 label eddie_a_b_4:
+    if (branch == "a"):
+        $ scene_setup(0, "Friday", True, len(days["a"][3]) + 1, 4, True, True)
+    else:
+        $ scene_setup(0, "Friday", True, len(days["b"][0]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "It’s the fourth day of my investigation and I haven’t found any information to stop the killer."
     lloyd_narrating neutral "I don’t know who his next victim will be.[wait_1] I don’t know what his name is or where he is."
@@ -944,6 +951,7 @@ label eddie_a_b_4:
     return 
 
 label eddie_c_2:
+    $ scene_setup(0, "Wednesday", True, len(days["c"][0]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "I’ve taken one step forward but two steps back."
     lloyd_narrating neutral "I know the identity of the man in black that I saw in my vision, Allan Docherty."
@@ -1064,6 +1072,7 @@ label eddie_c_2:
     return
 
 label eddie_c_3:
+    $ scene_setup(0, "Thursday", True, len(days["c"][1]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "Sergei Maskelyne is dead." 
     lloyd_narrating neutral "Despite my knowledge of his death, of what would happen to him, I couldn’t warn him in time."
@@ -1189,6 +1198,7 @@ label eddie_c_3:
     return
 
 label eddie_c_4:
+    $ scene_setup(0, "Friday", True, len(days["c"][2]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "Things are coming to an end.[wait_1] Sergei’s notes have given me more information about how my psychic powers work than I’d ever have thought possible."
     lloyd_narrating neutral "I’ve learned about the existence of others with extrasensory abilities and that the killer eliminated them in an attempt to gain powers for themself."
@@ -1325,6 +1335,7 @@ label eddie_c_4:
     return 
 
 label eddie_d_3:
+    $ scene_setup(0, "Thursday", True, len(days["d"][0]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     sergei "{size=-8}Jack...[wait_05]he’s trying to kill all of us...[wait_05] Y-you need...[wait_05]to...{/size}"
     lloyd_narrating neutral "Those were the last words that Sergei Maskelyne ever spoke."
@@ -1498,6 +1509,7 @@ label eddie_d_3:
     return
 
 label eddie_e_4:
+    $ scene_setup(0, "Friday", True, len(days["e"][0]) + 1, 4, True, True)
     scene office_interview_room with slow_dissolve
     jack_possessing_thinking smug "Alright, they let me into this nice swanky room without any problems.[wait_1] Probably safe to say that they wouldn’t have done that if they weren’t already interested in what I’ve got." 
     jack_possessing_thinking smug "How much can you sell a single photo for, anyway?[wait_1] I’ll start the bidding at about $500 and can prolly get them up to a grand each with a bit of haggling."

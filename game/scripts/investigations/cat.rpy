@@ -26,6 +26,7 @@ label cat_investigation:
     jump move_location
 
 label cat_a_1:
+    $ scene_setup(0, "Tuesday", True, len(days["a"][0]) + 1, 4, True, True)
     scene black_bg with quick_dissolve
     lloyd_narrating neutral "The power to delve into peoples’ minds and see the future."
     lloyd_narrating neutral "Those are the abilities that I’ve somehow been gifted."
@@ -153,6 +154,7 @@ label cat_a_1:
     return
 
 label cat_a_2:
+    $ scene_setup(0, "Wednesday", True, len(days["a"][1]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "I lost a large portion of my memories from last night."
     lloyd_narrating neutral "I have no idea why I went to that bar, why I drank so much, or what happened while I was there."
@@ -359,6 +361,7 @@ label cat_a_2:
     return
 
 label cat_a_3:
+    $ scene_setup(0, "Thursday", True, len(days["a"][2]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "I wouldn’t be progressing on the path I am now if it weren’t for Cat."
     lloyd_narrating neutral "She discovered who the first two victims of the man in black were."
@@ -465,6 +468,7 @@ label cat_a_3:
     return
 
 label cat_a_4:
+    $ scene_setup(0, "Friday", True, len(days["a"][3]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "Through Graves I was able to learn the name of the man in black’s third victim.[wait_1] Jack Usbourne."
     lloyd_narrating neutral "It’s more information, but it still isn’t enough.[wait_1] I still don’t know why the man in black killed him, or any of his other victims."
@@ -606,6 +610,7 @@ label cat_a_4:
     return 
 
 label cat_b_4:
+    $ scene_setup(0, "Friday", True, len(days["b"][0]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "I have no idea how to find other psychics in the city."
     lloyd_narrating neutral "If I’m going to find any of them then researching my own abilities is probably my best bet."
@@ -713,6 +718,7 @@ label cat_b_4:
     return 
 
 label cat_c_2:
+    $ scene_setup(0, "Wednesday", True, len(days["c"][0]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "Last night I had a vision of the future.[wait_1] My second one."
     lloyd_narrating neutral "In it, I saw a man I now know to be dead killing somebody else."
@@ -888,6 +894,7 @@ label cat_c_2:
     return 
 
 label cat_c_3:
+    $ scene_setup(0, "Thursday", True, len(days["c"][1]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "I was too late.[wait_1] I didn’t discover where Sergei was in time, and I couldn’t warn him about the killer."
     lloyd_narrating neutral "I can’t fix the past, but I can learn from it."
@@ -1042,6 +1049,7 @@ label cat_c_3:
     return
 
 label cat_c_4:
+    $ scene_setup(0, "Friday", True, 4, 4, True, True)
     scene restaurant_night with slow_dissolve
     lloyd_narrating neutral "It’s the end of the day."
     lloyd_narrating neutral "I haven’t managed to discover anything new or make any progress in stopping the killer."
@@ -1172,6 +1180,7 @@ label cat_c_4:
     jump branch_c_4_4
 
 label cat_d_3:
+    $ scene_setup(0, "Thursday", True, len(days["d"][0]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "Last night didn’t go the way that I wanted it to."
     lloyd_narrating neutral "Once I knew where I could find Sergei I wanted to warn him about the upcoming attempt on his life.[wait_1] I wanted to protect him from Docherty and save a life."
@@ -1358,6 +1367,7 @@ label cat_d_3:
     return
 
 label cat_d_4:
+    $ scene_setup(0, "Friday", True, len(days["d"][1]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "Allan Docherty is well and truly dead."
     lloyd_narrating neutral "I’ve seen his corpse –[wait_05] my third one in the last several days –[wait_05] and saw the damage that Eddie’s gun did to him."
@@ -1503,6 +1513,7 @@ label cat_d_4:
     return
 
 label cat_e_4:
+    $ scene_setup(0, "Friday", True, len(days["e"][0]) + 1, 4, True, True)
     scene library_day with slow_dissolve
     jack_possessing_thinking angry "How does a place like this even still exist?[wait_1] Who the hell still reads these days?"
     jack_possessing_thinking angry "We’ve got tvs, youtube, video games –[wait_1] we don’t need books any more."

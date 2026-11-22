@@ -26,6 +26,7 @@ label barbara_investigation:
     jump move_location
 
 label barbara_a_1:
+    $ scene_setup(0, "Tuesday", True, len(days["a"][0]) + 1, 4, True, True)
     scene black_bg with quick_dissolve
     #sfx of train noises
     lloyd_narrating neutral "The bar I’ve identified is called Icarus."
@@ -167,6 +168,7 @@ label barbara_a_1:
     return
 
 label barbara_a_2:
+    $ scene_setup(0, "Wednesday", True, len(days["a"][1]) + 1, 4, True, True)
     scene black_bg with quick_dissolve
     lloyd_narrating neutral "Last night I was in a bar."
     lloyd_narrating neutral "I had at least a few alcoholic drinks, to judge by the sensation I had, and had likely been there for a decent amount of time."
@@ -287,6 +289,7 @@ label barbara_a_2:
     return
 
 label barbara_a_3:
+    $ scene_setup(0, "Thursday", True, len(days["a"][2]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "I’m trying to discover why the man with the white streak was killed by the man in black."
     lloyd_narrating neutral "There must be something that he has in common with the man in black’s other victims; something that painted targets on their backs."
@@ -467,6 +470,7 @@ label barbara_a_3:
     return
 
 label barbara_a_4:
+    $ scene_setup(0, "Friday", True, len(days["a"][3]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "Jack Usbourne’s name may now be known to me, but his past and connection to the victims of the man in black are still complete unknowns."
     lloyd_narrating neutral "I still can’t identify why he was killed or what traits a future victim might have.[wait_1] I need to."
@@ -659,6 +663,7 @@ label barbara_a_4:
     return 
 
 label barbara_b_4:
+    $ scene_setup(0, "Friday", True, 4, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "It’s the end of the day.[wait_1] I haven’t learned of any other psychic in the city.[wait_1] I’ve gained nothing from the day’s investigations."
     lloyd_narrating neutral "All that I can do is trust in Barbara to have security footage as useful as she shared with me yesterday."
@@ -838,6 +843,7 @@ label barbara_b_4:
     jump branch_a_b_4_4
 
 label barbara_c_2:
+    $ scene_setup(0, "Wednesday", True, len(days["c"][0]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "Allan Docherty is dead."
     lloyd_narrating neutral "The man whom I saw performing a killing –[wait_05] who was responsible for the death of the man with the white streak –[wait_05] is himself deceased."
@@ -1030,6 +1036,7 @@ label barbara_c_2:
     return
 
 label barbara_c_3:
+    $ scene_setup(0, "Thursday", True, len(days["c"][1]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "I failed.[wait_1] Sergei Maskelyne died last night and it’s all my fault."
     lloyd_narrating neutral "Despite having the knowledge that it would happen –[wait_05] despite knowing that he was in danger –[wait_05] I wasn’t able to save him."
@@ -1191,6 +1198,7 @@ label barbara_c_3:
     return
 
 label barbara_c_4:
+    $ scene_setup(0, "Friday", True, len(days["c"][2]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "It’s all coming together.[wait_1] I’m nearly at the point where I can understand my visions, control them, and then use them to stop the killer."
     lloyd_narrating neutral "All that I need is to retrieve the remainder of Sergei’s notes from Cat, read them, and then I’ll be able to master my abilities."
@@ -1381,6 +1389,7 @@ label barbara_c_4:
     return
 
 label barbara_d_3:
+    $ scene_setup(0, "Thursday", True, len(days["d"][0]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "In spite of my efforts to deliver a warning to him, Sergei is dead."
     lloyd_narrating neutral "I wasn’t able to warn him in time, and I don’t know whether I ever had the opportunity to."
@@ -1515,6 +1524,7 @@ label barbara_d_3:
     return
 
 label barbara_d_4:
+    $ scene_setup(0, "Friday", True, len(days["d"][1]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "Even though it’s a long distance to travel, there’s enough time in the day for me to travel to Icarus and talk to Barbara."
     lloyd_narrating neutral "Now that Docherty has been stopped I’d like to thank Barbara for her assistance and for giving me support."
@@ -1661,6 +1671,7 @@ label barbara_d_4:
     return
 
 label barbara_e_4:
+    $ scene_setup(0, "Friday", True, len(days["e"][0]) + 1, 4, True, True)
     scene bar with slow_dissolve
     jack_possessing_thinking angry "Man...[wait_05]it took me absolutely forever to get here.[wait_1] Why does Lloyd have to live so far away from this bar?"
     jack_possessing_thinking angry "Dunno if I’ll want to keep coming here all that often once I’m properly living his life.[wait_1] The only reason I was willing to make the trip today is ‘cos I know I can get a shittonne of drinks for free."

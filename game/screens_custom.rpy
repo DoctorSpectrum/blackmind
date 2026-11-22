@@ -1915,7 +1915,7 @@ screen calendar(day, section, sections=4):
             xalign 0.15
             color "#000"
             font "gui/chubhand.ttf"
-            size 50
+            size (50 if day != "Wednesday" else 44)
 
             at transform:
                 xoffset -400

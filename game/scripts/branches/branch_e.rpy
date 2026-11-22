@@ -89,6 +89,7 @@ label branch_e_3_4:
     mental_jack "({size=-8}I{/size} – I won’t! He won’t get away with this!)"
 
 label branch_e_4_0:
+    hide screen calendar
     # power upgrade
     $ branch = "e"
     $ day = 4
@@ -113,6 +114,7 @@ label branch_e_4_0:
     call screen map_navigation()
 
 label branch_e_4_4:
+    $ scene_setup(0, "Friday", True, 4, 4, True, True)
     scene black_bg with slow_dissolve
     jack_possessing_thinking smug "I’d call that a pretty successful first day."
     jack_possessing_thinking smug "Pretty safe to say that I do a pretty seamless impersonation of Lloyd;[wait_05] nobody guessed that I wasn’t really him.[wait_1] I guess I’m just that good."

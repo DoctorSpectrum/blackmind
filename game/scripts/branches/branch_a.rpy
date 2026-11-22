@@ -10,6 +10,7 @@ label branch_a_1_0:
     call screen map_navigation()
 
 label branch_a_1_4:
+    $ scene_setup(0, "Tuesday", True, 4, 4, True, True)
     scene black_bg with quick_dissolve
     lloyd_narrating neutral "The sun is starting to set, the day coming to a close."
     lloyd_narrating neutral "I’ve travelled all across the city today but still haven’t found anything solid about the identity of the man in black."
@@ -316,6 +317,7 @@ label branch_a_1_4_bar:
     lloyd_narrating neutral "It’s far too late by the time I finally reach home and go to bed."
     
 label branch_a_2_0:
+    hide screen calendar
     # Power upgrade
     $ branch = "a"
     $ day = 2
@@ -346,6 +348,7 @@ label branch_a_2_0:
     call screen map_navigation()
 
 label branch_a_2_4:
+    $ scene_setup(0, "Wednesday", True, 4, 4, True, True)
     scene restaurant_night with slow_dissolve
     lloyd_narrating neutral "The sun is setting on another day.[wait_1] Inversely proportional to its position in the sky is my frustration."
     lloyd_narrating neutral "I’ve spent the entire day trying to discover what exactly happened last night but haven’t made any progress."
@@ -409,6 +412,7 @@ label branch_a_2_4:
     scene black_bg with slow_dissolve
 
 label branch_a_3_0:
+    hide screen calendar
     # Power upgrade
     $ branch = "a"
     $ day = 3
@@ -424,6 +428,7 @@ label branch_a_3_0:
     call screen map_navigation()
 
 label branch_a_3_4:
+    $ scene_setup(0, "Thursday", True, 4, 4, True, True)
     scene restaurant_night with slow_dissolve
     lloyd_narrating neutral "It’s been a long day of asking questions and I’m ready to take a break."
     lloyd_narrating neutral "Just as I’ve done the past two days I travel to my favourite restaurant and order a meal while I think it over."
@@ -597,6 +602,7 @@ label branch_a_3_4:
             call screen ending_screen("GAME OVER", "Lloyd was mistakenly arrested.", "Visit the detective agency, and read the detective's mind when describing the man with the white streak.")
 
 label branch_a_4_0:
+    hide screen calendar
     # Power upgrade
     $ branch = "a"
     $ day = 4

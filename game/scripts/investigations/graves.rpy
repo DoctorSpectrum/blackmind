@@ -26,6 +26,7 @@ label graves_investigation:
     jump move_location
 
 label graves_a_1:
+    $ scene_setup(0, "Tuesday", True, len(days["a"][0]) + 1, 4, True, True)
     scene black_bg with quick_dissolve
     lloyd_narrating neutral "I’ve never had to hire, or even interact with, a private investigator. I chose this one because he’s not too far from my apartment – if I’m going to be seeing him often, I might as well make sure that it’s a short journey."
     lloyd_narrating neutral "It’s just crossing a few busy intersections, then pressing the intercom for the fourth floor of an office building."
@@ -159,6 +160,7 @@ label graves_a_1:
     return
 
 label graves_a_2:
+    $ scene_setup(0, "Wednesday", True, len(days["a"][1]) + 1, 4, True, True)
     scene black_bg with quick_dissolve
     if (not person_visited("graves", "a", 0)):
         lloyd_narrating neutral "Private investigators are frequently hired to find missing information, people, or objects by the people who desperately need them."
@@ -324,6 +326,7 @@ label graves_a_2:
     return
 
 label graves_a_3:
+    $ scene_setup(0, "Thursday", True, len(days["a"][2]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "The man with the white streak was a victim of the man in black.[wait_1] The reason that he was targeted wasn’t immediately apparent to me, but it must exist regardless."
     lloyd_narrating neutral "If I can discover that reason then I can identify the man in black’s next target."
@@ -514,6 +517,7 @@ label graves_a_3:
     return
 
 label graves_a_4:
+    $ scene_setup(0, "Friday", True, 4, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "Once again it’s been a long day."
     lloyd_narrating neutral "I haven’t discovered any new information about Jack Usbourne that would have motivated the man in black to kill him."
@@ -641,6 +645,7 @@ label graves_a_4:
     jump branch_a_b_4_4
 
 label graves_b_4:
+    $ scene_setup(0, "Friday", True, len(days["b"][0]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "The man in black is killing people with psychic abilities."
     lloyd_narrating neutral "The man with the white streak wasn’t his first victim, and I doubt he’s intended to be the last."
@@ -853,6 +858,7 @@ label graves_b_4:
     return
 
 label graves_c_2:
+    $ scene_setup(0, "Wednesday", True, len(days["c"][0]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "I’m making progress.[wait_1] I’ve seen who the killer’s next victim is going to be, and I can save him."
     lloyd_narrating neutral "I just need to find and warn him about the killer and then he’ll be able to anticipate the attack."
@@ -978,6 +984,7 @@ label graves_c_2:
     return
 
 label graves_c_3:
+    $ scene_setup(0, "Thursday", True, len(days["c"][1]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "I’ve discovered who the man in the loud suit was.[wait_1] I’ve confirmed that parts of my vision were accurate."
     lloyd_narrating neutral "I know that the killer will strike again.[wait_1] But the cost to discover it all was too great."
@@ -1162,6 +1169,7 @@ label graves_c_3:
     return
 
 label graves_c_4:
+    $ scene_setup(0, "Friday", True, len(days["c"][2]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "If I had the opportunity to redo the events of the last several days, I’d take it in a heartbeat.[wait_1] There’s so much that I wish I had done differently."
     lloyd_narrating neutral "I wish that I had acted faster for the man with the white streak and been able to save him."
@@ -1325,6 +1333,7 @@ label graves_c_4:
     return 
 
 label graves_d_3:
+    $ scene_setup(0, "Thursday", True, len(days["d"][0]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "Jack.[wait_1] That’s all that I have to go on."
     lloyd_narrating neutral "That’s all that I was able to get from Sergei before he died."
@@ -1529,6 +1538,7 @@ label graves_d_3:
     return 
 
 label graves_d_4:
+    $ scene_setup(0, "Thursday", True, len(days["d"][1]) + 1, 4, True, True)
     scene black_bg with slow_dissolve
     lloyd_narrating neutral "There will be no more murders." 
     lloyd_narrating neutral "I may not have discovered why Allan Docherty was killing the people that he did, how he survived his supposed death in prison, or who Sergei’s associate Jack is, but none of it matters."
@@ -1691,6 +1701,7 @@ label graves_d_4:
     return
 
 label graves_e_4:
+    $ scene_setup(0, "Friday", True, len(days["e"][0]) + 1, 4, True, True)
     scene detective_office with slow_dissolve
     $ swap_sprites("graves_smiling")
     $ current_thought = "graves_thought_269"

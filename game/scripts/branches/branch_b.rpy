@@ -164,6 +164,7 @@ label branch_b_3_4:
     mental_jack "{size=-8}(At least I had a bit of fun the other night...){/size}"
 
 label branch_b_4_0:
+    hide screen calendar
     # Power upgrade
     $ branch = "b"
     $ day = 4
