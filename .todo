@@ -41,16 +41,12 @@ BLACKMIND TODO
                 - Styling
                     - Fix up the styling for mobile articles and PDF browsing
                     - Potentially make a selected radio option black instead of dark yellow? See how it looks
-                - Other
-                    - Attune your psychic senses: Add this in as an option to settings; menu item can be called ESP or something
-                        - Should have a thing saying something like "this game can be played using psychic abilities. If you have psychic abilities, check this box to enable psychic controls", then checking a box brings up a setting
-                            for the frequency to broadcast psychic abilities at (like three frequencies, with a description for each e.g. "recommended for users with a maximum psychic strength of 101.4 - 118.9 PSI" or something)
-                        - There should also be a button "test psychic abilities" or something and then it brings up a modal which says "concentrate until the thoughts are fully visible" or something and then there's some words at like 99% 
-                            transparency, and we've got a timer that randomly sets a value that increases/decreases their opacity by a tiny amount.
+
             - Delivery FYIs:
                 - Unsure about quality of script; took me a little while to get the hang of things
                 - Might be some inconsistencies in the script; let me know about any you find
                 - Don't ex-spec-t feedback for a while; I'll take a break regardless
+                - Branch C kinda iffy
 
     - Feedback Phase
         - Delivery Date: 30/03/2027

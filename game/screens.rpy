@@ -1705,31 +1705,34 @@ screen preferences(start=False):
                             hbox:
                                 at trans_fade(0.25, 0.5)
                                 spacing 100
+                                label _("Psychic Controls")
+
                                 vbox:
-                                    spacing 10
+                                    spacing 15
+                                    
+                                    hbox:
+                                        style_prefix "radio_button"
+                                        yalign 0.5
+                                        imagebutton:
+                                            idle ("gui/checkbox_selected_hover.png" if persistent.use_psi and hover_radio == "psi_on" else ("gui/checkbox_selected_idle.png" if persistent.use_psi else ("gui/checkbox_unselected_idle.png" if not hover_radio == "psi_on" else "gui/checkbox_unselected_hover.png")))
+                                            hover ("gui/checkbox_selected_hover.png" if persistent.use_psi else "gui/checkbox_unselected_hover.png") 
+                                            yoffset 7
+                                            action ToggleVariable("persistent.use_psi")
+                                            hovered SetScreenVariable("hover_radio", "psi_on")
+                                            unhovered SetScreenVariable("hover_radio", None)
+                                        vbox:
+                                            spacing 10
+                                            textbutton _("On" if persistent.use_psi == True else "Off"):
+                                                action ToggleVariable("persistent.use_psi")
+                                                hovered SetScreenVariable("hover_radio", "psi_on")
+                                                unhovered SetScreenVariable("hover_radio", None)
+                                                text_color ("#3B3B3B" if hover_radio == "psi_on" else ("#000" if persistent.use_psi else "#707070"))
+                                                text_bold hover_radio == "psi_on" or persistent.use_psi
+                                                text_size 26
 
-                                    label _("Psychic Controls")
-                                    text _("Control the game with your psychic abilities."):
+                                    text _("This game can be played using psychic abilities. If you have psychic abilities, check this box to enable psychic controls."):
                                         style "setting_description_text"
-
-                                hbox:
-                                    style_prefix "radio_button"
-                                    yalign 0.5
-
-                                    imagebutton:
-                                        idle ("gui/checkbox_selected_hover.png" if persistent.use_psi and hover_radio == "psi_on" else ("gui/checkbox_selected_idle.png" if persistent.use_psi else ("gui/checkbox_unselected_idle.png" if not hover_radio == "psi_on" else "gui/checkbox_unselected_hover.png")))
-                                        hover ("gui/checkbox_selected_hover.png" if persistent.use_psi else "gui/checkbox_unselected_hover.png") 
-                                        yoffset 7
-                                        action ToggleVariable("persistent.use_psi")
-                                        hovered SetScreenVariable("hover_radio", "psi_on")
-                                        unhovered SetScreenVariable("hover_radio", None)
-                                    textbutton _("On" if persistent.use_psi == True else "Off"):
-                                        action ToggleVariable("persistent.use_psi")
-                                        hovered SetScreenVariable("hover_radio", "psi_on")
-                                        unhovered SetScreenVariable("hover_radio", None)
-                                        text_color ("#3B3B3B" if hover_radio == "psi_on" else ("#000" if persistent.use_psi else "#707070"))
-                                        text_bold hover_radio == "psi_on" or persistent.use_psi
-                                        text_size 26
+                                        xmaximum 450
 
                             if (persistent.use_psi):
                                 hbox:
