@@ -3,7 +3,6 @@ BLACKMIND TODO
         - Delivery Date: 31/12/2027
         - Deliverables:
             - Current task(s):
-                - Style mobile articles
                 - Style PDF browsing
 
                 - PDF scrolling updoots stuff
@@ -37,11 +36,8 @@ BLACKMIND TODO
                         change it so that our A-1 is now Graves, Cat, Eddie. If it's, say, Cat, we change it so that it's Cat, Barbara, Eddie. It shouldn't affect anything negatively but I'll need to test the heck out of this.
                     - For this phase, this'll prolly just be a vbox with a list of scenes the players can access
                 - Styling
-                    - Fix up the styling for mobile articles and PDF browsing
-                        - Mobile articles:
-                            - Blurry image of Susan for tech article
-                            - Star-Bot logo?
-                    - Potentially make a selected radio option black instead of dark yellow? See how it looks
+                    - Fix up the styling for PDF browsing
+                    - Potentially make a selected radio option black instead of dark yellow? Test it and see how it looks
 
             - Delivery FYIs:
                 - Unsure about quality of script; took me a little while to get the hang of things
