@@ -454,7 +454,7 @@ style navigation_button_text:
 ## Used to display the main menu when Ren'Py starts.
 ##
 ## https://www.renpy.org/doc/html/screen_special.html#main-menu
-screen social_links:
+screen social_links():
     default links_opened = False
     default links_hover = False
     default transform_links = False
@@ -2199,7 +2199,7 @@ style slider_bar_text:
     color "#000"
     size 16
 
-screen sample_text_speed_1:
+screen sample_text_speed_1():
     timer (209 / (preferences.text_cps if preferences.text_cps > 0 else 209) + preferences.afm_time):
         repeat True
         action [
@@ -2211,7 +2211,7 @@ screen sample_text_speed_1:
             style "sample_text"
             slow_cps preferences.text_cps
     
-screen sample_text_speed_2:
+screen sample_text_speed_2():
     if (renpy.get_screen("preferences")):
         text _("Although many believe that these abilities are pseudoscience, they are wrong. There are people with extrasensory perception who live among us today."):
             style "sample_text"

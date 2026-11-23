@@ -414,18 +414,18 @@ label branch_g_4_4:
     lloyd_ws_narrating neutral "What I find next is a complete surprise."
     scene cg14_0 with slow_dissolve
     unknown "SURPRISE!" (name="Everyone")
-    lloyd_ws smiling "Aww, guys.[wait_1] How did you know that it was my birthday?"
+    lloyd_ws friendly "Aww, guys.[wait_1] How did you know that it was my birthday?"
     barbara "Jack told us![wait_1] He found all sorts of information while he was in your head."
     jack "No need to thank me or anything, Lloyd.[wait_1] I do it for the love of the game."
-    lloyd_ws smiling "And you managed to get this all ready in such little time?"
+    lloyd_ws friendly "And you managed to get this all ready in such little time?"
     sergei "Of course![wait_1] Are we not the most magnificent group that the eyes of the world have ever gazed upon?"
     sergei "Have we not the skill, the abilities, to –"
     graves "He’s saying this now, but he was panicking more than anybody else when it looked like we were going to be –[wait_05] when it looked like we couldn’t get it set up in time."
     killian "Why is everybody standing around talking, when we could be having cake?"
     docherty "Go on, Lloyd –[wait_05] you have the first piece."
-    lloyd_ws smiling "Are you sure?[wait_1] I’m happy for somebody else to –"
+    lloyd_ws friendly "Are you sure?[wait_1] I’m happy for somebody else to –"
     cat "Go on...[wait_1]you deserve it..."
-    lloyd_ws smiling "If you insist."
+    lloyd_ws friendly "If you insist."
     eddie "Chen![wait_1] Get in close with the others, so I can show you how much better my photography is than yours!"
     eddie "...Alright, ready?"
     unknown "Ready!" (name="Everyone")

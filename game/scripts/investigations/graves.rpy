@@ -1720,7 +1720,7 @@ label graves_e_4:
     jack_possessing_thinking smug "Wait, he actually is doing a shit job?"
     graves "I did warn you that I wouldn’t be able to find out who Jack was right away, though."
     graves "I understand that you’re –[wait_05] that you want to find out where he is right away, but I’d like to request that you get a bit more –[wait_05] that you stay patient for now.[wait_1] This isn’t an easy job."
-    jack_possessing_thinking worired "Hang on...[wait_05]did Lloyd know about me?[wait_1] What the hell was he looking into me for?"
+    jack_possessing_thinking worried "Hang on...[wait_05]did Lloyd know about me?[wait_1] What the hell was he looking into me for?"
     $ swap_sprites("graves_smiling")
     graves "You can wait another few days, right?"
     $ current_thought = "graves_thought_271"

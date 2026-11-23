@@ -2245,98 +2245,308 @@ style convo_progress_bar:
 
 screen mobile_articles():
     default article = None
+    default loading = False
     default read_articles = []
 
+    if (loading):
+        timer 1.0:
+            action [
+                SetScreenVariable("loading", False),
+                AddToSet(read_articles, article) if article not in read_articles else NullAction()
+            ]
+
+    image Solid("#3B3B3B" if article == None else "#FFF"):
+        xalign 0.5
+        yalign 0.5
+        xsize 1582
+        ysize 782
+
     frame:
-        background Solid("#F2EE29")
+        background Image("gui/phone_frame.png")
         xalign 0.5
         yalign 0.5
         xsize 1600
         ysize 800
+        padding (30, 30, 30, 30) 
 
         if (article == None):
+            frame:
+                background Solid("#00000012")
+                xfill True
+                ysize 55
+
+                text _("UNKNOWN NUMBER (+422 228...)"):
+                    color "#FFF"
+                    xalign 0.5
             vbox:
-                xalign 0.8
-                yalign 0.1
+                xalign 0.985
+                yalign 0.25
+                spacing 30
 
-                text _("This should be of interest to you.")
-                
-                # Clicking on both of these should append them to an array of articles we've read
-                textbutton _("https://localnewspaper.com/articles/man-shot"):
-                    action [
-                        (AddToSet(read_articles, 0) if 0 not in read_articles else NullAction()),
-                        SetScreenVariable("article", 0)
-                    ]
-                textbutton _("https://localnewspaper.com/articles/another-man-shot"):
-                    action [
-                        (AddToSet(read_articles, 1) if 1 not in read_articles else NullAction()),
-                        SetScreenVariable("article", 1)
-                    ]
-
-        else:
-            side ("c r"):
-                area (0, 0, 1145, 625)
-                viewport id "article_viewport":
-                    draggable True 
-                    mousewheel True
-                    arrowkeys True
+                frame:
+                    background Solid("#F2EE29")
+                    xsize 500
+                    ysize 80
+                    xalign 0.975
                     
                     vbox:
-                        style_prefix "article"
-                        spacing 20
-                        if (article == 0):
-                            text _("Police confirm early-hours shooting in city"):
-                                size 42
-                            text _("Police have confirmed the death via gunshot wound of a local man, Charles Eisenhardt, at approximately 2 AM this morning. Although a neighbour – who preferred to remain anonymous – was nearby and responded to Eisenhardt’s cries for help, they were unable to reach him in time to save him.")
-                            text _("“It’s very distressing to have this happen,” Constable Clive Pugh said in a statement to the press. “By all accounts he was a kind and nurturing man.”")
-                            text _("Further statements indicated that a motivation for the act is unknown, and that there are currently no known suspects.")
-                            text _("Police are urging anyone with information to come forward.")
-                        elif (article == 1):
-                            text _("Police investigating unknown killing in city’s south end"):
-                                size 42
-                            image "images/backgrounds/apartment_day.png"
+                        spacing 10
+                        xalign 1.0
 
-                            text _("A man in his 40s has been fatally shot in the south-western regions of the city. The body was found at approximately 5 AM this morning.")
-                            text _("The police confirmed the identity of the victim, Mortimer “Morty” Telemachus, in a statement this morning. “We’re urging locals to be careful when travelling at night,” continued the statement.")
-                            text _("The police have revealed that they believe this to be related to the death of Charles Eisenhardt, another gunshot victim from several days ago, who died in a similar manner. No relationship or similarities between the two men are currently known.")
-                            text _("If you or somebody you know has information related to the crime, please contact the police. All information given is confidential.")
-                        elif (article == 2):
-                            text _("{i}Star-Bot: Legend of the Stellar Six{/i} series begins filming, studio confirms"):
-                                size 42
-                            text _("Shooting has officially begun on Netflix’s upcoming series {i}Star-Bot: Legend of the Stellar Six{/i}, an official report confirmed. The live-action reboot of the cult classic cartoon is expected to take roughly three months to shoot, with a further three months scheduled for post-production.")
-                            text _("“The first day of shooting’s always interesting,” said lead actor Davis Tomino, “since you often start out with a quieter scene to get a feel for your character. But here, [[director] Lucas Burbank clearly knows what we should prioritise, and so we’ve started out with a fight scene between Star-Bot and...well, you’ll have to watch and find out, won’t you?”")
-                            text _("Fan response to the rebooted series has thus far largely been negative, with many viewing it as a soulless cash grab. “Why do we even need a reboot? The original series did everything it set out to do, and ended perfectly. There’s nothing that this series can meaningfully bring to the table,” read one popular comment on the show’s subreddit.")
-                            text _("“What are the odds that it’ll be a twelve-episode season, but Star-Bot won’t actually appear until the nineth [[sic] or tenth episode?” read another.")
-                            text _("{i}Star-Bot: Legend of the Stellar Six{/i} is currently scheduled to debut in April.")
-                        elif (article == 3):
-                            text _("Mystery woman interrupts tech conference"):
-                                size 42
-                            text _("{i}Titans of Tech{/i}, the annual conference run by software giant COEUS, was interrupted today by a pirate broadcaster during the opening presentation.")
-                            text _("Attendees report that for roughly fifteen seconds the presentation was interrupted by an unknown woman, who hijacked the stream with what appeared to be a live broadcast of herself. The unknown woman urged consumers to stop buying COEUS products, and appeared to be warning viewers of something before control was regained of the stream. The woman wore a disguise and so far remains unidentified, although she did appear to have green hair.")
-                            text _("COEUS officials have thus far responded quite calmly. “This is clearly some university student who thinks they’re being funny,” said one. “It’s nothing to be concerned about; it’s hardly on the same level as the Max Headroom signal hijackings. That being said, we would very much like to find this woman, so if anyone does have any information about where we can find her, please contact us immediately.”")
-                            text _("Further statements later emphasised that the hijacking was only possible due to security exploits in outdated software. COEUS declined to comment when asked to clarify whether their own software was being used for the broadcast.")
+                        text _("This should be of interest to you."):
+                            color "#000"
+                            text_align 1.0
 
-                        text _("POPULAR ARTICLES")
-                        if (article != 2):
-                            textbutton _("{i}Star-Bot: Legend of the Stellar Six{/i} series begins filming, studio confirms"):
-                                action [
-                                    (AddToSet(read_articles, 2) if 2 not in read_articles else NullAction()),
-                                    SetScreenVariable("article", 2)
-                                ]
-                        if (article != 3):
-                            textbutton _("Mystery woman interrupts tech conference"):
-                                action [
-                                    (AddToSet(read_articles, 3) if 3 not in read_articles else NullAction()),
-                                    SetScreenVariable("article", 3)
-                                ]
-                vbar value YScrollValue("article_viewport")
+                        text _("19:47"):
+                            style "message_timestamp"
+
+                frame:
+                    background Solid("#F2EE29")
+                    xsize 525
+                    ysize 130
+                    xalign 0.975
+                    
+                    vbox:
+                        spacing 10
+                        xalign 1.0
+
+                        textbutton _("https://db.news/articles/police-confirm-earl..."):
+                            style "message_link"
+                            action [
+                                SetScreenVariable("loading", True),
+                                SetScreenVariable("article", 0)
+                            ]
+
+                        text _("19:47"):
+                            style "message_timestamp"
+                
+                frame:
+                    background Solid("#F2EE29")
+                    xsize 525
+                    ysize 130
+                    xalign 0.975
+
+                    vbox:
+                        spacing 10
+                        xalign 1.0
+                
+                        textbutton _("https://db.news/articles/police-investigatin..."):
+                            style "message_link"
+                            action [
+                                SetScreenVariable("loading", True),
+                                SetScreenVariable("article", 1)
+                            ]
+
+                        text _("19:47"):
+                            style "message_timestamp"
+
+        else:
+            frame:
+                background Solid("#10316a")
+                xsize 1450
+                ysize 100
+
+                text _("THE DB!"):
+                    xalign 0.5
+                    yoffset 10
+                    color "#FFF"
+                    font "gui/Mattilda.otf"
+                    size 72
+
+            if (loading):
+                vbox:
+                    xalign 0.5
+                    yalign 0.5
+                    image "gui/icons/db_loading.png":
+                        at transform:
+                            rotate 0
+                            linear 2.5:
+                                rotate 360
+                            repeat
+                    text _("Loading your article..."):
+                        xalign 0.5
+            else:
+                side ("c r"):
+                    area (50, 100, 1400, 640)
+                    viewport id "article_viewport":
+                        draggable True 
+                        mousewheel True
+                        arrowkeys True
+                        
+                        vbox:
+                            style_prefix "article"
+                            spacing 20
+                            
+                            if (article == 0):
+                                vbox:
+                                    spacing 5
+                                    text _("Police confirm early-hours shooting in city"):
+                                        size 42
+                                    text _("4 days ago"):
+                                        style "article_timestamp"
+
+                                vbox:
+                                    xalign 0.5
+                                    image "images/articles/article_0.png"
+                                    text _("Locals were disturbed by the incident"):
+                                        xalign 0.5
+                                        size 18
+                                        color "#3B3B3B"
+                                text _("Police have confirmed the death via gunshot wound of a local man, Charles Eisenhardt, at approximately 2 AM this morning. Although a neighbour – who preferred to remain anonymous – was nearby and responded to Eisenhardt’s cries for help, they were unable to reach him in time to save him.")
+                                text _("“It’s very distressing to have this happen,” Constable Clive Pugh said in a statement to the press. “By all accounts he was a kind and nurturing man.”")
+                                text _("Further statements indicated that a motivation for the act is unknown, and that there are currently no known suspects.")
+                                text _("Police are urging anyone with information to come forward.")
+                            elif (article == 1):
+                                vbox:
+                                    spacing 5
+                                    text _("Police investigating unknown killing in city’s south end"):
+                                        size 42
+                                    text _("2 days ago"):
+                                        style "article_timestamp"
+                                vbox:
+                                    xalign 0.5
+                                    spacing 10
+                                    image "images/articles/article_1.png"
+                                    text _("The identity of the killer is still unknown"):
+                                        xalign 0.5
+                                        size 18
+                                        color "#3B3B3B"
+
+                                text _("A man in his 40s has been fatally shot in the south-western regions of the city. The body was found at approximately 5 AM this morning.")
+                                text _("The police confirmed the identity of the victim, Mortimer “Morty” Telemachus, in a statement this morning. “We’re urging locals to be careful when travelling at night,” continued the statement.")
+                                text _("The police have revealed that they believe this to be related to the death of Charles Eisenhardt, another gunshot victim from several days ago, who died in a similar manner. No relationship or similarities between the two men are currently known.")
+                                text _("If you or somebody you know has information related to the crime, please contact the police. All information given is confidential.")
+                            elif (article == 2):
+                                vbox:
+                                    spacing 5
+                                    text _("{i}Star-Bot: Legend of the Stellar Six{/i} series begins filming, studio confirms"):
+                                        size 42
+                                    text _("6 days ago"):
+                                        style "article_timestamp"
+
+                                vbox:
+                                    xalign 0.5
+                                    spacing 10
+
+                                    image "images/articles/article_2.png"
+                                    text _("A title card from the cult classic show"):
+                                        xalign 0.5
+                                        size 18
+                                        color "#3B3B3B"
+                                text _("Shooting has officially begun on Netflix’s upcoming series {i}Star-Bot: Legend of the Stellar Six{/i}, an official report confirmed. The live-action reboot of the cult classic cartoon is expected to take roughly three months to shoot, with a further three months scheduled for post-production.")
+                                text _("“The first day of shooting’s always interesting,” said lead actor Davis Tomino, “since you often start out with a quieter scene to get a feel for your character. But here, [[director] Lucas Burbank clearly knows what we should prioritise, and so we’ve started out with a fight scene between Star-Bot and...well, you’ll have to watch and find out, won’t you?”")
+                                text _("Fan response to the rebooted series has thus far largely been negative, with many viewing it as a soulless cash grab. “Why do we even need a reboot? The original series did everything it set out to do, and ended perfectly. There’s nothing that this series can meaningfully bring to the table,” read one popular comment on the show’s subreddit.")
+                                text _("“What are the odds that it’ll be a twelve-episode season, but Star-Bot won’t actually appear until the nineth [[sic] or tenth episode?” read another.")
+                                text _("{i}Star-Bot: Legend of the Stellar Six{/i} is currently scheduled to debut in April.")
+                            elif (article == 3):
+                                vbox:
+                                    spacing 5
+                                    text _("Mystery woman interrupts tech conference"):
+                                        size 42
+                                    text _("5 days ago"):
+                                        style "article_timestamp"
+                                vbox:
+                                    xalign 0.5
+                                    spacing 10
+
+                                    image "images/articles/article_3.png"
+                                    text _("Little of the woman could be identified beyond her green hair"):
+                                        xalign 0.5
+                                        size 18
+                                        color "#3B3B3B"
+                                text _("{i}Titans of Tech{/i}, the annual conference run by software giant COEUS, was interrupted today by a pirate broadcaster during the opening presentation.")
+                                text _("Attendees report that for roughly fifteen seconds the presentation was interrupted by an unknown woman, who hijacked the stream with what appeared to be a live broadcast of herself. The unknown woman urged consumers to stop buying COEUS products, and appeared to be warning viewers of something before control was regained of the stream. The woman wore a disguise and so far remains unidentified, although she did appear to have green hair.")
+                                text _("COEUS officials have thus far responded quite calmly. “This is clearly some university student who thinks they’re being funny,” said one. “It’s nothing to be concerned about; it’s hardly on the same level as the Max Headroom signal hijackings. That being said, we would very much like to find this woman, so if anyone does have any information about where we can find her, please contact us immediately.”")
+                                text _("Further statements later emphasised that the hijacking was only possible due to security exploits in outdated software. COEUS declined to comment when asked to clarify whether their own software was being used for the broadcast.")
+
+                            image Solid("#000"):
+                                xsize 1340
+                                ysize 2
+                            text _("POPULAR ARTICLES"):
+                                size 42
+                            if (article != 2):
+                                hbox:
+                                    spacing 20
+                                    frame:
+                                        background Solid("#10316a")
+                                        text _("Entertainment"):
+                                            color "#FFF"
+                                    textbutton _("{i}Star-Bot: Legend of the Stellar Six{/i} series begins filming, studio confirms"):
+                                        text_hover_underline True
+                                        action [
+                                            SetScreenVariable("loading", True),
+                                            SetScreenVariable("article", 2)
+                                        ]
+                            if (article != 3):
+                                hbox:
+                                    spacing 20
+                                    frame:
+                                        xsize 224
+                                        background Solid("#10316a")
+                                        text _("Technology"):
+                                            color "#FFF"
+                                            xalign 0.5
+                                    textbutton _("Mystery woman interrupts tech conference"):
+                                        text_hover_underline True
+                                        action [
+                                            SetScreenVariable("loading", True),
+                                            SetScreenVariable("article", 3)
+                                        ]
+                            text _("")
+                    vbar value YScrollValue("article_viewport"):
+                        top_bar Solid("#000")
+                        thumb Solid("#F2EE29")
+                        bottom_bar Solid("#000")
         
-        # Either once we hit back or once we've scrolled to the bottom of the articles we return
-        textbutton _("Back"):
-            action (SetScreenVariable("article", None) if 0 not in read_articles or 1 not in read_articles else Return())
+            frame:
+                background Solid("#3b3b3b7b")
+                xalign 1.0
+                xsize 90
+                yfill True
+
+                vbox:
+                    yalign 0.5
+                    spacing 125
+
+                    imagebutton:
+                        auto "gui/icons/mobile_back_%s.png"
+                        action (SetScreenVariable("article", None) if 0 not in read_articles or 1 not in read_articles else Return())
+
+                    image "gui/icons/mobile_home.png"
+                    image "gui/icons/mobile_programs.png"
+
+style message_link
+
+style message_link_text:
+    color "#371cbd"
+    hover_color "#231a4d"
+    text_align 1.0
+    underline True
+
+style message_timestamp:
+    color "#3B3B3B"
+    text_align 1.0
+    xalign 1.0
+    size 14
+
+style auto_reply_message:
+    background Solid("#F2EE29")
+    xsize 125
+    ysize 45
+
+style auto_reply_message_text:
+    color "#000"
+    hover_underline True
+    text_align 0.5
+    xalign 0.5
 
 style article_text:
     color "#000"
+    xmaximum 1300
+
+style article_timestamp:
+    color "#3B3B3B"
+    size 20
 
 screen read_pdf(full_file=False):
     frame:

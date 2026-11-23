@@ -209,7 +209,7 @@ label cat_a_2:
             $ add_boolean("cat_name_discovered")
             lloyd neutral "Okay, Cat.[wait_1] I won’t take no for an answer –[wait_05] I want those books."
     else:
-        lloyd_narrating neutarl "I clear my throat so that the librarian notices me.[wait_1] As she looks into my eyes, I wonder how much time she spends on her makeup each day."
+        lloyd_narrating neutral "I clear my throat so that the librarian notices me.[wait_1] As she looks into my eyes, I wonder how much time she spends on her makeup each day."
         lloyd neutral "Hi.[wait_1] I’m Lloyd."
         librarian "Cat."
         lloyd_narrating neutral "I turn around, confused."

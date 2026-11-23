@@ -7,8 +7,9 @@ BLACKMIND TODO
                 - Style PDF browsing
 
                 - PDF scrolling updoots stuff
-                - Flag to Stop psychic effects occurring when we use them
+                - Flag to stop psychic effects occurring when we use them
                 - Fix up rewinding stuff - testing with Eddie works well - so we don't infinitely loop
+                    - Try changing the first Eddie block to just jump intead of calling, and then jump at the end of the block
 
             - Initial sprites for remaining characters, drawn by me
             - Initial CGs for the game
@@ -25,8 +26,6 @@ BLACKMIND TODO
                     - Rewinding:
                         - Rewind points need to be added in, along with stuff so we don't rewind at certain points
                         - Rewinding is currently kinda janky due to some sort of call functionality - can we change it to jump and not break things?
-                - Debugging:
-                    - Let's add in a debug button (D or something) that displays the name of the current scene and some variables - that way I can get the others to give me variable info if they find bugs.
                 - Flow chart
                     - I think that I can do this by having each node let us jump to a point of the script. At that label we wipe any booleans that we generate in the scene, so that we're seeing it as though it's the first time again. Jumping
                         back and forth might mean that some branches can't be unlocked but if we've unlocked the node we can jump past the lock anyway - any scenes past there we already know that we hit the flag to unlock it.
@@ -39,6 +38,9 @@ BLACKMIND TODO
                     - For this phase, this'll prolly just be a vbox with a list of scenes the players can access
                 - Styling
                     - Fix up the styling for mobile articles and PDF browsing
+                        - Mobile articles:
+                            - Blurry image of Susan for tech article
+                            - Star-Bot logo?
                     - Potentially make a selected radio option black instead of dark yellow? See how it looks
 
             - Delivery FYIs:
