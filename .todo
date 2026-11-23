@@ -4,8 +4,8 @@ BLACKMIND TODO
         - Deliverables:
             - Current task(s):
                 - Style PDF browsing
-
                 - PDF scrolling updoots stuff
+                
                 - Flag to stop psychic effects occurring when we use them
                 - Fix up rewinding stuff - testing with Eddie works well - so we don't infinitely loop
                     - Try changing the first Eddie block to just jump intead of calling, and then jump at the end of the block
