@@ -276,6 +276,111 @@ style debug_button_text:
     selected_underline True
     selected_color "#000"
 
+screen debug_info():
+    modal True
+    zorder 110
+
+    frame:
+        background Solid("#F2EE29")
+        xfill True
+        yfill True 
+
+        text _("Current Variables"):
+            xalign 0.5 
+            yalign 0.05
+
+        hbox:
+            yalign 0.5
+            spacing 50
+
+            vbox:
+                spacing 20
+                text _("Booleans"):
+                    xalign 0.5
+                    underline True
+
+                side ("c r"):
+                    area(0, 0, 600, 800)
+                    viewport id "boolean_list":
+                        draggable True
+                        mousewheel True
+                        arrowkeys True
+                        vbox:
+                            spacing 10
+                            for boolean in booleans:
+                                text _(boolean)
+
+                    vbar value YScrollValue("boolean_list")
+
+            vbox:
+                spacing 20
+                text _("Variables"):
+                    xalign 0.5
+                    underline True
+
+                side ("c r"):
+                    area(0, 0, 600, 800)
+                    viewport id "variables_list":
+                        draggable True
+                        mousewheel True
+                        arrowkeys True
+                        vbox:
+                            spacing 10
+                            text _("current_thought_block: " + current_thought_block)
+                            text _("current_thought: " + current_thought)
+                            text _("progress_convo: " + ("True" if progress_convo else "False"))
+                            text _("convo_length: " + str(convo_length))
+                            text _("max_mind_reads: " + (str(max_mind_reads) if max_mind_reads is not None else "None"))
+                            text _("max_rewinds: " + (str(max_rewinds) if max_rewinds is not None else "None"))
+                            text _("minds_read: " + str(minds_read))
+                            text _("minds_rewound: " + str(minds_rewound))
+                            text _("convo_progress: " + str(convo_progress))
+                            text _("rewind_point: " + rewind_point)
+                            text _("thoughts_read: ")
+                            for thought in thoughts_read:
+                                text _("    " + thought)
+                            text _("reading_mind: " + ("True" if reading_mind else "False"))
+                            text _("rewound_mind: " + ("True" if rewound_mind else "False"))
+                            text _("ineffective_rewinds: ")
+                            for ineffective in ineffective_rewinds:
+                                text _("    " + ineffective)
+                            text _("paused_ineffective_rewinds: ")
+                            for paused_ineffective in ineffective_rewinds:
+                                text _("    " + paused_ineffective)
+
+                    vbar value YScrollValue("variables_list")
+            
+            vbox:
+                spacing 20
+                text _("Timeline"):
+                    xalign 0.5
+                    underline True
+
+                side ("c r"):
+                    area(0, 0, 600, 800)
+                    viewport id "timeline_list":
+                        draggable True
+                        mousewheel True
+                        arrowkeys True
+                        vbox:
+                            spacing 10
+                            text _("branch: " + ("None" if branch is None else branch))
+                            text _("day: " + str(day))
+                            text _("person: " + person)
+                            text _("days: ")
+                            for day, array in days.items():
+                                text _("    " + day)
+                                for persons in array:
+                                    for person in persons:
+                                        text _("        " + person)
+
+                    vbar value YScrollValue("timeline_list")
+
+        textbutton _("Hide"):
+            xalign 0.5
+            yalign 1.0
+            action Hide("debug_info")
+
 screen psychic_powers():
     default icon_hint = None
 
@@ -2926,6 +3031,9 @@ screen block_rollback():
             action SetField(renpy.get_widget("conversation_history", "history_viewport").yadjustment, "value", (renpy.get_widget("conversation_history", "history_viewport").yadjustment.value + 30))
         else:
             action NullAction()
+
+    key "K_d":
+        action Show("debug_info")
 
 screen any_key(action):
     key "K_RETURN":

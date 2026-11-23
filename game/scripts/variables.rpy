@@ -899,7 +899,6 @@ label variables:
     #Psychic powers
     default current_thought_block = ""
     default current_thought = None
-    default current_conversation = None
     default progress_convo = False
     default convo_length = 0
 
