@@ -6,7 +6,7 @@ init python:
     config.pass_joystick_events = True
     config.overlay_screens.append("input_checker")
 
-    import datetime, random
+    import datetime, random, math
 
     #Functions
     def pause_for_mind_read():
@@ -263,3 +263,23 @@ init python:
             elif ev.type in (pygame.JOYBUTTONUP, pygame.JOYBUTTONDOWN, pygame.JOYAXISMOTION, pygame.JOYBALLMOTION, pygame.JOYHATMOTION):
                 store.current_input = "GP"
             return None
+
+    class OnScrollChange(Action):
+        """
+        Class so that we can trigger stuff on scroll
+        """
+
+        def __init__(self, extended=False):
+            self.extended = extended
+
+        def __call__(self, value):
+            renpy.set_screen_variable("scrolled", value)
+            renpy.restart_interaction()
+
+            if (not self.extended):
+                if (value > 8100 and not check_boolean("lloyd_pdf_interjection_1")):
+                    renpy.call("lloyd_pdf_interjection_1", from_current=True)
+                elif (value == 0 and check_boolean("lloyd_pdf_interjection_1") and not check_boolean("lloyd_pdf_interjection_2")):
+                    renpy.call("lloyd_pdf_interjection_2", from_current=True)
+                elif (value == 10100 and check_boolean("lloyd_pdf_interjection_2") and not check_boolean("lloyd_pdf_interjection_3")):
+                    renpy.call("lloyd_pdf_interjection_3", from_current=True)

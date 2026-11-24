@@ -2548,7 +2548,14 @@ style article_timestamp:
     color "#3B3B3B"
     size 20
 
+screen pdf_block():
+    frame:
+        background None
+
 screen read_pdf(full_file=False):
+    default scrolled = 0
+    default yadj = ui.adjustment(changed=OnScrollChange(full_file))
+
     frame:
         style_prefix "pdf_file"
         background Solid("#3B3B3B")
@@ -2565,15 +2572,20 @@ screen read_pdf(full_file=False):
             text _("sergei_notes.pdf"):
                 xalign 0.02
 
-            text _("Page 1 of 1"):
+            if (config.developer):
+                text _(str(scrolled)):
+                    xalign 0.5
+
+            text _("Page " + str(math.ceil((scrolled - 700) / 1259) + 1) + " of " + ("9" if not full_file else "?")):
                 xalign 0.98
 
         side ("c r"):
-            area (360, 80, 1555, 1000)
+            area (0, 80, 1915, 1000)
             viewport id "pdf_viewport":
                 draggable True 
                 mousewheel True
                 arrowkeys True
+                yadjustment yadj
                 
                 vbox:
                     spacing 20
@@ -2749,7 +2761,10 @@ screen read_pdf(full_file=False):
                         text _("For now I’ve asked my partner to remove the books, lest somebody else find the information before I can determine how dangerous it may or may not be. Thankfully the topics of the books are fairly niche, and only by studying it from multiple angles can the truth be glimpsed.")
                         text _("I’ll provide an update as soon as possible...if I deem the knowledge safe to share...")
                     
-                    text _("\n")
+                    frame:
+                        background None
+                        xfill True
+                        ysize 10
         
             vbar value YScrollValue("pdf_viewport"):
                 top_bar Solid ("#000")
@@ -2776,6 +2791,7 @@ style pdf_page_frame:
     background Solid("#F2EE29")
     xsize 1200
     ysize 1250
+    xalign 0.5
     padding (50, 50, 50, 50)
 
 style pdf_page_vbox:

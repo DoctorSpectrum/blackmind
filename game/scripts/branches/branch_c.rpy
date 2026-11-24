@@ -513,59 +513,73 @@ label branch_c_3_4:
             lloyd_narrating neutral "Normally my computer is primarily used for editing my photographs and reading my emails."
             lloyd_narrating neutral "It’s more than up to the task of reading a simple PDF, though."
             lloyd_narrating neutral "I click on the file and read through the first few pages."
-            call screen read_pdf()
-            lloyd_narrating neutral "What I find in the file astonishes me."
-            lloyd_thinking thinking "According to this file, Sergei has –[wait_05] had –[wait_05] psychic abilities.[wait_1] I don’t believe his claims about their origin, but he writes that it isn’t the only way to acquire powers."
-            lloyd_thinking thinking "One of the other methods is to be near someone with psychic abilities who dies –[wait_05] their powers can be passed on, often involuntarily."
-            lloyd_narrating neutral "I stop and think about this."
-            lloyd_narrating neutral "I’ve been using my psychic abilities for the past three days fairly liberally without thinking too much about where they came from.[wait_1] It was hardly the most important mystery that I had to solve."
-            lloyd_narrating neutral "This information puts it in a new light."
-            lloyd_thinking thinking "The man with the white streak...[wait_05]I was near him when he died.[wait_1] Is it possible that he had psychic abilities?"
-            lloyd_narrating neutral "He could have passed them on to me.[wait_1] The headache which led to my powers only began once I touched his hand."
-            lloyd_narrating neutral "It lines up well enough that I’m wondering why I didn’t consider it before."
-            lloyd_thinking thinking "Did the killer know that the man with the white streak had psychic abilities?"
-            # Potentially make it that players need to rescroll here themselves?
-            lloyd_narrating neutral "I scroll back to the top of the document to confirm the information that I saw earlier."
-            lloyd_narrating neutral "Sergei claimed to have psychic abilities of his own.[wait_1] That makes one thing that he and the man with the white streak have in common."
-            lloyd_narrating neutral "That, and having the same killer."
-            lloyd_thinking thinking "The man in black has killed at least two psychics.[wait_1] Likely he has others on his hit-list."
-            lloyd_thinking thinking "But what could his motivation be?[wait_1] He didn’t appear to have taken anything from the man with the white streak."
-            lloyd_narrating neutral "A moment later the realisation hits me."
-            lloyd_thinking thinking "Wait...[wait_05]that’s it.[wait_1] The killer didn’t take anything from him, but I did –[wait_05] his psychic powers."
-            lloyd_thinking thinking "The killer is murdering psychics so that he can try to acquire their powers.[wait_1] He wants to become a psychic himself."
-            lloyd_narrating neutral "Does he want to read minds and discover what secrets he can?[wait_1] Look into the future and change the outcome?[wait_1] Wipe minds and remove memories of his crimes?"
-            lloyd_narrating neutral "I can’t say for sure but it’s more evidence that the man in black needs to be stopped."
-            lloyd_narrating neutral "I return to Sergei’s notes to see what other insights they might have." 
-            # Another potential scroll bit
-            lloyd_narrating neutral "But when I scroll further down the PDF I discover an issue."
-            lloyd_thinking thinking "The file –[wait_05] it’s been truncated![wait_1] By Cat, I’d be willing to bet."
-            lloyd_thinking thinking "That’s why she told me that we could meet again tomorrow –[wait_05] she’s planning something."
-            if (check_boolean("cat_preparing_trap")):
-                lloyd_thinking thinking "That also explains why she was thinking about lowering my guard.[wait_1] She knew that I would have no choice to return."
-            lloyd_narrating neutral "I mull my thoughts around in my head.[wait_1] Cat has further information of Sergei’s which could prove to be important."
-            lloyd_narrating neutral "Nothing’s forcing me to see her, but the existing notes have given me insight and motivation into the killer."
-            lloyd_thinking thinking "It’s no choice at all.[wait_1] I have to discover what’s in those notes."
-            lloyd_thinking thinking "They could contain other important information."
-            lloyd_narrating neutral "My main priority for tomorrow, then, will be visiting Cat in the evening and retrieving Sergei’s remaining notes from her."
-            lloyd_narrating neutral "Or...[wait_05]should I?[wait_1] Waiting around all day would be a waste of my time."
-            lloyd_narrating neutral "Every day that passes is a ticking clock until the killer murders once again."
-            lloyd_thinking thinking "What were the names of the people that Sergei said assisted him with these notes...?[wait_1] Charles Eisenhardt and Morty Telemachus."
-            lloyd_thinking thinking "If I can contact one of them they might be able to give me the notes.[wait_1] It’s worth a try."
-            lloyd_narrating neutral "I enter Charles’ name into a search engine.[wait_1] The result isn’t what I expected."
-            lloyd_thinking thinking "Dead.[wait_1] Killed by an unknown assailant, via gunshot.[wait_1] It’s the same for Telemachus."
-            lloyd_narrating neutral "If I had any doubts that the killer is targeting psychics they’ve been erased by now."
-            lloyd_narrating neutral "Eisenhardt and Telemachus clearly had psychic abilities of their own, and I’ve deduced that the man with the white streak had some."
-            lloyd_narrating neutral "I’ll have to go to Cat for the remaining notes after all."
-            lloyd_thinking thinking "But I won’t be idling during the day.[wait_1] I still have no idea how the killer discovered that any of his victims were psychic."
-            lloyd_thinking thinking "I’ll do what I can to discover who they were, and whether there was some telltale sign of their abilities which put them in the killer’s crosshairs."
-            lloyd_narrating neutral "It’s a solid plan."
-            lloyd_narrating neutral "With no other information that I can retrieve from the notes I turn off my laptop and go to bed."
-            lloyd_narrating neutral "It’s getting late and I want to catch up on my rest."
-            scene black_bg with slow_dissolve
-            mental_jack "{size=-8}(Dammit...[wait_05]I’m too weak.){/size}"
-            mental_jack "{size=-8}(I thought I could build up my strength more...[wait_05]but I can’t.[wait_1] It’s all over.){/size}"
-            mental_jack "{size=-8}(I didn’t even get to have any fun the other night...){/size}"
-            jump branch_c_4_0
+            show screen read_pdf()
+            call screen pdf_block
+    return
+
+label lloyd_pdf_interjection_1:
+    lloyd_narrating neutral "What I find in the file astonishes me."
+    lloyd_thinking thinking "According to this file, Sergei has –[wait_05] had –[wait_05] psychic abilities.[wait_1] I don’t believe his claims about their origin, but he writes that it isn’t the only way to acquire powers."
+    lloyd_thinking thinking "One of the other methods is to be near someone with psychic abilities who dies –[wait_05] their powers can be passed on, often involuntarily."
+    lloyd_narrating neutral "I stop and think about this."
+    lloyd_narrating neutral "I’ve been using my psychic abilities for the past three days fairly liberally without thinking too much about where they came from.[wait_1] It was hardly the most important mystery that I had to solve."
+    lloyd_narrating neutral "This information puts it in a new light."
+    lloyd_thinking thinking "The man with the white streak...[wait_05]I was near him when he died.[wait_1] Is it possible that he had psychic abilities?"
+    lloyd_narrating neutral "He could have passed them on to me.[wait_1] The headache which led to my powers only began once I touched his hand."
+    lloyd_narrating neutral "It lines up well enough that I’m wondering why I didn’t consider it before."
+    lloyd_thinking thinking "Did the killer know that the man with the white streak had psychic abilities?"
+    lloyd_narrating neutral "I scroll back to the top of the document to confirm the information that I saw earlier."
+    $ add_boolean("lloyd_pdf_interjection_1")
+    return
+
+label lloyd_pdf_interjection_2:
+    lloyd_narrating neutral "Sergei claimed to have psychic abilities of his own.[wait_1] That makes one thing that he and the man with the white streak have in common."
+    lloyd_narrating neutral "That, and having the same killer."
+    lloyd_thinking thinking "The man in black has killed at least two psychics.[wait_1] Likely he has others on his hit-list."
+    lloyd_thinking thinking "But what could his motivation be?[wait_1] He didn’t appear to have taken anything from the man with the white streak."
+    lloyd_narrating neutral "A moment later the realisation hits me."
+    lloyd_thinking thinking "Wait...[wait_05]that’s it.[wait_1] The killer didn’t take anything from him, but I did –[wait_05] his psychic powers."
+    lloyd_thinking thinking "The killer is murdering psychics so that he can try to acquire their powers.[wait_1] He wants to become a psychic himself."
+    lloyd_narrating neutral "Does he want to read minds and discover what secrets he can?[wait_1] Look into the future and change the outcome?[wait_1] Wipe minds and remove memories of his crimes?"
+    lloyd_narrating neutral "I can’t say for sure but it’s more evidence that the man in black needs to be stopped."
+    lloyd_narrating neutral "I return to Sergei’s notes to see what other insights they might have." 
+    $ add_boolean("lloyd_pdf_interjection_2")
+    return
+
+label lloyd_pdf_interjection_3:
+    lloyd_narrating neutral "When I scroll further down the PDF I discover an issue."
+    lloyd_thinking thinking "The file –[wait_05] it’s been truncated![wait_1] By Cat, I’d be willing to bet."
+    lloyd_thinking thinking "That’s why she told me that we could meet again tomorrow –[wait_05] she’s planning something."
+    if (check_boolean("cat_preparing_trap")):
+        lloyd_thinking thinking "That also explains why she was thinking about lowering my guard.[wait_1] She knew that I would have no choice to return."
+    $ add_boolean("lloyd_pdf_interjection_3")
+    hide screen read_pdf
+    hide screen pdf_block
+
+    lloyd_narrating neutral "I mull my thoughts around in my head.[wait_1] Cat has further information of Sergei’s which could prove to be important."
+    lloyd_narrating neutral "Nothing’s forcing me to see her, but the existing notes have given me insight and motivation into the killer."
+    lloyd_thinking thinking "It’s no choice at all.[wait_1] I have to discover what’s in those notes."
+    lloyd_thinking thinking "They could contain other important information."
+    lloyd_narrating neutral "My main priority for tomorrow, then, will be visiting Cat in the evening and retrieving Sergei’s remaining notes from her."
+    lloyd_narrating neutral "Or...[wait_05]should I?[wait_1] Waiting around all day would be a waste of my time."
+    lloyd_narrating neutral "Every day that passes is a ticking clock until the killer murders once again."
+    lloyd_thinking thinking "What were the names of the people that Sergei said assisted him with these notes...?[wait_1] Charles Eisenhardt and Morty Telemachus."
+    lloyd_thinking thinking "If I can contact one of them they might be able to give me the notes.[wait_1] It’s worth a try."
+    lloyd_narrating neutral "I enter Charles’ name into a search engine.[wait_1] The result isn’t what I expected."
+    lloyd_thinking thinking "Dead.[wait_1] Killed by an unknown assailant, via gunshot.[wait_1] It’s the same for Telemachus."
+    lloyd_narrating neutral "If I had any doubts that the killer is targeting psychics they’ve been erased by now."
+    lloyd_narrating neutral "Eisenhardt and Telemachus clearly had psychic abilities of their own, and I’ve deduced that the man with the white streak had some."
+    lloyd_narrating neutral "I’ll have to go to Cat for the remaining notes after all."
+    lloyd_thinking thinking "But I won’t be idling during the day.[wait_1] I still have no idea how the killer discovered that any of his victims were psychic."
+    lloyd_thinking thinking "I’ll do what I can to discover who they were, and whether there was some telltale sign of their abilities which put them in the killer’s crosshairs."
+    lloyd_narrating neutral "It’s a solid plan."
+    lloyd_narrating neutral "With no other information that I can retrieve from the notes I turn off my laptop and go to bed."
+    lloyd_narrating neutral "It’s getting late and I want to catch up on my rest."
+    scene black_bg with slow_dissolve
+    mental_jack "{size=-8}(Dammit...[wait_05]I’m too weak.){/size}"
+    mental_jack "{size=-8}(I thought I could build up my strength more...[wait_05]but I can’t.[wait_1] It’s all over.){/size}"
+    mental_jack "{size=-8}(I didn’t even get to have any fun the other night...){/size}"
+    jump branch_c_4_0
     return
 
 label branch_c_4_0:

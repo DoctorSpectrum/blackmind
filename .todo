@@ -4,8 +4,9 @@ BLACKMIND TODO
         - Deliverables:
             - Big tasks:
                 - PDF:
-                    - Style PDF browsing
-                    - PDF scrolling updoots stuff. Have Lloyd interject as we scroll through the file, and hide it when we read the whole thing.
+                    - Keep track of position in PDF:
+                        - Styling for extended docco
+                        - Scrollpoints for extended docco
                 - Rewinding: 
                     - Currently infinitely looping; test on Eddie A-1 if we call jump in eddie_investigation instead of call whether that fixes it
                     - Add in rewind points for all scenes, or stuff for not rewinding as necessary
