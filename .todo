@@ -33,6 +33,7 @@ BLACKMIND TODO
                         - When we jump to a node, wipe any booleans we could gain there
                         - Swap nodes around - e.g. if we do Barbara/Cat/Eddie on A-1, then jump back later and visit Eddie on the first section of the day, it should then be Eddie/Cat/Barbara.
                             If we went to the first node and visited Graves instead, it should then be Graves/Cat/Eddie.
+                - Add in future vision/keywords for all scenes
                 - Finish placeholder sprites
                 - Finish placeholder CGs
                 - Add in placeholder music
