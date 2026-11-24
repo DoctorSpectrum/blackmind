@@ -2,42 +2,51 @@ BLACKMIND TODO
     - Alpha Phase
         - Delivery Date: 31/12/2027
         - Deliverables:
-            - Current task(s):
-                - Style PDF browsing
-                - PDF scrolling updoots stuff
-                
-                - Flag to stop psychic effects occurring when we use them
-                - Fix up rewinding stuff - testing with Eddie works well - so we don't infinitely loop
-                    - Try changing the first Eddie block to just jump intead of calling, and then jump at the end of the block
-
-            - Initial sprites for remaining characters, drawn by me
-            - Initial CGs for the game
-            - Placeholder music
-            - Programming:
-                - Post-script programming:
-                    - Add in functionality so that we have limited mind reads + mind wipes
-                    - Do we want booleans to start with the branch you read them on? E.g. a_graves_lie, c_cat_helped, stuff like that?
-                    - Make sure that we clear out the thoughts_read array or whatever it's called at the start of scenes so we can't just infinitely read thoughts by repeatedly replaying the scene
-                    - Add in power upgrade screen + functionality
-                    - Updoot the pdf browsing so that we update as we scroll and automatically return once we've read everything
-                    - ngl I wouldn't say no to moving the prologue thoughts to Barbara and Docherty's files as is necessary; I feel they've been broken up fairly well
-                    - Simple way to stop the psychic effects occuring when we use them, so we can turn them off during CGs. A flag?
-                    - Rewinding:
-                        - Rewind points need to be added in, along with stuff so we don't rewind at certain points
-                        - Rewinding is currently kinda janky due to some sort of call functionality - can we change it to jump and not break things?
+            - Big tasks:
+                - PDF:
+                    - Style PDF browsing
+                    - PDF scrolling updoots stuff. Have Lloyd interject as we scroll through the file, and hide it when we read the whole thing.
+                - Rewinding: 
+                    - Currently infinitely looping; test on Eddie A-1 if we call jump in eddie_investigation instead of call whether that fixes it
+                    - Add in rewind points for all scenes, or stuff for not rewinding as necessary
+                - Limited mind reads and mind wipes:
+                    - Set and test limited mind reads and mind wipes
+                    - Add in UI functionality; a ring that gets smoller but is clearly broken up
+                    - Reset power usage whenever we jump back to select our next scene
+                - Power upgrades:
+                    - Increase mind reads, mind wipes, and something for future sight (idk what)
+                    - Test + implement functionality
+                    - Save to a value indicating where we've changed the value - e.g. mind_wipes_increased a_2 so we know that for A 2-4 and B-4 we should have extra mind wipes
+                - Psychic powers:
+                    - Splash for Lloyd
+                    - Different effects for Lloyd
                 - Flow chart
-                    - I think that I can do this by having each node let us jump to a point of the script. At that label we wipe any booleans that we generate in the scene, so that we're seeing it as though it's the first time again. Jumping
-                        back and forth might mean that some branches can't be unlocked but if we've unlocked the node we can jump past the lock anyway - any scenes past there we already know that we hit the flag to unlock it.
-                        - New issue has occurred to me: if we set a boolean that affects something bad in the future, then jumping back to this scene would wipe it. If we then jump to a future scene before we've re-set the boolean, we'll
-                            effectively get past the check. So booleans should always be written in a way of "did we do a good thing" (so that by default wiping it means we've done the bad thing). Though I guess that then causes the issue 
-                            that if we do the good thing then jump back and it gets reset and we jump forwards, we're then assuming that we've done the bad thing. Unsure what the solution is at this point; might need to do something where we
-                            temporarily wipe them but then if we change scenes mid-scene we reset them to what they were before.
-                    - If we jump to a node and choose a different place to go to then we need to swap things around. So let's say on A-1 we go Barbara, Cat, Eddie, then later jump back to A-1-1 and choose someone different. If it's Graves we 
-                        change it so that our A-1 is now Graves, Cat, Eddie. If it's, say, Cat, we change it so that it's Cat, Barbara, Eddie. It shouldn't affect anything negatively but I'll need to test the heck out of this.
-                    - For this phase, this'll prolly just be a vbox with a list of scenes the players can access
-                - Styling
-                    - Fix up the styling for PDF browsing
-                    - Potentially make a selected radio option black instead of dark yellow? Test it and see how it looks
+                    - Create icons for each node type
+                        - Morning
+                        - Barbara (drink)
+                        - Cat (book)
+                        - Eddie (newspaper)
+                        - Graves (magnifying glass)
+                        - Evening
+                    - Create imagebuttons for each node, spread out in a tree
+                    - Updoot it so that we only show each imagebutton + the lines connecting them if we've done that scene
+                    - Add in functionality so that clicking on a node gives us a summary of what happens there, plus any booleans we've unlocked
+                    - Add in functionality so that we can jump to a node
+                        - Need to act as though it's our first time going there in the day; don't account for other days
+                        - When we jump to a node, wipe any booleans we could gain there
+                        - Swap nodes around - e.g. if we do Barbara/Cat/Eddie on A-1, then jump back later and visit Eddie on the first section of the day, it should then be Eddie/Cat/Barbara.
+                            If we went to the first node and visited Graves instead, it should then be Graves/Cat/Eddie.
+                - Finish placeholder sprites
+                - Finish placeholder CGs
+                - Add in placeholder music
+
+            - Smol tasks:                
+                - Clear the thoughts_read array when we jump back to location selection
+                - Flag to stop psychic effects occurring when we use them
+                - Stop fast-forwarding when we go to the location selection
+                - Block fast-forwarding on the location selection screen
+                - Move prologue thoughts to Barbara and Docherty's thoughts, re-spec-tively
+                - Try making a selected radio option black instead of dark yellow
 
             - Delivery FYIs:
                 - Unsure about quality of script; took me a little while to get the hang of things
