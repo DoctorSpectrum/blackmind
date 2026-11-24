@@ -610,7 +610,10 @@ label branch_c_4_4:
     lloyd_narrating neutral "The first part of Sergei’s notes gave me insight into the killer’s motives and answered questions of my own.[wait_1] What will the second part give me?"
     lloyd_narrating neutral "This USB is the same as the first one –[wait_05] it only has the one file on it, a PDF named {i}sergei_notes_2.pdf{/i}."
     lloyd_narrating neutral "I open up the file and begin reading it."
-    call screen read_pdf(True)
+    show screen read_pdf(True)
+    call screen pdf_block
+
+label lloyd_pdf_interjection_4:
     lloyd_thinking thinking "According to Sergei’s research, a person can only have a maximum of three psychic abilities, with the exact abilities being determined by a person’s individual brainwaves."
     lloyd_thinking thinking "He lists several of them here."
     lloyd_narrating neutral "Reading surface thoughts, altering memories, and seeing the future are all listed as some of the abilities a psychic could have."
@@ -618,6 +621,13 @@ label branch_c_4_4:
     lloyd_thinking thinking "Some of these other abilities are interesting...[wait_05]detecting the energy of psychics would be useful."
     lloyd_thinking thinking "It would allow me to find others like me and warn them about the killer."
     lloyd_narrating neutral "I read through the remainder of the file."
+
+    $ add_boolean("lloyd_pdf_interjection_4")
+    return
+
+label lloyd_pdf_interjection_5:
+    hide screen read_pdf
+    hide screen pdf_block
     lloyd_narrating neutral "I’m a little disappointed when I finish it –[wait_05] the second half of Sergei’s notes haven’t had anything as vitally important as the first half.[wait_1] The information in it is still interesting, though."
     lloyd_thinking thinking "Sergei discovered that there’s a limited amount of psychic energy for us to tap into, with what energy there is being distributed equally among people with abilities."
     lloyd_thinking thinking "He theorised that the more psychics there are, the weaker our abilities become, and vice versa."

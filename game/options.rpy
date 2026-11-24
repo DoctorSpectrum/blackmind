@@ -12,7 +12,7 @@
 ##
 ## The _() surrounding the string marks it as eligible for translation.
 
-define config.log = "log.txt"
+#define config.log = "log.txt"
 define config.name = _("BLACKMIND")
 define config.developer = True
 

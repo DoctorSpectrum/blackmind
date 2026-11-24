@@ -2569,14 +2569,14 @@ screen read_pdf(full_file=False):
             xfill True
             yalign 0.0
 
-            text _("sergei_notes.pdf"):
+            text _("sergei_notes" + ("_2" if full_file else "") + ".pdf"):
                 xalign 0.02
 
             if (config.developer):
                 text _(str(scrolled)):
                     xalign 0.5
 
-            text _("Page " + str(math.ceil((scrolled - 700) / 1259) + 1) + " of " + ("9" if not full_file else "?")):
+            text _("Page " + str(math.ceil((scrolled - 700) / 1259) + 1) + " of " + ("9" if not full_file else "18")):
                 xalign 0.98
 
         side ("c r"):
@@ -2683,83 +2683,134 @@ screen read_pdf(full_file=False):
                         vbox:
                             text _("Several powers, most notably telepathy, can be blocked by the Yellow Square Defence, even should the target not have any telepathic talent of their own.")
 
+                            if (full_file):
+                                text _("TELEPATHY"):
+                                    style "pdf_subheading"
+                                text _("Also known as mind-reading. A person with telepathic ability can reach out their minds to others and discover the thoughts and memories within their heads. How these thoughts are presented to the telepath appears to depend on the individual; some telepaths report receiving “fuzzy” or “blurred” thoughts when using their ability, while for others what they receive could not be any clearer.")
+                                text _("The form thoughts are received in can also vary; a telepath may receive a thought as a string of text, images – either literal or metaphorical – or a strong emotion. Likely forms beyond these exist too.")
+                                text _("A level one telepath can only read the surface thoughts of a person; what they’re currently thinking of. Particularly weak telepaths may require eye contact or touch in order to utilise their ability.")
+                                text _("A level two telepath can delve deeper below the surface thoughts of a person; they can read subconscious ideas and emotions which the target may be unaware of. There are rumours of level two telepaths being affected by the subconsciousness which they read, absorbing the ideas and emotions and believing them to be their own.")
+                                text _("Level three telepaths are virtually unheard of. They can not only read the surface and subconscious thoughts of a person, they can read and filter the thoughts of multiple minds at once. A level three telepath can delve deeply into a person’s memory and read all that they can recall; they could also follow a train of thought back to its origin.")
+
                     if (full_file):
-                        text _("TELEPATHY"):
-                            style "pdf_subheading"
-                        text _("Also known as mind-reading. A person with telepathic ability can reach out their minds to others and discover the thoughts and memories within their heads. How these thoughts are presented to the telepath appears to depend on the individual; some telepaths report receiving “fuzzy” or “blurred” thoughts when using their ability, while for others what they receive could not be any clearer.")
-                        text _("The form thoughts are received in can also vary; a telepath may receive a thought as a string of text, images – either literal or metaphorical – or a strong emotion. Likely forms beyond these exist too.")
-                        text _("A level one telepath can only read the surface thoughts of a person; what they’re currently thinking of. Particularly weak telepaths may require eye contact or touch in order to utilise their ability.")
-                        text _("A level two telepath can delve deeper below the surface thoughts of a person; they can read subconscious ideas and emotions which the target may be unaware of. There are rumours of level two telepaths being affected by the subconsciousness which they read, absorbing the ideas and emotions and believing them to be their own.")
-                        text _("Level three telepaths are virtually unheard of. They can not only read the surface and subconscious thoughts of a person, they can read and filter the thoughts of multiple minds at once. A level three telepath can delve deeply into a person’s memory and read all that they can recall; they could also follow a train of thought back to its origin.")
+                        frame:
+                            style_prefix "pdf_page"
 
-                        text _("PUPPETEERING"):
-                            style "pdf_subheading"
-                        text _("Also known as mind control. A person with the ability to puppeteer can control another using their thoughts, words, or both, depending upon the individual. Lower-level puppeteers can be thwarted fairly easily by people with strong enough wills and who are able to think for themselves; they recognise that their actions are not matching up with their intentions and can break the connection through force of will. For this reason I believe most users of LLMs to be highly vulnerable to puppeteers.")
-                        text _("A level one puppeteer is often limited by how close they are to their target, and usually require touching them or speaking to them directly in order to utilise their ability. A level one puppeteer’s control is limited – they may be able to make their target react to certain trigger words they’ve implanted, or alter their emotions, but rarely can do more than that.")
-                        text _("A level two puppeteer has much more control over their target; they can effectively possess somebody and control their actions. Whether or not the target is aware that their actions are not their own, or whether they are a prisoner within their own body, appears to depend upon the puppeteer themselves and how their ability manifests.")
-                        text _("Level three puppeteers are only theoreticals; I have yet to encounter any or read of any confirmed cases of them. I speculate that a level three puppeteer would be able to effortlessly control multiple people around them without their control being broken; it’s also possible that the controlled would believe their actions to be their own, no matter how anathematic they are to them.")
+                            vbox:
+                                text _("PUPPETEERING"):
+                                    style "pdf_subheading"
+                                text _("Also known as mind control. A person with the ability to puppeteer can control another using their thoughts, words, or both, depending upon the individual. Lower-level puppeteers can be thwarted fairly easily by people with strong enough wills and who are able to think for themselves; they recognise that their actions are not matching up with their intentions and can break the connection through force of will. For this reason I believe most users of LLMs to be highly vulnerable to puppeteers.")
+                                text _("A level one puppeteer is often limited by how close they are to their target, and usually require touching them or speaking to them directly in order to utilise their ability. A level one puppeteer’s control is limited – they may be able to make their target react to certain trigger words they’ve implanted, or alter their emotions, but rarely can do more than that.")
+                                text _("A level two puppeteer has much more control over their target; they can effectively possess somebody and control their actions. Whether or not the target is aware that their actions are not their own, or whether they are a prisoner within their own body, appears to depend upon the puppeteer themselves and how their ability manifests.")
+                                text _("Level three puppeteers are only theoreticals; I have yet to encounter any or read of any confirmed cases of them. I speculate that a level three puppeteer would be able to effortlessly control multiple people around them without their control being broken; it’s also possible that the controlled would believe their actions to be their own, no matter how anathematic they are to them.")
 
-                        text _("TELEKINESIS"):
-                            style "pdf_subheading"
-                        text _("Telekinesis is the ability to move objects using one’s mind. Some telekinetics show an affinity for particular materials; they find it easier to move and keep track of, for example, objects that are completely metal, or water. Others have little difficulty with multiple small objects but strain to move larger objects of comparable mass, or vice versa. The differing levels of telekinetics vary only in the amount of mass or objects that they can move, and the distance at which their power works.")
-                        text _("A level one telekinetic can typically move up to 5 kilograms of mass without difficulty; if this is distributed through multiple objects 30 appears to be the maximum number that can be controlled. These telekinetics can affect objects up to roughly a 15-metre radius, centred on themselves.")
-                        text _("A level two telekinetic’s limits are around 100 kilograms of mass, or up to 200 objects. Their range extends to around 200 metres.")
-                        text _("The highest volume of mass recorded being manipulated by a level three telekinetic’s abilities was one tonne, although it wasn’t moved particularly far. I would estimate that 800 kilograms is more comfortably the upper limit of a level three’s abilities. The range of a level three telekinetic’s abilities is about 500 metres, although I question whether this is due to limitations of vision. Could a level three telekinetic using binoculars or something similar manipulate objects over a larger distance?")
+                        frame:
+                            style_prefix "pdf_page"
 
-                        text _("PRECOGNITION"):
-                            style "pdf_subheading"
-                        text _("Also known as future sight; the ability to see potential futures. Despite my best efforts I’ve been unable to confirm whether the future a precognitive sees is set in stone, or if it’s possible for it to be changed. Precognitives seem to have the most difficulty in manifesting their power when they wish it; I speculate that this is because their power only works once the majority of their sight cannot be changed.")
-                        text _("A level one precognitive may not even be aware of their abilities, as they often manifest in a vague sense of words or feelings. When these precognitives experience the future they’ve foreseen they often get a sense of déjà vu, not recognising how their abilities work. A level one precognitive may also see brief flashes of images, but this is less common.")
-                        text _("Level two precognitives will almost always see the future as visions. They may or may not be present in the vision themselves; this appears to be something that varies depending upon the individual. The intensity of these visions tends to be such that the precognitive is able to recall the image or images they see perfectly, without any flaws or difficulty.")
-                        text _("No known level three precognitives have been discovered. I speculate that a level three precognitive would not only receive visions of the future, but that they could act within it and see the outcome of individual actions. Alternatively, it is possible that they would be able to identify how the visions they see came about; the chain of events which lead to those scenes.")
+                            vbox:
+                                text _("TELEKINESIS"):
+                                    style "pdf_subheading"
+                                text _("Telekinesis is the ability to move objects using one’s mind. Some telekinetics show an affinity for particular materials; they find it easier to move and keep track of, for example, objects that are completely metal, or water. Others have little difficulty with multiple small objects but strain to move larger objects of comparable mass, or vice versa. The differing levels of telekinetics vary only in the amount of mass or objects that they can move, and the distance at which their power works.")
+                                text _("A level one telekinetic can typically move up to 5 kilograms of mass without difficulty; if this is distributed through multiple objects 30 appears to be the maximum number that can be controlled. These telekinetics can affect objects up to roughly a 15-metre radius, centred on themselves.")
+                                text _("A level two telekinetic’s limits are around 100 kilograms of mass, or up to 200 objects. Their range extends to around 200 metres.")
+                                text _("The highest volume of mass recorded being manipulated by a level three telekinetic’s abilities was one tonne, although it wasn’t moved particularly far. I would estimate that 800 kilograms is more comfortably the upper limit of a level three’s abilities. The range of a level three telekinetic’s abilities is about 500 metres, although I question whether this is due to limitations of vision. Could a level three telekinetic using binoculars or something similar manipulate objects over a larger distance?")
 
-                        text _("PYROKINESIS"):
-                            style "pdf_subheading"
-                        text _("The ability to control and manipulate heat and flames with the power of one’s mind. Contrary to the common depictions in popular media, being a pyrokinetic does not make one any more hot-headed, impulsive, or angry than average.")
-                        text _("Level one pyrokinetics are rarely aware of their abilities, although they may find themselves drawn to sources of heat or fires more than the average person. They can typically heat up things that they are in contact with and control their heat distribution. It’s possible that cases of spontaneous human combustion are the result of these pyrokinetics not knowing how to control their abilities, although I admit that this is speculation.")
-                        text _("A level two pyrokinetic can control flames to a certain extent, moving them around and increasing or decreasing their heat or presence. Many pyrokinetics at this level are similarly unaware of their abilities, using them without recognising what they are doing.")
-                        text _("Level three pyrokinetics are what one likely thinks of when it comes to pyrokinesis; they are able to cause fire to ignite spontaneously. While there are no records of any pyrokinetics being able to create flame larger than the average campfire, such a limitation rarely matters: the fire spreads naturally and consumes what it can, growing in the process.")
+                                text _("PRECOGNITION"):
+                                    style "pdf_subheading"
+                                text _("Also known as future sight; the ability to see potential futures. Despite my best efforts I’ve been unable to confirm whether the future a precognitive sees is set in stone, or if it’s possible for it to be changed. Precognitives seem to have the most difficulty in manifesting their power when they")
+                                
+                        frame:
+                            style_prefix "pdf_page"
 
-                        text _("ASTRAL PROJECTION"):
-                            style "pdf_subheading"
-                        text _("Astral projection is the ability for one to separate their consciousness from their body and move around; removing the ghost from the machine, as it were. While the person’s consciousness is on its own the body typically slumps to the floor and appears to be unconscious or sleeping.")
-                        text _("Although the body continues its functions such as breathing on its own, the longer that a person astrally projects, the more difficult they will find returning to their body to be. Even returning successfully after too long may result in the person finding it difficult to control their body, with extreme cases leaving the person in a coma.")
-                        text _("At level one of astral projection, the consciousness can move around outside of the body with conventional movement. The consciousness generally cannot be perceived by non-psychics or interact with objects. The consciousness typically cannot move too far from the body; the maximum recorded range for a level one projector is fifty metres.")
-                        text _("At the second level of astral projection the consciousness can travel much further, with ranges measured in the range of kilometres. The consciousness can generally pass through some objects but still cannot manipulate them. In addition, the consciousness is less restricted in movement; projectors typically fly or float to travel. The consciousness still typically cannot be seen by non-psychics, but they can make themselves be heard.")
-                        text _("The third level of astral projection allows the consciousness to move much farther and faster than the previous levels; while speeds were previously typically similar to what a person would be able to physically achieve, at this level the projection can move at the speed of thought. The projector can also control whether others can perceive them or not, and can pass through virtually any substance.")
-
-                        text _("MEMORY ALTERATION"):
-                            style "pdf_subheading"
-                        text _("Often mistaken for the ability to wipe or “rewind” minds due to the manifestation of the ability at the lowest level. Psychics who can alter memories are similar to puppeteers in that they manipulate others, but while puppeteers manipulate the body, these psychics manipulate the mind.")
-                        text _("At the first level these psychics can delete recent memories from the minds of their targets. The disorientation that occurs to the target typically results in them overlooking any minor discrepancies. For instance, if a book was on a table and then placed in a bookshelf before the target had their memories deleted, the target would assume that it hadn’t previously been on the table, provided they weren’t interacting with it.")
-                        text _("Psychics at the second level of this ability have a finer control over the techniques available. While they can still delete memories they can be more selective in what they make the target forget, and can delete memories from further back. In addition, they can make minor alterations to existing memories, such as making a target believe that another person was present in a memory, or that something different was said in a conversation.")
-                        text _("In my opinion the third level of memory alteration is one of the deadliest psychic powers. At this level the psychic can not only delete and alter memories with much greater control, they can create new memories in the target’s mind with ease. Thankfully the Yellow Square Defence can provide some safety against even this level, but one has to let their guard down eventually...")
-
-                        text _("PSYCHOMETRY"):
-                            style "pdf_subheading"
-                        text _("A rare talent, psychometry is the ability to read the history of an object. More often than not touch is essential in this ability; while other psychic abilities may become easier or slightly more powerful when touching the subject, it is often required to utilise psychometry.")
-                        text _("The first level of psychometry allows the psychic to touch an object and get a sense for who has recently touched or been near it. The psychic may get an image of the person or persons, or they may get a sense for that person’s unique mental patterns.")
-                        text _("The second level of psychometry gives a stronger sense of not only who has recently interacted with the object, but of the item’s own history and where it has recently been. This typically takes the form of visions, although they may not always be in chronological order.")
-                        text _("The third level of psychometry allows the psychic to read an item’s history and its possessors as far back as possible. It is recommended, however, that the psychic limit themselves to no more than a few years; the human brain is ill-equipped to sort and filter through so much information, and looking too far can result in comas or even brain death.")
+                            vbox:
+                                text _("wish it; I speculate that this is because their power only works once the majority of their sight cannot be changed.")
                         
-                        text _("SCANNING"):
-                            style "pdf_subheading"
-                        text _("A scanner is a psychic with the ability to detect the psychic energy of others. That is to say, if they are in the vicinity of other psychics, they can detect their presence. From my understanding most scanners have their ability constantly active, with no way to turn it off at their leisure.")
-                        text _("At the first level, a scanner is limited in their ability. They can detect psychic energy in roughly a one-block radius, but not where it is concentrated. If a level one scanner were in a room with five other people, one of whom was a psychic, the scanner would know that there was a psychic nearby, but not who it was. Were there a second psychic five houses down the road, the scanner would be able to estimate that there was more than one psychic in the area, but could not be certain where they were – they could be in the same room as them, they could not.")
-                        text _("Second-level scanners are able to detect psychic energy over a larger area, comparable to a moderately-sized city. At this level scanners no longer have the issue of their level one counterparts; they can detect which individuals within their area are psychic.")
-                        text _("At the third level, scanners are able to detect psychic energy over an even wider area, comparable to a 5000 kilometre radius. They can still detect which individuals have psychic abilities, and when in their proximity, they can get a sense for what exactly those abilities might be.")
+                                text _("A level one precognitive may not even be aware of their abilities, as they often manifest in a vague sense of words or feelings. When these precognitives experience the future they’ve foreseen they often get a sense of déjà vu, not recognising how their abilities work. A level one precognitive may also see brief flashes of images, but this is less common.")
+                                text _("Level two precognitives will almost always see the future as visions. They may or may not be present in the vision themselves; this appears to be something that varies depending upon the individual. The intensity of these visions tends to be such that the precognitive is able to recall the image or images they see perfectly, without any flaws or difficulty.")
+                                text _("No known level three precognitives have been discovered. I speculate that a level three precognitive would not only receive visions of the future, but that they could act within it and see the outcome of individual actions. Alternatively, it is possible that they would be able to identify how the visions they see came about; the chain of events which lead to those scenes.")
 
-                        text _("CIBOPATHY"):
-                            style "pdf_subheading"
-                        text _("See reports #1 - #60 of {i}Chew{/i}, by John Layman and Rob Guillory.")
+                                text _("PYROKINESIS"):
+                                    style "pdf_subheading"
+                                text _("The ability to control and manipulate heat and flames with the power of one’s mind. Contrary to the common depictions in popular media, being a pyrokinetic does not make one any more hot-headed, impulsive, or angry than average.")
+                                text _("Level one pyrokinetics are rarely aware of their abilities, although they may find themselves drawn to sources of heat or fires more than the average person. They can typically heat up things that they are in contact with")
 
-                        text _("THE TRUTH UNCOVERED?"):
-                            style "pdf_heading"
-                        text _("I have mentioned previously that a psychic’s abilities can experience brief spikes in level, but recent research has shown me a new way to increase power. After cross-referencing information in several books that I trust, I’ve come to a hypothesis: whatever energy is tapped into when using one’s abilities, access is limited by the number of psychics in the area.")
-                        text _("For example, say that there is n amount of energy in an area, and there are ten psychics that live there. Each one would be able to tap into n10 energy, or 10% of n. If, however, five of them left the area, or died, there would only be five remaining psychics. They would each now be able to tap into n5 energy, or 20% of n. Each of them would find the range of their abilities doubled, although it may take some time for their brains to acclimatise to the change in energy; their abilities wouldn’t instantly increase.")
-                        text _("While this has interesting implications for the ways in which psychics’ abilities work, there is more to be discovered yet. While it wouldn’t be apparent to a casual reader, cross-referencing further information between the books points to some sinister implications. I may have found some hints as to what the statue I once encountered truly was...but I’m not certain that I like the answers.")
-                        text _("For now I’ve asked my partner to remove the books, lest somebody else find the information before I can determine how dangerous it may or may not be. Thankfully the topics of the books are fairly niche, and only by studying it from multiple angles can the truth be glimpsed.")
-                        text _("I’ll provide an update as soon as possible...if I deem the knowledge safe to share...")
+                        frame:
+                            style_prefix "pdf_page"
+
+                            vbox:        
+                                text _("and control their heat distribution. It’s possible that cases of spontaneous human combustion are the result of these pyrokinetics not knowing how to control their abilities, although I admit that this is speculation.")
+                                text _("A level two pyrokinetic can control flames to a certain extent, moving them around and increasing or decreasing their heat or presence. Many pyrokinetics at this level are similarly unaware of their abilities, using them without recognising what they are doing.")
+                                text _("Level three pyrokinetics are what one likely thinks of when it comes to pyrokinesis; they are able to cause fire to ignite spontaneously. While there are no records of any pyrokinetics being able to create flame larger than the average campfire, such a limitation rarely matters: the fire spreads naturally and consumes what it can, growing in the process.")
+
+                                text _("ASTRAL PROJECTION"):
+                                    style "pdf_subheading"
+                                text _("Astral projection is the ability for one to separate their consciousness from their body and move around; removing the ghost from the machine, as it were. While the person’s consciousness is on its own the body typically slumps to the floor and appears to be unconscious or sleeping.")
+                                text _("Although the body continues its functions such as breathing on its own, the longer that a person astrally projects, the more difficult they will find returning to their body to be. Even returning successfully after too long may result in the person finding it difficult to control their body, with extreme cases leaving the person in a coma.")
+                                text _("At level one of astral projection, the consciousness can move around outside of the body with conventional movement. The consciousness generally cannot be perceived by non-psychics or interact with objects. The consciousness typically cannot move too far from the body; the")
+                        
+                        frame:
+                            style_prefix "pdf_page"
+
+                            vbox:
+                                text _("maximum recorded range for a level one projector is fifty metres.")
+                                text _("At the second level of astral projection the consciousness can travel much further, with ranges measured in the range of kilometres. The consciousness can generally pass through some objects but still cannot manipulate them. In addition, the consciousness is less restricted in movement; projectors typically fly or float to travel. The consciousness still typically cannot be seen by non-psychics, but they can make themselves be heard.")
+                                text _("The third level of astral projection allows the consciousness to move much farther and faster than the previous levels; while speeds were previously typically similar to what a person would be able to physically achieve, at this level the projection can move at the speed of thought. The projector can also control whether others can perceive them or not, and can pass through virtually any substance.")
+
+                                text _("MEMORY ALTERATION"):
+                                    style "pdf_subheading"
+                                text _("Often mistaken for the ability to wipe or “rewind” minds due to the manifestation of the ability at the lowest level. Psychics who can alter memories are similar to puppeteers in that they manipulate others, but while puppeteers manipulate the body, these psychics manipulate the mind.")
+                                text _("At the first level these psychics can delete recent memories from the minds of their targets. The disorientation that occurs to the target typically results in them overlooking any minor discrepancies. For instance, if a book was on a table and then placed in a bookshelf before the target had their memories deleted, the target would assume that it hadn’t previously been on the table, provided they weren’t interacting with")
+
+                        frame:
+                            style_prefix "pdf_page"
+
+                            vbox:
+                                text _("it.")
+                                text _("Psychics at the second level of this ability have a finer control over the techniques available. While they can still delete memories they can be more selective in what they make the target forget, and can delete memories from further back. In addition, they can make minor alterations to existing memories, such as making a target believe that another person was present in a memory, or that something different was said in a conversation.")
+                                text _("In my opinion the third level of memory alteration is one of the deadliest psychic powers. At this level the psychic can not only delete and alter memories with much greater control, they can create new memories in the target’s mind with ease. Thankfully the Yellow Square Defence can provide some safety against even this level, but one has to let their guard down eventually...")
+
+                                text _("PSYCHOMETRY"):
+                                    style "pdf_subheading"
+                                text _("A rare talent, psychometry is the ability to read the history of an object. More often than not touch is essential in this ability; while other psychic abilities may become easier or slightly more powerful when touching the subject, it is often required to utilise psychometry.")
+                                text _("The first level of psychometry allows the psychic to touch an object and get a sense for who has recently touched or been near it. The psychic may get an image of the person or persons, or they may get a sense for that person’s unique mental patterns.")
+                                text _("The second level of psychometry gives a stronger sense of not only who has recently interacted with the object, but of the item’s own history and where it has recently been. This typically takes the form of visions,")
+                                
+                        frame:
+                            style_prefix "pdf_page"
+
+                            vbox:
+                                text _("although they may not always be in chronological order.")
+                                text _("The third level of psychometry allows the psychic to read an item’s history and its possessors as far back as possible. It is recommended, however, that the psychic limit themselves to no more than a few years; the human brain is ill-equipped to sort and filter through so much information, and looking too far can result in comas or even brain death.")
+                        
+                                text _("SCANNING"):
+                                    style "pdf_subheading"
+                                text _("A scanner is a psychic with the ability to detect the psychic energy of others. That is to say, if they are in the vicinity of other psychics, they can detect their presence. From my understanding most scanners have their ability constantly active, with no way to turn it off at their leisure.")
+                                text _("At the first level, a scanner is limited in their ability. They can detect psychic energy in roughly a one-block radius, but not where it is concentrated. If a level one scanner were in a room with five other people, one of whom was a psychic, the scanner would know that there was a psychic nearby, but not who it was. Were there a second psychic five houses down the road, the scanner would be able to estimate that there was more than one psychic in the area, but could not be certain where they were – they could be in the same room as them, they could not.")
+                                text _("Second-level scanners are able to detect psychic energy over a larger area, comparable to a moderately-sized city. At this level scanners no longer have the issue of their level one counterparts; they can detect which individuals within their area are psychic.")
+                                text _("At the third level, scanners are able to detect psychic energy over an even wider area, comparable to a 5000 kilometre radius. They can still detect which individuals have psychic abilities, and when in their proximity, they")
+
+                        frame:
+                            style_prefix "pdf_page"
+
+                            vbox:
+                                text _("can get a sense for what exactly those abilities might be.")
+                                text _("CIBOPATHY"):
+                                    style "pdf_subheading"
+                                text _("See reports #1 - #60 of {i}Chew{/i}, by John Layman and Rob Guillory.")
+
+                                text _("THE TRUTH UNCOVERED?"):
+                                    style "pdf_heading"
+                                text _("I have mentioned previously that a psychic’s abilities can experience brief spikes in level, but recent research has shown me a new way to increase power. After cross-referencing information in several books that I trust, I’ve come to a hypothesis: whatever energy is tapped into when using one’s abilities, access is limited by the number of psychics in the area.")
+                                text _("For example, say that there is n amount of energy in an area, and there are ten psychics that live there. Each one would be able to tap into n10 energy, or 10% of n. If, however, five of them left the area, or died, there would only be five remaining psychics. They would each now be able to tap into n5 energy, or 20% of n. Each of them would find the range of their abilities doubled, although it may take some time for their brains to acclimatise to the change in energy; their abilities wouldn’t instantly increase.")
+                                text _("While this has interesting implications for the ways in which psychics’ abilities work, there is more to be discovered yet. While it wouldn’t be apparent to a casual reader, cross-referencing further information between the books points to some sinister implications. I may have found some hints as to what the statue I once encountered truly was...but I’m not certain that I like the answers.")
+                                text _("For now I’ve asked my partner to remove the books, lest somebody else find the information before I can determine how dangerous it may or may not be. Thankfully the topics of the books are fairly niche, and only by")
+
+                        frame:
+                            style_prefix "pdf_page"
+
+                            vbox:    
+                                text _("studying it from multiple angles can the truth be glimpsed.")
+                                text _("I’ll provide an update as soon as possible...if I deem the knowledge safe to share...")
                     
                     frame:
                         background None
@@ -2785,7 +2836,7 @@ style pdf_heading:
     size 42
 
 style pdf_subheading is pdf_heading:
-    size 30
+    size 36
 
 style pdf_page_frame:
     background Solid("#F2EE29")
