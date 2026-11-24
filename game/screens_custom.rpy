@@ -2551,67 +2551,125 @@ style article_timestamp:
 screen read_pdf(full_file=False):
     frame:
         style_prefix "pdf_file"
-        background Solid("#F2EE29")
-        xalign 0.5
-        yalign 0.5
-        xsize 1600
-        ysize 800
+        background Solid("#3B3B3B")
+        xfill True
+        yfill True
+        padding (0, 0, 0, 0)
+
+        frame:
+            background Solid("#F2EE29")
+            ysize 60
+            xfill True
+            yalign 0.0
+
+            text _("sergei_notes.pdf"):
+                xalign 0.02
+
+            text _("Page 1 of 1"):
+                xalign 0.98
 
         side ("c r"):
-            area (0, 0, 1145, 625)
+            area (360, 80, 1555, 1000)
             viewport id "pdf_viewport":
                 draggable True 
                 mousewheel True
                 arrowkeys True
                 
                 vbox:
-                    text _("From as far back as the 1930s, theories about the existence of extrasensory perception have been put forth. Scientific experiments have been performed to detect such abilities, but have never conclusively proved their existence.")
-                    text _("Although many believe that these abilities are pseudoscience, they are wrong. There are people with extrasensory perception who live among us today.")
-                    text _("My name is Sergei Maskelyne, and with the assistance of my friends Charles Eisenhardt and Morty Telemachus, I have been conducting research into people with these abilities for the last five years. These notes comprise the extent of my research thus far, and have been compiled so that if anything should happen to me, others can follow in my footsteps.")
+                    spacing 20
+                    frame:
+                        style_prefix "pdf_page"
 
-                    text _("OPENING YOUR THIRD EYE"):
-                        style "pdf_heading"
-                    text _("Although there are several means by which a person may unlock their potential and gain psychic abilities, they are difficult to verify. It appears that what works for one person may not necessarily work for others, and the same method may not unlock identical powers between two people. I am as of yet unable to determine why exactly this is, beyond some speculation that the small variations in genetic makeup are enough to affect the exact abilities a person is granted.")
-                    text _("I should begin with a description of how my own abilities were unlocked. I had been travelling through the Amazon jungle for several weeks. At the time I was a biologist, and was looking for samples of certain butterflies ({i}Caligo idomeneus{/i}, {i}Hamadryas arinome{/i}, {i}Semomesia capanea{/i}, among others). We were making our way out of the Amazon; the trip was to wrap up within a few days.")
-                    text _("That was the plan, anyway. But the best-laid plans of mice and men often go awry. I was travelling with my crew down the river when we were beset by a heavy storm. We were washed further downstream than intended and separated in the currents. I was able to make my way to the shore, and in something of a panic, stumbled through the jungle in search of another human being.")
-                    text _("I don’t know where exactly I was. Everything was dark, and I lost my bearings quite swiftly. The weather buffeted me about, making it impossible to find any navigational aids. I thought that I would be dead of exposure by morning. I wished only to send some sort of signal to warn others not to come and find me; to focus on their own survival and to abandon me as a lost cause. I had lost all hope, and was fearful of dragging others down with me.")
-                    text _("Then, I found it. A monolithic stone tower, built by some ancient community of humans. Visibility was low in the weather, and I’ll admit that I was exhausted by this time. I’d been wandering around the jungle for hours after a lengthy day of travel. But despite my fatigue, despite the weather, I would still make the same claim today that I did when I first told this story. That the tower stretched infinitely up into the sky, an impossible distance beyond what the human eye could see.")
-                    text _("The diameter of the tower itself was itself gigantic. I walked around its edge for many hours more, seeking an entrance so that I could shelter within during the storm. The resurgence of hope which had initially come to me upon finding the tower was just as soon diminished, replaced with a stronger sense of despair. The only positive that had come of finding the tower was the knowledge that it would serve as a natural waypoint; that others would not have to wander the jungle for days in order to confirm my death.")
-                    text _("My morbid thoughts were eventually proven premature, however. Although I could have sworn that I had circled the entirety of the outside of the tower at least twice, I stumbled upon an entrance into it. Perhaps I had simply missed it, between my fatigue and the absence of light. Or perhaps there was another reason for the lack of an entrance...")
-                    text _("Whatever the reason, I collapsed into the tower. It was a brutal thing constructed with raw blocks of stone, with nothing in the way of comfort. I was more than fine with that – I had a shelter from the storm, a sanctuary throughout the night. Simply lying down upon the rocky floor and getting a few winks of sleep would have been sufficient.")
-                    text _("And yet my curiosity was getting the better of me. What was this gigantic stone tower? How had such a construct been created without collapsing under its own weight? Why had I never heard of such a thing while preparing for my trip? I ventured further into the darkness of the tower. I knew that the answers would likely forever remain a mystery to me, but I had to at least attempt to find them.")
-                    text _("I have already mentioned that the circumference of the tower took me hours to walk around. One would think, then, that I would be prepared for how long it would take me to traverse the interior of the tower. I was not, and to be perfectly honest, I could not say how long it took me. At times it seemed as though I had been walking for days, wondering when I would see a wall, or some other construct within the tower. At other times I felt as though it had barely been a few minutes, that any confusion about how much time had passed had been the product of a tired and confused brain.")
-                    text _("However long it took me, I did eventually find something within the tower. It was fairly easy to spot it once I was close enough – a light shone upon it from somewhere up high. Where that light came from, and how it was able to shine unbroken when I could still hear the whistle of the wind and rain outside, are questions that I cannot answer.")
-                    text _("It was a statue, a humanoid figure sitting upon a throne. Whether the figure represented a god, king, or something else, I could not say. The closer I got to it – the more I focused on it – the more difficult I found it to comprehend its features. A pounding had begun in my head by now, and my vision was blurring. Attempting to identify features of the statue had me seeing double, the images swaying back and forth before me. My headache worsened more and more, and eventually I collapsed. I couldn’t maintain my balance, let alone my vision. Darkness closed in on me, the last thing I had seen being the ominous visage of the statue.")
-                    text _("Once again, I cannot say how much time passed. I had long ago lost any devices which could have told me what hour it was, and even if I hadn’t, I somehow doubt that their claims would match my experience. All that I can say is that at some point, I regained consciousness. The pounding in my head was still present, but in comparison with what I had experienced prior to falling unconscious, it may as well have been nothing.")
-                    text _("I picked myself up from the stone floor. The storm had blown itself out, and I could hear a twittering birdsong. There was no reason to stay within the tower – it had sheltered me as I had hoped it would, and I wasn’t going to discover any of its secrets. I knew the last to be a fact, for the statue which I had seen before falling unconscious was gone.")
-                    text _("I left the tower – in much shorter a time than I would have thought it would take – and found myself with a new dilemma. I may have survived the night, but I was still lost deep within the Amazon jungle, away from my crew and civilisation. Out of the frying pan and into the fire, as they say.")
-                    text _("How then, was I able to navigate my way out of the jungle and return home? How was I able to survive the deadly wildlife, the dangerous climate, of the jungle? Was it as simple as encountering the remainder of my crew within the next hour, and resuming our plans to return home?")
-                    text _("If only.")
-                    text _("What happened next should sound like some fantastic story, but if you’re reading this, then I’ve clearly trusted you to believe me. What happened next was that the pounding in my head intensified once more, to the level it had been at when I had approached the mysterious statue within the tower. I tried to concentrate, to control my breathing and hopefully cease it.")
-                    text _("Instead what happened was I received a vision. I saw myself standing elsewhere, in a different part of the jungle. I could only have seen the vision for a scant few seconds, yet it was perfectly imprinted upon my mind. I couldn’t have forgotten it if I wanted to.")
-                    text _("Although somewhat shaky, I decided that I should try to find the place that I had seen. It was as good a plan as any, and I was curious as to what I had seen. Was it even a real place? I walked away from the tower, choosing to move in the direction that I believed the river to be.")
-                    text _("It didn’t take long, however, before I realised that something was wrong. There was a sensation in my mind that something was wrong. That I should walk the way that I was. Despite my best efforts to ignore it, the feeling persisted, until I eventually decided to change directions once more. At first the sensation disappeared, but it wasn’t too long before it came back again.")
-                    text _("That was how the next three days went. I would travel in a single direction as best I could, until the sensation of wrongness returned. At that point I would choose a random direction and move in it, changing direction immediately if the sensation persisted. For water I drank from puddles and off leaves as required, trusting it to be rainwater and thus safe to drink. For food I simply didn’t bother. I hardly had the survival skills to trap or hunt any animals, and I couldn’t be certain that any plants would be safe to eat.")
-                    text _("After three days of travel, stopping only when I was physically unable to, I reached the place that I had seen in my vision. At first I thought that it was pointless, that there was nothing for me there but more greenery and dangers, but shortly afterwards a group different to mine passed through. Needless to say, they were able to feed and hydrate me, and eventually help me return to civilisation. I was the only one of my team to do so.")
-                    text _("No other person that I’ve spoken to has ever heard of the tower I encountered in the Amazon jungle, nor has anybody been able to identify the civilisation that the statue was carved by, let alone what the statue itself was. Were it not for the abilities that I was granted, I would be tempted to write the whole thing off as the hallucinations of a stressed body.")
-                    text _("But I know better.")
-                    text _("Other than the statue, there are several other ways to gain extrasensory abilities that I have confirmed. The first is to simply be born the child of a psychic. Historical records that I’ve unearthed have shown signs of psychic powers passing down a lineage, although it appears that they get weaker with each generation until they eventually disappear altogether. I suspect that lingering remnants of these abilities are what lead to phenomena such as gut feelings or prophetic dreams in ordinary people, although both Charles and Morty disagree with me.")
-                    text _("The third way to gain psychic powers that I’m aware of is to be near a person with such abilities as they die. Others that I have spoken to claim to have been near people that regularly showed uncanny insight and odd abilities as they died, and each of them gained their powers shortly afterwards.")
-                    text _("My theory is that whatever energy enables a person to access their abilities, it can only be held within a human brain. Once the life is gone from somebody, that energy must move to the nearest brain. (Is it possible that there is some sentience to the energy? It sounds ridiculous, and yet...) I have no evidence of extrasensory abilities acquired in this way diminishing over time, the way that they do when passed down bloodlines, but there is little confirmed data to work with. If only there were some way to test this further...")
-                    text _("These are the three ways that one can acquire psychic powers that I’m aware of. Given that two of them involve inheritance, the natural question then is: do all such powers ultimately derive from the statue that I encountered? I could not say for certain. I’ve encountered several historical records of missing or confiscated statues, but none from the region where I encountered it. (I need to do further research into other artifacts. No description for The Sampo exists; could the statue be related?)")
-                    text _("Although these are the three ways that I have confirmed that one can gain extrasensory abilities, there are rumours and unconfirmed stories of other ways. The most recurring one is of a certain technological company looking into brain implants which would grant psychic powers to the recipient. I need to keep an eye on them...")
+                        vbox:
+                            text _("From as far back as the 1930s, theories about the existence of extrasensory perception have been put forth. Scientific experiments have been performed to detect such abilities, but have never conclusively proved their existence.")
+                            text _("Although many believe that these abilities are pseudoscience, they are wrong. There are people with extrasensory perception who live among us today.")
+                            text _("My name is Sergei Maskelyne, and with the assistance of my friends Charles Eisenhardt and Morty Telemachus, I have been conducting research into people with these abilities for the last five years. These notes comprise the extent of my research thus far, and have been compiled so that if anything should happen to me, others can follow in my footsteps.")
 
-                    text _("THE AWAKENED"):
-                        style "pdf_heading"
-                    text _("The following is a list of known psychics. To maintain anonymity, codenames have been used.")
-                    text _("    {font=DejaVuSans.ttf}•{/font} THE EX-PROFESSOR\n    {font=DejaVuSans.ttf}•{/font} THE SPOONBENDER\n    {font=DejaVuSans.ttf}•{/font} FORGETTABLE NPC\n    {font=DejaVuSans.ttf}•{/font} THE CIRCUS RUNAWAY\n    {font=DejaVuSans.ttf}•{/font} THE PEEPER\n    {font=DejaVuSans.ttf}•{/font} MOTHER’S BOY\n    {font=DejaVuSans.ttf}•{/font} CRYO ORGANS\n    {font=DejaVuSans.ttf}•{/font} GAS MASK PROPHET")
+                            text _("OPENING YOUR THIRD EYE"):
+                                style "pdf_heading"
+                            text _("Although there are several means by which a person may unlock their potential and gain psychic abilities, they are difficult to verify. It appears that what works for one person may not necessarily work for others, and the same method may not unlock identical powers between two people. I am as of yet unable to determine why exactly this is, beyond some speculation that the small variations in genetic makeup are enough to affect the exact abilities a person is granted.")
+                            text _("I should begin with a description of how my own abilities were unlocked. I had been travelling through the Amazon jungle for several weeks. At the time I was a biologist, and was looking for samples of certain butterflies ({i}Caligo idomeneus{/i}, {i}Hamadryas arinome{/i}, {i}Semomesia capanea{/i}, among others). We were making our way out of the Amazon; the trip was to wrap up within a few days.")
+                            
+                    frame:
+                        style_prefix "pdf_page"
 
-                    text _("EXTRASENSORY ABILITIES"):
-                        style "pdf_heading"
-                    text _("From my research, I have discovered that the following abilities may be present in someone who has awakened their psychic powers. I’ve never encountered more than three within a single person, although it is possible that some of them may be different manifestations of the same power.")
-                    text _("A single ability can be more or less powerful depending upon the individual; I’ve found it easiest to classify them within three broad levels where distinctions are known. Any figures given are averages for that level. Some have reported experiencing intermittent spikes of power with their abilities; whether this is a sign that all psychics could awaken their abilities to the third level with practice and training, or whether it’s a sign of something else, is unknown. Attempts to push one’s abilities beyond their natural limit usually result only in pain; there have even been records of abilities becoming damaged or stunted by trying to push them too far.")
-                    text _("Several powers, most notably telepathy, can be blocked by the Yellow Square Defence, even should the target not have any telepathic talent of their own.")
+                        vbox:        
+                            text _("That was the plan, anyway. But the best-laid plans of mice and men often go awry. I was travelling with my crew down the river when we were beset by a heavy storm. We were washed further downstream than intended and separated in the currents. I was able to make my way to the shore, and in something of a panic, stumbled through the jungle in search of another human being.")
+                            text _("I don’t know where exactly I was. Everything was dark, and I lost my bearings quite swiftly. The weather buffeted me about, making it impossible to find any navigational aids. I thought that I would be dead of exposure by morning. I wished only to send some sort of signal to warn others not to come and find me; to focus on their own survival and to abandon me as a lost cause. I had lost all hope, and was fearful of dragging others down with me.")
+                            text _("Then, I found it. A monolithic stone tower, built by some ancient community of humans. Visibility was low in the weather, and I’ll admit that I was exhausted by this time. I’d been wandering around the jungle for hours after a lengthy day of travel. But despite my fatigue, despite the weather, I would still make the same claim today that I did when I first told this story. That the tower stretched infinitely up into the sky, an impossible distance beyond what the human eye could see.")
+                            text _("The diameter of the tower itself was itself gigantic. I walked around its edge for many hours more, seeking an entrance so that I could shelter within during the storm. The resurgence of hope which had initially come to me upon finding the tower was just as soon diminished, replaced with a stronger sense of despair. The only positive that had come of finding the tower was the knowledge that it would serve as a natural waypoint; that others would not have to wander the jungle for days in order to confirm my death.")
+                            
+                    frame:
+                        style_prefix "pdf_page"
+
+                        vbox:
+                            text _("My morbid thoughts were eventually proven premature, however. Although I could have sworn that I had circled the entirety of the outside of the tower at least twice, I stumbled upon an entrance into it. Perhaps I had simply missed it, between my fatigue and the absence of light. Or perhaps there was another reason for the lack of an entrance...")
+                            text _("Whatever the reason, I collapsed into the tower. It was a brutal thing constructed with raw blocks of stone, with nothing in the way of comfort. I was more than fine with that – I had a shelter from the storm, a sanctuary throughout the night. Simply lying down upon the rocky floor and getting a few winks of sleep would have been sufficient.")
+                            text _("And yet my curiosity was getting the better of me. What was this gigantic stone tower? How had such a construct been created without collapsing under its own weight? Why had I never heard of such a thing while preparing for my trip? I ventured further into the darkness of the tower. I knew that the answers would likely forever remain a mystery to me, but I had to at least attempt to find them.")
+                            text _("I have already mentioned that the circumference of the tower took me hours to walk around. One would think, then, that I would be prepared for how long it would take me to traverse the interior of the tower. I was not, and to be perfectly honest, I could not say how long it took me. At times it seemed as though I had been walking for days, wondering when I would see a wall, or some other construct within the tower. At other times I felt as though it had barely been a few minutes, that any confusion about how much time had passed had been the product of a tired and confused brain.")
+                            text _("However long it took me, I did eventually find something within the tower. It was fairly easy to spot it once I was close enough – a light shone upon it from somewhere up high. Where that light came from, and how it was able")
+                    
+                    frame:
+                        style_prefix "pdf_page"
+
+                        vbox:
+                            text _("to shine unbroken when I could still hear the whistle of the wind and rain outside, are questions that I cannot answer.")                    
+                            text _("It was a statue, a humanoid figure sitting upon a throne. Whether the figure represented a god, king, or something else, I could not say. The closer I got to it – the more I focused on it – the more difficult I found it to comprehend its features. A pounding had begun in my head by now, and my vision was blurring. Attempting to identify features of the statue had me seeing double, the images swaying back and forth before me. My headache worsened more and more, and eventually I collapsed. I couldn’t maintain my balance, let alone my vision. Darkness closed in on me, the last thing I had seen being the ominous visage of the statue.")
+                            text _("Once again, I cannot say how much time passed. I had long ago lost any devices which could have told me what hour it was, and even if I hadn’t, I somehow doubt that their claims would match my experience. All that I can say is that at some point, I regained consciousness. The pounding in my head was still present, but in comparison with what I had experienced prior to falling unconscious, it may as well have been nothing.")
+                            text _("I picked myself up from the stone floor. The storm had blown itself out, and I could hear a twittering birdsong. There was no reason to stay within the tower – it had sheltered me as I had hoped it would, and I wasn’t going to discover any of its secrets. I knew the last to be a fact, for the statue which I had seen before falling unconscious was gone.")
+                            text _("I left the tower – in much shorter a time than I would have thought it would take – and found myself with a new dilemma. I may have survived the night, but I was still lost deep within the Amazon jungle, away from my crew and civilisation. Out of the frying pan and into the fire, as they say.")            
+                            text _("How then, was I able to navigate my way out of the jungle and return")
+
+                    frame:
+                        style_prefix "pdf_page"
+
+                        vbox:
+                            text _("home? How was I able to survive the deadly wildlife, the dangerous climate, of the jungle? Was it as simple as encountering the remainder of my crew within the next hour, and resuming our plans to return home?")
+                            text _("If only.")
+                            text _("What happened next should sound like some fantastic story, but if you’re reading this, then I’ve clearly trusted you to believe me. What happened next was that the pounding in my head intensified once more, to the level it had been at when I had approached the mysterious statue within the tower. I tried to concentrate, to control my breathing and hopefully cease it.")
+                            text _("Instead what happened was I received a vision. I saw myself standing elsewhere, in a different part of the jungle. I could only have seen the vision for a scant few seconds, yet it was perfectly imprinted upon my mind. I couldn’t have forgotten it if I wanted to.")
+                            text _("Although somewhat shaky, I decided that I should try to find the place that I had seen. It was as good a plan as any, and I was curious as to what I had seen. Was it even a real place? I walked away from the tower, choosing to move in the direction that I believed the river to be.")
+                            text _("It didn’t take long, however, before I realised that something was wrong. There was a sensation in my mind that something was wrong. That I should walk the way that I was. Despite my best efforts to ignore it, the feeling persisted, until I eventually decided to change directions once more. At first the sensation disappeared, but it wasn’t too long before it came back again.")
+                            text _("That was how the next three days went. I would travel in a single direction as best I could, until the sensation of wrongness returned. At that point")
+
+                    frame:
+                        style_prefix "pdf_page"
+
+                        vbox:
+                            text _("I would choose a random direction and move in it, changing direction immediately if the sensation persisted. For water I drank from puddles and off leaves as required, trusting it to be rainwater and thus safe to drink. For food I simply didn’t bother. I hardly had the survival skills to trap or hunt any animals, and I couldn’t be certain that any plants would be safe to eat.")
+                            text _("After three days of travel, stopping only when I was physically unable to, I reached the place that I had seen in my vision. At first I thought that it was pointless, that there was nothing for me there but more greenery and dangers, but shortly afterwards a group different to mine passed through. Needless to say, they were able to feed and hydrate me, and eventually help me return to civilisation. I was the only one of my team to do so.")
+                            text _("No other person that I’ve spoken to has ever heard of the tower I encountered in the Amazon jungle, nor has anybody been able to identify the civilisation that the statue was carved by, let alone what the statue itself was. Were it not for the abilities that I was granted, I would be tempted to write the whole thing off as the hallucinations of a stressed body.")
+                            text _("But I know better.")
+                            text _("Other than the statue, there are several other ways to gain extrasensory abilities that I have confirmed. The first is to simply be born the child of a psychic. Historical records that I’ve unearthed have shown signs of psychic powers passing down a lineage, although it appears that they get weaker with each generation until they eventually disappear altogether. I suspect that lingering remnants of these abilities are what lead to phenomena such as gut feelings or prophetic dreams in ordinary people, although both Charles and Morty disagree with me.")
+                    
+                    frame:
+                        style_prefix "pdf_page"
+
+                        vbox:
+                            text _("The third way to gain psychic powers that I’m aware of is to be near a person with such abilities as they die. Others that I have spoken to claim to have been near people that regularly showed uncanny insight and odd abilities as they died, and each of them gained their powers shortly afterwards.")
+                            text _("My theory is that whatever energy enables a person to access their abilities, it can only be held within a human brain. Once the life is gone from somebody, that energy must move to the nearest brain. (Is it possible that there is some sentience to the energy? It sounds ridiculous, and yet...) I have no evidence of extrasensory abilities acquired in this way diminishing over time, the way that they do when passed down bloodlines, but there is little confirmed data to work with. If only there were some way to test this further...")
+                            text _("These are the three ways that one can acquire psychic powers that I’m aware of. Given that two of them involve inheritance, the natural question then is: do all such powers ultimately derive from the statue that I encountered? I could not say for certain. I’ve encountered several historical records of missing or confiscated statues, but none from the region where I encountered it. (I need to do further research into other artifacts. No description for The Sampo exists; could the statue be related?)")
+                            text _("Although these are the three ways that I have confirmed that one can gain extrasensory abilities, there are rumours and unconfirmed stories of other ways. The most recurring one is of a certain technological company looking into brain implants which would grant psychic powers to the recipient. I need to keep an eye on them...")
+
+                    frame:
+                        style_prefix "pdf_page"
+
+                        vbox:
+                            text _("THE AWAKENED"):
+                                style "pdf_heading"
+                            text _("The following is a list of known psychics. To maintain anonymity, codenames have been used.")
+                            text _("    {font=DejaVuSans.ttf}•{/font} THE EX-PROFESSOR\n    {font=DejaVuSans.ttf}•{/font} THE SPOONBENDER\n    {font=DejaVuSans.ttf}•{/font} FORGETTABLE NPC\n    {font=DejaVuSans.ttf}•{/font} THE CIRCUS RUNAWAY\n    {font=DejaVuSans.ttf}•{/font} THE PEEPER\n    {font=DejaVuSans.ttf}•{/font} MOTHER’S BOY\n    {font=DejaVuSans.ttf}•{/font} CRYO ORGANS\n    {font=DejaVuSans.ttf}•{/font} GAS MASK PROPHET")
+
+                            text _("EXTRASENSORY ABILITIES"):
+                                style "pdf_heading"
+                            text _("From my research, I have discovered that the following abilities may be present in someone who has awakened their psychic powers. I’ve never encountered more than three within a single person, although it is possible that some of them may be different manifestations of the same power.")
+                            text _("A single ability can be more or less powerful depending upon the individual; I’ve found it easiest to classify them within three broad levels where distinctions are known. Any figures given are averages for that level. Some have reported experiencing intermittent spikes of power with their abilities; whether this is a sign that all psychics could awaken their abilities to the third level with practice and training, or whether it’s a sign of something else, is unknown. Attempts to push one’s abilities beyond their natural limit usually result only in pain; there have even been records of abilities becoming damaged or stunted by trying to push them too far.")
+                
+                    frame:
+                        style_prefix "pdf_page"
+
+                        vbox:
+                            text _("Several powers, most notably telepathy, can be blocked by the Yellow Square Defence, even should the target not have any telepathic talent of their own.")
 
                     if (full_file):
                         text _("TELEPATHY"):
@@ -2690,8 +2748,13 @@ screen read_pdf(full_file=False):
                         text _("While this has interesting implications for the ways in which psychics’ abilities work, there is more to be discovered yet. While it wouldn’t be apparent to a casual reader, cross-referencing further information between the books points to some sinister implications. I may have found some hints as to what the statue I once encountered truly was...but I’m not certain that I like the answers.")
                         text _("For now I’ve asked my partner to remove the books, lest somebody else find the information before I can determine how dangerous it may or may not be. Thankfully the topics of the books are fairly niche, and only by studying it from multiple angles can the truth be glimpsed.")
                         text _("I’ll provide an update as soon as possible...if I deem the knowledge safe to share...")
+                    
+                    text _("\n")
         
-            vbar value YScrollValue("pdf_viewport")
+            vbar value YScrollValue("pdf_viewport"):
+                top_bar Solid ("#000")
+                thumb Solid ("#F2EE29")
+                bottom_bar Solid("#000")
         
         # Replace this with scrolling revealing stuff and returning
         textbutton _("Done"):
@@ -2708,6 +2771,15 @@ style pdf_heading:
 
 style pdf_subheading is pdf_heading:
     size 30
+
+style pdf_page_frame:
+    background Solid("#F2EE29")
+    xsize 1200
+    ysize 1250
+    padding (50, 50, 50, 50)
+
+style pdf_page_vbox:
+    spacing 20
 
 screen cash_money(style="left_small"):
     zorder 20
