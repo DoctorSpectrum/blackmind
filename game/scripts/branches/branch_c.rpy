@@ -554,7 +554,6 @@ label lloyd_pdf_interjection_3:
         lloyd_thinking thinking "That also explains why she was thinking about lowering my guard.[wait_1] She knew that I would have no choice to return."
     $ add_boolean("lloyd_pdf_interjection_3")
     hide screen read_pdf
-    hide screen pdf_block
 
     lloyd_narrating neutral "I mull my thoughts around in my head.[wait_1] Cat has further information of Sergei’s which could prove to be important."
     lloyd_narrating neutral "Nothing’s forcing me to see her, but the existing notes have given me insight and motivation into the killer."
@@ -627,7 +626,6 @@ label lloyd_pdf_interjection_4:
 
 label lloyd_pdf_interjection_5:
     hide screen read_pdf
-    hide screen pdf_block
     lloyd_narrating neutral "I’m a little disappointed when I finish it –[wait_05] the second half of Sergei’s notes haven’t had anything as vitally important as the first half.[wait_1] The information in it is still interesting, though."
     lloyd_thinking thinking "Sergei discovered that there’s a limited amount of psychic energy for us to tap into, with what energy there is being distributed equally among people with abilities."
     lloyd_thinking thinking "He theorised that the more psychics there are, the weaker our abilities become, and vice versa."
