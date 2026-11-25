@@ -42,8 +42,11 @@ label barbara_a_1:
     lloyd_narrating neutral "The atmosphere seems pleasant enough, and they look to have a good variety of drinks on the shelves."
     lloyd_narrating neutral "There are no immediate signs of a break-in, or anything else illegal having happened, so I let myself relax a little."
     lloyd_narrating neutral "Just as I do so, a door swings open."
+
+label barbara_a_1_rewind:
     $ swap_sprites("barbara_thinking", slow_dissolve)
     $ current_thought = "barbara_thought_01"
+    $ rewind_point = "barbara_a_1_rewind"
     show screen psychic_powers
     bartender "Um...[wait_05]hello.[wait_1] Are you –[wait_05] can I help you?"
     lloyd_narrating neutral "She looks to be about my age.[wait_1] She’s holding a screwdriver in one hand, and despite her obvious surprise, is holding herself casually enough."
@@ -190,8 +193,11 @@ label barbara_a_2:
     lloyd_narrating neutral "The lights gleam off the surface of the tables, which look clean and presentable."
     lloyd_narrating neutral "The sound of air rushing through some vents explains the comfortable warmth in the room, enough to tempt me to take off my jacket."
     lloyd_narrating neutral "There’s just one difference: the strong smell of cleaning products."
+
+label barbara_a_2_rewind:
     $ swap_sprites("barbara_angry", slow_dissolve)
     $ current_thought = "barbara_thought_40"
+    $ rewind_point = "barbara_a_2_rewind"
     show screen psychic_powers
     if (person_visited("barbara", "a", 0)):
         lloyd_narrating neutral "Barbara hasn’t said anything since she let me into the building.[wait_1] She’s simply returned to scrubbing the tables."
@@ -312,7 +318,10 @@ label barbara_a_3:
     lloyd_narrating neutral "To my surprise I find that the bar feels warm and welcoming, even though it hasn’t been fully set up for when it opens tonight."
     lloyd_narrating neutral "The temperature feels comfortable in spite of my jacket, smooth jazz is playing from some hidden speakers, and the smell of alcohol is being blocked by some type of air freshener."
     lloyd_narrating neutral "It almost makes me wish that I was more of a drinker so that I could order something and drink it in alongside the atmosphere."
+
+label barbara_a_3_rewind:
     $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ rewind_point = "barbara_a_3_rewind"
     show screen psychic_powers
 
     if (person_visited("barbara", "a", 1)):
@@ -499,7 +508,10 @@ label barbara_a_4:
     lloyd_narrating neutral "I seat myself at a barstool, wishing that I had an option with better back support but not wanting to openly critique."
     lloyd_narrating neutral "Once I’ve confirmed that the bar isn’t wet I take off my camera and place it away from the edge."
     lloyd_narrating neutral "Its weight is familiar enough for me to forget about it at times, and I don’t want to lean forwards without thinking and crack the lens."
+
+label barbara_a_4_rewind:
     $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ rewind_point = "barbara_a_4_rewind"
     show screen psychic_powers
     if (person_visited("barbara", "a", 0) or person_visited("barbara", "a", 1) or person_visited("barbara", "a", 2)):
         $ current_thought = "barbara_thought_75"
@@ -678,7 +690,10 @@ label barbara_b_4:
     lloyd_narrating neutral "Icarus is even busier tonight than it was the previous night."
     lloyd_narrating neutral "I find Barbara working the bar, but she tells me that I’ll have to wait until another one of her employees shows up before she can talk to me."
     lloyd_narrating neutral "I sit down at the only free seat I can find and wait.[wait_1] It’s over an hour before Barbara is finally available."
+
+label barbara_b_4_rewind:
     $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ rewind_point = "barbara_b_4_rewind"
     $ current_thought = "barbara_thought_124"
     show screen psychic_powers
     barbara "Heya, Lloyd!" 
@@ -863,8 +878,7 @@ label barbara_c_2:
         $ swap_sprites("barbara_smiling", slow_dissolve)
         $ current_thought = "barbara_thought_148"
         show screen psychic_powers
-        barbara "Barbara has already returned to the job she must have been doing when I knocked, wiping the tables clean."
-        barbara "So tell me, Lloyd:[wait_05] how can I and my bar help you today?"
+        lloyd_narrating neutral "Barbara has already returned to the job she must have been doing when I knocked, wiping the tables clean."
     else:
         lloyd_narrating neutral "The bar is only a few streets away from the station I depart the train at."
         lloyd_narrating neutral "I could easily take a detour to the place where I found the man with the white streak."
@@ -872,7 +886,14 @@ label barbara_c_2:
         lloyd_narrating neutral "I’m only slightly surprised to see that the bar –[wait_05] called Icarus, according to the sign –[wait_05] is closed when I reach it, but I knock on the door anyway."
         lloyd_narrating neutral "More surprising is that I receive a response, and the bartender leads me inside."
         scene bar with slow_dissolve
-        $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ rewind_point = "barbara_c_2_rewind"
+
+label barbara_c_2_rewind:
+    $ swap_sprites("barbara_smiling", slow_dissolve)
+    if (person_visited("barbara", "a", 0)):
+        $ current_thought = "barbara_thought_148"
+        barbara "So tell me, Lloyd:[wait_05] how can I and my bar help you today?"
+    else:
         $ current_thought = "barbara_thought_149"
         show screen psychic_powers
         bartender "Heya![wait_1] I normally wouldn’t let somebody in this early, but you looked so despondent out there that I felt like I couldn’t ignore you."
@@ -1056,7 +1077,20 @@ label barbara_c_3:
         scene bar with slow_dissolve
         lloyd_narrating neutral "Although the bar looks to be closed it’s surprisingly comfortable."
         lloyd_narrating neutral "I would have expected there to be a stronger smell of alcohol and sticky patches on the floor.[wait_1] Instead I’m greeted by a floral scent of some kind and some light jazz."
-        $ swap_sprites("barbara_smiling", slow_dissolve)
+    elif (person_visited("barbara", "c", 0)):
+        scene bar with slow_dissolve
+        lloyd_narrating neutral "The bar is in a much nicer state today than it was yesterday."
+        lloyd_narrating neutral "Soothing music plays from a speaker hidden somewhere, and Barbara looks to have done the cleaning for the day already."
+    elif (person_visited("barbara", "a", 0)):
+        scene bar with slow_dissolve
+        lloyd_narrating neutral "The bar provides a welcome refuge from the heat outside."
+        lloyd_narrating neutral "The air conditioning has been turned on, and Barbara offers me a glass of water as I enter which I gracefully accept."
+        lloyd_narrating neutral "I initially think that it’s too cold before realising how much I need it."    
+    $ rewind_point = "barbara_c_3_rewind"
+
+label barbara_c_3_rewind:
+    $ swap_sprites("barbara_smiling", slow_dissolve)
+    if (not person_visited("barbara", "a", 0) and not person_visited("barbara", "c", 0)):
         $ current_thought = "barbara_thought_175"
         show screen psychic_powers
         lloyd neutral "Thank you for letting me in.[wait_1] You’ve built a nice atmosphere here."
@@ -1073,10 +1107,6 @@ label barbara_c_3:
         lloyd neutral "Lloyd."
         barbara "So, what did you want to know, Lloyd?"
     elif (person_visited("barbara", "c", 0)):
-        scene bar with slow_dissolve
-        lloyd_narrating neutral "The bar is in a much nicer state today than it was yesterday."
-        lloyd_narrating neutral "Soothing music plays from a speaker hidden somewhere, and Barbara looks to have done the cleaning for the day already."
-        $ swap_sprites("barbara_smiling", slow_dissolve)
         if (check_boolean("barbara_investigates_sergei") or check_boolean("lloyd_offers_paperwork")):
             $ current_thought = "barbara_thought_178"
         else:
@@ -1099,11 +1129,6 @@ label barbara_c_3:
         $ swap_sprites("barbara_thinking")
         barbara "Too late? What do you mean?"
     elif (person_visited("barbara", "a", 0)):
-        scene bar with slow_dissolve
-        lloyd_narrating neutral "The bar provides a welcome refuge from the heat outside."
-        lloyd_narrating neutral "The air conditioning has been turned on, and Barbara offers me a glass of water as I enter which I gracefully accept."
-        lloyd_narrating neutral "I initially think that it’s too cold before realising how much I need it."
-        $ swap_sprites("barbara_smiling", slow_dissolve)
         $ current_thought = "barbara_thought_183"
         show screen psychic_powers
         barbara "So, what brings you here today, Lloyd?"
@@ -1212,6 +1237,31 @@ label barbara_c_4:
         lloyd_narrating neutral "Barbara lets me in without issue and I seat myself at the bar."
         lloyd_narrating neutral "The stool that I’m sitting on creaks whenever I shift my weight, and I quickly resolve not to move more than necessary."
         $ swap_sprites("barbara_smiling", slow_dissolve)
+    elif (person_visited("cat", "c", 0)):
+        scene bar with slow_dissolve
+        lloyd_narrating neutral "I’m let in by Barbara as I was the other day."
+        lloyd_narrating neutral "I surprise myself with how pleased I am to be back in Icarus.[wait_1] It has a pleasant atmosphere and I feel comfortable."
+        lloyd_narrating neutral "(Putting aside the fact that my stool isn’t adjustable, of course.)"
+    elif (person_visited("cat", "a", 0)):
+        scene bar with slow_dissolve
+        lloyd_narrating neutral "As Barbara said when I previously visited, she’s present in the bar during the day, and is able to let me in."
+        lloyd_narrating neutral "I wonder why I haven’t returned here since Tuesday –[wait_05] the bar has a pleasant atmosphere, and Barbara has an even more pleasant attitude."
+        lloyd_narrating neutral "The only qualm I have is with the stool that I’m sitting on, which is pressing into my thigh uncomfortably."
+    else:
+        lloyd_narrating neutral "The train takes me to a station to the north of the city.[wait_1] From there I only have to walk a few streets to the bar that I want to visit.[wait_1] Icarus."
+        lloyd_narrating neutral "I wonder why the owner would name their bar after a character famous for hubris."
+        lloyd_narrating neutral "Were they acknowledging their own hubris in some way?[wait_1] Or were they unaware of the connotations of the myth, and simply liked the imagery of somebody flying towards the sun?"
+        lloyd_narrating neutral "As I’m staring at the bar’s sign, the door opens and a woman steps out."
+        lloyd_narrating neutral "After a brief discussion I discover that she’s the owner of the bar, doing some work while the bar is closed.[wait_1] She invites me inside to ask my questions as she works."
+        scene bar with slow_dissolve
+        lloyd_narrating neutral "Despite the owner’s apologies for the state of the bar, I find that it’s well-kept and in tidy condition."
+        lloyd_narrating neutral "While I’m not often one for alcohol, I admire the layout of the place and how easy it is to understand."
+        lloyd_narrating neutral "The stool that I’m sitting on is surprisingly comfortable, despite its lack of back support and occasional squeaking."
+    $ rewind_point = "barbara_c_4_rewind"
+
+label barbara_c_4_rewind:
+    $ swap_sprites("barbara_smiling", slow_dissolve)
+    if (person_visited("cat", "c", 1)):
         $ current_thought = "barbara_thought_198"
         show screen psychic_powers
         barbara "Hiya Lloyd."
@@ -1225,11 +1275,6 @@ label barbara_c_4:
         lloyd neutral "I did make progress, but through a different source to the music venue.[wait_1] As a result, I was hoping to ask you some questions."
         barbara "Well, I’ve still got a bit of tidying up to do, and you’re better company than the podcast I had on, so go ahead![wait_1] Ask me whatever you want, Lloyd."
     elif (person_visited("cat", "c", 0)):
-        scene bar with slow_dissolve
-        lloyd_narrating neutral "I’m let in by Barbara as I was the other day."
-        lloyd_narrating neutral "I surprise myself with how pleased I am to be back in Icarus.[wait_1] It has a pleasant atmosphere and I feel comfortable."
-        lloyd_narrating neutral "(Putting aside the fact that my stool isn’t adjustable, of course.)"
-        $ swap_sprites("barbara_smiling", slow_dissolve)
         $ current_thought = "barbara_thought_201"
         show screen psychic_powers
         barbara "Hi, Lloyd –[wait_05] it’s been a little while![wait_1] Should that camera of yours be so close to the bar?"
@@ -1249,11 +1294,6 @@ label barbara_c_4:
         lloyd neutral "I’d like to ask you something else, however."
         barbara "Can’t say that I’m surprised.[wait_1] Shoot."
     elif (person_visited("cat", "a", 0)):
-        scene bar with slow_dissolve
-        lloyd_narrating neutral "As Barbara said when I previously visited, she’s present in the bar during the day, and is able to let me in."
-        lloyd_narrating neutral "I wonder why I haven’t returned here since Tuesday –[wait_05] the bar has a pleasant atmosphere, and Barbara has an even more pleasant attitude."
-        lloyd_narrating neutral "The only qualm I have is with the stool that I’m sitting on, which is pressing into my thigh uncomfortably."
-        $ swap_sprites("barbara_smiling", slow_dissolve)
         $ current_thought = "barbara_thought_204"
         show screen psychic_powers
         barbara "Hi, Lloyd –[wait_05] long time no see![wait_1] What do you think of the music?"
@@ -1274,16 +1314,6 @@ label barbara_c_4:
         $ swap_sprites("barbara_smiling")
         barbara "Sure, I’m all ears.[wait_1] Whenever you’re ready."
     else:
-        lloyd_narrating neutral "The train takes me to a station to the north of the city.[wait_1] From there I only have to walk a few streets to the bar that I want to visit.[wait_1] Icarus."
-        lloyd_narrating neutral "I wonder why the owner would name their bar after a character famous for hubris."
-        lloyd_narrating neutral "Were they acknowledging their own hubris in some way?[wait_1] Or were they unaware of the connotations of the myth, and simply liked the imagery of somebody flying towards the sun?"
-        lloyd_narrating neutral "As I’m staring at the bar’s sign, the door opens and a woman steps out."
-        lloyd_narrating neutral "After a brief discussion I discover that she’s the owner of the bar, doing some work while the bar is closed.[wait_1] She invites me inside to ask my questions as she works."
-        scene bar with slow_dissolve
-        lloyd_narrating neutral "Despite the owner’s apologies for the state of the bar, I find that it’s well-kept and in tidy condition."
-        lloyd_narrating neutral "While I’m not often one for alcohol, I admire the layout of the place and how easy it is to understand."
-        lloyd_narrating neutral "The stool that I’m sitting on is surprisingly comfortable, despite its lack of back support and occasional squeaking."
-        $ swap_sprites("barbara_smiling", slow_dissolve)
         $ current_thought = "barbara_thought_208"
         show screen psychic_powers
         bartender "So, what’s brought you to my bar, mister...?"
@@ -1413,6 +1443,9 @@ label barbara_d_3:
     scene bar with slow_dissolve
     lloyd_narrating neutral "Icarus is already feeling like a comfortable and familiar place."
     lloyd_narrating neutral "I can easily see why it would be a local’s venue of choice to drink at; it has a pleasing aesthetic, what looks like a reasonably priced drinks list, and a friendly owner."
+    $ rewind_point = "barbara_d_3_rewind"
+
+label barbara_d_3_rewind:
     $ swap_sprites("barbara_smiling", slow_dissolve)
     $ current_thought = "barbara_thought_240"
     show screen psychic_powers
@@ -1536,6 +1569,9 @@ label barbara_d_4:
     scene bar with slow_dissolve
     lloyd_narrating neutral "The bar is probably as comfortable as ever today.[wait_1] The atmosphere feels comfortable, it’s not noticeably unclean, and the temperature is moderate."
     lloyd_narrating neutral "I barely notice any of it, though, as my attention is taken up by Barbara."
+    $ rewind_point = "barbara_d_4_rewind"
+
+label barbara_d_4_rewind:
     $ swap_sprites("barbara_smiling", slow_dissolve)
     $ current_thought = "barbara_thought_260"
     show screen psychic_powers
@@ -1675,6 +1711,9 @@ label barbara_e_4:
     scene bar with slow_dissolve
     jack_possessing_thinking angry "Man...[wait_05]it took me absolutely forever to get here.[wait_1] Why does Lloyd have to live so far away from this bar?"
     jack_possessing_thinking angry "Dunno if I’ll want to keep coming here all that often once I’m properly living his life.[wait_1] The only reason I was willing to make the trip today is ‘cos I know I can get a shittonne of drinks for free."
+    $ rewind_point = "barbara_e_4_rewind"
+    
+label barbara_e_4_rewind:
     $ swap_sprites("barbara_smiling", slow_dissolve)
     $ current_thought = "barbara_thought_285"
     show screen psychic_powers

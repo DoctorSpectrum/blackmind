@@ -5,6 +5,10 @@ BLACKMIND TODO
             - Big tasks:
                 - Rewinding: 
                     - Add in rewind points for all scenes, or stuff for not rewinding as necessary
+                    - TEST THIS: rewinding prolly won't change the current sprite being shown, so if we have an
+                    angry character and we rewind they're still angry even though they should start the convo smiling.
+                    Since we don't want the transition we'll need to updoot swap_sprites() to ignore the transition if
+                    a sprite with that character is already on screen
                 - Limited mind reads and mind wipes:
                     - Set and test limited mind reads and mind wipes
                     - Add in UI functionality; a ring that gets smoller but is clearly broken up

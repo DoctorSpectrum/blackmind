@@ -15,9 +15,9 @@ label branch_b_3_4:
     lloyd_narrating neutral "I wish that there was an unintrusive way to take some photos of the crowd and capture this atmosphere.[wait_1] It feels warm and inviting, the complete opposite of when I visited two days ago."
     lloyd_narrating neutral "Once I’m finally served I’m more surprised than I should be to see that Barbara isn’t working the bar tonight; it’s an employee of hers."
     lloyd_narrating neutral "I ask to speak to her and sit at a nearby table to wait."
+    $ rewind_point = "branch_b_3_4_rewind"
 
 label branch_b_3_4_rewind:
-    $ rewind_point = "branch_b_3_4_rewind"
     $ swap_sprites("barbara_smiling", slow_dissolve)
     $ current_thought = "barbara_thought_103"
     show screen psychic_powers

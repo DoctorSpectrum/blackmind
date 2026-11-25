@@ -13,9 +13,9 @@ label branch_c_1_4:
     scene office_interview_room with slow_dissolve
     lloyd_narrating neutral "Once I reach the newspaper building I ask whether Eddie is still in.[wait_1] I’m told that he’s waiting for me and am brought back to the same room from earlier today."
     lloyd_narrating neutral "I don’t have to wait long before he joins me."
+    $ rewind_point = "branch_c_1_4_rewind"
 
 label branch_c_1_4_rewind:
-    $ rewind_point = "branch_c_1_4_rewind"
     $ swap_sprites("eddie_angry", slow_dissolve)
     $ current_thought = "eddie_thought_114"
     show screen psychic_powers
@@ -247,11 +247,11 @@ label branch_c_2_4_eddie:
     scene office_interview_room with slow_dissolve
     lloyd_narrating neutral "I’m slightly surprised when I’m told that Eddie is still present at the newspaper."
     lloyd_narrating neutral "I’m directed to the same interview room as before and asked to wait until he arrives."
-    
-label branch_c_2_4_eddie_rewind:
     $ rewind_point = "branch_c_2_4_eddie_rewind"
-    $ current_thought_block = "mind_read_eddie"
+
+label branch_c_2_4_eddie_rewind:
     $ swap_sprites("eddie_angry", slow_dissolve)
+    $ current_thought_block = "mind_read_eddie"
     $ current_thought = "eddie_thought_148"
     show screen psychic_powers
     eddie "Your good fortune is my bad, eh, Chen?"
@@ -289,11 +289,11 @@ label branch_c_2_4_eddie_rewind:
 label branch_c_2_4_graves:
     scene detective_office with slow_dissolve
     lloyd_narrating neutral "I’m incredibly relieved when Graves responds to the intercom and unlocks the door for me.[wait_1] I don’t know what I would have done if he hadn’t been in."
+    $ rewind_point = "branch_c_2_4_graves_rewind"
     
 label branch_c_2_4_graves_rewind:
-    $ rewind_point = "branch_c_2_4_graves_rewind"
-    $ current_thought_block = "mind_read_graves"
     $ swap_sprites("graves_smiling", quick_dissolve)
+    $ current_thought_block = "mind_read_graves"
     $ current_thought = "graves_thought_160"
     show screen psychic_powers
     graves "Hey, Lloyd.[wait_1] Care to join me in a container of takeaway?"
@@ -358,6 +358,7 @@ label branch_c_2_4_venue:
 
 label branch_c_2_4_cat:
     $ rewind_point = "branch_c_2_4_cat"
+    $ swap_sprites("cat_neutral", quick_dissolve)
     if (person_visited("cat", "a", 0) or person_visited("cat", "c", 0)):
         if (check_boolean("cat_name_discovered")):
             $ current_thought = "cat_thought_112"
@@ -509,9 +510,10 @@ label branch_c_3_4_cat:
     $ swap_sprites("cat_neutral", slow_dissolve)
     lloyd_narrating neutral "Cat is standing off to the side with her back to the wall, every bit a living shadow."
     lloyd_narrating neutral "She doesn’t acknowledge my presence in any way as I approach."
+    $ rewind_point = "branch_c_3_4_cat_rewind"
 
 label branch_c_3_4_cat_rewind:
-    $ rewind_point = "branch_c_3_4_cat_rewind"
+    $ swap_sprites("cat_neutral", slow_dissolve)
     $ current_thought = "cat_thought_135"
     show screen psychic_powers
     lloyd neutral "Hello, Cat."

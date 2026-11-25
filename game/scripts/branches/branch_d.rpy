@@ -9,9 +9,9 @@ label branch_d_2_4:
     lloyd_narrating neutral "The bar seems moderately popular tonight."
     lloyd_narrating neutral "A few tables are occupied, but it’s not so busy that I have to wait in line at the bar."
     lloyd_narrating neutral "I have to wait a few moments for Barbara to finish restocking some ice before she comes over to me."
+    $ rewind_point = "branch_d_2_4_rewind"
     
 label branch_d_2_4_rewind:
-    $ rewind_point = "branch_d_2_4_rewind"
     $ swap_sprites("barbara_smiling", quick_dissolve)
     $ current_thought = "barbara_thought_228"
     show screen psychic_powers
@@ -277,9 +277,9 @@ label branch_d_3_4_eddie:
     scene office_interview_room with slow_dissolve
     lloyd_narrating neutral "Eddie sticks his head in the door briefly and tells me to wait while he gets some information together."
     lloyd_narrating neutral "From the way he words it I’m expecting to be waiting for five minutes, maybe ten at most.[wait_1] But when he finally returns it’s been over half an hour of waiting."
+    $ swap_sprites("eddie_angry", slow_dissolve)
     
 label branch_d_3_4_eddie_rewind:
-    $ swap_sprites("eddie_angry", slow_dissolve)
     $ rewind_point = "branch_d_3_4_eddie_rewind"
     $ current_thought = "eddie_thought_215"
     show screen psychic_powers

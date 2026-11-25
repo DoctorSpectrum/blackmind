@@ -57,13 +57,13 @@ label branch_a_1_4_barbara:
     scene black_bg with quick_dissolve
     lloyd_narrating neutral "I return to Icarus, the walk from the station already feeling more familiar."
     lloyd_narrating neutral "The bar is open to the public at this hour, but it’s quiet anyway, with only a few patrons huddled away in the corner."
-    
-label branch_a_1_4_barbara_rewind:
     scene bar with slow_dissolve
     $ current_thought_block = "mind_read_barbara"
-    $ swap_sprites("barbara_smiling")
-    $ current_thought = "barbara_thought_23"
     $ rewind_point = "branch_a_1_4_barbara_rewind"
+    
+label branch_a_1_4_barbara_rewind:
+    $ swap_sprites("barbara_smiling", quick_dissolve)
+    $ current_thought = "barbara_thought_23"
     show screen psychic_powers
     lloyd neutral "Hello, Barbara."
     $ current_thought = "barbara_thought_24"
@@ -130,9 +130,10 @@ label branch_a_1_4_cat:
     lloyd_narrating neutral "It doesn’t take me long to notice Cat, standing closely to the entrance."
     $ swap_sprites("cat_neutral", slow_dissolve)
     lloyd_narrating neutral "I stride towards her confidently.[wait_1] The next few seconds will determine whether I’ve wasted my time here or not."
+    $ rewind_point = "branch_a_1_4_cat_rewind"
 
 label branch_a_1_4_cat_rewind:
-    $ rewind_point = "branch_a_1_4_cat_rewind"
+    $ swap_sprites("cat_neutral", slow_dissolve)
     $ current_thought = "cat_thought_20"
     show screen psychic_powers
     lloyd neutral "Did you bring one of the books?"
@@ -194,11 +195,11 @@ label branch_a_1_4_graves:
     graves "Oh, of course![wait_1] That’s –[wait_05] excellent, come on up!"
     lloyd_narrating neutral "The door unlocks with a loud click and I step inside."
     lloyd_narrating neutral "I’m eager to hear what Graves has managed to uncover."
+    scene detective_office with slow_dissolve
+    $ rewind_point = "branch_a_1_4_graves_rewind"
     
 label branch_a_1_4_graves_rewind:
-    scene detective_office with slow_dissolve
     $ swap_sprites("graves_smiling", slow_dissolve)
-    $ rewind_point = "branch_a_1_4_graves_rewind"
     $ current_thought_block = "mind_read_graves"
     $ current_thought = "graves_thought_25"
     show screen psychic_powers
@@ -275,10 +276,10 @@ label branch_a_1_4_bar:
         lloyd_narrating neutral "It takes me a minute to realise what sort of place I’m in.[wait_1] It looks like some kind of drinking establishment."
     lloyd_narrating neutral "How I got here is a mystery to me.[wait_1] The last thing that I recall is getting into bed and falling asleep."
     lloyd_narrating neutral "I go to the bar in the hope of finding some answers."
+    $ rewind_point = "branch_a_1_4_bar_rewind"
 
 label branch_a_1_4_bar_rewind:
     $ swap_sprites("barbara_smiling")
-    $ rewind_point = "branch_a_1_4_bar_rewind"
     $ current_thought_block = "mind_read_barbara"
     show screen psychic_powers
     if (person_visited("barbara", "a", 0)):
@@ -494,13 +495,14 @@ label branch_a_3_4_graves:
     lloyd_narrating neutral "The possibilities are wide, but I can’t do anything before seeing Graves."
     lloyd_narrating neutral "I finish my meal and then make my way back to his office building.[wait_1] I’m closing in on the man in black."
     lloyd_narrating neutral "I just need a little more time and information."
-
-label branch_a_3_4_graves_rewind:
     scene detective_office with slow_dissolve
     $ swap_sprites("graves_smiling", slow_dissolve)
     lloyd_narrating neutral "Graves is as jovial as ever."
     lloyd_narrating neutral "Is this all a game to him?[wait_1] Or does he just need to stay positive so as to forget some of the horrors he no doubt sees in his line of work?"
     $ rewind_point = "branch_a_3_4_graves_rewind"
+
+label branch_a_3_4_graves_rewind:
+    $ swap_sprites("graves_smiling")
     $ current_thought = "graves_thought_77"
     show screen psychic_powers
     lloyd neutral "Tell me, Graves:[wait_05] have you managed to discover anything about the man that I described to you?[wait_1] The one with the white streak of hair?"
