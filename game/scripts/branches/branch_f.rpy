@@ -63,6 +63,7 @@ label branch_f_4_4:
     $ swap_sprites("killian_smiling", quick_dissolve)
     $ current_thought_block = "mind_read_killian"
     $ current_thought = "killian_thought_02"
+    $ rewind_point = "branch_f_4_4_rewind"
     show screen psychic_powers
     killian "Hello, how can I –"
     $ swap_sprites("killian_shocked")
@@ -235,11 +236,16 @@ label branch_f_4_4:
     killian "..."
     $ swap_sprites("killian_smiling")
     $ current_thought = "killian_thought_03"
-    $ rewind_point = ""
+    $ rewind_point = "branch_f_4_4_rewind"
     killian "Well then –[wait_05] let’s see you dodge this one."
     $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
     scene black_bg
     call screen ending_screen("GAME OVER", "Killian murdered Lloyd.", "Killian was taken off-guard when Lloyd avoided his shot. He should be briefly vulnerable.")
+
+label branch_f_4_4_rewind:
+    killian "No, I think not."
+    show screen psychic_powers
+    return
 
 label branch_f_ending:
     show screen psychic_powers
@@ -274,6 +280,7 @@ label branch_f_ending:
     $ swap_sprites("barbara_smiling", quick_dissolve)
     $ current_thought_block = "mind_read_barbara"
     $ current_thought = "barbara_thought_311"
+    $ rewind_point = "branch_f_4_4_female_rewind"
     show screen psychic_powers
     barbara "Hey, Lloyd.[wait_1] You ready to start?"
     lloyd_ws friendly "Of course, Barbara.[wait_1] Is there anything in particular that you wanted me to focus on?"
@@ -323,6 +330,7 @@ label branch_f_ending:
     $ swap_sprites("eddie_unimpressed", quick_dissolve)
     $ current_thought_block = "mind_read_eddie"
     $ current_thought = "eddie_thought_254"
+    $ rewind_point = "branch_f_4_4_male_rewind"
     show screen psychic_powers
     lloyd_ws friendly "...and so by aiming to have odd-numbered groupings of items or people when you compose your photos, you’ll be able to hold your viewers’ attention more."
     lloyd_ws friendly "Even-numbered groupings subdivide into groups of equal sizing, so they homogenise somewhat and look the same at a glance."
@@ -395,6 +403,14 @@ label branch_f_ending:
     hide screen psychic_powers
     scene black_bg with slow_dissolve
     call screen ending_screen("ENDING F", "Lloyd stopped the killer, and vowed to make the world a better place.", "What does Jack think about Lloyd?")
+
+label branch_f_4_4_female_rewind:
+    lloyd_ws_thinking thinking "I'm not going to rewind her mind.[wait_1] It's disrespectful of me."
+    return
+
+label branch_f_4_4_male_rewind:
+    lloyd_ws_thinking thinking "I'm not going to rewind his mind.[wait_1] It's disrespectful of me."
+    return
 
 label branch_g_4_4:
     $ swap_sprites("killian_smiling", quick_dissolve)

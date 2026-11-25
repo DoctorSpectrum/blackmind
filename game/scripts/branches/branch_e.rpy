@@ -34,6 +34,7 @@ label branch_e_3_4:
     hide docherty_neutral
     $ swap_sprites("eddie_arrogant", quick_dissolve)
     $ current_thought = "eddie_thought_233"
+    $ rewind_point = "branch_d_3_4_eddie_docherty_rewind"
     show screen psychic_powers
     eddie "You’re welcome, Chen."
     scene cg9_1 with slow_dissolve
@@ -87,6 +88,7 @@ label branch_e_3_4:
     mental_jack "{size=-8}(Fucking Killian?![wait_1] He was responsible?!){/size}"
     mental_jack "{size=-8}(That bastard...[wait_05]I...[wait_05]I thought that I was too weak, but –[wait_05] no...[wait_05]I can’t just let myself fade away.){/size}"
     mental_jack "({size=-8}I{/size} – I won’t! He won’t get away with this!)"
+    jump branch_e_4_0
 
 label branch_e_4_0:
     hide screen calendar
@@ -135,6 +137,7 @@ label branch_e_4_4:
     $ current_thought_block = "mind_read_killian"
     $ current_thought = "killian_thought_01"
     show screen psychic_powers
+    $ rewind_point = "branch_e_4_4_rewind"
     killian "Hello, how can I –"
     $ swap_sprites("killian_shocked")
     killian "Oh.[wait_1] It’s you."
@@ -201,3 +204,8 @@ label branch_e_4_4:
     hide screen psychic_powers
     scene black_bg
     call screen ending_screen("ENDING E", "Jack got away with it.", "Find the thoughts related to how people feel about Lloyd while playing as Jack. Enough of them will make him rethink his plan.")
+
+label branch_e_4_4_rewind:
+    killian "No, I think not."
+    show screen psychic_powers
+    return
