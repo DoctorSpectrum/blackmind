@@ -58,10 +58,12 @@ label branch_a_1_4_barbara:
     lloyd_narrating neutral "I return to Icarus, the walk from the station already feeling more familiar."
     lloyd_narrating neutral "The bar is open to the public at this hour, but it’s quiet anyway, with only a few patrons huddled away in the corner."
     
+label branch_a_1_4_barbara_rewind:
     scene bar with slow_dissolve
     $ current_thought_block = "mind_read_barbara"
     $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_23"
+    $ rewind_point = "branch_a_1_4_barbara_rewind"
     show screen psychic_powers
     lloyd neutral "Hello, Barbara."
     $ current_thought = "barbara_thought_24"
@@ -128,6 +130,9 @@ label branch_a_1_4_cat:
     lloyd_narrating neutral "It doesn’t take me long to notice Cat, standing closely to the entrance."
     $ swap_sprites("cat_neutral", slow_dissolve)
     lloyd_narrating neutral "I stride towards her confidently.[wait_1] The next few seconds will determine whether I’ve wasted my time here or not."
+
+label branch_a_1_4_cat_rewind:
+    $ rewind_point = "branch_a_1_4_cat_rewind"
     $ current_thought = "cat_thought_20"
     show screen psychic_powers
     lloyd neutral "Did you bring one of the books?"
@@ -190,8 +195,10 @@ label branch_a_1_4_graves:
     lloyd_narrating neutral "The door unlocks with a loud click and I step inside."
     lloyd_narrating neutral "I’m eager to hear what Graves has managed to uncover."
     
+label branch_a_1_4_graves_rewind:
     scene detective_office with slow_dissolve
     $ swap_sprites("graves_smiling", slow_dissolve)
+    $ rewind_point = "branch_a_1_4_graves_rewind"
     $ current_thought_block = "mind_read_graves"
     $ current_thought = "graves_thought_25"
     show screen psychic_powers
@@ -268,7 +275,10 @@ label branch_a_1_4_bar:
         lloyd_narrating neutral "It takes me a minute to realise what sort of place I’m in.[wait_1] It looks like some kind of drinking establishment."
     lloyd_narrating neutral "How I got here is a mystery to me.[wait_1] The last thing that I recall is getting into bed and falling asleep."
     lloyd_narrating neutral "I go to the bar in the hope of finding some answers."
+
+label branch_a_1_4_bar_rewind:
     $ swap_sprites("barbara_smiling")
+    $ rewind_point = "branch_a_1_4_bar_rewind"
     $ current_thought_block = "mind_read_barbara"
     show screen psychic_powers
     if (person_visited("barbara", "a", 0)):
@@ -453,133 +463,7 @@ label branch_a_3_4:
     lloyd_narrating neutral "After everything that I did today it’s obvious what I should do."
     menu:
         "Check in with Graves" (locked=not person_visited("graves", "a", 2) or not check_boolean("graves_mentioned_jack"), message=("You did not visit the detective today" if not person_visited("graves", "a", 2) else "You did not give Graves a name to investigate")):
-            $ current_thought_block = "mind_read_graves"
-            lloyd_thinking thinking "Graves apparently knows the man with the white streak as somebody named Usbourne."
-            lloyd_thinking thinking "I’ll find out what he knows and discover the connection between all of the man in black’s victims."
-            lloyd_narrating neutral "With that information I’ll be able to discover who his next target is and warn them before he can strike."
-            lloyd_narrating neutral "Or report what’s going on to the authorities.[wait_1] Or set an ambush for him."
-            lloyd_narrating neutral "The possibilities are wide, but I can’t do anything before seeing Graves."
-            lloyd_narrating neutral "I finish my meal and then make my way back to his office building.[wait_1] I’m closing in on the man in black."
-            lloyd_narrating neutral "I just need a little more time and information."
-            scene detective_office with slow_dissolve
-            $ swap_sprites("graves_smiling", slow_dissolve)
-            lloyd_narrating neutral "Graves is as jovial as ever."
-            lloyd_narrating neutral "Is this all a game to him?[wait_1] Or does he just need to stay positive so as to forget some of the horrors he no doubt sees in his line of work?"
-            $ current_thought = "graves_thought_77"
-            show screen psychic_powers
-            lloyd_narrating neutral "Tell me, Graves:[wait_05] have you managed to discover anything about the man that I described to you?[wait_1] The one with the white streak of hair?"
-            $ current_thought = "graves_thought_78"
-            graves "I’ll put my cards on the table, Lloyd:[wait_05] I was fairly certain that I knew who you were talking about as soon as you described him."
-            graves "The only reason I didn’t tell you what I knew at the time is that I –[wait_05] I wasn’t certain how much would be reasonable to tell you."
-            lloyd neutral "What do you mean?"
-            graves "The man with the white streak that you asked about is a –[wait_05] he’s a former client of mine, and I wasn’t sure whether giving you information about him would be a breach of client confidentiality."
-            graves "After spending some time today thinking about it, I came to a decision:[wait_05] I’ll give you something on him if you tell me why exactly you want to know about him."
-            $ swap_sprites("graves_intimidating")
-            $ current_thought = "graves_thought_79"
-            graves "And please, don’t give me some bullshit about wanting him as a model, again."
-            graves "It wasn’t exactly convincing the first time."
-            lloyd_thinking thinking "I knew it.[wait_1] He did see through the lie."
-            lloyd neutral "Why did you pretend that you were convinced, then?"
-            graves "I needed some time to think things over and wasn’t sure how you’d –[wait_05] I didn’t know how you’d react if I called you out on the lie."
-            graves "So if you tell me the truth now about what your interest in him is, and I’m convinced that you don’t mean him any harm, I’ll give you his name and a number you can use to contact him."
-            graves "Then he can decide what information to share with you himself."
-            $ current_thought = "graves_thought_80"
-            lloyd neutral "I wouldn’t be able to harm him if I wanted to.[wait_1] He’s dead."
-            $ swap_sprites("graves_shocked")
-            graves "He’s what?!"
-            $ current_thought = "graves_thought_81"
-            lloyd neutral "He died a few days ago.[wait_1] Killed on the street."
-            lloyd neutral "I’m trying to find out what the connection between him and some other victims is."
-            $ swap_sprites("graves_sad")
-            graves "Bloody hell...[wait_1]killed on the street, huh?"
-            lloyd_narrating neutral "He presses his fingers to his temple and concentrates for several moments.[wait_1] He sighs as he lowers them."
-            $ current_thought = "graves_thought_82"
-            graves "I wish you’d told me that little fact earlier today –[wait_05] I could have done some serious research into Jack."
-            graves "As it is, all that I can tell you is what I –[wait_05] what we discovered while working for him."
-            lloyd neutral "I take it that you don’t mind sharing that information?"
-            graves "It’s not like the poor bastard can object, can he?"
-            $ swap_sprites("graves_thinking")
-            $ current_thought = "graves_thought_83"
-            graves "Jack came to my partner and I a few weeks ago."
-            graves "He hired us to find out about –[wait_05] he wanted us to look into his father."
-            lloyd neutral "What for?"
-            graves "He’s never met him.[wait_1] His parents split up when he was a baby, and so he –[wait_05] he wanted to find where his father was so that he could arrange a meeting."
-            graves "We were able to do that and gave him the address where his father lives, along with a phone number."
-            $ current_thought = "graves_thought_84"
-            lloyd neutral "If his father was gone, who raised Jack?"
-            graves "From what he said, it sounds like it was his mother, by herself."
-            graves "She didn’t have a lot of money, though –[wait_05] I’m not sure why, but she didn’t get any child support from her former partner."
-            graves "Because of that Jack grew up without too many –[wait_05] he didn’t have many luxuries as a child."
-            $ current_thought = "graves_thought_85"
-            lloyd neutral "Beyond his parents separating, is there anything else notable in his past?"
-            graves "It didn’t sound like it.[wait_1] Nothing too notable in his present, either."
-            $ current_thought = "graves_thought_86"
-            lloyd neutral "How do you know that?"
-            graves "We do background checks on our clients when we take on a job –[wait_05] particularly when they pay in cash, as Jack did."
-            graves " It means that we’re not going to, say, find a victim for their abuser."
-            lloyd neutral "What did your background check on me uncover?"
-            $ current_thought = "graves_thought_87"
-            graves "In Jack’s case, there were no –[wait_05] we didn’t find any particularly egregious red flags."
-            graves "He’d been arrested for some petty crimes, and there were some things here and there that he’d been taken to court over but found innocent of, but nothing that –[wait_05] he wasn’t connected to any serious criminal groups or –[wait_05] or anything like that."
-            $ current_thought = "graves_thought_88"
-            lloyd neutral "You’re certain of that?"
-            graves "Well, like I said earlier –[wait_05] if you’d told me earlier why you were looking into this I could have done some more in-depth research."
-            graves "But from our general background check –[wait_05] no, there’s nothing serious there. Nothing too notable about him, like I said."
-            $ current_thought = "graves_thought_89"
-            lloyd neutral "Damn...[wait_05]there’s absolutely nothing?[wait_1] He’s completely unremarkable?"
-            graves "From what I can tell, yeah."
-            $ current_thought = "graves_thought_90"
-            lloyd_thinking thinking "Then why did the killer target him?[wait_1] What’s Graves missing?"
-            lloyd_thinking thinking "Or...[wait_05]maybe I’m the one missing something."
-            lloyd_thinking thinking "What if there was no reason for the killer to target Jack, or his other two victims?"
-            lloyd_thinking thinking "What if it was just a crime of passion –[wait_05] he shot the first people he encountered on the street who were by themselves?"
-            $ swap_sprites("graves_smiling")
-            $ current_thought = "graves_thought_91"
-            graves "Hey, are you alright?[wait_1] You look kind of –[wait_05] you look a bit distressed."
-            $ current_thought = "graves_thought_92"
-            lloyd neutral "I’m fine.[wait_1] I just –[wait_05] I realised that I’ve probably been looking at this the wrong way."
-            lloyd neutral "I’ve been assuming that Jack was killed for a reason, but there’s no real evidence for it."
-            lloyd neutral "It’s more likely that he was just a victim of random violence.[wait_1] Whoever the killer is, there’s probably not a lot of method to their madness."
-            $ current_thought = "graves_thought_93"
-            graves "Mmm.[wait_1] I’m not saying that that’s –[wait_05] that it’s impossible, but I don’t really like the idea of that."
-            graves "I think that people tend to be fairly rational –[wait_05] even if emotion sometimes does cloud their judgements."
-            $ current_thought = "graves_thought_94"
-            lloyd neutral "What are you saying?[wait_1] That there {i}is{/i} a reason why Jack was killed?"
-            $ swap_sprites("graves_thinking")
-            graves "I couldn’t say for sure, but I’d like to investigate both his past and present more thoroughly."
-            graves "Do you want to come by here tomorrow evening and I’ll let you know what I –[wait_05] whatever I discover?"
-            lloyd_thinking thinking "Tomorrow evening is too long to wait...[wait_05]but is there any alternative?"
-            lloyd neutral "Certainly."
-            $ swap_sprites("graves_smiling")
-            $ current_thought = "graves_thought_95"
-            graves "Great.[wait_1] Now then, there’s just one more thing..."
-            $ swap_sprites("graves_intimidating")
-            graves "Why exactly are you looking into these deaths?[wait_1] What’s your motivation?"
-            $ current_thought = "graves_thought_96"
-            graves "I don’t think that the police have that much interest in the case, and I –[wait_05] the reason that I knew that Jack was dead is because I ran into him on the street."
-            graves "He died in front of me, so...[wait_05]I suppose I feel as though I owe it to him to do something."
-            $ swap_sprites("graves_shocked")
-            graves "Bloody hell![wait_1] I –"
-            $ swap_sprites("graves_thinking")
-            graves "– yeah, I can see why you’d feel a bit responsible for him."
-            $ current_thought = "graves_thought_97"
-            graves "Well, that’s good to hear."
-            graves "Not the –[wait_05] not him dying in front of you, of course, but the –[wait_05] I’m glad to hear that you want to help out.[wait_1] Not a lot of people would do that."
-            lloyd_thinking thinking "I’m just glad that he’s not questioning that any further."
-            $ current_thought = "graves_thought_98"
-            lloyd neutral "I’ll see whether I can find out anything else about him on my end tomorrow, and then I’ll meet you here in the evening, as discussed."
-            graves "Sounds like a plan to me.[wait_1] See you, Lloyd."
-            hide graves_thinking with quick_dissolve
-            hide screen psychic_powers
-            scene black_bg with quick_dissolve
-            scene apartment_night with slow_dissolve
-            lloyd_narrating neutral "I return to my apartment and think about tomorrow.[wait_1] I’ve learned a little about Jack, but it’s not enough."
-            lloyd_narrating neutral "Graves had better come through tomorrow."
-            scene black_bg with slow_dissolve
-            mental_jack "{size=-8}(Dammit...[wait_05]I’m too weak.){/size}"
-            mental_jack "{size=-8}(I thought I could build up my strength more...[wait_05]but I can’t.[wait_1] It’s all over.){/size}"
-            mental_jack "{size=-8}(At least I had a bit of fun the other night...){/size}"
-            jump branch_a_4_0
+            jump branch_a_3_4_graves
         "Travel to Icarus" (locked=not person_visited("barbara", "a", 2) or not check_boolean("barbara_retrieves_footage"), message=("You did not visit the bar today" if not person_visited("barbara", "a", 2) else "You did not convince Barbara to give you the footage")):
             jump branch_b_3_4
         "Return home":
@@ -600,6 +484,138 @@ label branch_a_3_4:
             lloyd_narrating neutral "It doesn’t take long for me to be arrested and placed in a holding cell."
             lloyd_narrating neutral "My investigation is over for good.[wait_1] I won’t be able to stop the man in black or save any of his future victims."
             call screen ending_screen("GAME OVER", "Lloyd was mistakenly arrested.", "Visit the detective agency, and read the detective's mind when describing the man with the white streak.")
+
+label branch_a_3_4_graves:
+    $ current_thought_block = "mind_read_graves"
+    lloyd_thinking thinking "Graves apparently knows the man with the white streak as somebody named Usbourne."
+    lloyd_thinking thinking "I’ll find out what he knows and discover the connection between all of the man in black’s victims."
+    lloyd_narrating neutral "With that information I’ll be able to discover who his next target is and warn them before he can strike."
+    lloyd_narrating neutral "Or report what’s going on to the authorities.[wait_1] Or set an ambush for him."
+    lloyd_narrating neutral "The possibilities are wide, but I can’t do anything before seeing Graves."
+    lloyd_narrating neutral "I finish my meal and then make my way back to his office building.[wait_1] I’m closing in on the man in black."
+    lloyd_narrating neutral "I just need a little more time and information."
+
+label branch_a_3_4_graves_rewind:
+    scene detective_office with slow_dissolve
+    $ swap_sprites("graves_smiling", slow_dissolve)
+    lloyd_narrating neutral "Graves is as jovial as ever."
+    lloyd_narrating neutral "Is this all a game to him?[wait_1] Or does he just need to stay positive so as to forget some of the horrors he no doubt sees in his line of work?"
+    $ rewind_point = "branch_a_3_4_graves_rewind"
+    $ current_thought = "graves_thought_77"
+    show screen psychic_powers
+    lloyd neutral "Tell me, Graves:[wait_05] have you managed to discover anything about the man that I described to you?[wait_1] The one with the white streak of hair?"
+    $ current_thought = "graves_thought_78"
+    graves "I’ll put my cards on the table, Lloyd:[wait_05] I was fairly certain that I knew who you were talking about as soon as you described him."
+    graves "The only reason I didn’t tell you what I knew at the time is that I –[wait_05] I wasn’t certain how much would be reasonable to tell you."
+    lloyd neutral "What do you mean?"
+    graves "The man with the white streak that you asked about is a –[wait_05] he’s a former client of mine, and I wasn’t sure whether giving you information about him would be a breach of client confidentiality."
+    graves "After spending some time today thinking about it, I came to a decision:[wait_05] I’ll give you something on him if you tell me why exactly you want to know about him."
+    $ swap_sprites("graves_intimidating")
+    $ current_thought = "graves_thought_79"
+    graves "And please, don’t give me some bullshit about wanting him as a model, again."
+    graves "It wasn’t exactly convincing the first time."
+    lloyd_thinking thinking "I knew it.[wait_1] He did see through the lie."
+    lloyd neutral "Why did you pretend that you were convinced, then?"
+    graves "I needed some time to think things over and wasn’t sure how you’d –[wait_05] I didn’t know how you’d react if I called you out on the lie."
+    graves "So if you tell me the truth now about what your interest in him is, and I’m convinced that you don’t mean him any harm, I’ll give you his name and a number you can use to contact him."
+    graves "Then he can decide what information to share with you himself."
+    $ current_thought = "graves_thought_80"
+    lloyd neutral "I wouldn’t be able to harm him if I wanted to.[wait_1] He’s dead."
+    $ swap_sprites("graves_shocked")
+    graves "He’s what?!"
+    $ current_thought = "graves_thought_81"
+    lloyd neutral "He died a few days ago.[wait_1] Killed on the street."
+    lloyd neutral "I’m trying to find out what the connection between him and some other victims is."
+    $ swap_sprites("graves_sad")
+    graves "Bloody hell...[wait_1]killed on the street, huh?"
+    lloyd_narrating neutral "He presses his fingers to his temple and concentrates for several moments.[wait_1] He sighs as he lowers them."
+    $ current_thought = "graves_thought_82"
+    graves "I wish you’d told me that little fact earlier today –[wait_05] I could have done some serious research into Jack."
+    graves "As it is, all that I can tell you is what I –[wait_05] what we discovered while working for him."
+    lloyd neutral "I take it that you don’t mind sharing that information?"
+    graves "It’s not like the poor bastard can object, can he?"
+    $ swap_sprites("graves_thinking")
+    $ current_thought = "graves_thought_83"
+    graves "Jack came to my partner and I a few weeks ago."
+    graves "He hired us to find out about –[wait_05] he wanted us to look into his father."
+    lloyd neutral "What for?"
+    graves "He’s never met him.[wait_1] His parents split up when he was a baby, and so he –[wait_05] he wanted to find where his father was so that he could arrange a meeting."
+    graves "We were able to do that and gave him the address where his father lives, along with a phone number."
+    $ current_thought = "graves_thought_84"
+    lloyd neutral "If his father was gone, who raised Jack?"
+    graves "From what he said, it sounds like it was his mother, by herself."
+    graves "She didn’t have a lot of money, though –[wait_05] I’m not sure why, but she didn’t get any child support from her former partner."
+    graves "Because of that Jack grew up without too many –[wait_05] he didn’t have many luxuries as a child."
+    $ current_thought = "graves_thought_85"
+    lloyd neutral "Beyond his parents separating, is there anything else notable in his past?"
+    graves "It didn’t sound like it.[wait_1] Nothing too notable in his present, either."
+    $ current_thought = "graves_thought_86"
+    lloyd neutral "How do you know that?"
+    graves "We do background checks on our clients when we take on a job –[wait_05] particularly when they pay in cash, as Jack did."
+    graves " It means that we’re not going to, say, find a victim for their abuser."
+    lloyd neutral "What did your background check on me uncover?"
+    $ current_thought = "graves_thought_87"
+    graves "In Jack’s case, there were no –[wait_05] we didn’t find any particularly egregious red flags."
+    graves "He’d been arrested for some petty crimes, and there were some things here and there that he’d been taken to court over but found innocent of, but nothing that –[wait_05] he wasn’t connected to any serious criminal groups or –[wait_05] or anything like that."
+    $ current_thought = "graves_thought_88"
+    lloyd neutral "You’re certain of that?"
+    graves "Well, like I said earlier –[wait_05] if you’d told me earlier why you were looking into this I could have done some more in-depth research."
+    graves "But from our general background check –[wait_05] no, there’s nothing serious there. Nothing too notable about him, like I said."
+    $ current_thought = "graves_thought_89"
+    lloyd neutral "Damn...[wait_05]there’s absolutely nothing?[wait_1] He’s completely unremarkable?"
+    graves "From what I can tell, yeah."
+    $ current_thought = "graves_thought_90"
+    lloyd_thinking thinking "Then why did the killer target him?[wait_1] What’s Graves missing?"
+    lloyd_thinking thinking "Or...[wait_05]maybe I’m the one missing something."
+    lloyd_thinking thinking "What if there was no reason for the killer to target Jack, or his other two victims?"
+    lloyd_thinking thinking "What if it was just a crime of passion –[wait_05] he shot the first people he encountered on the street who were by themselves?"
+    $ swap_sprites("graves_smiling")
+    $ current_thought = "graves_thought_91"
+    graves "Hey, are you alright?[wait_1] You look kind of –[wait_05] you look a bit distressed."
+    $ current_thought = "graves_thought_92"
+    lloyd neutral "I’m fine.[wait_1] I just –[wait_05] I realised that I’ve probably been looking at this the wrong way."
+    lloyd neutral "I’ve been assuming that Jack was killed for a reason, but there’s no real evidence for it."
+    lloyd neutral "It’s more likely that he was just a victim of random violence.[wait_1] Whoever the killer is, there’s probably not a lot of method to their madness."
+    $ current_thought = "graves_thought_93"
+    graves "Mmm.[wait_1] I’m not saying that that’s –[wait_05] that it’s impossible, but I don’t really like the idea of that."
+    graves "I think that people tend to be fairly rational –[wait_05] even if emotion sometimes does cloud their judgements."
+    $ current_thought = "graves_thought_94"
+    lloyd neutral "What are you saying?[wait_1] That there {i}is{/i} a reason why Jack was killed?"
+    $ swap_sprites("graves_thinking")
+    graves "I couldn’t say for sure, but I’d like to investigate both his past and present more thoroughly."
+    graves "Do you want to come by here tomorrow evening and I’ll let you know what I –[wait_05] whatever I discover?"
+    lloyd_thinking thinking "Tomorrow evening is too long to wait...[wait_05]but is there any alternative?"
+    lloyd neutral "Certainly."
+    $ swap_sprites("graves_smiling")
+    $ current_thought = "graves_thought_95"
+    graves "Great.[wait_1] Now then, there’s just one more thing..."
+    $ swap_sprites("graves_intimidating")
+    graves "Why exactly are you looking into these deaths?[wait_1] What’s your motivation?"
+    $ current_thought = "graves_thought_96"
+    graves "I don’t think that the police have that much interest in the case, and I –[wait_05] the reason that I knew that Jack was dead is because I ran into him on the street."
+    graves "He died in front of me, so...[wait_05]I suppose I feel as though I owe it to him to do something."
+    $ swap_sprites("graves_shocked")
+    graves "Bloody hell![wait_1] I –"
+    $ swap_sprites("graves_thinking")
+    graves "– yeah, I can see why you’d feel a bit responsible for him."
+    $ current_thought = "graves_thought_97"
+    graves "Well, that’s good to hear."
+    graves "Not the –[wait_05] not him dying in front of you, of course, but the –[wait_05] I’m glad to hear that you want to help out.[wait_1] Not a lot of people would do that."
+    lloyd_thinking thinking "I’m just glad that he’s not questioning that any further."
+    $ current_thought = "graves_thought_98"
+    lloyd neutral "I’ll see whether I can find out anything else about him on my end tomorrow, and then I’ll meet you here in the evening, as discussed."
+    graves "Sounds like a plan to me.[wait_1] See you, Lloyd."
+    hide graves_thinking with quick_dissolve
+    hide screen psychic_powers
+    scene black_bg with quick_dissolve
+    scene apartment_night with slow_dissolve
+    lloyd_narrating neutral "I return to my apartment and think about tomorrow.[wait_1] I’ve learned a little about Jack, but it’s not enough."
+    lloyd_narrating neutral "Graves had better come through tomorrow."
+    scene black_bg with slow_dissolve
+    mental_jack "{size=-8}(Dammit...[wait_05]I’m too weak.){/size}"
+    mental_jack "{size=-8}(I thought I could build up my strength more...[wait_05]but I can’t.[wait_1] It’s all over.){/size}"
+    mental_jack "{size=-8}(At least I had a bit of fun the other night...){/size}"
+    jump branch_a_4_0
 
 label branch_a_4_0:
     hide screen calendar
