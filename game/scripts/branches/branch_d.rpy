@@ -170,6 +170,7 @@ label branch_d_2_4_rewind:
     lloyd_thinking thinking "Who the hell is Jack?"
     scene black_bg with slow_dissolve
     mental_jack "Another one dead...[wait_05]bastard."
+    jump branch_d_3_0
 
 label branch_d_2_4_sergei_rewind:
     lloyd_thinking thinking "The crowd will see if I do that...I'd better see where he's going with this for now."
@@ -348,6 +349,10 @@ label branch_d_3_4_eddie_bullet_rewind:
     lloyd_thinking scared "This isn't the time for that!"
     return
 
+label branch_d_3_4_eddie_docherty_rewind:
+    lloyd_thinking thinking "I need Eddie right now. I shouldn't do that."
+    return
+
 label branch_d_3_4_eddie_safety:
     $ rewind_point = "branch_d_3_4_eddie_safety"
     $ swap_sprites("eddie_arrogant", quick_dissolve)
@@ -370,6 +375,7 @@ label branch_d_3_4_eddie_safety:
     lloyd_narrating neutral "He probably wanted to silence me since I saw him last night."
     lloyd_thinking thinking "But then how did he know that I was here?"
     $ current_thought = "eddie_thought_227"
+    $ rewind_point = "branch_d_3_4_eddie_docherty_rewind"
     show screen psychic_powers
     # Maybe do side portraits here for Eddie?
     eddie "This is your killer.[wait_1] Allan Docherty, yeah?"
@@ -441,6 +447,7 @@ label branch_d_4_4:
     lloyd_narrating neutral "After a short while Eddie enters."
     $ swap_sprites("eddie_arrogant", quick_dissolve)
     $ current_thought = "eddie_thought_232"
+    $ rewind_point = "branch_d_3_4_eddie_docherty_rewind"
     show screen psychic_powers
     lloyd neutral "Hello, Eddie.[wait_1] Everything with the police is dealt with, I take it?"
     eddie "Hmm?[wait_1] Oh, yeah, of course."
