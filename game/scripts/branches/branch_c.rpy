@@ -13,6 +13,9 @@ label branch_c_1_4:
     scene office_interview_room with slow_dissolve
     lloyd_narrating neutral "Once I reach the newspaper building I ask whether Eddie is still in.[wait_1] I’m told that he’s waiting for me and am brought back to the same room from earlier today."
     lloyd_narrating neutral "I don’t have to wait long before he joins me."
+
+label branch_c_1_4_rewind:
+    $ rewind_point = "branch_c_1_4_rewind"
     $ swap_sprites("eddie_angry", slow_dissolve)
     $ current_thought = "eddie_thought_114"
     show screen psychic_powers
@@ -234,80 +237,97 @@ label branch_c_2_4:
         lloyd_narrating neutral "My heart is racing as I leave the library and run towards the nearest train station."
         lloyd_narrating neutral "Sergei can be saved.[wait_1] If he’s willing to be open with me I may find out why he’s a target of the unknown assassin."
         lloyd_narrating neutral "This is a massive leap forwards in stopping the killer."
+        jump branch_c_2_4_venue
     elif (c_2_4_visited == "eddie"):
-        scene office_interview_room with slow_dissolve
-        lloyd_narrating neutral "I’m slightly surprised when I’m told that Eddie is still present at the newspaper."
-        lloyd_narrating neutral "I’m directed to the same interview room as before and asked to wait until he arrives."
-        $ current_thought_block = "mind_read_eddie"
-        $ swap_sprites("eddie_angry", slow_dissolve)
-        $ current_thought = "eddie_thought_148"
-        show screen psychic_powers
-        eddie "Your good fortune is my bad, eh, Chen?"
-        lloyd neutral "What do you mean?"
-        eddie "Good news for you:[wait_05] I’m pretty sure that I’ve found your guy."
-        eddie "Bad news for me:[wait_05] I wasted a tonne of time on it, so I’ve had to stay back to catch up on the work I missed."
-        eddie "But hey, that’s more good news for you, right?[wait_1] Since it means that I’m here, now, to give you the info."
-        $ current_thought = "eddie_thought_149"
-        lloyd neutral "I’m sorry, Eddie.[wait_1] I didn’t think that you would –"
-        eddie "Like hell you didn’t, Chen.[wait_1] But it’s not like any of that really matters to you, right?"
-        lloyd neutral "Eddie, I –"
-        eddie "Save it.[wait_1] The faster we get this over with, the sooner I can get back to the important shit."
-        lloyd_narrating neutral "Eddie unfolds a piece of paper and passes it over to me."
-        scene cg6_0 with slow_dissolve
-        $ current_thought = "eddie_thought_150"
-        eddie "This is the guy you wanted me to find, right?[wait_1] Sergei Maskelyne?"
-        lloyd neutral "Yes.[wait_1] It’s a perfect match."
-        eddie "Dunno why you couldn’t have told me that he was a magician...[wait_05]would have made things a lot easier."
-        scene office_interview_room with quick_dissolve
-        $ swap_sprites("eddie_angry", quick_dissolve)
-        eddie "He’s playing a show tonight in the northern end of town."
-        eddie "Not sure whether or not you can make it, but as far as I’m concerned, that’s your problem."
-        lloyd_thinking thinking "The venue on the poster...[wait_05]how long will it take me to get there?"
-        $ current_thought = "eddie_thought_151"
-        lloyd neutral "Thank you, Eddie –[wait_05] I won’t forget this."
-        eddie "Yeah, sure you won’t."
-        hide eddie_angry with quick_dissolve
-        hide screen psychic_powers
-        scene black_bg with slow_dissolve
-        lloyd_narrating neutral "I quickly leave the newspaper and begin walking towards the nearest train station."
-        lloyd_narrating neutral "I might miss the opening of Sergei’s act, but I should be able to warn him in time and save him from the killer."
-        lloyd_narrating neutral "Bit by bit, I’m making progress."
+        jump branch_c_2_4_eddie
     elif (c_2_4_visited == "graves"):
-        scene detective_office with slow_dissolve
-        lloyd_narrating neutral "I’m incredibly relieved when Graves responds to the intercom and unlocks the door for me.[wait_1] I don’t know what I would have done if he hadn’t been in."
-        $ current_thought_block = "mind_read_graves"
-        $ swap_sprites("graves_smiling", quick_dissolve)
-        $ current_thought = "graves_thought_160"
-        show screen psychic_powers
-        graves "Hey, Lloyd.[wait_1] Care to join me in a container of takeaway?"
-        graves "Fair warning, though –[wait_05] I don’t think that we’ll both fit."
-        lloyd_narrating neutral "He holds out a cheap plastic container to me, half-filled with noodles.[wait_1] I shake my head."
-        $ current_thought = "graves_thought_161"
-        lloyd neutral "Thank you, Graves, but I’d much rather hear whether you’ve discovered anything about the man in the loud suit."
-        lloyd_thinking thinking "Because if you haven’t, I need to get out of here and seek a different source of information."
-        graves "No worries, Lloyd.[wait_1] Take a squiz at this –[wait_05] look familiar?"
-        scene cg6_0 with slow_dissolve
-        lloyd_thinking thinking "It’s a perfect match for the man in the loud suit.[wait_1] It’s advertising a magic act of some kind."
-        $ current_thought = "graves_thought_162"
-        graves "If this is your guy, his name is Sergei Maskelyne.[wait_1] Apparently he’s playing at a venue up north tonight."
-        lloyd neutral "Yes, you’re correct –[wait_05] this is the person I was looking for."
-        lloyd_thinking thinking "The north end of the city...[wait_05]how long would it take me to get there?[wait_1] If I’d known that this was what I’d be told I’d have shown up earlier in the evening."
-        $ current_thought = "graves_thought_163"
-        scene detective_office with quick_dissolve
-        $ swap_sprites("graves_smiling", quick_dissolve)
-        graves "If you want to meet with the guy, you’ll have to hurry.[wait_1] I don’t know if you can make the start of the show, but it’s better to show up late and chat to him than not at all, yes?"
-        lloyd neutral "Yes...[wait_05]you’re right, Graves."
-        lloyd neutral "Thank you for the information –[wait_05] I really appreciate it."
-        graves "Hey, no worries –[wait_05] it comes with the job.[wait_1] Anything else that I can help you with?"
-        lloyd neutral "Not at present...[wait_05]I’d better get moving." 
-        lloyd neutral "Thanks again, Graves."
-        graves "You’re welcome.[wait_1] Good luck!"
-        hide graves_smiling with quick_dissolve
-        hide screen psychic_powers
-        scene black_bg with slow_dissolve
-        lloyd_thinking thinking "Thank goodness Graves understood that I didn’t want to talk for too long."
-        lloyd_thinking thinking "I’ve got to get to the nearest train station and make my way northwards, and then things will be fine."
-        lloyd_thinking thinking "I’ll talk to Sergei, warn him about the killer, and save him.[wait_1] I won’t fail him like I failed the man with the white streak."
+        jump branch_c_2_4_graves
+
+label branch_c_2_4_eddie:
+    scene office_interview_room with slow_dissolve
+    lloyd_narrating neutral "I’m slightly surprised when I’m told that Eddie is still present at the newspaper."
+    lloyd_narrating neutral "I’m directed to the same interview room as before and asked to wait until he arrives."
+    
+label branch_c_2_4_eddie_rewind:
+    $ rewind_point = "branch_c_2_4_eddie_rewind"
+    $ current_thought_block = "mind_read_eddie"
+    $ swap_sprites("eddie_angry", slow_dissolve)
+    $ current_thought = "eddie_thought_148"
+    show screen psychic_powers
+    eddie "Your good fortune is my bad, eh, Chen?"
+    lloyd neutral "What do you mean?"
+    eddie "Good news for you:[wait_05] I’m pretty sure that I’ve found your guy."
+    eddie "Bad news for me:[wait_05] I wasted a tonne of time on it, so I’ve had to stay back to catch up on the work I missed."
+    eddie "But hey, that’s more good news for you, right?[wait_1] Since it means that I’m here, now, to give you the info."
+    $ current_thought = "eddie_thought_149"
+    lloyd neutral "I’m sorry, Eddie.[wait_1] I didn’t think that you would –"
+    eddie "Like hell you didn’t, Chen.[wait_1] But it’s not like any of that really matters to you, right?"
+    lloyd neutral "Eddie, I –"
+    eddie "Save it.[wait_1] The faster we get this over with, the sooner I can get back to the important shit."
+    lloyd_narrating neutral "Eddie unfolds a piece of paper and passes it over to me."
+    scene cg6_0 with slow_dissolve
+    $ current_thought = "eddie_thought_150"
+    eddie "This is the guy you wanted me to find, right?[wait_1] Sergei Maskelyne?"
+    lloyd neutral "Yes.[wait_1] It’s a perfect match."
+    eddie "Dunno why you couldn’t have told me that he was a magician...[wait_05]would have made things a lot easier."
+    scene office_interview_room with quick_dissolve
+    $ swap_sprites("eddie_angry", quick_dissolve)
+    eddie "He’s playing a show tonight in the northern end of town."
+    eddie "Not sure whether or not you can make it, but as far as I’m concerned, that’s your problem."
+    lloyd_thinking thinking "The venue on the poster...[wait_05]how long will it take me to get there?"
+    $ current_thought = "eddie_thought_151"
+    lloyd neutral "Thank you, Eddie –[wait_05] I won’t forget this."
+    eddie "Yeah, sure you won’t."
+    hide eddie_angry with quick_dissolve
+    hide screen psychic_powers
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "I quickly leave the newspaper and begin walking towards the nearest train station."
+    lloyd_narrating neutral "I might miss the opening of Sergei’s act, but I should be able to warn him in time and save him from the killer."
+    lloyd_narrating neutral "Bit by bit, I’m making progress."
+    jump branch_c_2_4_venue
+
+label branch_c_2_4_graves:
+    scene detective_office with slow_dissolve
+    lloyd_narrating neutral "I’m incredibly relieved when Graves responds to the intercom and unlocks the door for me.[wait_1] I don’t know what I would have done if he hadn’t been in."
+    
+label branch_c_2_4_graves_rewind:
+    $ rewind_point = "branch_c_2_4_graves_rewind"
+    $ current_thought_block = "mind_read_graves"
+    $ swap_sprites("graves_smiling", quick_dissolve)
+    $ current_thought = "graves_thought_160"
+    show screen psychic_powers
+    graves "Hey, Lloyd.[wait_1] Care to join me in a container of takeaway?"
+    graves "Fair warning, though –[wait_05] I don’t think that we’ll both fit."
+    lloyd_narrating neutral "He holds out a cheap plastic container to me, half-filled with noodles.[wait_1] I shake my head."
+    $ current_thought = "graves_thought_161"
+    lloyd neutral "Thank you, Graves, but I’d much rather hear whether you’ve discovered anything about the man in the loud suit."
+    lloyd_thinking thinking "Because if you haven’t, I need to get out of here and seek a different source of information."
+    graves "No worries, Lloyd.[wait_1] Take a squiz at this –[wait_05] look familiar?"
+    scene cg6_0 with slow_dissolve
+    lloyd_thinking thinking "It’s a perfect match for the man in the loud suit.[wait_1] It’s advertising a magic act of some kind."
+    $ current_thought = "graves_thought_162"
+    graves "If this is your guy, his name is Sergei Maskelyne.[wait_1] Apparently he’s playing at a venue up north tonight."
+    lloyd neutral "Yes, you’re correct –[wait_05] this is the person I was looking for."
+    lloyd_thinking thinking "The north end of the city...[wait_05]how long would it take me to get there?[wait_1] If I’d known that this was what I’d be told I’d have shown up earlier in the evening."
+    $ current_thought = "graves_thought_163"
+    scene detective_office with quick_dissolve
+    $ swap_sprites("graves_smiling", quick_dissolve)
+    graves "If you want to meet with the guy, you’ll have to hurry.[wait_1] I don’t know if you can make the start of the show, but it’s better to show up late and chat to him than not at all, yes?"
+    lloyd neutral "Yes...[wait_05]you’re right, Graves."
+    lloyd neutral "Thank you for the information –[wait_05] I really appreciate it."
+    graves "Hey, no worries –[wait_05] it comes with the job.[wait_1] Anything else that I can help you with?"
+    lloyd neutral "Not at present...[wait_05]I’d better get moving." 
+    lloyd neutral "Thanks again, Graves."
+    graves "You’re welcome.[wait_1] Good luck!"
+    hide graves_smiling with quick_dissolve
+    hide screen psychic_powers
+    scene black_bg with slow_dissolve
+    lloyd_thinking thinking "Thank goodness Graves understood that I didn’t want to talk for too long."
+    lloyd_thinking thinking "I’ve got to get to the nearest train station and make my way northwards, and then things will be fine."
+    lloyd_thinking thinking "I’ll talk to Sergei, warn him about the killer, and save him.[wait_1] I won’t fail him like I failed the man with the white streak."
+    jump branch_c_2_4_venue
+
+label branch_c_2_4_venue:
     call screen chapter_breaks("LATER", "At 9:11 PM, Lloyd reaches the venue hosting Sergei’s show.\n\nSomebody else reached it at 8:32 PM.")
     # TODO: Add some red/blue slow flashes here
     scene venue_exterior with slow_dissolve
@@ -322,17 +342,30 @@ label branch_c_2_4:
     lloyd_narrating neutral "I walk towards the closest person.[wait_1] I already know what’s happened but they might have information that I don’t have."
     $ current_thought_block = "mind_read_cat"
     $ swap_sprites("cat_neutral", quick_dissolve)
-    show screen psychic_powers
     if (person_visited("cat", "a", 0) or person_visited("cat", "c", 0)):
         if (check_boolean("cat_name_discovered")):
             $ current_thought = "cat_thought_112"
             lloyd_narrating neutral "As I get closer I’m surprised to see that it’s Cat."
             lloyd_thinking thinking "What’s she doing here?"
-            lloyd neutral "Hey, Cat."
+            jump branch_c_2_4_cat
         else:
             $ current_thought = "cat_thought_113"
             lloyd_narrating neutral "As I get closer I’m surprised to see that it’s the librarian."
             lloyd_thinking thinking "What’s she doing here?"
+            jump branch_c_2_4_cat
+    else:
+        jump branch_c_2_4_cat
+
+label branch_c_2_4_cat:
+    $ rewind_point = "branch_c_2_4_cat"
+    if (person_visited("cat", "a", 0) or person_visited("cat", "c", 0)):
+        if (check_boolean("cat_name_discovered")):
+            $ current_thought = "cat_thought_112"
+            show screen psychic_powers
+            lloyd neutral "Hey, Cat."
+        else:
+            $ current_thought = "cat_thought_113"
+            show screen psychic_powers
             lloyd neutral "Hey, um...[wait_05]you."
             lloyd_narrating neutral "She turns to me with a cold glare on her face."
             $ swap_sprites("cat_cold")
@@ -458,64 +491,70 @@ label branch_c_3_4:
             lloyd_narrating neutral "And while I doubt that I’ll end up with strong charges, for now my role in the investigation is done."
             call screen ending_screen("GAME OVER", "Lloyd's investigation ended with him being arrested.", "Visit the library during the day. Read the librarian's mind when Lloyd asks about Sergei directly.")
         "Visit Cat" (locked=not person_visited("cat", "c", 1) or not check_boolean("cat_retrieves_notes"), message=("You did not visit the library today" if not person_visited("cat", "c", 1) else "You did not convince Cat to retrieve Sergei's notes")):
-            lloyd_thinking thinking "Visiting Cat is the obvious decision to make."
-            lloyd_thinking thinking "She said that she could get me some notes that Sergei has.[wait_1] It’s the next best thing to talking to the man himself and discovering why he was targeted by the killer."
-            scene black_bg with slow_dissolve
-            lloyd_narrating neutral "I finish my meal and then travel towards the library that Cat works at."
-            lloyd_narrating neutral "She won’t be working at this hour –[wait_05] it will be the home ground advantage that’s decided the meeting place."
-            lloyd_narrating neutral "I’m wary of what she hopes to get out of this but all that I can do is follow her lead."
-            lloyd_narrating neutral "The park is a strong contrast in the evening to how it was during the day."
-            lloyd_narrating neutral "Occasionally a cyclist rides past me, and I can hear the sounds of some skateboarders from somewhere else, but otherwise it’s both empty and quiet."
-            lloyd_narrating neutral "I photograph some trees as I go, silhouetting them against the moon."
-            lloyd_narrating neutral "I wonder what information Cat will give me, and how she acquired it."
-            scene library_night with slow_dissolve
-            $ swap_sprites("cat_neutral", slow_dissolve)
-            $ current_thought = "cat_thought_135"
-            show screen psychic_powers
-            lloyd_narrating neutral "Cat is standing with her off to the side with her back to the wall, every bit a living shadow."
-            lloyd_narrating neutral "She doesn’t acknowledge my presence in any way as I approach."
-            lloyd neutral "Hello, Cat."
-            cat "Hello."
-            lloyd_narrating neutral "She holds up something small and silver.[wait_1] After a moment I recognise it as a USB drive."
-            $ current_thought = "cat_thought_136"
-            cat "This USB contains a PDF...[wait_1]it has notes written by Sergei."
-            cat "You should find them very...[wait_1]illuminating."
-            $ current_thought = "cat_thought_137"
-            lloyd neutral "Notes written by Sergei?[wait_1] How did you acquire them?"
-            lloyd_thinking thinking "Was she able to access his personal computer?[wait_1] How did she do that?"
-            cat "That’s my business...[wait_1]not yours." 
-            cat "Do you want the drive...[wait_1]or not?"
-            lloyd_narrating neutral "I’m wary of why she’s giving me this information so freely."
-            lloyd_narrating neutral "Does she want something in return?[wait_1] Or is she attempting to mislead me?"
-            lloyd_narrating neutral "I don’t have a computer on me and can’t verify that it really contains the file she claims."
-            $ current_thought = "cat_thought_138"
-            lloyd neutral "Why didn’t you ask for my email address and send the file to me that way?[wait_1] Or upload the file to the cloud?"
-            lloyd_narrating neutral "Her head shakes almost imperceptibly.[wait_1] It’s the most emotion that she’s shown thus far."
-            cat "This is...[wait_1]for your eyes only."
-            lloyd_thinking thinking "That doesn’t answer the question.[wait_1] I don’t think that I’ll get a straight answer from her."
-            lloyd_narrating neutral "I’m still uncertain of her motivations.[wait_1] There has to be some catch to this but I can’t identify it."
-            lloyd_narrating neutral "And I want those notes."
-            $ current_thought = "cat_thought_139"
-            lloyd neutral "Alright.[wait_1] I’d like the USB then."
-            lloyd_narrating neutral "She passes it to me without issue."
-            $ current_thought = "cat_thought_140"
-            cat "If you’d like to meet again...[wait_1]come back here tomorrow evening."
-            hide cat_neutral with quick_dissolve
-            hide screen psychic_powers
-            lloyd_narrating neutral "Cat walks further into the depths of the library, melting into the shadows as she goes."
-            lloyd_narrating neutral "I debate going after her but decide that it isn’t worth it.[wait_1] I got what I wanted from the meeting."
-            lloyd_thinking thinking "Why did she say that I can meet her again tomorrow?"
-            lloyd_thinking thinking "Does she think that something in the file will make me want to?[wait_1] She has to have read it herself."
-            lloyd_narrating neutral "The only way that I’ll find out is by seeing what’s on the USB.[wait_1] I exit the library and return to my apartment."
-            scene black_bg with slow_dissolve
-            scene apartment_night with slow_dissolve
-            lloyd_narrating neutral "I’ve turned on my computer and connected the USB drive."
-            lloyd_narrating neutral "Normally my computer is primarily used for editing my photographs and reading my emails."
-            lloyd_narrating neutral "It’s more than up to the task of reading a simple PDF, though."
-            lloyd_narrating neutral "I click on the file and read through the first few pages."
-            show screen read_pdf()
-            call screen pdf_block
+            jump branch_c_3_4_cat
     return
+
+label branch_c_3_4_cat:
+    lloyd_thinking thinking "Visiting Cat is the obvious decision to make."
+    lloyd_thinking thinking "She said that she could get me some notes that Sergei has.[wait_1] It’s the next best thing to talking to the man himself and discovering why he was targeted by the killer."
+    scene black_bg with slow_dissolve
+    lloyd_narrating neutral "I finish my meal and then travel towards the library that Cat works at."
+    lloyd_narrating neutral "She won’t be working at this hour –[wait_05] it will be the home ground advantage that’s decided the meeting place."
+    lloyd_narrating neutral "I’m wary of what she hopes to get out of this but all that I can do is follow her lead."
+    lloyd_narrating neutral "The park is a strong contrast in the evening to how it was during the day."
+    lloyd_narrating neutral "Occasionally a cyclist rides past me, and I can hear the sounds of some skateboarders from somewhere else, but otherwise it’s both empty and quiet."
+    lloyd_narrating neutral "I photograph some trees as I go, silhouetting them against the moon."
+    lloyd_narrating neutral "I wonder what information Cat will give me, and how she acquired it."
+    scene library_night with slow_dissolve
+    $ swap_sprites("cat_neutral", slow_dissolve)
+    lloyd_narrating neutral "Cat is standing off to the side with her back to the wall, every bit a living shadow."
+    lloyd_narrating neutral "She doesn’t acknowledge my presence in any way as I approach."
+
+label branch_c_3_4_cat_rewind:
+    $ rewind_point = "branch_c_3_4_cat_rewind"
+    $ current_thought = "cat_thought_135"
+    show screen psychic_powers
+    lloyd neutral "Hello, Cat."
+    cat "Hello."
+    lloyd_narrating neutral "She holds up something small and silver.[wait_1] After a moment I recognise it as a USB drive."
+    $ current_thought = "cat_thought_136"
+    cat "This USB contains a PDF...[wait_1]it has notes written by Sergei."
+    cat "You should find them very...[wait_1]illuminating."
+    $ current_thought = "cat_thought_137"
+    lloyd neutral "Notes written by Sergei?[wait_1] How did you acquire them?"
+    lloyd_thinking thinking "Was she able to access his personal computer?[wait_1] How did she do that?"
+    cat "That’s my business...[wait_1]not yours." 
+    cat "Do you want the drive...[wait_1]or not?"
+    lloyd_narrating neutral "I’m wary of why she’s giving me this information so freely."
+    lloyd_narrating neutral "Does she want something in return?[wait_1] Or is she attempting to mislead me?"
+    lloyd_narrating neutral "I don’t have a computer on me and can’t verify that it really contains the file she claims."
+    $ current_thought = "cat_thought_138"
+    lloyd neutral "Why didn’t you ask for my email address and send the file to me that way?[wait_1] Or upload the file to the cloud?"
+    lloyd_narrating neutral "Her head shakes almost imperceptibly.[wait_1] It’s the most emotion that she’s shown thus far."
+    cat "This is...[wait_1]for your eyes only."
+    lloyd_thinking thinking "That doesn’t answer the question.[wait_1] I don’t think that I’ll get a straight answer from her."
+    lloyd_narrating neutral "I’m still uncertain of her motivations.[wait_1] There has to be some catch to this but I can’t identify it."
+    lloyd_narrating neutral "And I want those notes."
+    $ current_thought = "cat_thought_139"
+    lloyd neutral "Alright.[wait_1] I’d like the USB then."
+    lloyd_narrating neutral "She passes it to me without issue."
+    $ current_thought = "cat_thought_140"
+    cat "If you’d like to meet again...[wait_1]come back here tomorrow evening."
+    hide cat_neutral with quick_dissolve
+    hide screen psychic_powers
+    lloyd_narrating neutral "Cat walks further into the depths of the library, melting into the shadows as she goes."
+    lloyd_narrating neutral "I debate going after her but decide that it isn’t worth it.[wait_1] I got what I wanted from the meeting."
+    lloyd_thinking thinking "Why did she say that I can meet her again tomorrow?"
+    lloyd_thinking thinking "Does she think that something in the file will make me want to?[wait_1] She has to have read it herself."
+    lloyd_narrating neutral "The only way that I’ll find out is by seeing what’s on the USB.[wait_1] I exit the library and return to my apartment."
+    scene black_bg with slow_dissolve
+    scene apartment_night with slow_dissolve
+    lloyd_narrating neutral "I’ve turned on my computer and connected the USB drive."
+    lloyd_narrating neutral "Normally my computer is primarily used for editing my photographs and reading my emails."
+    lloyd_narrating neutral "It’s more than up to the task of reading a simple PDF, though."
+    lloyd_narrating neutral "I click on the file and read through the first few pages."
+    show screen read_pdf()
+    call screen pdf_block
 
 label lloyd_pdf_interjection_1:
     lloyd_narrating neutral "What I find in the file astonishes me."

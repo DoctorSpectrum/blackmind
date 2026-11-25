@@ -282,7 +282,7 @@ init python:
                 elif (value == 0 and check_boolean("lloyd_pdf_interjection_1") and not check_boolean("lloyd_pdf_interjection_2")):
                     renpy.call("lloyd_pdf_interjection_2", from_current=True)
                 elif (value == 10100 and check_boolean("lloyd_pdf_interjection_2") and not check_boolean("lloyd_pdf_interjection_3")):
-                    renpy.jump("lloyd_pdf_interjection_3", from_current=True)
+                    renpy.jump("lloyd_pdf_interjection_3")
             else:
                 if (value > 20000 and not check_boolean("lloyd_pdf_interjection_4")):
                     renpy.call("lloyd_pdf_interjection_4", from_current=True)
