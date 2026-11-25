@@ -42,7 +42,10 @@ label eddie_a_1:
     scene office_interview_room with slow_dissolve
     lloyd_narrating neutral "The receptionist directs me to one of the many rooms for conducting interviews, telling me that I shouldn’t have to wait long."
     lloyd_narrating neutral "Several minutes pass before the door opens."
-    $ swap_sprites("eddie_smiling", slow_dissolve)
+    $ rewind_point = "eddie_a_1_rewind"
+
+label eddie_a_1_rewind:
+    $ swap_sprites("eddie_smiling")
     $ current_thought = "eddie_thought_01"
     show screen psychic_powers
     employee "Sorry for the wait –[wait_05] I had to edit some –"
@@ -96,7 +99,6 @@ label eddie_unrecognised:
     employee "I’ve got real stories to follow.[wait_1] And I have actual deadlines so –[wait_05] see ya."
     lloyd_narrating neutral "The man stands up and begins leaving.[wait_1] I’m trying to work out what to say that will make him stay when he clears his throat."
     $ current_thought = "eddie_thought_12"
-    $ rewind_point = "eddie_a_1"
     employee "Oh, and by the way, Chen:[wait_05] I know you won’t bother to look it up, or try to remember, so out of the kindness of my heart –[wait_05] Eddie Thompson."
     $ add_boolean("eddie_name_learned")
     eddie "I also worked at {i}The Brief{/i}.[wait_1] Dick."
@@ -225,8 +227,11 @@ label eddie_a_2:
     lloyd_narrating neutral "I can see somebody browsing a gallery of photos from where I am, and a stab of jealousy runs through me."
     lloyd_narrating neutral "I would be quite comfortable if I were hired by this newspaper."
     lloyd_narrating neutral "I haven’t been in the room for very long before the door opens."
+    $ rewind_point = "eddie_a_2_rewind"
+
+label eddie_a_2_rewind:
     if (person_visited("eddie", "a", 0)):
-        $ swap_sprites("eddie_angry", slow_dissolve)
+        $ swap_sprites("eddie_angry")
         $ current_thought = "eddie_thought_31"
         show screen psychic_powers
         lloyd_narrating neutral "Eddie’s the person who steps through it, of course.[wait_1] He looks exactly as I anticipated: angry."
@@ -248,7 +253,7 @@ label eddie_a_2:
             $ current_thought = "eddie_thought_35"
         eddie "Why the hell did you say you had an interview with me?[wait_1] I’ve got enough real work to do without wasting my time with you."
     else:
-        $ swap_sprites("eddie_smiling", slow_dissolve)
+        $ swap_sprites("eddie_smiling")
         $ current_thought = "eddie_thought_36"
         show screen psychic_powers
         lloyd_narrating neutral "A man wearing a cheap suit enters the room.[wait_1] I try to discern what the brand of camera he’s using is."
@@ -365,7 +370,24 @@ label eddie_a_3:
         scene office_interview_room with slow_dissolve
         lloyd_narrating neutral "It wasn’t too long ago that I was in a room similar to this at a different newspaper.[wait_1] Things didn’t work out so well then."
         lloyd_narrating neutral "I’m hoping that this will go better."
-        $ swap_sprites("eddie_smiling", slow_dissolve)
+    elif (person_visited("eddie", "a", 1)):
+        lloyd_narrating neutral "Once I reach the newspaper I’m directed to the same room which I spoke to Eddie in yesterday."
+        lloyd_narrating neutral "I’m a little surprised that I’m still granted access; I half-expected Eddie to tell the receptionist not to let me in."
+        lloyd_narrating neutral "Either he hasn’t thought to do so or he doesn’t have enough pull around here to do so."
+        scene office_interview_room with slow_dissolve
+        lloyd_narrating neutral "I hear furious stomping approaching the interview room from what feels like a kilometre away."
+        lloyd_narrating neutral "It’s safe to say that Eddie has been asked to talk to me again."
+    elif (person_visited("eddie", "a", 0)):
+        lloyd_narrating neutral "Just like the other day, I’ve called ahead of time and made an appointment."
+        lloyd_narrating neutral "The receptionist at the newspaper directs me to the same room as last time and asks me politely to wait."
+        scene office_interview_room with slow_dissolve
+        lloyd_narrating neutral "I haven’t been in the room for very long before the door opens and a familiar face steps through."
+
+    $ rewind_point = "eddie_a_3_rewind"
+
+label eddie_a_3_rewind:
+    if (not person_visited("eddie", "a", 0) and not person_visited("eddie", "a", 1)):
+        $ swap_sprites("eddie_smiling")
         $ current_thought = "eddie_thought_36"
         show screen psychic_powers
         employee "Sorry for the wait –[wait_05] the reporters are all –"
@@ -387,13 +409,7 @@ label eddie_a_3:
         $ current_thought = "eddie_thought_41"
         eddie "What are you even here for, Chen?"
     elif (person_visited("eddie", "a", 1)):
-        lloyd_narrating neutral "Once I reach the newspaper I’m directed to the same room which I spoke to Eddie in yesterday."
-        lloyd_narrating neutral "I’m a little surprised that I’m still granted access; I half-expected Eddie to tell the receptionist not to let me in."
-        lloyd_narrating neutral "Either he hasn’t thought to do so or he doesn’t have enough pull around here to do so."
-        scene office_interview_room with slow_dissolve
-        lloyd_narrating neutral "I hear furious stomping approaching the interview room from what feels like a kilometre away."
-        lloyd_narrating neutral "It’s safe to say that Eddie has been asked to talk to me again."
-        $ swap_sprites("eddie_angry", slow_dissolve)
+        $ swap_sprites("eddie_angry")
         $ current_thought = "eddie_thought_51"
         show screen psychic_powers
         eddie "I’m going to save us both some time, Chen.[wait_1] Get the hell out of here, now."
@@ -435,11 +451,7 @@ label eddie_a_3:
                 $ add_boolean("eddie_ejects_lloyd")
                 jump move_location
     elif (person_visited("eddie", "a", 0)):
-        lloyd_narrating neutral "Just like the other day, I’ve called ahead of time and made an appointment."
-        lloyd_narrating neutral "The receptionist at the newspaper directs me to the same room as last time and asks me politely to wait."
-        scene office_interview_room with slow_dissolve
-        lloyd_narrating neutral "I haven’t been in the room for very long before the door opens and a familiar face steps through."
-        $ swap_sprites("eddie_angry", quick_dissolve)
+        $ swap_sprites("eddie_angry")
         $ current_thought = "eddie_thought_31"
         show screen psychic_powers
         eddie "Chen."
@@ -599,7 +611,37 @@ label eddie_a_b_4:
         lloyd_narrating neutral "I’ve already called ahead and said that I’d like to speak to somebody about a story.[wait_1] The receptionist directs me to a small room used for interviews, and asks me to wait patiently."
         scene office_interview_room with slow_dissolve
         lloyd_narrating neutral "I don’t have to wait long before the interviewer arrives."
-        $ swap_sprites("eddie_smiling", slow_dissolve)
+    elif (person_visited("eddie", "a", 0) and not person_visited("eddie", "a", 1) and not person_visited("eddie", "a", 2)):
+        lloyd_narrating neutral "I enter the building’s lobby and speak to the receptionist."
+        lloyd_narrating neutral "I tell her that I’d like to speak to Eddie Thompson about something important, and I’m directed to the same room that I was in the other day."
+        scene office_interview_room with slow_dissolve
+        lloyd_narrating neutral "I don’t hear Eddie approaching the room.[wait_1] That tells me that he hasn’t realised that I’m the person who’s arranged the meeting yet."
+    elif (person_visited("eddie", "a", 1) and not person_visited("eddie", "a", 2)):
+        lloyd_narrating neutral "I enter the building’s lobby."
+        lloyd_narrating neutral "I’ve already called ahead and asked whether I can speak to Eddie, and the receptionist has agreed to arrange something.[wait_1] I’m directed to the same room that I was in last time."
+        scene office_interview_room with slow_dissolve
+        lloyd_narrating neutral "Eddie looks furious as he approaches the room."
+        lloyd_narrating neutral "I think for a moment that he’ll walk past the glass doors once he recognises me through them, ignoring me completely."
+        lloyd_narrating neutral "To my surprise he opens them, albeit more forcefully than he should."
+    elif (person_visited("eddie", "a", 2)):
+        lloyd_narrating neutral "I enter the building’s lobby, confident that I can convince the receptionist to let me in to see Eddie once again."
+        if (check_boolean("eddie_ejects_lloyd")):
+            lloyd_narrating neutral "I’m subsequently surprised when I’m told that I’m not allowed in to see Eddie, or any other employees, unless I’ve been invited."
+            lloyd_thinking thinking "I pushed Eddie to his limit more than I realised.[wait_1] I should have seen this coming."
+            lloyd_narrating neutral "There’s nothing else for me to do here."
+            lloyd_narrating neutral "I leave the building and start thinking about what to do next."
+            $ visit_person("eddie", "a", 3)
+            jump move_location
+        else:
+            lloyd_narrating neutral "I’m directed to the same room that I was in yesterday, and once again told to be patient."
+            lloyd_narrating neutral "To my surprise, Eddie is already in the room when I arrive."
+            scene office_interview_room with slow_dissolve
+
+    $ rewind_point = "eddie_a_b_4_rewind"
+
+label eddie_a_b_4_rewind:
+    if (not person_visited("eddie", "a", 0) and not person_visited("eddie", "a", 1) and not person_visited("eddie", "a", 2)):
+        $ swap_sprites("eddie_smiling")
         $ current_thought = "eddie_thought_36"
         show screen psychic_powers
         employee "Hi.[wait_1] I hear you’ve got a story?" 
@@ -627,11 +669,7 @@ label eddie_a_b_4:
         lloyd_narrating neutral "He grunts and sits down at the table."
         eddie "So, what do you have for me?"
     elif (person_visited("eddie", "a", 0) and not person_visited("eddie", "a", 1) and not person_visited("eddie", "a", 2)):
-        lloyd_narrating neutral "I enter the building’s lobby and speak to the receptionist."
-        lloyd_narrating neutral "I tell her that I’d like to speak to Eddie Thompson about something important, and I’m directed to the same room that I was in the other day."
-        scene office_interview_room with slow_dissolve
-        lloyd_narrating neutral "I don’t hear Eddie approaching the room.[wait_1] That tells me that he hasn’t realised that I’m the person who’s arranged the meeting yet."
-        $ swap_sprites("eddie_angry", slow_dissolve)
+        $ swap_sprites("eddie_angry")
         $ current_thought = "eddie_thought_78"
         show screen psychic_powers
         eddie "Chen.[wait_1] Why am I not surprised that it’s you here?"
@@ -669,13 +707,7 @@ label eddie_a_b_4:
             lloyd_thinking thinking "I don’t know what I would have done if he had said he was too busy and left."
         lloyd neutral "I’ve already told you that I was looking into a killer.[wait_1] But there’s something else that I haven’t told you."
     elif (person_visited("eddie", "a", 1) and not person_visited("eddie", "a", 2)):
-        lloyd_narrating neutral "I enter the building’s lobby."
-        lloyd_narrating neutral "I’ve already called ahead and asked whether I can speak to Eddie, and the receptionist has agreed to arrange something.[wait_1] I’m directed to the same room that I was in last time."
-        scene office_interview_room with slow_dissolve
-        lloyd_narrating neutral "Eddie looks furious as he approaches the room."
-        lloyd_narrating neutral "I think for a moment that he’ll walk past the glass doors once he recognises me through them, ignoring me completely."
-        lloyd_narrating neutral "To my surprise he opens them, albeit more forcefully than he should."
-        $ swap_sprites("eddie_angry", slow_dissolve)
+        $ swap_sprites("eddie_angry")
         $ current_thought = "eddie_thought_51"
         show screen psychic_powers
         eddie "Hey, Chen.[wait_1] You want to tell me why you’re interrupting my work day today?"
@@ -726,44 +758,32 @@ label eddie_a_b_4:
                 $ visit_person("eddie", "a", 3)
                 jump move_location
     elif (person_visited("eddie", "a", 2)):
-        lloyd_narrating neutral "I enter the building’s lobby, confident that I can convince the receptionist to let me in to see Eddie once again."
-        if (check_boolean("eddie_ejects_lloyd")):
-            lloyd_narrating neutral "I’m subsequently surprised when I’m told that I’m not allowed in to see Eddie, or any other employees, unless I’ve been invited."
-            lloyd_thinking thinking "I pushed Eddie to his limit more than I realised.[wait_1] I should have seen this coming."
-            lloyd_narrating neutral "There’s nothing else for me to do here."
-            lloyd_narrating neutral "I leave the building and start thinking about what to do next."
-            $ visit_person("eddie", "a", 3)
-            jump move_location
-        else:
-            lloyd_narrating neutral "I’m directed to the same room that I was in yesterday, and once again told to be patient."
-            lloyd_narrating neutral "To my surprise, Eddie is already in the room when I arrive."
-            scene office_interview_room with slow_dissolve
-            $ swap_sprites("eddie_unimpressed", slow_dissolve)
-            $ current_thought = "eddie_thought_88"
-            show screen psychic_powers
-            eddie "Took you long enough, Chen."
-            lloyd neutral "Eddie.[wait_1] How did you know that I was coming at this time?"
-            eddie "Call it a hunch, Chen.[wait_1] Or maybe you’re just predictable."
-            eddie "You want to do this thing or not?"
-            lloyd neutral "Of course."
-            lloyd_narrating neutral "I pull out a chair and sit down.[wait_1] I notice as I do that Eddie has a manilla folder in front of him."
-            $ current_thought = "eddie_thought_89"
-            lloyd neutral "I take it that the information you’ve discovered is in there?"
-            lloyd_narrating neutral "Eddie scoffs."
-            eddie "I’ve got some stuff, but I doubt it’s anything you really care about."
-            eddie "A combination of the information the cops released to the press, with a bit extra on top that I was able to find out from a mate of mine who knows a guy."
-            lloyd neutral "Anything you have could be important."
-            eddie "You sure?[wait_1] Because most of this is just the gory details –[wait_05] the exact injuries your two victims suffered, some stuff the coroner found."
-            eddie "Before you ask –[wait_05] no, they didn’t find anything unusual during the autopsy.[wait_1] The injuries and states of the bodies were exactly what you’d expect for gunshot victims."
-            lloyd_thinking thinking "It doesn’t sound as though much of that is relevant."
-            lloyd neutral "How about the other person I asked about?[wait_1] The man with the white streak."
-            lloyd_narrating neutral "Eddie sighs and puts the folder away."
-            $ current_thought = "eddie_thought_90"
-            eddie "Yeah, him.[wait_1] I couldn’t find shit on him."
-            eddie "I’m gonna need more than that if you want me to start digging into him."
-            lloyd neutral "I was able to find out a little more yesterday."
-            eddie "You were?![wait_1] Fucking hell, Chen, don’t just sit on it." 
-            eddie "What have you got?"
+        $ swap_sprites("eddie_unimpressed")
+        $ current_thought = "eddie_thought_88"
+        show screen psychic_powers
+        eddie "Took you long enough, Chen."
+        lloyd neutral "Eddie.[wait_1] How did you know that I was coming at this time?"
+        eddie "Call it a hunch, Chen.[wait_1] Or maybe you’re just predictable."
+        eddie "You want to do this thing or not?"
+        lloyd neutral "Of course."
+        lloyd_narrating neutral "I pull out a chair and sit down.[wait_1] I notice as I do that Eddie has a manilla folder in front of him."
+        $ current_thought = "eddie_thought_89"
+        lloyd neutral "I take it that the information you’ve discovered is in there?"
+        lloyd_narrating neutral "Eddie scoffs."
+        eddie "I’ve got some stuff, but I doubt it’s anything you really care about."
+        eddie "A combination of the information the cops released to the press, with a bit extra on top that I was able to find out from a mate of mine who knows a guy."
+        lloyd neutral "Anything you have could be important."
+        eddie "You sure?[wait_1] Because most of this is just the gory details –[wait_05] the exact injuries your two victims suffered, some stuff the coroner found."
+        eddie "Before you ask –[wait_05] no, they didn’t find anything unusual during the autopsy.[wait_1] The injuries and states of the bodies were exactly what you’d expect for gunshot victims."
+        lloyd_thinking thinking "It doesn’t sound as though much of that is relevant."
+        lloyd neutral "How about the other person I asked about?[wait_1] The man with the white streak."
+        lloyd_narrating neutral "Eddie sighs and puts the folder away."
+        $ current_thought = "eddie_thought_90"
+        eddie "Yeah, him.[wait_1] I couldn’t find shit on him."
+        eddie "I’m gonna need more than that if you want me to start digging into him."
+        lloyd neutral "I was able to find out a little more yesterday."
+        eddie "You were?![wait_1] Fucking hell, Chen, don’t just sit on it." 
+        eddie "What have you got?"
     if (not person_visited("eddie", "a", 0) and not person_visited("eddie", "a", 2)):
         $ current_thought = "eddie_thought_62"
         lloyd neutral "There’s something that I’ve been looking into.[wait_1] Several people have been murdered recently by an unknown killer."
@@ -970,7 +990,10 @@ label eddie_c_2:
     lloyd_narrating neutral "I walk into the newspaper’s building and ask to see Eddie once again."
     lloyd_narrating neutral "The receptionist places a quick call and asks me to wait for a few minutes.[wait_1] By the time she’s done I’ve been granted access to the same room I was in yesterday."
     scene office_interview_room with slow_dissolve
-    $ swap_sprites("eddie_angry", slow_dissolve)
+    $ rewind_point = "eddie_c_2_rewind"
+
+label eddie_c_2_rewind:
+    $ swap_sprites("eddie_angry")
     $ current_thought = "eddie_thought_132"
     show screen psychic_powers
     lloyd_narrating neutral "I don’t have to wait long before Eddie arrives."
@@ -1093,12 +1116,6 @@ label eddie_c_3:
         lloyd_narrating neutral "While I wait for Eddie, I stare at some of the awards and framed newspapers on the wall of the room."
         lloyd_narrating neutral "They’re fairly impressive and I feel a stab of jealousy at Eddie for getting to work here. "
         lloyd_thinking thinking "Soon, though..."
-        $ swap_sprites("eddie_angry", slow_dissolve)
-        $ current_thought = "eddie_thought_152"
-        show screen psychic_powers
-        eddie "Alright, Chen.[wait_1] What do you want this time?"
-        eddie "Something more to do with the guy from yesterday?"
-        eddie "Correct, Eddie.[wait_1] Let me tell you about my evening."
     elif (person_visited("eddie", "a", 0)):
         lloyd_narrating neutral "I go to the skyscraper which hosts the newspaper’s offices, and am directed to the same room that I’ve previously been in once I speak to the receptionist."
         lloyd_narrating neutral "It’s located on the first floor, which I have access to despite being a guest."
@@ -1106,7 +1123,19 @@ label eddie_c_3:
         scene office_interview_room with slow_dissolve
         lloyd_narrating neutral "The air-conditioned room feels like ice in comparison to the warmth outside."
         lloyd_narrating neutral "The building may be a gigantic stone monolith, far less impressive than anything that nature can create, but it does have its advantages."
-        $ swap_sprites("eddie_angry", slow_dissolve)
+
+    $ rewind_point = "eddie_c_3_rewind"
+
+label eddie_c_3_rewind:
+    if (person_visited("eddie", "c", 0)):
+        $ swap_sprites("eddie_angry")
+        $ current_thought = "eddie_thought_152"
+        show screen psychic_powers
+        eddie "Alright, Chen.[wait_1] What do you want this time?"
+        eddie "Something more to do with the guy from yesterday?"
+        eddie "Correct, Eddie.[wait_1] Let me tell you about my evening."
+    elif (person_visited("eddie", "a", 0)):
+        $ swap_sprites("eddie_angry")
         $ current_thought = "eddie_thought_91"
         show screen psychic_powers
         eddie "So, Chen."
@@ -1217,7 +1246,30 @@ label eddie_c_4:
         lloyd_narrating neutral "While I’m waiting for Eddie to arrive I look through my photos from the last few days."
         lloyd_narrating neutral "Most of them are of still imagery and architecture, unrelated to my investigation into the killer, but a few could be said to be related."
         lloyd_thinking thinking "Which ones would I want to use...?"
-        $ swap_sprites("eddie_angry", slow_dissolve)
+    elif (person_visited("eddie", "c", 0)):
+        lloyd_narrating neutral "I enter the building that the newspaper’s offices are situated in."
+        lloyd_narrating neutral "The receptionist I’ve previously dealt with is engaged in a phone call, and I decide to wait for her to be free rather than risk ejection from another of the receptionists."
+        lloyd_narrating neutral "Once she’s finally free, I’m easily directed to the same room that I was previously in."
+        scene office_interview_room with slow_dissolve
+        lloyd_narrating neutral "Eddie isn’t in the room yet, which isn’t surprising."
+        lloyd_narrating neutral "I take out my camera and scroll through the gallery of the last few days’ worth of shots." 
+        lloyd_narrating neutral "Very few could be said to be related to my investigation into the killer, but there are enough present for me to work with. "
+        lloyd_thinking thinking "Which ones look the best...?"
+    else:
+        lloyd_narrating neutral "I haven’t been to the building that houses the newspaper’s offices since Tuesday."
+        lloyd_narrating neutral "In spite of that the receptionist I speak to recognises me, and gladly arranges for another meeting with Eddie."
+        lloyd_narrating neutral "I’m slightly surprised that he’s free once again to see me, but appreciate the good fortune regardless.[wait_1] Less explaining will be necessary."
+        scene office_interview_room with slow_dissolve
+        lloyd_narrating neutral "The room is completely empty, which suits me fine."
+        lloyd_narrating neutral "I scroll through the gallery on my camera to see what shots I have from the past few days while I have the opportunity. "
+        lloyd_narrating neutral "Only a few of them are even vaguely related to the investigation into the killer."
+        lloyd_thinking thinking "I don’t have any hard evidence...[wait_1]but they could complement something quite well..."
+    
+    $ rewind_point = "eddie_c_4_rewind"
+
+label eddie_c_4_rewind:
+    if (person_visited("eddie", "c", 1)):
+        $ swap_sprites("eddie_angry")
         $ current_thought = "eddie_thought_166"
         show screen psychic_powers
         eddie "Chen.[wait_1] I told you not to come by right away."
@@ -1228,15 +1280,7 @@ label eddie_c_4:
         lloyd_narrating neutral "Despite his words Eddie sits down in a seat.[wait_1] I notice that today he’s brought a notepad and pen with him."
         lloyd neutral "Let me tell you what I’ve found out."
     elif (person_visited("eddie", "c", 0)):
-        lloyd_narrating neutral "I enter the building that the newspaper’s offices are situated in."
-        lloyd_narrating neutral "The receptionist I’ve previously dealt with is engaged in a phone call, and I decide to wait for her to be free rather than risk ejection from another of the receptionists."
-        lloyd_narrating neutral "Once she’s finally free, I’m easily directed to the same room that I was previously in."
-        scene office_interview_room with slow_dissolve
-        lloyd_narrating neutral "Eddie isn’t in the room yet, which isn’t surprising."
-        lloyd_narrating neutral "I take out my camera and scroll through the gallery of the last few days’ worth of shots." 
-        lloyd_narrating neutral "Very few could be said to be related to my investigation into the killer, but there are enough present for me to work with. "
-        lloyd_thinking thinking "Which ones look the best...?"
-        $ swap_sprites("eddie_angry", slow_dissolve)
+        $ swap_sprites("eddie_angry")
         $ current_thought = "eddie_thought_168"
         show screen psychic_powers
         eddie "Chen.[wait_1] What do you need me for?"
@@ -1246,15 +1290,7 @@ label eddie_c_4:
         eddie "You mind telling me what exactly the go is?"
         lloyd neutral "Certainly.[wait_1] Let me tell you what I’ve discovered."
     else:
-        lloyd_narrating neutral "I haven’t been to the building that houses the newspaper’s offices since Tuesday."
-        lloyd_narrating neutral "In spite of that the receptionist I speak to recognises me, and gladly arranges for another meeting with Eddie."
-        lloyd_narrating neutral "I’m slightly surprised that he’s free once again to see me, but appreciate the good fortune regardless.[wait_1] Less explaining will be necessary."
-        scene office_interview_room with slow_dissolve
-        lloyd_narrating neutral "The room is completely empty, which suits me fine."
-        lloyd_narrating neutral "I scroll through the gallery on my camera to see what shots I have from the past few days while I have the opportunity. "
-        lloyd_narrating neutral "Only a few of them are even vaguely related to the investigation into the killer."
-        lloyd_thinking thinking "I don’t have any hard evidence...[wait_1]but they could complement something quite well..."
-        $ swap_sprites("eddie_angry", slow_dissolve)
+        $ swap_sprites("eddie_angry")
         $ current_thought = "eddie_thought_170"
         show screen psychic_powers
         eddie "So, you finally remembered me, Chen."
@@ -1287,7 +1323,7 @@ label eddie_c_4:
     scene black_bg with quick_dissolve
     lloyd_narrating neutral "I wait for Eddie for around ten minutes.[wait_1] In that time I go through the rest of my camera’s gallery, marking several shots that I’m unhappy with on a second viewing."
     scene office_interview_room with slow_dissolve
-    $ swap_sprites("eddie_unimpressed", quick_dissolve)
+    $ swap_sprites("eddie_unimpressed")
     $ current_thought = "eddie_thought_177"
     show screen psychic_powers
     eddie "Alright, Chen.[wait_1] I hope you’re not squeamish, because I did find out some stuff on how the two of them died."
@@ -1352,7 +1388,17 @@ label eddie_d_3:
         lloyd_narrating neutral "I wonder what sort of relationship he has with the rest of the office that he’s consistently assigned to interviews."
         scene office_interview_room with slow_dissolve
         lloyd_narrating neutral "I don’t have to wait for long before Eddie comes charging into the room."
-        $ swap_sprites("eddie_angry", quick_dissolve)
+    else:
+        lloyd_narrating neutral "I enter the skyscraper that hosts the newspaper’s offices on the ground floor and make my way over to the receptionist."
+        lloyd_narrating neutral "I haven’t called ahead this time so I’m a little wary that Eddie may not be free, but the receptionist remembers me and tells me that they’ll send him over."
+        scene office_interview_room with slow_dissolve
+        lloyd_narrating neutral "I can practically hear the pictures on the wall shaking as Eddie stomps his way over to the room."
+    
+    $ rewind_point = "eddie_d_3_rewind"
+
+label eddie_d_3_rewind:
+    if (person_visited("eddie", "c", 0)):
+        $ swap_sprites("eddie_angry")
         $ current_thought = "eddie_thought_185"
         show screen psychic_powers
         eddie "Alright, Chen.[wait_1] Let’s get this over with."
@@ -1379,11 +1425,7 @@ label eddie_d_3:
         eddie "Wait, really?[wait_1] He really died, like you said he would?"
         lloyd neutral "I did tell you that I thought he was in danger."
     else:
-        lloyd_narrating neutral "I enter the skyscraper that hosts the newspaper’s offices on the ground floor and make my way over to the receptionist."
-        lloyd_narrating neutral "I haven’t called ahead this time so I’m a little wary that Eddie may not be free, but the receptionist remembers me and tells me that they’ll send him over."
-        scene office_interview_room with slow_dissolve
-        lloyd_narrating neutral "I can practically hear the pictures on the wall shaking as Eddie stomps his way over to the room."
-        $ swap_sprites("eddie_angry", quick_dissolve)
+        $ swap_sprites("eddie_angry")
         $ curent_thought = "eddie_thought_185"
         show screen psychic_powers
         eddie "Chen.[wait_1] I don’t know why I’m so surprised; I should have known that my day could have always gotten worse."
@@ -1513,7 +1555,10 @@ label eddie_e_4:
     scene office_interview_room with slow_dissolve
     jack_possessing_thinking smug "Alright, they let me into this nice swanky room without any problems.[wait_1] Probably safe to say that they wouldn’t have done that if they weren’t already interested in what I’ve got." 
     jack_possessing_thinking smug "How much can you sell a single photo for, anyway?[wait_1] I’ll start the bidding at about $500 and can prolly get them up to a grand each with a bit of haggling."
-    $ swap_sprites("eddie_unimpressed", quick_dissolve)
+    $ rewind_point = "eddie_e_4_rewind"
+    
+label eddie_e_4_rewind:
+    $ swap_sprites("eddie_unimpressed")
     $ current_thought = "eddie_thought_237"
     show screen psychic_powers
     reporter "Chen.[wait_1] I thought you weren’t coming by until this evening."

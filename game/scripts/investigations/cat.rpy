@@ -50,7 +50,10 @@ label cat_a_1:
     lloyd_narrating neutral "It’s as though someone wanted to keep any knowledge about psychic abilities – no matter the exact topic – away from everybody else."
     lloyd_narrating neutral "This shouldn’t be happening.[wait_1] The catalogue claimed that most of the books were available."
     lloyd_narrating neutral "I make my way to the nearest desk and talk to a librarian."
-    $ swap_sprites("cat_neutral", slow_dissolve)
+    $ rewind_point = "cat_a_1_rewind"
+
+label cat_a_1_rewind:
+    $ swap_sprites("cat_neutral")
     $ current_thought = "cat_thought_01"
     show screen psychic_powers
     librarian "Can I...[wait_05]help you?"
@@ -177,15 +180,20 @@ label cat_a_2:
     if (person_visited("cat", "a", 0)):
         lloyd_narrating neutral "I don’t hold out any hope that the books I’m interested in have miraculously returned to the shelves."
         lloyd_narrating neutral "I make my way directly to the reception.[wait_1] The same librarian from yesterday is there today."
-        $ swap_sprites("cat_neutral", slow_dissolve)
-        $ current_thought = "cat_thought_29"
-        show screen psychic_powers
-        lloyd_narrating neutral "Three piles of books are before her."
     else:
         lloyd_narrating neutral "The library’s online catalogue showed what looked like some promising books, but I don’t make my way to the shelves."
         lloyd_narrating neutral "Instead I walk over to the library’s reception desk."
         lloyd_narrating neutral "I’m hoping that somebody here can provide me with some recommendations."
-        $ swap_sprites("cat_neutral", slow_dissolve)
+    $ rewind_point = "cat_a_2_rewind"
+
+label cat_a_2_rewind:
+    if (person_visited("cat", "a", 0)):
+        $ swap_sprites("cat_neutral")
+        $ current_thought = "cat_thought_29"
+        show screen psychic_powers
+        lloyd_narrating neutral "Three piles of books are before her."
+    else:
+        $ swap_sprites("cat_neutral")
         $ current_thought = "cat_thought_01"
         show screen psychic_powers
         lloyd_narrating neutral "The closest librarian has three piles of books before her."
@@ -380,7 +388,10 @@ label cat_a_3:
     lloyd_narrating neutral "I walk to the library’s reception desk immediately, assuming that Cat will be there as she was yesterday."
     lloyd_narrating neutral "I'm wrong.[wait_1] From there I quietly walk around the library, trying to find where Cat might be."
     lloyd_narrating neutral "Eventually I give up and ask another librarian, who retrieves Cat from a small staff kitchen."
-    $ swap_sprites("cat_neutral", slow_dissolve)
+    $ rewind_point = "cat_a_3_rewind"
+
+label cat_a_3_rewind:
+    $ swap_sprites("cat_neutral")
     $ current_thought = "cat_thought_55"
     show screen psychic_powers
     lloyd_narrating neutral "Something about Cat looks different today.[wait_1] I can’t put my finger on it, but something about her has changed."
@@ -504,7 +515,13 @@ label cat_a_4:
         lloyd_narrating neutral "It’s then that I see something which explains everything."
         lloyd_thinking neutral "“...search powered by LibrAIry, the AI designed by and for libraries.”[wait_1] Well.[wait_1] That explains it."
         lloyd_narrating neutral "I’m not going to find anything useful any time soon.[wait_1] Not unless I get help."
-        $ swap_sprites("cat_neutral", slow_dissolve)
+    else:
+        lloyd_narrating neutral "I walk to the library’s reception desk, where Cat is."
+    $ rewind_point = "cat_a_4_rewind"
+
+label cat_a_4_rewind:
+    if (person_visited("cat", "a", 2)):
+        $ swap_sprites("cat_neutral")
         $ current_thought = "cat_thought_67"
         show screen psychic_powers
         lloyd_narrating neutral "Cat is at the library reception desk again today."
@@ -514,9 +531,9 @@ label cat_a_4:
         lloyd neutral "Hello, Cat.[wait_1] I’m not going to disturb you for very long, but can I get some advice from you on searching for someone?"
         lloyd neutral "I’m trying to find information about one of the victims."
     else:
-        lloyd_narrating neutral "I walk to the library’s reception desk, where Cat is."
-        $ swap_sprites("cat_neutral", slow_dissolve)
+        $ swap_sprites("cat_neutral")
         $ current_thought = "cat_thought_55"
+        show screen psychic_powers
         lloyd_narrating neutral "If it were possible for her to look more emotionless than usual, she would be."
         lloyd_narrating neutral "Her eyes flicker up towards me with a hint of recognition.[wait_1] She doesn’t say anything."
         lloyd neutral "Hello, Cat."
@@ -632,7 +649,10 @@ label cat_b_4:
     lloyd_narrating neutral "There are far more people in the library today compared to the last time I visited."
     lloyd_narrating neutral "Nobody is being particularly loud but the noise a bulk of people creates combines regardless, creating a persistent background sound."
     lloyd_narrating neutral "It’s not loud enough to be off-putting, but it is a distraction regardless.[wait_1] I try to ignore it as I look for Cat."
-    $ swap_sprites("cat_neutral", slow_dissolve)
+    $ rewind_point = "cat_b_4_rewind"
+    
+label cat_b_4_rewind:
+    $ swap_sprites("cat_neutral")
     $ current_thought = "cat_thought_78"
     show screen psychic_powers
     lloyd_narrating neutral "I eventually find her at the reception desk."
@@ -744,7 +764,14 @@ label cat_c_2:
     lloyd_narrating neutral "Given enough time I might start sweating beneath my jacket but for the time being it’s a comfort."
     if (person_visited("cat", "a", 0)):
         lloyd_narrating neutral "I immediately make my way to the reception desk. I already know that I won’t find what I need on the shelves."
-        $ swap_sprites("cat_neutral", slow_dissolve)
+    else:
+        lloyd_narrating neutral "After giving it some thought I’ve decided that my best bet is to talk to a librarian."
+        lloyd_narrating neutral "They should be able to recommend which books I should use for research and can potentially show me others that I’ve overlooked."
+    $ rewind_point = "cat_c_2_rewind"
+
+label cat_c_2_rewind:
+    if (person_visited("cat", "a", 0)):
+        $ swap_sprites("cat_neutral")
         show screen psychic_powers
         if (not check_boolean("cat_name_discovered")):
             $ current_thought = "cat_thought_90"
@@ -770,9 +797,7 @@ label cat_c_2:
         lloyd_narrating neutral "But after what feels like an eternity she finally speaks."
         cat "I can’t give you access...[wait_1]if they’re not available.[wait_1] I keep telling you."
     else:
-        lloyd_narrating neutral "After giving it some thought I’ve decided that my best bet is to talk to a librarian."
-        lloyd_narrating neutral "They should be able to recommend which books I should use for research and can potentially show me others that I’ve overlooked."
-        $ swap_sprites("cat_neutral", slow_dissolve)
+        $ swap_sprites("cat_neutral")
         show screen psychic_powers
         $ current_thought = "cat_thought_94"
         lloyd_narrating neutral "A librarian wearing a purple dress is the only one that’s currently free."
@@ -917,7 +942,13 @@ label cat_c_3:
     lloyd_narrating neutral "My every step feels noisier than usual, as though I’m disturbing people simply by moving around the library.[wait_1] I know that it’s all in my head, but it still feels wrong."
     if (person_visited("cat", "c", 0) or person_visited("cat", "a", 0)):
         lloyd_narrating neutral "I wander around the library until I eventually find Cat."
-        $ swap_sprites("cat_neutral", slow_dissolve)
+    else:
+        lloyd_narrating neutral "I wander around the library until I find a librarian who isn’t busy, spotting this one just as she leaves a break room."
+    $ rewind_point = "cat_c_3_rewind"
+
+label cat_c_3_rewind:
+    if (person_visited("cat", "c", 0) or person_visited("cat", "a", 0)):
+        $ swap_sprites("cat_neutral")
         $ current_thought = "cat_thought_122"
         show screen psychic_powers
         if (person_visited("cat", "c", 0)):
@@ -927,8 +958,7 @@ label cat_c_3:
             lloyd_narrating neutral "She was hostile on Monday when I wanted to see the books about psychic research, and was present at the venue last night."
             lloyd_narrating neutral "Her behaviour has been suspicious, and I’d like to find out whether she knows anything about Sergei."
     else:
-        lloyd_narrating neutral "I wander around the library until I find a librarian who isn’t busy, spotting this one just as she leaves a break room."
-        $ swap_sprites("cat_neutral", slow_dissolve)
+        $ swap_sprites("cat_neutral")
         $ current_thought = "cat_thought_123"
         show screen psychic_powers
         lloyd_narrating neutral "To my surprise, it’s the woman I saw outside the venue last night –[wait_05] Cat."
@@ -1075,7 +1105,10 @@ label cat_c_4:
     # Screen shake effect
     scene black_bg with slow_dissolve
     scene library_night with slow_dissolve
-    $ swap_sprites("cat_cold", slow_dissolve)
+    $ rewind_point = "cat_c_4_rewind"
+
+label cat_c_4_rewind:
+    $ swap_sprites("cat_cold")
     $ current_thought = "cat_thought_141"
     show screen psychic_powers
     cat "Hello, Lloyd."
@@ -1083,7 +1116,7 @@ label cat_c_4:
     lloyd_narrating neutral "I don’t know how long I’ve been knocked out for.[wait_1] I try to move but the ropes are too tight."
     lloyd_narrating neutral "All that I can do for now is talk."
     scene library_night with slow_dissolve
-    $ swap_sprites("cat_cold", slow_dissolve)
+    $ swap_sprites("cat_cold")
     lloyd neutral "What’s going on, Cat?"
     cat "You failed the test, Lloyd."
     lloyd neutral "What test?"
@@ -1109,7 +1142,7 @@ label cat_c_4:
     lloyd scared "I was asking questions because I was trying to find out where he was so that I could warn him![wait_1] I –[wait_05] the reason that I was at the venue is that I was too late."
     lloyd scared "And then afterwards, I –[wait_05] I wanted to identify what it was about him that had drawn the killer’s attention.[wait_1] I wanted to find the next target and –[wait_05] I wanted to warn them, since I couldn’t for Sergei."
     scene library_night with slow_dissolve
-    $ swap_sprites("cat_cold", slow_dissolve)
+    $ swap_sprites("cat_cold")
     cat "Why would you do all of that?"
     lloyd scared "Because I –[wait_05] I want to help people.[wait_1] Obviously."
     lloyd_narrating neutral "Cat starts to lower the knife.[wait_1] She realises that she’s misinterpreted my actions and has made a mistake."
@@ -1202,7 +1235,18 @@ label cat_d_3:
     scene library_day with slow_dissolve
     if (person_visited("cat", "c", 0)):
         lloyd_narrating neutral "I make my way to the reception desk, where I find Cat once more."
-        $ swap_sprites("cat_neutral", quick_dissolve)
+    elif (person_visited("cat", "a", 0)):
+        lloyd_narrating neutral "Once I’m inside the library I walk over to the reception desk."
+        lloyd_narrating neutral "I wasn’t able to borrow the books on psychic research the other day, but I’m going to have to insist on it today."
+    else:
+        lloyd_narrating neutral "Once I’m inside the library I walk over to the reception desk.[wait_1] I’m unsure whether any books here will actually be of use to me, but I need to start somewhere."
+        lloyd_narrating neutral "A librarian should be able to help me find what topics they have on genuine psychic research and knowledge, avoiding scams and false information perpetuated by new age con artists."
+    
+    $ rewind_point = "cat_d_3_rewind"
+
+label cat_d_3_rewind:
+    if (person_visited("cat", "c", 0)):
+        $ swap_sprites("cat_neutral")
         $ current_thought = "cat_thought_150"
         show screen psychic_powers
         lloyd neutral "Cat, I’d like to talk to you about yesterday.[wait_1] I was asking you about somebody and I think that you did know who he was, contrary to your denials."
@@ -1213,9 +1257,7 @@ label cat_d_3:
         lloyd neutral "There is?"
         lloyd_narrating neutral "Cat nods again."
     elif (person_visited("cat", "a", 0)):
-        lloyd_narrating neutral "Once I’m inside the library I walk over to the reception desk."
-        lloyd_narrating neutral "I wasn’t able to borrow the books on psychic research the other day, but I’m going to have to insist on it today."
-        $ swap_sprites("cat_neutral", quick_dissolve)
+        $ swap_sprites("cat_neutral")
         $ current_thought = "cat_thought_150"
         show screen psychic_powers
         if (check_boolean("cat_name_discovered")):
@@ -1236,9 +1278,7 @@ label cat_d_3:
         lloyd neutral "There is?"
         lloyd_narrating neutral "Cat nods again."
     else:
-        lloyd_narrating neutral "Once I’m inside the library I walk over to the reception desk.[wait_1] I’m unsure whether any books here will actually be of use to me, but I need to start somewhere."
-        lloyd_narrating neutral "A librarian should be able to help me find what topics they have on genuine psychic research and knowledge, avoiding scams and false information perpetuated by new age con artists."
-        $ swap_sprites("cat_neutral", quick_dissolve)
+        $ swap_sprites("cat_neutral")
         $ current_thought = "cat_thought_150"
         show screen psychic_powers
         lloyd_narrating neutral "As I approach the librarian at the desk, her eyes flicker up towards me.[wait_1] There’s a glimmer of recognition present in them."
@@ -1385,8 +1425,11 @@ label cat_d_4:
     lloyd_narrating neutral "It would be a nice hobby to resume."
     scene library_day with slow_dissolve
     lloyd_narrating neutral "I immediately make my way to the reception desk."
+    $ rewind_point = "cat_d_4_rewind"
+
+label cat_d_4_rewind:
     if (person_visited("cat", "d", 0)):
-        $ swap_sprites("cat_neutral", quick_dissolve)
+        $ swap_sprites("cat_neutral")
         $ current_thought = "cat_thought_170"
         show screen psychic_powers
         lloyd_narrating neutral "Cat is sitting there, typing something into a laptop, but she closes it as I approach."
@@ -1400,7 +1443,7 @@ label cat_d_4:
         cat "Sorry, Lloyd.[wait_1] I don’t have anything for you."
         lloyd neutral "Don’t worry about it.[wait_1] I have good news for you."
     else:
-        $ swap_sprites("cat_neutral", quick_dissolve)
+        $ swap_sprites("cat_neutral")
         $ current_thought = "cat_thought_170"
         show screen psychic_powers
         if (check_boolean("cat_name_discovered")):
@@ -1518,7 +1561,10 @@ label cat_e_4:
     jack_possessing_thinking angry "How does a place like this even still exist?[wait_1] Who the hell still reads these days?"
     jack_possessing_thinking angry "We’ve got tvs, youtube, video games –[wait_1] we don’t need books any more."
     jack_possessing_thinking angry "Though I guess some freaks do things like playing video games that are all about reading, so it just goes to show that some people don’t know how to have any fun."
-    $ swap_sprites("cat_neutral", slow_dissolve)
+    $ rewind_point = "cat_e_4_rewind"
+
+label cat_e_4_rewind:
+    $ swap_sprites("cat_neutral")
     $ current_thought = "cat_thought_190"
     show screen psychic_powers
     jack_possessing_thinking smug "Wow...[wait_05]she’s super hot!"

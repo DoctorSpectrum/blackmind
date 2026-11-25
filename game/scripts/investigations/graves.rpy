@@ -41,7 +41,10 @@ label graves_a_1:
     lloyd_narrating neutral "It’s hardly the whiskey-soaked, chiaroscuro-styled office that Raymond Chandler would have you believe detectives work out of."
     lloyd_narrating neutral "It’s fairly small, and looks like it was only moved into a few hours ago."
     lloyd_narrating neutral "Much of the equipment is new, and there’s a very sterile smell in the air, as though the furniture’s only just come out of the box."
-    $ swap_sprites("graves_intimidating", slow_dissolve)
+    $ rewind_point = "graves_a_1_rewind"
+    
+label graves_a_1_rewind:
+    $ swap_sprites("graves_intimidating")
     $ current_thought = "graves_thought_01"
     show screen psychic_powers
     $ pause_for_mind_read()
@@ -180,7 +183,20 @@ label graves_a_2:
         lloyd_narrating neutral "The room is far from the stereotypical image of a detective’s place of business."
         lloyd_narrating neutral "No half-slitted blinds, wooden furniture, or deep shadows."
         lloyd_narrating neutral "If I didn’t know what the office was for I would have guessed that an IT company had just started up here."
-        $ swap_sprites("graves_intimidating", slow_dissolve)
+    else:
+        lloyd_narrating neutral "I wasn’t overly impressed with Graves when we met yesterday, but I can’t fault his confidence in himself."
+        lloyd_narrating neutral "If I explain what I know of last night and share all relevant information with him he may have some answers."
+        lloyd_narrating neutral "Even if all that he can do is give me some direction to look in, that’s more than I currently have."
+        lloyd_narrating neutral "I make my way towards the office building that he works out of."
+        lloyd_narrating neutral "The light for a pedestrian crossing turns red just as I reach it which leaves me standing at the crossing for a good minute or so, freezing in the wind as I wait."
+        lloyd_narrating neutral "Eventually it returns to green and I continue to the office, making a decent enough pace that I warm myself up simply through the exercise."
+        scene detective_office with slow_dissolve
+    
+    $ rewind_point = "graves_a_2_rewind"
+
+label graves_a_2_rewind:
+    if (not person_visited("graves", "a", 0)):
+        $ swap_sprites("graves_intimidating")
         $ current_thought = "graves_thought_34"
         show screen psychic_powers
         detective "So, you’re looking for some investigating?"
@@ -205,14 +221,7 @@ label graves_a_2:
         graves "Nice to meet you, Lloyd."
         graves "So tell me –[wait_05] what sort of investigating, exactly, are we talking about?"
     else:
-        lloyd_narrating neutral "I wasn’t overly impressed with Graves when we met yesterday, but I can’t fault his confidence in himself."
-        lloyd_narrating neutral "If I explain what I know of last night and share all relevant information with him he may have some answers."
-        lloyd_narrating neutral "Even if all that he can do is give me some direction to look in, that’s more than I currently have."
-        lloyd_narrating neutral "I make my way towards the office building that he works out of."
-        lloyd_narrating neutral "The light for a pedestrian crossing turns red just as I reach it which leaves me standing at the crossing for a good minute or so, freezing in the wind as I wait."
-        lloyd_narrating neutral "Eventually it returns to green and I continue to the office, making a decent enough pace that I warm myself up simply through the exercise."
-        scene detective_office with slow_dissolve
-        $ swap_sprites("graves_smiling", slow_dissolve)
+        $ swap_sprites("graves_smiling")
         $ current_thought = "graves_thought_39"
         show screen psychic_powers
         lloyd_narrating neutral "Graves is leaning against a desk as I enter the office, patiently waiting for me."
@@ -370,7 +379,10 @@ label graves_a_3:
         lloyd_narrating neutral "There’s no heavy wooden furniture, glasses of whiskey, or dramatic lighting to be found here."
         lloyd_narrating neutral "Before me I see a fairly modern office, with two desks and computers."
         lloyd_narrating neutral "It could just as easily be used by lawyers, accountants, or any other job less dramatic than private investigator."
-    $ swap_sprites("graves_intimidating", slow_dissolve)
+    $ swap_sprites("graves_intimidating")
+    $ rewind_point = "graves_a_3_rewind"
+
+label graves_a_3_rewind:
     show screen psychic_powers
     if (person_visited("graves", "a", 0) or person_visited("graves", "a", 1)):
         $ current_thought = "graves_thought_54"
@@ -527,7 +539,10 @@ label graves_a_4:
     lloyd_narrating neutral "Beyond my vision of the man in black and a little bit of Jack’s past, I haven’t gained anything particularly insightful from this whole affair."
     lloyd_narrating neutral "I’m relying on Graves to salvage this investigation and give me some progress.[wait_1] I don’t want to think about the alternative."
     scene detective_office with slow_dissolve
-    $ swap_sprites("graves_intimidating", slow_dissolve)
+    $ rewind_point = "graves_a_4_rewind"
+
+label graves_a_4_rewind:
+    $ swap_sprites("graves_intimidating")
     $ current_thought = "graves_thought_99"
     show screen psychic_powers
     lloyd_narrating neutral "There’s a weariness to Graves’ body language as I enter the office."
@@ -606,7 +621,7 @@ label graves_a_4:
     graves "And I want to be a good person.[wait_1] Don’t you?"
     graves "The pressure, or the guilt, or the –[wait_05] whatever it is, it might not be fun to deal with, but it’s better to have it there and know that you’re doing the right thing, than to just –[wait_05] I don’t know, be selfish, and only think about yourself."
     scene detective_office with quick_dissolve
-    $ swap_sprites("graves_smiling", quick_dissolve)
+    $ swap_sprites("graves_smiling")
     $ current_thought = "graves_thought_111"
     lloyd neutral "So you think that it’s a good thing that I’ve been looking into Jack’s death?"
     graves "I –[wait_05] it’s possibly a bit quixotic, but I think that as long as you aren’t doing anything stupid, and you’re doing it for the right reasons, yeah."
@@ -667,7 +682,29 @@ label graves_b_4:
         lloyd_narrating neutral "I reach Graves’ building and press the intercom button."
         lloyd_narrating neutral "Graves lets me in and I make my way up the stairs.[wait_1] There’s no sign of progress on the elevator."
         scene detective_office with slow_dissolve
-        $ swap_sprites("graves_smiling", slow_dissolve)
+    else:
+        lloyd_narrating neutral "I wonder whether any of them have visited the detectives before, or been the target of one of their investigations."
+        lloyd_narrating neutral "Are they open books to them?[wait_1] Do they know all of their secrets?"
+        lloyd_narrating neutral "However much work they’ve had to put into it, I could replicate in seconds with careful use of my abilities." 
+        lloyd_narrating neutral "It’s a little unsettling to think of the power contained in my mind."
+        lloyd_narrating neutral "I reach the building that the detectives’ office is located at.[wait_1] It looks fairly nondescript and unassuming."
+        lloyd_narrating neutral "Will the private investigators be good enough to find other psychics for me?"
+        lloyd_narrating neutral "I reach out and press the intercom button."
+        # SFX door reception buzz
+        unknown "Yeah?"
+        lloyd_narrating neutral "The voice that comes through the speaker is as rough as gravel."
+        lloyd neutral "I have a case for your office.[wait_1] Are you interested?"
+        lloyd_narrating neutral "Silence for several seconds.[wait_1] And then –"
+        unknown "Alright, come on up."
+        lloyd_narrating neutral "The door clicks open and I make my way inside.[wait_1] I climb a stairwell up to the fourth floor and enter a door with the agency’s logo on it."
+        scene detective_office with slow_dissolve
+        lloyd_narrating neutral "The office I step into is as nondescript as the building.[wait_1] It feels more suited to bookkeepers or accountants than private investigators."
+
+    $ rewind_point = "graves_b_4"
+
+label graves_b_4_rewind:
+    if (person_visited("graves", "a", 0) or person_visited("graves", "a", 1) or person_visited("graves", "a", 2)):
+        $ swap_sprites("graves_smiling")
         $ current_thought = "graves_thought_117"
         show screen psychic_powers
         lloyd_narrating neutral "Graves is looking as casual as ever.[wait_1] He’s leaning back in his chair and writing something on a notepad."
@@ -740,23 +777,7 @@ label graves_b_4:
             lloyd neutral "That’s fine.[wait_1] I have more important things to talk to you about."
             graves "Yeah?[wait_1] What sort of things?"
     else:
-        lloyd_narrating neutral "I wonder whether any of them have visited the detectives before, or been the target of one of their investigations."
-        lloyd_narrating neutral "Are they open books to them?[wait_1] Do they know all of their secrets?"
-        lloyd_narrating neutral "However much work they’ve had to put into it, I could replicate in seconds with careful use of my abilities." 
-        lloyd_narrating neutral "It’s a little unsettling to think of the power contained in my mind."
-        lloyd_narrating neutral "I reach the building that the detectives’ office is located at.[wait_1] It looks fairly nondescript and unassuming."
-        lloyd_narrating neutral "Will the private investigators be good enough to find other psychics for me?"
-        lloyd_narrating neutral "I reach out and press the intercom button."
-        # SFX door reception buzz
-        unknown "Yeah?"
-        lloyd_narrating neutral "The voice that comes through the speaker is as rough as gravel."
-        lloyd neutral "I have a case for your office.[wait_1] Are you interested?"
-        lloyd_narrating neutral "Silence for several seconds.[wait_1] And then –"
-        unknown "Alright, come on up."
-        lloyd_narrating neutral "The door clicks open and I make my way inside.[wait_1] I climb a stairwell up to the fourth floor and enter a door with the agency’s logo on it."
-        scene detective_office with slow_dissolve
-        lloyd_narrating neutral "The office I step into is as nondescript as the building.[wait_1] It feels more suited to bookkeepers or accountants than private investigators."
-        $ swap_sprites("graves_intimidating", slow_dissolve)
+        $ swap_sprites("graves_intimidating")
         $ current_thought = "graves_thought_128"
         show screen psychic_powers
         lloyd_narrating neutral "The man in the office, by contrast, is a little more of what I’ve been expecting."
@@ -874,7 +895,24 @@ label graves_c_2:
     lloyd_narrating neutral "It’s bad enough that it sends my hair flying chaotically, but things are made worse when it blows my jacket open and sends it billowing out behind me.[wait_1] For the moment I zip it up further before I continue to the detectives’ agency."
     if (person_visited("graves", "a", 0)):
         scene detective_office with slow_dissolve
-        $ swap_sprites("graves_smiling", slow_dissolve)
+    else:
+        lloyd_narrating neutral "The building that the detectives’ agency is situated in is fairly small."
+        lloyd_narrating neutral "I don’t recognise any of the company logos on the directory, telling me that office spaces are likely cheap to rent."
+        lloyd_narrating neutral "I press the intercom for the fourth floor."
+        # SFX door reception buzz
+        unknown "Graves here."
+        lloyd_thinking thinking "Graves?"
+        lloyd neutral "Could I please come in?[wait_1] I have a case that I’d like to hire you for."
+        unknown "Sure thing.[wait_1] C’mon up, kid."
+        lloyd_narrating neutral "The door unlocks and I enter the building.[wait_1] A sign tells me that the elevator is out of order so I climb the stairs upwards."
+        scene detective_office with slow_dissolve
+        lloyd_narrating neutral "The detectives’ office has more plastic and metal than the stereotypical image would have you expect."
+        lloyd_narrating neutral "There are more computers, too, in lieu of heavy oak desks and worn down leather couches."
+    $ rewind_point = "graves_c_2_rewind"
+
+label graves_c_2_rewind:
+    if (person_visited("graves", "a", 0)):
+        $ swap_sprites("graves_smiling")
         $ current_thought = "graves_thought_144"
         show screen psychic_powers
         lloyd_narrating neutral "As I enter the office Graves is writing something on a notepad.[wait_1] My curiosity gets the better of me and I try to read what I can of it."
@@ -890,19 +928,7 @@ label graves_c_2:
         $ current_thought = "graves_thought_147"
         lloyd neutral "That’s fine.[wait_1] Actually, I’d like you to look into somebody else who’s related to the case."
     else:
-        lloyd_narrating neutral "The building that the detectives’ agency is situated in is fairly small."
-        lloyd_narrating neutral "I don’t recognise any of the company logos on the directory, telling me that office spaces are likely cheap to rent."
-        lloyd_narrating neutral "I press the intercom for the fourth floor."
-        # SFX door reception buzz
-        unknown "Graves here."
-        lloyd_thinking thinking "Graves?"
-        lloyd neutral "Could I please come in?[wait_1] I have a case that I’d like to hire you for."
-        unknown "Sure thing.[wait_1] C’mon up, kid."
-        lloyd_narrating neutral "The door unlocks and I enter the building.[wait_1] A sign tells me that the elevator is out of order so I climb the stairs upwards."
-        scene detective_office with slow_dissolve
-        lloyd_narrating neutral "The detectives’ office has more plastic and metal than the stereotypical image would have you expect."
-        lloyd_narrating neutral "There are more computers, too, in lieu of heavy oak desks and worn down leather couches."
-        $ swap_sprites("graves_intimidating", slow_dissolve)
+        $ swap_sprites("graves_intimidating")
         $ current_thought = "graves_thought_148"
         show screen psychic_powers
         lloyd_narrating neutral "Although there are two desks there’s only one occupant of the room."
@@ -1002,32 +1028,10 @@ label graves_c_3:
     if (person_visited("graves", "c", 0)):
         lloyd_narrating neutral "I press the intercom outside the building and connect to the fourth floor.[wait_1] Graves unlocks the door for me and lets me in."
         scene detective_office with slow_dissolve
-        $ swap_sprites("graves_smiling", slow_dissolve)
-        $ current_thought = "graves_thought_164"
-        show screen psychic_powers
-        lloyd_narrating neutral "Graves is casually leaning against his desk as I enter the office, as though he’s got nothing better to do today other than wait for me to visit."
-        lloyd_narrating neutral "Unlike when I arrived yesterday, his desk is completely bare."
-        lloyd_thinking thinking "Did he intentionally hide his notes so that I wouldn’t read any of them again?"
-        $ current_thought = "graves_thought_165"
-        graves "Hi, Lloyd.[wait_1] What brings you to my office today?"
-        lloyd neutral "It’s regarding the man I was talking to you about yesterday.[wait_1] The one in the loud suit."
-        graves "Oh yes?[wait_1] What’s new there?"
-        lloyd neutral "I’d like you to investigate his background."
     elif (person_visited("graves", "a", 0)):
         lloyd_narrating neutral "When I press the intercom button for Graves, he’s initially as gruff and grizzled as when I first met him."
         lloyd_narrating neutral "Upon explaining who it is, his demeanour changes completely and he lets me in."
         scene detective_office with slow_dissolve
-        $ swap_sprites("graves_smiling", slow_dissolve)
-        $ current_thought = "graves_thought_166"
-        show screen psychic_powers
-        lloyd_narrating neutral "Graves looks completely at ease as I enter his office."
-        lloyd_narrating neutral "I can almost understand why he wanted to present a more hard-boiled persona to me when we first met; he’s not far off appearing too inexperienced and naïve."
-        graves "Hi, Lloyd.[wait_1] You want an update on the case?"
-        $ current_thought = "graves_thought_40"
-        graves "If so, I don’t have any good news for you.[wait_1] I thought that I had something, but when I looked further into it the main –[wait_05] it turned out to be a dead end."
-        $ current_thought = "graves_thought_41"
-        lloyd neutral "That’s fine.[wait_1] There’s somebody else that I’d like you to look into."
-        graves "Sure, just give me the details."
     else:
         lloyd_narrating neutral "The building that the detective agency is located in isn’t very large."
         lloyd_narrating neutral "I can’t comment on the inside yet, but the outside it looks as though it’s seen better days."
@@ -1043,7 +1047,36 @@ label graves_c_3:
         lloyd_narrating neutral "I initially think that I’ve walked into the wrong office before I realise that I’m letting my prejudices affect me."
         lloyd_narrating neutral "It looks more like the office of a small IT company than that of a detective agency."
         lloyd_narrating neutral "But there’s no real reason for private investigators to match the stereotype of a shadowy office filled with alcohol and bullet holes."
-        $ swap_sprites("graves_intimidating", slow_dissolve)
+
+    $ rewind_point = "graves_c_3_rewind"
+
+label graves_c_3_rewind:
+    if (person_visited("graves", "c", 0)):
+        $ swap_sprites("graves_smiling")
+        $ current_thought = "graves_thought_164"
+        show screen psychic_powers
+        lloyd_narrating neutral "Graves is casually leaning against his desk as I enter the office, as though he’s got nothing better to do today other than wait for me to visit."
+        lloyd_narrating neutral "Unlike when I arrived yesterday, his desk is completely bare."
+        lloyd_thinking thinking "Did he intentionally hide his notes so that I wouldn’t read any of them again?"
+        $ current_thought = "graves_thought_165"
+        graves "Hi, Lloyd.[wait_1] What brings you to my office today?"
+        lloyd neutral "It’s regarding the man I was talking to you about yesterday.[wait_1] The one in the loud suit."
+        graves "Oh yes?[wait_1] What’s new there?"
+        lloyd neutral "I’d like you to investigate his background."
+    elif (person_visited("graves", "a", 0)):
+        $ swap_sprites("graves_smiling")
+        $ current_thought = "graves_thought_166"
+        show screen psychic_powers
+        lloyd_narrating neutral "Graves looks completely at ease as I enter his office."
+        lloyd_narrating neutral "I can almost understand why he wanted to present a more hard-boiled persona to me when we first met; he’s not far off appearing too inexperienced and naïve."
+        graves "Hi, Lloyd.[wait_1] You want an update on the case?"
+        $ current_thought = "graves_thought_40"
+        graves "If so, I don’t have any good news for you.[wait_1] I thought that I had something, but when I looked further into it the main –[wait_05] it turned out to be a dead end."
+        $ current_thought = "graves_thought_41"
+        lloyd neutral "That’s fine.[wait_1] There’s somebody else that I’d like you to look into."
+        graves "Sure, just give me the details."
+    else:
+        $ swap_sprites("graves_intimidating")
         $ current_thought = "graves_thought_167"
         show screen psychic_powers
         lloyd_narrating neutral "Despite the presence of two desks only a single person is present.[wait_1] He’s leaning against a desk, clearly waiting for me."
@@ -1185,7 +1218,26 @@ label graves_c_4:
     if (person_visited("graves", "c", 1)):
         lloyd_narrating neutral "Before long I reach the building that Graves’ office is in.[wait_1] He lets me in once I dial the intercom, and I climb the stairs to meet him."
         scene detective_office with slow_dissolve
-        $ swap_sprites("graves_smiling", quick_dissolve)
+    elif (person_visited("graves", "c", 0)):
+        lloyd_narrating neutral "Before long I reach the building that Graves’ office is in.[wait_1] He lets me in once I dial the intercom, and I climb the stairs to meet him."
+        scene detective_office with slow_dissolve
+    elif (person_visited("graves", "a", 0)):
+        lloyd_narrating neutral "The journey to Graves’ office isn’t very much further from there, and I’m soon climbing the stairs upwards to the fourth floor."
+        scene detective_office with slow_dissolve
+    else:
+        lloyd_narrating neutral "The building that holds the detectives’ office is short and squat.[wait_1] Examining the directory beside the door, I don’t recognise a single company maintaining an office within."
+        lloyd_narrating neutral "I press the intercom for the fourth floor."
+        unknown "Who is it?"
+        lloyd neutral "My name is Lloyd.[wait_1] I’ve got something that requires investigation."
+        unknown "Alright then.[wait_1] Come on up."
+        scene detective_office with slow_dissolve
+        lloyd_narrating neutral "I emerge from the stairs and into a fairly modern office."
+        lloyd_narrating neutral "Neither the desks nor the chairs look to be particularly expensive, and I suspect that if the occupants could have found cheaper alternatives, they would have bought them."
+    $ rewind_point = "graves_c_4_rewind"
+
+label graves_c_4_rewind:
+    if (person_visited("graves", "c", 1)):
+        $ swap_sprites("graves_smiling")
         $ current_thought = "graves_thought_188"
         show screen psychic_powers
         lloyd_narrating neutral "Although Graves rises from his chair and greets me warmly when I enter, I can tell that he’s put off by my appearance."
@@ -1200,9 +1252,7 @@ label graves_c_4:
         $ current_thought = "graves_thought_190"
         lloyd neutral "Something else has come up.[wait_1] I’d like to talk to you about two of the killer’s other victims."
     elif (person_visited("graves", "c", 0)):
-        lloyd_narrating neutral "Before long I reach the building that Graves’ office is in.[wait_1] He lets me in once I dial the intercom, and I climb the stairs to meet him."
-        scene detective_office with slow_dissolve
-        $ swap_sprites("graves_smiling", quick_dissolve)
+        $ swap_sprites("graves_smiling")
         $ current_thought = "graves_thought_191"
         show screen psychic_powers
         graves "Hi, Lloyd.[wait_1] How’s life treating you?"
@@ -1217,9 +1267,7 @@ label graves_c_4:
         $ current_thought = "graves_thought_193"
         lloyd neutral "There are two people that I’d like to talk to you about, who have both died recently.[wait_1] I’d like you to conduct an investigation into them."
     elif (person_visited("graves", "a", 0)):
-        lloyd_narrating neutral "The journey to Graves’ office isn’t very much further from there, and I’m soon climbing the stairs upwards to the fourth floor."
-        scene detective_office with slow_dissolve
-        $ swap_sprites("graves_smiling", quick_dissolve)
+        $ swap_sprites("graves_smiling")
         $ current_thought = "graves_thought_166"
         show screen psychic_powers
         graves "Hi, Lloyd.[wait_1] It’s been a few days, huh?"
@@ -1230,15 +1278,7 @@ label graves_c_4:
         lloyd neutral "Don’t worry about it.[wait_1] There are two other people that I’d like to talk to you about now."
         lloyd neutral "Both of them have recently died, and I’d like you to conduct an investigation into them."
     else:
-        lloyd_narrating neutral "The building that holds the detectives’ office is short and squat.[wait_1] Examining the directory beside the door, I don’t recognise a single company maintaining an office within."
-        lloyd_narrating neutral "I press the intercom for the fourth floor."
-        unknown "Who is it?"
-        lloyd neutral "My name is Lloyd.[wait_1] I’ve got something that requires investigation."
-        unknown "Alright then.[wait_1] Come on up."
-        scene detective_office with slow_dissolve
-        lloyd_narrating neutral "I emerge from the stairs and into a fairly modern office."
-        lloyd_narrating neutral "Neither the desks nor the chairs look to be particularly expensive, and I suspect that if the occupants could have found cheaper alternatives, they would have bought them."
-        $ swap_sprites("graves_intimidating", quick_dissolve)
+        $ swap_sprites("graves_intimidating")
         $ current_thought = "graves_thought_194"
         show screen psychic_powers
         lloyd_narrating neutral "The sole occupant of the office is leaning against one of the desks.[wait_1] He looks fairly unhappy, as though my mere presence is an issue."
@@ -1345,9 +1385,28 @@ label graves_d_3:
     lloyd_narrating neutral "I’m not going to find Jack any time soon unless I get help.[wait_1] For that reason I’m travelling to the detectives’ agency and hiring an investigator."
     lloyd_narrating neutral "The sun is bright and warm on my face as I walk towards the agency.[wait_1] I didn’t think that it was too bad when I looked up the forecast this morning, but reading about the weather and being in it are too different things."
     lloyd_narrating neutral "Whenever I swallow I’m reminded of how dry my throat is, and I become slightly more aware of how thirsty I am.[wait_1] I should have brought a bottle of water with me."
-    if (person_visited("graves", "c", 0)):
+    if (person_visited("graves", "c", 0) or person_visited("graves", "a", 0)):
         scene detective_office with slow_dissolve
-        $ swap_sprites("graves_thinking", quick_dissolve)
+    else:
+        lloyd_narrating neutral "I reach the building that the detectives’ agency is located in.[wait_1] It’s not particularly expensive-looking, and I don’t recognise any of the company logos on the directory."
+        lloyd_narrating neutral "I suspect that most people working out of it are doing so at a relatively low cost."
+        lloyd_narrating neutral "I reach out to the intercom and press the button for the fourth floor."
+        # SFX door reception buzz
+        unknown "This’d better be good."
+        lloyd neutral "I’ve got somebody that needs finding.[wait_1] An investigation to conduct."
+        lloyd neutral "Interested in my business?"
+        unknown "...I’ll let you up.[wait_1] But no promises, kid."
+        lloyd_narrating neutral "With a loud click the door opens.[wait_1] I enter the building and climb the stairs up."
+        scene detective_office with slow_dissolve
+        lloyd_narrating neutral "The office for the detectives’ agency looks nothing like the stereotype."
+        lloyd_narrating neutral "There’s no heavy oak desk, creased leather couch, or corkboard covered in a maze of red string."
+        lloyd_narrating neutral "Instead I’m greeted by two plastic desks with generic computers atop them.[wait_1] It looks more like the office of a bookkeeper than anything."
+
+    $ rewind_point = "graves_d_3_rewind"
+
+label graves_d_3_rewind:
+    if (person_visited("graves", "c", 0)):
+        $ swap_sprites("graves_thinking")
         $ current_thought = "graves_thought_209"
         show screen psychic_powers
         lloyd_narrating neutral "Graves has his back to the office door and seems completely oblivious to my presence, despite responding to the intercom a scant few minutes ago."
@@ -1368,8 +1427,7 @@ label graves_d_3:
         $ swap_sprites("graves_thinking")
         graves "Oh yes?[wait_1] Go ahead, Lloyd."
     elif (person_visited("graves", "a", 0)):
-        scene detective_office with slow_dissolve
-        $ swap_sprites("graves_smiling", quick_dissolve)
+        $ swap_sprites("graves_smiling")
         $ current_thought = "graves_thought_214"
         show screen psychic_powers
         lloyd_narrating neutral "Graves is leaning against his desk as I enter the office.[wait_1] He’s got a smartphone in his hand and is typing something into it, but puts it away as I approach."
@@ -1386,20 +1444,7 @@ label graves_d_3:
         $ swap_sprites("graves_thinking")
         graves "...Tell me more, Lloyd."
     else:
-        lloyd_narrating neutral "I reach the building that the detectives’ agency is located in.[wait_1] It’s not particularly expensive-looking, and I don’t recognise any of the company logos on the directory."
-        lloyd_narrating neutral "I suspect that most people working out of it are doing so at a relatively low cost."
-        lloyd_narrating neutral "I reach out to the intercom and press the button for the fourth floor."
-        # SFX door reception buzz
-        unknown "This’d better be good."
-        lloyd neutral "I’ve got somebody that needs finding.[wait_1] An investigation to conduct."
-        lloyd neutral "Interested in my business?"
-        unknown "...I’ll let you up.[wait_1] But no promises, kid."
-        lloyd_narrating neutral "With a loud click the door opens.[wait_1] I enter the building and climb the stairs up."
-        scene detective_office with slow_dissolve
-        lloyd_narrating neutral "The office for the detectives’ agency looks nothing like the stereotype."
-        lloyd_narrating neutral "There’s no heavy oak desk, creased leather couch, or corkboard covered in a maze of red string."
-        lloyd_narrating neutral "Instead I’m greeted by two plastic desks with generic computers atop them.[wait_1] It looks more like the office of a bookkeeper than anything."
-        $ swap_sprites("graves_intimidating", slow_dissolve)
+        $ swap_sprites("graves_intimidating")
         $ current_thought = "graves_thought_218"
         show screen psychic_powers
         lloyd_narrating neutral "The man standing inside the office is closer to the image that I was expecting, even if he does look a little young."
@@ -1548,9 +1593,12 @@ label graves_d_4:
     lloyd_narrating neutral "I start making my way towards Graves’ detective agency.[wait_1] I never pictured myself requiring a private investigator or there being a need to know one."
     lloyd_narrating neutral "At {i}The Brief{/i} I only ever took the photos that I was assigned to take, and didn’t have any input into the stories or have to assist with any reporting."
     lloyd_narrating neutral "There was never a need for me to investigate anything before I received my visions of Sergei being killed."
-    lloyd_narrating neutral "But I don’t regret meeting Graves or asking for his assistance.[wait_1] He’s a good person, and I’ll miss my regular interactions with him"
+    lloyd_narrating neutral "But I don’t regret meeting Graves or asking for his assistance.[wait_1] He’s a good person, and I’ll miss my regular interactions with him."
     scene detective_office with slow_dissolve
-    $ swap_sprites("graves_smiling", slow_dissolve)
+    $ rewind_point = "graves_d_4_rewind"
+
+label graves_d_4_rewind:
+    $ swap_sprites("graves_smiling")
     $ current_thought = "graves_thought_242"
     show screen psychic_powers
     lloyd_narrating neutral "When I open the office door Graves is leaning back in his chair, his arms behind his head."
@@ -1703,6 +1751,9 @@ label graves_d_4:
 label graves_e_4:
     $ scene_setup(0, "Friday", True, len(days["e"][0]) + 1, 4, True, True)
     scene detective_office with slow_dissolve
+    $ rewind_point = "graves_e_4_rewind"
+
+label graves_e_4_rewind:
     $ swap_sprites("graves_smiling")
     $ current_thought = "graves_thought_269"
     show screen psychic_powers

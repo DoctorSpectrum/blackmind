@@ -20,7 +20,7 @@ label branch_e_3_4:
     lloyd_narrating neutral "I force myself to stop asking irrelevant questions.[wait_1] Right now all that matters is finding the shooter and helping Eddie stop them."
     lloyd_thinking thinking "But where is Eddie?[wait_1] And what is he planning to do?"
     lloyd_narrating neutral "As I think the words I see the shooter."
-    $ swap_sprites("docherty_neutral", quick_dissolve)
+    $ swap_sprites("docherty_neutral")
     lloyd_narrating neutral "Unsurprisingly it’s Docherty.[wait_1] I don’t know how he knew I would be here."
     lloyd_narrating neutral "I don’t know why he wants me dead.[wait_1] All that matters is that I stop him."
     lloyd_narrating neutral "If I can do that then his threat will be over."
@@ -32,7 +32,7 @@ label branch_e_3_4:
     $ play_sound("gunshot.mp3", pause=0.75, transition=white_flash)
     lloyd_narrating neutral "The gun drops from Docherty’s hands.[wait_1] He falls to the ground."
     hide docherty_neutral
-    $ swap_sprites("eddie_arrogant", quick_dissolve)
+    $ swap_sprites("eddie_arrogant")
     $ current_thought = "eddie_thought_233"
     $ rewind_point = "branch_d_3_4_eddie_docherty_rewind"
     show screen psychic_powers
@@ -70,7 +70,7 @@ label branch_e_3_4:
     scene cg9_0 with slow_dissolve
     lloyd_narrating neutral "Docherty has breathed his last."
     scene office_interview_room with slow_dissolve
-    $ swap_sprites("eddie_angry", quick_dissolve)
+    $ swap_sprites("eddie_angry")
     $ current_thought = "eddie_thought_229"
     eddie "Well, he definitely won’t be killing again.[wait_1] He’s a goner for sure."
     lloyd_thinking thinking "But is the threat over?[wait_1] It doesn’t sound like it."
@@ -133,7 +133,7 @@ label branch_e_4_4:
         "No":
             jack_possessing_thinking smug "Yeah, didn’t think so.[wait_1] Alright, let’s get this shit done and dusted."
     # SFX - doorbell
-    $ swap_sprites("killian_smiling", quick_dissolve)
+    $ swap_sprites("killian_smiling")
     $ current_thought_block = "mind_read_killian"
     $ current_thought = "killian_thought_01"
     show screen psychic_powers
@@ -147,7 +147,7 @@ label branch_e_4_4:
     jack_possessing_thinking smug "No witnesses to see what’s coming next...[wait_05]exactly how I want it."
     hide killian_smiling with quick_dissolve
     scene killian_house_interior with slow_dissolve
-    $ swap_sprites("killian_smiling", quick_dissolve)
+    $ swap_sprites("killian_smiling")
     killian "Please, take a seat."
     jack_possessing_thinking angry "If you insist, old man."
     killian "I’d offer you some tea or coffee, but you’ll probably make the assumption that it’s poisoned."
@@ -190,7 +190,7 @@ label branch_e_4_4:
     call screen chapter_breaks("LATER", "Jack has a new lease on life and new opportunities. He has a fresh new start that few are ever given.\n\nNobody actually believes that he’s going to use it wisely though, right?")
     scene bar with slow_dissolve
     $ current_thought_block = "mind_read_barbara"
-    $ swap_sprites("barbara_smiling", quick_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_308"
     show screen psychic_powers
     barbara "...when you put it that way –[wait_05] yeah, I can swing by your apartment after the bar closes!"

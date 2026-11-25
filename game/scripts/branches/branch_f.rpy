@@ -60,7 +60,7 @@ label branch_f_4_4:
     # TODO - make this bring up the option for whether we get ending F or G
     if (check_boolean("ending_g_unlocked")):
         jump branch_g_4_4
-    $ swap_sprites("killian_smiling", quick_dissolve)
+    $ swap_sprites("killian_smiling")
     $ current_thought_block = "mind_read_killian"
     $ current_thought = "killian_thought_02"
     $ rewind_point = "branch_f_4_4_rewind"
@@ -108,7 +108,7 @@ label branch_f_4_4:
     killian "Naturally, I sent Docherty after you the next night, where he encountered you and your friend at the newspaper."
     hide docherty_neutral with quick_dissolve
     scene killian_house_interior with slow_dissolve
-    $ swap_sprites("killian_confident", quick_dissolve)
+    $ swap_sprites("killian_confident")
     lloyd_ws_narrating neutral "Killian has a handgun resting on a nearby coffee table.[wait_1] The glint from its barrel caught my eye."
     lloyd_ws_narrating neutral "If I can keep him talking, he may relax enough for me to get ahold of it."
     lloyd_ws neutral "So when you say that Docherty getting close to me enabled you to notice my energy..."
@@ -225,7 +225,7 @@ label branch_f_4_4:
     killian "I suppose that I’m just being selfish."
     killian "Now, begin!"
     scene killian_house_interior
-    $ swap_sprites("killian_cold", quick_dissolve)
+    $ swap_sprites("killian_cold")
     # TODO: add in psychic interface where if we choose mind read or mind wipe we get a game over; future sight moves us forwards; timing out also gives us a game over
     lloyd_ws_thinking neutral "...Now!"
     lloyd_ws_narrating neutral "I throw myself to the side and out of the way of the bullet.[wait_1] Killian fires the gun exactly as I saw him do with my precognition, which misses me."
@@ -277,7 +277,7 @@ label branch_f_ending:
     hide screen psychic_powers
     scene black_bg with slow_dissolve
     scene bar with slow_dissolve
-    $ swap_sprites("barbara_smiling", quick_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ current_thought_block = "mind_read_barbara"
     $ current_thought = "barbara_thought_311"
     $ rewind_point = "branch_f_4_4_female_rewind"
@@ -303,7 +303,7 @@ label branch_f_ending:
     hide screen psychic_powers
     scene black_bg with slow_dissolve
     scene library_day with slow_dissolve
-    $ swap_sprites("cat_neutral", quick_dissolve)
+    $ swap_sprites("cat_neutral")
     $ current_thought_block = "mind_read_cat"
     $ current_thought = "cat_thought_216"
     show screen psychic_powers
@@ -327,7 +327,7 @@ label branch_f_ending:
     hide screen psychic_powers
     scene black_bg with slow_dissolve
     scene office_interview_room with slow_dissolve
-    $ swap_sprites("eddie_unimpressed", quick_dissolve)
+    $ swap_sprites("eddie_unimpressed")
     $ current_thought_block = "mind_read_eddie"
     $ current_thought = "eddie_thought_254"
     $ rewind_point = "branch_f_4_4_male_rewind"
@@ -356,7 +356,7 @@ label branch_f_ending:
     hide screen psychic_powers
     scene black_bg with slow_dissolve
     scene detective_office with slow_dissolve
-    $ swap_sprites("graves_smiling", slow_dissolve)
+    $ swap_sprites("graves_smiling")
     $ current_thought_block = "mind_read_graves"
     $ current_thought = "graves_thought_288"
     show screen psychic_powers
@@ -413,7 +413,7 @@ label branch_f_4_4_male_rewind:
     return
 
 label branch_g_4_4:
-    $ swap_sprites("killian_smiling", quick_dissolve)
+    $ swap_sprites("killian_smiling")
     $ current_thought_block = "mind_read_killian"
     $ current_thought = "killian_thought_09"
     show screen psychic_powers

@@ -3,12 +3,6 @@ BLACKMIND TODO
         - Delivery Date: 31/12/2027
         - Deliverables:
             - Big tasks:
-                - Rewinding: 
-                    - Add in rewind points for all scenes, or stuff for not rewinding as necessary
-                    - TEST THIS: rewinding prolly won't change the current sprite being shown, so if we have an
-                    angry character and we rewind they're still angry even though they should start the convo smiling.
-                    Since we don't want the transition we'll need to updoot swap_sprites() to ignore the transition if
-                    a sprite with that character is already on screen
                 - Limited mind reads and mind wipes:
                     - Set and test limited mind reads and mind wipes
                     - Add in UI functionality; a ring that gets smoller but is clearly broken up
@@ -58,6 +52,7 @@ BLACKMIND TODO
                 - Don't ex-spec-t feedback for a while; I'll take a break regardless
                 - Branch C kinda iffy
                 - Replay AN afterwards; get the Sergei reference and the Prometheus line
+                - Rewinding gonna have some inconsistencies; will fix these up down the line
 
     - Feedback Phase
         - Delivery Date: 30/03/2027
@@ -73,7 +68,9 @@ BLACKMIND TODO
                 - Backgrounds
                 - CGs
                 - Music
-            - Entire script put into game; full game playable
+            - Tasks:
+                - Update the code so that whenever we rewind, we're not getting repeats of unnecessary stuff, like Lloyd describing himself walking
+                    towards someone
 
     - Release Phase
         - Delivery Date: 31/12/2027

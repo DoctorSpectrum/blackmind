@@ -44,7 +44,7 @@ label barbara_a_1:
     lloyd_narrating neutral "Just as I do so, a door swings open."
 
 label barbara_a_1_rewind:
-    $ swap_sprites("barbara_thinking", slow_dissolve)
+    $ swap_sprites("barbara_thinking")
     $ current_thought = "barbara_thought_01"
     $ rewind_point = "barbara_a_1_rewind"
     show screen psychic_powers
@@ -195,7 +195,7 @@ label barbara_a_2:
     lloyd_narrating neutral "There’s just one difference: the strong smell of cleaning products."
 
 label barbara_a_2_rewind:
-    $ swap_sprites("barbara_angry", slow_dissolve)
+    $ swap_sprites("barbara_angry")
     $ current_thought = "barbara_thought_40"
     $ rewind_point = "barbara_a_2_rewind"
     show screen psychic_powers
@@ -320,7 +320,7 @@ label barbara_a_3:
     lloyd_narrating neutral "It almost makes me wish that I was more of a drinker so that I could order something and drink it in alongside the atmosphere."
 
 label barbara_a_3_rewind:
-    $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ rewind_point = "barbara_a_3_rewind"
     show screen psychic_powers
 
@@ -510,7 +510,7 @@ label barbara_a_4:
     lloyd_narrating neutral "Its weight is familiar enough for me to forget about it at times, and I don’t want to lean forwards without thinking and crack the lens."
 
 label barbara_a_4_rewind:
-    $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ rewind_point = "barbara_a_4_rewind"
     show screen psychic_powers
     if (person_visited("barbara", "a", 0) or person_visited("barbara", "a", 1) or person_visited("barbara", "a", 2)):
@@ -692,7 +692,7 @@ label barbara_b_4:
     lloyd_narrating neutral "I sit down at the only free seat I can find and wait.[wait_1] It’s over an hour before Barbara is finally available."
 
 label barbara_b_4_rewind:
-    $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ rewind_point = "barbara_b_4_rewind"
     $ current_thought = "barbara_thought_124"
     show screen psychic_powers
@@ -875,7 +875,7 @@ label barbara_c_2:
         lloyd_narrating neutral "I knock on the door of Icarus and Barbara lets me in once again."
         lloyd_narrating neutral "As I follow her in I feel something sticky below my feet."
         lloyd_thinking thinking "Should I tell her about it?[wait_1] Or should I just ignore it?"
-        $ swap_sprites("barbara_smiling", slow_dissolve)
+        $ swap_sprites("barbara_smiling")
         $ current_thought = "barbara_thought_148"
         show screen psychic_powers
         lloyd_narrating neutral "Barbara has already returned to the job she must have been doing when I knocked, wiping the tables clean."
@@ -889,7 +889,7 @@ label barbara_c_2:
     $ rewind_point = "barbara_c_2_rewind"
 
 label barbara_c_2_rewind:
-    $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ swap_sprites("barbara_smiling")
     if (person_visited("barbara", "a", 0)):
         $ current_thought = "barbara_thought_148"
         barbara "So tell me, Lloyd:[wait_05] how can I and my bar help you today?"
@@ -1089,7 +1089,7 @@ label barbara_c_3:
     $ rewind_point = "barbara_c_3_rewind"
 
 label barbara_c_3_rewind:
-    $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ swap_sprites("barbara_smiling")
     if (not person_visited("barbara", "a", 0) and not person_visited("barbara", "c", 0)):
         $ current_thought = "barbara_thought_175"
         show screen psychic_powers
@@ -1236,7 +1236,7 @@ label barbara_c_4:
         scene bar with slow_dissolve
         lloyd_narrating neutral "Barbara lets me in without issue and I seat myself at the bar."
         lloyd_narrating neutral "The stool that I’m sitting on creaks whenever I shift my weight, and I quickly resolve not to move more than necessary."
-        $ swap_sprites("barbara_smiling", slow_dissolve)
+        $ swap_sprites("barbara_smiling")
     elif (person_visited("cat", "c", 0)):
         scene bar with slow_dissolve
         lloyd_narrating neutral "I’m let in by Barbara as I was the other day."
@@ -1260,7 +1260,7 @@ label barbara_c_4:
     $ rewind_point = "barbara_c_4_rewind"
 
 label barbara_c_4_rewind:
-    $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ swap_sprites("barbara_smiling")
     if (person_visited("cat", "c", 1)):
         $ current_thought = "barbara_thought_198"
         show screen psychic_powers
@@ -1446,7 +1446,7 @@ label barbara_d_3:
     $ rewind_point = "barbara_d_3_rewind"
 
 label barbara_d_3_rewind:
-    $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_240"
     show screen psychic_powers
     barbara "Hi, Lloyd![wait_1] How’s your day going so far?[wait_1] I went down to the market for breakfast today –[wait_05] bought the most amazing loaf of bread from Bruno’s![wait_1] So good!"
@@ -1572,7 +1572,7 @@ label barbara_d_4:
     $ rewind_point = "barbara_d_4_rewind"
 
 label barbara_d_4_rewind:
-    $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_260"
     show screen psychic_powers
     lloyd_narrating neutral "There’s a subtle scent in the area, separate to the scent of the bar, which I deduce is perfume that she’s wearing."
@@ -1714,7 +1714,7 @@ label barbara_e_4:
     $ rewind_point = "barbara_e_4_rewind"
     
 label barbara_e_4_rewind:
-    $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_285"
     show screen psychic_powers
     bartender "Hey, Lloyd![wait_1] Glad to see you again today!"

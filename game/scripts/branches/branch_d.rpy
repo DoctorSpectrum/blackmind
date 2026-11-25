@@ -12,7 +12,7 @@ label branch_d_2_4:
     $ rewind_point = "branch_d_2_4_rewind"
     
 label branch_d_2_4_rewind:
-    $ swap_sprites("barbara_smiling", quick_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_228"
     show screen psychic_powers
     barbara "Hiya, Lloyd.[wait_1] What’s your poison?"
@@ -33,7 +33,7 @@ label branch_d_2_4_rewind:
     lloyd_narrating neutral "It’s a perfect match."
     lloyd_narrating neutral "The man in the loud suit, the man from my vision, is on a small advertisement flyer.[wait_1] It’s almost too convenient to be true."
     scene bar with quick_dissolve
-    $ swap_sprites("barbara_smiling", quick_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_233"
     lloyd neutral "It’s perfect.[wait_1] How did you find this?"
     $ current_thought = "barbara_thought_234"
@@ -64,7 +64,7 @@ label branch_d_2_4_rewind:
     lloyd_narrating neutral "Some seats and tables that look easy to move have been set up for tonight’s audience."
     lloyd_narrating neutral "Short of barging through to the backstage area, there’s no apparent way for me to speak to Sergei."
     lloyd_narrating neutral "I sit down in a spare seat and wait for an opportunity to present itself.[wait_1] I don’t have long to wait before the show begins."
-    $ swap_sprites("sergei_welcoming", quick_dissolve)
+    $ swap_sprites("sergei_welcoming")
     sergei "Ladies, gentlemen, and all others!" 
     sergei "Welcome...[wait_05]to the greatest night of your life!"
     lloyd_narrating neutral "Sergei Maskelyne steps onto the stage and spreads out his arms as though he wants the entire world to join him."
@@ -87,7 +87,7 @@ label branch_d_2_4_rewind:
     lloyd_narrating neutral "I’m hardly the most ardent follower of magic, but even I’ve seen most of this act before, performed by more talented magicians."
     lloyd_narrating neutral "The reason why Sergei is playing in a relatively small venue soon becomes apparent and I wonder whether he’ll bring in enough money to justify keeping him on for another night."
     lloyd_narrating neutral "But after several basic tricks which mostly involve simple sleight of hand Sergei finally does something which gets my attention."
-    $ swap_sprites("sergei_welcoming", quick_dissolve)
+    $ swap_sprites("sergei_welcoming")
     sergei "That’s all that I can show you of my power to float pencils –[wait_05] frightfully useful when one rolls off the table!"
     sergei "For my next ability, I will require a volunteer from the audience."
     sergei "But don’t be too hasty to raise your hand, because I will be using my magical powers in a unique manner:[wait_05] to delve deeply into your mind and read your thoughts!"
@@ -141,7 +141,7 @@ label branch_d_2_4_rewind:
     lloyd_narrating neutral "I leap up from the table and jump onto the stage."
     lloyd_narrating neutral "Most of the audience seems mildly confused, no doubt mistaking the weapon’s discharge for something falling over.[wait_1] I would have thought the same if it weren’t for my vision."
     lloyd_narrating neutral "I cross into the backstage and see something that shouldn’t be possible."
-    $ swap_sprites("docherty_neutral", quick_dissolve)
+    $ swap_sprites("docherty_neutral")
     $ current_thought_block = "mind_read_docherty"
     $ current_thought = "docherty_thought_02"
     show screen psychic_powers
@@ -247,7 +247,7 @@ label branch_d_3_4:
             lloyd_narrating neutral "I assume that it’s one of my neighbours coming to ask me for something, or to invite me to an event."
             lloyd_narrating neutral "It’s happened before in the past, with the events usually being related to a matter in the building."
             lloyd_narrating neutral "My assumption turns out to be incorrect, though.[wait_1] I’m dead wrong."
-            $ swap_sprites("docherty_neutral", quick_dissolve)
+            $ swap_sprites("docherty_neutral")
             $ current_thought = "docherty_thought_01"
             show screen psychic_powers
             lloyd_thinking scared "Shit!"
@@ -277,7 +277,7 @@ label branch_d_3_4_eddie:
     scene office_interview_room with slow_dissolve
     lloyd_narrating neutral "Eddie sticks his head in the door briefly and tells me to wait while he gets some information together."
     lloyd_narrating neutral "From the way he words it I’m expecting to be waiting for five minutes, maybe ten at most.[wait_1] But when he finally returns it’s been over half an hour of waiting."
-    $ swap_sprites("eddie_angry", slow_dissolve)
+    $ swap_sprites("eddie_angry")
     
 label branch_d_3_4_eddie_rewind:
     $ rewind_point = "branch_d_3_4_eddie_rewind"
@@ -355,7 +355,7 @@ label branch_d_3_4_eddie_docherty_rewind:
 
 label branch_d_3_4_eddie_safety:
     $ rewind_point = "branch_d_3_4_eddie_safety"
-    $ swap_sprites("eddie_arrogant", quick_dissolve)
+    $ swap_sprites("eddie_arrogant")
     $ current_thought = "eddie_thought_223"
     show screen psychic_powers
     eddie "Come out, Chen.[wait_1] I stopped him."
@@ -389,7 +389,7 @@ label branch_d_3_4_eddie_safety:
     lloyd neutral "Of course.[wait_1] I imagine the physical evidence will support it."
     eddie "It had better."
     scene office_interview_room with slow_dissolve
-    $ swap_sprites("eddie_arrogant", quick_dissolve)
+    $ swap_sprites("eddie_arrogant")
     lloyd_narrating neutral "Eddie takes out his mobile phone and calls the police.[wait_1] The call is fairly swift, and once it’s over he reports that we’ll only have to wait a few minutes."
     $ current_thought = "eddie_thought_231"
     eddie "Luckily, most of the other staff have gone home.[wait_1] We should gather everybody else that’s here though, and get our story straight."
@@ -445,7 +445,7 @@ label branch_d_4_4:
     lloyd_narrating neutral "I want this to be the last time that I’m on this side of the table."
     lloyd_narrating neutral "The next time that I enter this building I want to be asking which desk I should sit at as I begin work for the day."
     lloyd_narrating neutral "After a short while Eddie enters."
-    $ swap_sprites("eddie_arrogant", quick_dissolve)
+    $ swap_sprites("eddie_arrogant")
     $ current_thought = "eddie_thought_232"
     $ rewind_point = "branch_d_3_4_eddie_docherty_rewind"
     show screen psychic_powers

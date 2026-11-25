@@ -41,7 +41,7 @@ label prologue_01:
     jack thinking "Hello![wait_1] Anybody home?"
     jack smug "(I’ll give it thirty seconds, then I’m grabbing all the bottles I can hold.)"
     jack smug "(They probably want people to do that anyway.[wait_1] You wouldn’t just leave things unattended and then be annoyed that they’re missing; you know what you’re getting in for.)"
-    $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_pr_01"
     $ barbara_partial("apologetic_01")
     bartender "Sorry![wait_1] I was out back, changing over a keg."
@@ -446,7 +446,7 @@ label prologue_10:
     $ jack_partial("dismissive_01")
     jack thinking "(But I guess if I was a reviewer, I’d pretend to like it.)"
     scene bar with quick_dissolve
-    $ swap_sprites("barbara_smiling", quick_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_pr_49"
     $ barbara_partial("friendly_01")
     bartender "How was it?[wait_05] You certainly looked like you enjoyed it; you drank it quickly enough!"
@@ -484,7 +484,7 @@ label prologue_11:
     jack smug "(Just one more drink, that’s all.[wait_1] Get a nice buzz going, and then I’ll be on my way.)"
     scene black_bg with quick_dissolve
     scene bar at drunk_cycle(5, 2, 1.15) with quick_dissolve
-    $ swap_sprites("barbara_smiling", quick_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_pr_45"
     $ barbara_partial("excited_02")
     bartender "Is it - are you sure that it’s alright, though?"
@@ -492,7 +492,7 @@ label prologue_11:
     jack smug "Are you alright with getting more customers?[wait_1] Because if so, then you’d better get pouring!"
     scene black_bg with quick_dissolve
     scene bar at drunk_cycle(10, 4, 1.15) with quick_dissolve
-    $ swap_sprites("barbara_smiling", quick_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_pr_52"
     $ barbara_partial("excited_02")
     bartender "Is it - are you sure that it’s alright, though?"
@@ -500,7 +500,7 @@ label prologue_11:
     jack smug "Only if you’re -[wait_05] if you’re -[wait_05] if you want lots of customers here![wait_1] It’s -[wait_05] it’s a good bar, isn’t it?"
     scene black_bg with quick_dissolve
     scene bar at drunk_cycle(15, 6, 1.25) with quick_dissolve
-    $ swap_sprites("barbara_thinking", quick_dissolve)
+    $ swap_sprites("barbara_thinking")
     $ current_thought = "barbara_thought_pr_53"
     $ barbara_partial("excited_02")
     bartender "Is it - are you sure that it’s alright, though?"
@@ -512,7 +512,7 @@ label prologue_11:
     bartender "What?"
     scene black_bg with quick_dissolve
     scene bar at drunk_cycle(20, 8, 1.25) with quick_dissolve
-    $ swap_sprites("barbara_angry", quick_dissolve)
+    $ swap_sprites("barbara_angry")
     $ current_thought = "barbara_thought_pr_55"
     $ play_music("tense_1")
     $ barbara_partial("irritated_02")
@@ -666,7 +666,7 @@ label prologue_14:
     jack worried "(Have I -[wait_05] have I been here before?[wait_1] I don’t -[wait_05] everything’s mixing together.)"
     jack thinking "(Why are they -[wait_05] who would want to hurt me?[wait_1] I -[wait_05] I’ve never even hurt a fly!)"
     $ rewind_point = "prologue_docherty_wipe"
-    $ swap_sprites("docherty_neutral", quick_dissolve)
+    $ swap_sprites("docherty_neutral")
     show screen psychic_powers
     $ current_thought = "docherty_thought_pr_1"
     $ jack_partial("scared_02")

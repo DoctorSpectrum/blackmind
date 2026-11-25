@@ -14,12 +14,15 @@ init python:
             renpy.choice_for_skipping()
 
     def swap_sprites(new_sprite, transition = None, position = center):
+        visible = False
         for sprite in renpy.list_images():
             if ((sprite[0:7] == "barbara" or sprite[0:6] == "graves" or sprite[0:5] == "eddie" or sprite[0:3] == "cat" or sprite[0:6] == "sergei" or sprite[0:7] == "killian") and sprite[0:13] != "killian_house"):
+                if (renpy.showing(sprite)):
+                    visible = True
                 renpy.hide(sprite)
         renpy.show(new_sprite, [position])
-        if transition is not None:
-            renpy.with_statement(transition)
+        if visible == False:
+            renpy.with_statement(quick_dissolve)
 
     def play_music(song_title):
         if(song_title == "neutral_1"):

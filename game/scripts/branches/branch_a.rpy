@@ -62,7 +62,7 @@ label branch_a_1_4_barbara:
     $ rewind_point = "branch_a_1_4_barbara_rewind"
     
 label branch_a_1_4_barbara_rewind:
-    $ swap_sprites("barbara_smiling", quick_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_23"
     show screen psychic_powers
     lloyd neutral "Hello, Barbara."
@@ -128,12 +128,12 @@ label branch_a_1_4_cat:
     lloyd_narrating neutral "Despite this it’s mostly empty."
     lloyd_narrating neutral "Some people are quietly studying with laptops or reading in armchairs but they’re few and far between."
     lloyd_narrating neutral "It doesn’t take me long to notice Cat, standing closely to the entrance."
-    $ swap_sprites("cat_neutral", slow_dissolve)
+    $ swap_sprites("cat_neutral")
     lloyd_narrating neutral "I stride towards her confidently.[wait_1] The next few seconds will determine whether I’ve wasted my time here or not."
     $ rewind_point = "branch_a_1_4_cat_rewind"
 
 label branch_a_1_4_cat_rewind:
-    $ swap_sprites("cat_neutral", slow_dissolve)
+    $ swap_sprites("cat_neutral")
     $ current_thought = "cat_thought_20"
     show screen psychic_powers
     lloyd neutral "Did you bring one of the books?"
@@ -199,7 +199,7 @@ label branch_a_1_4_graves:
     $ rewind_point = "branch_a_1_4_graves_rewind"
     
 label branch_a_1_4_graves_rewind:
-    $ swap_sprites("graves_smiling", slow_dissolve)
+    $ swap_sprites("graves_smiling")
     $ current_thought_block = "mind_read_graves"
     $ current_thought = "graves_thought_25"
     show screen psychic_powers
@@ -496,7 +496,7 @@ label branch_a_3_4_graves:
     lloyd_narrating neutral "I finish my meal and then make my way back to his office building.[wait_1] I’m closing in on the man in black."
     lloyd_narrating neutral "I just need a little more time and information."
     scene detective_office with slow_dissolve
-    $ swap_sprites("graves_smiling", slow_dissolve)
+    $ swap_sprites("graves_smiling")
     lloyd_narrating neutral "Graves is as jovial as ever."
     lloyd_narrating neutral "Is this all a game to him?[wait_1] Or does he just need to stay positive so as to forget some of the horrors he no doubt sees in his line of work?"
     $ rewind_point = "branch_a_3_4_graves_rewind"
@@ -669,7 +669,7 @@ label branch_a_b_4_4:
     lloyd_narrating neutral "I’m fumbling for the light switch when I notice a shape in the darkness that’s out of place."
     
     $ current_thought_block = "mind_read_docherty"
-    $ swap_sprites("docherty_neutral", slow_dissolve)
+    $ swap_sprites("docherty_neutral")
     $ current_thought = "docherty_thought_01"
     show screen psychic_powers
     man_in_black "I aim to make this painless."

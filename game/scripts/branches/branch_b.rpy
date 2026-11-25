@@ -18,7 +18,7 @@ label branch_b_3_4:
     $ rewind_point = "branch_b_3_4_rewind"
 
 label branch_b_3_4_rewind:
-    $ swap_sprites("barbara_smiling", slow_dissolve)
+    $ swap_sprites("barbara_smiling")
     $ current_thought = "barbara_thought_103"
     show screen psychic_powers
     lloyd neutral "Hello, Barbara.[wait_1] Tonight seems quite busy."
@@ -66,7 +66,7 @@ label branch_b_3_4_rewind:
     barbara "He clearly wasn’t a reviewer –[wait_05] just some jerk looking for a handout.[wait_1] I kicked him out then."
     barbara "I realised a bit later that we’d spoken for way longer than I’d thought, but otherwise, I didn’t think about him until you asked about him earlier today."
     scene bar with quick_dissolve
-    $ swap_sprites("barbara_thinking", quick_dissolve)
+    $ swap_sprites("barbara_thinking")
     barbara "So with all of that in mind...[wait_05]why is there footage of me serving him drinks?"
     barbara "Why don’t I remember any of this?"
     barbara "It’s –[wait_05] the obvious answer would be that this is faked footage, but how would it have gotten onto my server?[wait_1] And who would benefit from it?"
@@ -92,7 +92,7 @@ label branch_b_3_4_rewind:
     dying_jack "I’m done for...but you –[wait_05] you can stop him...[wait_05]please...[wait_05]for me?"
     show screen psychic_powers
     scene bar with quick_dissolve
-    $ swap_sprites("barbara_thinking", quick_dissolve)
+    $ swap_sprites("barbara_thinking")
     $ current_thought = "barbara_thought_114"
     lloyd_thinking thinking "He wanted me to use his psychic powers to stop the killer."
     lloyd_thinking thinking "He – he must have transferred them to me when he touched me."
