@@ -2821,12 +2821,6 @@ screen read_pdf(full_file=False):
                 top_bar Solid ("#000")
                 thumb Solid ("#F2EE29")
                 bottom_bar Solid("#000")
-        
-        # Replace this with scrolling revealing stuff and returning
-        textbutton _("Done"):
-            xalign 1.0
-            yalign 1.0
-            action Return()
 
 style pdf_file_text:
     color "#000"
