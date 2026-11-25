@@ -4,7 +4,6 @@ BLACKMIND TODO
         - Deliverables:
             - Big tasks:
                 - Rewinding: 
-                    - Currently infinitely looping; test on Eddie A-1 if we call jump in eddie_investigation instead of call whether that fixes it
                     - Add in rewind points for all scenes, or stuff for not rewinding as necessary
                 - Limited mind reads and mind wipes:
                     - Set and test limited mind reads and mind wipes

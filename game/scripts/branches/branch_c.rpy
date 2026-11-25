@@ -579,7 +579,6 @@ label lloyd_pdf_interjection_3:
     mental_jack "{size=-8}(I thought I could build up my strength more...[wait_05]but I can’t.[wait_1] It’s all over.){/size}"
     mental_jack "{size=-8}(I didn’t even get to have any fun the other night...){/size}"
     jump branch_c_4_0
-    return
 
 label branch_c_4_0:
     hide screen calendar

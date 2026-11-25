@@ -1,27 +1,27 @@
 label barbara_investigation:
     $ current_thought_block = "mind_read_barbara"
     if (branch == "a" and day == 1):
-        call barbara_a_1
+        jump barbara_a_1
     elif (branch == "a" and day == 2):
-        call barbara_a_2
+        jump barbara_a_2
     elif (branch == "a" and day == 3):
-        call barbara_a_3
+        jump barbara_a_3
     elif (branch == "a" and day == 4):
-        call barbara_a_4
+        jump barbara_a_4
     elif (branch == "b"):
-        call barbara_b_4
+        jump barbara_b_4
     elif (branch == "c" and day == 2):
-        call barbara_c_2
+        jump barbara_c_2
     elif (branch == "c" and day == 3):
-        call barbara_c_3
+        jump barbara_c_3
     elif (branch == "c" and day == 4):
-        call barbara_c_4
+        jump barbara_c_4
     elif (branch == "d" and day == 3):
-        call barbara_d_3
+        jump barbara_d_3
     elif (branch == "d" and day == 4):
-        call barbara_d_4
+        jump barbara_d_4
     elif (branch == "e"):
-        call barbara_e_4
+        jump barbara_e_4
     
     jump move_location
 
@@ -165,7 +165,7 @@ label barbara_a_1:
     lloyd_narrating neutral "One of Barbara’s neighbours might have seen or heard something...[wait_05]but is returning here tonight the best use of my time?"
     
     $ visit_person("barbara", "a", 0)
-    return
+    jump move_location
 
 label barbara_a_2:
     $ scene_setup(0, "Wednesday", True, len(days["a"][1]) + 1, 4, True, True)
@@ -286,7 +286,7 @@ label barbara_a_2:
     lloyd_narrating neutral "I spend the next thirty minutes after that wishing that I could lose some of my memories again."
 
     $ visit_person("barbara", "a", 1)
-    return
+    jump move_location
 
 label barbara_a_3:
     $ scene_setup(0, "Thursday", True, len(days["a"][2]) + 1, 4, True, True)
@@ -467,7 +467,7 @@ label barbara_a_3:
     lloyd_narrating neutral "For now I should head elsewhere."
 
     $ visit_person("barbara", "a", 2)
-    return
+    jump move_location
 
 label barbara_a_4:
     $ scene_setup(0, "Friday", True, len(days["a"][3]) + 1, 4, True, True)
@@ -660,7 +660,7 @@ label barbara_a_4:
     lloyd_narrating neutral "I return to the train station and wait for a train.[wait_1] I still have things to do today."
 
     $ visit_person("barbara", "a", 3)
-    return 
+    jump move_location
 
 label barbara_b_4:
     $ scene_setup(0, "Friday", True, 4, 4, True, True)
@@ -1033,7 +1033,7 @@ label barbara_c_2:
     lloyd_narrating neutral "I leave Icarus behind me and think about my next destination."
 
     $ visit_person("barbara", "c", 0)
-    return
+    jump move_location
 
 label barbara_c_3:
     $ scene_setup(0, "Thursday", True, len(days["c"][1]) + 1, 4, True, True)
@@ -1195,7 +1195,7 @@ label barbara_c_3:
     lloyd_narrating neutral "There’s still plenty of time until I can visit the venue."
     lloyd_narrating neutral "I make my way back to the train station and begin thinking about my next destination."
     $ visit_person("barbara", "c", 1)
-    return
+    jump move_location
 
 label barbara_c_4:
     $ scene_setup(0, "Friday", True, len(days["c"][2]) + 1, 4, True, True)
@@ -1386,7 +1386,7 @@ label barbara_c_4:
     lloyd_narrating neutral "I leave the bar and begin thinking about my next destination as I return to the station."
 
     $ visit_person("barbara", "c", 2)
-    return
+    jump move_location
 
 label barbara_d_3:
     $ scene_setup(0, "Thursday", True, len(days["d"][0]) + 1, 4, True, True)
@@ -1521,7 +1521,7 @@ label barbara_d_3:
     lloyd_narrating neutral "It’s time to make my way to the next destination."
 
     $ visit_person("barbara", "d", 0)
-    return
+    jump move_location
 
 label barbara_d_4:
     $ scene_setup(0, "Friday", True, len(days["d"][1]) + 1, 4, True, True)
@@ -1668,7 +1668,7 @@ label barbara_d_4:
     lloyd_narrating neutral "I exit the bar and make my way to my next destination."
 
     $ visit_person("barbara", "d", 1)
-    return
+    jump move_location
 
 label barbara_e_4:
     $ scene_setup(0, "Friday", True, len(days["e"][0]) + 1, 4, True, True)
@@ -1788,4 +1788,4 @@ label barbara_e_4:
     jack_possessing_thinking smug "But for now I’ve got elsewhere to be."
 
     $ visit_person("barbara", "e", 0)
-    return
+    jump move_location

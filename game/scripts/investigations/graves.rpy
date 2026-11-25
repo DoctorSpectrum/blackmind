@@ -1,27 +1,27 @@
 label graves_investigation:
     $ current_thought_block = "mind_read_graves"
     if (branch == "a" and day == 1):
-        call graves_a_1
+        jump graves_a_1
     elif (branch == "a" and day == 2):
-        call graves_a_2
+        jump graves_a_2
     elif (branch == "a" and day == 3):
-        call graves_a_3
+        jump graves_a_3
     elif (branch == "a" and day == 4):
-        call graves_a_4
+        jump graves_a_4
     elif (branch == "b"):
-        call graves_b_4
+        jump graves_b_4
     elif (branch == "c" and day == 2):
-        call graves_c_2
+        jump graves_c_2
     elif (branch == "c" and day == 3):
-        call graves_c_3
+        jump graves_c_3
     elif (branch == "c" and day == 4):
-        call graves_c_4
+        jump graves_c_4
     elif (branch == "d" and day == 3):
-        call graves_d_3
+        jump graves_d_3
     elif (branch == "d" and day == 4):
-        call graves_d_4
+        jump graves_d_4
     elif (branch == "e"):
-        call graves_e_4
+        jump graves_e_4
     
     jump move_location
 
@@ -157,7 +157,7 @@ label graves_a_1:
     lloyd_narrating neutral "If I come by, I might be able to help steer him in the right direction, and he’ll hopefully have a better sense of how long things will take."
 
     $ visit_person("graves", "a", 0)
-    return
+    jump move_location
 
 label graves_a_2:
     $ scene_setup(0, "Wednesday", True, len(days["a"][1]) + 1, 4, True, True)
@@ -323,7 +323,7 @@ label graves_a_2:
     lloyd_narrating neutral "Graves may not be happy about the job, but I’m confident that he’ll discover more about the bar than I can."
 
     $ visit_person("graves", "a", 1)
-    return
+    jump move_location
 
 label graves_a_3:
     $ scene_setup(0, "Thursday", True, len(days["a"][2]) + 1, 4, True, True)
@@ -514,7 +514,7 @@ label graves_a_3:
     lloyd_narrating neutral "I’ll return to his office in the future and see what he manages to uncover."
 
     $ visit_person("graves", "a", 2)
-    return
+    jump move_location
 
 label graves_a_4:
     $ scene_setup(0, "Friday", True, 4, 4, True, True)
@@ -855,7 +855,7 @@ label graves_b_4:
     lloyd_narrating neutral "There’s nothing else for me to do here.[wait_1] I walk out of the office and begin thinking about my next destination."
 
     $ visit_person("graves", "b", 0)
-    return
+    jump move_location
 
 label graves_c_2:
     $ scene_setup(0, "Wednesday", True, len(days["c"][0]) + 1, 4, True, True)
@@ -981,7 +981,7 @@ label graves_c_2:
     lloyd_narrating neutral "I start thinking about where to go next..."
 
     $ visit_person("graves", "c", 0)
-    return
+    jump move_location
 
 label graves_c_3:
     $ scene_setup(0, "Thursday", True, len(days["c"][1]) + 1, 4, True, True)
@@ -1166,7 +1166,7 @@ label graves_c_3:
     lloyd_narrating neutral "As I exit the building and return to the street, I begin thinking about my next destination."
 
     $ visit_person("graves", "c", 1)
-    return
+    jump move_location
 
 label graves_c_4:
     $ scene_setup(0, "Friday", True, len(days["c"][2]) + 1, 4, True, True)
@@ -1330,7 +1330,7 @@ label graves_c_4:
     lloyd_narrating neutral "It’s time to think about where I want to go next."
 
     $ visit_person("graves", "c", 2)
-    return 
+    jump move_location
 
 label graves_d_3:
     $ scene_setup(0, "Thursday", True, len(days["d"][0]) + 1, 4, True, True)
@@ -1535,7 +1535,7 @@ label graves_d_3:
     lloyd_narrating neutral "I exit the building and return to the street.[wait_1] It’s time to think about my next destination."
 
     $ visit_person("graves", "d", 0)
-    return 
+    jump move_location
 
 label graves_d_4:
     $ scene_setup(0, "Thursday", True, len(days["d"][1]) + 1, 4, True, True)
@@ -1698,7 +1698,7 @@ label graves_d_4:
     lloyd_narrating neutral "I leave the building and start thinking about my next destination."
 
     $ visit_person("graves", "d", 1)
-    return
+    jump move_location
 
 label graves_e_4:
     $ scene_setup(0, "Friday", True, len(days["e"][0]) + 1, 4, True, True)
@@ -1821,4 +1821,4 @@ label graves_e_4:
     jack_possessing_thinking worried "I have to keep moving."
 
     $ visit_person("graves", "e", 0)
-    return
+    jump move_location

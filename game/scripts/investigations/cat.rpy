@@ -1,27 +1,27 @@
 label cat_investigation:
     $ current_thought_block = "mind_read_cat"
     if (branch == "a" and day == 1):
-        call cat_a_1
+        jump cat_a_1
     elif (branch == "a" and day == 2):
-        call cat_a_2
+        jump cat_a_2
     elif (branch == "a" and day == 3):
-        call cat_a_3
+        jump cat_a_3
     elif (branch == "a" and day == 4):
-        call cat_a_4
+        jump cat_a_4
     elif (branch == "b"):
-        call cat_b_4
+        jump cat_b_4
     elif (branch == "c" and day == 2):
-        call cat_c_2
+        jump cat_c_2
     elif (branch == "c" and day == 3):
-        call cat_c_3
+        jump cat_c_3
     elif (branch == "c" and day == 4):
-        call cat_c_4
+        jump cat_c_4
     elif (branch == "d" and day == 3):
-        call cat_d_3
+        jump cat_d_3
     elif (branch == "d" and day == 4):
-        call cat_d_4
+        jump cat_d_4
     elif (branch == "e"):
-        call cat_e_4
+        jump cat_e_4
     
     jump move_location
 
@@ -151,7 +151,7 @@ label cat_a_1:
             lloyd_narrating neutral "If not then I can return another day."
     
     $ visit_person("cat", "a", 0)
-    return
+    jump move_location
 
 label cat_a_2:
     $ scene_setup(0, "Wednesday", True, len(days["a"][1]) + 1, 4, True, True)
@@ -358,7 +358,7 @@ label cat_a_2:
 
     scene black_bg with quick_dissolve
     $ visit_person("cat", "a", 1)
-    return
+    jump move_location
 
 label cat_a_3:
     $ scene_setup(0, "Thursday", True, len(days["a"][2]) + 1, 4, True, True)
@@ -465,7 +465,7 @@ label cat_a_3:
     scene black_bg with slow_dissolve
 
     $ visit_person("cat", "a", 2)
-    return
+    jump move_location
 
 label cat_a_4:
     $ scene_setup(0, "Friday", True, len(days["a"][3]) + 1, 4, True, True)
@@ -607,7 +607,7 @@ label cat_a_4:
     lloyd_narrating neutral "I leave the library and begin thinking about how to get to my next destination."
 
     $ visit_person("cat", "a", 3)
-    return 
+    jump move_location
 
 label cat_b_4:
     $ scene_setup(0, "Friday", True, len(days["b"][0]) + 1, 4, True, True)
@@ -715,7 +715,7 @@ label cat_b_4:
     lloyd_narrating neutral "I leave the library and begin thinking about my next destination."
 
     $ visit_person("cat", "b", 0)
-    return 
+    jump move_location
 
 label cat_c_2:
     $ scene_setup(0, "Wednesday", True, len(days["c"][0]) + 1, 4, True, True)
@@ -891,7 +891,7 @@ label cat_c_2:
     lloyd_narrating neutral "I leave the library and start thinking about my next destination."
 
     $ visit_person("cat", "c", 0)
-    return 
+    jump move_location
 
 label cat_c_3:
     $ scene_setup(0, "Thursday", True, len(days["c"][1]) + 1, 4, True, True)
@@ -1046,7 +1046,7 @@ label cat_c_3:
             lloyd_narrating neutral "Whatever Cat knew, I hope that it wasn’t anything important."
 
     $ visit_person("cat", "c", 1)
-    return
+    jump move_location
 
 label cat_c_4:
     $ scene_setup(0, "Friday", True, 4, 4, True, True)
@@ -1364,7 +1364,7 @@ label cat_d_3:
     lloyd_narrating neutral "It’s time to move elsewhere."
 
     $ visit_person("cat", "d", 0)
-    return
+    jump move_location
 
 label cat_d_4:
     $ scene_setup(0, "Friday", True, len(days["d"][1]) + 1, 4, True, True)
@@ -1510,7 +1510,7 @@ label cat_d_4:
     lloyd_narrating neutral "For now though, I have other places to visit."
 
     $ visit_person("cat", "d", 1)
-    return
+    jump move_location
 
 label cat_e_4:
     $ scene_setup(0, "Friday", True, len(days["e"][0]) + 1, 4, True, True)
@@ -1654,4 +1654,4 @@ label cat_e_4:
     jack_possessing_thinking angry "This place is pretty lame.[wait_1] Time to head somewhere else."
 
     $ visit_person("cat", "e", 0)
-    return
+    jump move_location

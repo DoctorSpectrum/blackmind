@@ -1,27 +1,27 @@
 label eddie_investigation:
     $ current_thought_block = "mind_read_eddie"
     if (branch == "a" and day == 1):
-        call eddie_a_1
+        jump eddie_a_1
     elif (branch == "a" and day == 2):
-        call eddie_a_2
+        jump eddie_a_2
     elif (branch == "a" and day == 3):
-        call eddie_a_3
+        jump eddie_a_3
     elif (branch == "a" and day == 4):
-        call eddie_a_b_4
+        jump eddie_a_b_4
     elif (branch == "b"):
-        call eddie_a_b_4
+        jump eddie_a_b_4
     elif (branch == "c" and day == 2):
-        call eddie_c_2
+        jump eddie_c_2
     elif (branch == "c" and day == 3):
-        call eddie_c_3
+        jump eddie_c_3
     elif (branch == "c" and day == 4):
-        call eddie_c_4
+        jump eddie_c_4
     elif (branch == "d" and day == 3):
-        call eddie_d_3
+        jump eddie_d_3
     elif (branch == "d" and day == 4):
-        call branch_d_4_4
+        jump branch_d_4_4
     elif (branch == "e"):
-        call eddie_e_4
+        jump eddie_e_4
     
     jump move_location
 
@@ -58,7 +58,7 @@ label eddie_a_1:
     else:
         jump eddie_unrecognised
 
-    return
+    jump move_location
 
 label eddie_unrecognised:
     lloyd_narrating neutral "The recognition is a surprise."
@@ -122,7 +122,7 @@ label eddie_unrecognised:
     lloyd_thinking neutral "If I come back another day, he might be in a better mood.[wait_1] For now I’d better keep moving."
     
     $ visit_person("eddie", "a", 0)
-    return
+    jump move_location
 
 label eddie_recognised:
     lloyd_thinking neutral "I know who he is this time.[wait_1] If I act friendly to him I can gain his trust and make him believe me."
@@ -194,7 +194,7 @@ label eddie_recognised:
 
     $ add_boolean("eddie_investigates_docherty")
     $ visit_person("eddie", "a", 0)
-    return
+    jump move_location
 
 label eddie_a_2:
     $ scene_setup(0, "Wednesday", True, len(days["a"][1]) + 1, 4, True, True)
@@ -343,7 +343,7 @@ label eddie_a_2:
     lloyd_narrating neutral "I leave the building and start thinking about my next destination."
 
     $ visit_person("eddie", "a", 1)
-    return
+    jump move_location
 
 label eddie_a_3:
     $ scene_setup(0, "Thursday", True, len(days["a"][2]) + 1, 4, True, True)
@@ -433,7 +433,7 @@ label eddie_a_3:
                 lloyd_thinking thinking "That didn’t go so well.[wait_1] It might not be worth returning here tomorrow if this is how he’s feeling about me."
                 $ visit_person("eddie", "a", 2)
                 $ add_boolean("eddie_ejects_lloyd")
-                return
+                jump move_location
     elif (person_visited("eddie", "a", 0)):
         lloyd_narrating neutral "Just like the other day, I’ve called ahead of time and made an appointment."
         lloyd_narrating neutral "The receptionist at the newspaper directs me to the same room as last time and asks me politely to wait."
@@ -569,7 +569,7 @@ label eddie_a_3:
     lloyd_narrating neutral "I leave the building and think about what to do next."
 
     $ visit_person("eddie", "a", 2)
-    return
+    jump move_location
 
 label eddie_a_b_4:
     if (branch == "a"):
@@ -724,7 +724,7 @@ label eddie_a_b_4:
                 lloyd_narrating neutral "I leave the building before Eddie thinks that I’m going to try anything tricky."
                 lloyd_narrating neutral "My visit here was a complete waste of time."
                 $ visit_person("eddie", "a", 3)
-                return
+                jump move_location
     elif (person_visited("eddie", "a", 2)):
         lloyd_narrating neutral "I enter the building’s lobby, confident that I can convince the receptionist to let me in to see Eddie once again."
         if (check_boolean("eddie_ejects_lloyd")):
@@ -733,7 +733,7 @@ label eddie_a_b_4:
             lloyd_narrating neutral "There’s nothing else for me to do here."
             lloyd_narrating neutral "I leave the building and start thinking about what to do next."
             $ visit_person("eddie", "a", 3)
-            return
+            jump move_location
         else:
             lloyd_narrating neutral "I’m directed to the same room that I was in yesterday, and once again told to be patient."
             lloyd_narrating neutral "To my surprise, Eddie is already in the room when I arrive."
@@ -948,7 +948,7 @@ label eddie_a_b_4:
         lloyd_narrating neutral "There’s no way to know.[wait_1] I leave the building and start thinking about my next destination."
 
         $ visit_person("eddie", "b", 0)
-    return 
+    jump move_location
 
 label eddie_c_2:
     $ scene_setup(0, "Wednesday", True, len(days["c"][0]) + 1, 4, True, True)
@@ -1069,7 +1069,7 @@ label eddie_c_2:
             lloyd_narrating neutral "I leave the building and begin thinking about where to go next."
 
     $ visit_person("eddie", "c", 0)
-    return
+    jump move_location
 
 label eddie_c_3:
     $ scene_setup(0, "Thursday", True, len(days["c"][1]) + 1, 4, True, True)
@@ -1195,7 +1195,7 @@ label eddie_c_3:
     lloyd_narrating neutral "As I walk out of the building, I start thinking about where I want to go next."
 
     $ visit_person("eddie", "c", 1)
-    return
+    jump move_location
 
 label eddie_c_4:
     $ scene_setup(0, "Friday", True, len(days["c"][2]) + 1, 4, True, True)
@@ -1332,7 +1332,7 @@ label eddie_c_4:
     lloyd_narrating neutral "It’s time to think about where I want to go next."
 
     $ visit_person("eddie", "c", 2)
-    return 
+    jump move_location
 
 label eddie_d_3:
     $ scene_setup(0, "Thursday", True, len(days["d"][0]) + 1, 4, True, True)
@@ -1506,7 +1506,7 @@ label eddie_d_3:
     lloyd_narrating neutral "I leave the building and start thinking about my next destination."
 
     $ visit_person("eddie", "d", 0)
-    return
+    jump move_location
 
 label eddie_e_4:
     $ scene_setup(0, "Friday", True, len(days["e"][0]) + 1, 4, True, True)
@@ -1618,4 +1618,4 @@ label eddie_e_4:
     jack_possessing_thinking smug "I’ve got other places to be, anyway."
 
     $ visit_person("eddie", "e", 0)
-    return
+    jump move_location
