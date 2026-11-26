@@ -4,7 +4,7 @@ BLACKMIND TODO
         - Deliverables:
             - Big tasks:
                 - Power upgrades:
-                    - Increase mind reads, mind wipes, and something for future sight (idk what)
+                    - Increase mind reads, mind wipes, and seeing history keywords for future sight
                     - Test + implement functionality
                     - Save to a value indicating where we've changed the value - e.g. mind_wipes_increased a_2 so we know that for A 2-4 and B-4 we should have extra mind wipes
                 - Psychic powers:
@@ -29,7 +29,6 @@ BLACKMIND TODO
                             If we went to the first node and visited Graves instead, it should then be Graves/Cat/Eddie.
                 - Add in future vision/keywords for all scenes
                 - Go through all TODOs and updoot/remove them
-                - Finish placeholder sprites
                 - Finish placeholder CGs
                 - Add in placeholder music
 
