@@ -411,7 +411,7 @@ screen psychic_powers():
                     #        zoom 0.5
 
                     imagebutton:
-                        auto "gui/icons/mind_read_icon_%s.png"
+                        auto ("gui/icons/mind_read_full_%s.png" if max_mind_reads == None else "gui/icons/mind_read_" + str(max_mind_reads - minds_read) + "_" + str(max_mind_reads) + "_%s.png")
                         yalign 0.5
                         action [
                             SetLocalVariable("icon_hint", None),
@@ -422,7 +422,7 @@ screen psychic_powers():
 
                     if (check_boolean("mind_wipe_available")):
                         imagebutton:
-                            auto "gui/icons/mind_wipe_icon_%s.png"
+                            auto ("gui/icons/mind_wipe_full_%s.png" if max_rewinds == None else "gui/icons/mind_wipe_" + str(max_rewinds - minds_rewound) + "_" + str(max_rewinds) + "_%s.png")
                             yalign 0.5
                             action [
                                 SetLocalVariable("icon_hint", None),
@@ -433,7 +433,7 @@ screen psychic_powers():
 
                     if (check_boolean("future_sight_available")):
                         imagebutton:
-                            auto "gui/icons/future_sight_icon_%s.png"
+                            auto "gui/icons/future_sight_full_%s.png"
                             action [
                                 SetLocalVariable("icon_hint", None),
                                 (Call("future_sight", from_current=False) if (check_boolean("call_future_sight")) else Show("future_sight"))
@@ -445,7 +445,7 @@ screen psychic_powers():
                 frame:
                     background Frame("gui/namebox.png", xsize=120, ysize=25)
                     xalign 0.5
-                    yoffset 15
+                    yoffset 35
                     xsize 120
                     ysize 25
                     at transform:
@@ -454,7 +454,7 @@ screen psychic_powers():
                         linear 0.1:
                             alpha 1.0
 
-                    text _("Read Mind " + (str(max_mind_reads - minds_read) + "/" + str(max_mind_reads)) if icon_hint == "mind_read" else ("Rewind " + (str(max_rewinds - minds_rewound) + "/" + str(max_rewinds)) if icon_hint == "mind_wipe" else "Future Sight")):
+                    text _("Read Mind " + (str(max_mind_reads - minds_read) + "/" + str(max_mind_reads) if max_mind_reads is not None else "") if icon_hint == "mind_read" else ("Rewind " + (str(max_rewinds - minds_rewound) + "/" + str(max_rewinds) if max_rewinds is not None else "") if icon_hint == "mind_wipe" else "Future Sight")):
                         color "#000"
                         xalign 0.5
                         yalign 0.5

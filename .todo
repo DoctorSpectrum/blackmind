@@ -4,8 +4,10 @@ BLACKMIND TODO
         - Deliverables:
             - Big tasks:
                 - Limited mind reads and mind wipes:
-                    - Add in UI functionality; a ring that gets smoller but is clearly broken up
-                    - Reset power usage whenever we jump back to select our next scene
+                    - Buttons need cleaning up:
+                        - Read mind has some spots that look to be changing colour too dramatically
+                        - Rewind mind has the arrow clearly changing where the black is
+                        - Buttons aren't too noticeably highlighted when hovered - I think it needs to be a darker yellow
                 - Power upgrades:
                     - Increase mind reads, mind wipes, and something for future sight (idk what)
                     - Test + implement functionality
@@ -22,6 +24,7 @@ BLACKMIND TODO
                         - Graves (magnifying glass)
                         - Evening
                     - Create imagebuttons for each node, spread out in a tree
+                        - Use a grid to help with placement?
                     - Updoot it so that we only show each imagebutton + the lines connecting them if we've done that scene
                     - Add in functionality so that clicking on a node gives us a summary of what happens there, plus any booleans we've unlocked
                     - Add in functionality so that we can jump to a node
@@ -30,6 +33,7 @@ BLACKMIND TODO
                         - Swap nodes around - e.g. if we do Barbara/Cat/Eddie on A-1, then jump back later and visit Eddie on the first section of the day, it should then be Eddie/Cat/Barbara.
                             If we went to the first node and visited Graves instead, it should then be Graves/Cat/Eddie.
                 - Add in future vision/keywords for all scenes
+                - Go through all TODOs and updoot/remove them
                 - Finish placeholder sprites
                 - Finish placeholder CGs
                 - Add in placeholder music
