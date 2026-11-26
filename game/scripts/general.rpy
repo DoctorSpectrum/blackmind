@@ -1,5 +1,8 @@
 label move_location():
     $ renpy.choice_for_skipping()
+    $ minds_read = 0
+    $ minds_rewound = 0
+
     if (branch == "a"):
         if (day == 1 and len(days["a"][0]) >= 3):
             jump branch_a_1_4

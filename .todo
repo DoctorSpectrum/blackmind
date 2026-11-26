@@ -4,7 +4,6 @@ BLACKMIND TODO
         - Deliverables:
             - Big tasks:
                 - Limited mind reads and mind wipes:
-                    - Set and test limited mind reads and mind wipes
                     - Add in UI functionality; a ring that gets smoller but is clearly broken up
                     - Reset power usage whenever we jump back to select our next scene
                 - Power upgrades:
@@ -45,6 +44,8 @@ BLACKMIND TODO
                 - Set vbar default to be yellow on black
                 - Fix up sprites to not have transparent spots
                 - Add in no-rewind points (talking to Docherty, Sergei, Killian, possessed Eddie)
+                - Add in a modal with multiple slides, Fortune's Weave style, for the info at the start if nothing else
+                - Modal prompt a save before we jump to the fourth scene of each day
 
             - Delivery FYIs:
                 - Unsure about quality of script; took me a little while to get the hang of things

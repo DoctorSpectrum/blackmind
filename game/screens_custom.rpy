@@ -415,7 +415,7 @@ screen psychic_powers():
                         yalign 0.5
                         action [
                             SetLocalVariable("icon_hint", None),
-                            (Call("mind_read_effects", from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+                            (Call("mind_read_effects", from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads or current_thought in thoughts_read) else NullAction()),
                         ]
                         hovered SetLocalVariable("icon_hint", "mind_read")
                         unhovered SetLocalVariable("icon_hint", None)
@@ -454,7 +454,7 @@ screen psychic_powers():
                         linear 0.1:
                             alpha 1.0
 
-                    text _("Read Mind" if icon_hint == "mind_read" else ("Rewind Mind" if icon_hint == "mind_wipe" else "Future Sight")):
+                    text _("Read Mind " + (str(max_mind_reads - minds_read) + "/" + str(max_mind_reads)) if icon_hint == "mind_read" else ("Rewind " + (str(max_rewinds - minds_rewound) + "/" + str(max_rewinds)) if icon_hint == "mind_wipe" else "Future Sight")):
                         color "#000"
                         xalign 0.5
                         yalign 0.5
@@ -464,7 +464,7 @@ screen psychic_powers():
         key ["K_1", "pad_dpleft_press"]:
             action [
                 SetLocalVariable("icon_hint", None),
-                (Call("mind_read_effects", from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads) else NullAction()),
+                (Call("mind_read_effects", from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads or current_thought in thoughts_read) else NullAction()),
             ]
 
         if (check_boolean("mind_wipe_available")):

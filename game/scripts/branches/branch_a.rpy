@@ -1,6 +1,8 @@
 label branch_a_1_0:
     $ branch = "a"
     $ day = 1
+    $ max_mind_reads = 3
+    $ max_rewinds = 1
     call screen chapter_breaks("TUESDAY", "There are millions of residents in the city, comprising a diverse range of ages, genders, and jobs.\n\nThat means that there are millions of potential victims.")
     scene apartment_day with slow_dissolve
     lloyd_narrating neutral "It’s taken me a bit of time to research, but I’ve found four potential places to visit today that can hopefully help me out."
