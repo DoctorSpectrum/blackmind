@@ -3,11 +3,6 @@ BLACKMIND TODO
         - Delivery Date: 31/12/2027
         - Deliverables:
             - Big tasks:
-                - Limited mind reads and mind wipes:
-                    - Buttons need cleaning up:
-                        - Read mind has some spots that look to be changing colour too dramatically
-                        - Rewind mind has the arrow clearly changing where the black is
-                        - Buttons aren't too noticeably highlighted when hovered - I think it needs to be a darker yellow
                 - Power upgrades:
                     - Increase mind reads, mind wipes, and something for future sight (idk what)
                     - Test + implement functionality
@@ -58,6 +53,7 @@ BLACKMIND TODO
                 - Branch C kinda iffy
                 - Replay AN afterwards; get the Sergei reference and the Prometheus line
                 - Rewinding gonna have some inconsistencies; will fix these up down the line
+                - Psychic power buttons not perfect on hover; any suggestions for a fix?
 
     - Feedback Phase
         - Delivery Date: 30/03/2027
@@ -76,6 +72,11 @@ BLACKMIND TODO
             - Tasks:
                 - Update the code so that whenever we rewind, we're not getting repeats of unnecessary stuff, like Lloyd describing himself walking
                     towards someone
+                - Psychic powers:
+                    - Buttons need cleaning up:
+                        - Read mind has some spots that look to be changing colour too dramatically
+                        - Rewind mind has the arrow clearly changing where the black is
+                        - Buttons aren't too noticeably highlighted when hovered - I think it needs to be a darker yellow
 
     - Release Phase
         - Delivery Date: 31/12/2027
