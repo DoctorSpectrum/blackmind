@@ -16,7 +16,7 @@ label mind_read_effects:
 
     if (current_thought not in thoughts_read):
         $ thoughts_read.append(current_thought)
-        if (max_mind_reads is not None):
+        if (max_mind_reads() is not None):
             $ minds_read += 1
     
     $ play_sound("mind_read.mp3", volume=0.5)
@@ -39,7 +39,7 @@ label mind_wipe_pause:
             $ add_boolean("psychic_splash_rewind")
 
         $ rewound_mind = True
-        if (max_rewinds is not None):
+        if (max_rewinds() is not None):
             $ minds_rewound += 1
         $ play_sound("mind_rewind.mp3")
         $ narrator.add_history(kind="adv", who=None, what=_("__breakpoint__"))

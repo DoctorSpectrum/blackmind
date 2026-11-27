@@ -92,7 +92,7 @@ label branch_e_3_4:
 
 label branch_e_4_0:
     hide screen calendar
-    # power upgrade
+    call screen upgrades_screen with quick_dissolve
     $ branch = "e"
     $ day = 4
     call screen chapter_breaks("FRIDAY", "Lloyd went to bed determined to find out who Killian Morgensen is.\n\nThe next day, it isn’t Lloyd who wakes up in his body.")

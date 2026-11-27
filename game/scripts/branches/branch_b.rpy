@@ -168,7 +168,7 @@ label branch_b_3_4_rewind:
 
 label branch_b_4_0:
     hide screen calendar
-    # Power upgrade
+    call screen upgrades_screen with quick_dissolve
     $ branch = "b"
     $ day = 4
     call screen chapter_breaks("FRIDAY", "Lloyd is trying to find others with psychic abilities. He knows that the man in black is killing them and is determined to warn them.\n\nHe hasn’t considered the obvious yet.")

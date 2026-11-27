@@ -902,10 +902,6 @@ label variables:
     default progress_convo = False
     default convo_length = 0
 
-    default max_mind_reads = None
-    default max_rewinds = None
-    default max_flash_forwards = 0
-
     default minds_read = 0
     default minds_rewound = 0
     default convo_progress = 0

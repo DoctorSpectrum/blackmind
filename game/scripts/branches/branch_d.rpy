@@ -179,9 +179,9 @@ label branch_d_2_4_sergei_rewind:
 
 label branch_d_3_0:
     hide screen calendar
-    # power upgrade
     $ branch = "d"
     $ day = 3
+    call screen upgrades_screen with quick_dissolve
     call screen chapter_breaks("THURSDAY", "Lloyd has failed to prevent another murder. He has failed to stop Docherty from escaping.\n\nBy the end of the day, another person will be dead.")
     scene apartment_day with slow_dissolve
     lloyd_narrating neutral "I wake up in my bed feeling renewed.[wait_1] It’s a good feeling."
@@ -407,7 +407,7 @@ label branch_d_3_4_eddie_safety:
 
 label branch_d_4_0:
     hide screen calendar
-    # power upgrade
+    call screen upgrades_screen with quick_dissolve
     $ branch = "d"
     $ day = 4
     call screen chapter_breaks("FRIDAY", "Docherty has been killed. There will be no more murders now.\n\nAll that Lloyd needs to do is tidy up some loose ends, and the case will be over.")

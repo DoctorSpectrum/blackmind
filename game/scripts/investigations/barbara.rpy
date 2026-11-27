@@ -605,7 +605,7 @@ label barbara_a_4_rewind:
     $ swap_sprites("barbara_sad")
     barbara "He’s...[wait_05]what?"
     lloyd_narrating neutral "I’ve said it without thinking."
-    if (max_rewinds == None or minds_rewound < max_rewinds):
+    if (max_rewinds() == None or minds_rewound < max_rewinds()):
         lloyd_narrating neutral "For a moment I’m tempted to rewind her mind and make her forget about what I’ve said."
         lloyd_narrating neutral "But is it really worth it?"
     else:

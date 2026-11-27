@@ -3,10 +3,6 @@ BLACKMIND TODO
         - Delivery Date: 31/12/2027
         - Deliverables:
             - Big tasks:
-                - Power upgrades:
-                    - Increase mind reads, mind wipes, and seeing history keywords for future sight
-                    - Test + implement functionality
-                    - Save to a value indicating where we've changed the value - e.g. mind_wipes_increased a_2 so we know that for A 2-4 and B-4 we should have extra mind wipes
                 - Psychic powers:
                     - Splash for Lloyd
                     - Different effects for Lloyd
@@ -44,6 +40,7 @@ BLACKMIND TODO
                 - Add in no-rewind points (talking to Docherty, Sergei, Killian, possessed Eddie)
                 - Add in a modal with multiple slides, Fortune's Weave style, for the info at the start if nothing else
                 - Modal prompt a save before we jump to the fourth scene of each day
+                - Potential idea: unlocking info gets you XP or upgrade points; you can upgrade abilities further beyond one point for each
 
             - Delivery FYIs:
                 - Unsure about quality of script; took me a little while to get the hang of things

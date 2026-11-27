@@ -1,8 +1,6 @@
 label branch_a_1_0:
     $ branch = "a"
     $ day = 1
-    $ max_mind_reads = 3
-    $ max_rewinds = 1
     call screen chapter_breaks("TUESDAY", "There are millions of residents in the city, comprising a diverse range of ages, genders, and jobs.\n\nThat means that there are millions of potential victims.")
     scene apartment_day with slow_dissolve
     lloyd_narrating neutral "It’s taken me a bit of time to research, but I’ve found four potential places to visit today that can hopefully help me out."
@@ -331,9 +329,9 @@ label branch_a_1_4_bar_rewind:
     
 label branch_a_2_0:
     hide screen calendar
-    # Power upgrade
     $ branch = "a"
     $ day = 2
+    call screen upgrades_screen with quick_dissolve
     call screen chapter_breaks("WEDNESDAY", "It’s now been more than twenty-four hours since Lloyd vowed to find and stop the man in black.\n\nHe has not made any progress in discovering who the man’s identity or what his aims are.")
     scene apartment_day with slow_dissolve
     lloyd_narrating neutral "I wake up in bed wondering whether my memory of last night was a bad dream."
@@ -426,9 +424,9 @@ label branch_a_2_4:
 
 label branch_a_3_0:
     hide screen calendar
-    # Power upgrade
     $ branch = "a"
     $ day = 3
+    call screen upgrades_screen with quick_dissolve
     call screen chapter_breaks("THURSDAY", "After two days of investigating Lloyd hasn’t discovered anything about the man in black. He has no idea of his motivation or who he’s targeted.\n\nToday is the day that changes.")
     scene apartment_day with slow_dissolve
     lloyd_thinking thinking "Investigating the man in black didn’t turn up any information.[wait_1] I have to change things around and look at things from a different angle."
@@ -623,7 +621,7 @@ label branch_a_3_4_graves_rewind:
 
 label branch_a_4_0:
     hide screen calendar
-    # Power upgrade
+    call screen upgrades_screen with quick_dissolve
     $ branch = "a"
     $ day = 4
     call screen chapter_breaks("FRIDAY", "Lloyd has found out who the man with the white streak, Jack Usbourne, is, but knows little more than that. He’s going to research Jack further today.\n\nHe has no backup plan for if this plan fails.")

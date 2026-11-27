@@ -161,9 +161,9 @@ label branch_c_1_4_rewind:
 
 label branch_c_2_0:
     hide screen calendar
-    # power upgrade
     $ branch = "c"
     $ day = 2
+    call screen upgrades_screen with quick_dissolve
     call screen chapter_breaks("WEDNESDAY", "Allan Docherty, the man in black, is dead.\n\nThere shouldn’t be any more murders now. Everything should be fine from here.")
     scene apartment_day with slow_dissolve
     lloyd_narrating neutral "I wake up the next day with my head feeling somewhat better and a better sense of what to do."
@@ -415,9 +415,9 @@ label branch_c_2_4_cat:
 
 label branch_c_3_0:
     hide screen calendar
-    # Power upgrade
     $ branch = "c"
     $ day = 3
+    call screen upgrades_screen with quick_dissolve
     call screen chapter_breaks("THURSDAY", "Despite his best efforts, Lloyd was unable to save Sergei Maskelyne from being killed. His psychic powers haven’t shown him any further visions.\n\nHe has no warning of what’s coming.")
     scene apartment_day with slow_dissolve
     lloyd_thinking thinking "I wasn’t able to save Sergei.[wait_1] If I’d found where he was sooner then I could have warned him about the killer."
@@ -623,7 +623,7 @@ label lloyd_pdf_interjection_3:
 
 label branch_c_4_0:
     hide screen calendar
-    # Power upgrade
+    call screen upgrades_screen with quick_dissolve
     $ branch = "c"
     $ day = 4
     call screen chapter_breaks("FRIDAY", "The killer is targeting psychics because he wants their powers for himself.\n\nThat’s what Lloyd believes. He wouldn’t be wrong about something like that.")

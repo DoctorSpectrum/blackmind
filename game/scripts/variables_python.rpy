@@ -214,13 +214,19 @@ init python:
 
     # General gameplay
     def scene_setup(scene_length = 0, calendar_day="Monday", calendar=True, calendar_section=1, calendar_sections=4, convo_scene=True, history=True):
-        global progress_convo, convo_progress, convo_length, _history_list
+        global progress_convo, convo_progress, convo_length, minds_read, minds_rewound, thoughts_read, _history_list
+
         progress_convo = convo_scene
         convo_progress = 0
         convo_length = scene_length
+        minds_read = 0
+        minds_rewound = 0
+        thoughts_read.clear()
         _history_list.clear()
+        
         remove_boolean("psychic_splash_read")
         remove_boolean("psychic_splash_rewind")
+        
         renpy.choice_for_skipping()
 
         if (calendar):
@@ -250,6 +256,84 @@ init python:
 
     def person_visited(person, branch, day):
         return person in days[branch][day]
+
+    def max_mind_reads():
+        if (branch == None):
+            return None
+        elif (day == 4):
+            return 4
+        elif (branch == "a" and day >= 2):
+            if (check_boolean("upgrade_mind_read_a_2")):
+                return 4
+            elif (check_boolean("upgrade_mind_read_a_3")):
+                return 4 if day >= 3 else 3
+        elif (branch == "c" and day >= 2):
+            if (check_boolean("upgrade_mind_read_c_2")):
+                return 4
+            elif (check_boolean("upgrade_mind_read_c_3")):
+                return 4 if day >= 3 else 3
+        elif (branch == "d" and day >= 3):
+            if (check_boolean("upgrade_mind_read_c_2")):
+                return 4
+            elif (check_boolean("upgrade_mind_read_d_3")):
+                return 4
+        elif (branch in ["e", "f", "g"]):
+            if (check_boolean("upgrade_mind_read_c_2")):
+                return 4
+
+        return 3
+
+    def max_rewinds():
+        if (branch == None):
+            return None
+        elif (day == 4):
+            return 2
+        elif (branch == "a" and day >= 2):
+            if (check_boolean("upgrade_mind_rewind_a_2")):
+                return 2
+            elif (check_boolean("upgrade_mind_rewind_a_3")):
+                return 2 if day >= 3 else 1
+        elif (branch == "c" and day >= 2):
+            if (check_boolean("upgrade_mind_rewind_c_2")):
+                return 2
+            elif (check_boolean("upgrade_mind_rewind_c_3")):
+                return 2 if day >= 3 else 1
+        elif (branch == "d" and day >= 3):
+            if (check_boolean("upgrade_mind_rewind_c_2")):
+                return 2
+            elif (check_boolean("upgrade_mind_rewind_d_3")):
+                return 2
+        elif (branch in ["e", "f", "g"]):
+            if (check_boolean("upgrade_mind_rewind_c_2")):
+                return 2
+
+        return 1
+
+    def general_future_available():
+        if (branch == None):
+            return True
+        elif (day == 4):
+            return True
+        elif (branch == "a" and day >= 2):
+            if (check_boolean("upgrade_future_sight_a_2")):
+                return True
+            elif (check_boolean("upgrade_future_sight_a_3")):
+                return True if day >= 3 else False
+        elif (branch == "c" and day >= 2):
+            if (check_boolean("upgrade_future_sight_c_2")):
+                return True
+            elif (check_boolean("upgrade_future_sight_c_3")):
+                return True if day >= 3 else False
+        elif (branch == "d" and day >= 3):
+            if (check_boolean("upgrade_future_sight_c_2")):
+                return True
+            elif (check_boolean("upgrade_future_sight_d_3")):
+                return True
+        elif (branch in ["e", "f", "g"]):
+            if (check_boolean("upgrade_future_sight_c_2")):
+                return True
+
+        return False
 
     #Classes
     class InputChecker(renpy.Displayable):

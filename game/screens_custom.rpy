@@ -330,8 +330,8 @@ screen debug_info():
                             text _("current_thought: " + current_thought)
                             text _("progress_convo: " + ("True" if progress_convo else "False"))
                             text _("convo_length: " + str(convo_length))
-                            text _("max_mind_reads: " + (str(max_mind_reads) if max_mind_reads is not None else "None"))
-                            text _("max_rewinds: " + (str(max_rewinds) if max_rewinds is not None else "None"))
+                            text _("max_mind_reads: " + (str(max_mind_reads()) if max_mind_reads() is not None else "None"))
+                            text _("max_rewinds: " + (str(max_rewinds()) if max_rewinds() is not None else "None"))
                             text _("minds_read: " + str(minds_read))
                             text _("minds_rewound: " + str(minds_rewound))
                             text _("convo_progress: " + str(convo_progress))
@@ -411,22 +411,22 @@ screen psychic_powers():
                     #        zoom 0.5
 
                     imagebutton:
-                        auto ("gui/icons/mind_read_full_%s.png" if max_mind_reads == None else "gui/icons/mind_read_" + str(max_mind_reads - minds_read) + "_" + str(max_mind_reads) + "_%s.png")
+                        auto ("gui/icons/mind_read_full_%s.png" if max_mind_reads() == None else "gui/icons/mind_read_" + str(max_mind_reads() - minds_read) + "_" + str(max_mind_reads()) + "_%s.png")
                         yalign 0.5
                         action [
                             SetLocalVariable("icon_hint", None),
-                            (Call("mind_read_effects", from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads or current_thought in thoughts_read) else NullAction()),
+                            (Call("mind_read_effects", from_current=True) if (max_mind_reads() == None or minds_read < max_mind_reads() or current_thought in thoughts_read) else NullAction()),
                         ]
                         hovered SetLocalVariable("icon_hint", "mind_read")
                         unhovered SetLocalVariable("icon_hint", None)
 
                     if (check_boolean("mind_wipe_available")):
                         imagebutton:
-                            auto ("gui/icons/mind_wipe_full_%s.png" if max_rewinds == None else "gui/icons/mind_wipe_" + str(max_rewinds - minds_rewound) + "_" + str(max_rewinds) + "_%s.png")
+                            auto ("gui/icons/mind_wipe_full_%s.png" if max_rewinds() == None else "gui/icons/mind_wipe_" + str(max_rewinds() - minds_rewound) + "_" + str(max_rewinds()) + "_%s.png")
                             yalign 0.5
                             action [
                                 SetLocalVariable("icon_hint", None),
-                                (Call("mind_wipe_pause", from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
+                                (Call("mind_wipe_pause", from_current=True) if (max_rewinds() == None or minds_rewound < max_rewinds()) else NullAction())
                             ]
                             hovered SetLocalVariable("icon_hint", "mind_wipe")
                             unhovered SetLocalVariable("icon_hint", None)
@@ -454,7 +454,7 @@ screen psychic_powers():
                         linear 0.1:
                             alpha 1.0
 
-                    text _("Read Mind " + (str(max_mind_reads - minds_read) + "/" + str(max_mind_reads) if max_mind_reads is not None else "") if icon_hint == "mind_read" else ("Rewind " + (str(max_rewinds - minds_rewound) + "/" + str(max_rewinds) if max_rewinds is not None else "") if icon_hint == "mind_wipe" else "Future Sight")):
+                    text _("Read Mind " + (str(max_mind_reads() - minds_read) + "/" + str(max_mind_reads()) if max_mind_reads() is not None else "") if icon_hint == "mind_read" else ("Rewind " + (str(max_rewinds() - minds_rewound) + "/" + str(max_rewinds()) if max_rewinds() is not None else "") if icon_hint == "mind_wipe" else "Future Sight")):
                         color "#000"
                         xalign 0.5
                         yalign 0.5
@@ -464,14 +464,14 @@ screen psychic_powers():
         key ["K_1", "pad_dpleft_press"]:
             action [
                 SetLocalVariable("icon_hint", None),
-                (Call("mind_read_effects", from_current=True) if (max_mind_reads == None or minds_read < max_mind_reads or current_thought in thoughts_read) else NullAction()),
+                (Call("mind_read_effects", from_current=True) if (max_mind_reads() == None or minds_read < max_mind_reads() or current_thought in thoughts_read) else NullAction()),
             ]
 
         if (check_boolean("mind_wipe_available")):
             key ["K_2", "pad_dpup_press"]:
                 action [
                     SetLocalVariable("icon_hint", None),
-                    (Call("mind_wipe_pause", from_current=True) if (max_rewinds == None or minds_rewound < max_rewinds) else NullAction())
+                    (Call("mind_wipe_pause", from_current=True) if (max_rewinds() == None or minds_rewound < max_rewinds()) else NullAction())
                 ]
 
         if (check_boolean("future_sight_available")):
@@ -702,14 +702,15 @@ screen future_sight(returnable=False, fadein=True, fadeout=True):
                                     selected viewing == "current"
                                     action SetScreenVariable("viewing", "current")
 
-                                textbutton _("GENERAL"):
-                                    style "future_sight_type_button"
-                                    selected viewing == "general"
-                                    action [
-                                        (Show("modal_popup", message="These keywords may or may not be present in the current scene. Reading the corresponding thought will unlock more information about this character.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
-                                        Function(add_boolean, "future_sight_general_message"),
-                                        SetScreenVariable("viewing", "general")
-                                    ]
+                                if (general_future_available()):
+                                    textbutton _("GENERAL"):
+                                        style "future_sight_type_button"
+                                        selected viewing == "general"
+                                        action [
+                                            (Show("modal_popup", message="These keywords may or may not be present in the current scene. Reading the corresponding thought will unlock more information about this character.", option_actions=[Hide("modal_popup")]) if not check_boolean("future_sight_general_message") else NullAction()),
+                                            Function(add_boolean, "future_sight_general_message"),
+                                            SetScreenVariable("viewing", "general")
+                                        ]
 
                                 textbutton _("HISTORY"):
                                     style "future_sight_type_button"
@@ -1015,65 +1016,99 @@ screen upgrades_screen():
 
         background Solid("#F2EE29")
 
-        text _("Psychic Upgrades"):
+        text _("PSYCHIC ABILITIES"):
             xalign 0.5
             yalign 0.0
+            font "gui/chubhand.ttf"
+            size 72
 
         vbox:
             yalign 0.4
+            spacing 50
 
             hbox:
-                text _("Mind Reads")
-                textbutton _(str(3)):
-                    action NullAction()
-                textbutton _(str(4)):
-                    action (NullAction() if max_mind_reads != 3 else SetScreenVariable("selected", "mr_4"))
-                textbutton _(str(5)):
-                    action (NullAction() if max_mind_reads != 4 else SetScreenVariable("selected", "mr_5"))
-                textbutton _(str(6)):
-                    action (NullAction() if max_mind_reads != 5 else SetScreenVariable("selected", "mr_6"))
+                spacing 100
+                frame:
+                    background None
+                    xsize 350
+                    text _("Mind Reads"):
+                        yalign 0.5
+
+                hbox:
+                    spacing 50
+                    image ("gui/bar/upgrade_bar_1_2.png" if selected != "mind_read" and max_mind_reads() == 3 else "gui/bar/upgrade_bar_2_2.png")
+
+                    if (max_mind_reads() == 3):
+                        textbutton _("Upgrade"):
+                            style "upgrade_button"
+                            action SetScreenVariable("selected", "mind_read")
 
             hbox:
-                text _("Rewinds")
-                textbutton _(str(1)):
-                    action NullAction()
-                textbutton _(str(2)):
-                    action (NullAction() if max_rewinds != 1 else SetScreenVariable("selected", "rw_2"))
-                textbutton _(str(3)):
-                    action (NullAction() if max_rewinds != 2 else SetScreenVariable("selected", "rw_3"))
-                textbutton _(str(4)):
-                    action (NullAction() if max_rewinds != 3 else SetScreenVariable("selected", "rw_4"))
+                spacing 100
+                frame:
+                    background None
+                    xsize 350
+                    text _("Mind Rewinds"):
+                        yalign 0.5
+
+                hbox:
+                    spacing 50
+                    image ("gui/bar/upgrade_bar_1_2.png" if selected != "mind_rewind" and max_rewinds() == 1 else "gui/bar/upgrade_bar_2_2.png")
+
+                    if (max_rewinds() == 1):
+                        textbutton _("Upgrade"):
+                            style "upgrade_button"
+                            action SetScreenVariable("selected", "mind_rewind")
 
             hbox:
-                text _("Future Visions")
-                textbutton _(str(0)):
-                    action NullAction()
-                textbutton _(str(1)):
-                    action (NullAction() if max_flash_forwards != 0 else SetScreenVariable("selected", "fv_1"))
-                textbutton _(str(2)):
-                    action (NullAction() if max_flash_forwards != 1 else SetScreenVariable("selected", "fv_2"))
-                textbutton _(str(3)):
-                    action (NullAction() if max_flash_forwards != 2 else SetScreenVariable("selected", "fv_3"))
+                spacing 100
+                frame:
+                    background None
+                    xsize 350
+                    text _("Future Sight"):
+                        yalign 0.5
 
-        #Deffo throw some flavour text in somewhere, and at the bottom do a "You will be able to do X Y times" or whatever
+                hbox:
+                    spacing 50
+                    image ("gui/bar/upgrade_bar_1_2.png" if selected != "future_sight" and not general_future_available() else "gui/bar/upgrade_bar_2_2.png")
+
+                    if (not general_future_available()):
+                        textbutton _("Upgrade"):
+                            style "upgrade_button"
+                            action SetScreenVariable("selected", "future_sight")
 
         if (selected != None):
+            if (selected == "mind_read"):
+                text _("You will be able to read 4 minds per scene."):
+                    style "upgrade_text_description"
+            elif (selected == "mind_rewind"):
+                text _("You will be able to rewind a mind twice per scene."):
+                    style "upgrade_text_description"
+            elif (selected == "future_sight"):
+                text _("You will be able to see General keywords for people you talk to."):
+                    style "upgrade_text_description"
             textbutton _("Confirm"):
+                style "yellow_button_on_yellow"
                 xalign 0.5
                 yalign 1.0
-                action [        #Prolly a better way to do this - should I set two variables on the textbuttons?
-                    (SetVariable("max_mind_reads", 4) if selected == "mr_4" else NullAction()),
-                    (SetVariable("max_mind_reads", 5) if selected == "mr_5" else NullAction()),
-                    (SetVariable("max_mind_reads", 6) if selected == "mr_6" else NullAction()),
-                    (SetVariable("max_rewinds", 2) if selected == "rw_2" else NullAction()),
-                    (SetVariable("max_rewinds", 3) if selected == "rw_3" else NullAction()),
-                    (SetVariable("max_rewinds", 4) if selected == "rw_4" else NullAction()),
-                    (SetVariable("max_flash_forwards", 1) if selected == "fv_1" else NullAction()),
-                    (SetVariable("max_flash_forwards", 2) if selected == "fv_2" else NullAction()),
-                    (SetVariable("max_flash_forwards", 3) if selected == "fv_3" else NullAction()),
-                    Hide("upgrades_screen"),
-                    Show("debug")
+                action [
+                    AddToSet(booleans, "upgrade_" + selected + "_" + branch + "_" + str(day)),
+                    Return()
                 ]
+
+style upgrade_button is yellow_button:
+    yoffset -5
+    hover_background Frame("gui/button/button_idle.png")
+    selected_background Frame("gui/button/button_hover.png")
+
+style upgrade_button_text is yellow_button_text:
+    hover_color "#000"
+    selected_color "#F2EE29"
+    hover_underline True
+
+style upgrade_text_description:
+    xalign 0.5
+    yalign 0.8
 
 screen flow_chart():
     tag menu
